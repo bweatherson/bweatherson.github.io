@@ -1,0 +1,322 @@
+---
+title: "Voting Systems"
+date: 1/12/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Voting as Aggregation
+
+## What Elections Are
+
+In a democracy, we choose our elected representatives.
+
+But that means we need a method for converting our many differing views about who those representatives should be into a choice.
+
+So we need some way of **aggregating** or **pooling** our judgments.
+
+## Two Problems
+
+We don't actually know what people's judgments are; what we know is how they vote.
+
+First problem, they might not vote in line with their judgments. In fact, they might have good reason not to.
+
+Second problem, any method of aggregation has some unfortunate features.
+
+On Wednesday we'll make that last point more precise, but it's going to come up today.
+
+## Single Elections
+
+To simplify things, we'll just look at elections for a single person.
+
+That includes elections for executive offices, like President, Governor or Mayor, or elections for single members of the legislature.
+
+There are many reasons that it's a bad idea to have a a large role in your electoral system for single-winner elections, but that's how most English-speaking countries^[New Zealand is an important exception] do things most of the time, and so that's what we'll discuss.
+
+## Reality and Fantasy
+
+We'll start by discussing some systems that are widely used in real-life elections.
+
+We'll then look at other systems that are used for some purposes, but typically not elections (in English-speaking countries).
+
+One thing to ask is whether there is a good reason that the ones which are not used remain in little use. There often is, but you learn something about the system by thinking through why they are not in use.
+
+# Plurality
+ 
+## The Simplest Possible Voting System
+
+- The candidates are listed on a ballot paper (or a machine).
+- Each voter puts a mark beside one candidate. Call this a vote.
+- The candidate with the most votes wins.
+
+## United States
+
+In some sense this is the system we primarily use in the United States, with three (really) big qualifications.
+
+- Qualification One: For President, this goes via the Electoral College.
+- Qualification Two: Being listed on the ballot is non-trivial.
+- Qualification Three: There are primaries.
+
+## Strengths of This System
+
+Really incredibly simple. This means:
+
+1. It's simple to understand how votes and wins are related.
+2. It's simple to work out on election night who won.
+
+. . .
+
+It does not mean that it's simple for the voter to figure out what to do. We'll come back to this.
+
+## Disadvantages
+
+1. Disproportional - minority parties end up with majority.
+2. Disordered - parties with fewer votes end up with more seats.
+3. Hard decisions - we'll talk about this in a bit.
+4. Adding candidates changes things - we'll also talk about this.
+
+## Example 
+
+Imagine a voter in the following election.
+
+- There are three candidates, A, B and C.
+- The voter really dislikes A, and is indifferent between B and C.
+- They think that if everyone voted for their favorite candidate, it would be 40% A; 30% B; 30% C.
+
+. . .
+
+What should they do?
+
+## Extending the Challenge
+
+If you are a politician in B or C in the previous example, what do you do?
+
+Do you spend more of your time arguing
+
+1. That you are better than the other of B/C?
+2. That you are more popular, and hence more likely to win, than the other in B/C?
+
+. . .
+
+In practice in the UK, which has a lot of these three way contests, it's often option 2.
+
+## Who Should Win
+
+Imagine the voter from a couple of slides back is fairly typical. Most of B's voters like C almost as much, and most of C's voters like B almost as much.
+
+60% of the voters prefer B/C to A.
+
+But under plurality, A will win (unless there is enough strategic voting).
+
+It feels like this isn't really respecting the wishes of the majority.
+
+It also means that whether A or B wins might be determined by whether C is on the ballot, which is bizarre.
+
+# Runoff Systems
+
+## Basic Idea
+
+Vote in two stages.
+
+1. Every candidate is on the ballot, everyone votes.
+2. A second round of voting between the top two vote getters, most votes wins.
+
+## Downsides
+
+1. Two elections - twice the expense both for states and for voters.
+2. Non-monotonic. Getting less votes can make you a winner.
+
+. . .
+
+This is a bit complicated, so I'll work though it on next slide.
+
+## Non-Monotonic
+
+Three candidates: A (40%), B (31%), C (29%).
+
+B's voters are split between A and C for their second choice.
+
+C's voters all prefer B to A.
+
+Question: Who will win a run-off election (if everyone votes sincerely)?
+
+## Non-Monotonic
+
+Due to a minor scandal, 3% of A's voters switch to C.
+
+Now it's A (37%), B (31%), C (32%),
+
+Question: Who will win?
+
+## Upsides
+
+Removes some of the problems with plurality.
+
+- Less of a challenge for voters; though maybe not zero challenge in cases like the previous two slides.
+- Guarantees the winner has something like majority support, at least out of the last two candidates.
+
+# Instant Runoff
+
+## How to Vote
+
+Voters don't just mark a single candidate.
+
+- Rather, they list their preferences between candidates. In effect, they rank order the candidates.
+- Some potential variations here.
+- Some systems only allow a first and second choice.
+- Some require a full preference ranking.
+- Others allow the voter to rank as many as they like.
+
+## How to Count
+
+1. Add up all the first-preference votes.
+2. If someone has over 50%, they win.
+3. If not, eliminate the candidate with the fewest votes.
+4. For each ballot paper, move it to the highest ranked remaining candidate.
+5. Recount all the votes, with these moved votes included.
+6. Go to step 2.
+
+
+## Downsides
+
+- The non-monotonicity problem remains.
+- Can be slow to count, especially if you're doing 30 elections at a time like in US.
+- Voters don't have preferences over all N candidates.
+- Between 1 and 3 percent of voters routinely mislabel their ballots, disenfranchising themselves. Sometimes this is intentional, but not always.
+- Some people think (though I don't) that it's a kind of double voting to have your vote be counted many times over.
+
+## Upsides
+
+Voters don't have to make quite as many strategic choices (unless the non-monotonicity problem comes up).
+
+Allows for finer divisions of parties; Australia now has something like a five-party system, with two left, two right, and one centrist. (This is an *incredibly* rough description.)
+
+# Range Voting
+
+## Range Voting
+
+Now we're into systems that don't get used for real-life elections.
+
+Range voting is an unfamiliar name for a simple system.
+
+Every voter gives as many candidates as they like a score in a range, typically 0-10, or 1-5.
+
+The candidate with the highest average wins.
+
+## In Real Life
+
+This is often used on game shows, and talent shows.
+
+It's also sort of what we do with GPA.
+
+Every class gives you a score out of 4, and the University ranks you by average score.
+
+## Why Not Use It
+
+Probably everyone would just give the maximum and minimum score the candidates they do/don't like.
+
+The problem of **strategic voting** would be immense.
+
+
+# Approval Voting
+
+## Approval Voting
+
+This (again) is an unfamiliar name for a simple system.
+
+Every voter votes for as many candidates as they like. 
+
+Intuitively they vote for every candidate they approve of, but this is just an intuition, it isn't part of the rules in any way.
+
+The candidate with the most votes wins.
+
+## Real Life
+
+This is used for election to various bodies, like the Hall of Fame.
+
+Some municipalities have tried using something like this, though it usually hasn't stuck.
+
+It's actually hard to know what elections in the US would look like with this. I suspect it wouldn't make much difference in the short run, but it's an interesting idea.
+
+# Borda Score
+
+## Technical Point
+
+The previous three systems took more than the **preferences** of the voters into account.
+
+Even if voters vote sincerely (which I suspect you'll have decided was unlikely) just knowing the ranking each voter has of the candidates will not tell you how they vote.
+
+Partially for historical reasons, and partially for technical reasons, there has been a lot of attention paid to systems that do just take preferences, i.e., rankings, as inputs.
+
+## Borda Score
+
+Each voter ranks the N candidates from 1 to N.
+
+For each voter, the candidate who is ranked first gets N-1 points, the next gets N-2 points, the next N-3 points, and so on down to last who gets 0 points.
+
+The candidate with the most points wins.
+
+## College Sports
+
+Something like this is used for the rankings of college sport teams.
+
+Voters put in a 1-25 rank, and 1st place is worth 25 points, second place 24 points and so on.
+
+It's not quite the full Borda system, because the voters don't rank all the way, but it's close.
+
+## Downsides
+
+This is already going long, so I won't go over this, but it turns out this has the opposite problem to plurality voting.
+
+In plurality voting, candidates are hurt if other candidates similar to them run.
+
+In Borda, candidates are *helped* if candidates similar to them run. Everyone has an incentive to have friends and family on the ballot. This could lead to dumb outcomes.
+
+## Condorcet Systems
+
+I won't go over these in detail, but I wanted to make sure you knew about another class of systems, which are called Condorcet Systems, or Condorecet Methods.
+
+## Condorcet and Borda {.nostretch}
+
+::: {.columns}
+
+:::: {.column width="50%"}
+![Jean-Charles de Borda (1733-1799)](images/Jean_Charles_Borda.jpg){width="70%"}
+::::
+
+:::: {.column width="50%"}
+![Marquis de Condorcet (1743-1794)](images/Nicolas_de_Condorcet.PNG){width="76%"}
+::::
+
+:::
+
+## Condorcet Constraint
+
+If there is a candidate such that a majority of voters prefers that candidate to all other candidates, that candidate shall win.
+
+## Example
+
+Four candidates, ABCD, 300 votes.
+
+- 100 prefer ADBC
+- 100 prefer CDAB
+- 100 prefer BDCA
+
+Since 200 prefer D to A, 200 prefer D to B, 200 prefer D to C - D wins.
+
+## Condorcet Methods
+
+The systems that extend this constraint to a full system, one that issues in verdicts even when there is no Condorcet winner, are more complicated than what we've been using so far.
+
+# For Next Time
+
+## For Next Time
+
+We'll go over Kenneth Arrow's famous proof that no system can do everything one wants in an electoral system.
+
+All the systems we looked at had clear downsides.
+
+You might think, why don't we pick the one that doesn't have downsides.
+
+Thanks to Arrow, we know the answer is that no such system exists.

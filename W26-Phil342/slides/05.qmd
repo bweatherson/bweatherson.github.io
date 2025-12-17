@@ -1,0 +1,306 @@
+---
+title: "Sen's Paradox"
+date: 1/26/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Pareto Principles
+
+## Pareto Principles
+
+Usually we focus on cases of conflict between individuals when talking about aggregation.
+
+The cases where everyone agrees should be the easy case.
+
+This intuition is formalised in the **Weak Pareto Principle**.
+
+::: {.callout-note}
+### Weak Pareto Principle
+
+For any options A and B, if all voters agree that A > B, then A > ~$\forall$~ B.
+:::
+
+## Pareto Principles
+
+We're just going to look at that principle today, but as a reminder, the 'weak' there is because there is also a **Strong Pareto Principle**.
+
+::: {.callout-note}
+### Strong Pareto Principle
+
+For any options A and B, if 
+
+::::{.nonincremental}
+1. All voters agree that A $\geq$ B, and
+2. Some voters think that A > B;
+::::
+
+then A > ~$\forall$~ B.
+:::
+
+## Preferences and Interests
+
+These Pareto principles are very important when we are thinking of aggregating everyone's **interests**.
+
+What we'll see is that they aren't as compelling when we're aggregating everyone's **preferences**.
+
+## Preferences and Interests
+
+The **subjective theory of welfare** says that your interests, i.e., what makes you better off, are just your preferences.
+
+There is an obvious (and well-known) problem with this.
+
+You might hope for good things for someone else.
+
+If those hopes are realised, that's good for them, not necessarily for you (especially if you never find out).
+
+## Preferences and Interests
+
+Things get even more complicated if some people in the community prefer that bad things happen to other people, or even that other people do not get what they want.
+
+In those cases, Pareto principles will not be as compelling.
+
+# Amartya Sen
+
+## Amartya Sen
+
+::: {.columns}
+
+:::: {.column width="50%"}
+![Amartya Sen](images/sen.jpg)
+::::
+
+:::: {.column width="50%"}
+- Born in 1933.
+- Won Nobel Prize in 1998.
+- Influential in applied and theoretical economics, and in philosophy.
+- Promoted (along with Martha Nussbaum) the capabilities approach to welfare.
+::::
+
+:::
+
+## Sen and Arrow
+
+One of Sen's research programs was looking at how to understand social welfare in light of Arrow's theorem.
+
+- One thought he developed was that we might weaken the constraint that the social welfare function is an ordering.
+- Today we're going to look at another consideration he raised: that sometimes the Pareto principle is not appropriate.
+
+## Collective Choice and Social Welfare
+
+::: {.columns}
+
+:::: {.column width="50%"}
+![Online version of CC&SW, available through UM library](images/sen-ccsw.png)
+::::
+
+:::: {.column width="50%"}
+Both these points are developed in his book _Collective Choice and Social Welfare_.
+
+While the technical parts of this book require a bit of specialist knowledge to follow, the prose discussions are very good, and it's worth reading if you're interested in the stuff in this class.
+::::
+
+:::
+
+# The Paradox
+
+## Overview
+
+**Big Question:**
+Can we have both individual liberty and Pareto optimality in social decision-making?
+
+**Sen's Answer:**
+No - there is a fundamental logical impossibility.
+
+**Key Insight:**
+Even minimal commitments to individual freedom conflict with Pareto optimality.
+
+## Liberal Rights
+
+**Sen's Minimal Liberalism:**
+For each individual, there exists at least one pair of social alternatives over which they decisive power.
+
+**Examples:**
+
+::: {.nonincremental}
+- Choosing what to read
+- Deciding personal lifestyle matters
+- Making private consumption choices
+:::
+
+This is an **extremely** weak conception of individual liberty.
+
+## Social Choice by Individuals
+
+**Choice Systems**: We normally think of systems of social choice as things like elections, or dictatorships, where some central body chooses (perhaps after input from the public), what to do. But social choice can be distributed.
+
+**Example**: There are 100 people, and it's midday. Some will have lunch at Chipotle, and some won't. There are 2^100^ (about 10 billion) possibilities for which of them go to Chipotle.
+
+**How to Choose**: Here's how we solve this social choice problem in practice. Each of the 100 choose for themselves, and between them they settle which of the 2^100^ options is actualised.
+
+## Sen's Minimal Liberalism
+
+**Principle of Liberty**: In this model, Sen's principle is satisfied; each person chooses for themselves where they'll have lunch.
+
+- In fact the principle is much weaker than this suggests.
+- The principle would be satisfied if this was the only choice you ever got.
+- And the principle would be satisfied if the only choice you got was what to do given one particular resolution of what the other 99 people did.
+
+## Sen's Minimal Liberalism
+
+The point is not that this is as many rights as we should hope for.
+
+Rather, it's that we'll get potential problems with Pareto even if individual freedoms are incredibly tightly curtailed, as long as there is any glimmer of freedom at all.
+
+## The Lady Chatterley Example
+
+**Setup:**
+
+- Person A (prude): Prefers no one reads Lady Chatterley's Lover, but if anyone reads, it should be A, who is least likely to be morally compromised by it.
+- Person B (lewd): Wishes everyone could to read it, but there's only one copy, so their preference is that A, who lives too sheltered a life, reads it.
+- Three alternatives (assume there is only one copy):
+  - x: A reads, B doesn't read
+  - y: B reads, A doesn't read  
+  - z: Neither reads
+
+## Preferences
+
+**Person A's preferences:**
+
+1. z (neither reads) - best
+2. x (A reads, B doesn't) - barely tolerable
+3. y (B reads, A doesn't) - worst
+
+**Person B's preferences:**
+
+1. x (A reads, B doesn't) - best
+2. y (B reads, A doesn't) - acceptable  
+3. z (neither reads) - worst
+
+## Liberal Rights Applied
+
+**Minimal Liberalism:** Assume that each person has the following right. They are decisive over which of the following two outcomes is better:
+
+- z, i.e., no one reads.
+- That they read the book.
+- So A is decisive over x vs z, and B is decisive over y vs z.
+
+## Consequences
+
+1. Since A prefers z to x, and they are decisive over that pair, we get z >~$\forall$~ x.
+2. Since B prefers y to z, and they are decisive over that pair, we get y >~$\forall$~ z.
+3. So, since the social order is transitive for strict preference, we have y >~$\forall$~ x.
+
+## The Problem with Pareto
+
+- On the previous slide, we concluded that y >~$\forall$~ x.
+- Both A and B individually prefer x to y.
+- So by Weak Pareto, we should have x >~$\forall$~ y.
+- Oops, we've ended up in contradiction.
+
+## Conclusion of the Paradox
+
+In general you can't have both of these things.
+
+**Minimal Liberalism:** Each person has full sovereignty over at least one question about how things will end up, e.g., over whether or not they will read a particular book.
+
+**Weak Pareto:** If everyone prefers social outcome x to y, then the social choice system will rank x above y.
+
+# Responses to the Paradox
+
+## Three Responses
+
+1. Two Notions of Pareto
+2. Liberalism as a social goal
+3. More liberalism!
+
+## Two Notions of Pareto
+
+**Earlier Distinction:**
+Between *Weak Pareto* (no ties allowed) and *Strong Pareto* (ties allowed).
+
+**New Distinction:** 
+Between Pareto for *preferences* and Pareto for *welfare*.
+
+## Two Notions of Pareto
+
+We'll just do this for weak; it's easy to see how to generalise it to strong.
+
+**Preference Pareto:** If everyone prefers x to y, the social order ranks x above y.
+
+**Welfare Pareto:** If everyone is better off in x than in y, the social order ranks x above y.
+
+If there is a gap between preference and welfare, these two will come apart.
+
+## Subjective Theory of Welfare
+
+One very long running debate in philosophy (and economics, and elsewhere) is about what welfare is.
+
+What does it mean to say that one person is better off (has more welfare) than another.
+
+The **subjective** theory says that welfare is just preference.
+
+For A to be better off in state x than in state y just is for A to prefer state x to state y.
+
+## Subjective Theory of Welfare
+
+The subjective theory of welfare is widely assumed in 20th century economics, but in its strongest form there are lots of objections to it.
+
+One objection (pressed by the philosopher Derek Parfit) is that it doesn't allow for **other-directed preferences**.
+
+If I hear that a friend of a friend is sick, and I hope they get better, then more of my preferences are satisfied in a world where they do (unbeknownst to me) get better, but I'm no better off.
+
+## Pareto and Lady Chatterley
+
+In Sen's example, A (prude) prefers that they read the book than that B does.
+
+But they aren't better off if they read the book; this is a sacrifice they are willing to make for the public good.
+
+So although Pareto for preferences says x is socially better than y, Pareto for welfare does not.
+
+## Social Goal
+
+18th and 19th century liberals sometimes wrote as if the goal of liberalism is not just to reform government, it's to reform the public.
+
+The goal of liberalism might be to produce a society where we don't get in each other's business.
+
+Maybe the problem in Sen's paradox is that this society has not been produced.
+
+I'll mostly set this aside, but there is an interesting approach available which says that Pareto optimality is right, and you should try to encourage people to not have the preferences which create this problem.
+
+## More Liberalism!
+
+Here's one way out of the problem in this particular example:
+
+- A makes a binding contract with B that they will read the book if B does not read it.
+- Both parties prefer this outcome to B reading the book and not A, so they both have an incentive to sign this contract.
+- And liberalism says that the right to enter into contracts is a key right, so liberals should be happy with them making this deal.
+
+## All Good!?
+
+On the face of it, it seems like this is a good outcome.
+
+- What's needed to resolve the tension between Pareto and liberalism is for both parties to have a right to make contracts.
+- So the problem in Sen's example is not that they have a right to choose what to read, it's that they have this right **but can't trade it away**.
+- And adding trading rights seems perfectly consistent with liberty.
+
+## Does This Work?
+
+**Big Question:** Should there be *inalienable* rights, or should all rights be, in principle, tradable?
+
+**Sen's Minimal Liberalism:** Requires that there be one inalienable right.
+
+## What is Liberty?
+
+Here we get to a deep question about the nature of liberty.
+
+Does it increase or decrease one's freedom to be able to trade away rights?
+
+This is both a fascinating theoretical question, and relevant to contemporary debates about non-compete clauses.
+
+What's relevant here is that Sen's minimal liberalism requires one *non-tradable** right, and maybe some liberals could reject that.
+
+## For Next Time
+
+We'll move from aggregating preferences and welfare, to aggregating beliefs.
