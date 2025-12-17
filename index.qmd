@@ -1,0 +1,29 @@
+---
+title: "Brian Weatherson"
+about:
+    template: trestles
+    image: squid.jpg
+    image-shape: round
+    image-width: 10em
+    links:
+      - icon: mortarboard
+        text: University of Michigan
+        href: https://lsa.umich.edu/philosophy/people/faculty/weath.html
+      - icon: google
+        text: Google Scholar
+        href: https://scholar.google.com/citations?user=rz5RF8kAAAAJ&hl=en&oi=ao
+      - icon: mailbox
+        text: Email
+        href: "mailto: brian@weatherson.org"
+      - icon: twitter
+        text: Bluesky
+        href: https://bsky.app/profile/bweatherson.bsky.social
+      - icon: journals
+        text: Philosophers' Imprint
+        href: https://journals.publishing.umich.edu/phimp/
+---
+
+# Winter 2026 Courses
+
+- [Philosophy 305: Formal Methods](/W26%20-%20305/)
+- [Philosophy 342: Introduction to Groups and Choices](/W26%20-%20342/)
