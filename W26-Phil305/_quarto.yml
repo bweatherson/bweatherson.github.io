@@ -1,0 +1,50 @@
+project:
+  type: default
+
+date-format: full
+
+format:
+  revealjs:
+      theme: [default, custom_theme_scss.scss]
+      slide-number: "c/t"
+      show-slide-number: all
+      hash-type: number
+      preview-links: auto
+      chalkboard: false
+      multiplex: false
+      footer: "PHIL 305 | University of Michigan"
+      logo: "logo.png"
+      css: custom_styles_css.css
+      incremental: true
+      code-line-numbers: true
+      highlight-style: github
+      transition: slide
+      background-transition: fade
+      smaller: false
+      scrollable: true
+      navigation-mode: vertical
+      controls: false
+      menu: true
+      include-after-body: table-scope.html
+  beamer:
+      theme: metropolis
+      colortheme: default
+      fonttheme: structurebold
+      slide-level: 2
+      section-titles: false
+      toc: false
+      number-sections: false
+      highlight-style: github
+      code-line-numbers: true
+      pdf-engine: xelatex
+      keep-tex: false
+      header-includes: |
+        \usepackage{fontspec}
+        \setmainfont{Arial}
+        \setmonofont[Scale=0.8]{Fira Mono}
+        \definecolor{primary}{RGB}{0, 102, 153}
+        \definecolor{secondary}{RGB}{102, 153, 204}
+        \setbeamercolor{frametitle}{fg=primary}
+        \setbeamercolor{title}{fg=primary}
+        \setbeamertemplate{footline}[frame number]
+        \setbeamertemplate{navigation symbols}{}

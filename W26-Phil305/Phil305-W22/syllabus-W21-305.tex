@@ -1,0 +1,856 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[BoldFont = SF Pro Rounded Semibold]{SF Pro Rounded}
+  \setmathfont[]{Fira Math}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={PHIL 305: Introduction to Formal Methods},
+  pdfauthor={Brian Weatherson},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1.5in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newenvironment{cols}[1][]{}{}
+
+\newenvironment{col}[1]{\begin{minipage}{#1}\ignorespaces}{%
+\end{minipage}
+\ifhmode\unskip\fi
+\aftergroup\useignorespacesandallpars}
+
+\def\useignorespacesandallpars#1\ignorespaces\fi{%
+#1\fi\ignorespacesandallpars}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+\makeatother
+\linespread{1.05}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{PHIL 305: Introduction to Formal Methods}
+\author{Brian Weatherson}
+\date{Winter 2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{course-description}{%
+\section{Course Description}\label{course-description}}
+
+This course will introduce some important formal tools that are used
+elsewhere in philosophy. We will look at propositional logic,
+probability theory and the logic of modals and conditionals. Obviously
+that's a lot to cover in a short time - the aim here is to make sure you
+understand the basics, and the symbolism, so you can follow simple
+applications of these tools, and you have the foundations to understand
+more complicated applications.
+
+\hypertarget{canvas}{%
+\section{Canvas}\label{canvas}}
+
+There is a Canvas site for this course, which can be accessed from
+\url{https://canvas.umich.edu}. Course documents (syllabus, lecture
+notes, assignments) will be available from this site. Please make sure
+that you can access this site. Consult the site regularly for
+announcements, including changes to the course schedule. And there are
+many tools on the site to communicate with each other, and with me.
+
+\hypertarget{required-materials}{%
+\section{Required Materials}\label{required-materials}}
+
+There are three textbooks for the course. All of them are open access,
+and hence free. The third is on Canvas, the other two have to be
+downloaded from elsewhere.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{forall x: Calgary} by P. D. Magnus, Tim Button, J. Robert
+  Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach.
+  Available at \url{http://forallx.openlogicproject.org}.
+\item
+  \emph{Odds and Ends} by Jonathan Weisberg. Available at
+  \url{https://jonathanweisberg.org/vip/}.
+\item
+  \emph{Boxes and Diamonds: Ann Arbor remix} by Richard Zach and edited
+  by Brian Weatherson. Available on Canvas.
+\end{itemize}
+
+\hypertarget{course-requirements}{%
+\section{Course Requirements}\label{course-requirements}}
+
+\begin{itemize}
+\tightlist
+\item
+  There will be 10 weekly quizzes. Of these your best 8 will count
+  towards your grade, with each counting for 10\%.
+\item
+  There will also be a final exam, given through Canvas, that counts for
+  20\% of the grade.
+\end{itemize}
+
+\hypertarget{summary-of-grading-system}{%
+\section{Summary of Grading System}\label{summary-of-grading-system}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Weekly assignments - 10\% each, 8 assignments count, 80\% total.
+\item
+  Final exam - 20\%.
+\end{enumerate}
+
+\hypertarget{plagiarism}{%
+\section{Plagiarism}\label{plagiarism}}
+
+Although team-work, and even co-authorship, is encouraged, plagiarism is
+strictly prohibited. You are responsible for making sure that none of
+your work is plagiarized. Be sure to cite work that you use, both direct
+quotations and paraphrased ideas. Any citation method that is tolerably
+clear is permitted, but if you'd like a good description of a citation
+scheme that works well in philosophy, look at
+\url{http://bit.ly/VDhRJ4}.
+
+You are encouraged to discuss the course material, including
+assignments, with your classmates, but all written work that you hand in
+under your own name must be your own. If work is handed is as the work
+of two people, you are affirming that each person did a fair share of
+the work. (Note that when you're submitting work on Canvas, you have to
+each submit the paper, even if it is co-authored. That way Canvas knows
+that everyone has turned in work.)
+
+You should also be familiar with the academic integrity policies of the
+College of Literature, Science \& the Arts at the University of
+Michigan, which are available here:
+\url{http://www.lsa.umich.edu/academicintegrity/}. Violations of these
+policies will be reported to the Office of the Assistant Dean for
+Student Academic Affairs, and sanctioned with a course grade of F.
+
+\hypertarget{disability}{%
+\section{Disability}\label{disability}}
+
+The University of Michigan abides by the Americans with Disabilities Act
+of 1990, Section 504 of the Rehabilitation Act of 1973, and other
+applicable federal and state laws that prohibit discrimination on the
+basis of disability, which mandate that reasonable accommodations be
+provided for qualified students with disabilities.
+
+If you have a disability, and may require some type of instructional
+and/or examination accommodation, please contact me early in the
+semester. If you have not already done so, you will also need to
+register with the Office of Services for Students with Disabilities. The
+office is located at G664 Haven Hall.
+
+For more information on disability services at the University of
+Michigan, go to \url{http://ssd.umich.edu}.
+
+\newpage
+
+\hypertarget{virtual}{%
+\section{Virtual}\label{virtual}}
+
+This course is being taught virtually because of the still raging
+pandemic. Hopefully we all learned a bit from virtual teaching/learning
+in the Fall, but it's still new for a lot of us. I suspect I'll get some
+things wrong, and I'll have to make adjustments on the fly. If/when that
+happens, I'll do everything I can to make sure everything is done fairly
+- but if I don't, you should let me know that I'm messing up.
+
+The college has put a lot of things in place for this rather distinctive
+semester, including extended add/drop deadlines, and a new grade of NRC.
+I won't repeat here all of what they've done, in part because I suspect
+that will be changing as the semester goes along. But I wanted you to
+know that I know this semester will be a challenge for all of us. And
+I'll do what I can to make it as productive an educational experience as
+it can be - even if that isn't as good as what you'd have hoped for.
+
+\newpage
+
+\hypertarget{class-schedule}{%
+\section{Class Schedule}\label{class-schedule}}
+
+The readings will all be from the three textbooks. I'll produce short
+videos going over the material in the book, and occasionally other
+philosophically interesting points. Then the time in class will be
+entirely spent on questions people have, and going over worked examples.
+So you should do the reading, and watch the lectures, before the
+scheduled class.
+
+The video lectures will have a number of the form \(x.y\), where \(x\)
+is the week they are for, and the \(y\) is their order in the week.
+There will typically be 8-10 lectures each week, each of them roughly
+10-12 minutes.
+
+\hypertarget{week-1-introduction}{%
+\subsection{Week 1: Introduction}\label{week-1-introduction}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-january-18}{%
+\subsubsection{Monday, January 18}\label{monday-january-18}}
+
+No class, Martin Luther King Jr Day.
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-january-20}{%
+\subsubsection{Wednesday, January 20}\label{wednesday-january-20}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Introduction
+\item[Reading]
+\emph{forall x}, Chapters 1-2.
+\item[Lectures]
+1.1-1.3.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-2-propositional-logic}{%
+\subsection{Week 2: Propositional
+Logic}\label{week-2-propositional-logic}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-january-25}{%
+\subsubsection{Monday, January 25}\label{monday-january-25}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Symbolization
+\item[Reading]
+\emph{forall x}, Chapters 4-6.
+\item[Lectures]
+2.1-2.3.
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-january-27}{%
+\subsubsection{Wednesday, January 27}\label{wednesday-january-27}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Truth Tables
+\item[Reading]
+\emph{forall x}, Chapters 9-11.
+\item[Lectures]
+2.4-2.6.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-3-tables-and-trees}{%
+\subsection{Week 3: Tables and Trees}\label{week-3-tables-and-trees}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-february-01}{%
+\subsubsection{Monday, February 01}\label{monday-february-01}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Truth Tables and Validity
+\item[Reading]
+\emph{forall x}, Chapter 12.
+\item[Lectures]
+3.1-3.4
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-february-03}{%
+\subsubsection{Wednesday, February 03}\label{wednesday-february-03}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Truth Trees
+\item[Reading]
+\emph{Boxes and Diamonds}, Sections 2.1-2.3
+\item[Lectures]
+3.5-3.6.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-4-trees-and-proofs}{%
+\subsection{Week 4: Trees and Proofs}\label{week-4-trees-and-proofs}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-february-08}{%
+\subsubsection{Monday, February 08}\label{monday-february-08}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Using Truth Trees
+\item[Reading]
+\emph{Boxes and Diamonds}, Sections 2.4-2.5
+\item[Lectures]
+4.1-4.3
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-february-10}{%
+\subsubsection{Wednesday, February 10}\label{wednesday-february-10}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Introducing Natural Deduction
+\item[Reading]
+\emph{forall x}, Chapter 15 and sections 16.1-16.4.
+\item[Lectures]
+3.5-3.6.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-5-proofs}{%
+\subsection{Week 5: Proofs}\label{week-5-proofs}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-february-15}{%
+\subsubsection{Monday, February 15}\label{monday-february-15}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Rules for Natural Deduction
+\item[Reading]
+\emph{forall x}, Sections 16.5-16.8.
+\item[Lectures]
+5.1-5.3
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-february-17}{%
+\subsubsection{Wednesday, February 17}\label{wednesday-february-17}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Strategies for Natural Deduction
+\item[Reading]
+\emph{forall x}, Chapter 17.
+\item[Lectures]
+5.4-5.6
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-6-revision}{%
+\subsection{Week 6: Revision}\label{week-6-revision}}
+
+No new content this week, and no class on Wednesday.
+
+\hypertarget{week-7-introducing-probability}{%
+\subsection{Week 7: Introducing
+Probability}\label{week-7-introducing-probability}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-march-01}{%
+\subsubsection{Monday, March 01}\label{monday-march-01}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Probability Basics
+\item[Reading]
+\emph{Odds and Ends}, chapters 1 and 5
+\item[Lectures]
+7.1-7.3.
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-march-03}{%
+\subsubsection{Wednesday, March 03}\label{wednesday-march-03}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Conditional Probability
+\item[Reading]
+\emph{Odds and Ends}, chapter 6
+\item[Lectures]
+7.4-7.5.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-8-conditional-probability}{%
+\subsection{Week 8: Conditional
+Probability}\label{week-8-conditional-probability}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-march-08}{%
+\subsubsection{Monday, March 08}\label{monday-march-08}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Conditional Probability
+\item[Reading]
+\emph{Odds and Ends}, chapter 8
+\item[Lectures]
+8.1-8.5.
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-march-10}{%
+\subsubsection{Wednesday, March 10}\label{wednesday-march-10}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Base Rates and Multiple Updates
+\item[Reading]
+\emph{Odds and Ends}, chapter 9
+\item[Lectures]
+8.6-8.9.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-9-probability-and-decision}{%
+\subsection{Week 9: Probability and
+Decision}\label{week-9-probability-and-decision}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-march-15}{%
+\subsubsection{Monday, March 15}\label{monday-march-15}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Expected Utility
+\item[Reading]
+\emph{Odds and Ends}, chapters 11 and 12
+\item[Lectures]
+9.1-9.4.
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-march-17}{%
+\subsubsection{Wednesday, March 17}\label{wednesday-march-17}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Utility and Money
+\item[Reading]
+\emph{Odds and Ends}, sections 12.5 and 13.1.
+\item[Lectures]
+9.5-9.6.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-10-probability-and-learning}{%
+\subsection{Week 10: Probability and
+Learning}\label{week-10-probability-and-learning}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-march-22}{%
+\subsubsection{Monday, March 22}\label{monday-march-22}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Theories of Probability
+\item[Reading]
+\emph{Odds and Ends}, chapters 4, 15, 16 and 18.
+\item[Lectures]
+10.1-10.5.
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-march-24}{%
+\subsubsection{Wednesday, March 24}\label{wednesday-march-24}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Statistical Learning
+\item[Reading]
+\emph{Odds and Ends}, chapters 19 and 20.
+\item[Lectures]
+10.6-10.7.
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-11-introduction-to-modal-logic}{%
+\subsection{Week 11: Introduction to Modal
+Logic}\label{week-11-introduction-to-modal-logic}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-march-29}{%
+\subsubsection{Monday, March 29}\label{monday-march-29}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Varieties of Modalty
+\item[Reading]
+\emph{Boxes and Diamonds}, sections 3.1-3.3.
+\item[Lectures]
+11.1-11.3
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-march-31}{%
+\subsubsection{Wednesday, March 31}\label{wednesday-march-31}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Models and Frames
+\item[Reading]
+\emph{Boxes and Diamonds}, sections 3.4-4.5.
+\item[Lectures]
+11.4-11.7
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-12-proofs-in-modal-logic}{%
+\subsection{Week 12: Proofs in Modal
+Logic}\label{week-12-proofs-in-modal-logic}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-april-05}{%
+\subsubsection{Monday, April 05}\label{monday-april-05}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Modal Tableau
+\item[Reading]
+\emph{Boxes and Diamonds}, chapter 5.
+\item[Lectures]
+12.01-12.04
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-april-07}{%
+\subsubsection{Wednesday, April 07}\label{wednesday-april-07}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Examples
+\item[Reading]
+No new reading
+\item[Lectures]
+12.05-12.12.17
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-13-conditionals}{%
+\subsection{Week 13: Conditionals}\label{week-13-conditionals}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-april-12}{%
+\subsubsection{Monday, April 12}\label{monday-april-12}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Varieties of Conditionals
+\item[Reading]
+\emph{Boxes and Diamonds}, chapter 6.
+\item[Lectures]
+13.1-13.4
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-april-14}{%
+\subsubsection{Wednesday, April 14}\label{wednesday-april-14}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Counterfactual Conditionals
+\item[Reading]
+\emph{Boxes and Diamonds}, chapter 7.
+\item[Lectures]
+13.5-13.6
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\hypertarget{week-14-finishing-up}{%
+\subsection{Week 14: Finishing Up}\label{week-14-finishing-up}}
+
+\begin{cols}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{monday-april-19}{%
+\subsubsection{Monday, April 19}\label{monday-april-19}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+The Logic of Counterfactuals
+\item[Reading]
+\emph{Boxes and Diamonds}, chapter 7.
+\item[Lectures]
+14.1-14.2
+\end{description}
+
+\end{col}
+
+\begin{col}{0.04\textwidth}
+
+~
+
+\end{col}
+
+\begin{col}{0.48\textwidth}
+
+\hypertarget{wednesday-april-21}{%
+\subsubsection{Wednesday, April 21}\label{wednesday-april-21}}
+
+\begin{description}
+\tightlist
+\item[Topic]
+Revision
+\item[Reading]
+No new reading
+\item[Lectures]
+No new lectures
+\end{description}
+
+\end{col}
+
+\end{cols}
+
+\end{document}

@@ -1,0 +1,238 @@
+/*-- scss:defaults --*/
+
+// University brand colors - adjust these to match your institution
+$primary-color: #006699;
+$secondary-color: #6699CC;
+$accent-color: #FF6B35;
+$text-color: #333333;
+$background-color: #FFFFFF;
+
+// Typography
+$font-family-sans-serif: "Arial", "Helvetica Neue", sans-serif;
+$font-family-monospace: "Fira Code", "Consolas", monospace;
+
+// Sizes
+$font-size-base: 1.2em;
+$font-size-h1: 2.2em;
+$font-size-h2: 1.8em;
+$font-size-h3: 1.4em;
+
+// Reveal.js theme variables
+$theme: default;
+$font-size-root: 40px;
+
+/*-- scss:rules --*/
+
+// Main slide styling
+.reveal .slides section {
+  text-align: left;
+  font-family: $font-family-sans-serif;
+  color: $text-color;
+}
+
+// Title slide customization
+.reveal .slides section.title-slide {
+  text-align: center;
+  
+  .title {
+    color: $primary-color;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .subtitle {
+    color: $secondary-color;
+    font-style: italic;
+    margin-bottom: 1em;
+  }
+  
+  .author, .date {
+    color: $text-color;
+    font-size: 0.9em;
+  }
+}
+
+// Section headers
+.reveal h1, .reveal h2, .reveal h3 {
+  color: $primary-color;
+  font-weight: bold;
+  text-transform: none;
+  line-height: 1.2;
+  margin: 0 0 0.5em 0;
+}
+
+.reveal h1 {
+  font-size: $font-size-h1;
+  border-bottom: 3px solid $secondary-color;
+  padding-bottom: 0.3em;
+  padding-top: 5em;
+  margin-bottom: 0.8em;
+
+  &.title {
+    padding-top: 0em;
+  }
+}
+
+.reveal h2 {
+  font-size: $font-size-h2;
+  margin-bottom: 0.6em;
+}
+
+.reveal h3 {
+  font-size: $font-size-h3;
+  color: $secondary-color;
+}
+
+// Lists
+.reveal ul, .reveal ol {
+  margin-left: 1em;
+  
+  li {
+    margin-bottom: 0.3em;
+    line-height: 1.4;
+  }
+}
+
+// Strong text
+.reveal strong {
+  color: $primary-color;
+  font-weight: bold;
+}
+
+// Code styling
+.reveal pre {
+  font-size: 0.7em;
+  line-height: 1.3;
+  border-left: 4px solid $secondary-color;
+  padding-left: 1em;
+  background-color: #f8f9fa;
+}
+
+.reveal code {
+  font-family: $font-family-monospace;
+  color: #d63384;
+  background-color: #f8f9fa;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+// Callout boxes (Quarto callouts)
+.callout {
+  margin: 1em 0;
+  padding: 1em;
+  border-left: 4px solid;
+  border-radius: 0 4px 4px 0;
+  
+  &.callout-note {
+    border-color: $secondary-color;
+    background-color: rgba(102, 153, 204, 0.1);
+    
+    .callout-title {
+      color: $secondary-color;
+      font-weight: bold;
+    }
+  }
+  
+  &.callout-tip {
+    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+    
+    .callout-title {
+      color: #28a745;
+      font-weight: bold;
+    }
+  }
+  
+  &.callout-important {
+    border-color: $accent-color;
+    background-color: rgba(255, 107, 53, 0.1);
+    
+    .callout-title {
+      color: $accent-color;
+      font-weight: bold;
+    }
+  }
+  
+  &.callout-warning {
+    border-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+    
+    .callout-title {
+      color: #ffc107;
+      font-weight: bold;
+    }
+  }
+}
+
+// Columns
+.columns {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  
+  .column {
+    flex: 1;
+  }
+}
+
+// Fragment highlighting
+.reveal .fragment.highlight-current-blue {
+  opacity: 1;
+  visibility: inherit;
+  
+  &.current-fragment {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
+
+// Navigation and controls
+.reveal .controls {
+  color: $primary-color;
+}
+
+.reveal .progress {
+  color: $primary-color;
+}
+
+// Footer styling
+.reveal .footer {
+  font-size: 0.6em;
+  color: $secondary-color;
+  text-align: center;
+}
+
+// Images
+.reveal img {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  max-height: 70vh;
+}
+
+// Tables
+.reveal table {
+  font-size: 0.8em;
+  
+  th {
+    background-color: $primary-color;
+    color: white;
+    font-weight: bold;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+}
+
+// Slide numbers
+.reveal .slide-number {
+  color: $secondary-color;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 3px;
+}

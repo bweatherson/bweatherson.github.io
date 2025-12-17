@@ -1,0 +1,33 @@
+/* Custom styling for truth tables in revealjs */
+
+.reveal table {
+  width: auto;
+  margin: auto;
+}
+
+.reveal table td {
+  min-width: 95px;
+  text-align: center;
+  padding: 8px;
+}
+
+.reveal table th {
+  min-width: 95px;
+  text-align: center;
+  padding: 8px;
+}
+
+.reveal table.narrow td {
+  min-width: 140px;
+  padding: 5px;
+}
+
+.narrow table td {
+  min-width: 25px;
+  padding: 5px;
+}
+
+.narrow table th {
+  min-width: 25px;
+  padding: 5px;
+}

@@ -1,0 +1,208 @@
+/* Additional custom styles for HTML slides */
+
+/* Completely remove slide menu space and force full width */
+.reveal .slides {
+  margin-left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+/* Hide the slide menu entirely when not active */
+.reveal .slide-menu {
+  position: fixed !important;
+  left: -100% !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  transition: left 0.3s ease !important;
+  width: 300px !important;
+}
+
+
+
+.reveal .slide-menu.active {
+  left: 0 !important;
+}
+
+/* Move menu button to corner */
+.reveal .slide-menu-button {
+  position: fixed !important;
+  top: 12px;
+  left: 12px;
+  z-index: 30 !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  opacity: 0;
+}
+
+.reveal .slide-menu-button:hover {
+  opacity: 1;
+}
+
+/* Ensure slides use full width but with proper constraints */
+.reveal .slides section {
+  width: 100% !important;
+  max-width: 100% !important;
+  left: 0 !important;
+  box-sizing: border-box !important;
+  padding: 0em 2em 2em 2em !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+/* Force text to wrap properly */
+.reveal .slides section h1,
+.reveal .slides section h2,
+.reveal .slides section h3,
+.reveal .slides section p {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+/* Remove any reserved space */
+.reveal {
+  overflow: hidden;
+}
+
+.reveal .slides section {
+  width: 100% !important;
+  left: 0 !important;
+  top: 0% !important;
+  transform: translateY(-20%) !important;
+}
+
+/* Better spacing for title slides */
+.reveal .slides section.title-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Panel tabset styling (HTML only) */
+.panel-tabset .nav-tabs {
+  border-bottom: 2px solid #006699;
+  margin-bottom: 1em;
+}
+
+.panel-tabset .nav-tabs .nav-link {
+  border: none;
+  background: none;
+  color: #666;
+  padding: 0.5em 1em;
+  font-weight: bold;
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  color: #006699;
+  border-bottom: 3px solid #006699;
+  background: none;
+}
+
+.panel-tabset .nav-tabs .nav-link:hover {
+  color: #006699;
+  background-color: rgba(0, 102, 153, 0.1);
+}
+
+/* Better fragment transitions */
+.reveal .fragment {
+  transition: all 0.3s ease;
+}
+
+/* Consistent margins for better PDF rendering */
+.reveal .slides section > * {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.reveal .slides section > *:first-child {
+  margin-top: 0;
+}
+
+.reveal .slides section > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Speaker notes (hidden in presentation view) */
+.speaker-notes {
+  display: none;
+}
+
+/* Print-friendly adjustments */
+@media print {
+  .reveal .slides section {
+    page-break-inside: avoid;
+    padding: 1em;
+  }
+  
+  .reveal h1, .reveal h2 {
+    page-break-after: avoid;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .columns {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .reveal .slides section {
+    padding: 1em;
+  }
+  
+  .reveal pre {
+    font-size: 0.6em;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .reveal .slides section {
+    background-color: white;
+    color: black;
+  }
+  
+  .reveal h1, .reveal h2, .reveal h3 {
+    color: black;
+  }
+  
+  .callout {
+    border-width: 3px;
+  }
+}
+
+/* Better focus indicators for accessibility */
+.reveal .controls button:focus,
+.reveal .progress:focus {
+  outline: 2px solid #006699;
+  outline-offset: 2px;
+}
+
+/* Remove sidebar space reservation */
+.reveal .slides {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+/* Move menu button to corner */
+.reveal .slide-menu-button {
+  position: fixed !important;
+  top: 12px;
+  left: 12px;
+  z-index: 30 !important;
+  background: rgba(0, 0, 0, 0) !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+}
+
+.callout {
+  font-size: 1em !important;
+}
+.callout-body {
+  font-size: 1em !important;
+}

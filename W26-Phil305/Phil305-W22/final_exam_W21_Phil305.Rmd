@@ -1,0 +1,60 @@
+---
+title: "Final Exam"
+output:
+  pdf_document:
+    toc: false
+    md_extensions: +startnum
+    df_print: kable
+    keep_tex: yes
+    latex_engine: xelatex
+    extra_dependencies: ["gensymb", "nicefrac", "caption", "istgame", "mathastext"]
+    fig_caption: no
+fontsize: 11pt
+header-includes: 
+ - \DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+ - \DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+mainfont: SF Pro Rounded
+mainfontoptions: BoldFont = SF Pro Rounded Semibold, Scale = MatchLowercase
+mathfont: SF Pro Rounded
+geometry: margin=1.5in
+author: Philosophy 305
+date: "April 23-28"
+---
+
+## Instructions
+
+- You have **3 hours** for the exam. 
+- Type up any answers you can.
+- But for things you can't type - _especially trees_ - write them out on paper, take a photo of them, and upload the photo.
+- Note that there will be *fewer* questions than this on the final, but the structure will be similar. The point of this is to give you a sense of the kind of questions that there will be.
+
+## Propositional Logic
+
+For each of the following sequents, do **both** a truth table and a truth tree to test whether it is valid. And say whether the sequent is valid.
+
+1. $A \rightarrow B \vDash A \vee B$
+2. $\neg A, \neg B \vDash \neg (A \vee B)$
+
+## Proofs
+
+3. $Q \rightarrow (P \wedge S), Q \wedge R \vdash P \wedge R$
+4. $Q \rightarrow (P \wedge R) \vdash Q \rightarrow P$
+5. $R \rightarrow Q, (P \vee Q) \rightarrow \neg R \vdash \neg R$
+
+## Probability
+
+6. If $Pr(B | A) = 0.25, Pr(B | \neg A) = 0.75$ and $Pr(A) = 0.4$, what is $Pr(B)$?
+7. A friend of yours comes to you feeling very worried. When she was at the hospital getting blood work done for a routine check up, they ran some other tests and one of them came back positive for a disease that is very rare (less than 0.1% of the population have it) but very serious disease. Your friend is worried because everyone who has the disease tests positive, but 90% of people who don't have the disease test negative. (Assume all tests are positive or negative.) How worried should your friend be? What might you say to reassure them?
+
+
+## Modal Logic
+
+For each of the following sentences, do **three** truth trees: one to check whether it is a logical truth in K, one to check whether it is a logical truth in S4, and one to check whether it is a logical truth in KT4B (i.e., S5). You can use the simplified rules for S5.
+
+8. $\Box A, \Box \Box A \rightarrow B \vDash B$
+9. $\neg \Box \Diamond A \vDash \neg \Diamond A$
+
+## Conditionals
+
+10. Show that this is not a theorem of S5: $\Box (A \rightarrow B) \vee \Box (B \rightarrow A)$
+11. Describe a sphere model (from the minimal change semantics chapter of _Boxes And Diamonds_) that shows $(A \boxright B) \rightarrow ((A \wedge C) \boxright B)$ is not a logical truth in the minimal change semantics.

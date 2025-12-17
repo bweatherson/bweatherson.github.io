@@ -1,0 +1,695 @@
+---
+title: "Truth Tables"
+date: "1/14/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+---
+
+
+# Understanding Truth Tables
+
+## Overview
+
+We're going to discuss how to read and understand a truth table.
+
+### Associated Reading
+
+forall x, chapters 9-11
+
+- Note that I'm introducing things in a different order than the book.
+- We will end up in the same spot, but the aim here is not to simply repeat what's in the book.
+
+
+## Conceptual Idea
+
+:::{.incremental}
+- Think about all the combinations of truth values for the atomic sentences in a longer sentence or in an argument.
+- For each possible combination, evaluate the truth of every part of every sentence in an argument.
+- See if it is possible for the premises to be true and the conclusion false.
+:::
+
+## Truth Tables and Validity
+
+::: {.incremental}
+- If an argument is invalid, there will be one combination of values where the premises are true and the conclusion false.
+- If there is no such combination, mark the argument valid.
+- If there is such a combination, tentatively mark the argument invalid.
+- We'll come back to why 'tentatively'.
+:::
+
+## Structure
+
+- We list each of the combinations in separate rows.
+- In each column we list the truth value of the sentence such that the symbol at the top of that column is the main connective.
+- That's, I think, a lot easier to understand in practice than in theory, so let's start with some examples.
+
+## A Truth Table
+
+: Complete truth table for (P → Q) ∨ (Q → P) {#tbl-complete}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+## One Sentence
+
+: Truth table for a single sentence {#tbl-single-sentence}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+This is a truth table for a single sentence, not an argument. We'll get to arguments in a bit.
+
+## Understanding
+
+: Reading the main connective column {#tbl-understanding}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+We will also get (even sooner) to how to build these monsters. What I first want to talk about is how to read them.
+
+## Four Rows
+
+: Highlighting one row of the truth table {#tbl-four-rows-highlighted}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| [T]{style="color: dodgerblue;"} | [F]{style="color: dodgerblue;"} | | | [T]{style="color: dodgerblue;"} | [F]{style="color: dodgerblue;"} | [F]{style="color: dodgerblue;"} | | [T]{style="color: dodgerblue;"} | | [F]{style="color: dodgerblue;"} | [T]{style="color: dodgerblue;"} | [T]{style="color: dodgerblue;"} | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+Each of the four rows represents a way things could be. For instance, the second row (in blue here) represents how things are if $P$ is true and $Q$ is false.
+
+## Four Rows
+
+: Why there are four rows {#tbl-four-rows}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+There are four rows because there are 2 sentence letters—$P$ and $Q$—each of which could take 2 values, so there are $2 \times 2 = 4$ combinations of values.
+
+## More Rows!
+
+: Number of rows for different numbers of variables {#tbl-more-rows}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+- If there had been three sentence letters, there would be eight rows.
+- Four sentence letters would mean 16 rows, etc.
+
+## The Columns
+
+: Copying atomic sentence values {#tbl-columns}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+- The columns under the letters reflect the value of the atomic sentences in each row.
+- As you can see, they are just copied and pasted from the left-hand side.
+
+## Atomic Columns
+
+: Values for atomic sentence P {#tbl-atomic-columns}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | [T]{style="color: dodgerblue;"} | T | T | | [T]{style="color: red;"} | | T | T | [T]{style="color: dodgerblue;"} | |
+| T | F | | | [T]{style="color: dodgerblue;"} | F | F | | [T]{style="color: red;"} | | F | T | [T]{style="color: dodgerblue;"} | |
+| F | T | | | [F]{style="color: dodgerblue;"} | T | T | | [T]{style="color: red;"} | | T | F | [F]{style="color: dodgerblue;"} | |
+| F | F | | | [F]{style="color: dodgerblue;"} | T | F | | [T]{style="color: red;"} | | F | T | [F]{style="color: dodgerblue;"} | |
+
+I've put in blue all the truth values for $P$, which as you can see were just copied and pasted from the columns on the far left.
+
+## Intermediate Sentences
+
+: Values for P → Q {#tbl-intermediate-1}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | [T]{style="color: dodgerblue;"} | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | [F]{style="color: dodgerblue;"} | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | [T]{style="color: dodgerblue;"} | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | [T]{style="color: dodgerblue;"} | F | | [T]{style="color: red;"} | | F | T | F | |
+
+The surprising thing (or at least the thing that surprised me as a student) was what we mean by the column under the $\rightarrow$, which I've put in blue.
+
+## Intermediate Sentences
+
+: Understanding the conditional column {#tbl-intermediate-2}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | [T]{style="color: dodgerblue;"} | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | [F]{style="color: dodgerblue;"} | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | [T]{style="color: dodgerblue;"} | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | [T]{style="color: dodgerblue;"} | F | | [T]{style="color: red;"} | | F | T | F | |
+
+Each letter here is giving the truth value of the sentence that has that first $\rightarrow$ as its main connective. That is, $P \rightarrow Q$.
+
+## Intermediate Sentences
+
+: Values for Q → P {#tbl-intermediate-3}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | [T]{style="color: dodgerblue;"} | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | [T]{style="color: dodgerblue;"} | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | [F]{style="color: dodgerblue;"} | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | [T]{style="color: dodgerblue;"} | F | |
+
+And this column gives the truth values for $Q \rightarrow P$.
+
+## Conditionals
+
+: Complete truth table showing all intermediate steps {#tbl-conditionals}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+Don't worry for now about why we write those letters down; we'll get to that in the next lecture. For now I just want to go over how to read these tables.
+
+## The Big Red Column
+
+: The main connective values {#tbl-big-red}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+- The column that I've put in red gives the truth value of the sentence whose main connective is $\vee$.
+- That is, in this case, the whole sentence.
+
+
+## The Big Red Column
+
+: The main connective is what matters {#tbl-main-connective}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+Ultimately the red column is all we really care about—the others are essentially scaffolding.
+
+## Logical Truth
+
+: A logical truth (all T in main column) {#tbl-logical-truth}
+
+| P | Q | | ( | P | → | Q | ) | ∨ | ( | Q | → | P | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | T | T | T | | [T]{style="color: red;"} | | T | T | T | |
+| T | F | | | T | F | F | | [T]{style="color: red;"} | | F | T | T | |
+| F | T | | | F | T | T | | [T]{style="color: red;"} | | T | F | F | |
+| F | F | | | F | T | F | | [T]{style="color: red;"} | | F | T | F | |
+
+- There is something distinctive about this table—the red column is all T.
+- That means the sentence is a logical truth.
+- We'll have more to say about this presently in future lectures.
+
+# Basic Truth Tables
+
+## Overview
+
+This lecture covers the truth tables for the basic connectives.
+
+### Associated Reading
+
+- We're still working through forall x chapters 9-11.
+- This is primarily about chapter 9.
+- We're not going to cover biconditionals here (or elsewhere in this course).
+
+## Four Main Connectives
+
+- Building truth tables requires, unfortunately, a small amount of memorization.
+- In particular, you just have to memorize the truth tables for each of the connectives.
+- Equally unfortunately, justifying yourself using truth tables requires justifying these basic tables.
+- And as we'll see, that's not trivial.
+- But that's for much further down the line—let's learn how to use these first, then we'll get to justifying them.
+
+## Negation Table
+
+: Truth table for negation {#tbl-negation}
+
+| A | ¬ | A |
+|---|---|---|
+| T | [F]{style="color: red;"} | T |
+| F | [T]{style="color: red;"} | F |
+
+You should read it as saying that if $A$ is T then $\neg A$ is F, and if $A$ is F, then $\neg A$ is T.
+
+## The Conjunction Table
+
+: Truth table for conjunction {#tbl-conjunction}
+
+| A | B | | A | ∧ | B | |
+|---|---|---|---|---|---|---|
+| T | T | | T | [T]{style="color: red;"} | T | |
+| T | F | | T | [F]{style="color: red;"} | F | |
+| F | T | | F | [F]{style="color: red;"} | T | |
+| F | F | | F | [F]{style="color: red;"} | F | |
+
+## Conjunction in Words
+
+- A conjunction is T if both conjuncts are T, and is F otherwise.
+
+## The Disjunction Table
+
+: Truth table for disjunction {#tbl-disjunction}
+
+| A | B | | A | ∨ | B | |
+|---|---|---|---|---|---|---|
+| T | T | | T | [T]{style="color: red;"} | T | |
+| T | F | | T | [T]{style="color: red;"} | F | |
+| F | T | | F | [T]{style="color: red;"} | T | |
+| F | F | | F | [F]{style="color: red;"} | F | |
+
+## Disjunction in Words
+
+- A disjunction is T if either disjunct is T, and is F otherwise.
+
+## The Conditional Table
+
+: Truth table for the conditional {#tbl-conditional}
+
+| A | B | | A | → | B | |
+|---|---|---|---|---|---|---|
+| T | T | | T | [T]{style="color: red;"} | T | |
+| T | F | | T | [F]{style="color: red;"} | F | |
+| F | T | | F | [T]{style="color: red;"} | T | |
+| F | F | | F | [T]{style="color: red;"} | F | |
+
+## Material Implication
+
+Note that these three sentences have exactly the same table.
+
+: Three equivalent formulations {#tbl-material-implication}
+
+| A | B | | A | → | B | | | ¬ | A | ∨ | B | | ¬ | ( | A | ∧ | ¬ | B | ) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | T | [T]{style="color: red;"} | T | | | F | T | [T]{style="color: red;"} | T | | [T]{style="color: red;"} | | T | F | F | T | |
+| T | F | | T | [F]{style="color: red;"} | F | | | F | T | [F]{style="color: red;"} | F | | [F]{style="color: red;"} | | T | T | T | F | |
+| F | T | | F | [T]{style="color: red;"} | T | | | T | F | [T]{style="color: red;"} | T | | [T]{style="color: red;"} | | F | F | F | T | |
+| F | F | | F | [T]{style="color: red;"} | F | | | T | F | [T]{style="color: red;"} | F | | [T]{style="color: red;"} | | F | F | T | F | |
+
+This conditional is sometimes called **material implication**.
+
+## Oddities
+
+It is certainly an odd interpretation of 'if' that makes these sentences turn out true:
+
+- If I am 200 years old, then Michigan is part of Canada.
+- If I am in Los Angeles, then I am in Ann Arbor.
+
+But they are both true on this table.
+
+## Arguments
+
+- It turns out that interpreting the conditional this way makes the most sense of the role of conditionals in certain arguments, in particular those involving disjunctive syllogism.
+- There is an allusion to this at the end of chapter 1 of _Boxes and Diamonds_.
+
+## Arguments
+
+The big advantage of thinking of 'if' this way is that it guarantees that for any value of $A, B, C$, these two arguments agree on validity—that is, they are either both valid or both invalid.
+
+- $A, B \vdash C$
+- $A \vdash B \rightarrow C$
+
+And plausibly those should be the same. $A$ suffices for $B \rightarrow C$ just in case $A$ and $B$ together suffice for $C$.
+
+# Complicated Truth Tables
+
+## Overview
+
+This lecture is about how to build more complicated truth tables than we have looked at so far.
+
+### Associated Reading
+
+forall x, chapters 10 and 11.
+
+## The Example
+
+We are going to work out the truth table for this sentence:
+
+- $(A \vee \neg B) \rightarrow (B \rightarrow (A \wedge C))$
+
+## How Many Rows
+
+- How many rows should there be in the truth table?
+- There are three (3) atomic sentences, so there should be $2^3 = 8$ rows.
+
+## Laying Out the Rows
+
+- The convention for these is a bit odd.
+- Here's one way to think about it.
+- For the left-most column you fill the first half of the rows with T and then the second half of the rows with F.
+
+## First Column
+
+: Setting up the first column {#tbl-first-column}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | | | | | | | | | | | | | |
+| T | | | | | | | | | | | | | |
+| T | | | | | | | | | | | | | |
+| T | | | | | | | | | | | | | |
+| F | | | | | | | | | | | | | |
+| F | | | | | | | | | | | | | |
+| F | | | | | | | | | | | | | |
+| F | | | | | | | | | | | | | |
+
+## Second Column
+
+- Then the second column has one quarter T, followed by one quarter F, followed by one quarter T, followed by one quarter F. 
+- In this case that means we alternate every two rows.
+
+## Second Column
+
+: Adding the second column {#tbl-second-column}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | | | | | | | | | | | | |
+| T | T | | | | | | | | | | | | |
+| T | F | | | | | | | | | | | | |
+| T | F | | | | | | | | | | | | |
+| F | T | | | | | | | | | | | | |
+| F | T | | | | | | | | | | | | |
+| F | F | | | | | | | | | | | | |
+| F | F | | | | | | | | | | | | |
+
+## Third Column
+
+- From now on you do half as many rows between changes.
+- In this table we did 4 rows with one value then 4 of another for column 1, 2 with one value then 2 with another for column 2, and now alternate every row for column 3.
+- It's helpful to know the full algorithm in case you ever have to do this with 5 or more variables.
+- But I won't do that in this course.
+
+## Third Column
+
+: Completing all three columns {#tbl-third-column}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | | | | | | | | | | |
+| T | T | F | | | | | | | | | | | |
+| T | F | T | | | | | | | | | | | |
+| T | F | F | | | | | | | | | | | |
+| F | T | T | | | | | | | | | | | |
+| F | T | F | | | | | | | | | | | |
+| F | F | T | | | | | | | | | | | |
+| F | F | F | | | | | | | | | | | |
+
+## Parsing the Sentence
+
+Now we need to go back to our sentence.
+
+- $(A \vee \neg B) \rightarrow (B \rightarrow (A \wedge C))$
+
+What is its **main connective**?
+
+- It's the first $\rightarrow$. The sentence is of the form $D \rightarrow E$, where $D$ is $(A \vee \neg B)$ and $E$ is $(B \rightarrow (A \wedge C))$
+
+## Building Up
+
+So eventually, we will have the truth value for the whole sentence under the first $\rightarrow$.
+
+But before we do that, we have to evaluate $D$ and $E$.
+
+## Left Half First
+
+Let's start with $D$, i.e., $(A \vee \neg B)$.
+
+## $D$, Step 1
+
+: Filling in values for A {#tbl-d-step-1}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | | | T | | | | | | |
+| T | T | F | | T | | | T | | | | | | |
+| T | F | T | | T | | | F | | | | | | |
+| T | F | F | | T | | | F | | | | | | |
+| F | T | T | | F | | | T | | | | | | |
+| F | T | F | | F | | | T | | | | | | |
+| F | F | T | | F | | | F | | | | | | |
+| F | F | F | | F | | | F | | | | | | |
+
+## $D$, Step 2
+
+: Filling in values for ¬B {#tbl-d-step-2}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | | F | T | | | | | | |
+| T | T | F | | T | | F | T | | | | | | |
+| T | F | T | | T | | T | F | | | | | | |
+| T | F | F | | T | | T | F | | | | | | |
+| F | T | T | | F | | F | T | | | | | | |
+| F | T | F | | F | | F | T | | | | | | |
+| F | F | T | | F | | T | F | | | | | | |
+| F | F | F | | F | | T | F | | | | | | |
+
+## $D$, Step 3
+
+: Completing A ∨ ¬B {#tbl-d-step-3}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: red;"} | F | T | | | | | | |
+| T | T | F | | T | [T]{style="color: red;"} | F | T | | | | | | |
+| T | F | T | | T | [T]{style="color: red;"} | T | F | | | | | | |
+| T | F | F | | T | [T]{style="color: red;"} | T | F | | | | | | |
+| F | T | T | | F | [F]{style="color: red;"} | F | T | | | | | | |
+| F | T | F | | F | [F]{style="color: red;"} | F | T | | | | | | |
+| F | F | T | | F | [T]{style="color: red;"} | T | F | | | | | | |
+| F | F | F | | F | [T]{style="color: red;"} | T | F | | | | | | |
+
+## Right Half
+
+Now let's look at $E$, i.e., $(B \rightarrow (A \wedge C))$.
+
+## $E$, Step 1
+
+: Filling in values for B, A, C {#tbl-e-step-1}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: red;"} | F | T | | T | | T | | T |
+| T | T | F | | T | [T]{style="color: red;"} | F | T | | T | | T | | F |
+| T | F | T | | T | [T]{style="color: red;"} | T | F | | F | | T | | T |
+| T | F | F | | T | [T]{style="color: red;"} | T | F | | F | | T | | F |
+| F | T | T | | F | [F]{style="color: red;"} | F | T | | T | | F | | T |
+| F | T | F | | F | [F]{style="color: red;"} | F | T | | T | | F | | F |
+| F | F | T | | F | [T]{style="color: red;"} | T | F | | F | | F | | T |
+| F | F | F | | F | [T]{style="color: red;"} | T | F | | F | | F | | F |
+
+## $E$, Step 2
+
+: Computing A ∧ C {#tbl-e-step-2}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: red;"} | F | T | | T | | T | T | T |
+| T | T | F | | T | [T]{style="color: red;"} | F | T | | T | | T | F | F |
+| T | F | T | | T | [T]{style="color: red;"} | T | F | | F | | T | T | T |
+| T | F | F | | T | [T]{style="color: red;"} | T | F | | F | | T | F | F |
+| F | T | T | | F | [F]{style="color: red;"} | F | T | | T | | F | F | T |
+| F | T | F | | F | [F]{style="color: red;"} | F | T | | T | | F | F | F |
+| F | F | T | | F | [T]{style="color: red;"} | T | F | | F | | F | F | T |
+| F | F | F | | F | [T]{style="color: red;"} | T | F | | F | | F | F | F |
+
+## $E$, Step 3
+
+: Highlighting A ∧ C values {#tbl-e-step-3}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: red;"} | F | T | | T | | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: red;"} | F | T | | T | | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: red;"} | T | F | | F | | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: red;"} | T | F | | F | | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: red;"} | F | T | | T | | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: red;"} | F | T | | T | | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: red;"} | T | F | | F | | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: red;"} | T | F | | F | | F | [F]{style="color: dodgerblue;"} | F |
+
+## $E$, Step 4
+
+: Computing B → (A ∧ C) {#tbl-e-step-4}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: red;"} | F | T | | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: red;"} | F | T | | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: red;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: red;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: red;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: red;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: red;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: red;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## The Main Connective
+
+Now, finally, we're ready to look at the main connective.
+
+## Row 1
+
+That's T $\rightarrow$ T, i.e., T.
+
+: Evaluating the main connective for row 1 {#tbl-row-1}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Row 2
+
+That's T $\rightarrow$ F, i.e., F.
+
+: Evaluating the main connective for row 2 {#tbl-row-2}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Row 3
+
+That's T $\rightarrow$ T, i.e., T.
+
+: Evaluating the main connective for row 3 {#tbl-row-3}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Row 4
+
+That's also T $\rightarrow$ T, i.e., T.
+
+: Evaluating the main connective for row 4 {#tbl-row-4}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Rows 5 and 6
+
+That's F $\rightarrow$ F, i.e., T.
+
+: Evaluating the main connective for rows 5 and 6 {#tbl-rows-5-6}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Rows 7 and 8
+
+That's T $\rightarrow$ T, i.e., T.
+
+: Evaluating the main connective for rows 7 and 8 {#tbl-rows-7-8}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## Summing Up
+
+It's true everywhere except when $A, B$ are both T, and $C$ is F.
+
+: Complete truth table with all values {#tbl-complete-final}
+
+| A | B | C | | (A | ∨ | ¬ | B) | → | (B | → | (A | ∧ | C)) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T | T | T | | T | [T]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | T | F | | T | [T]{style="color: dodgerblue;"} | F | T | [F]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| T | F | T | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [T]{style="color: dodgerblue;"} | T |
+| T | F | F | | T | [T]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | T | [F]{style="color: dodgerblue;"} | F |
+| F | T | T | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | T | F | | F | [F]{style="color: dodgerblue;"} | F | T | [T]{style="color: red;"} | T | [F]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+| F | F | T | | F | [F]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | T |
+| F | F | F | | F | [F]{style="color: dodgerblue;"} | T | F | [T]{style="color: red;"} | F | [T]{style="color: dodgerblue;"} | F | [F]{style="color: dodgerblue;"} | F |
+
+## For Next Week
+
+- We'll start on analyzing arguments using truth tables.
+- Remember to do the assignment by Thursday 5pm.
