@@ -7,5 +7,17 @@
   },
   "index.qmd": {
     "index.html": "34d41e4b"
+  },
+  "slides/Lecture_01.qmd": {
+    "Lecture_01.html": "808ea11a",
+    "Lecture_01.tex": "834244ed"
+  },
+  "slides/Lecture_02.qmd": {
+    "Lecture_02.html": "dbbd2a1b",
+    "Lecture_02.tex": "1f7cbede"
+  },
+  "slides/Lecture_03.qmd": {
+    "Lecture_03.html": "571d23f3",
+    "Lecture_03.tex": "5fd5ae48"
   }
 }

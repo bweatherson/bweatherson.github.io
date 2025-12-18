@@ -1,5 +1,7 @@
 format:
   revealjs:
+      self-contained: false
+      revealjs-url: slides/revealjs-libs/revealjs
       theme: [default, custom_theme_scss.scss]
       slide-number: "c/t"
       show-slide-number: all
@@ -20,7 +22,6 @@ format:
       navigation-mode: vertical
       controls: false
       menu: true
-      include-after-body: table-scope.html
   beamer:
       theme: metropolis
       colortheme: default
@@ -39,7 +40,7 @@ format:
         \setmonofont[Scale=0.8]{Fira Mono}
         \definecolor{primary}{RGB}{0, 102, 153}
         \definecolor{secondary}{RGB}{102, 153, 204}
-        \setbeamercolor{frametitle}{fg=primary}
+        \setbeamercolor{frametitle}{fg=white}
         \setbeamercolor{title}{fg=primary}
         \setbeamertemplate{footline}[frame number]
         \setbeamertemplate{navigation symbols}{}
