@@ -1,5 +1,7 @@
 project:
   type: website
+  output-dir: ../W26-Phil305-site
 
-date-format: full
+website:
+  site-url: https://bweatherson.github.io/W26-Phil305-site
 
