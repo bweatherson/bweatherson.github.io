@@ -1,9 +1,31 @@
 ---
-title: "Philosophy 305"
+title: "Philosophy 305 - Winter 2026"
 about:
-    template: trestles
+    template: solana
+    image: rps.jpeg
+    image-alt: "Paper, Scissors, and Rock on a wooden table"
 ---
 
-# Hello World
+# Syllabus
 
-December 18, 9:30 AM
+- [Syllabus](syllabus-W26-305.html)
+- [PDF version](syllabus-W26-305.pdf)
+- [Microsoft Word version](syllabus-W26-305.docx)
+
+# Textbooks
+
+- [forall x](https://forallx.openlogicproject.org)
+- [Boxes and Diamonds, Ann Arbor](boxes_and_diamonds-ann_arbor.pdf)
+- [Odds and Ends](https://jonathanweisberg.org/vip/)
+- [Game Theory](https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html)
+
+# Assignments
+
+# Lectures
+
+| Number | Date | Topic | HTML | PDF |
+|:--:|:---:|:-------:|:---:|:---:|
+| 1 | 1/7/2026 | Introduction | [HTML](slides/Lecture_01.html) | [PDF](slides/Lecture_01.pdf) |
+| 2 | 1/12/2026 | Symbolization | [HTML](slides/Lecture_01.html) | [PDF](slides/Lecture_01.pdf) |
+| 3 | 1/14/2026 | Truth Tables | [HTML](slides/Lecture_01.html) | [PDF](slides/Lecture_01.pdf) |
+

@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Brian Weatherson">
-<meta name="dcterms.date" content="2026-01-01">
 
 <title>PHIL 305: Introduction to Formal Methods</title>
 <style>
@@ -18,25 +17,134 @@ div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
-width: 0.8em;
-margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
 }
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
 
 
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9e34bcbbe1bbe3800192fcb6a49893b9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
 
 
 </head>
 
-<body>
+<body class="quarto-light">
 
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link active" data-scroll-target="#key-points">Key Points</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#required-materials" id="toc-required-materials" class="nav-link" data-scroll-target="#required-materials">Required Materials</a></li>
+  <li><a href="#course-requirements" id="toc-course-requirements" class="nav-link" data-scroll-target="#course-requirements">Course Requirements</a></li>
+  <li><a href="#summary-of-grading-system" id="toc-summary-of-grading-system" class="nav-link" data-scroll-target="#summary-of-grading-system">Summary of Grading System</a></li>
+  <li><a href="#canvas" id="toc-canvas" class="nav-link" data-scroll-target="#canvas">Canvas</a></li>
+  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link" data-scroll-target="#class-schedule">Class Schedule</a>
+  <ul class="collapse">
+  <li><a href="#week-1-introduction" id="toc-week-1-introduction" class="nav-link" data-scroll-target="#week-1-introduction">Week 1: Introduction</a></li>
+  <li><a href="#week-2-symbols-and-truth-tables" id="toc-week-2-symbols-and-truth-tables" class="nav-link" data-scroll-target="#week-2-symbols-and-truth-tables">Week 2: Symbols and Truth Tables</a></li>
+  <li><a href="#week-3-validity" id="toc-week-3-validity" class="nav-link" data-scroll-target="#week-3-validity">Week 3: Validity</a></li>
+  <li><a href="#week-4-trees" id="toc-week-4-trees" class="nav-link" data-scroll-target="#week-4-trees">Week 4: Trees</a></li>
+  <li><a href="#week-5-trees-and-modality" id="toc-week-5-trees-and-modality" class="nav-link" data-scroll-target="#week-5-trees-and-modality">Week 5: Trees and Modality</a></li>
+  <li><a href="#week-6-validity-in-modal-logic" id="toc-week-6-validity-in-modal-logic" class="nav-link" data-scroll-target="#week-6-validity-in-modal-logic">Week 6: Validity in Modal Logic</a></li>
+  <li><a href="#week-7-conditionals" id="toc-week-7-conditionals" class="nav-link" data-scroll-target="#week-7-conditionals">Week 7: Conditionals</a></li>
+  <li><a href="#week-8-counterfactuals" id="toc-week-8-counterfactuals" class="nav-link" data-scroll-target="#week-8-counterfactuals">Week 8: Counterfactuals</a></li>
+  <li><a href="#week-9-starting-on-probability" id="toc-week-9-starting-on-probability" class="nav-link" data-scroll-target="#week-9-starting-on-probability">Week 9: Starting on Probability</a></li>
+  <li><a href="#week-10-conditional-probability" id="toc-week-10-conditional-probability" class="nav-link" data-scroll-target="#week-10-conditional-probability">Week 10: Conditional Probability</a></li>
+  <li><a href="#week-11-probability-and-decision" id="toc-week-11-probability-and-decision" class="nav-link" data-scroll-target="#week-11-probability-and-decision">Week 11: Probability and Decision</a></li>
+  <li><a href="#week-12-what-are-games" id="toc-week-12-what-are-games" class="nav-link" data-scroll-target="#week-12-what-are-games">Week 12: What are Games?</a></li>
+  <li><a href="#week-13-games-and-time" id="toc-week-13-games-and-time" class="nav-link" data-scroll-target="#week-13-games-and-time">Week 13: Games and Time</a></li>
+  <li><a href="#week-14-games-with-cardinal-payoffs" id="toc-week-14-games-with-cardinal-payoffs" class="nav-link" data-scroll-target="#week-14-games-with-cardinal-payoffs">Week 14: Games with Cardinal Payoffs</a></li>
+  </ul></li>
+  <li><a href="#extensions" id="toc-extensions" class="nav-link" data-scroll-target="#extensions">Extensions</a></li>
+  <li><a href="#plagiarism" id="toc-plagiarism" class="nav-link" data-scroll-target="#plagiarism">Plagiarism</a></li>
+  <li><a href="#disability" id="toc-disability" class="nav-link" data-scroll-target="#disability">Disability</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="syllabus-W26-305.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="syllabus-W26-305.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">PHIL 305: Introduction to Formal Methods</h1>
-<p class="author">Brian Weatherson</p>
+</div>
 
-<p class="date">2026-01-01</p>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Weatherson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Winter 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
 </header>
 
 
@@ -46,7 +154,9 @@ Web: canvas.umich.edu<br>
 <strong>Office Hours</strong>: Thursday 9.30-11.30 (Angell Hall, Rm 2207)<br>
 <strong>Discussion Section Leader</strong>: Brett Thompson<br>
 Email: brettdt@umich.edu</div>
-<h2 id="key-points">Key Points</h2>
+<p>&nbsp;</p>
+<section id="key-points" class="level2">
+<h2 class="anchored" data-anchor-id="key-points">Key Points</h2>
 <ul>
 <li>The course has four parts:
 <ol type="1">
@@ -60,9 +170,13 @@ Email: brettdt@umich.edu</div>
 <li>There are 12 weekly assignments, due each week on Thursday at 5pm. The best 10 count for your final grade.</li>
 <li>There is a final exam, which counts for 20%, and which covers all the material in the course.</li>
 </ul>
-<h2 id="course-description">Course Description</h2>
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
 <p>This course will introduce some important formal tools that are used elsewhere in philosophy. We will look at propositional logic, the logic of modals and conditionals, probability theory and game theory. Obviously that’s a lot to cover in a short time. The aim here is to make sure you understand the basics, and the symbolism, so you can follow simple applications of these tools, and you have the foundations to understand more complicated applications.</p>
-<h2 id="required-materials">Required Materials</h2>
+</section>
+<section id="required-materials" class="level2">
+<h2 class="anchored" data-anchor-id="required-materials">Required Materials</h2>
 <p>There are four textbooks for the course. All of them are open access, and hence free. The second is on Canvas, the other three have to be downloaded from elsewhere.</p>
 <ul>
 <li><em>forall x: Calgary</em> by P. D. Magnus, Tim Button, J. Robert Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach. Available at <a href="http://forallx.openlogicproject.org" class="uri">http://forallx.openlogicproject.org</a>.</li>
@@ -70,143 +184,642 @@ Email: brettdt@umich.edu</div>
 <li><em>Odds and Ends</em> by Jonathan Weisberg. Available at <a href="https://jonathanweisberg.org/vip/" class="uri">https://jonathanweisberg.org/vip/</a>.</li>
 <li><em>Game Theory</em> by Giacomo Bonnano. Available at <a href="https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html" class="uri">https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html</a>.</li>
 </ul>
-<h2 id="course-requirements">Course Requirements</h2>
+</section>
+<section id="course-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="course-requirements">Course Requirements</h2>
 <ul>
 <li>There will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 8%.</li>
 <li>There will also be a final exam that counts for 20% of the grade.</li>
 </ul>
-<h2 id="summary-of-grading-system">Summary of Grading System</h2>
+</section>
+<section id="summary-of-grading-system" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-grading-system">Summary of Grading System</h2>
 <ol type="1">
 <li>Weekly assignments - 8% each, 10 assignments count, 80% total.</li>
 <li>Final exam - 20%.</li>
 </ol>
-<h2 id="canvas">Canvas</h2>
+</section>
+<section id="canvas" class="level2">
+<h2 class="anchored" data-anchor-id="canvas">Canvas</h2>
 <p>There is a Canvas site for this course, which can be accessed from <a href="https://canvas.umich.edu" class="uri">https://canvas.umich.edu</a>. Course documents (syllabus, lecture notes, assignments) will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.</p>
 <div style="page-break-after: always;"></div>
-<h2 id="class-schedule">Class Schedule</h2>
+</section>
+<section id="class-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
 <p>The readings will all be from the four textbooks. You should do the reading before the scheduled class.</p>
-<h3 id="week-1-introduction">Week 1: Introduction</h3>
-<h4 id="wednesday-january-07">Wednesday, January 07</h4>
+<section id="week-1-introduction" class="level3">
+<h3 class="anchored" data-anchor-id="week-1-introduction">Week 1: Introduction</h3>
+<section id="wednesday-january-07" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-january-07">Wednesday, January 07</h4>
 <p><strong>Topic</strong>: Introduction<br>
 <strong>Reading</strong>: <em>forall x</em>, Chapters 1-2.</p>
-<h3 id="week-2-symbols-and-truth-tables">Week 2: Symbols and Truth Tables</h3>
-<h4 id="monday-january-12">Monday, January 12</h4>
+</section>
+</section>
+<section id="week-2-symbols-and-truth-tables" class="level3">
+<h3 class="anchored" data-anchor-id="week-2-symbols-and-truth-tables">Week 2: Symbols and Truth Tables</h3>
+<section id="monday-january-12" class="level4">
+<h4 class="anchored" data-anchor-id="monday-january-12">Monday, January 12</h4>
 <p><strong>Topic</strong>: Symbolization<br>
 <strong>Reading</strong>: <em>forall x</em>, Chapters 4-6.</p>
-<h4 id="wednesday-january-14">Wednesday, January 14</h4>
+</section>
+<section id="wednesday-january-14" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-january-14">Wednesday, January 14</h4>
 <p><strong>Topic</strong>: Truth Tables<br>
 <strong>Reading</strong>: <em>forall x</em>, Chapters 9-11.<br>
 <strong>Assignment</strong>: Assignment 1 due Thursday, January 15 at 5pm.</p>
-<h3 id="week-3-validity-and-trees">Week 3: Validity and Trees</h3>
-<h4 id="monday-january-19">Monday, January 19</h4>
+</section>
+</section>
+<section id="week-3-validity" class="level3">
+<h3 class="anchored" data-anchor-id="week-3-validity">Week 3: Validity</h3>
+<section id="monday-january-19" class="level4">
+<h4 class="anchored" data-anchor-id="monday-january-19">Monday, January 19</h4>
+<p>No class for MLK Day</p>
+</section>
+<section id="wednesday-january-21" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-january-21">Wednesday, January 21</h4>
 <p><strong>Topic</strong>: Truth Tables and Validity<br>
-<strong>Reading</strong>: <em>forall x</em>, Chapter 12.</p>
-<h4 id="wednesday-january-21">Wednesday, January 21</h4>
-<p><strong>Topic</strong>: Truth Trees<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, Sections 2.1-2.3<br>
+<strong>Reading</strong>: <em>forall x</em>, Chapter 12.<br>
 <strong>Assignment</strong>: Assignment 2 due Thursday, January 22 at 5pm.</p>
-<h3 id="week-4-validity-and-trees-continued">Week 4: Validity and Trees, Continued</h3>
-<h4 id="monday-january-26">Monday, January 26</h4>
-<p><strong>Topic</strong>: Using Truth Trees<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, Sections 2.4-2.5<br>
+</section>
+</section>
+<section id="week-4-trees" class="level3">
+<h3 class="anchored" data-anchor-id="week-4-trees">Week 4: Trees</h3>
+<section id="monday-january-26" class="level4">
+<h4 class="anchored" data-anchor-id="monday-january-26">Monday, January 26</h4>
+<p><strong>Topic</strong>: Truth Trees<br>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, Sections 2.1-2.3</p>
+</section>
+<section id="wednesday-january-28" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-january-28">Wednesday, January 28</h4>
+<p>No lecture, because I’m away at a conference. There will be a discussion section.<br>
 <strong>Assignment</strong>: Assignment 3 due Thursday, January 29 at 5pm.</p>
-<h4 id="wednesday-january-28">Wednesday, January 28</h4>
-<p>No lecture, because I’m away at a conference. There will be a discussion section.</p>
-<h3 id="week-5-introduction-to-modal-logic">Week 5: Introduction to Modal Logic</h3>
-<h4 id="monday-february-02">Monday, February 02</h4>
+</section>
+</section>
+<section id="week-5-trees-and-modality" class="level3">
+<h3 class="anchored" data-anchor-id="week-5-trees-and-modality">Week 5: Trees and Modality</h3>
+<section id="monday-february-02" class="level4">
+<h4 class="anchored" data-anchor-id="monday-february-02">Monday, February 02</h4>
+<p><strong>Topic</strong>: Using Truth Trees<br>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, Sections 2.4-2.5</p>
+</section>
+<section id="wednesday-february-04" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-february-04">Wednesday, February 04</h4>
 <p><strong>Topic</strong>: Varieties of Modality<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, sections 3.1-3.3.</p>
-<h4 id="wednesday-february-04">Wednesday, February 04</h4>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, sections 3.1-3.3.<br>
+<strong>Assignment</strong>: Assignment 4 (on trees) due Thursday, January 29 at 5pm.</p>
+</section>
+</section>
+<section id="week-6-validity-in-modal-logic" class="level3">
+<h3 class="anchored" data-anchor-id="week-6-validity-in-modal-logic">Week 6: Validity in Modal Logic</h3>
+<section id="monday-february-09" class="level4">
+<h4 class="anchored" data-anchor-id="monday-february-09">Monday, February 09</h4>
 <p><strong>Topic</strong>: Models and Frames<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, sections 3.4-4.5.<br>
-<strong>Assignment</strong>: Assignment 4 due Thursday, February 05 at 5pm.</p>
-<h3 id="week-6-proofs-in-modal-logic">Week 6: Proofs in Modal Logic</h3>
-<h4 id="monday-february-09">Monday, February 09</h4>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, sections 3.4-4.5.</p>
+</section>
+<section id="wednesday-february-11" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-february-11">Wednesday, February 11</h4>
 <p><strong>Topic</strong>: Modal Tableau<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 5.</p>
-<h4 id="wednesday-february-11">Wednesday, February 11</h4>
-<p><strong>Topic</strong>: Examples<br>
-<strong>Reading</strong>: No new reading<br>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 5.<br>
 <strong>Assignment</strong>: Assignment 5 due Thursday, February 12 at 5pm.</p>
-<h3 id="week-7-conditionals">Week 7: Conditionals</h3>
-<h4 id="monday-february-16">Monday, February 16</h4>
+</section>
+</section>
+<section id="week-7-conditionals" class="level3">
+<h3 class="anchored" data-anchor-id="week-7-conditionals">Week 7: Conditionals</h3>
+<section id="monday-february-16" class="level4">
+<h4 class="anchored" data-anchor-id="monday-february-16">Monday, February 16</h4>
+<p><strong>Topic</strong>: Examples of Modal Tableau<br>
+<strong>Reading</strong>: No new reading</p>
+</section>
+<section id="wednesday-february-18" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-february-18">Wednesday, February 18</h4>
 <p><strong>Topic</strong>: Varieties of Conditionals<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 6.</p>
-<h4 id="wednesday-february-18">Wednesday, February 18</h4>
+<strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 6.<br>
+<strong>Assignment</strong>: Assignment 6 (on modal tableau) due Thursday, February 19 at 5pm.</p>
+</section>
+</section>
+<section id="week-8-counterfactuals" class="level3">
+<h3 class="anchored" data-anchor-id="week-8-counterfactuals">Week 8: Counterfactuals</h3>
+<section id="monday-february-16-1" class="level4">
+<h4 class="anchored" data-anchor-id="monday-february-16-1">Monday, February 16</h4>
 <p><strong>Topic</strong>: Counterfactual Conditionals<br>
-<strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 7.<br>
-<strong>Assignment</strong>: Assignment 6 due Thursday, February 19 at 5pm.</p>
-<h3 id="week-8-counterfactuals">Week 8: Counterfactuals</h3>
-<h4 id="monday-february-23">Monday, February 23</h4>
-<p><strong>Topic</strong>: The Logic of Counterfactuals<br>
 <strong>Reading</strong>: <em>Boxes and Diamonds</em>, chapter 7.</p>
-<h4 id="wednesday-february-25">Wednesday, February 25</h4>
+</section>
+<section id="wednesday-february-25" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-february-25">Wednesday, February 25</h4>
 <p><strong>Topic</strong>: Puzzles about Counterfactuals<br>
 <strong>Reading</strong>: No new reading<br>
 <strong>Assignment</strong>: Assignment 7 due Thursday, February 26 at 5pm.</p>
-<h3 id="week-9-starting-on-probability">Week 9: Starting on Probability</h3>
-<h4 id="monday-march-09">Monday, March 09</h4>
+</section>
+</section>
+<section id="week-9-starting-on-probability" class="level3">
+<h3 class="anchored" data-anchor-id="week-9-starting-on-probability">Week 9: Starting on Probability</h3>
+<section id="monday-march-09" class="level4">
+<h4 class="anchored" data-anchor-id="monday-march-09">Monday, March 09</h4>
 <p><strong>Topic</strong>: Probability Basics<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, chapters 1 and 5</p>
-<h4 id="wednesday-march-11">Wednesday, March 11</h4>
+</section>
+<section id="wednesday-march-11" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-march-11">Wednesday, March 11</h4>
 <p><strong>Topic</strong>: Probability Trees<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, chapter 1<br>
 <strong>Assignment</strong>: No assignment this week.</p>
-<h3 id="week-10-conditional-probability">Week 10: Conditional Probability</h3>
-<h4 id="monday-march-16">Monday, March 16</h4>
+</section>
+</section>
+<section id="week-10-conditional-probability" class="level3">
+<h3 class="anchored" data-anchor-id="week-10-conditional-probability">Week 10: Conditional Probability</h3>
+<section id="monday-march-16" class="level4">
+<h4 class="anchored" data-anchor-id="monday-march-16">Monday, March 16</h4>
 <p><strong>Topic</strong>: Conditional Probability<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, chapter 6</p>
-<h4 id="wednesday-march-18">Wednesday, March 18</h4>
+</section>
+<section id="wednesday-march-18" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-march-18">Wednesday, March 18</h4>
 <p><strong>Topic</strong>: Inverting Conditional Probability<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, chapter 8<br>
 <strong>Assignment</strong>: Assignment 8 due Thursday, March 19 at 5pm.</p>
-<h3 id="week-11-probability-and-decision">Week 11: Probability and Decision</h3>
-<h4 id="monday-march-23">Monday, March 23</h4>
+</section>
+</section>
+<section id="week-11-probability-and-decision" class="level3">
+<h3 class="anchored" data-anchor-id="week-11-probability-and-decision">Week 11: Probability and Decision</h3>
+<section id="monday-march-23" class="level4">
+<h4 class="anchored" data-anchor-id="monday-march-23">Monday, March 23</h4>
 <p><strong>Topic</strong>: Expected Utility<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, chapters 11 and 12</p>
-<h4 id="wednesday-march-25">Wednesday, March 25</h4>
+</section>
+<section id="wednesday-march-25" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-march-25">Wednesday, March 25</h4>
 <p><strong>Topic</strong>: Utility and Money<br>
 <strong>Reading</strong>: <em>Odds and Ends</em>, sections 12.5 and 13.1.<br>
 <strong>Assignment</strong>: Assignment 9 due Thursday, March 26 at 5pm.</p>
 <div style="page-break-after: always;"></div>
-<h3 id="week-12-what-are-games">Week 12: What are Games?</h3>
-<h4 id="monday-march-30">Monday, March 30</h4>
+</section>
+</section>
+<section id="week-12-what-are-games" class="level3">
+<h3 class="anchored" data-anchor-id="week-12-what-are-games">Week 12: What are Games?</h3>
+<section id="monday-march-30" class="level4">
+<h4 class="anchored" data-anchor-id="monday-march-30">Monday, March 30</h4>
 <p><strong>Topic</strong>: Games, Payouts and Utilities<br>
 <strong>Reading</strong>: <em>Game Theory</em>, sections 2.1 and 2.2.</p>
-<h4 id="wednesday-april-01">Wednesday, April 01</h4>
+</section>
+<section id="wednesday-april-01" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-april-01">Wednesday, April 01</h4>
 <p><strong>Topic</strong>: Dominant Strategies and Equilibria<br>
 <strong>Reading</strong>: <em>Game Theory</em>, sections 2.5 and 2.6.<br>
 <strong>Assignment</strong>: Assignment 10 due Thursday, April 02 at 5pm.</p>
-<h3 id="week-13-games-and-time">Week 13: Games and Time</h3>
-<h4 id="monday-april-06">Monday, April 06</h4>
+</section>
+</section>
+<section id="week-13-games-and-time" class="level3">
+<h3 class="anchored" data-anchor-id="week-13-games-and-time">Week 13: Games and Time</h3>
+<section id="monday-april-06" class="level4">
+<h4 class="anchored" data-anchor-id="monday-april-06">Monday, April 06</h4>
 <p><strong>Topic</strong>: Dynamic Games<br>
 <strong>Reading</strong>: <em>Game Theory</em>, sections 3.1-3.3.</p>
-<h4 id="wednesday-april-08">Wednesday, April 08</h4>
+</section>
+<section id="wednesday-april-08" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-april-08">Wednesday, April 08</h4>
 <p><strong>Topic</strong>: Backward Induction<br>
 <strong>Reading</strong>: <em>Game Theory</em>, sections 3.4 and 3.5.<br>
 <strong>Assignment</strong>: Assignment 11 due Thursday, April 09 at 5pm.</p>
-<h3 id="week-14-games-with-cardinal-payoffs">Week 14: Games with Cardinal Payoffs</h3>
-<h4 id="monday-april-13">Monday, April 13</h4>
+</section>
+</section>
+<section id="week-14-games-with-cardinal-payoffs" class="level3">
+<h3 class="anchored" data-anchor-id="week-14-games-with-cardinal-payoffs">Week 14: Games with Cardinal Payoffs</h3>
+<section id="monday-april-13" class="level4">
+<h4 class="anchored" data-anchor-id="monday-april-13">Monday, April 13</h4>
 <p><strong>Topic</strong>: Nash Equilibria<br>
 <strong>Reading</strong>: <em>Game Theory</em>, sections 6.1‑6.3.</p>
-<h4 id="wednesday-april-15">Wednesday, April 15</h4>
+</section>
+<section id="wednesday-april-15" class="level4">
+<h4 class="anchored" data-anchor-id="wednesday-april-15">Wednesday, April 15</h4>
 <p><strong>Topic</strong>: Signaling Games<br>
 <strong>Reading</strong>: No new reading<br>
 <strong>Assignment</strong>: Assignment 12 due Thursday, April 16 at 5pm.</p>
 <p>There will be a revision class on Monday, April 20, with no new material, to go over the sample exam.</p>
-<h2 id="extensions">Extensions</h2>
+</section>
+</section>
+</section>
+<section id="extensions" class="level2">
+<h2 class="anchored" data-anchor-id="extensions">Extensions</h2>
 <p>Because we will release the answers to the quizzes at the due date, we won’t be allowing extensions on them.</p>
 <p>That’s why we’re only counting the best 10 out of 12 assignments. People who are sick, or have other obligations, can skip up to two assignments without penalty.</p>
-<h2 id="plagiarism">Plagiarism</h2>
+</section>
+<section id="plagiarism" class="level2">
+<h2 class="anchored" data-anchor-id="plagiarism">Plagiarism</h2>
 <p>Although team-work, and even co-authorship, is encouraged, plagiarism is strictly prohibited. You are responsible for making sure that none of your work is plagiarized. Be sure to cite work that you use, both direct quotations and paraphrased ideas. Any citation method that is tolerably clear is permitted, but if you’d like a good description of a citation scheme that works well in philosophy, look at <a href="http://bit.ly/VDhRJ4" class="uri">http://bit.ly/VDhRJ4</a>.</p>
 <p>You are encouraged to discuss the course material, including assignments, with your classmates, but all written work that you hand in under your own name must be your own. If work is handed is as the work of two people, you are affirming that each person did a fair share of the work. (Note that when you’re submitting work on Canvas, you have to each submit the paper, even if it is co-authored. That way Canvas knows that everyone has turned in work.)</p>
 <p>You should also be familiar with the academic integrity policies of the College of Literature, Science &amp; the Arts at the University of Michigan, which are available here: <a href="http://www.lsa.umich.edu/academicintegrity/" class="uri">http://www.lsa.umich.edu/academicintegrity/</a>. Violations of these policies will be reported to the Office of the Assistant Dean for Student Academic Affairs, and sanctioned with a course grade of F.</p>
-<h2 id="disability">Disability</h2>
+</section>
+<section id="disability" class="level2">
+<h2 class="anchored" data-anchor-id="disability">Disability</h2>
 <p>The University of Michigan abides by the Americans with Disabilities Act of 1990, Section 504 of the Rehabilitation Act of 1973, and other applicable federal and state laws that prohibit discrimination on the basis of disability, which mandate that reasonable accommodations be provided for qualified students with disabilities.</p>
 <p>If you have a disability, and may require some type of instructional and/or examination accommodation, please contact me early in the semester. If you have not already done so, you will also need to register with the Office of Services for Students with Disabilities. The office is located at G664 Haven Hall.</p>
 <p>For more information on disability services at the University of Michigan, go to <a href="http://ssd.umich.edu" class="uri">http://ssd.umich.edu</a>.</p>
 
 
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
 
 

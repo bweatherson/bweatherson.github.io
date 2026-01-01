@@ -1,0 +1,386 @@
+---
+title: "Truth Tables and Validity"
+date: "1/19/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+---
+
+# Background
+
+## Overview
+
+What propositional logic is.
+
+### Associated Reading
+
+This doesn't correspond to the book; it's going over what we're going to do in the book.
+
+## Key Assumption
+
+We start with one key assumption:
+
+- Every sentence has precisely one of the two truth values: TRUE or FALSE.
+- I will write these values as $\mathbb{T}$ and $\mathbb{F}$.
+- I'm using these funny-shaped letters because they get used in _Boxes and Diamonds_, and because they make our lives easier when we start using trees.
+
+## Unpacking the Assumption
+
+1. There are just two truth values: $\mathbb{T}$ and $\mathbb{F}$.  
+2. Every sentence has one of them. There are no truth-value *gaps*. 
+3. No sentence has both of them. There are no truth-value *gluts*.
+
+## Two Parts of Classical Logic
+
+- Traditionally, classical logic is divided into two parts. 
+- We're just going to look at the first part here.
+- The parts differ on what counts as a **structural** feature of a sentence.
+
+## Classical Propositional Logic
+
+The structural features are just five sentential connectives:
+
+- And
+- Or
+- Not
+- If
+- If and only if; usually written iff.
+
+The result is a very simple, but very weak, logic. It doesn't even tell us that the arguments about Skippy and Lucky are structurally valid. 
+
+Here we'll simplify further by not covering iff.
+
+## Classical Predicate Logic
+
+As well as those structural features, we add:
+
+- The division of parts of sentences into names, variables, predicates, and logical terms.
+- The addition of the logical terms **All** and **Some**.
+- If this were a logic course, we'd do that as well.
+- But for a formal methods course, we'll have enough to do with just the propositional part.
+
+# Tautology Checks
+
+## Overview
+
+How to use truth tables to check for whether something is a **tautology**.
+
+### Associated Reading
+
+forall x, chapter 12, especially section 12.1.
+
+## Tautologies
+
+We are going to start with a particular kind of sentence, a **tautology**.
+
+### Definition
+
+A tautology is a sentence that gets the value $\mathbb{T}$ in every row of its truth table.
+
+## Examples of Tautologies
+
+What are some sentences that might fit the bill? We will do tables for four:
+
+- $A \lor \neg A$
+- $\neg(A \wedge \neg A)$
+- $A \rightarrow A$
+- $(A \rightarrow B) \lor (B \rightarrow A)$
+
+## The Law of Excluded Middle
+
+| A | | A | $\lor$ | $\neg$ | A |
+|---|---|---|--------|--------|---|
+| $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | $\mathbb{F}$ |
+
+: Truth table for excluded middle {#tbl-lem}
+
+## The Law of Non-Contradiction
+
+| A | | $\neg$ | (A | $\wedge$ | $\neg$ | A) |
+|---|---|--------|---|----------|--------|---|
+| $\mathbb{T}$ | | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ |
+
+: Truth table for non-contradiction {#tbl-lnc}
+
+## Reflexive Conditionals
+
+| A | | A | $\rightarrow$ | A |
+|---|---|---|---------------|---|
+| $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+
+: Truth table for reflexive conditional {#tbl-aaa}
+
+## A Surprising One
+
+| A | B | | (A | $\rightarrow$ | B) | $\lor$ | (B | $\rightarrow$ | A) |
+|---|---|---|---|---------------|---|--------|---|---------------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ |
+
+: Truth table for if A then B, or if B then A {#tbl-weird}
+
+## Tautologies and Logical Truth
+
+- All tautologies are logical truths.
+- But the converse isn't true—some logical truths are not tautologies.
+- E.g., If Brian is necessarily a human, then Brian is a human.
+
+# Validity
+
+## Overview
+
+How to use truth tables to check for whether an argument is valid.
+
+### Associated Reading
+
+forall x, chapter 12, especially section 12.4.
+
+## Validity
+
+We can also use truth tables to check for properties of arguments, and in particular to check for validity.
+
+## Truth Tables and Validity
+
+::: {.incremental}
+- An argument is (truth-functionally) valid if (and only if) every line on the truth table where all the premises are $\mathbb{T}$, the conclusion is $\mathbb{T}$ as well.
+- Equivalently, an argument is invalid if there is a line where the premises are $\mathbb{T}$ and the conclusion $\mathbb{F}$, and valid otherwise.
+:::
+
+## Example of Invalidity
+
+The argument $A$, therefore $A \wedge B$ is invalid because of the second line.
+
+| A | B | | A | | A | $\wedge$ | B |
+|---|---|---|---|---|---|----------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | $\color{red}{\mathbb{T}}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | $\color{red}{\mathbb{T}}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | $\color{red}{\mathbb{F}}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | $\color{red}{\mathbb{F}}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+
+: The truth table for $A$ therefore $A \wedge B$. {#tbl-invalid1}
+
+## Another Invalidity Example
+
+Note that there are several lines with $\mathbb{T}$ premises and conclusion. But the argument $A \rightarrow B$, so $A \rightarrow C$ is invalid because of line 2.
+
+| A | B | C | | A | $\rightarrow$ | B | | A | $\rightarrow$ | C |
+|---|---|---|---|---|---------------|---|---|---|---------------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+
+: The truth table for $A \rightarrow B$ therefore $A \rightarrow C$. {#tbl-invalid2}
+
+## Hypothetical Syllogism
+
+On the other hand, the argument from $A \rightarrow B$ and $B \rightarrow C$ to $A \rightarrow C$ is valid.
+
+::: {.tbl85}
+| A | B | C | | A | $\rightarrow$ | B | | B | $\rightarrow$ | C | | A | $\rightarrow$ | C |
+|---|---|---|---|---|---------------|---|---|---|---------------|---|---|---|---------------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+
+: The truth table for hypothetical syllogism. {#tbl-tths}
+:::
+
+# Properties of Validity
+
+## Overview
+
+Finishing our discussion of truth tables by looking at some properties validity has in the truth table system.
+
+### Associated Reading
+
+forall x, chapter 12, sections 12.5-12.7.
+
+## The Rules
+
+- An argument is **invalid** if there is a row on the truth table where all the premises are true and the conclusion is false. (Roughly!)
+- It is **valid** if all the rows where the premises are all true, the conclusion is true as well.
+
+## A Relevance Failure
+
+Is this argument valid?
+
+&nbsp;
+:    $A$
+
+$\therefore$
+:    $B \vee \neg B$
+
+. . .
+
+Yes! 
+
+- There is no line where the conclusion is false.
+- So there are no lines where the premise is true and the conclusion false.
+- So it is not invalid, i.e., it is valid.
+
+## Terminology
+
+Say a **valuation** is a function $v$ from sentences to $\{\mathbb{T}, \mathbb{F}\}$ satisfying these constraints.
+
+1. $v(\neg A) = \mathbb{T}$ if $v(A) = \mathbb{F}$, and $v(\neg A) = \mathbb{F}$ otherwise.
+2. $v(A \vee B) = \mathbb{T}$ if $v(A) = \mathbb{T}$ or $v(B) = \mathbb{T}$, and $v(A \vee B) = \mathbb{F}$ otherwise.
+3. $v(A \wedge B) = \mathbb{T}$ if $v(A) = \mathbb{T}$ and $v(B) = \mathbb{T}$, and $v(A \wedge B) = \mathbb{F}$ otherwise.
+4. $v(A \rightarrow B) = \mathbb{T}$ if $v(A) = \mathbb{F}$ or $v(B) = \mathbb{T}$, and $v(A \rightarrow B) = \mathbb{F}$ otherwise.
+
+## Restating
+
+::: {.incremental}
+- An argument is valid relative to a class of valuations $V$ iff any valuation $v \in V$ that makes all the premises $\mathbb{T}$ also makes the conclusion $\mathbb{T}$.
+- An argument is truth-functionally valid when the class $V$ is the class of valuations satisfying the constraints on the previous slide.
+:::
+
+## Very Technical Terminology
+
+- The symbol $\vDash$ (read as "entails" or "models") is used to express **semantic** validity.
+- By that, I mean validity defined in terms of truth values rather than formal proofs.
+- I'll use $\Gamma \vDash A$ to mean that the argument with premises $\Gamma$ and conclusion $A$ is valid in this sense—i.e., all valuations that make all of $\Gamma$ come out $\mathbb{T}$ also make $A$ come out $\mathbb{T}$.
+
+## Very Technical Terminology
+
+- The double bar in $\vDash$ is to represent that this is a kind of validity defined in terms of valuations (or, as we'll start calling them, models), and not proofs.
+- When we want to say there is a proof of $A$ from premises $\Gamma$, we'll write $\Gamma \vdash A$, with a single bar.
+- We won't spend *much* time in this course on proofs, but they will come up from time to time.
+
+## Closure
+
+- If $\Gamma \vDash A$ and $\Gamma \vDash A \rightarrow B$, then $\Gamma \vDash B$.
+
+. . .
+
+Proof: Assume this is false. So assume that $\Gamma \nvDash B$. So there is a valuation function $v$ that makes everything in $\Gamma$ come out $\mathbb{T}$ and $B$ come out $\mathbb{F}$.
+
+. . .
+
+Either $v(A) = \mathbb{T}$ or $v(A) = \mathbb{F}$.
+
+. . .
+
+If $v(A) = \mathbb{T}$, then $v(A \rightarrow B) = \mathbb{F}$, contradicting $\Gamma \vDash A \rightarrow B$. 
+
+. . .
+
+If $v(A) = \mathbb{F}$, then $v$ is a counterexample to $\Gamma \vDash A$, but we know $\Gamma \vDash A$ is true. Either way, such a $v$ cannot exist, so $\Gamma \vDash B$ is true.
+
+## Monotony
+
+- If $\Gamma \vDash A$, and $\Gamma \subset \Delta$, then $\Delta \vDash A$.
+
+That is, adding premises can't turn an argument from being valid to invalid.
+
+## Monotony Proof
+
+::: {.incremental}
+- Assume that for all $B \in \Delta$, $v(B) = \mathbb{T}$.
+- We need to prove that $v(A) = \mathbb{T}$.
+- Assume $C \in \Gamma$.
+- Then $C \in \Delta$, since $\Gamma \subset \Delta$.
+- So by hypothesis, $v(C) = \mathbb{T}$, since everything in $\Delta$ is $\mathbb{T}$.
+- So $v$ is such that everything in $\Gamma$ is $\mathbb{T}$.
+- And since $\Gamma \vDash A$, that implies $v(A) = \mathbb{T}$, as required.
+:::
+
+## Monotony Commentary
+
+- This idea, that adding premises doesn't destroy validity, only works for logical arguments.
+- It isn't true for good arguments in general.
+
+## Tweety the First
+
+&nbsp;
+:     Tweety is a bird.
+
+$\therefore$
+:     Tweety flies.
+
+That's a perfectly good, though not logically valid, argument.
+
+## Tweety the Second
+
+&nbsp;
+:     Tweety is a bird.
+
+&nbsp;
+:     Tweety is black and white, lives in Antarctica, and lays large eggs.
+
+$\therefore$
+:     Tweety flies.
+
+That's not a very good argument!
+
+## Transitivity
+
+- If $\Gamma \vDash A$ and $\Delta \cup A \vDash B$, then $\Gamma \cup \Delta \vDash B$.
+
+If some premises entail $A$, and some other premises plus $A$ entail $B$, then the two sets of premises between them entail $B$. 
+
+This is crucial for being able to chain together lines of reasoning.
+
+## Transitivity Proof
+
+::: {.incremental}
+- Assume that for all $C \in \Gamma \cup \Delta$, $v(C) = \mathbb{T}$.
+- We need to prove $v(B) = \mathbb{T}$.
+- Since everything in $\Gamma$ is $\mathbb{T}$ according to $v$, and $\Gamma \vDash A$, it follows that $v(A) = \mathbb{T}$.
+- Since everything in $\Delta$ is $\mathbb{T}$ according to $v$, and $A$ is $\mathbb{T}$ according to $v$, and $\Delta \cup A \vDash B$, it follows that $v(B) = \mathbb{T}$, as required.
+:::
+
+## Deduction Theorem
+
+This is why we define $\rightarrow$ the way we do.
+
+- $\Gamma \vDash A \rightarrow B$ if and only if $\Gamma \cup A \vDash B$.
+
+Note that there are two claims here—one for each direction. We need to prove each.
+
+## Deduction Theorem Left-to-Right
+
+:::{.incremental}
+- Assume $\Gamma \vDash A \rightarrow B$, and prove $\Gamma \cup A \vDash B$.
+- So assume $v(C) = \mathbb{T}$ for all $C \in \Gamma$, and $v(A) = \mathbb{T}$, and aim to prove $v(B) = \mathbb{T}$.
+- Since $\Gamma \vDash A \rightarrow B$ and $v(C) = \mathbb{T}$ for all $C \in \Gamma$, it follows that $v(A \rightarrow B) = \mathbb{T}$.
+- Since $v(A \rightarrow B) = \mathbb{T}$ and $v(A) = \mathbb{T}$, it must be that $v(B) = \mathbb{T}$, since that's the only line on the truth table where $A \rightarrow B$ and $A$ are both $\mathbb{T}$.
+:::
+
+
+## Deduction Theorem Right-to-Left
+
+::: {.incremental}
+- Assume that $\Gamma \cup A \vDash B$, and prove $\Gamma \vDash A \rightarrow B$.
+- So assume $v(C) = \mathbb{T}$ for all $C \in \Gamma$, and prove $v(A \rightarrow B) = \mathbb{T}$.
+- Either $v(A) = \mathbb{T}$ or $v(A) = \mathbb{F}$. Take each case in turn.
+- If $v(A) = \mathbb{T}$, then since $v(C) = \mathbb{T}$ for all $C \in \Gamma$, and $\Gamma \cup A \vDash B$, it follows that $v(B) = \mathbb{T}$, so $v(A \rightarrow B) = \mathbb{T}$.
+- If $v(A) = \mathbb{F}$, it follows directly that $v(A \rightarrow B) = \mathbb{T}$.
+- Either way, $v(A \rightarrow B) = \mathbb{T}$ as required.
+:::
+
+## Deduction Theorem Comments
+
+- This is a striking result.
+- It shows that proving $A \rightarrow B$ is just the same as proving $B$, assuming you're allowed to add $A$ as an extra assumption.
+- And that's a good thing, intuitively. That is how we prove conditionals.
+- But it only works if you have the (very odd-looking) truth table that we're using for $\rightarrow$.
+- This is the main reason for thinking, despite its odd appearance, that this truth table is the right one for $\rightarrow$.
+
+## For Next Time
+
+We will start working on a different way to analyze arguments: truth trees.

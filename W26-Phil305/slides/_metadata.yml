@@ -12,7 +12,7 @@ format:
       footer: "PHIL 305 | University of Michigan"
       logo: "logo.png"
       css: custom_styles_css.css
-      incremental: true
+      incremental: false
       code-line-numbers: true
       highlight-style: github
       transition: slide
@@ -24,6 +24,7 @@ format:
       menu: true
   beamer:
       theme: metropolis
+      classoption: handout
       colortheme: default
       fonttheme: structurebold
       slide-level: 2

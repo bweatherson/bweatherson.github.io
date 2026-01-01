@@ -2,8 +2,85 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Philosophy 305",
+    "title": "Philosophy 305 - Winter 2026",
     "section": "",
-    "text": "Hello World\nDecember 18, 9:30 AM"
+    "text": "Syllabus\n\nSyllabus\nPDF version\nMicrosoft Word version\n\n\n\nTextbooks\n\nforall x\nBoxes and Diamonds, Ann Arbor\nOdds and Ends\nGame Theory\n\n\n\nAssignments\n\n\nLectures\n\n\n\nNumber\nDate\nTopic\nHTML\nPDF\n\n\n\n\n1\n1/7/2026\nIntroduction\nHTML\nPDF\n\n\n2\n1/12/2026\nSymbolization\nHTML\nPDF\n\n\n3\n1/14/2026\nTruth Tables\nHTML\nPDF"
+  },
+  {
+    "objectID": "syllabus-W26-305.html",
+    "href": "syllabus-W26-305.html",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "",
+    "text": "Lead Instructor: Brian Weatherson\nEmail: weath@umich.edu\nWeb: canvas.umich.edu\nOffice Hours: Thursday 9.30-11.30 (Angell Hall, Rm 2207)\nDiscussion Section Leader: Brett Thompson\nEmail: brettdt@umich.edu"
+  },
+  {
+    "objectID": "syllabus-W26-305.html#key-points",
+    "href": "syllabus-W26-305.html#key-points",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Key Points",
+    "text": "Key Points\n\nThe course has four parts:\n\nPropositional Logic;\nModal Logic;\nProbability and Decision; and,\nGame Theory.\n\nEach part of the course has a different textbook.\nAll the books are open access; they are freely available and linked through Canvas.\nThere are 12 weekly assignments, due each week on Thursday at 5pm. The best 10 count for your final grade.\nThere is a final exam, which counts for 20%, and which covers all the material in the course."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#course-description",
+    "href": "syllabus-W26-305.html#course-description",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Course Description",
+    "text": "Course Description\nThis course will introduce some important formal tools that are used elsewhere in philosophy. We will look at propositional logic, the logic of modals and conditionals, probability theory and game theory. Obviously that’s a lot to cover in a short time. The aim here is to make sure you understand the basics, and the symbolism, so you can follow simple applications of these tools, and you have the foundations to understand more complicated applications."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#required-materials",
+    "href": "syllabus-W26-305.html#required-materials",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Required Materials",
+    "text": "Required Materials\nThere are four textbooks for the course. All of them are open access, and hence free. The second is on Canvas, the other three have to be downloaded from elsewhere.\n\nforall x: Calgary by P. D. Magnus, Tim Button, J. Robert Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach. Available at http://forallx.openlogicproject.org.\nBoxes and Diamonds: Ann Arbor remix by Richard Zach and edited by Brian Weatherson. Available on Canvas.\nOdds and Ends by Jonathan Weisberg. Available at https://jonathanweisberg.org/vip/.\nGame Theory by Giacomo Bonnano. Available at https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#course-requirements",
+    "href": "syllabus-W26-305.html#course-requirements",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Course Requirements",
+    "text": "Course Requirements\n\nThere will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 8%.\nThere will also be a final exam that counts for 20% of the grade."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#summary-of-grading-system",
+    "href": "syllabus-W26-305.html#summary-of-grading-system",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Summary of Grading System",
+    "text": "Summary of Grading System\n\nWeekly assignments - 8% each, 10 assignments count, 80% total.\nFinal exam - 20%."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#canvas",
+    "href": "syllabus-W26-305.html#canvas",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Canvas",
+    "text": "Canvas\nThere is a Canvas site for this course, which can be accessed from https://canvas.umich.edu. Course documents (syllabus, lecture notes, assignments) will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#class-schedule",
+    "href": "syllabus-W26-305.html#class-schedule",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Class Schedule",
+    "text": "Class Schedule\nThe readings will all be from the four textbooks. You should do the reading before the scheduled class.\n\nWeek 1: Introduction\n\nWednesday, January 07\nTopic: Introduction\nReading: forall x, Chapters 1-2.\n\n\n\nWeek 2: Symbols and Truth Tables\n\nMonday, January 12\nTopic: Symbolization\nReading: forall x, Chapters 4-6.\n\n\nWednesday, January 14\nTopic: Truth Tables\nReading: forall x, Chapters 9-11.\nAssignment: Assignment 1 due Thursday, January 15 at 5pm.\n\n\n\nWeek 3: Validity\n\nMonday, January 19\nNo class for MLK Day\n\n\nWednesday, January 21\nTopic: Truth Tables and Validity\nReading: forall x, Chapter 12.\nAssignment: Assignment 2 due Thursday, January 22 at 5pm.\n\n\n\nWeek 4: Trees\n\nMonday, January 26\nTopic: Truth Trees\nReading: Boxes and Diamonds, Sections 2.1-2.3\n\n\nWednesday, January 28\nNo lecture, because I’m away at a conference. There will be a discussion section.\nAssignment: Assignment 3 due Thursday, January 29 at 5pm.\n\n\n\nWeek 5: Trees and Modality\n\nMonday, February 02\nTopic: Using Truth Trees\nReading: Boxes and Diamonds, Sections 2.4-2.5\n\n\nWednesday, February 04\nTopic: Varieties of Modality\nReading: Boxes and Diamonds, sections 3.1-3.3.\nAssignment: Assignment 4 (on trees) due Thursday, January 29 at 5pm.\n\n\n\nWeek 6: Validity in Modal Logic\n\nMonday, February 09\nTopic: Models and Frames\nReading: Boxes and Diamonds, sections 3.4-4.5.\n\n\nWednesday, February 11\nTopic: Modal Tableau\nReading: Boxes and Diamonds, chapter 5.\nAssignment: Assignment 5 due Thursday, February 12 at 5pm.\n\n\n\nWeek 7: Conditionals\n\nMonday, February 16\nTopic: Examples of Modal Tableau\nReading: No new reading\n\n\nWednesday, February 18\nTopic: Varieties of Conditionals\nReading: Boxes and Diamonds, chapter 6.\nAssignment: Assignment 6 (on modal tableau) due Thursday, February 19 at 5pm.\n\n\n\nWeek 8: Counterfactuals\n\nMonday, February 16\nTopic: Counterfactual Conditionals\nReading: Boxes and Diamonds, chapter 7.\n\n\nWednesday, February 25\nTopic: Puzzles about Counterfactuals\nReading: No new reading\nAssignment: Assignment 7 due Thursday, February 26 at 5pm.\n\n\n\nWeek 9: Starting on Probability\n\nMonday, March 09\nTopic: Probability Basics\nReading: Odds and Ends, chapters 1 and 5\n\n\nWednesday, March 11\nTopic: Probability Trees\nReading: Odds and Ends, chapter 1\nAssignment: No assignment this week.\n\n\n\nWeek 10: Conditional Probability\n\nMonday, March 16\nTopic: Conditional Probability\nReading: Odds and Ends, chapter 6\n\n\nWednesday, March 18\nTopic: Inverting Conditional Probability\nReading: Odds and Ends, chapter 8\nAssignment: Assignment 8 due Thursday, March 19 at 5pm.\n\n\n\nWeek 11: Probability and Decision\n\nMonday, March 23\nTopic: Expected Utility\nReading: Odds and Ends, chapters 11 and 12\n\n\nWednesday, March 25\nTopic: Utility and Money\nReading: Odds and Ends, sections 12.5 and 13.1.\nAssignment: Assignment 9 due Thursday, March 26 at 5pm.\n\n\n\n\nWeek 12: What are Games?\n\nMonday, March 30\nTopic: Games, Payouts and Utilities\nReading: Game Theory, sections 2.1 and 2.2.\n\n\nWednesday, April 01\nTopic: Dominant Strategies and Equilibria\nReading: Game Theory, sections 2.5 and 2.6.\nAssignment: Assignment 10 due Thursday, April 02 at 5pm.\n\n\n\nWeek 13: Games and Time\n\nMonday, April 06\nTopic: Dynamic Games\nReading: Game Theory, sections 3.1-3.3.\n\n\nWednesday, April 08\nTopic: Backward Induction\nReading: Game Theory, sections 3.4 and 3.5.\nAssignment: Assignment 11 due Thursday, April 09 at 5pm.\n\n\n\nWeek 14: Games with Cardinal Payoffs\n\nMonday, April 13\nTopic: Nash Equilibria\nReading: Game Theory, sections 6.1‑6.3.\n\n\nWednesday, April 15\nTopic: Signaling Games\nReading: No new reading\nAssignment: Assignment 12 due Thursday, April 16 at 5pm.\nThere will be a revision class on Monday, April 20, with no new material, to go over the sample exam."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#extensions",
+    "href": "syllabus-W26-305.html#extensions",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Extensions",
+    "text": "Extensions\nBecause we will release the answers to the quizzes at the due date, we won’t be allowing extensions on them.\nThat’s why we’re only counting the best 10 out of 12 assignments. People who are sick, or have other obligations, can skip up to two assignments without penalty."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#plagiarism",
+    "href": "syllabus-W26-305.html#plagiarism",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Plagiarism",
+    "text": "Plagiarism\nAlthough team-work, and even co-authorship, is encouraged, plagiarism is strictly prohibited. You are responsible for making sure that none of your work is plagiarized. Be sure to cite work that you use, both direct quotations and paraphrased ideas. Any citation method that is tolerably clear is permitted, but if you’d like a good description of a citation scheme that works well in philosophy, look at http://bit.ly/VDhRJ4.\nYou are encouraged to discuss the course material, including assignments, with your classmates, but all written work that you hand in under your own name must be your own. If work is handed is as the work of two people, you are affirming that each person did a fair share of the work. (Note that when you’re submitting work on Canvas, you have to each submit the paper, even if it is co-authored. That way Canvas knows that everyone has turned in work.)\nYou should also be familiar with the academic integrity policies of the College of Literature, Science & the Arts at the University of Michigan, which are available here: http://www.lsa.umich.edu/academicintegrity/. Violations of these policies will be reported to the Office of the Assistant Dean for Student Academic Affairs, and sanctioned with a course grade of F."
+  },
+  {
+    "objectID": "syllabus-W26-305.html#disability",
+    "href": "syllabus-W26-305.html#disability",
+    "title": "PHIL 305: Introduction to Formal Methods",
+    "section": "Disability",
+    "text": "Disability\nThe University of Michigan abides by the Americans with Disabilities Act of 1990, Section 504 of the Rehabilitation Act of 1973, and other applicable federal and state laws that prohibit discrimination on the basis of disability, which mandate that reasonable accommodations be provided for qualified students with disabilities.\nIf you have a disability, and may require some type of instructional and/or examination accommodation, please contact me early in the semester. If you have not already done so, you will also need to register with the Office of Services for Students with Disabilities. The office is located at G664 Haven Hall.\nFor more information on disability services at the University of Michigan, go to http://ssd.umich.edu."
   }
 ]

@@ -21,5 +21,25 @@
   },
   "02.qmd": {
     "02.html": "ba1b0dcc"
+  },
+  "slides/01.qmd": {
+    "01.html": "4f6ce34c",
+    "01.tex": "09cfba2c"
+  },
+  "slides/02.qmd": {
+    "02.html": "bd252b78",
+    "02.tex": "85e6bf27"
+  },
+  "slides/03.qmd": {
+    "03.html": "27aae21a",
+    "03.tex": "c8c18f4b"
+  },
+  "slides/04.qmd": {
+    "04.html": "020d0858",
+    "04.tex": "1f3130c1"
+  },
+  "slides/05.qmd": {
+    "05.html": "f08d76d0",
+    "05.tex": "29c0be0c"
   }
 }

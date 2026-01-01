@@ -290,8 +290,9 @@ As speakers of a human language, you're used to this kind of recursion. All of t
  
 ## Formal Language Recursion
 
-- The letters $P, Q, R...$ are sentences.
-- If $S$ and $T$$ are sentences, then so are:
+The letters $P, Q, R$, etc. are sentences.
+
+If $S$ and $T$ are sentences, then so are:
 
 1. $\neg S$
 2. $S \vee T$
