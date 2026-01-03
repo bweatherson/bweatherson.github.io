@@ -29,3 +29,11 @@ about:
 | 4 | 1/21/2026 | Truth Tables and Validity | [HTML](slides/Lecture_04.html) | [PDF](slides/Lecture_04.pdf) |
 | 5 | 1/26/2026 | Truth Trees | [HTML](slides/Lecture_05.html) | [PDF](slides/Lecture_05.pdf) |
 
+## Instructions for Slides
+
+The slides are built using [revealjs](https://revealjs.com). To move around them, the three key things to know are:
+
+1. Left and right arrows move between sections.
+2. Up and down arrows move between slides within a section.
+3. If you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.
+4. Or simply use space bar to advance one slide forward at any time.

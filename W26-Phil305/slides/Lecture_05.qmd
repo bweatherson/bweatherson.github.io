@@ -5,6 +5,7 @@ format:
     revealjs:
         css: lecture-03-custom-tables.css
         scrollable: true
+        auto-stretch: false
     beamer:
         include-in-header: 305-beamer-header-minimal.tex
 ---
@@ -94,10 +95,8 @@ So each line either says that a particular sentence is true, or says that it is 
 
 The system we're using also has two other distinctive features.
 
-::: {.incremental}
 1. We number each of the lines.
 2. We list why we're writing down each line to the right of the tree.
-:::
 
 Both of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren't well defined conventions for how to write these things out.
 
@@ -131,7 +130,7 @@ The rules tell you what new lines to write down given the lines you've already g
 
 
 ::::: {.content-visible when-format="revealjs"}
-![Truth tree for true negation rule](../images/tableaux/05-01.svg){width="600px"}
+![Truth tree for true negation rule](../images/tableaux/05-01.svg){width="80%"}
 :::::
 ::::
 
@@ -144,7 +143,7 @@ The rules tell you what new lines to write down given the lines you've already g
 
 
 ::::: {.content-visible when-format="revealjs"}
-![Truth tree for false negation rule](../images/tableaux/05-02.svg){width="600px"}
+![Truth tree for false negation rule](../images/tableaux/05-02.svg){width="80%"}
 :::::
 
 ::::
@@ -167,7 +166,7 @@ The rules tell you what new lines to write down given the lines you've already g
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Truth tree for true conjunction rule](../images/tableaux/05-03.svg){width="600px"}
+![Truth tree for true conjunction rule](../images/tableaux/05-03.svg){width=60%}
 :::
 
 ## Rule for true $\wedge$ sentence
@@ -205,7 +204,7 @@ When you have a true $\wedge$ sentence, you can write down that the sentences ei
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Truth tree for false conjunction rule](../images/tableaux/05-05.svg){width="600px"}
+![Truth tree for false conjunction rule](../images/tableaux/05-05.svg){width=60%}
 :::
 
 ## Rule for false $\wedge$ sentence
@@ -259,7 +258,7 @@ Recall the truth table for $\vee$
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Truth tree for false conditional rule](../images/tableaux/05-07.svg){width="600px"}
+![Truth tree for false conditional rule](../images/tableaux/05-07.svg){width=60%}
 :::
 
 ## Rule for false $\rightarrow$ sentence
@@ -293,7 +292,7 @@ Recall the truth table for $\rightarrow$
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Truth tree for true conditional rule](../images/tableaux/05-08.svg){width="600px"}
+![Truth tree for true conditional rule](../images/tableaux/05-08.svg){width=60%}
 :::
 
 ## Rule for true $\rightarrow$ sentence
@@ -337,7 +336,7 @@ We start by writing that $(P \rightarrow Q) \vee (Q \rightarrow P)$ is false.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Starting the tree](../images/tableaux/05-09.svg){width="600px"}
+![Starting the tree](../images/tableaux/05-09.svg){width=40%}
 :::
 
 ## Applying the False $\vee$ Rule
@@ -353,7 +352,7 @@ Since we have a false disjunction, we know both disjuncts must be false.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying false disjunction rule](../images/tableaux/05-10.svg){width="600px"}
+![After applying false disjunction rule](../images/tableaux/05-10.svg){width=60%}
 :::
 
 ## Applying the False $\rightarrow$ Rule (First Time)
@@ -377,7 +376,7 @@ So from $\mathbb{F}(P \rightarrow Q)$, we get $\mathbb{T}P$ and $\mathbb{F}Q$.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After first false conditional rule](../images/tableaux/05-11.svg){width="600px"}
+![After first false conditional rule](../images/tableaux/05-11.svg){width=60%}
 :::
 
 ## Applying the False $\rightarrow$ Rule (Second Time)
@@ -405,7 +404,7 @@ This gives us $\mathbb{T}Q$ and $\mathbb{F}P$.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Complete tree](../images/tableaux/05-12.svg){width="600px"}
+![Complete tree](../images/tableaux/05-12.svg){width=60%}
 :::
 
 ## The Tree Closes
@@ -463,7 +462,7 @@ We start by writing that $((P \vee Q) \wedge \neg P) \wedge \neg Q$ is true.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Starting the tree](../images/tableaux/05-13.svg){width="600px"}
+![Starting the tree](../images/tableaux/05-13.svg){width=40%}
 :::
 
 ## Applying the True $\wedge$ Rule
@@ -483,7 +482,7 @@ So we get $\mathbb{T}((P \vee Q) \wedge \neg P)$ and $\mathbb{T}\neg Q$.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying true conjunction rule](../images/tableaux/05-14.svg){width="600px"}
+![After applying true conjunction rule](../images/tableaux/05-14.svg){width=60%}
 :::
 
 ## Applying the True $\wedge$ Rule Again
@@ -507,7 +506,7 @@ This gives us $\mathbb{T}(P \vee Q)$ and $\mathbb{T}\neg P$.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying true conjunction rule twice](../images/tableaux/05-15.svg){width="600px"}
+![After applying true conjunction rule twice](../images/tableaux/05-15.svg){width=60%}
 :::
 
 ## Applying the True $\neg$ Rules
@@ -533,7 +532,7 @@ From $\mathbb{T}\neg P$ we get $\mathbb{F}P$, and from $\mathbb{T}\neg Q$ we get
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying negation rules](../images/tableaux/05-16.svg){width="600px"}
+![After applying negation rules](../images/tableaux/05-16.svg){width=60%}
 :::
 
 ## Applying the True $\vee$ Rule
@@ -564,7 +563,7 @@ This creates two branches - one where $P$ is true, one where $Q$ is true.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Complete tree with branches](../images/tableaux/05-17.svg){width="600px"}
+![Complete tree with branches](../images/tableaux/05-17.svg){width="80%"}
 :::
 
 ## Both Branches Close
@@ -633,7 +632,7 @@ We start by assuming $P \wedge (P \rightarrow Q)$ is **false**.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Starting the first tree](../images/tableaux/05-18.svg){width="600px"}
+![Starting the first tree](../images/tableaux/05-18.svg){width="400px"}
 :::
 
 ## Applying the False $\wedge$ Rule
@@ -652,7 +651,7 @@ This creates two branches.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying false conjunction rule](../images/tableaux/05-19.svg){width="600px"}
+![After applying false conjunction rule](../images/tableaux/05-19.svg){width=60%}
 :::
 
 ## Left Branch: Already Complete
@@ -683,7 +682,7 @@ When a conditional is false, the antecedent is true and the consequent is false.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Complete first tree](../images/tableaux/05-20.svg){width="600px"}
+![Complete first tree](../images/tableaux/05-20.svg){width="80%"}
 :::
 
 ## Right Branch: Also Complete and Open
@@ -712,7 +711,7 @@ Now we start by assuming $P \wedge (P \rightarrow Q)$ is **true**.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Starting the second tree](../images/tableaux/05-21.svg){width="600px"}
+![Starting the second tree](../images/tableaux/05-21.svg){width=40%}
 :::
 
 ## Applying the True $\wedge$ Rule
@@ -728,7 +727,7 @@ Since we have a true conjunction, both conjuncts must be true.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![After applying true conjunction rule](../images/tableaux/05-22.svg){width="600px"}
+![After applying true conjunction rule](../images/tableaux/05-22.svg){width=60%}
 :::
 
 ## Applying the True $\rightarrow$ Rule
@@ -751,7 +750,7 @@ This creates two branches - one where $P$ is false, one where $Q$ is true.
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Complete second tree](../images/tableaux/05-23.svg){width="600px"}
+![Complete second tree](../images/tableaux/05-23.svg){width="80%"}
 :::
 
 ## Analyzing the Second Tree

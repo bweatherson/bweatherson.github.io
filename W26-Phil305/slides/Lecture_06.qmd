@@ -1,0 +1,23 @@
+---
+title: "Truth Trees"
+date: "1/26/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+        scrollable: true
+        auto-stretch: false
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+## Building the Tree
+
+We start by writing that $(P \rightarrow Q) \vee (Q \rightarrow P)$ is false.
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Starting the tree](../images/tableaux/05-09.svg){height=80px}
+:::

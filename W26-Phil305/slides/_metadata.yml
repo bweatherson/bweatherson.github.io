@@ -22,6 +22,8 @@ format:
       navigation-mode: vertical
       controls: false
       menu: true
+      mathjax:
+        font: "Fira Math"
   beamer:
       theme: metropolis
       classoption: handout
