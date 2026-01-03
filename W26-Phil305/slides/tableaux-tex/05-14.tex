@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}]
+  ]
+]
+\end{oltableau}
+
+\end{document}

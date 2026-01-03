@@ -1,0 +1,6 @@
+To compile slides
+
+chmod +x compile-tableaux.sh && ./compile-tableaux.sh                                                        
+
+Make sure you are in 'slides'
+This will take forever after a while; can edit the bash file to just range over a particular lecture.

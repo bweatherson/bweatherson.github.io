@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Weatherson">
+
+<title>305 Lecture 7.3 - Inverting Conditional Probability</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-446815f2ff9f597c984ab84b572f1cc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">305 Lecture 7.3 - Inverting Conditional Probability</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Weatherson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="plan" class="level2">
+<h2 class="anchored" data-anchor-id="plan">Plan</h2>
+<ul>
+<li>This lecture talks about how and when you can flip conditional probabilities around.</li>
+</ul>
+</section>
+<section id="associated-reading" class="level2">
+<h2 class="anchored" data-anchor-id="associated-reading">Associated Reading</h2>
+<p>Odds and Ends, chapter 8</p>
+<ul>
+<li>Note I’m going to start with a somewhat different approach to these problems, before ending up in the same place as the book.</li>
+<li>Very roughly, I’m going to cover the contents of chapter 8 in reverse order, so we’ll end up at 8.1 in a few lectures time.</li>
+</ul>
+</section>
+<section id="a-real-world-problem" class="level2">
+<h2 class="anchored" data-anchor-id="a-real-world-problem">A Real World Problem</h2>
+<ul>
+<li>Imagine that 3% of men have disease D.</li>
+<li>A man you know has no special reason to think he’s vulnerable to D, it’s not like all his male ancestors had D, but no special reason to think he’s immune to it either.</li>
+<li>There is a test for whether one has disease D or not.</li>
+<li>Among people who have the disease, 90% test positive.</li>
+<li>But only 5% of those who do not have the disease test positive.<span class="math inline">\(\pause\)</span></li>
+</ul>
+<p>This man just had the test, and it came back positive. What is the probability that he has disease D?</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/wiki-sensitivity.png" class="img-fluid figure-img"></p>
+<figcaption>Testing terms</figcaption>
+</figure>
+</div>
+</section>
+<section id="how-to-solve-these-problems" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-solve-these-problems">How To Solve These Problems</h2>
+<ul>
+<li>Start with a table with the states of the world on one axis, and states of the test on the other axis.</li>
+<li>In this case it can just be a 2*2 table.</li>
+<li>In each cell, write down the initial probability of ending up in that cell.</li>
+<li>That will be the probability of being in that state, times the probability of that test result given that you are in that state.</li>
+<li>The formula we are constantly using here is <span class="math inline">\(Pr(A \wedge B) = Pr(A) Pr(B | A)\)</span>.</li>
+</ul>
+</section>
+<section id="the-table" class="level2">
+<h2 class="anchored" data-anchor-id="the-table">The Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Test Positive</th>
+<th>Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Have Disease</td>
+<td>0.027</td>
+<td>0.003</td>
+</tr>
+<tr class="even">
+<td>No Disease</td>
+<td>0.0485</td>
+<td>0.9215</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\pause\)</span></p>
+<p>Let’s talk for a bit about how we generated it.</p>
+</section>
+<section id="the-table-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-table-1">The Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Test Positive</th>
+<th style="text-align: center;">Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Have Disease</td>
+<td style="text-align: center;">0.027</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">No Disease</td>
+<td style="text-align: center;">0.0485</td>
+<td style="text-align: center;">0.9215</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Focus on the top left cell. Why does it say 0.027?</li>
+<li>Well, probability of disease is, we said, 0.03.</li>
+<li>And probability of test positive given disease is 0.9.</li>
+<li>So probability of disease and test positive is 0.03 * 0.9 = 0.027, or 2.7%.</li>
+</ul>
+</section>
+<section id="the-table-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-table-2">The Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Test Positive</th>
+<th style="text-align: center;">Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Have Disease</td>
+<td style="text-align: center;">0.027</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">No Disease</td>
+<td style="text-align: center;">0.0485</td>
+<td style="text-align: center;">0.9215</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Now focus on the top right cell. Why does it say 0.003?</li>
+<li>Well, probability of disease is, we said, 0.03.</li>
+<li>And probability of test negative given disease is 1 - 0.9, i.e., 0.1.</li>
+<li>So probability of disease and test positive is 0.03 * 0.1 = 0.003, or 0.3%.</li>
+</ul>
+</section>
+<section id="the-table-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-table-3">The Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Test Positive</th>
+<th style="text-align: center;">Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Have Disease</td>
+<td style="text-align: center;">0.027</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">No Disease</td>
+<td style="text-align: center;">0.0485</td>
+<td style="text-align: center;">0.9215</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Now focus on the bottom left cell. Why does it say 0.0485?</li>
+<li>Well, probability of disease is, we said, 0.03.</li>
+<li>So probability of non-disease is 0.97.</li>
+<li>And probability of test positive given non-disease is 0.05.</li>
+<li>So probability of non-disease and test positive is 0.97 * 0.05 = 0.0485, or 4.85%.</li>
+</ul>
+</section>
+<section id="the-table-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-table-4">The Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Test Positive</th>
+<th style="text-align: center;">Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Have Disease</td>
+<td style="text-align: center;">0.027</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">No Disease</td>
+<td style="text-align: center;">0.0485</td>
+<td style="text-align: center;">0.9215</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Now focus on the bottom right cell. Why does it say 0.9215?</li>
+<li>Well, probability of non-disease is 0.97.</li>
+<li>And probability of test negative given non-disease is 1 - 0.05 = 0.95.</li>
+<li>So probability of non-disease and test positive is 0.97 * 0.95 = 0.9215, or 92.15%.</li>
+</ul>
+</section>
+<section id="solving-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="solving-the-problem">Solving the Problem</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Test Positive</th>
+<th style="text-align: center;">Test Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Have Disease</td>
+<td style="text-align: center;">0.027</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">No Disease</td>
+<td style="text-align: center;">0.0485</td>
+<td style="text-align: center;">0.9215</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>We want to know Pr(Disease <span class="math inline">\(|\)</span> Test Positive). Call this <span class="math inline">\(Pr(D | TP)\)</span>.<span class="math inline">\(\pause\)</span></li>
+<li>That’s <span class="math inline">\(Pr(D \wedge TP)\)</span> divided by <span class="math inline">\(Pr(TP)\)</span>.<span class="math inline">\(\pause\)</span></li>
+<li>And <span class="math inline">\(Pr(D \wedge TP)\)</span> is 0.027.<span class="math inline">\(\pause\)</span></li>
+<li>And <span class="math inline">\(Pr(TP)\)</span> is 0.0755.<span class="math inline">\(\pause\)</span></li>
+<li>So the answer is roughly 0.35, i.e., <span class="math inline">\(\frac{0.027}{0.0755}\)</span>.</li>
+</ul>
+</section>
+<section id="practical-consequence" class="level2">
+<h2 class="anchored" data-anchor-id="practical-consequence">Practical Consequence</h2>
+<ul>
+<li>That test looked pretty reliable.</li>
+<li>But testing positive only raises the probability of having the disease toa bit over 1 in 3.</li>
+<li>This wasn’t really a quirk of the example.</li>
+<li>When testing for relatively rare conditions, this is a really common situation.</li>
+<li>Unless the test is <strong>really</strong> reliable, testing positive is worrying, but usually raises the dreaded probability to well under 1, often under 0.5.</li>
+</ul>
+</section>
+<section id="general-strategy-for-ab-problems" class="level2">
+<h2 class="anchored" data-anchor-id="general-strategy-for-ab-problems">General Strategy For A/B Problems</h2>
+<ul>
+<li>Make a 2 x 2 table, with <span class="math inline">\(A, \neg A\)</span> on the rows, and <span class="math inline">\(B, \neg B\)</span> on the columns.</li>
+<li>Work out the probability of each cell.</li>
+<li>To do this, repeatedly use the formula</li>
+</ul>
+<p><span class="math display">\[
+\Pr(X \wedge Y) = \Pr(X | Y)\Pr(Y)
+\]</span></p>
+<ul>
+<li>Add up the values across the rows to get <span class="math inline">\(\Pr(A), \Pr(\neg A)\)</span>.</li>
+<li>Add up the values down the columns to get <span class="math inline">\(\Pr(B), \Pr(\neg B)\)</span>.</li>
+<li>Use the formula for conditional probability to work out the answer.</li>
+</ul>
+</section>
+<section id="another-example" class="level2">
+<h2 class="anchored" data-anchor-id="another-example">Another Example</h2>
+<ul>
+<li><span class="math inline">\(\Pr(A) = 0.6\)</span>.</li>
+<li><span class="math inline">\(\Pr(B | A) = 0.3\)</span>.</li>
+<li><span class="math inline">\(\Pr(B | \neg A) = 0.8\)</span>.</li>
+<li>Find <span class="math inline">\(\Pr(B)\)</span> and <span class="math inline">\(\Pr(A | B)\)</span>.</li>
+</ul>
+</section>
+<section id="use-the-negation-rule-to-fill-in-the-basic-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-negation-rule-to-fill-in-the-basic-probabilities">Use the Negation Rule to fill in the Basic Probabilities</h2>
+<ul>
+<li><span class="math inline">\(\Pr(A) = 0.6\)</span>, so <span class="math inline">\(\Pr(\neg A) = 0.4\)</span>. </li>
+<li><span class="math inline">\(\Pr(B | A) = 0.3\)</span>, so <span class="math inline">\(\Pr(\neg B | A) = 0.7\)</span>. </li>
+<li><span class="math inline">\(\Pr(B | \neg A) = 0.8\)</span>, sp <span class="math inline">\(\Pr(\neg B | \neg A) = 0.2\)</span>.</li>
+</ul>
+</section>
+<section id="build-the-table" class="level2">
+<h2 class="anchored" data-anchor-id="build-the-table">Build the Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="top-left-corner" class="level2">
+<h2 class="anchored" data-anchor-id="top-left-corner">Top Left Corner</h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(A \wedge B) &amp;= \Pr(B | A) \Pr(A) \\
+&amp;= 0.3 \times 0.6 \\
+&amp;= 0.18
+\end{align*}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="top-right-corner" class="level2">
+<h2 class="anchored" data-anchor-id="top-right-corner">Top Right Corner</h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(A \wedge \neg B) &amp;= \Pr(\neg B | A) \Pr(A) \\
+&amp;= 0.7 \times 0.6 \\
+&amp;= 0.42
+\end{align*}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check" class="level2">
+<h2 class="anchored" data-anchor-id="check">Check</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>The numbers in the top row are 0.18 + 0.42 = 0.6, which is what we were told <span class="math inline">\(\Pr(A)\)</span> was. So our work passes this little cross-check.</p>
+</section>
+<section id="bottom-left-corner" class="level2">
+<h2 class="anchored" data-anchor-id="bottom-left-corner">Bottom Left Corner</h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(\neg A \wedge B) &amp;= \Pr( B | \neg A) \Pr(\neg A) \\
+&amp;= 0.8 \times 0.4 \\
+&amp;= 0.32
+\end{align*}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bottom-right-corner" class="level2">
+<h2 class="anchored" data-anchor-id="bottom-right-corner">Bottom Right Corner</h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(\neg A \wedge \neg B) &amp;= \Pr( \neg B | \neg A) \Pr(\neg A) \\
+&amp;= 0.2 \times 0.4 \\
+&amp;= 0.08
+\end{align*}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;">0.08</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="check-1" class="level2">
+<h2 class="anchored" data-anchor-id="check-1">Check</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;">0.08</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The bottom row sums to 0.4, as we knew <span class="math inline">\(\Pr(\neg A)\)</span> was.</li>
+<li>And the whole thing sums to 1, which is good.</li>
+</ul>
+</section>
+<section id="prb" class="level2">
+<h2 class="anchored" data-anchor-id="prb"><span class="math inline">\(\Pr(B)\)</span></h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(B\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;">0.18</td>
+<td style="text-align: center;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\neg A\)</span></td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;">0.08</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\Pr(B) = 0.18 + 0.32 = 0.5\)</span>. </li>
+<li><span class="math inline">\(\Pr(\neg B) = 0.42 + 0.08 = 0.5\)</span> </li>
+<li>Given <span class="math inline">\(\Pr(B)\)</span> we could have used the negation rule to work out <span class="math inline">\(\Pr(\neg B)\)</span>.</li>
+</ul>
+</section>
+<section id="pra-b" class="level2">
+<h2 class="anchored" data-anchor-id="pra-b"><span class="math inline">\(\Pr(A | B)\)</span></h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(A | B) &amp;= \frac{\Pr(A \wedge B)}{\Pr(B)} \\
+&amp;= \frac{0.18}{0.5} \\
+&amp;= 0.36
+\end{align*}\]</span></p>
+<ul>
+<li>So the answer is that <span class="math inline">\(\Pr(A | B)\)</span> is 0.36.</li>
+<li>If you learn <span class="math inline">\(B\)</span>, the probability of <span class="math inline">\(A\)</span> falls from 0.6 to 0.36.</li>
+</ul>
+</section>
+<section id="for-next-time" class="level2">
+<h2 class="anchored" data-anchor-id="for-next-time">For Next Time</h2>
+<ul>
+<li>We will revise the rules of probability, with special focus on the rules that you use to solve these kinds of problems.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

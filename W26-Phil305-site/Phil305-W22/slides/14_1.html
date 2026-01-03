@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Weatherson">
+
+<title>305 Lecture 14.1 - Counterfactuals and Similarity</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-446815f2ff9f597c984ab84b572f1cc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">305 Lecture 14.1 - Counterfactuals and Similarity</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Weatherson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="plan" class="level2">
+<h2 class="anchored" data-anchor-id="plan">Plan</h2>
+<p>To discuss the notion of similarity at the heart of Lewis’s theory.</p>
+</section>
+<section id="reading" class="level2">
+<h2 class="anchored" data-anchor-id="reading">Reading</h2>
+<p>This isn’t covered so much in the book.</p>
+</section>
+<section id="julius-caeser-in-command" class="level2">
+<h2 class="anchored" data-anchor-id="julius-caeser-in-command">Julius Caeser in Command</h2>
+<p>Which of these (if either) sounds true?</p>
+<ol type="1">
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used nuclear weapons.</li>
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used catapults.</li>
+</ol>
+</section>
+<section id="respects-of-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="respects-of-similarity">Respects of Similarity</h2>
+<p>Lewis argued that either could be true, in different contexts, though they couldn’t both be true at once.</p>
+<ul>
+<li>A world where Caeser is in command in Vietnam is going to be very different to reality in several ways.</li>
+<li>Making it similar requires highlighting some aspects of similarity, and, by necessity, downplaying others. </li>
+<li>Hold fixed how belligerent Caeser is, and you get him using nuclear weapons. </li>
+<li>Hold fixed his knowledge of weaponry, and you get him using catapults.</li>
+</ul>
+</section>
+<section id="conjoining" class="level2">
+<h2 class="anchored" data-anchor-id="conjoining">Conjoining</h2>
+<p>Could this be true?</p>
+<ul>
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used catapults to fire nuclear weapons.</li>
+</ul>
+</section>
+<section id="feature-not-bug" class="level2">
+<h2 class="anchored" data-anchor-id="feature-not-bug">Feature, Not Bug</h2>
+<p>It feels like in some sense the world in which Caeser uses nuclear weapons is more similar to actuality, and in some other sense the world in which he uses catapults is more similar. Lewis argued that this was a good feature of his theory.</p>
+<ul>
+<li>These conditionals just are vague, and context-sensitive.</li>
+<li>It’s a good thing that we use a vague, content-sensitive notion like <strong>similarity</strong> to analyse them.</li>
+<li>That doesn’t make them too vague, or context-sensitive, it <strong>explains</strong> why they are so vague and context-sensitive. </li>
+</ul>
+<p>I’m not sure whether that argument works, but I’m not going to investigate it further.</p>
+</section>
+<section id="a-different-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-different-example">A Different Example</h2>
+<p>This seems like a tricky to figure out, historical question.</p>
+<ol type="1">
+<li>If Richard Nixon had ordered the use of nuclear weapons in Vietnam, his generals would have refused the order. </li>
+</ol>
+<p>You can imagine trying to figure that out by careful archival research, and guesswork about the parts of the archives that are off-limits to researchers. </p>
+<ul>
+<li>But there’s an argument that philosophy shows 1 is true.</li>
+</ul>
+</section>
+<section id="two-worlds" class="level2">
+<h2 class="anchored" data-anchor-id="two-worlds">Two Worlds</h2>
+<ul>
+<li>Let <span class="math inline">\(w\)</span> be the actual world where (I’ll assume), Nixon never gave such an order.</li>
+<li>Let <span class="math inline">\(w_1\)</span> be the world where the order is given, and refused, and we never hear about it, and life goes on more or less as in <span class="math inline">\(w\)</span>.</li>
+<li>Let <span class="math inline">\(w_2\)</span> be the world where the order is given, carried out, and other relevant parties (especially Russia and China) react in ways you’d expect to nuclear weapons being launched against their ally/neighbor.</li>
+</ul>
+</section>
+<section id="two-worlds-1" class="level2">
+<h2 class="anchored" data-anchor-id="two-worlds-1">Two Worlds</h2>
+<p>Which of these worlds is more similar to the actual world? </p>
+<ul>
+<li>There is a good case for <span class="math inline">\(w_1\)</span>.</li>
+<li>It just requires a few generals to act a little out of character for a few minutes.</li>
+<li>In <span class="math inline">\(w_2\)</span>, everyday life is changed in unrecognisable ways for millions of people; perhaps billions of people if it triggers a larger nuclear war.</li>
+<li>So philosophy tells us that if Nixon had ordered nuclear weapons to be used, his generals would have refused.</li>
+</ul>
+</section>
+<section id="history-and-philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="history-and-philosophy">History and Philosophy</h2>
+<p>This is an absurd result.</p>
+<ul>
+<li>Maybe Nixon’s generals would have refused.</li>
+<li>But you can only tell that by careful historical research, not by thinking about similarity of worlds.</li>
+<li>Something must have gone wrong.</li>
+</ul>
+</section>
+<section id="fixing-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="fixing-the-problem">Fixing The Problem</h2>
+<p>Insist that similarity of patterns or regularities is more important than similarity of particular facts.</p>
+<ul>
+<li>In <span class="math inline">\(w_1\)</span>, some generals (arguably) do something very out of character.</li>
+<li>That’s the kind of violation of a pattern or regularity that makes a big difference in similarity. (In the special sense of similarity that we care about.)</li>
+<li>In <span class="math inline">\(w_2\)</span> there are lots of particular facts that are different. There is a lot more radiation poisoning in Vietnam, and possibly in the United States (depending on the retaliation), but the patterns or regularities are not violated.</li>
+</ul>
+</section>
+<section id="a-new-puzzle" class="level2">
+<h2 class="anchored" data-anchor-id="a-new-puzzle">A New Puzzle</h2>
+<p>Which of these is true?</p>
+<ol type="1">
+<li>If I’d jumped out my office window, I would have been seriously injured (I’m 1.5 floors above some concrete steps).</li>
+<li>If I’d jumped out my office window, I would only have done that if there were a net to catch me, so I wouldn’t have been seriously injured.</li>
+</ol>
+</section>
+<section id="puzzle" class="level2">
+<h2 class="anchored" data-anchor-id="puzzle">Puzzle</h2>
+<ul>
+<li>At least some of the time, we want to say that 1 is true.</li>
+<li>That’s the ‘non-backtracking’ reading of the conditional that’s relevant for thinking about decision-making, moral responsibility, causation, etc.</li>
+<li>But it’s not clear Lewis can get that result.</li>
+</ul>
+</section>
+<section id="three-worlds" class="level2">
+<h2 class="anchored" data-anchor-id="three-worlds">Three Worlds</h2>
+<ul>
+<li>World <span class="math inline">\(w\)</span> is the actual world where I stay nice and safe in my office working on these slides.</li>
+<li>World <span class="math inline">\(w_3\)</span> is where there is no net, I jump and am seriously injured.</li>
+<li>World <span class="math inline">\(w_4\)</span> is where I check that there is a net, and then jump.</li>
+<li>World <span class="math inline">\(w_4\)</span> differs from <span class="math inline">\(w\)</span> in two respects - there is a net that doesn’t really exist, and I jump out the window.</li>
+<li>But world <span class="math inline">\(w_3\)</span> differs in two ways as well - I jump out the window, and this is <strong>really</strong> out of character</li>
+</ul>
+</section>
+<section id="the-new-puzzle" class="level2">
+<h2 class="anchored" data-anchor-id="the-new-puzzle">The New Puzzle</h2>
+<p>The ‘solution’ to the previous case seems to make this worse.</p>
+<ul>
+<li>If we prioritise patterns and regularities, then it looks like <span class="math inline">\(w_3\)</span> is really dissimilar to the actual world.</li>
+<li>But we want there to be an ordinary sense in which it’s just true that if I had jumped out the window, I would have been seriously injured.</li>
+</ul>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li>If you use an overall, intuitive, measure of similarity, you get the wrong results in the nuclear weapons example.</li>
+<li>If you use a measure that focuses on patterns and regularities, you get the wrong result (or at least rule out a good result) in the jump out window example.</li>
+<li>This is starting to feel like a trap.</li>
+</ul>
+</section>
+<section id="a-way-through" class="level2">
+<h2 class="anchored" data-anchor-id="a-way-through">A Way Through</h2>
+<p>Here’s how Lewis suggested getting out of the trap. (I’m simplifying a bit here; if you’re interested you should read his paper “Counterfactual Dependence and Time’s Arrow”.)</p>
+<ul>
+<li>Treat the past and the future differently.</li>
+<li>In terms of the past, what matters for similarity is keeping <strong>everything</strong>, patterns, regularities, particular facts, everything, <strong>exactly the same</strong>. The nearest worlds are an exact duplicate of ours from the Big Bang to as close as possible to the present.</li>
+<li>In terms of the future, patterns and regularities are <strong>much</strong> more important.</li>
+</ul>
+</section>
+<section id="intuitive-picture" class="level2">
+<h2 class="anchored" data-anchor-id="intuitive-picture">Intuitive Picture</h2>
+<p>How to find the nearest world where <span class="math inline">\(A\)</span> is true.</p>
+<ul>
+<li>Start at the present time and work backwards.</li>
+<li>What’s the first time where you can make <span class="math inline">\(A\)</span> true with only a single violation of patterns or regularities in the world. It might be a big violation - like gravity stopping for a second, but ideally it is just one violation.</li>
+<li>Roll the world forward from that time according to the laws of the world - the physical laws, the biological laws, the psychological laws, the economic laws and so on.</li>
+<li>If those laws leave lots of things open, then there are lots of worlds that are equally close to actuality where <span class="math inline">\(A\)</span> is true.</li>
+</ul>
+</section>
+<section id="two-puzzles" class="level2">
+<h2 class="anchored" data-anchor-id="two-puzzles">Two Puzzles</h2>
+<p>I like this intuitive picture a lot - I think it captures a lot of what we’re trying to do with counterfactuals. But there are still puzzles remaining. I’ll end this lecture with two of them.</p>
+<ol type="1">
+<li>The car theft puzzle.</li>
+<li>The baseball jinx puzzle.</li>
+</ol>
+</section>
+<section id="the-car-theft" class="level2">
+<h2 class="anchored" data-anchor-id="the-car-theft">The Car Theft</h2>
+<ul>
+<li>Imagine that yesterday I parked my car at work in a UM garage, then drove home at the end of the day.</li>
+<li>My car wasn’t stolen yesterday (like every other day).</li>
+<li>But car thefts happen - it being stolen isn’t like aliens invading. </li>
+<li>Think about this counterfactual:</li>
+</ul>
+<blockquote class="blockquote">
+<p>If my car had been stolen yesterday, it would have been stolen just before midnight.</p>
+</blockquote>
+</section>
+<section id="the-car-theft-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-car-theft-1">The Car Theft</h2>
+<ul>
+<li>Intuitively, that’s not true.</li>
+<li>Just before midnight, my car was locked in my garage.</li>
+<li>During the day, it was in a public carpark at UM.</li>
+<li>If it was going to get stolen yesterday, it’s at least as likely that it would have been stolen during the day as late at night.</li>
+</ul>
+</section>
+<section id="three-worlds-again" class="level2">
+<h2 class="anchored" data-anchor-id="three-worlds-again">Three Worlds (Again)</h2>
+<ul>
+<li>Again, let <span class="math inline">\(w\)</span> be the actual, no car theft, world.</li>
+<li>Let <span class="math inline">\(w_5\)</span> be the world where my car is stolen from a UM parking lot at midday.</li>
+<li>Let <span class="math inline">\(w_6\)</span> be the world where my car is stolen from my garage just before midnight.</li>
+<li>In <span class="math inline">\(w_6\)</span>, things stay exactly the same as in <span class="math inline">\(w\)</span> for much longer - for nearly 12 hours longer.</li>
+<li>So by the metric we’re using, it’s more similar to actuality than <span class="math inline">\(w_5\)</span>.</li>
+<li>So it will be true that had my car been stolen yesterday, it would have been stolen just before midnight.</li>
+<li>This isn’t very plausible, so we still need to tinker with the similarity metric.</li>
+</ul>
+</section>
+<section id="the-baseball-jinx" class="level2">
+<h2 class="anchored" data-anchor-id="the-baseball-jinx">The Baseball Jinx</h2>
+<p>Imagine that I watch a baseball game, and my team loses. My friends accuse me of jinxing the team. I defend myself with 1.</p>
+<ol type="1">
+<li>If I hadn’t watched, they would still have lost. </li>
+</ol>
+<p>Here’s an argument that 1 is, for all we know, false.</p>
+</section>
+<section id="physics-and-baseball" class="level2">
+<h2 class="anchored" data-anchor-id="physics-and-baseball">Physics and Baseball</h2>
+<ul>
+<li>Possibly baseball is seriously indeterministic.</li>
+<li>Possibly quantum indeterminacy in the player’s brains causes differences in outcomes.</li>
+<li>Possibly quantum indeterminacy in the interaction of the ball with the air as it travels to the plate causes just enough variation in the position of the ball when it’s hit to make the difference between a home run and a fly ball at the wall.</li>
+<li>Maybe physics will tell us otherwise, but it seems to me we can’t rule out this kind of indeterminacy.</li>
+</ul>
+</section>
+<section id="baseball-and-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="baseball-and-uncertainty">Baseball and Uncertainty</h2>
+<p>Now compare these two worlds (to <span class="math inline">\(w\)</span>, the actual world).</p>
+<ul>
+<li>In <span class="math inline">\(w_7\)</span>, I don’t watch, but the game goes <strong>exactly</strong> as it goes in <span class="math inline">\(w\)</span>, and my team loses.</li>
+<li>In <span class="math inline">\(w_8\)</span>, things go <strong>exactly</strong> as they do in <span class="math inline">\(w\)</span> up until the start of the game, when I don’t sit down to watch it. Then they follow the laws of nature. But the laws are chancy, and in <span class="math inline">\(w_8\)</span> the variations favor my team just enough that they narrowly win rather than narrowly lose. </li>
+</ul>
+</section>
+<section id="the-puzzle" class="level2">
+<h2 class="anchored" data-anchor-id="the-puzzle">The Puzzle</h2>
+<ul>
+<li>If all we care about is exact match before the ‘break point’ (when the first thing changes), then conformity to laws, patterns and regularities after the ‘break point’, then <span class="math inline">\(w_7\)</span> and <span class="math inline">\(w_8\)</span> are equally close to actuality.</li>
+<li>They both are exactly alike until I don’t watch (rather than watch) and both conform to laws afterwards.</li>
+<li>So the conditional, <em>If I hadn’t have watched, we still would have lost</em>, is false.</li>
+<li>In one of the nearest worlds where I don’t watch, we lose.</li>
+</ul>
+</section>
+<section id="is-this-a-problem" class="level2">
+<h2 class="anchored" data-anchor-id="is-this-a-problem">Is This a Problem</h2>
+<p>This doesn’t sound great.</p>
+<ul>
+<li>We know that we don’t make a difference to baseball games by watching or not watching them.</li>
+<li>But this theory, which otherwise looks promising, seems to say that maybe we do.</li>
+<li>This is just an open puzzle.</li>
+</ul>
+</section>
+<section id="next-time" class="level2">
+<h2 class="anchored" data-anchor-id="next-time">Next Time</h2>
+<p>We’ll talk more about the logic of these counterfactuals.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{\neg A}, 
+	[\sFmla{\False}{A}, just = {\TRule{\True}{\neg}[1]}]
+]
+\end{oltableau}
+
+\end{document}

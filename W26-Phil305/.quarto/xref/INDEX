@@ -23,5 +23,339 @@
   "slides/Lecture_04.qmd": {
     "Lecture_04.html": "3bbdd539",
     "Lecture_04.tex": "efd274a0"
+  },
+  "slides/Lecture_05.qmd": {
+    "Lecture_05.tex": "767cf5da",
+    "Lecture_05.html": "6b9b3d6c"
+  },
+  "Phil305-W22/assignments/Week 05.md": {
+    "Week 05.html": "511b1333"
+  },
+  "Phil305-W22/assignments/03.Rmd": {
+    "03.html": "bb503eee"
+  },
+  "Phil305-W22/assignments/02.Rmd": {
+    "02.html": "25cf95d7"
+  },
+  "Phil305-W22/assignments/14.Rmd": {
+    "14.html": "0b5dfbb7"
+  },
+  "Phil305-W22/assignments/11.Rmd": {
+    "11.html": "eeab62bf"
+  },
+  "Phil305-W22/assignments/05.Rmd": {
+    "05.html": "290036b4"
+  },
+  "Phil305-W22/assignments/04.Rmd": {
+    "04.html": "84c4ff53"
+  },
+  "Phil305-W22/assignments/10.Rmd": {
+    "10.html": "27122538"
+  },
+  "Phil305-W22/assignments/06.Rmd": {
+    "06.html": "3d55cbc8"
+  },
+  "Phil305-W22/assignments/12.Rmd": {
+    "12.html": "adbd313b"
+  },
+  "Phil305-W22/assignments/13.Rmd": {
+    "13.html": "8866e868"
+  },
+  "Phil305-W22/assignments/07.Rmd": {
+    "07.html": "dfef7028"
+  },
+  "Phil305-W22/assignments/Week 03.md": {
+    "Week 03.html": "30956c56"
+  },
+  "Phil305-W22/assignments/08.Rmd": {
+    "08.html": "c55deead"
+  },
+  "Phil305-W22/assignments/assignments-S20/Week Four Assignment.Rmd": {
+    "Week Four Assignment.html": "e4b66cb9"
+  },
+  "Phil305-W22/assignments/Week 06.md": {
+    "Week 06.html": "38abd905"
+  },
+  "Phil305-W22/assignments/Week 02.md": {
+    "Week 02.html": "37ba54cf"
+  },
+  "Phil305-W22/sample_exam_answer.Rmd": {
+    "sample_exam_answer.html": "5709a64a"
+  },
+  "Phil305-W22/syllabus-W21-305.Rmd": {
+    "syllabus-W21-305.html": "914d2d1b"
+  },
+  "Phil305-W22/final_exam_W21_Phil305.Rmd": {
+    "final_exam_W21_Phil305.html": "3cf08228"
+  },
+  "Phil305-W22/syllabus-W22-305.Rmd": {
+    "syllabus-W22-305.html": "6e18dd78"
+  },
+  "Phil305-W22/slides/09_4.Rmd": {
+    "09_4.html": "760ebb39"
+  },
+  "Phil305-W22/slides/12_04.Rmd": {
+    "12_04.html": "1a61f236"
+  },
+  "Phil305-W22/slides/12_10.Rmd": {
+    "12_10.html": "c617cdf3"
+  },
+  "Phil305-W22/slides/14_1.Rmd": {
+    "14_1.html": "4d68f31e"
+  },
+  "Phil305-W22/slides/10_5.Rmd": {
+    "10_5.html": "e60bbe1d"
+  },
+  "Phil305-W22/slides/10_4.Rmd": {
+    "10_4.html": "09c258dc"
+  },
+  "Phil305-W22/slides/12_11.Rmd": {
+    "12_11.html": "e5a8e7b2"
+  },
+  "Phil305-W22/slides/12_05.Rmd": {
+    "12_05.html": "59e83a53"
+  },
+  "Phil305-W22/slides/09_5.Rmd": {
+    "09_5.html": "f96a1e3b"
+  },
+  "Phil305-W22/slides/14_2.Rmd": {
+    "14_2.html": "db787393"
+  },
+  "Phil305-W22/slides/12_13.Rmd": {
+    "12_13.html": "b06cba65"
+  },
+  "Phil305-W22/slides/12_07.Rmd": {
+    "12_07.html": "901c59ff"
+  },
+  "Phil305-W22/slides/10_6.Rmd": {
+    "10_6.html": "99ecb988"
+  },
+  "Phil305-W22/slides/10_7.Rmd": {
+    "10_7.html": "0855e38b"
+  },
+  "Phil305-W22/slides/12_06.Rmd": {
+    "12_06.html": "3f14c67e"
+  },
+  "Phil305-W22/slides/12_12.Rmd": {
+    "12_12.html": "077ac567"
+  },
+  "Phil305-W22/slides/09_6.Rmd": {
+    "09_6.html": "a004f4aa"
+  },
+  "Phil305-W22/slides/09_2.Rmd": {
+    "09_2.html": "7117f7a1"
+  },
+  "Phil305-W22/slides/12_16.Rmd": {
+    "12_16.html": "e8146526"
+  },
+  "Phil305-W22/slides/12_02.Rmd": {
+    "12_02.html": "a84181f7"
+  },
+  "Phil305-W22/slides/10_3.Rmd": {
+    "10_3.html": "ebf8e778"
+  },
+  "Phil305-W22/slides/10_2.Rmd": {
+    "10_2.html": "696b4461"
+  },
+  "Phil305-W22/slides/12_03.Rmd": {
+    "12_03.html": "3085689a"
+  },
+  "Phil305-W22/slides/12_17.Rmd": {
+    "12_17.html": "00a94017"
+  },
+  "Phil305-W22/slides/09_3.Rmd": {
+    "09_3.html": "4b95ad21"
+  },
+  "Phil305-W22/slides/09_1.Rmd": {
+    "09_1.html": "593f83ef"
+  },
+  "Phil305-W22/slides/12_01.Rmd": {
+    "12_01.html": "f5a2605d"
+  },
+  "Phil305-W22/slides/12_15.Rmd": {
+    "12_15.html": "efd3d6c9"
+  },
+  "Phil305-W22/slides/10_1.Rmd": {
+    "10_1.html": "ffa5fea7"
+  },
+  "Phil305-W22/slides/12_14.Rmd": {
+    "12_14.html": "981ff2ed"
+  },
+  "Phil305-W22/slides/13_4.Rmd": {
+    "13_4.html": "2d1cd833"
+  },
+  "Phil305-W22/slides/08_03.Rmd": {
+    "08_03.html": "2fe36197"
+  },
+  "Phil305-W22/slides/11_6.Rmd": {
+    "11_6.html": "f89ba57e"
+  },
+  "Phil305-W22/slides/11_7.Rmd": {
+    "11_7.html": "1a464256"
+  },
+  "Phil305-W22/slides/08_02.Rmd": {
+    "08_02.html": "34b55be3"
+  },
+  "Phil305-W22/slides/13_5.Rmd": {
+    "13_5.html": "d99645a8"
+  },
+  "Phil305-W22/slides/11_5.Rmd": {
+    "11_5.html": "0a22ae2c"
+  },
+  "Phil305-W22/slides/11_4.Rmd": {
+    "11_4.html": "4b3ca8a0"
+  },
+  "Phil305-W22/slides/08_01.Rmd": {
+    "08_01.html": "620d0e78"
+  },
+  "Phil305-W22/slides/13_6.Rmd": {
+    "13_6.html": "7550fb2b"
+  },
+  "Phil305-W22/slides/06_04.Rmd": {
+    "06_04.html": "6e8103f2"
+  },
+  "Phil305-W22/slides/08_05.Rmd": {
+    "08_05.html": "4e09b74c"
+  },
+  "Phil305-W22/slides/13_2.Rmd": {
+    "13_2.html": "31e2ac59"
+  },
+  "Phil305-W22/slides/11_1.Rmd": {
+    "11_1.html": "dca9efe0"
+  },
+  "Phil305-W22/slides/13_3.Rmd": {
+    "13_3.html": "142f742b"
+  },
+  "Phil305-W22/slides/06_01.Rmd": {
+    "06_01.html": "8529e97e"
+  },
+  "Phil305-W22/slides/08_04.Rmd": {
+    "08_04.html": "5dbb0929"
+  },
+  "Phil305-W22/slides/06_03.Rmd": {
+    "06_03.html": "eea65712"
+  },
+  "Phil305-W22/slides/13_1.Rmd": {
+    "13_1.html": "68629bdf"
+  },
+  "Phil305-W22/slides/11_3.Rmd": {
+    "11_3.html": "3997d7d7"
+  },
+  "Phil305-W22/slides/11_2.Rmd": {
+    "11_2.html": "60347fd3"
+  },
+  "Phil305-W22/slides/06_02.Rmd": {
+    "06_02.html": "7432f7d5"
+  },
+  "Phil305-W22/slides/02_5.Rmd": {
+    "02_5.html": "e205d554"
+  },
+  "Phil305-W22/slides/04_3.Rmd": {
+    "04_3.html": "d41f5050"
+  },
+  "Phil305-W22/slides/04_2.Rmd": {
+    "04_2.html": "5ce43054"
+  },
+  "Phil305-W22/slides/02_4.Rmd": {
+    "02_4.html": "8667f6fc"
+  },
+  "Phil305-W22/slides/02_6.Rmd": {
+    "02_6.html": "111052d7"
+  },
+  "Phil305-W22/slides/04_1.Rmd": {
+    "04_1.html": "6a127d02"
+  },
+  "Phil305-W22/slides/02_3.Rmd": {
+    "02_3.html": "3bf22274"
+  },
+  "Phil305-W22/slides/04_5.Rmd": {
+    "04_5.html": "1ec408db"
+  },
+  "Phil305-W22/slides/04_4.Rmd": {
+    "04_4.html": "e231be56"
+  },
+  "Phil305-W22/slides/02_2.Rmd": {
+    "02_2.html": "8e2409d1"
+  },
+  "Phil305-W22/slides/04_6.Rmd": {
+    "04_6.html": "fbe343ef"
+  },
+  "Phil305-W22/slides/04_7.Rmd": {
+    "04_7.html": "fd430a8b"
+  },
+  "Phil305-W22/slides/02_1.Rmd": {
+    "02_1.html": "348c5f2b"
+  },
+  "Phil305-W22/slides/03_6.Rmd": {
+    "03_6.html": "15eba210"
+  },
+  "Phil305-W22/slides/07_04.Rmd": {
+    "07_04.html": "5e120d9a"
+  },
+  "Phil305-W22/slides/07_05.Rmd": {
+    "07_05.html": "3299cba7"
+  },
+  "Phil305-W22/slides/05_1.Rmd": {
+    "05_1.html": "ef69bdca"
+  },
+  "Phil305-W22/slides/05_3.Rmd": {
+    "05_3.html": "8875c3c8"
+  },
+  "Phil305-W22/slides/03_5.Rmd": {
+    "03_5.html": "b75bfd87"
+  },
+  "Phil305-W22/slides/07_06.Rmd": {
+    "07_06.html": "83d1dfcd"
+  },
+  "Phil305-W22/slides/03_4.Rmd": {
+    "03_4.html": "3c1a4f20"
+  },
+  "Phil305-W22/slides/05_2.Rmd": {
+    "05_2.html": "f42980da"
+  },
+  "Phil305-W22/slides/05_6.Rmd": {
+    "05_6.html": "555fbd5f"
+  },
+  "Phil305-W22/slides/07_02.Rmd": {
+    "07_02.html": "794a4336"
+  },
+  "Phil305-W22/slides/01_2.Rmd": {
+    "01_2.html": "0c28edcb"
+  },
+  "Phil305-W22/slides/01_3.Rmd": {
+    "01_3.html": "750efe11"
+  },
+  "Phil305-W22/slides/07_03.Rmd": {
+    "07_03.html": "98f00c27"
+  },
+  "Phil305-W22/slides/03_1.Rmd": {
+    "03_1.html": "3b37f968"
+  },
+  "Phil305-W22/slides/12_08.Rmd": {
+    "12_08.html": "03fd21d8"
+  },
+  "Phil305-W22/slides/05_5.Rmd": {
+    "05_5.html": "870961c9"
+  },
+  "Phil305-W22/slides/03_3.Rmd": {
+    "03_3.html": "4ee4a0f4"
+  },
+  "Phil305-W22/slides/07_01.Rmd": {
+    "07_01.html": "4f7f7aa5"
+  },
+  "Phil305-W22/slides/01_1.Rmd": {
+    "01_1.html": "db356e37"
+  },
+  "Phil305-W22/slides/03_2.Rmd": {
+    "03_2.html": "085b22cb"
+  },
+  "Phil305-W22/slides/05_4.Rmd": {
+    "05_4.html": "2a588476"
+  },
+  "Phil305-W22/slides/12_09.Rmd": {
+    "12_09.html": "8757527f"
+  },
+  "Phil305-W22/sample_exam_22.Rmd": {
+    "sample_exam_22.html": "6b527aa6"
   }
 }

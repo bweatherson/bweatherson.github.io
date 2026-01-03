@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Weatherson">
+
+<title>305 Lecture 10.7 - Significance Testing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-446815f2ff9f597c984ab84b572f1cc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">305 Lecture 10.7 - Significance Testing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Weatherson </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="plan" class="level2">
+<h2 class="anchored" data-anchor-id="plan">Plan</h2>
+<ul>
+<li>We’re going to end with a discussion of the role of significance testing in contemporary statistics.</li>
+</ul>
+</section>
+<section id="associated-reading" class="level2">
+<h2 class="anchored" data-anchor-id="associated-reading">Associated Reading</h2>
+<ul>
+<li>Odds and Ends, Chapter 19 (and part of chapter 20)</li>
+</ul>
+</section>
+<section id="significance-testing" class="level2">
+<h2 class="anchored" data-anchor-id="significance-testing">Significance Testing</h2>
+<ul>
+<li>The subjective approach is very popular within philosophy, but not within statistics or a lot of social sciences.</li>
+<li>This is in part because of its subjectivity.</li>
+<li>A lot of sciences want methods that are more objective.</li>
+</ul>
+</section>
+<section id="significance-testing-1" class="level2">
+<h2 class="anchored" data-anchor-id="significance-testing-1">Significance Testing</h2>
+<p>What is known as ‘classical statistics’ is based around the idea of significance testing.</p>
+<ul>
+<li>The intuitive idea is that we say that a correlation reflects a real pattern in the underlying data if (but only if) it would be really improbable if we got the data we did by chance.</li>
+<li>Intuitively, three heads in a row might be a coincidence, but ten heads in a row suggests something odd is going on.</li>
+</ul>
+</section>
+<section id="significance-testing-2" class="level2">
+<h2 class="anchored" data-anchor-id="significance-testing-2">Significance Testing</h2>
+<p>So say that we want to argue that two things are connected.</p>
+<ul>
+<li>To make this concrete, say that we want to argue that the survival rates for people who take our company’s drug are higher than for people who do not.</li>
+<li>What we do is give a bunch of people the drug (after getting all the approvals!)</li>
+<li>We then look at their survival rates, and ask <em>How likely would this data be if our drug had no effect at all</em>?</li>
+<li>If that number is low enough, we conclude that our drug works. (Profit!)</li>
+</ul>
+</section>
+<section id="significance-testing-3" class="level2">
+<h2 class="anchored" data-anchor-id="significance-testing-3">Significance Testing</h2>
+<ul>
+<li>That is, we work out something like <span class="math inline">\(\Pr(E | H_0)\)</span>, where <span class="math inline">\(E\)</span> is the data that we get, and <span class="math inline">\(H_0\)</span> is a <strong>null hypothesis</strong> that says there is nothing of interest here.</li>
+<li>If <span class="math inline">\(\Pr(E | H_0)\)</span> is low enough, we conclude that <span class="math inline">\(H_0\)</span> is false, and hopefully there is a natural alternative to <span class="math inline">\(H_0\)</span>, such as that the drug works, that we infer.</li>
+<li>In those cases, we will say that the data shows a significant correlation between taking the drug and survival rates.</li>
+<li>This literally means that it would be really improbable to get this data by chance.</li>
+</ul>
+</section>
+<section id="significance-testing-4" class="level2">
+<h2 class="anchored" data-anchor-id="significance-testing-4">Significance Testing</h2>
+<p>How low is ‘really low’?</p>
+<ul>
+<li>As the book says, this is mostly a matter of convention.</li>
+<li>Which is ironic given the whole point was to get away from subjectivity.</li>
+<li>But a common idea is that it is less than 5%.</li>
+<li>So a correlation is significant if it is outside the central 95% of the distribution.</li>
+</ul>
+</section>
+<section id="inverting" class="level2">
+<h2 class="anchored" data-anchor-id="inverting">Inverting</h2>
+<ul>
+<li>Isn’t this all wrong though?</li>
+<li>Isn’t it inferring from the fact that <span class="math inline">\(\Pr(E | H_0)\)</span> is low to the conclusion that <span class="math inline">\(\Pr(H_0 | E)\)</span> is low, something that we’ve said over and over again not to do? </li>
+<li>Yes, but… </li>
+<li>In practice the method is supplemented by practical rules that avoid the worst consequences of allowing these inversions.</li>
+</ul>
+</section>
+<section id="stopping-rules" class="level2">
+<h2 class="anchored" data-anchor-id="stopping-rules">Stopping Rules</h2>
+<ul>
+<li>As it stands, this method leads to all sorts of nonsense and, frankly, fraud.</li>
+<li>It needs to be supplemented with extra rules to avoid obvious mistakes.</li>
+<li>The first thing that is needed, as was realised fairly early on, was a commitment to external ‘stopping rules’.</li>
+<li>If you are allowed to keep collecting data until the probability of the evidence given the null is low, you will almost always get to reject the null.</li>
+</ul>
+</section>
+<section id="an-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="an-experiment">An Experiment</h2>
+<ul>
+<li>This is actually an experiment; the data are randomly generated anew every time I compile these slides.</li>
+<li>I’m going to compile these slides, and then present them whether the data comes up the way I hope it does or not.</li>
+<li>So it could go horribly wrong!</li>
+</ul>
+</section>
+<section id="an-experiment-1" class="level2">
+<h2 class="anchored" data-anchor-id="an-experiment-1">An Experiment</h2>
+<ul>
+<li>I’m going to simulate tossing a coin 100,000 times.</li>
+<li>It uses the computer’s random number generator, and it is set up so the probability of heads on each toss is 0.5, and the tosses are independent.</li>
+<li>But I’m going to measure the probability of the evidence given the null after each toss, not just at the end.</li>
+<li>And by ‘the probability of the evidence’, I mean the probability of getting at least that many heads.</li>
+<li>If that is outside <span class="math inline">\([0.025, 0.975]\)</span> then we have, at this point, a rejection of the null.</li>
+<li>This is absurd of course; the null is programmed to be true.</li>
+<li>I’ll run it five times to see how it goes.</li>
+</ul>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<p>In the tables that follow</p>
+<ul>
+<li>t is the trial number,</li>
+<li>result is how the coin landed on that trial,</li>
+<li>heads is how many heads to that point,</li>
+<li>frequency is frequency of heads to that point,</li>
+<li>prob is probability of getting at least that many heads, and</li>
+<li>distance is the distance of that number from 0.5. In this trial, we ended up with this many heads.</li>
+</ul>
+</section>
+<section id="take-one" class="level2">
+<h2 class="anchored" data-anchor-id="take-one">Take One</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">result</th>
+<th style="text-align: right;">heads</th>
+<th style="text-align: right;">frequency</th>
+<th style="text-align: right;">prob</th>
+<th style="text-align: right;">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">4713</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2278</td>
+<td style="text-align: right;">0.4833439</td>
+<td style="text-align: right;">0.0115275</td>
+<td style="text-align: right;">0.4884725</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4721</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2282</td>
+<td style="text-align: right;">0.4833722</td>
+<td style="text-align: right;">0.0115858</td>
+<td style="text-align: right;">0.4884142</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2611</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1247</td>
+<td style="text-align: right;">0.4775948</td>
+<td style="text-align: right;">0.0115901</td>
+<td style="text-align: right;">0.4884099</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2621</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1252</td>
+<td style="text-align: right;">0.4776803</td>
+<td style="text-align: right;">0.0117222</td>
+<td style="text-align: right;">0.4882778</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4712</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2278</td>
+<td style="text-align: right;">0.4834465</td>
+<td style="text-align: right;">0.0119669</td>
+<td style="text-align: right;">0.4880331</td>
+</tr>
+</tbody>
+</table>
+<p>Number of heads</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50137</code></pre>
+</div>
+</div>
+</section>
+<section id="take-two" class="level2">
+<h2 class="anchored" data-anchor-id="take-two">Take Two</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">result</th>
+<th style="text-align: right;">heads</th>
+<th style="text-align: right;">frequency</th>
+<th style="text-align: right;">prob</th>
+<th style="text-align: right;">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1135</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">594</td>
+<td style="text-align: right;">0.5233480</td>
+<td style="text-align: right;">0.9455377</td>
+<td style="text-align: right;">0.4455377</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1120</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">586</td>
+<td style="text-align: right;">0.5232143</td>
+<td style="text-align: right;">0.9433867</td>
+<td style="text-align: right;">0.4433867</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1130</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">591</td>
+<td style="text-align: right;">0.5230088</td>
+<td style="text-align: right;">0.9425824</td>
+<td style="text-align: right;">0.4425824</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1134</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">593</td>
+<td style="text-align: right;">0.5229277</td>
+<td style="text-align: right;">0.9422612</td>
+<td style="text-align: right;">0.4422612</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1136</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">594</td>
+<td style="text-align: right;">0.5228873</td>
+<td style="text-align: right;">0.9421007</td>
+<td style="text-align: right;">0.4421007</td>
+</tr>
+</tbody>
+</table>
+<p>Number of heads</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50078</code></pre>
+</div>
+</div>
+</section>
+<section id="take-three" class="level2">
+<h2 class="anchored" data-anchor-id="take-three">Take Three</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">result</th>
+<th style="text-align: right;">heads</th>
+<th style="text-align: right;">frequency</th>
+<th style="text-align: right;">prob</th>
+<th style="text-align: right;">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">15625</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7973</td>
+<td style="text-align: right;">0.5102720</td>
+<td style="text-align: right;">0.9950036</td>
+<td style="text-align: right;">0.4950036</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15649</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7985</td>
+<td style="text-align: right;">0.5102562</td>
+<td style="text-align: right;">0.9949750</td>
+<td style="text-align: right;">0.4949750</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15689</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8005</td>
+<td style="text-align: right;">0.5102301</td>
+<td style="text-align: right;">0.9949271</td>
+<td style="text-align: right;">0.4949271</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15624</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7972</td>
+<td style="text-align: right;">0.5102407</td>
+<td style="text-align: right;">0.9948880</td>
+<td style="text-align: right;">0.4948880</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15723</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8022</td>
+<td style="text-align: right;">0.5102080</td>
+<td style="text-align: right;">0.9948862</td>
+<td style="text-align: right;">0.4948862</td>
+</tr>
+</tbody>
+</table>
+<p>Number of heads</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50050</code></pre>
+</div>
+</div>
+</section>
+<section id="take-four" class="level2">
+<h2 class="anchored" data-anchor-id="take-four">Take Four</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">result</th>
+<th style="text-align: right;">heads</th>
+<th style="text-align: right;">frequency</th>
+<th style="text-align: right;">prob</th>
+<th style="text-align: right;">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9325</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4756</td>
+<td style="text-align: right;">0.5100268</td>
+<td style="text-align: right;">0.9742268</td>
+<td style="text-align: right;">0.4742268</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9331</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4759</td>
+<td style="text-align: right;">0.5100204</td>
+<td style="text-align: right;">0.9741892</td>
+<td style="text-align: right;">0.4741892</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9337</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4762</td>
+<td style="text-align: right;">0.5100139</td>
+<td style="text-align: right;">0.9741517</td>
+<td style="text-align: right;">0.4741517</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9363</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4775</td>
+<td style="text-align: right;">0.5099861</td>
+<td style="text-align: right;">0.9739887</td>
+<td style="text-align: right;">0.4739887</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9324</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4755</td>
+<td style="text-align: right;">0.5099743</td>
+<td style="text-align: right;">0.9736059</td>
+<td style="text-align: right;">0.4736059</td>
+</tr>
+</tbody>
+</table>
+<p>Number of heads</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 49870</code></pre>
+</div>
+</div>
+</section>
+<section id="take-five" class="level2">
+<h2 class="anchored" data-anchor-id="take-five">Take Five</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">t</th>
+<th style="text-align: right;">result</th>
+<th style="text-align: right;">heads</th>
+<th style="text-align: right;">frequency</th>
+<th style="text-align: right;">prob</th>
+<th style="text-align: right;">distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1005</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">531</td>
+<td style="text-align: right;">0.5283582</td>
+<td style="text-align: right;">0.9663682</td>
+<td style="text-align: right;">0.4663682</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1011</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">0.5281899</td>
+<td style="text-align: right;">0.9659592</td>
+<td style="text-align: right;">0.4659592</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1013</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">535</td>
+<td style="text-align: right;">0.5281343</td>
+<td style="text-align: right;">0.9658227</td>
+<td style="text-align: right;">0.4658227</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1015</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">536</td>
+<td style="text-align: right;">0.5280788</td>
+<td style="text-align: right;">0.9656862</td>
+<td style="text-align: right;">0.4656862</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1004</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">530</td>
+<td style="text-align: right;">0.5278884</td>
+<td style="text-align: right;">0.9640095</td>
+<td style="text-align: right;">0.4640095</td>
+</tr>
+</tbody>
+</table>
+<p>Number of heads</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 50100</code></pre>
+</div>
+</div>
+</section>
+<section id="stopping-rules-1" class="level2">
+<h2 class="anchored" data-anchor-id="stopping-rules-1">Stopping Rules</h2>
+<ul>
+<li>As I said, this is a known bug in significance testing, and every responsible scientist who uses it knows that you aren’t meant to stop just when you get the data you want.</li>
+<li>But there is another kind of problem that we’ve recently discovered the importance of.</li>
+<li>Here I was testing just one hypothesis.</li>
+<li>What if we try to test many more hypotheses at once?</li>
+</ul>
+</section>
+<section id="p-hacking" class="level2">
+<h2 class="anchored" data-anchor-id="p-hacking">P-Hacking</h2>
+<ul>
+<li>This practice is known as <strong>p-hacking</strong>.</li>
+<li>It is the tactic of looking at results within all sorts of sub-groups within the data in the hope of finding a significant correlation somewhere.</li>
+<li>And with enough subgroups, the odds are pretty good that you’ll find one.</li>
+</ul>
+</section>
+<section id="another-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="another-experiment">Another Experiment</h2>
+<ul>
+<li>Here I’m doing 32000 coin flips, but each flip is randomly assigned to either having or not having three different characteristics: C1, C2 and C3.</li>
+<li>In medical contexts, think of these as being like sex, age, race, etc.</li>
+<li>Again, I’m just doing coin flips here.</li>
+<li>And I’m going to run the trials to completion.</li>
+<li>But we’re going to look for significant correlations among each group.</li>
+<li>I’ll walk through three attempts to see how likely it is we get one.</li>
+<li>I haven’t seen the data, so there isn’t commentary on the slides, but it is quite unlikely that we’ll get a significant correlation on the whole set. On the sub-samples though…</li>
+</ul>
+</section>
+<section id="experiment-one" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-one">Experiment One</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">All</td>
+<td style="text-align: right;">15978</td>
+<td style="text-align: right;">32000</td>
+<td style="text-align: right;">0.4050191</td>
+<td style="text-align: right;">0.0949809</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="experiment-one---with-one-characteristic" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-one---with-one-characteristic">Experiment One - With One Characteristic</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Yes C2</td>
+<td style="text-align: right;">7906</td>
+<td style="text-align: right;">15965</td>
+<td style="text-align: right;">0.1144911</td>
+<td style="text-align: right;">0.3855089</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C3</td>
+<td style="text-align: right;">8072</td>
+<td style="text-align: right;">15994</td>
+<td style="text-align: right;">0.8837583</td>
+<td style="text-align: right;">0.3837583</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No C3</td>
+<td style="text-align: right;">8072</td>
+<td style="text-align: right;">16006</td>
+<td style="text-align: right;">0.8640476</td>
+<td style="text-align: right;">0.3640476</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C1</td>
+<td style="text-align: right;">8001</td>
+<td style="text-align: right;">16137</td>
+<td style="text-align: right;">0.1457453</td>
+<td style="text-align: right;">0.3542547</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No C2</td>
+<td style="text-align: right;">8072</td>
+<td style="text-align: right;">16035</td>
+<td style="text-align: right;">0.8074877</td>
+<td style="text-align: right;">0.3074877</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No C1</td>
+<td style="text-align: right;">7977</td>
+<td style="text-align: right;">15863</td>
+<td style="text-align: right;">0.7674443</td>
+<td style="text-align: right;">0.2674443</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+C1+C2</td>
+<td style="text-align: right;">3909</td>
+<td style="text-align: right;">8020</td>
+<td style="text-align: right;">0.0123989</td>
+<td style="text-align: right;">0.4876011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C3+C2</td>
+<td style="text-align: right;">3973</td>
+<td style="text-align: right;">8074</td>
+<td style="text-align: right;">0.0787697</td>
+<td style="text-align: right;">0.4212303</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1-C3</td>
+<td style="text-align: right;">4059</td>
+<td style="text-align: right;">8023</td>
+<td style="text-align: right;">0.8580894</td>
+<td style="text-align: right;">0.3580894</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C2</td>
+<td style="text-align: right;">4092</td>
+<td style="text-align: right;">8117</td>
+<td style="text-align: right;">0.7748037</td>
+<td style="text-align: right;">0.2748037</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1+C3</td>
+<td style="text-align: right;">4043</td>
+<td style="text-align: right;">8154</td>
+<td style="text-align: right;">0.2290522</td>
+<td style="text-align: right;">0.2709478</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C3</td>
+<td style="text-align: right;">3958</td>
+<td style="text-align: right;">7983</td>
+<td style="text-align: right;">0.2300494</td>
+<td style="text-align: right;">0.2699506</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C3-C2</td>
+<td style="text-align: right;">3988</td>
+<td style="text-align: right;">7920</td>
+<td style="text-align: right;">0.7390716</td>
+<td style="text-align: right;">0.2390716</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C3-C2</td>
+<td style="text-align: right;">4084</td>
+<td style="text-align: right;">8115</td>
+<td style="text-align: right;">0.7255607</td>
+<td style="text-align: right;">0.2255607</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2</td>
+<td style="text-align: right;">3997</td>
+<td style="text-align: right;">7945</td>
+<td style="text-align: right;">0.7125823</td>
+<td style="text-align: right;">0.2125823</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2</td>
+<td style="text-align: right;">3980</td>
+<td style="text-align: right;">7918</td>
+<td style="text-align: right;">0.6855351</td>
+<td style="text-align: right;">0.1855351</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C3+C2</td>
+<td style="text-align: right;">3933</td>
+<td style="text-align: right;">7891</td>
+<td style="text-align: right;">0.3935138</td>
+<td style="text-align: right;">0.1064862</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1+C3</td>
+<td style="text-align: right;">3918</td>
+<td style="text-align: right;">7840</td>
+<td style="text-align: right;">0.4864859</td>
+<td style="text-align: right;">0.0135141</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+C1+C2+C3</td>
+<td style="text-align: right;">2014</td>
+<td style="text-align: right;">4153</td>
+<td style="text-align: right;">0.0271609</td>
+<td style="text-align: right;">0.4728391</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C2-C3</td>
+<td style="text-align: right;">1895</td>
+<td style="text-align: right;">3867</td>
+<td style="text-align: right;">0.1108219</td>
+<td style="text-align: right;">0.3891781</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1-C2+C3</td>
+<td style="text-align: right;">2029</td>
+<td style="text-align: right;">4001</td>
+<td style="text-align: right;">0.8204137</td>
+<td style="text-align: right;">0.3204137</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1+C2-C3</td>
+<td style="text-align: right;">2038</td>
+<td style="text-align: right;">4024</td>
+<td style="text-align: right;">0.7982806</td>
+<td style="text-align: right;">0.2982806</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1-C2-C3</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">3999</td>
+<td style="text-align: right;">0.7567169</td>
+<td style="text-align: right;">0.2567169</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C2-C3</td>
+<td style="text-align: right;">2063</td>
+<td style="text-align: right;">4116</td>
+<td style="text-align: right;">0.5680664</td>
+<td style="text-align: right;">0.0680664</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2+C3</td>
+<td style="text-align: right;">1959</td>
+<td style="text-align: right;">3921</td>
+<td style="text-align: right;">0.4872603</td>
+<td style="text-align: right;">0.0127397</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2+C3</td>
+<td style="text-align: right;">1959</td>
+<td style="text-align: right;">3919</td>
+<td style="text-align: right;">0.5000000</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="experiment-two" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-two">Experiment Two</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">All</td>
+<td style="text-align: right;">16212</td>
+<td style="text-align: right;">32000</td>
+<td style="text-align: right;">0.9912457</td>
+<td style="text-align: right;">0.4912457</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="experiment-two---with-one-characteristic" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-two---with-one-characteristic">Experiment Two - With One Characteristic</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No C3</td>
+<td style="text-align: right;">8152</td>
+<td style="text-align: right;">15961</td>
+<td style="text-align: right;">0.9967651</td>
+<td style="text-align: right;">0.4967651</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C1</td>
+<td style="text-align: right;">8158</td>
+<td style="text-align: right;">16021</td>
+<td style="text-align: right;">0.9903221</td>
+<td style="text-align: right;">0.4903221</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No C2</td>
+<td style="text-align: right;">8152</td>
+<td style="text-align: right;">16027</td>
+<td style="text-align: right;">0.9859531</td>
+<td style="text-align: right;">0.4859531</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C3</td>
+<td style="text-align: right;">8152</td>
+<td style="text-align: right;">16039</td>
+<td style="text-align: right;">0.9821529</td>
+<td style="text-align: right;">0.4821529</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yes C2</td>
+<td style="text-align: right;">8060</td>
+<td style="text-align: right;">15973</td>
+<td style="text-align: right;">0.8792073</td>
+<td style="text-align: right;">0.3792073</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">No C1</td>
+<td style="text-align: right;">8054</td>
+<td style="text-align: right;">15979</td>
+<td style="text-align: right;">0.8481228</td>
+<td style="text-align: right;">0.3481228</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+C3-C2</td>
+<td style="text-align: right;">4135</td>
+<td style="text-align: right;">8031</td>
+<td style="text-align: right;">0.9962998</td>
+<td style="text-align: right;">0.4962998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C3</td>
+<td style="text-align: right;">4099</td>
+<td style="text-align: right;">7999</td>
+<td style="text-align: right;">0.9873340</td>
+<td style="text-align: right;">0.4873340</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1-C2</td>
+<td style="text-align: right;">4113</td>
+<td style="text-align: right;">8046</td>
+<td style="text-align: right;">0.9781998</td>
+<td style="text-align: right;">0.4781998</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C3+C2</td>
+<td style="text-align: right;">4059</td>
+<td style="text-align: right;">7965</td>
+<td style="text-align: right;">0.9577891</td>
+<td style="text-align: right;">0.4577891</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1+C2</td>
+<td style="text-align: right;">4045</td>
+<td style="text-align: right;">7975</td>
+<td style="text-align: right;">0.9030212</td>
+<td style="text-align: right;">0.4030212</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2</td>
+<td style="text-align: right;">4039</td>
+<td style="text-align: right;">7981</td>
+<td style="text-align: right;">0.8636747</td>
+<td style="text-align: right;">0.3636747</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1-C3</td>
+<td style="text-align: right;">4059</td>
+<td style="text-align: right;">8022</td>
+<td style="text-align: right;">0.8605973</td>
+<td style="text-align: right;">0.3605973</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C3</td>
+<td style="text-align: right;">4017</td>
+<td style="text-align: right;">7939</td>
+<td style="text-align: right;">0.8593559</td>
+<td style="text-align: right;">0.3593559</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C3-C2</td>
+<td style="text-align: right;">4017</td>
+<td style="text-align: right;">7996</td>
+<td style="text-align: right;">0.6686319</td>
+<td style="text-align: right;">0.1686319</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1+C3</td>
+<td style="text-align: right;">4037</td>
+<td style="text-align: right;">8040</td>
+<td style="text-align: right;">0.6518551</td>
+<td style="text-align: right;">0.1518551</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2</td>
+<td style="text-align: right;">4015</td>
+<td style="text-align: right;">7998</td>
+<td style="text-align: right;">0.6439339</td>
+<td style="text-align: right;">0.1439339</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C3+C2</td>
+<td style="text-align: right;">4001</td>
+<td style="text-align: right;">8008</td>
+<td style="text-align: right;">0.4777214</td>
+<td style="text-align: right;">0.0222786</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+C1-C2+C3</td>
+<td style="text-align: right;">2093</td>
+<td style="text-align: right;">4032</td>
+<td style="text-align: right;">0.9926822</td>
+<td style="text-align: right;">0.4926822</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2+C3</td>
+<td style="text-align: right;">2042</td>
+<td style="text-align: right;">3999</td>
+<td style="text-align: right;">0.9130808</td>
+<td style="text-align: right;">0.4130808</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2-C3</td>
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">3957</td>
+<td style="text-align: right;">0.9091233</td>
+<td style="text-align: right;">0.4091233</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C2-C3</td>
+<td style="text-align: right;">2039</td>
+<td style="text-align: right;">4008</td>
+<td style="text-align: right;">0.8689611</td>
+<td style="text-align: right;">0.3689611</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2+C3</td>
+<td style="text-align: right;">1995</td>
+<td style="text-align: right;">4041</td>
+<td style="text-align: right;">0.2157749</td>
+<td style="text-align: right;">0.2842251</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C2+C3</td>
+<td style="text-align: right;">2006</td>
+<td style="text-align: right;">3967</td>
+<td style="text-align: right;">0.7674075</td>
+<td style="text-align: right;">0.2674075</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1-C2-C3</td>
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">4014</td>
+<td style="text-align: right;">0.6650026</td>
+<td style="text-align: right;">0.1650026</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2-C3</td>
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">3982</td>
+<td style="text-align: right;">0.5816077</td>
+<td style="text-align: right;">0.0816077</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="experiment-three" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-three">Experiment Three</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">All</td>
+<td style="text-align: right;">15876</td>
+<td style="text-align: right;">32000</td>
+<td style="text-align: right;">0.083674</td>
+<td style="text-align: right;">0.416326</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="experiment-three---with-one-characteristic" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-three---with-one-characteristic">Experiment Three - With One Characteristic</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">No C1</td>
+<td style="text-align: right;">7953</td>
+<td style="text-align: right;">16151</td>
+<td style="text-align: right;">0.0274304</td>
+<td style="text-align: right;">0.4725696</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C2</td>
+<td style="text-align: right;">7925</td>
+<td style="text-align: right;">16054</td>
+<td style="text-align: right;">0.0545593</td>
+<td style="text-align: right;">0.4454407</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No C3</td>
+<td style="text-align: right;">7951</td>
+<td style="text-align: right;">16013</td>
+<td style="text-align: right;">0.1923491</td>
+<td style="text-align: right;">0.3076509</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C3</td>
+<td style="text-align: right;">7951</td>
+<td style="text-align: right;">15987</td>
+<td style="text-align: right;">0.2532343</td>
+<td style="text-align: right;">0.2467657</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No C2</td>
+<td style="text-align: right;">7951</td>
+<td style="text-align: right;">15946</td>
+<td style="text-align: right;">0.3667331</td>
+<td style="text-align: right;">0.1332669</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yes C1</td>
+<td style="text-align: right;">7923</td>
+<td style="text-align: right;">15849</td>
+<td style="text-align: right;">0.4936625</td>
+<td style="text-align: right;">0.0063375</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">-C3+C2</td>
+<td style="text-align: right;">3963</td>
+<td style="text-align: right;">8082</td>
+<td style="text-align: right;">0.0423382</td>
+<td style="text-align: right;">0.4576618</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1+C2</td>
+<td style="text-align: right;">3956</td>
+<td style="text-align: right;">8065</td>
+<td style="text-align: right;">0.0452675</td>
+<td style="text-align: right;">0.4547325</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C3</td>
+<td style="text-align: right;">4005</td>
+<td style="text-align: right;">8135</td>
+<td style="text-align: right;">0.0845931</td>
+<td style="text-align: right;">0.4154069</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C3</td>
+<td style="text-align: right;">3948</td>
+<td style="text-align: right;">8016</td>
+<td style="text-align: right;">0.0919005</td>
+<td style="text-align: right;">0.4080995</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1-C2</td>
+<td style="text-align: right;">3997</td>
+<td style="text-align: right;">8086</td>
+<td style="text-align: right;">0.1557723</td>
+<td style="text-align: right;">0.3442277</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C3</td>
+<td style="text-align: right;">3960</td>
+<td style="text-align: right;">7997</td>
+<td style="text-align: right;">0.1977007</td>
+<td style="text-align: right;">0.3022993</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1+C3</td>
+<td style="text-align: right;">3963</td>
+<td style="text-align: right;">7852</td>
+<td style="text-align: right;">0.8013320</td>
+<td style="text-align: right;">0.3013320</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C2</td>
+<td style="text-align: right;">3969</td>
+<td style="text-align: right;">7989</td>
+<td style="text-align: right;">0.2879452</td>
+<td style="text-align: right;">0.2120548</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1-C2</td>
+<td style="text-align: right;">3954</td>
+<td style="text-align: right;">7860</td>
+<td style="text-align: right;">0.7097621</td>
+<td style="text-align: right;">0.2097621</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C3+C2</td>
+<td style="text-align: right;">3962</td>
+<td style="text-align: right;">7972</td>
+<td style="text-align: right;">0.2993072</td>
+<td style="text-align: right;">0.2006928</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C3-C2</td>
+<td style="text-align: right;">3945</td>
+<td style="text-align: right;">7931</td>
+<td style="text-align: right;">0.3266614</td>
+<td style="text-align: right;">0.1733386</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C3-C2</td>
+<td style="text-align: right;">4006</td>
+<td style="text-align: right;">8015</td>
+<td style="text-align: right;">0.4910886</td>
+<td style="text-align: right;">0.0089114</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Characteristic</th>
+<th style="text-align: right;">Heads</th>
+<th style="text-align: right;">Trials</th>
+<th style="text-align: right;">Probability</th>
+<th style="text-align: right;">Distance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2-C3</td>
+<td style="text-align: right;">1959</td>
+<td style="text-align: right;">4032</td>
+<td style="text-align: right;">0.0375656</td>
+<td style="text-align: right;">0.4624344</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C2+C3</td>
+<td style="text-align: right;">1998</td>
+<td style="text-align: right;">3913</td>
+<td style="text-align: right;">0.9103419</td>
+<td style="text-align: right;">0.4103419</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1-C2+C3</td>
+<td style="text-align: right;">2008</td>
+<td style="text-align: right;">4102</td>
+<td style="text-align: right;">0.0922256</td>
+<td style="text-align: right;">0.4077744</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1+C2-C3</td>
+<td style="text-align: right;">2004</td>
+<td style="text-align: right;">4050</td>
+<td style="text-align: right;">0.2597083</td>
+<td style="text-align: right;">0.2402917</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">-C1+C2+C3</td>
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">4033</td>
+<td style="text-align: right;">0.2747993</td>
+<td style="text-align: right;">0.2252007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+C1-C2-C3</td>
+<td style="text-align: right;">1956</td>
+<td style="text-align: right;">3947</td>
+<td style="text-align: right;">0.2941930</td>
+<td style="text-align: right;">0.2058070</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+C1+C2+C3</td>
+<td style="text-align: right;">1965</td>
+<td style="text-align: right;">3939</td>
+<td style="text-align: right;">0.4492865</td>
+<td style="text-align: right;">0.0507135</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-C1-C2-C3</td>
+<td style="text-align: right;">1989</td>
+<td style="text-align: right;">3984</td>
+<td style="text-align: right;">0.4684313</td>
+<td style="text-align: right;">0.0315687</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="pre-registration" class="level2">
+<h2 class="anchored" data-anchor-id="pre-registration">Pre-Registration</h2>
+<ul>
+<li>The solution to this problem (which I hope the numbers came out right on!) is to require that scientists <strong>pre-register</strong> their hypotheses.</li>
+<li>So you can’t collect data then see what it supports, but have to say that one particular thing is what you’re testing.</li>
+<li>This is still in the process of becoming a universal requirement in respectable science; it was very much not part of standard scientific practice 10-20 years ago.</li>
+</ul>
+</section>
+<section id="philosophical-question" class="level2">
+<h2 class="anchored" data-anchor-id="philosophical-question">Philosophical Question</h2>
+<ul>
+<li>Should we trust a method if it requires these ad hoc rules like announced stopping rules and pre-registration? </li>
+<li>Maybe! It depends on the alternatives.</li>
+<li>But when you see a report on a statistical finding, you should really check if it satisfies these conditions.</li>
+<li>And if it comes from a for-profit entity, you should be really sceptical that it does unless they are super transparent.</li>
+</ul>
+</section>
+<section id="for-next-time" class="level2">
+<h2 class="anchored" data-anchor-id="for-next-time">For Next Time</h2>
+<p>We’ll start looking at modal logic, the logic of ‘must’ and ‘might’.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

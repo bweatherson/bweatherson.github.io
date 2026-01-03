@@ -1,0 +1,818 @@
+---
+title: "Truth Trees"
+date: "1/26/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+        scrollable: true
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Introducing Trees
+
+## Overview
+
+This section introduces a new way of testing for validity - truth trees.
+
+### Associated Reading
+
+Boxes and Diamonds, section 2.1
+
+## What Tableaux Are
+
+- A way for determining whether some combinations are logically possible.
+- That can be used for determining whether some arguments are valid - if the truth of the premises and the falsity of the conclusion is not logically possible; then the argument is valid.
+
+## Structure
+
+- Start out writing the things you care about.\pause
+- Each time one of those things implies that some other things must be the case, write those down too.
+- For example, if you write down that $A \wedge B$ is true, also write down that $A$ is true and that $B$ is true. \pause
+- Each time there are multiple ways to make something you've written true, create multiple branches for those ways.
+- For example, if you write down that $A \vee B$ is true, create a branch where $A$ is true, and a branch where $B$ is true.
+
+## Closing
+
+::: {.incremental}
+- A branch of a tableau is closed if it contains that some particular claim has incompatible truth values.
+- For now, this means that one sentence is both true and false.
+- The whole tableau is closed if every branch is closed.
+:::
+
+## What Closure Means
+
+- If the tableau is closed, then the initial assumptions cannot be true together.
+- If you are evaluating an argument, this means that the argument is valid.
+
+. . .
+
+If you start the tableau by just saying that one sentence is false, the closure of the tableau means that that sentence is a logical truth.
+
+## Benefits of Tableaux
+
+Tableaux have two big benefits over truth tables.
+
+::: {.incremental}
+1. They don't grow exponentially when you increase the number of variables.
+2. They can be generalised to things beyond propositional logic.
+:::
+
+. . .
+
+We are introducing them here because of point 2.
+
+## Open Tableaux
+
+Here is something the book doesn't make a big deal of, but is kind of important.
+
+- A closed tableau can show that an argument is valid.
+- An open **and completed** tableau can show that an argument is invalid.
+
+## Open Tableaux
+
+- The trick here is that it's hard to tell when a tableau is completed in the relevant sense.
+- This will be easier to illustrate in practice than in theory, so let's start building tableau up.
+
+## Signs
+
+The system we are using is what is called a **signed tableau** system.
+
+- That means that every line consists of two parts.
+- The bigger, second, part is a sentence.
+- The first part is a **sign**, which for now is a truth value.
+- That is, it is either $\mathbb{T}$ or $\mathbb{F}$.
+
+## What Lines Mean
+
+So each line either says that a particular sentence is true, or says that it is false.
+
+- The book for some reason includes the word 'might' here.
+- That's misleading; what they should say is that each line says what is true given (a) the starting assumptions and (b) the assumptions we made for branching purposes.
+
+## Numbering And Annotation
+
+The system we're using also has two other distinctive features.
+
+::: {.incremental}
+1. We number each of the lines.
+2. We list why we're writing down each line to the right of the tree.
+:::
+
+Both of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren't well defined conventions for how to write these things out.
+
+# Rules
+
+## Overview
+
+This section introduces the rules we use for building up truth trees.
+
+### Associated Reading
+
+Boxes and Diamonds, sections 2.2-2.3.
+
+## What Rules Do
+
+The rules tell you what new lines to write down given the lines you've already got.
+
+- To some extent they simply have to be memorised.
+- But hopefully they are all (except for the rules about $\rightarrow$) fairly intuitive.
+
+## Rules for $\neg$
+
+::: {.columns}
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\True}{\neg A}, 
+	[\sFmla{\False}{A}, just = {\TRule{\True}{\neg}[1]}]
+]
+\end{oltableau}
+
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for true negation rule](../images/tableaux/05-01.svg){width="600px"}
+:::::
+::::
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\False}{\neg A}, 
+	[\sFmla{\True}{A}, just = {\TRule{\False}{\neg}[1]}]
+]
+\end{oltableau}
+
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for false negation rule](../images/tableaux/05-02.svg){width="600px"}
+:::::
+
+::::
+:::
+
+## Rules for $\neg$
+
+- Note that the line numbers are just for illustration, and are arbitrary in two senses.
+- First, you apply the rule wherever a sentence like $\neg A$ appears, not just at line 1.
+- Second, you don't need to apply the rules immediately, so the successor line could come later than 2.
+
+## Rule for true $\wedge$ sentence
+
+\begin{oltableau}
+[\sFmla{\True}{A \wedge B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\True}{\wedge}[1]}
+	  [\sFmla{\True}{B}, just = {\TRule{\True}{\wedge}[1]}]
+	]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for true conjunction rule](../images/tableaux/05-03.svg){width="600px"}
+:::
+
+## Rule for true $\wedge$ sentence
+
+When you have a true $\wedge$ sentence, you can write down that the sentences either side of it are true.
+
+
+## Rule for true $\vee$ sentence
+
+\begin{oltableau}
+[\sFmla{\True}{A \vee B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\True}{\vee}[1]}]
+	[\sFmla{\True}{B}, just = {\TRule{\True}{\vee}[1]}]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for true disjunction rule](../images/tableaux/05-04.svg){width="600px" .no-stretch}
+:::
+
+## Rule for true $\vee$ sentence
+
+- When you have a true $\vee$ sentence, you create two **branches**.
+- The way to read the tree is that at least one of the branches must be all true. \pause
+- The 'trunk' above the branching (in this case just line 1), is part of both branches.
+- Branches are inclusive; you are saying that at least one branch is true, not that precisely one is.
+
+## Rule for false $\wedge$ sentence
+
+\begin{oltableau}
+[\sFmla{\False}{A \wedge B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\False}{\wedge}[1]}]
+	[\sFmla{\False}{B}, just = {\TRule{\False}{\wedge}[1]}]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for false conjunction rule](../images/tableaux/05-05.svg){width="600px"}
+:::
+
+## Rule for false $\wedge$ sentence
+
+- If an $\wedge$ sentence is false, then we know that one or other (or both) of the sides are false.
+- So we create two branches, one where each side is false.
+
+## Rule for false $\vee$ sentence
+
+\begin{oltableau}
+[\sFmla{\False}{A \vee B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\False}{\vee}[1]}
+	  [\sFmla{\False}{B}, just = {\TRule{\False}{\vee}[1]}]
+	]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for false disjunction rule](../images/tableaux/05-06.svg){width="600px" .no-stretch}
+:::
+
+## Rule for false $\vee$ sentence
+
+When you have a false $\vee$ sentence, you know that each side is false, so you write down that they are both false.
+
+## Justifying the rule for false $\vee$ sentences
+
+Recall the truth table for $\vee$
+
+| A | B |   | A | $\vee$ | B |
+|---|---|---|---|--------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ |   | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ |   | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ |   | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ |   | $\mathbb{F}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+
+: Truth table for $\vee$ {#tbl-or}
+
+- The only line where the whole sentence is $\color{red}{\mathbb{F}}$ is line 4. 
+- So if a $\vee$ sentence is $\color{red}{\mathbb{F}}$, we know that we're on line 4.
+- And on line 4, both $A$ and $B$ are false.
+
+## Rule for false $\rightarrow$ sentence
+
+\begin{oltableau}
+[\sFmla{\False}{A \rightarrow B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\False}{\rightarrow}[1]}
+	  [\sFmla{\False}{B}, just = {\TRule{\False}{\rightarrow}[1]}]
+	]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for false conditional rule](../images/tableaux/05-07.svg){width="600px"}
+:::
+
+## Rule for false $\rightarrow$ sentence
+
+When you have a false $\rightarrow$ sentence, you know that the left side is true and the right side is false, so you write those things down.
+
+## Justifying the rule for false $\rightarrow$ sentences
+
+Recall the truth table for $\rightarrow$
+
+| A | B |   | A | $\rightarrow$ | B |
+|---|---|---|---|--------|---|
+| $\mathbb{T}$ | $\mathbb{T}$ |   | $\mathbb{T}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ |   | $\mathbb{T}$ | $\color{red}{\mathbb{F}}$ | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ |   | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ |   | $\mathbb{F}$ | $\color{red}{\mathbb{T}}$ | $\mathbb{F}$ |
+
+: Truth table for $\rightarrow$
+
+- The only line where the whole sentence is <span style="color: red;">$\mathbb{F}$</span> is line 2. 
+- So if a $\rightarrow$ sentence is <span style="color: red;">$\mathbb{F}$</span>, we know that we're on line 2.
+- And on line 2,$A$ is true and $B$ are false.
+
+## Rule for true $\rightarrow$ sentence
+
+\begin{oltableau}
+[\sFmla{\True}{A \rightarrow B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\True}{\rightarrow}[1]}]
+	[\sFmla{\True}{B}, just = {\TRule{\True}{\rightarrow}[1]}]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for true conditional rule](../images/tableaux/05-08.svg){width="600px"}
+:::
+
+## Rule for true $\rightarrow$ sentence
+
+- When you have a true $\rightarrow$ sentence, you create two **branches**.
+- On the first, $A$ is false. That covers lines 3 and 4 of the truth table.
+- On the second, $B$ is true. That covers lines 1 and 3 of the truth table.
+- Between them, they cover lines 1, 3 and 4 of the truth table.
+- And those are the lines where $A \rightarrow B$ is true.
+
+# Examples
+
+## Overview
+
+This section works through some examples of using tableaux.
+
+## Example 1: Showing a Tautology
+
+Let's show that $(P \rightarrow Q) \vee (Q \rightarrow P)$ is a tautology.
+
+- You might remember this from last time - we showed it was a tautology using a truth table.
+- Now we'll use a tableau instead.
+
+## Strategy
+
+To show a sentence is a tautology using tableaux:
+
+::: {.incremental}
+- Start by assuming the sentence is **false**.
+- If the tableau closes, then it's impossible for the sentence to be false.
+- Remember, a tableau closes if every branch has at least one inconsistency.
+- If the tableau closes, the sentence must be true - it's a tautology.
+:::
+
+## Building the Tree
+
+We start by writing that $(P \rightarrow Q) \vee (Q \rightarrow P)$ is false.
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Starting the tree](../images/tableaux/05-09.svg){width="600px"}
+:::
+
+## Applying the False $\vee$ Rule
+
+Since we have a false disjunction, we know both disjuncts must be false.
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying false disjunction rule](../images/tableaux/05-10.svg){width="600px"}
+:::
+
+## Applying the False $\rightarrow$ Rule (First Time)
+
+When a conditional is false, the antecedent is true and the consequent is false.
+
+So from $\mathbb{F}(P \rightarrow Q)$, we get $\mathbb{T}P$ and $\mathbb{F}Q$.
+
+## Applying the False $\rightarrow$ Rule (First Time)
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+        [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After first false conditional rule](../images/tableaux/05-11.svg){width="600px"}
+:::
+
+## Applying the False $\rightarrow$ Rule (Second Time)
+
+Now we apply the same rule to $\mathbb{F}(Q \rightarrow P)$ on line 3.
+
+This gives us $\mathbb{T}Q$ and $\mathbb{F}P$.
+
+## Applying the False $\rightarrow$ Rule (Second Time)
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+        [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+          [\sFmla{\True}{Q}, just = {\TRule{\False}{\rightarrow}[3]}
+            [\sFmla{\False}{P}, just = {\TRule{\False}{\rightarrow}[3]}]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Complete tree](../images/tableaux/05-12.svg){width="600px"}
+:::
+
+## The Tree Closes
+
+Notice what we have now:
+
+- Line 4: $\mathbb{T}P$
+- Line 7: $\mathbb{F}P$
+- Line 5: $\mathbb{F}Q$  
+- Line 6: $\mathbb{T}Q$
+
+. . .
+
+Both $P$ and $Q$ have incompatible truth values. The branch closes. (NB: We only need one inconsistency, even though we have two here.)
+
+## What This Means
+
+::: {.incremental}
+- We started by assuming $(P \rightarrow Q) \vee (Q \rightarrow P)$ is false.
+- Every possible way to make it false led to a contradiction.
+- Therefore, it **cannot** be false.
+- This means it's a tautology - it must always be true.
+:::
+
+## Comparison to Truth Tables
+
+- With a truth table, we had to check 4 rows.
+- With the tableau, we just followed the logical implications.
+- For more complex sentences (with 3+ variables), tableaux can be much more efficient.
+- They don't grow exponentially like truth tables do.
+
+## Example 2: Showing a Contradiction
+
+Let's show that $((P \vee Q) \wedge \neg P) \wedge \neg Q$ is a contradiction.
+
+- A contradiction is a sentence that can never be true.
+- We'll use a tableau to demonstrate this.
+
+## Strategy
+
+To show a sentence is a contradiction using tableaux:
+
+::: {.incremental}
+- Start by assuming the sentence is **true**.
+- If the tableau closes, then it's impossible for the sentence to be true.
+- That means the sentence must be false - it's a contradiction.
+:::
+
+## Building the Tree
+
+We start by writing that $((P \vee Q) \wedge \neg P) \wedge \neg Q$ is true.
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Starting the tree](../images/tableaux/05-13.svg){width="600px"}
+:::
+
+## Applying the True $\wedge$ Rule
+
+Since we have a true conjunction, both conjuncts must be true.
+
+So we get $\mathbb{T}((P \vee Q) \wedge \neg P)$ and $\mathbb{T}\neg Q$.
+
+## Applying the True $\wedge$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying true conjunction rule](../images/tableaux/05-14.svg){width="600px"}
+:::
+
+## Applying the True $\wedge$ Rule Again
+
+Now we apply the rule to $\mathbb{T}((P \vee Q) \wedge \neg P)$ from line 2.
+
+This gives us $\mathbb{T}(P \vee Q)$ and $\mathbb{T}\neg P$.
+
+## Applying the True $\wedge$ Rule Again
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying true conjunction rule twice](../images/tableaux/05-15.svg){width="600px"}
+:::
+
+## Applying the True $\neg$ Rules
+
+From $\mathbb{T}\neg P$ we get $\mathbb{F}P$, and from $\mathbb{T}\neg Q$ we get $\mathbb{F}Q$.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}
+          [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}
+            [\sFmla{\False}{Q}, just = {\TRule{\True}{\neg}[3]}]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying negation rules](../images/tableaux/05-16.svg){width="600px"}
+:::
+
+## Applying the True $\vee$ Rule
+
+Now we need to apply the rule for $\mathbb{T}(P \vee Q)$ from line 4.
+
+This creates two branches - one where $P$ is true, one where $Q$ is true.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}
+          [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}
+            [\sFmla{\False}{Q}, just = {\TRule{\True}{\neg}[3]}
+              [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[4]}]
+              [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[4]}]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Complete tree with branches](../images/tableaux/05-17.svg){width="600px"}
+:::
+
+## Both Branches Close
+
+Look at what we have on each branch:
+
+**Left branch:**
+- Line 6: $\mathbb{F}P$
+- Line 8: $\mathbb{T}P$
+
+. . .
+
+**Right branch:**
+- Line 7: $\mathbb{F}Q$
+- Line 8: $\mathbb{T}Q$
+
+. . .
+
+**Both** branches have contradictions. The entire tableau closes.
+
+## What This Means
+
+::: {.incremental}
+- We started by assuming $((P \vee Q) \wedge \neg P) \wedge \neg Q$ is true
+- We tried every possible way to make it true (both branches)
+- Every possibility led to a contradiction
+- Therefore, the sentence **cannot** be true - it's a contradiction
+:::
+
+## Understanding the Result
+
+This result makes intuitive sense:
+
+- $(P \vee Q)$ says at least one of $P$ or $Q$ is true
+- $\neg P$ says $P$ is false
+- $\neg Q$ says $Q$ is false
+- You can't have at least one true when both are false.
+
+The tableau just systematically revealed this inconsistency.
+
+## Example 3: Showing a Contingent Sentence
+
+Let's show that $P \wedge (P \rightarrow Q)$ is neither a tautology nor a contradiction.
+
+- A contingent sentence is one that could be true or false.
+- We'll use two tableaux to demonstrate this.
+
+## Strategy
+
+To show a sentence is contingent:
+
+::: {.incremental}
+- First, try to show it's a tautology (start with it false)
+- If that tableau stays open, it's not a tautology
+- Then, try to show it's a contradiction (start with it true)
+- If that tableau also stays open, it's not a contradiction
+- If both tableaux are open, the sentence is contingent
+:::
+
+## First Tree: Is It a Tautology?
+
+We start by assuming $P \wedge (P \rightarrow Q)$ is **false**.
+
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Starting the first tree](../images/tableaux/05-18.svg){width="600px"}
+:::
+
+## Applying the False $\wedge$ Rule
+
+Since we have a false conjunction, at least one conjunct must be false.
+
+This creates two branches.
+
+## Applying the False $\wedge$ Rule
+
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\False}{P}, just = {\TRule{\False}{\wedge}[1]}]
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\wedge}[1]}]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying false conjunction rule](../images/tableaux/05-19.svg){width="600px"}
+:::
+
+## Left Branch: Already Complete
+
+The left branch just has $\mathbb{F}P$.
+
+- This doesn't contradict anything.
+- We can't apply any more rules to it.
+- So this branch is **complete and open**.
+
+## Right Branch: Applying False $\rightarrow$ Rule
+
+On the right branch, we have $\mathbb{F}(P \rightarrow Q)$.
+
+When a conditional is false, the antecedent is true and the consequent is false.
+
+## Right Branch: Applying False $\rightarrow$ Rule
+
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\False}{P}, just = {\TRule{\False}{\wedge}[1]}]
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\wedge}[1]}
+    [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+      [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Complete first tree](../images/tableaux/05-20.svg){width="600px"}
+:::
+
+## Right Branch: Also Complete and Open
+
+The right branch has $\mathbb{F}(P \rightarrow Q)$, $\mathbb{T}P$, and $\mathbb{F}Q$.
+
+- These don't contradict each other.
+- We can't apply any more rules.
+- So this branch is also **complete and open**.
+
+## What the First Tree Shows
+
+::: {.incremental}
+- We assumed $P \wedge (P \rightarrow Q)$ is false.
+- The tableau has open branches.
+- This means it **is** possible for the sentence to be false.
+- Therefore, it's **not a tautology**.
+:::
+
+## Second Tree: Is It a Contradiction?
+
+Now we start by assuming $P \wedge (P \rightarrow Q)$ is **true**.
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Starting the second tree](../images/tableaux/05-21.svg){width="600px"}
+:::
+
+## Applying the True $\wedge$ Rule
+
+Since we have a true conjunction, both conjuncts must be true.
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{P \rightarrow Q}, just = {\TRule{\True}{\wedge}[1]}]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying true conjunction rule](../images/tableaux/05-22.svg){width="600px"}
+:::
+
+## Applying the True $\rightarrow$ Rule
+
+Now we apply the rule for $\mathbb{T}(P \rightarrow Q)$ from line 3.
+
+This creates two branches - one where $P$ is false, one where $Q$ is true.
+
+## Applying the True $\rightarrow$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{P \rightarrow Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[3]}]
+      [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[3]}]
+    ]
+  ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Complete second tree](../images/tableaux/05-23.svg){width="600px"}
+:::
+
+## Analyzing the Second Tree
+
+::: {.columns}
+
+:::: {.column}
+**Left branch:**
+
+- Line 2: $\mathbb{T}P$
+- Line 4: $\mathbb{F}P$
+- This branch **closes**.
+
+::::
+
+:::: {.column}
+**Right branch:**
+
+- Line 2: $\mathbb{T}P$
+- Line 4: $\mathbb{T}Q$
+- These don't contradict anything.
+- This branch is **complete and open**.
+::::
+:::
+
+## What the Second Tree Shows
+
+::: {.incremental}
+- We assumed $P \wedge (P \rightarrow Q)$ is true.
+- The tableau has an open branch.
+- This means it **is** possible for the sentence to be true.
+- Therefore, it's **not a contradiction**.
+:::
+
+## Conclusion
+
+Since $P \wedge (P \rightarrow Q)$:
+
+::: {.incremental}
+- Is not a tautology (first tree has open branches),
+- Is not a contradiction (second tree has an open branch),
+- It must be **contingent** - sometimes true, sometimes false.
+:::
+
+. . .
+
+The open branches actually show us **when** it's true or false:
+
+- It's false when $P$ is false (first tree, left branch)
+- It's true when both $P$ and $Q$ are true (second tree, right branch).
+
+## Comparison to Truth Tables
+
+::: {.incremental}
+- A **tautology** has a T under the main connective in every row.
+- A **contradiction** has an F under the main connective in every row.
+- A **contingent** sentence has a mixture Ts and Fs under the main connective.
+:::
+
+## For Next Time
+
+We'll use trees to test for validity.
+
+Remember there is no lecture on Wednesday, but there is a discussion section.

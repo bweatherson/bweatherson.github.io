@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+        [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+          [\sFmla{\True}{Q}, just = {\TRule{\False}{\rightarrow}[3]}
+            [\sFmla{\False}{P}, just = {\TRule{\False}{\rightarrow}[3]}]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\end{document}

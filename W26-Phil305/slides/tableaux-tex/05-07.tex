@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\False}{A \rightarrow B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\False}{\rightarrow}[1]}
+	  [\sFmla{\False}{B}, just = {\TRule{\False}{\rightarrow}[1]}]
+	]
+]
+\end{oltableau}
+
+\end{document}

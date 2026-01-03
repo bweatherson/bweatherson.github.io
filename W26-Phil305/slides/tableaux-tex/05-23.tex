@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{P \rightarrow Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[3]}]
+      [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[3]}]
+    ]
+  ]
+]
+\end{oltableau}
+
+
+\end{document}
