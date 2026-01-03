@@ -4,8 +4,6 @@ date: "1/26/2026"
 format:
     revealjs:
         css: lecture-03-custom-tables.css
-        scrollable: true
-        auto-stretch: false
     beamer:
         include-in-header: 305-beamer-header-minimal.tex
 ---

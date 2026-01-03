@@ -48,9 +48,6 @@
 
 @import url('https://cdn.jsdelivr.net/npm/firamath@0.3.4/firamath.css');
 
-.reveal .MathJax,
-.reveal .MathJax_Display,
-.reveal .mjx-math,
-.reveal mjx-container {
+mjx-container {
   font-family: "Fira Math", sans-serif !important;
 }
