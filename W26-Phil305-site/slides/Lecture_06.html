@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2026-01-26">
-  <title>Truth Trees</title>
+  <meta name="dcterms.date" content="2026-02-02">
+  <title>Trees and Validity</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,25 +130,918 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Truth Trees</h1>
+  <h1 class="title">Trees and Validity</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-01-26</p>
+  <p class="date">2026-02-02</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Review: Tableaux Basics</h1>
+
 </section>
 <section class="slide level2">
-<h2>Building the Tree</h2>
-<p>We start by writing that <span class="math inline">\((P \rightarrow Q) \vee (Q \rightarrow P)\)</span> is false.</p>
+<h2>What We’re Reviewing</h2>
+<p>Before we move on to using tableaux for validity testing, let’s review the basics of them, including:</p>
+<ul>
+<li>What tableaux are;</li>
+<li>The rules for building them;</li>
+<li>What it means for a branch to close;</li>
+<li>What it means for a whole tableau to close</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Core Idea</h2>
+<p>Tableaux systematically explore what has to be the case for some sentences to be true together.</p>
+<p>So far we’ve only done this for a single sentence, today we’ll expand this to multiple sentences.</p>
+<ul>
+<li>We start by writing down our initial sentences with truth values (signs). Call these our assumptions.</li>
+<li>We apply rules that tell us what else must be true given those assumptions.</li>
+<li>If every way of making the assumptions true leads to a contradiction, the assumptions cannot all be true together.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Rules: Overview</h2>
+<p>Each logical connective has rules for when it’s true and when it’s false.</p>
+<p><strong>Non-branching rules:</strong> When we know for certain what must follow.</p>
+<p><strong>Branching rules:</strong> When there are multiple ways to make something true.</p>
+</section>
+<section class="slide level2">
+<h2>The Rules: Negation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="../images/tableaux/05-09.svg" height="80"></p>
-<figcaption>Starting the tree</figcaption>
+<p><img data-src="../images/tableaux/05-01.svg" height="124"></p>
+<figcaption>Truth tree for true negation rule</figcaption>
 </figure>
 </div>
-
+<p>If a negation is true, the negated sentence is false.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-02.svg" height="124"></p>
+<figcaption>Truth tree for false negation rule</figcaption>
+</figure>
+</div>
+<p>If a negation is false, the negated sentence is true.</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>The Rules: Conjunction</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-03.svg" height="182"></p>
+<figcaption>Truth tree for true conjunction rule</figcaption>
+</figure>
+</div>
+<p>If a conjunction is true, both conjuncts are true.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-05.svg" height="204"></p>
+<figcaption>Truth tree for false conjunction rule</figcaption>
+</figure>
+</div>
+<p>If a conjunction is false, at least one conjunct is false. This is our first instance of a <strong>branching rule</strong>.</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>The Rules: Disjunction</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-04.svg" height="204"></p>
+<figcaption>Truth tree for true disjunction rule</figcaption>
+</figure>
+</div>
+<p>If a disjunction is true, at least one disjunct is true.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-06.svg" height="182"></p>
+<figcaption>Truth tree for false disjunction rule</figcaption>
+</figure>
+</div>
+<p>If a disjunction is false, both disjuncts are false.</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>The Rules: Conditional</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-08.svg" height="205"></p>
+<figcaption>Truth tree for true conditional rule</figcaption>
+</figure>
+</div>
+<p>If a conditional is true, either the antecedent is false or the consequent is true.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/05-07.svg" height="182"></p>
+<figcaption>Truth tree for false conditional rule</figcaption>
+</figure>
+</div>
+<p>If a conditional is false, the antecedent is true and the consequent is false.</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>When a Branch Closes</h2>
+<p>A branch closes when it contains a contradiction.</p>
+<p>For propositional logic, this means the branch has both <span class="math inline">\(\mathbb{T}A\)</span> and <span class="math inline">\(\mathbb{F}A\)</span> for some sentence <span class="math inline">\(A\)</span></p>
+<p>In practice there will always be an <strong>atomic</strong> sentence, i.e., a sentence with just a single sentence letter, that triggers this. But it could be any arbitrarily long sentence.</p>
+<ul>
+<li class="fragment">A closed branch represents an impossible combination.</li>
+<li class="fragment">When a branch closes, we’ve shown that path cannot happen.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>When a Tableau Closes</h2>
+<p>A tableau closes when <strong>every</strong> branch closes.</p>
+<ul>
+<li class="fragment">This means every possible way of making our initial assumptions true leads to a contradiction.</li>
+<li class="fragment">Therefore, the initial assumptions cannot all be true together.</li>
+<li class="fragment">They are <strong>logically inconsistent</strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>What Closure Tells Us</h2>
+<p>The meaning of a closed tableau depends on what we started with.</p>
+<ul>
+<li class="fragment">If we started with just <span class="math inline">\(\mathbb{F}A\)</span>, then <span class="math inline">\(A\)</span> is a <strong>tautology</strong>.</li>
+<li class="fragment">If we started with just <span class="math inline">\(\mathbb{T}A\)</span>, then <span class="math inline">\(A\)</span> is a <strong>contradiction</strong>.</li>
+<li class="fragment">If we started with premises and the negation of a conclusion, the argument is <strong>valid</strong>. We’ll say much more on this over the lecture.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Open Branches</h2>
+<p>A branch that doesn’t close represents a possible way to make the assumptions true.</p>
+<ul>
+<li>An open branch shows a scenario where all the claims on that branch hold together.</li>
+<li>A completed tableau with open branches shows the initial assumptions <strong>can</strong> be true together.</li>
+<li>It also shows <strong>how</strong> they are true together; by looking at the truth value of atomics on that branch we can see what it takes for the sentences to be true together.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Completion</h2>
+<p>Not all open tableaux are completed.</p>
+<ul>
+<li>A tableau is only completed when we’ve applied all applicable rules.</li>
+<li>An incomplete open tableau doesn’t tell us anything yet.</li>
+<li>This distinction will matter more as tableaux get more complex.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Some More Notation</h1>
 
 </section>
+<section class="slide level2">
+<h2>Overview</h2>
+<p>As the examples get more complicated, it will be helpful to keep track of what we’ve done, and what is left to do. So we’ll introduce two more bits of notation.</p>
+<ul>
+<li>Check marks (✓), for lines that have been processed.</li>
+<li>Close marks (⊗), for branches that are closed.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Tracking Progress in Tableaux</h2>
+<p>As we build tableaux, we need to track two things:</p>
+<ol type="1">
+<li class="fragment">Which lines we’ve already applied rules to (so we don’t repeat ourselves); and</li>
+<li class="fragment">Which branches have closed (so we know when we’re done).</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>The Check Mark</h2>
+<p>When we apply a rule to a line, we mark it with a check (✓)</p>
+<ul>
+<li>This shows we’ve already used that line.</li>
+<li>The big benefit of this is that we can tell when we’re finished. It’s easy to check that we haven’t missed any lines.</li>
+<li>When we’re done, every line that has a logical symbol on it (and, or, not, or if) will have a check mark.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Close Mark</h2>
+<p>When a branch contains both <span class="math inline">\(\mathbb{T}A\)</span> and <span class="math inline">\(\mathbb{F}A\)</span> for some sentence, we close it with ⊗.</p>
+<ul>
+<li>This shows that branch represents an impossible scenario.</li>
+<li>We don’t need to do any more work on that branch.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example: Working Through a Tree</h2>
+<p>Let’s work through: <span class="math inline">\(\mathbb{T}(\neg P \wedge (P \vee Q))\)</span></p>
+<p>We’ll see how to use checks and closes as we build the tableau.</p>
+</section>
+<section class="slide level2">
+<h2>Step 1: Starting Point</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-01.svg" height="80"></p>
+<figcaption>The initial assumption</figcaption>
+</figure>
+</div>
+<p>We start with our assumption. We haven’t applied any rules yet.</p>
+</section>
+<section class="slide level2">
+<h2>Step 2: Apply True <span class="math inline">\(\wedge\)</span> Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-02.svg" height="190"></p>
+<figcaption>After applying the conjunction rule</figcaption>
+</figure>
+</div>
+<p>We’ve applied the rule to line 1, so we check it off.</p>
+</section>
+<section class="slide level2">
+<h2>Step 3: Apply True <span class="math inline">\(\neg\)</span> Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-03.svg" height="244"></p>
+<figcaption>After applying the negation rule</figcaption>
+</figure>
+</div>
+<p>We’ve applied the rule to line 2, so we check it off.</p>
+</section>
+<section class="slide level2">
+<h2>Step 4: Apply True <span class="math inline">\(\vee\)</span> Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-04.svg" height="387"></p>
+<figcaption>Branching because of the disjunction rule</figcaption>
+</figure>
+</div>
+<p>We’ve applied the rule to line 3, creating two branches.</p>
+</section>
+<section class="slide level2">
+<h2>Step 5: Close the Left Branch</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-05.svg" height="484"></p>
+<figcaption>Closing the left branch</figcaption>
+</figure>
+</div>
+<p>The left branch has both <span class="math inline">\(\mathbb{F}P\)</span> (line 4) and <span class="math inline">\(\mathbb{T}P\)</span> (line 5), so it closes.</p>
+</section>
+<section class="slide level2">
+<h2>Step 6: The Right Branch Stays Open</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-06.svg" height="484"></p>
+<figcaption>Truth tree showing the right branch remaining open with no contradiction</figcaption>
+</figure>
+</div>
+<p>The right branch has <span class="math inline">\(\mathbb{F}P\)</span> and <span class="math inline">\(\mathbb{T}Q\)</span> - no contradiction. It stays open.</p>
+</section>
+<section class="slide level2">
+<h2>What This Tells Us</h2>
+<ul>
+<li class="fragment">The left branch closed, showing one way to make our assumptions doesn’t work.</li>
+<li class="fragment">The right branch stayed open, showing there <strong>is</strong> a way to make them all true.</li>
+<li class="fragment">Specifically: when <span class="math inline">\(P\)</span> is false and <span class="math inline">\(Q\)</span> is true.</li>
+<li class="fragment">So <span class="math inline">\(\neg P \wedge (P \vee Q)\)</span> is <strong>not</strong> a contradiction - it’s satisfiable.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Summary: Checks and Closes</h2>
+<p><strong>Check marks (✓):</strong></p>
+<ul>
+<li>These are applied to lines after we are done with them.</li>
+<li>They help us track what is already done.</li>
+</ul>
+<p><strong>Close marks (⊗):</strong></p>
+<ul>
+<li>These are applied to branches that contain contradictions.</li>
+<li>They show which branches are impossible.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Branches in Branches</h1>
+
+</section>
+<section class="slide level2">
+<h2>Overview</h2>
+<p>This is one of the more annoying parts of building these trees.</p>
+<p>Once we branch, the rule for any sentence that hasn’t been checked has to be applied with the results being put on both branches.</p>
+<p>If that’s a branching rule, that means we have branches within branches.</p>
+</section>
+<section class="slide level2">
+<h2>Branching Within Branches</h2>
+<p>Sometimes we need to apply branching rules multiple times in the same tableau.</p>
+<ul>
+<li>When this happens, we get branches splitting off from other branches.</li>
+<li>Each new branch explores a different combination of possibilities.</li>
+<li>We have to track each branch separately.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example: <span class="math inline">\((P \vee Q) \wedge (\neg P \vee R)\)</span></h2>
+<p>Let’s build a tableau starting with <span class="math inline">\(\mathbb{T}((P \vee Q) \wedge (\neg P \vee R))\)</span>.</p>
+<p>This will require us to branch twice.</p>
+</section>
+<section class="slide level2">
+<h2>Step 1: Starting Point</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-07.svg" height="80"></p>
+<figcaption>Initial truth tree with one assumption</figcaption>
+</figure>
+</div>
+<p>We start with our assumption.</p>
+</section>
+<section class="slide level2">
+<h2>Step 2: Apply True <span class="math inline">\(\wedge\)</span> Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-08.svg" height="186"></p>
+<figcaption>Truth tree after applying conjunction rule to get both conjuncts</figcaption>
+</figure>
+</div>
+<p>Both conjuncts must be true, so we write them both down.</p>
+</section>
+<section class="slide level2">
+<h2>Step 3: First Branch - True <span class="math inline">\(\vee\)</span> Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-09.svg" height="329"></p>
+<figcaption>Truth tree after first branching for the disjunction</figcaption>
+</figure>
+</div>
+<p>Line 2 gives us our first split: either <span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span> is true.</p>
+</section>
+<section class="slide level2">
+<h2>The Challenge</h2>
+<p>Now we have two branches, and line 3 (<span class="math inline">\(\mathbb{T}(\neg P \vee R)\)</span>) appears on both.</p>
+<ul>
+<li>We need to apply the rule for line 3 to <strong>each branch separately</strong>.</li>
+<li>This will create branches within branches.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Step 4: Apply Rule to Both Branches</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-10.svg" height="464"></p>
+<figcaption>Truth tree after applying disjunction rule to both main branches, creating four total branches</figcaption>
+</figure>
+</div>
+<p>We apply line 3 to both main branches. Now we have <strong>four</strong> branches total.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Counting the Branches</h2>
+<p>Let’s trace each complete branch from top to bottom:</p>
+<ol type="1">
+<li class="fragment"><strong>Far left:</strong> <span class="math inline">\(\mathbb{T}(P \vee Q)\)</span>, <span class="math inline">\(\mathbb{T}(\neg P \vee R)\)</span>, <span class="math inline">\(\mathbb{T}P\)</span>, <span class="math inline">\(\mathbb{T}\neg P\)</span></li>
+<li class="fragment"><strong>Middle left:</strong> <span class="math inline">\(\mathbb{T}(P \vee Q)\)</span>, <span class="math inline">\(\mathbb{T}(\neg P \vee R)\)</span>, <span class="math inline">\(\mathbb{T}P\)</span>, <span class="math inline">\(\mathbb{T}R\)</span></li>
+<li class="fragment"><strong>Middle right:</strong> <span class="math inline">\(\mathbb{T}(P \vee Q)\)</span>, <span class="math inline">\(\mathbb{T}(\neg P \vee R)\)</span>, <span class="math inline">\(\mathbb{T}Q\)</span>, <span class="math inline">\(\mathbb{T}\neg P\)</span></li>
+<li class="fragment"><strong>Far right:</strong> <span class="math inline">\(\mathbb{T}(P \vee Q)\)</span>, <span class="math inline">\(\mathbb{T}(\neg P \vee R)\)</span>, <span class="math inline">\(\mathbb{T}Q\)</span>, <span class="math inline">\(\mathbb{T}R\)</span></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Step 5: Expand Negations</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-11.svg" height="580"></p>
+<figcaption>Truth tree after applying negation rules to the true negations</figcaption>
+</figure>
+</div>
+<p>We apply the negation rule to the <span class="math inline">\(\mathbb{T}\neg P\)</span> lines (5 and 6).</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-12.svg" height="680"></p>
+<figcaption>Truth tree with two branches closed due to contradictions with P</figcaption>
+</figure>
+</div>
+<p>Two branches close: they have both <span class="math inline">\(\mathbb{T}P\)</span> and <span class="math inline">\(\mathbb{F}P\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-13.svg" height="680"></p>
+<figcaption>Truth tree with two branches closed and two remaining open</figcaption>
+</figure>
+</div>
+<p>Two branches remain open. The tableau doesn’t close.</p>
+</section>
+<section class="slide level2">
+<h2>What the Open Branches Tell Us</h2>
+<p>The two open branches show us when <span class="math inline">\((P \vee Q) \wedge (\neg P \vee R)\)</span> can be true:</p>
+<ul>
+<li class="fragment"><strong>Branch 2:</strong> When <span class="math inline">\(P\)</span> is true and <span class="math inline">\(R\)</span> is true (with <span class="math inline">\(Q\)</span> either way)</li>
+<li class="fragment"><strong>Branch 4:</strong> When <span class="math inline">\(Q\)</span> is true and <span class="math inline">\(R\)</span> is true (with <span class="math inline">\(P\)</span> false)</li>
+</ul>
+<div class="fragment">
+<p>In other words: the sentence is true when both <span class="math inline">\(Q\)</span> or <span class="math inline">\(P\)</span> holds, <strong>and</strong> <span class="math inline">\(R\)</span> holds.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<p>When you have multiple disjunctions (or other branching formulas):</p>
+<ul>
+<li class="fragment">Each one creates its own split;</li>
+<li class="fragment">Later splits happen <strong>within</strong> earlier branches;</li>
+<li class="fragment">The total number of branches multiplies quickly; and</li>
+<li class="fragment">You need to check each final branch separately for contradictions.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Testing for Validity</h1>
+
+</section>
+<section class="slide level2">
+<h2>A New Application</h2>
+<p>So far we’ve used tableaux to test whether sentences are tautologies, contradictions, or contingent.</p>
+<p>Now we’ll use them to test whether <strong>arguments</strong> are valid.</p>
+</section>
+<section class="slide level2">
+<h2>Key Point</h2>
+<p>An argument is valid if and only if it’s impossible for the premises to be true and the conclusion false.</p>
+<ul>
+<li class="fragment">We can test this with a tableau.</li>
+<li class="fragment">We assume the premises are true and the conclusion is false.</li>
+<li class="fragment">If the tableau <strong>closes</strong>, this combination is impossible, so the argument is <strong>valid</strong>.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Setting Up the Tableau</h2>
+<p>To test whether an argument is valid:</p>
+<ol type="1">
+<li class="fragment">Write down each premise as <strong>true</strong> (<span class="math inline">\(\mathbb{T}\)</span>);</li>
+<li class="fragment">Write down the conclusion as <strong>false</strong> (<span class="math inline">\(\mathbb{F}\)</span>);</li>
+<li class="fragment">Apply the tableau rules; and</li>
+<li class="fragment">Check whether the tableau closes.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Reading the Result</h2>
+<p><strong>If the tableau closes:</strong></p>
+<ul>
+<li>Every branch contains a contradiction.</li>
+<li>So, it’s impossible for the premises to be true and conclusion false.</li>
+<li>So the argument is <strong>valid</strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Reading the Result</h2>
+<p><strong>If the tableau stays open:</strong></p>
+<ul>
+<li>At least one branch has no contradiction.</li>
+<li>So that branch shows a way the premises could be true and conclusion false.</li>
+<li>So the argument is <strong>invalid in propositional logic</strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Why “In Propositional Logic”?</h2>
+<p>We add this qualification because we’re only using propositional logic rules.</p>
+<ul>
+<li class="fragment">The argument might be valid for other reasons.</li>
+<li class="fragment">For example, “This is a square; therefore this has four sides” has open branches.</li>
+<li class="fragment">But it’s still a valid argument - just not in virtue of propositional logic alone.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>An Important Caveat</h2>
+<p>The tableau must be <strong>completed</strong> before we can conclude invalidity.</p>
+<ul>
+<li>An incomplete open tableau doesn’t tell us anything yet.</li>
+<li>We need to apply all applicable rules before declaring an argument invalid.</li>
+<li>For simple propositional arguments, this is usually straightforward.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li class="fragment"><strong>Start with:</strong> Premises true, conclusion false.</li>
+<li class="fragment"><strong>If it closes:</strong> The argument is valid.</li>
+<li class="fragment"><strong>If it is open:</strong> The argument is invalid in propositional logic.</li>
+<li class="fragment"><strong>Key insight:</strong> We’re testing whether premises can be true while the conclusion is false.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example: A Valid Argument</h2>
+<p>Let’s test this argument for validity:</p>
+<p><span class="math display">\[P \rightarrow Q\]</span> <span class="math display">\[\therefore (P \wedge R) \rightarrow Q\]</span></p>
+<p>We’ll see that this is valid.</p>
+</section>
+<section class="slide level2">
+<h2>Setup</h2>
+<p>To test validity, we assume:</p>
+<ul>
+<li>The premise is true: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span>.</li>
+<li>The conclusion is false: <span class="math inline">\(\mathbb{F}((P \wedge R) \rightarrow Q)\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Initial Tableau</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-14.svg" height="138"></p>
+<figcaption>Initial truth tree for validity test with premise and negated conclusion</figcaption>
+</figure>
+</div>
+<p>Now we need to apply rules to build out the tree.</p>
+</section>
+<section class="slide level2">
+<h2>Strategic Choice</h2>
+<p>We have two lines we could apply rules to. Which should we do first?</p>
+<ul>
+<li class="fragment">If we apply the rules to line 1: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span> we will <strong>branch</strong>.</li>
+<li class="fragment">If we apply the rules to line 2: <span class="math inline">\(\mathbb{F}((P \wedge R) \rightarrow Q)\)</span> we will <strong>not branch</strong>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Golden Rule</h2>
+<p><strong>Always apply non-branching rules before branching rules.</strong></p>
+<ul>
+<li class="fragment">Branching multiplies the number of paths through the tree.</li>
+<li class="fragment">Every line you add before branching has to be added to each branch.</li>
+<li class="fragment">So delay branching as long as possible.</li>
+<li class="fragment">This keeps tableaux simpler and easier to work with.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Order of Operations</h2>
+<p>Strictly speaking, either way will work. This is strategic advice, not logical advice.</p>
+<p>But really, if you branch too early, you’ll have twice as much work to do, which means twice as many chances to make a mistake.</p>
+</section>
+<section class="slide level2">
+<h2>Step 1: Apply Non-Branching Rule First</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-15.svg" height="248"></p>
+<figcaption>Truth tree after applying false conditional rule to get true antecedent and false consequent</figcaption>
+</figure>
+</div>
+<p>When a conditional is false, the antecedent is true and the consequent is false.</p>
+</section>
+<section class="slide level2">
+<h2>Step 2: Continue with Non-Branching Rules</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-16.svg" height="360"></p>
+<figcaption>Truth tree after applying conjunction rule to get both true conjuncts</figcaption>
+</figure>
+</div>
+<p>When a conjunction is true, both conjuncts are true.</p>
+</section>
+<section class="slide level2">
+<h2>Step 3: Now Apply the Branching Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-17.svg" height="503"></p>
+<figcaption>Truth tree after applying true conditional rule which creates two branches</figcaption>
+</figure>
+</div>
+<p>Now we apply the rule for <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span>, which creates two branches.</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-18.svg" height="600"></p>
+<figcaption>Closed truth tree showing both branches contain contradictions</figcaption>
+</figure>
+</div>
+<p><strong>Left branch:</strong> <span class="math inline">\(\mathbb{T}P\)</span> (line 5) and <span class="math inline">\(\mathbb{F}P\)</span> (line 7) - so it <strong>closes</strong>.</p>
+<p><strong>Right branch:</strong> <span class="math inline">\(\mathbb{F}Q\)</span> (line 4) and <span class="math inline">\(\mathbb{T}Q\)</span> (line 7) - so it <strong>closes</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Conclusion</h2>
+<p>Both branches close, so the entire tableau <strong>closes</strong>.</p>
+<ul>
+<li class="fragment">This means it’s <strong>impossible</strong> for the premise to be true and the conclusion false.</li>
+<li class="fragment">Therefore, the argument is <strong>valid</strong>.</li>
+<li class="fragment">The strategy of doing non-branching rules first kept the tree manageable.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Comparing Strategies</h2>
+<p>If we had branched first at line 1, we would have had two branches from line 1.</p>
+<ul>
+<li class="fragment">Then we’d have to apply line 2’s rule to <strong>each</strong> branch.</li>
+<li class="fragment">And then had to apply line 3’s rule to <strong>each</strong> of those branches.</li>
+<li class="fragment">That’s a lot more work for the same result.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Summary</h2>
+<p>When building tableaux:</p>
+<ol type="1">
+<li class="fragment">Look at which rules you could apply.</li>
+<li class="fragment">Identify which will branch and which won’t.</li>
+<li class="fragment"><strong>Always do non-branching rules first</strong>.</li>
+<li class="fragment">Only branch when you have no other choice.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Example: An Invalid Argument</h2>
+<p>Let’s test this argument for validity:</p>
+<p><span class="math display">\[P \rightarrow Q\]</span> <span class="math display">\[\therefore (P \vee R) \rightarrow Q\]</span></p>
+<p>Note: we’ve just changed <span class="math inline">\(\wedge\)</span> to <span class="math inline">\(\vee\)</span> from the previous example.</p>
+</section>
+<section class="slide level2">
+<h2>Setup</h2>
+<p>To test validity, we assume:</p>
+<ul>
+<li>The premise is true: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span>.</li>
+<li>The conclusion is false: <span class="math inline">\(\mathbb{F}((P \vee R) \rightarrow Q)\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Initial Tableau</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-19.svg" height="138"></p>
+<figcaption>Initial truth tree for second validity test with premise and negated conclusion</figcaption>
+</figure>
+</div>
+<p>As before, we need to decide which rule to apply first.</p>
+</section>
+<section class="slide level2">
+<h2>Apply Non-Branching Rule First</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-20.svg" height="249"></p>
+<figcaption>Truth tree after applying false conditional rule to expand the negated conclusion</figcaption>
+</figure>
+</div>
+<p>When a conditional is false, the antecedent is true and the consequent is false.</p>
+</section>
+<section class="slide level2">
+<h2>Now We Must Branch</h2>
+<p>At this point, both remaining unchecked lines require branching:</p>
+<ul>
+<li class="fragment">Line 1: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span> branches</li>
+<li class="fragment">Line 3: <span class="math inline">\(\mathbb{T}(P \vee R)\)</span> branches</li>
+</ul>
+<div class="fragment">
+<p>Either order works. Let’s do line 3 first. (Actually it would be easier to do 1 first - can you see why? But there is more to show this way.)</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Apply First Branching Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-21.svg" height="383"></p>
+<figcaption>Truth tree after applying disjunction rule which creates two branches</figcaption>
+</figure>
+</div>
+<p>When a disjunction is true, at least one disjunct is true. This creates two branches.</p>
+</section>
+<section class="slide level2">
+<h2>Apply Second Branching Rule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-22.svg" height="526"></p>
+<figcaption>Truth tree after applying conditional rule to both existing branches, creating four total branches</figcaption>
+</figure>
+</div>
+<p>Now we apply the rule for line 1 to both branches.</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-23.svg" height="622"></p>
+<figcaption>Truth tree with three branches closed and one remaining open</figcaption>
+</figure>
+</div>
+<p>Three branches close, but crucially one stays open.</p>
+</section>
+<section class="slide level2">
+<h2>Analyzing the Branches</h2>
+<p>Let’s check each branch:</p>
+<ul>
+<li class="fragment"><strong>Far left:</strong> <span class="math inline">\(\mathbb{T}P\)</span> and <span class="math inline">\(\mathbb{F}P\)</span> - <strong>closes</strong></li>
+<li class="fragment"><strong>Middle left:</strong> <span class="math inline">\(\mathbb{T}P\)</span>, <span class="math inline">\(\mathbb{F}Q\)</span>, and <span class="math inline">\(\mathbb{T}Q\)</span> - <strong>closes</strong></li>
+<li class="fragment"><strong>Middle right:</strong> <span class="math inline">\(\mathbb{T}R\)</span>, <span class="math inline">\(\mathbb{F}Q\)</span>, and <span class="math inline">\(\mathbb{F}P\)</span> - <strong>stays open</strong></li>
+<li class="fragment"><strong>Far right:</strong> <span class="math inline">\(\mathbb{T}R\)</span>, <span class="math inline">\(\mathbb{F}Q\)</span>, and <span class="math inline">\(\mathbb{T}Q\)</span> - <strong>closes</strong></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Open Branch</h2>
+<p>The middle right branch remains open with:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span> (line 1)</li>
+<li><span class="math inline">\(\mathbb{F}Q\)</span> (line 4)</li>
+<li><span class="math inline">\(\mathbb{T}R\)</span> (line 6)</li>
+<li><span class="math inline">\(\mathbb{F}P\)</span> (line 7)</li>
+</ul>
+<p>These don’t contradict each other, and we’ve applied all applicable rules.</p>
+</section>
+<section class="slide level2">
+<h2>What This Means</h2>
+<p>The open branch shows a scenario where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(P\)</span> is false;</li>
+<li class="fragment"><span class="math inline">\(Q\)</span> is false; and</li>
+<li class="fragment"><span class="math inline">\(R\)</span> is true.</li>
+<li class="fragment">In this scenario, <span class="math inline">\(P \rightarrow Q\)</span> is true (false antecedent);</li>
+<li class="fragment">But <span class="math inline">\((P \vee R) \rightarrow Q\)</span> is false (<span class="math inline">\(P \vee R\)</span> is true because <span class="math inline">\(R\)</span> is true, but <span class="math inline">\(Q\)</span> is false).</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Conclusion</h2>
+<p>Since the tableau has an open branch it is possible for the premise to be true and conclusion false.</p>
+<ul>
+<li class="fragment">Therefore, the argument is <strong>invalid in propositional logic</strong>.</li>
+<li class="fragment">The open branch gives us a counterexample: <span class="math inline">\(P\)</span> false, <span class="math inline">\(Q\)</span> false, <span class="math inline">\(R\)</span> true.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Comparing the Two Arguments</h2>
+<p><strong>Valid:</strong> <span class="math inline">\(P \rightarrow Q \therefore (P \wedge R) \rightarrow Q\)</span></p>
+<p><strong>Invalid:</strong> <span class="math inline">\(P \rightarrow Q \therefore (P \vee R) \rightarrow Q\)</span></p>
+<div class="fragment">
+<p>The difference:</p>
+<ul>
+<li>With <span class="math inline">\(\wedge\)</span>: if <span class="math inline">\(P \wedge R\)</span> is true, then <span class="math inline">\(P\)</span> must be true</li>
+<li>With <span class="math inline">\(\vee\)</span>: if <span class="math inline">\(P \vee R\)</span> is true, <span class="math inline">\(P\)</span> might be false (if <span class="math inline">\(R\)</span> is true)</li>
+<li>This is exactly the case that leads to the open branch.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>A More Complex Example</h2>
+<p>Let’s test this argument:</p>
+<p><span class="math display">\[P \rightarrow Q\]</span> <span class="math display">\[Q \rightarrow R\]</span> <span class="math display">\[\neg R\]</span> <span class="math display">\[\therefore \neg P\]</span></p>
+<p>This is a chain of modus tollens reasoning.</p>
+</section>
+<section class="slide level2">
+<h2>Setup</h2>
+<p>To test validity, we assume:</p>
+<ul>
+<li>The premises are true: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span>, <span class="math inline">\(\mathbb{T}(Q \rightarrow R)\)</span>, <span class="math inline">\(\mathbb{T}\neg R\)</span></li>
+<li>The conclusion is false: <span class="math inline">\(\mathbb{F}\neg P\)</span></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Initial Tableau</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-24.svg" height="254"></p>
+<figcaption>Initial truth tree for validity test with three premises and negated conclusion</figcaption>
+</figure>
+</div>
+<p>Now we need to decide our strategy.</p>
+</section>
+<section class="slide level2">
+<h2>Strategic Planning</h2>
+<p>Let’s identify which rules will branch:</p>
+<ul>
+<li class="fragment">Line 1: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span> - <strong>branches</strong></li>
+<li class="fragment">Line 2: <span class="math inline">\(\mathbb{T}(Q \rightarrow R)\)</span> - <strong>branches</strong></li>
+<li class="fragment">Line 3: <span class="math inline">\(\mathbb{T}\neg R\)</span> - <strong>does not branch</strong></li>
+<li class="fragment">Line 4: <span class="math inline">\(\mathbb{F}\neg P\)</span> - <strong>does not branch</strong></li>
+</ul>
+<div class="fragment">
+<p>Strategy: Do lines 3 and 4 first!</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Step 1: Apply Non-Branching Rules</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-25.svg" height="360"></p>
+<figcaption>Truth tree after applying the two non-branching negation rules first</figcaption>
+</figure>
+</div>
+<p>We now have <span class="math inline">\(\mathbb{F}R\)</span> and <span class="math inline">\(\mathbb{T}P\)</span> on every branch we might create.</p>
+</section>
+<section class="slide level2">
+<h2>Another Strategic Choice</h2>
+<p>Now both remaining lines will branch. Which should we do first?</p>
+<ul>
+<li class="fragment">Line 1: <span class="math inline">\(\mathbb{T}(P \rightarrow Q)\)</span> gives us <span class="math inline">\(\mathbb{F}P\)</span> or <span class="math inline">\(\mathbb{T}Q\)</span></li>
+<li class="fragment">Line 2: <span class="math inline">\(\mathbb{T}(Q \rightarrow R)\)</span> gives us <span class="math inline">\(\mathbb{F}Q\)</span> or <span class="math inline">\(\mathbb{T}R\)</span></li>
+</ul>
+<div class="fragment">
+<p>Think ahead: We have <span class="math inline">\(\mathbb{F}R\)</span> (line 5). If we do line 2 first, one branch will immediately close!</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Step 2: Apply Line 2 First</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-26.svg" height="503"></p>
+<figcaption>Truth tree after applying second branching rule, creating two branches</figcaption>
+</figure>
+</div>
+<p>The right branch has <span class="math inline">\(\mathbb{F}R\)</span> (line 5) and <span class="math inline">\(\mathbb{T}R\)</span> (line 8).</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-27.svg" height="600"></p>
+<figcaption>Truth tree with one branch closed and one remaining to process</figcaption>
+</figure>
+</div>
+<p>Now we only need to work on the left branch.</p>
+</section>
+<section class="slide level2">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-28.svg" height="642"></p>
+<figcaption>Truth tree after applying first conditional rule to the remaining open branch</figcaption>
+</figure>
+</div>
+<p>Now we apply the rule for line 1 to the remaining open branch.</p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux/06-29.svg" height="738"></p>
+<figcaption>Fully closed truth tree showing all branches contain contradictions</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:35%;">
+<p><strong>Left:</strong></p>
+<ul>
+<li><span class="math inline">\(\mathbb{T}P\)</span> (line 6) and</li>
+<li><span class="math inline">\(\mathbb{F}P\)</span> (line 8)</li>
+<li><strong>closes</strong></li>
+</ul>
+<p><strong>Middle:</strong></p>
+<ul>
+<li><span class="math inline">\(\mathbb{F}Q\)</span> (line 7) and</li>
+<li><span class="math inline">\(\mathbb{T}Q\)</span> (line 8)</li>
+<li><strong>closes</strong></li>
+</ul>
+<p><strong>Right:</strong></p>
+<p>Already closed</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>All Branches Close</h2>
+<p>Every branch contains a contradiction.</p>
+<ul>
+<li class="fragment">So the tableau is closed.</li>
+<li class="fragment">So it’s impossible for the premises to be true and conclusion false.</li>
+<li class="fragment">So the argument is <strong>valid</strong>.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Strategic Lessons</h2>
+<p>Notice what our strategy accomplished:</p>
+<ol type="1">
+<li class="fragment">We did all non-branching rules first (lines 3 and 4).</li>
+<li class="fragment">We thought ahead about which branching rule to apply first.</li>
+<li class="fragment">Doing line 2 before line 1 meant one branch closed immediately.</li>
+<li class="fragment">This reduced our work significantly.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>What If We’d Branched Differently?</h2>
+<p>If we’d applied line 1 before line 2:</p>
+<ul>
+<li class="fragment">We’d get branches with <span class="math inline">\(\mathbb{F}P\)</span> or <span class="math inline">\(\mathbb{T}Q\)</span>.</li>
+<li class="fragment">Then we’d have to apply line 2 to <strong>both</strong> branches.</li>
+<li class="fragment">We’d end up with more branches to track.</li>
+<li class="fragment">Same result, but more work.</li>
+</ul>
+<div class="fragment">
+<p>Sometimes thinking one step ahead pays off. But it will still work if you do it the other way, as we did in the previous example.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Logical Content</h2>
+<p>This argument shows a chain of reasoning:</p>
+<ul>
+<li class="fragment">If <span class="math inline">\(P\)</span> then <span class="math inline">\(Q\)</span>; and</li>
+<li class="fragment">If <span class="math inline">\(Q\)</span> then <span class="math inline">\(R\)</span>; and</li>
+<li class="fragment">But <span class="math inline">\(R\)</span> is false,</li>
+<li class="fragment">So <span class="math inline">\(Q\)</span> must be false (otherwise <span class="math inline">\(R\)</span> would be true),</li>
+<li class="fragment">So <span class="math inline">\(P\)</span> must be false (otherwise <span class="math inline">\(Q\)</span> would be true).</li>
+</ul>
+<div class="fragment">
+<p>The tableau mechanically verifies this reasoning is valid.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>For Next Time</h2>
+<p>We’ll start on modal logic, but all the material for the weekly assignment is now on the table.</p>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="logo.png" class="slide-logo"></p>
@@ -339,7 +1232,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

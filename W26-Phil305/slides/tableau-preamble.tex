@@ -4,13 +4,19 @@
 % Use modern sans-serif fonts (requires XeLaTeX or LuaLaTeX)
 \usepackage{fontspec}
 \usepackage{unicode-math}
-\setmainfont{Lato}
-\setmathfont{Lete Sans Math}
-\setmathfont[range=\mathbb]{Lete Sans Math}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\setmainfont{Fira Sans}
+\setmathfont{Fira Math}
+\setmathfont[range=\mathbb]{Fira Math}
 
 % Tableaux system
 \RequirePackage[tableaux]{prooftrees}
-\forestset{line numbering, close with = x}
+%\forestset{line numbering, 
+%        check with={\textcolor{ForestGreen}{\ensuremath{\scriptstyle\surd}}}}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
 
 % Open Logic commands
 \usepackage{open-logic-minimal}
@@ -26,3 +32,7 @@
 
 % Color definitions
 \definecolor{dodgerblue}{RGB}{30,144,255}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}

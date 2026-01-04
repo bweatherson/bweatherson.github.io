@@ -8,7 +8,9 @@ mkdir -p ../images/tableaux
 mkdir -p tableaux-tex
 
 # Process all .tex files in tableaux-tex directory
-for texfile in tableaux-tex/*.tex; do
+# This is set up for lecture 06 right now
+# To change lecture, change the number in the next line
+for texfile in tableaux-tex/06-*.tex; do
     if [ -f "$texfile" ]; then
         basename=$(basename "$texfile" .tex)
         echo "Processing $basename..."

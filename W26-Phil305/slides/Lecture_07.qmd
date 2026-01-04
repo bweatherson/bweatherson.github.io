@@ -1,0 +1,261 @@
+---
+title: "Modal Logic"
+date: "2/4/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Introduction
+
+## Overview
+
+In this section we'll introduce what modal logic is, and why it's philosophically useful.
+
+### Associated Reading
+
+- Boxes and Diamonds, section 3.1 and 3.2.
+
+## What Modal Logic Is
+
+The logics of **must** and **might**
+
+. . .
+
+- Why plural? Because we do not assume that these words have a single determinate meaning.
+
+## Examples of Must
+
+::: {.incremental}
+1. If $x = 2 + 2$, then $x$ must equal 4.
+2. If something is a cat, then it must be a mammal.
+3. If the gardener is innocent, then it must be the butler who did it.
+4. You must drive under 70mph on I-94.
+5. You must keep your promises.
+6. If you set out a knife and fork, the fork must go on the left. 
+:::
+
+. . .
+
+To my ears, 1 is **logical** necessity, 2 is **metaphysical** necessity, 3 is **epistemic** necessity, 4 is **legal** necessity, 5 is **moral** (or **deontic**) necessity and 6 is **etiquette** necessity.
+
+## Examples of May/Might
+
+::: {.incremental}
+1. If $x$ is prime, then $x$ might be even.
+2. If $x$ is a cat, then $x$ might be male.
+3. It might be the butler or the gardener that did it.
+4. You may drive at any speed below 30mph on State Street.
+5. You may lie to save a friend's life.
+6. You may use white napkins or red napkins.
+:::
+
+. . .
+
+To my ears, 1 is **logical** possibility, 2 is **metaphysical** possibility, 3 is **epistemic** possibility, 4 is **legal** possibility, 5 is **moral** (or **deontic**) possibility and 6 is **etiquette** possibility (though I'm not sure about any of these).
+
+## Logics
+
+Consider this very general claim.
+
+> **If something must be true, then it is true.**
+
+. . .
+
+::: {.incremental}
+- That's true on the logical, epistemic and metaphysical interpretations of modality. 
+- Indeed, it's something like a logical truth of those domains.
+- But it is very much not true on the legal, moral or etiquette interpretations.
+- So we want some logics where it is a logical truth, and some where it is not.
+:::
+
+## Language
+
+We extend our language with two new operators: $\Box$ and $\Diamond$.
+
+::: {.incremental}
+- If $p$ is a sentence, so is $\Box p$ and so is $\Diamond p$.
+- These mean, respectively, that $p$ must be true, and that $p$ might be true.
+- We interpret these somewhat similar to negations; they just bind what they are immediately next to.
+- So $\Box p \rightarrow q$ means $(\Box p) \rightarrow q$, not $\Box(p \rightarrow q)$.
+:::
+
+# Models
+
+## Overview
+
+In this section, we'll go over what a **model** for modal logic is.
+
+### Associated Reading
+
+- Boxes and Diamonds, section 3.3 and 3.4.
+
+## Worlds
+
+We start with Leibniz's idea that necessity is truth in all possible worlds.
+
+- Leibniz was interested in metaphysical necessity, so we'll have to qualify this a little, but it's a good idea.
+- So instead of saying that each proposition simply has a truth value, we'll say that there are many **worlds**, and at each world each proposition has a truth value.
+- But don't assume that propositions have the same truth value at each world.
+- In one world I might be standing, and in another world I might be sitting.
+
+## What Are Worlds
+
+We are well and truly not going to get into the metaphysics of worlds here.
+
+- Indeed, they need not even be anything like possible worlds in the sense that metaphysicians usually care about.
+- They might, for instance, be different times.
+- All we care about is that they are things at which propositions can be true or false.
+
+## Valuations
+
+A valuation function tells us which worlds atomic sentences are true at.
+
+- These can be completely arbitrary; we don't put any restrictions on them.
+
+## Truth at a World
+
+We want more generally a function that tells us whether a sentence is true at a particular world.
+
+- For sentences built up using $\wedge, \vee, \rightarrow, \neg$, this is relatively easy.
+- We just keep on using truth tables.
+- So if at world $w$, $A$ is true and $B$ is false, then $A \wedge B$ is false and $A \vee B$ is true.
+
+## Modal Values
+
+We also need values for these sentences:
+
+- $\Box A$
+- $\Diamond A$
+
+It turns out these are more complicated - but not much more complicated.
+
+## Accessibility 
+
+The last part of our model is an **accessibility** relation between worlds.
+
+- Again, this can be completely arbitrary.
+- We don't yet put any restrictions on it.
+- Notably, we don't assume that it is **reflexive**, **symmetric** or **transitive**.
+
+## Properties of Relations
+
+::: {.incremental}
+- $R$ is reflexive iff for all $x$, $xRx$.
+- $R$ is symmetric iff for all $x, y$, if $xRy$ then $yRx$.
+- $R$ is transitive iff for all $x, y, z$ if $xRy$ and $yRz$ then $xRz$.
+:::
+
+. . .
+
+A lot of relations we care about have one or more of these properties, but not all do. Consider, for example, **admires** as an example of a relation with none of them.
+
+## Truth of Modal Formulas
+
+A sentence $\Box A$ is true at a world $x$ just in case the following condition is met:
+
+- For all worlds $y$ such that $xRy$, $A$ is true at world $y$.
+
+. . .
+
+A sentence $\Diamond A$ is true at a world $x$ just in case the following condition is met:
+
+- For some world $y$ such that $xRy$, $A$ is true at world $y$.
+
+## Modal Truth
+
+- Something is necessarily true iff it is true everywhere that is accessible.
+- Something is possibly true iff it is true somewhere accessible. 
+
+. . .
+
+We get back the Leibnizian idea that necessity is truth in all possible worlds if we assume the accessibility relation is the universal relation, i.e., $xRy$ for all $x, y$.
+
+## Metaphysical Necessity
+
+On this Leibnizian model, where all worlds can access all worlds, iterated modalities are rather uninteresting. These three sentences are true in the same worlds/models.
+
+1. $\Box A$
+2. $\Box \Box A$
+3. $\Diamond \Box A$
+
+That's because if $\Box A$ is true at any world, then it is true at all worlds. In the general case, where we do not assume that $R$ is universal, these are not equivalent.
+
+# Two Fundamental Results
+
+## Overview
+
+In this section we'll explain two fundamental results in modal logic connecting possibility and necessity.
+
+### Associated Reading
+
+- Boxes and Diamonds, section 3.4.
+
+## Duality
+
+These two claims are equivalent.
+
+1. $\Box A$
+2. $\neg \Diamond \neg A$
+
+. . .
+
+From 1 to 2: If $\Box A$ is true at $x$, then $A$ is true for all $y$ such that $xRy$. That means there is no $y$ such that $xRy$ and $A$ is not true. That means there is no $y$ such that $xRy$ and $\neg A$ is true. That means $\Diamond \neg A$ is not true at $x$. That means $\neg \Diamond \neg A$ is true at $x$.
+
+## Duality
+
+These two claims are equivalent.
+
+1. $\Box A$
+2. $\neg \Diamond \neg A$
+
+From 2 to 1: If $\neg \Diamond \neg A$ is true at $x$, then $\Diamond \neg A$ is not true at $x$. So there is no world $y$ such that $xRy$ and $\neg A$ is true at $y$. So at all worlds $y$ such that $xRy$, $\neg A$ is not true. So at all worlds $y$ such that $xRy$, $A$ is true. So $\Box A$ is true at $x$.
+
+## Duality
+
+These two claims are also equivalent.
+
+1. $\Diamond A$
+2. $\neg \Box \neg A$
+
+The proof is similar: $\Diamond A$ is true at $x$ iff there exists some $y$ such that $xRy$ and $A$ is true at $y$. This is equivalent to saying it's not the case that $\neg A$ is true at all $y$ such that $xRy$, which is exactly what $\neg \Box \neg A$ says.
+
+## Big Picture
+
+These claims are both logically true.
+
+1. $\Box \neg A \leftrightarrow \neg \Diamond A$
+2. $\Diamond \neg A \leftrightarrow \neg \Box A$
+
+To move a negation sign outside of a modal operator, either $\Box$ or $\Diamond$, you have to rotate the operator by 45 degrees.
+
+## Normality
+
+This sentence is also true no matter what the model looks like, and no matter what sentence $A$ is.
+
+- $\Box (A \rightarrow B)  \rightarrow (\Box A \rightarrow \Box B)$
+
+## $\Box (A \rightarrow B)  \rightarrow (\Box A \rightarrow \Box B)$
+
+::: {.incremental}
+- Assume it is false at $w$. 
+- So $\Box (A \rightarrow B)$ is true at $w$ and $(\Box A \rightarrow \Box B)$ is false at $w$. 
+- So $\Box A$ is true at $w$ and $\Box B$ is false at $w$. 
+- So at every world $y$ such that $wRy$, $A$ must be true (since $\Box A$ is true at $w$), and $A \rightarrow B$ must be true (since $\Box(A \rightarrow B)$ is true at $w$).
+- If $A$ and $A \rightarrow B$ are true at $y$, $B$ must be true at $y$ as well.
+- But this implies that $B$ is true at all $y$ such that $wRy$, contradicting the assumption that $\Box B$ is false at $w$.
+:::
+
+## Normality
+
+This principle has a very important role in the history of modal logics.
+
+- $\Box (A \rightarrow B)  \rightarrow (\Box A \rightarrow \Box B)$
+
+Having this be an axiom is one of two conditions on what have come to be called **normal** modal logics.
+
+## For Next Time
+
+We'll look in more detail at what happens when we adjust this accessibility relation, and how this creates logics that are philosophically useful.

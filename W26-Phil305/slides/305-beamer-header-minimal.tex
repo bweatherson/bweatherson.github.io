@@ -1,8 +1,13 @@
 % Minimal header for tableaux only
 
+\usepackage[dvipsnames]{xcolor}
+
 % Tableaux system
 \RequirePackage[tableaux]{prooftrees}
-\forestset{line numbering, close with = x}
+\RequirePackage{pifont}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
 
 % Open Logic commands for tableaux
 \usepackage{open-logic-minimal}
@@ -24,3 +29,7 @@
 % Color definitions (if you need them later)
 \definecolor{darkblue}{rgb}{0,0,0.8}
 \definecolor{dodgerblue}{RGB}{30,144,255}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}

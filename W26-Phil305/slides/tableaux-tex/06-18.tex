@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \wedge R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\True}{R}, just = {\TRule{\True}{\wedge}[3]}
+                        [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                        [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+\end{document}

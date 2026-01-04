@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, just = \TAss
+        [\sFmla{\True}{\neg R}, just = \TAss
+            [\sFmla{\False}{\neg P}, just = \TAss
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+\end{document}

@@ -65,11 +65,12 @@ advdate <- function(obj, adv) {
 ```
 
 | **Lead Instructor**: Brian Weatherson
-| Email: weath@umich.edu
-| Web: canvas.umich.edu
+| **Email**: weath@umich.edu
+| **Web**: canvas.umich.edu
 | **Office Hours**: Thursday 9.30-11.30 (Angell Hall, Rm 2207)
 | **Discussion Section Leader**: Brett Thompson
-| Email: brettdt@umich.edu
+| **Email**: brettdt@umich.edu
+| **Office Hours**: Monday 4-6
 
 &nbsp;
 
@@ -83,6 +84,7 @@ advdate <- function(obj, adv) {
 - Each part of the course has a different textbook.
 - All the books are open access; they are freely available and linked through Canvas.
 - There are 12 weekly assignments, due each week on Thursday at 5pm. The best 10 count for your final grade.
+- There is a midterm test, in the last lecture before the break, and which counts for 10%.
 - There is a final exam, which counts for 20%, and which covers all the material in the course.
 
 # Course Description
@@ -100,12 +102,14 @@ There are four textbooks for the course. All of them are open access, and hence 
 
 # Course Requirements
 
-- There will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 8%.
+- There will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 7%.
+- There will be a midterm exam which counts for 10% of the grade.
 - There will also be a final exam that counts for 20% of the grade.
 
 # Summary of Grading System
 
-1. Weekly assignments - 8% each, 10 assignments count, 80% total.
+1. Weekly assignments - 7% each, 10 assignments count, 70% total.
+2. Midterm exam - 10%.
 2. Final exam - 20%.
 
 # Canvas
@@ -210,8 +214,8 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 ### `r advdate(wed, 8)`
 
-**Topic**:    Puzzles about Counterfactuals  
-**Reading**:    No new reading  
+**MIDTERM EXAM**  
+
 **Assignment**:    Assignment 7 due `r advdate(thu, 8)` at 5pm.
 
 ## Week 9: Starting on Probability

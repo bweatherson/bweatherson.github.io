@@ -1,0 +1,1339 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  handout]{beamer}
+\newif\ifbibliography
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% remove section numbering
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{section title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+
+\usetheme[]{metropolis}
+\usecolortheme[]{default}
+\usefonttheme[]{structurebold}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+% Minimal header for tableaux only
+
+% Tableaux system
+\RequirePackage[tableaux]{prooftrees}
+\forestset{line numbering, close with = x}
+
+% Open Logic commands for tableaux
+\usepackage{open-logic-minimal}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\center\tableau{}}{\endtableau\endcenter}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Spacing around tableaux
+\usepackage{etoolbox}
+\AfterEndEnvironment{oltableau}{\vspace{9pt}}
+\BeforeBeginEnvironment{oltableau}{\vspace{9pt}}
+
+% Color definitions (if you need them later)
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{dodgerblue}{RGB}{30,144,255}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setmonofont[Scale=0.8]{Fira Mono}
+\definecolor{primary}{RGB}{0, 102, 153}
+\definecolor{secondary}{RGB}{102, 153, 204}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{fg=primary}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}"
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Truth Trees},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Truth Trees}
+\author{}
+\date{2026-01-26}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\section{Introducing Trees}\label{introducing-trees}
+
+\begin{frame}{Overview}
+\phantomsection\label{overview}
+This section introduces a new way of testing for validity - truth trees.
+
+\begin{block}{Associated Reading}
+\phantomsection\label{associated-reading}
+Boxes and Diamonds, section 2.1
+\end{block}
+\end{frame}
+
+\begin{frame}{What Tableaux Are}
+\phantomsection\label{what-tableaux-are}
+\begin{itemize}
+\tightlist
+\item
+  A way for determining whether some combinations are logically
+  possible.
+\item
+  That can be used for determining whether some arguments are valid - if
+  the truth of the premises and the falsity of the conclusion is not
+  logically possible; then the argument is valid.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Structure}
+\phantomsection\label{structure}
+\begin{itemize}
+\tightlist
+\item
+  Start out writing the things you care about.\pause
+\item
+  Each time one of those things implies that some other things must be
+  the case, write those down too.
+\item
+  For example, if you write down that \(A \wedge B\) is true, also write
+  down that \(A\) is true and that \(B\) is true. \pause
+\item
+  Each time there are multiple ways to make something you've written
+  true, create multiple branches for those ways.
+\item
+  For example, if you write down that \(A \vee B\) is true, create a
+  branch where \(A\) is true, and a branch where \(B\) is true.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Closing}
+\phantomsection\label{closing}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  A branch of a tableau is closed if it contains that some particular
+  claim has incompatible truth values.
+\item
+  For now, this means that one sentence is both true and false.
+\item
+  The whole tableau is closed if every branch is closed.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What Closure Means}
+\phantomsection\label{what-closure-means}
+\begin{itemize}
+\tightlist
+\item
+  If the tableau is closed, then the initial assumptions cannot be true
+  together.
+\item
+  If you are evaluating an argument, this means that the argument is
+  valid.
+\end{itemize}
+
+\pause
+
+If you start the tableau by just saying that one sentence is false, the
+closure of the tableau means that that sentence is a logical truth.
+\end{frame}
+
+\begin{frame}{Benefits of Tableaux}
+\phantomsection\label{benefits-of-tableaux}
+Tableaux have two big benefits over truth tables.
+
+\begin{enumerate}[<+->]
+\tightlist
+\item
+  They don't grow exponentially when you increase the number of
+  variables.
+\item
+  They can be generalised to things beyond propositional logic.
+\end{enumerate}
+
+\pause
+
+We are introducing them here because of point 2.
+\end{frame}
+
+\begin{frame}{Open Tableaux}
+\phantomsection\label{open-tableaux}
+Here is something the book doesn't make a big deal of, but is kind of
+important.
+
+\begin{itemize}
+\tightlist
+\item
+  A closed tableau can show that an argument is valid.
+\item
+  An open \textbf{and completed} tableau can show that an argument is
+  invalid.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Open Tableaux}
+\phantomsection\label{open-tableaux-1}
+\begin{itemize}
+\tightlist
+\item
+  The trick here is that it's hard to tell when a tableau is completed
+  in the relevant sense.
+\item
+  This will be easier to illustrate in practice than in theory, so let's
+  start building tableau up.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Signs}
+\phantomsection\label{signs}
+The system we are using is what is called a \textbf{signed tableau}
+system.
+
+\begin{itemize}
+\tightlist
+\item
+  That means that every line consists of two parts.
+\item
+  The bigger, second, part is a sentence.
+\item
+  The first part is a \textbf{sign}, which for now is a truth value.
+\item
+  That is, it is either \(\mathbb{T}\) or \(\mathbb{F}\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What Lines Mean}
+\phantomsection\label{what-lines-mean}
+So each line either says that a particular sentence is true, or says
+that it is false.
+
+\begin{itemize}
+\tightlist
+\item
+  The book for some reason includes the word `might' here.
+\item
+  That's misleading; what they should say is that each line says what is
+  true given (a) the starting assumptions and (b) the assumptions we
+  made for branching purposes.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Numbering And Annotation}
+\phantomsection\label{numbering-and-annotation}
+The system we're using also has two other distinctive features.
+
+\begin{enumerate}
+\tightlist
+\item
+  We number each of the lines.
+\item
+  We list why we're writing down each line to the right of the tree.
+\end{enumerate}
+
+Both of these are somewhat idiosyncratic, though not abnormal. Unlike
+the truth tables, there just aren't well defined conventions for how to
+write these things out.
+\end{frame}
+
+\section{Rules}\label{rules}
+
+\begin{frame}{Overview}
+\phantomsection\label{overview-1}
+This section introduces the rules we use for building up truth trees.
+
+\begin{block}{Associated Reading}
+\phantomsection\label{associated-reading-1}
+Boxes and Diamonds, sections 2.2-2.3.
+\end{block}
+\end{frame}
+
+\begin{frame}{What Rules Do}
+\phantomsection\label{what-rules-do}
+The rules tell you what new lines to write down given the lines you've
+already got.
+
+\begin{itemize}
+\tightlist
+\item
+  To some extent they simply have to be memorised.
+\item
+  But hopefully they are all (except for the rules about
+  \(\rightarrow\)) fairly intuitive.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rules for \(\neg\)}
+\phantomsection\label{rules-for-neg}
+\begin{columns}[T]
+\begin{column}{0.5\linewidth}
+\begin{oltableau}
+[\sFmla{\True}{\neg A}, 
+    [\sFmla{\False}{A}, just = {\TRule{\True}{\neg}[1]}]
+]
+\end{oltableau}
+\end{column}
+
+\begin{column}{0.5\linewidth}
+\begin{oltableau}
+[\sFmla{\False}{\neg A}, 
+    [\sFmla{\True}{A}, just = {\TRule{\False}{\neg}[1]}]
+]
+\end{oltableau}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Rules for \(\neg\)}
+\phantomsection\label{rules-for-neg-1}
+\begin{itemize}
+\tightlist
+\item
+  Note that the line numbers are just for illustration, and are
+  arbitrary in two senses.
+\item
+  First, you apply the rule wherever a sentence like \(\neg A\) appears,
+  not just at line 1.
+\item
+  Second, you don't need to apply the rules immediately, so the
+  successor line could come later than 2.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rule for true \(\wedge\) sentence}
+\phantomsection\label{rule-for-true-wedge-sentence}
+\begin{oltableau}
+[\sFmla{\True}{A \wedge B}, 
+    [\sFmla{\True}{A}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{B}, just = {\TRule{\True}{\wedge}[1]}]
+    ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for true \(\wedge\) sentence}
+\phantomsection\label{rule-for-true-wedge-sentence-1}
+When you have a true \(\wedge\) sentence, you can write down that the
+sentences either side of it are true.
+\end{frame}
+
+\begin{frame}{Rule for true \(\vee\) sentence}
+\phantomsection\label{rule-for-true-vee-sentence}
+\begin{oltableau}
+[\sFmla{\True}{A \vee B}, 
+    [\sFmla{\True}{A}, just = {\TRule{\True}{\vee}[1]}]
+    [\sFmla{\True}{B}, just = {\TRule{\True}{\vee}[1]}]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for true \(\vee\) sentence}
+\phantomsection\label{rule-for-true-vee-sentence-1}
+\begin{itemize}
+\tightlist
+\item
+  When you have a true \(\vee\) sentence, you create two
+  \textbf{branches}.
+\item
+  The way to read the tree is that at least one of the branches must be
+  all true. \pause
+\item
+  The `trunk' above the branching (in this case just line 1), is part of
+  both branches.
+\item
+  Branches are inclusive; you are saying that at least one branch is
+  true, not that precisely one is.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rule for false \(\wedge\) sentence}
+\phantomsection\label{rule-for-false-wedge-sentence}
+\begin{oltableau}
+[\sFmla{\False}{A \wedge B}, 
+    [\sFmla{\False}{A}, just = {\TRule{\False}{\wedge}[1]}]
+    [\sFmla{\False}{B}, just = {\TRule{\False}{\wedge}[1]}]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for false \(\wedge\) sentence}
+\phantomsection\label{rule-for-false-wedge-sentence-1}
+\begin{itemize}
+\tightlist
+\item
+  If an \(\wedge\) sentence is false, then we know that one or other (or
+  both) of the sides are false.
+\item
+  So we create two branches, one where each side is false.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rule for false \(\vee\) sentence}
+\phantomsection\label{rule-for-false-vee-sentence}
+\begin{oltableau}
+[\sFmla{\False}{A \vee B}, 
+    [\sFmla{\False}{A}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\False}{B}, just = {\TRule{\False}{\vee}[1]}]
+    ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for false \(\vee\) sentence}
+\phantomsection\label{rule-for-false-vee-sentence-1}
+When you have a false \(\vee\) sentence, you know that each side is
+false, so you write down that they are both false.
+\end{frame}
+
+\begin{frame}{Justifying the rule for false \(\vee\) sentences}
+\phantomsection\label{justifying-the-rule-for-false-vee-sentences}
+Recall the truth table for \(\vee\)
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}@{}}
+\caption{Truth table for \(\vee\)}\label{tbl-or}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\vee\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\vee\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\(\mathbb{T}\) & \(\mathbb{T}\) & & \(\mathbb{T}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{T}\) \\
+\(\mathbb{T}\) & \(\mathbb{F}\) & & \(\mathbb{T}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{F}\) \\
+\(\mathbb{F}\) & \(\mathbb{T}\) & & \(\mathbb{F}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{T}\) \\
+\(\mathbb{F}\) & \(\mathbb{F}\) & & \(\mathbb{F}\) &
+\(\color{red}{\mathbb{F}}\) & \(\mathbb{F}\) \\
+\bottomrule\noalign{}
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  The only line where the whole sentence is \(\color{red}{\mathbb{F}}\)
+  is line 4.
+\item
+  So if a \(\vee\) sentence is \(\color{red}{\mathbb{F}}\), we know that
+  we're on line 4.
+\item
+  And on line 4, both \(A\) and \(B\) are false.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rule for false \(\rightarrow\) sentence}
+\phantomsection\label{rule-for-false-rightarrow-sentence}
+\begin{oltableau}
+[\sFmla{\False}{A \rightarrow B}, 
+    [\sFmla{\True}{A}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\sFmla{\False}{B}, just = {\TRule{\False}{\rightarrow}[1]}]
+    ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for false \(\rightarrow\) sentence}
+\phantomsection\label{rule-for-false-rightarrow-sentence-1}
+When you have a false \(\rightarrow\) sentence, you know that the left
+side is true and the right side is false, so you write those things
+down.
+\end{frame}
+
+\begin{frame}{Justifying the rule for false \(\rightarrow\) sentences}
+\phantomsection\label{justifying-the-rule-for-false-rightarrow-sentences}
+Recall the truth table for \(\rightarrow\)
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1304}}@{}}
+\caption{Truth table for \(\rightarrow\)}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\rightarrow\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+A
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\rightarrow\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+B
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\(\mathbb{T}\) & \(\mathbb{T}\) & & \(\mathbb{T}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{T}\) \\
+\(\mathbb{T}\) & \(\mathbb{F}\) & & \(\mathbb{T}\) &
+\(\color{red}{\mathbb{F}}\) & \(\mathbb{F}\) \\
+\(\mathbb{F}\) & \(\mathbb{T}\) & & \(\mathbb{F}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{T}\) \\
+\(\mathbb{F}\) & \(\mathbb{F}\) & & \(\mathbb{F}\) &
+\(\color{red}{\mathbb{T}}\) & \(\mathbb{F}\) \\
+\bottomrule\noalign{}
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  The only line where the whole sentence is {\(\mathbb{F}\)} is line 2.
+\item
+  So if a \(\rightarrow\) sentence is {\(\mathbb{F}\)}, we know that
+  we're on line 2.
+\item
+  And on line 2,\(A\) is true and \(B\) are false.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rule for true \(\rightarrow\) sentence}
+\phantomsection\label{rule-for-true-rightarrow-sentence}
+\begin{oltableau}
+[\sFmla{\True}{A \rightarrow B}, 
+    [\sFmla{\False}{A}, just = {\TRule{\True}{\rightarrow}[1]}]
+    [\sFmla{\True}{B}, just = {\TRule{\True}{\rightarrow}[1]}]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Rule for true \(\rightarrow\) sentence}
+\phantomsection\label{rule-for-true-rightarrow-sentence-1}
+\begin{itemize}
+\tightlist
+\item
+  When you have a true \(\rightarrow\) sentence, you create two
+  \textbf{branches}.
+\item
+  On the first, \(A\) is false. That covers lines 3 and 4 of the truth
+  table.
+\item
+  On the second, \(B\) is true. That covers lines 1 and 3 of the truth
+  table.
+\item
+  Between them, they cover lines 1, 3 and 4 of the truth table.
+\item
+  And those are the lines where \(A \rightarrow B\) is true.
+\end{itemize}
+\end{frame}
+
+\section{Examples}\label{examples}
+
+\begin{frame}{Overview}
+\phantomsection\label{overview-2}
+This section works through some examples of using tableaux.
+\end{frame}
+
+\begin{frame}{Example 1: Showing a Tautology}
+\phantomsection\label{example-1-showing-a-tautology}
+Let's show that \((P \rightarrow Q) \vee (Q \rightarrow P)\) is a
+tautology.
+
+\begin{itemize}
+\tightlist
+\item
+  You might remember this from last time - we showed it was a tautology
+  using a truth table.
+\item
+  Now we'll use a tableau instead.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Strategy}
+\phantomsection\label{strategy}
+To show a sentence is a tautology using tableaux:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Start by assuming the sentence is \textbf{false}.
+\item
+  If the tableau closes, then it's impossible for the sentence to be
+  false.
+\item
+  Remember, a tableau closes if every branch has at least one
+  inconsistency.
+\item
+  If the tableau closes, the sentence must be true - it's a tautology.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Building the Tree}
+\phantomsection\label{building-the-tree}
+We start by writing that \((P \rightarrow Q) \vee (Q \rightarrow P)\) is
+false.
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the False \(\vee\) Rule}
+\phantomsection\label{applying-the-false-vee-rule}
+Since we have a false disjunction, we know both disjuncts must be false.
+
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the False \(\rightarrow\) Rule (First Time)}
+\phantomsection\label{applying-the-false-rightarrow-rule-first-time}
+When a conditional is false, the antecedent is true and the consequent
+is false.
+
+So from \(\mathbb{F}(P \rightarrow Q)\), we get \(\mathbb{T}P\) and
+\(\mathbb{F}Q\).
+\end{frame}
+
+\begin{frame}{Applying the False \(\rightarrow\) Rule (First Time)}
+\phantomsection\label{applying-the-false-rightarrow-rule-first-time-1}
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+        [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the False \(\rightarrow\) Rule (Second Time)}
+\phantomsection\label{applying-the-false-rightarrow-rule-second-time}
+Now we apply the same rule to \(\mathbb{F}(Q \rightarrow P)\) on line 3.
+
+This gives us \(\mathbb{T}Q\) and \(\mathbb{F}P\).
+\end{frame}
+
+\begin{frame}{Applying the False \(\rightarrow\) Rule (Second Time)}
+\phantomsection\label{applying-the-false-rightarrow-rule-second-time-1}
+\begin{oltableau}
+[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}, 
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\vee}[1]}
+    [\sFmla{\False}{Q \rightarrow P}, just = {\TRule{\False}{\vee}[1]}
+      [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+        [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+          [\sFmla{\True}{Q}, just = {\TRule{\False}{\rightarrow}[3]}
+            [\sFmla{\False}{P}, just = {\TRule{\False}{\rightarrow}[3]}]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{The Tree Closes}
+\phantomsection\label{the-tree-closes}
+Notice what we have now:
+
+\begin{itemize}
+\tightlist
+\item
+  Line 4: \(\mathbb{T}P\)
+\item
+  Line 7: \(\mathbb{F}P\)
+\item
+  Line 5: \(\mathbb{F}Q\)\\
+\item
+  Line 6: \(\mathbb{T}Q\)
+\end{itemize}
+
+\pause
+
+Both \(P\) and \(Q\) have incompatible truth values. The branch closes.
+(NB: We only need one inconsistency, even though we have two here.)
+\end{frame}
+
+\begin{frame}{What This Means}
+\phantomsection\label{what-this-means}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We started by assuming \((P \rightarrow Q) \vee (Q \rightarrow P)\) is
+  false.
+\item
+  Every possible way to make it false led to a contradiction.
+\item
+  Therefore, it \textbf{cannot} be false.
+\item
+  This means it's a tautology - it must always be true.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comparison to Truth Tables}
+\phantomsection\label{comparison-to-truth-tables}
+\begin{itemize}
+\tightlist
+\item
+  With a truth table, we had to check 4 rows.
+\item
+  With the tableau, we just followed the logical implications.
+\item
+  For more complex sentences (with 3+ variables), tableaux can be much
+  more efficient.
+\item
+  They don't grow exponentially like truth tables do.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example 2: Showing a Contradiction}
+\phantomsection\label{example-2-showing-a-contradiction}
+Let's show that \(((P \vee Q) \wedge \neg P) \wedge \neg Q\) is a
+contradiction.
+
+\begin{itemize}
+\tightlist
+\item
+  A contradiction is a sentence that can never be true.
+\item
+  We'll use a tableau to demonstrate this.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Strategy}
+\phantomsection\label{strategy-1}
+To show a sentence is a contradiction using tableaux:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Start by assuming the sentence is \textbf{true}.
+\item
+  If the tableau closes, then it's impossible for the sentence to be
+  true.
+\item
+  That means the sentence must be false - it's a contradiction.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Building the Tree}
+\phantomsection\label{building-the-tree-1}
+We start by writing that \(((P \vee Q) \wedge \neg P) \wedge \neg Q\) is
+true.
+
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\wedge\) Rule}
+\phantomsection\label{applying-the-true-wedge-rule}
+Since we have a true conjunction, both conjuncts must be true.
+
+So we get \(\mathbb{T}((P \vee Q) \wedge \neg P)\) and
+\(\mathbb{T}\neg Q\).
+\end{frame}
+
+\begin{frame}{Applying the True \(\wedge\) Rule}
+\phantomsection\label{applying-the-true-wedge-rule-1}
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\wedge\) Rule Again}
+\phantomsection\label{applying-the-true-wedge-rule-again}
+Now we apply the rule to \(\mathbb{T}((P \vee Q) \wedge \neg P)\) from
+line 2.
+
+This gives us \(\mathbb{T}(P \vee Q)\) and \(\mathbb{T}\neg P\).
+\end{frame}
+
+\begin{frame}{Applying the True \(\wedge\) Rule Again}
+\phantomsection\label{applying-the-true-wedge-rule-again-1}
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\neg\) Rules}
+\phantomsection\label{applying-the-true-neg-rules}
+From \(\mathbb{T}\neg P\) we get \(\mathbb{F}P\), and from
+\(\mathbb{T}\neg Q\) we get \(\mathbb{F}Q\).
+\end{frame}
+
+\begin{frame}
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}
+          [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}
+            [\sFmla{\False}{Q}, just = {\TRule{\True}{\neg}[3]}]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\vee\) Rule}
+\phantomsection\label{applying-the-true-vee-rule}
+Now we need to apply the rule for \(\mathbb{T}(P \vee Q)\) from line 4.
+
+This creates two branches - one where \(P\) is true, one where \(Q\) is
+true.
+\end{frame}
+
+\begin{frame}
+\begin{oltableau}
+[\sFmla{\True}{((P \vee Q) \wedge \neg P) \wedge \neg Q}, 
+  [\sFmla{\True}{(P \vee Q) \wedge \neg P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{\neg Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[2]}
+        [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[2]}
+          [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}
+            [\sFmla{\False}{Q}, just = {\TRule{\True}{\neg}[3]}
+              [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[4]}]
+              [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[4]}]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Both Branches Close}
+\phantomsection\label{both-branches-close}
+Look at what we have on each branch:
+
+\textbf{Left branch:} - Line 6: \(\mathbb{F}P\) - Line 8:
+\(\mathbb{T}P\)
+
+\pause
+
+\textbf{Right branch:} - Line 7: \(\mathbb{F}Q\) - Line 8:
+\(\mathbb{T}Q\)
+
+\pause
+
+\textbf{Both} branches have contradictions. The entire tableau closes.
+\end{frame}
+
+\begin{frame}{What This Means}
+\phantomsection\label{what-this-means-1}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We started by assuming \(((P \vee Q) \wedge \neg P) \wedge \neg Q\) is
+  true
+\item
+  We tried every possible way to make it true (both branches)
+\item
+  Every possibility led to a contradiction
+\item
+  Therefore, the sentence \textbf{cannot} be true - it's a contradiction
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Understanding the Result}
+\phantomsection\label{understanding-the-result}
+This result makes intuitive sense:
+
+\begin{itemize}
+\tightlist
+\item
+  \((P \vee Q)\) says at least one of \(P\) or \(Q\) is true
+\item
+  \(\neg P\) says \(P\) is false
+\item
+  \(\neg Q\) says \(Q\) is false
+\item
+  You can't have at least one true when both are false.
+\end{itemize}
+
+The tableau just systematically revealed this inconsistency.
+\end{frame}
+
+\begin{frame}{Example 3: Showing a Contingent Sentence}
+\phantomsection\label{example-3-showing-a-contingent-sentence}
+Let's show that \(P \wedge (P \rightarrow Q)\) is neither a tautology
+nor a contradiction.
+
+\begin{itemize}
+\tightlist
+\item
+  A contingent sentence is one that could be true or false.
+\item
+  We'll use two tableaux to demonstrate this.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Strategy}
+\phantomsection\label{strategy-2}
+To show a sentence is contingent:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  First, try to show it's a tautology (start with it false)
+\item
+  If that tableau stays open, it's not a tautology
+\item
+  Then, try to show it's a contradiction (start with it true)
+\item
+  If that tableau also stays open, it's not a contradiction
+\item
+  If both tableaux are open, the sentence is contingent
+\end{itemize}
+\end{frame}
+
+\begin{frame}{First Tree: Is It a Tautology?}
+\phantomsection\label{first-tree-is-it-a-tautology}
+We start by assuming \(P \wedge (P \rightarrow Q)\) is \textbf{false}.
+
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the False \(\wedge\) Rule}
+\phantomsection\label{applying-the-false-wedge-rule}
+Since we have a false conjunction, at least one conjunct must be false.
+
+This creates two branches.
+\end{frame}
+
+\begin{frame}{Applying the False \(\wedge\) Rule}
+\phantomsection\label{applying-the-false-wedge-rule-1}
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\False}{P}, just = {\TRule{\False}{\wedge}[1]}]
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\wedge}[1]}]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Left Branch: Already Complete}
+\phantomsection\label{left-branch-already-complete}
+The left branch just has \(\mathbb{F}P\).
+
+\begin{itemize}
+\tightlist
+\item
+  This doesn't contradict anything.
+\item
+  We can't apply any more rules to it.
+\item
+  So this branch is \textbf{complete and open}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Right Branch: Applying False \(\rightarrow\) Rule}
+\phantomsection\label{right-branch-applying-false-rightarrow-rule}
+On the right branch, we have \(\mathbb{F}(P \rightarrow Q)\).
+
+When a conditional is false, the antecedent is true and the consequent
+is false.
+\end{frame}
+
+\begin{frame}{Right Branch: Applying False \(\rightarrow\) Rule}
+\phantomsection\label{right-branch-applying-false-rightarrow-rule-1}
+\begin{oltableau}
+[\sFmla{\False}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\False}{P}, just = {\TRule{\False}{\wedge}[1]}]
+  [\sFmla{\False}{P \rightarrow Q}, just = {\TRule{\False}{\wedge}[1]}
+    [\sFmla{\True}{P}, just = {\TRule{\False}{\rightarrow}[2]}
+      [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Right Branch: Also Complete and Open}
+\phantomsection\label{right-branch-also-complete-and-open}
+The right branch has \(\mathbb{F}(P \rightarrow Q)\), \(\mathbb{T}P\),
+and \(\mathbb{F}Q\).
+
+\begin{itemize}
+\tightlist
+\item
+  These don't contradict each other.
+\item
+  We can't apply any more rules.
+\item
+  So this branch is also \textbf{complete and open}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What the First Tree Shows}
+\phantomsection\label{what-the-first-tree-shows}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We assumed \(P \wedge (P \rightarrow Q)\) is false.
+\item
+  The tableau has open branches.
+\item
+  This means it \textbf{is} possible for the sentence to be false.
+\item
+  Therefore, it's \textbf{not a tautology}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Second Tree: Is It a Contradiction?}
+\phantomsection\label{second-tree-is-it-a-contradiction}
+Now we start by assuming \(P \wedge (P \rightarrow Q)\) is
+\textbf{true}.
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\wedge\) Rule}
+\phantomsection\label{applying-the-true-wedge-rule-2}
+Since we have a true conjunction, both conjuncts must be true.
+
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{P \rightarrow Q}, just = {\TRule{\True}{\wedge}[1]}]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Applying the True \(\rightarrow\) Rule}
+\phantomsection\label{applying-the-true-rightarrow-rule}
+Now we apply the rule for \(\mathbb{T}(P \rightarrow Q)\) from line 3.
+
+This creates two branches - one where \(P\) is false, one where \(Q\) is
+true.
+\end{frame}
+
+\begin{frame}{Applying the True \(\rightarrow\) Rule}
+\phantomsection\label{applying-the-true-rightarrow-rule-1}
+\begin{oltableau}
+[\sFmla{\True}{P \wedge (P \rightarrow Q)}, 
+  [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[1]}
+    [\sFmla{\True}{P \rightarrow Q}, just = {\TRule{\True}{\wedge}[1]}
+      [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[3]}]
+      [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[3]}]
+    ]
+  ]
+]
+\end{oltableau}
+\end{frame}
+
+\begin{frame}{Analyzing the Second Tree}
+\phantomsection\label{analyzing-the-second-tree}
+\begin{columns}[T]
+\begin{column}{0.48\linewidth}
+\textbf{Left branch:}
+
+\begin{itemize}
+\tightlist
+\item
+  Line 2: \(\mathbb{T}P\)
+\item
+  Line 4: \(\mathbb{F}P\)
+\item
+  This branch \textbf{closes}.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\linewidth}
+\textbf{Right branch:}
+
+\begin{itemize}
+\tightlist
+\item
+  Line 2: \(\mathbb{T}P\)
+\item
+  Line 4: \(\mathbb{T}Q\)
+\item
+  These don't contradict anything.
+\item
+  This branch is \textbf{complete and open}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{What the Second Tree Shows}
+\phantomsection\label{what-the-second-tree-shows}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We assumed \(P \wedge (P \rightarrow Q)\) is true.
+\item
+  The tableau has an open branch.
+\item
+  This means it \textbf{is} possible for the sentence to be true.
+\item
+  Therefore, it's \textbf{not a contradiction}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\phantomsection\label{conclusion}
+Since \(P \wedge (P \rightarrow Q)\):
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Is not a tautology (first tree has open branches),
+\item
+  Is not a contradiction (second tree has an open branch),
+\item
+  It must be \textbf{contingent} - sometimes true, sometimes false.
+\end{itemize}
+
+\pause
+
+The open branches actually show us \textbf{when} it's true or false:
+
+\begin{itemize}
+\tightlist
+\item
+  It's false when \(P\) is false (first tree, left branch)
+\item
+  It's true when both \(P\) and \(Q\) are true (second tree, right
+  branch).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comparison to Truth Tables}
+\phantomsection\label{comparison-to-truth-tables-1}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  A \textbf{tautology} has a T under the main connective in every row.
+\item
+  A \textbf{contradiction} has an F under the main connective in every
+  row.
+\item
+  A \textbf{contingent} sentence has a mixture Ts and Fs under the main
+  connective.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{For Next Time}
+\phantomsection\label{for-next-time}
+We'll use trees to test for validity.
+
+Remember there is no lecture on Wednesday, but there is a discussion
+section.
+\end{frame}
+
+
+
+
+\end{document}

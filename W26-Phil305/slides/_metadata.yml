@@ -7,9 +7,6 @@ format:
       show-slide-number: all
       hash-type: number
       preview-links: auto
-      html-math-method:
-          method: mathjax
-          url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
       chalkboard: false
       multiplex: false
       footer: "PHIL 305 | University of Michigan"
@@ -25,8 +22,6 @@ format:
       navigation-mode: vertical
       controls: false
       menu: true
-      mathjax:
-        font: "Fira Math"
   beamer:
       theme: metropolis
       classoption: handout

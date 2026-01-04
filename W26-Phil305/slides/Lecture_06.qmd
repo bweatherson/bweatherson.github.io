@@ -1,6 +1,6 @@
 ---
-title: "Truth Trees"
-date: "1/26/2026"
+title: "Trees and Validity"
+date: "2/2/2026"
 format:
     revealjs:
         css: lecture-03-custom-tables.css
@@ -8,14 +8,1367 @@ format:
         include-in-header: 305-beamer-header-minimal.tex
 ---
 
-## Building the Tree
+# Review: Tableaux Basics
 
-We start by writing that $(P \rightarrow Q) \vee (Q \rightarrow P)$ is false.
+## What We're Reviewing
 
+Before we move on to using tableaux for validity testing, let's review the basics of them, including:
+
+- What tableaux are;
+- The rules for building them;
+- What it means for a branch to close;
+- What it means for a whole tableau to close
+
+## Core Idea
+
+Tableaux systematically explore what has to be the case for some sentences to be true together.
+
+So far we've only done this for a single sentence, today we'll expand this to multiple sentences.
+
+- We start by writing down our initial sentences with truth values (signs). Call these our assumptions.
+- We apply rules that tell us what else must be true given those assumptions.
+- If every way of making the assumptions true leads to a contradiction, the assumptions cannot all be true together.
+
+## The Rules: Overview
+
+Each logical connective has rules for when it's true and when it's false.
+
+**Non-branching rules:** When we know for certain what must follow.
+
+**Branching rules:** When there are multiple ways to make something true.
+
+## The Rules: Negation
+
+::: {.columns}
+
+:::: {.column width="50%"}
 \begin{oltableau}
-[\sFmla{\False}{(P \rightarrow Q) \vee (Q \rightarrow P)}]
+[\sFmla{\True}{\neg A}, 
+	[\sFmla{\False}{A}, just = {\TRule{\True}{\neg}[1]}]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for true negation rule](../images/tableaux/05-01.svg){height=124px}
+:::::
+
+If a negation is true, the negated sentence is false.
+::::
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\False}{\neg A}, 
+	[\sFmla{\True}{A}, just = {\TRule{\False}{\neg}[1]}]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for false negation rule](../images/tableaux/05-02.svg){height=124px}
+:::::
+
+If a negation is false, the negated sentence is true.
+::::
+:::
+
+## The Rules: Conjunction
+
+::: {.columns}
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\True}{A \wedge B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\True}{\wedge}[1]}
+	  [\sFmla{\True}{B}, just = {\TRule{\True}{\wedge}[1]}]
+	]
+]
 \end{oltableau}
 
 ::: {.content-visible when-format="revealjs"}
-![Starting the tree](../images/tableaux/05-09.svg){height=80px}
+![Truth tree for true conjunction rule](../images/tableaux/05-03.svg){height=182px}
 :::
+
+If a conjunction is true, both conjuncts are true.
+::::
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\False}{A \wedge B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\False}{\wedge}[1]}]
+	[\sFmla{\False}{B}, just = {\TRule{\False}{\wedge}[1]}]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree for false conjunction rule](../images/tableaux/05-05.svg){height=204px}
+:::
+
+If a conjunction is false, at least one conjunct is false. This is our first instance of a **branching rule**.
+::::
+:::
+
+## The Rules: Disjunction
+
+::: {.columns}
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\True}{A \vee B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\True}{\vee}[1]}]
+	[\sFmla{\True}{B}, just = {\TRule{\True}{\vee}[1]}]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for true disjunction rule](../images/tableaux/05-04.svg){height=204px}
+:::::
+
+If a disjunction is true, at least one disjunct is true. 
+::::
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\False}{A \vee B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\False}{\vee}[1]}
+	  [\sFmla{\False}{B}, just = {\TRule{\False}{\vee}[1]}]
+	]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for false disjunction rule](../images/tableaux/05-06.svg){height=182px}
+:::::
+
+If a disjunction is false, both disjuncts are false.
+::::
+:::
+
+## The Rules: Conditional
+
+
+::: {.columns}
+
+:::: {.column width="50%"}
+\begin{oltableau}
+[\sFmla{\True}{A \rightarrow B}, 
+	[\sFmla{\False}{A}, just = {\TRule{\True}{\rightarrow}[1]}]
+	[\sFmla{\True}{B}, just = {\TRule{\True}{\rightarrow}[1]}]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for true conditional rule](../images/tableaux/05-08.svg){height=205px}
+:::::
+
+If a conditional is true, either the antecedent is false or the consequent is true.
+::::
+
+:::: {.column width="50%"}
+
+\begin{oltableau}
+[\sFmla{\False}{A \rightarrow B}, 
+	[\sFmla{\True}{A}, just = {\TRule{\False}{\rightarrow}[1]}
+	  [\sFmla{\False}{B}, just = {\TRule{\False}{\rightarrow}[1]}]
+	]
+]
+\end{oltableau}
+
+::::: {.content-visible when-format="revealjs"}
+![Truth tree for false conditional rule](../images/tableaux/05-07.svg){height=182px}
+:::::
+
+If a conditional is false, the antecedent is true and the consequent is false.
+::::
+
+:::
+
+## When a Branch Closes
+
+A branch closes when it contains a contradiction.
+
+For propositional logic, this means the branch has both $\mathbb{T}A$ and $\mathbb{F}A$ for some sentence $A$
+
+In practice there will always be an **atomic** sentence, i.e., a sentence with just a single sentence letter, that triggers this. But it could be any arbitrarily long sentence.
+
+::: {.incremental}
+- A closed branch represents an impossible combination.
+- When a branch closes, we've shown that path cannot happen.
+:::
+
+## When a Tableau Closes
+
+A tableau closes when **every** branch closes.
+
+::: {.incremental}
+- This means every possible way of making our initial assumptions true leads to a contradiction.
+- Therefore, the initial assumptions cannot all be true together.
+- They are **logically inconsistent**.
+:::
+
+## What Closure Tells Us
+
+The meaning of a closed tableau depends on what we started with.
+
+::: {.incremental}
+- If we started with just $\mathbb{F}A$, then $A$ is a **tautology**.
+- If we started with just $\mathbb{T}A$, then $A$ is a **contradiction**.
+- If we started with premises and the negation of a conclusion, the argument is **valid**. We'll say much more on this over the lecture.
+:::
+
+## Open Branches
+
+A branch that doesn't close represents a possible way to make the assumptions true.
+
+- An open branch shows a scenario where all the claims on that branch hold together.
+- A completed tableau with open branches shows the initial assumptions **can** be true together.
+- It also shows **how** they are true together; by looking at the truth value of atomics on that branch we can see what it takes for the sentences to be true together.
+
+## Completion
+
+Not all open tableaux are completed.
+
+- A tableau is only completed when we've applied all applicable rules.
+- An incomplete open tableau doesn't tell us anything yet.
+- This distinction will matter more as tableaux get more complex.
+
+# Some More Notation
+
+## Overview
+
+As the examples get more complicated, it will be helpful to keep track of what we've done, and what is left to do. So we'll introduce two more bits of notation.
+
+:::{.content-visible when-format="revealjs"}
+- Check marks (✓), for lines that have been processed.
+- Close marks (⊗), for branches that are closed.
+:::
+
+:::{.content-visible when-format="beamer"}
+- Check marks (\ding{52}), for lines that have been processed.
+- Close marks ($\otimes$), for branches that are closed.
+:::
+
+
+## Tracking Progress in Tableaux
+
+As we build tableaux, we need to track two things:
+
+::: {.incremental}
+1. Which lines we've already applied rules to (so we don't repeat ourselves); and
+2. Which branches have closed (so we know when we're done).
+:::
+
+## The Check Mark
+
+:::{.content-visible when-format="revealjs"}
+When we apply a rule to a line, we mark it with a check (✓)
+:::
+
+:::{.content-visible when-format="beamer"}
+When we apply a rule to a line, we mark it with a check (\ding{52}).
+:::
+
+- This shows we've already used that line.
+- The big benefit of this is that we can tell when we're finished. It's easy to check that we haven't missed any lines.
+- When we're done, every line that has a logical symbol on it (and, or, not, or if) will have a check mark.
+
+## The Close Mark
+
+:::{.content-visible when-format="revealjs"}
+When a branch contains both $\mathbb{T}A$ and $\mathbb{F}A$ for some sentence, we close it with ⊗.
+:::
+
+:::{.content-visible when-format="beamer"}
+When a branch contains both $\mathbb{T}A$ and $\mathbb{F}A$ for some sentence, we close it with $\otimes$.
+:::
+
+- This shows that branch represents an impossible scenario.
+- We don't need to do any more work on that branch.
+
+## Example: Working Through a Tree
+
+Let's work through: $\mathbb{T}(\neg P \wedge (P \vee Q))$
+
+We'll see how to use checks and closes as we build the tableau.
+
+## Step 1: Starting Point
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, just = \TAss
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![The initial assumption](../images/tableaux/06-01.svg){height=80px}
+:::
+
+We start with our assumption. We haven't applied any rules yet.
+
+## Step 2: Apply True $\wedge$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, checked, just = \TAss
+    [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying the conjunction rule](../images/tableaux/06-02.svg){height=190px}
+:::
+
+We've applied the rule to line 1, so we check it off.
+
+## Step 3: Apply True $\neg$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, checked, just = \TAss
+    [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![After applying the negation rule](../images/tableaux/06-03.svg){height=244px}
+:::
+
+We've applied the rule to line 2, so we check it off.
+
+## Step 4: Apply True $\vee$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, checked, just = \TAss
+    [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}]
+                [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Branching because of the disjunction rule](../images/tableaux/06-04.svg){height=387px}
+:::
+
+We've applied the rule to line 3, creating two branches.
+
+## Step 5: Close the Left Branch
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, checked, just = \TAss
+    [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}, close]
+                [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Closing the left branch](../images/tableaux/06-05.svg){height=484px}
+:::
+
+The left branch has both $\mathbb{F}P$ (line 4) and $\mathbb{T}P$ (line 5), so it closes.
+
+## Step 6: The Right Branch Stays Open
+
+\begin{oltableau}
+[\sFmla{\True}{\neg P \wedge (P \vee Q)}, checked, just = \TAss
+    [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}, close]
+                [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree showing the right branch remaining open with no contradiction](../images/tableaux/06-06.svg){height=484px}
+:::
+
+The right branch has $\mathbb{F}P$ and $\mathbb{T}Q$ - no contradiction. It stays open.
+
+## What This Tells Us
+
+::: {.incremental}
+- The left branch closed, showing one way to make our assumptions doesn't work.
+- The right branch stayed open, showing there **is** a way to make them all true.
+- Specifically: when $P$ is false and $Q$ is true.
+- So $\neg P \wedge (P \vee Q)$ is **not** a contradiction - it's satisfiable.
+:::
+
+## Summary: Checks and Closes
+
+**Check marks (✓):**
+
+- These are applied to lines after we are done with them.
+- They help us track what is already done.
+
+**Close marks (⊗):**
+
+- These are applied to branches that contain contradictions.
+- They show which branches are impossible.
+
+# Branches in Branches
+
+## Overview
+
+This is one of the more annoying parts of building these trees.
+
+Once we branch, the rule for any sentence that hasn't been checked has to be applied with the results being put on both branches.
+
+If that's a branching rule, that means we have branches within branches.
+
+## Branching Within Branches
+
+Sometimes we need to apply branching rules multiple times in the same tableau.
+
+- When this happens, we get branches splitting off from other branches.
+- Each new branch explores a different combination of possibilities.
+- We have to track each branch separately.
+
+## Example: $(P \vee Q) \wedge (\neg P \vee R)$
+
+Let's build a tableau starting with $\mathbb{T}((P \vee Q) \wedge (\neg P \vee R))$.
+
+This will require us to branch twice.
+
+## Step 1: Starting Point
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, just = \TAss
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Initial truth tree with one assumption](../images/tableaux/06-07.svg){height=80px}
+:::
+
+We start with our assumption.
+
+## Step 2: Apply True $\wedge$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, just = {\TRule{\True}{\wedge}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying conjunction rule to get both conjuncts](../images/tableaux/06-08.svg){height=186px}
+:::
+
+Both conjuncts must be true, so we write them both down.
+
+## Step 3: First Branch - True $\vee$ Rule
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after first branching for the disjunction](../images/tableaux/06-09.svg){height=329px}
+:::
+
+Line 2 gives us our first split: either $P$ or $Q$ is true.
+
+## The Challenge
+
+Now we have two branches, and line 3 ($\mathbb{T}(\neg P \vee R)$) appears on both.
+
+- We need to apply the rule for line 3 to **each branch separately**.
+- This will create branches within branches.
+
+## Step 4: Apply Rule to Both Branches
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\vee}[3]}]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, just = {\TRule{\True}{\vee}[3]}]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying disjunction rule to both main branches, creating four total branches](../images/tableaux/06-10.svg){height=464px}
+:::
+
+We apply line 3 to both main branches. Now we have **four** branches total.
+
+## Counting the Branches
+
+Let's trace each complete branch from top to bottom:
+
+::: {.incremental}
+1. **Far left:** $\mathbb{T}(P \vee Q)$, $\mathbb{T}(\neg P \vee R)$, $\mathbb{T}P$, $\mathbb{T}\neg P$
+2. **Middle left:** $\mathbb{T}(P \vee Q)$, $\mathbb{T}(\neg P \vee R)$, $\mathbb{T}P$, $\mathbb{T}R$
+3. **Middle right:** $\mathbb{T}(P \vee Q)$, $\mathbb{T}(\neg P \vee R)$, $\mathbb{T}Q$, $\mathbb{T}\neg P$
+4. **Far right:** $\mathbb{T}(P \vee Q)$, $\mathbb{T}(\neg P \vee R)$, $\mathbb{T}Q$, $\mathbb{T}R$
+:::
+
+## Step 5: Expand Negations
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}, move by=1]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying negation rules to the true negations](../images/tableaux/06-11.svg){height=580px}
+:::
+
+We apply the negation rule to the $\mathbb{T}\neg P$ lines (5 and 6).
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}, close]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}, move by=1, close]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree with two branches closed due to contradictions with P](../images/tableaux/06-12.svg){height=680px}
+:::
+
+Two branches close: they have both $\mathbb{T}P$ and $\mathbb{F}P$.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, checked, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[5]}, close]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{\neg P}, checked, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\neg}[6]}, move by=1, close]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree with two branches closed and two remaining open](../images/tableaux/06-13.svg){height=680px}
+:::
+
+Two branches remain open. The tableau doesn't close.
+
+## What the Open Branches Tell Us
+
+The two open branches show us when $(P \vee Q) \wedge (\neg P \vee R)$ can be true:
+
+::: {.incremental}
+- **Branch 2:** When $P$ is true and $R$ is true (with $Q$ either way)
+- **Branch 4:** When $Q$ is true and $R$ is true (with $P$ false)
+:::
+
+. . .
+
+In other words: the sentence is true when both $Q$ or $P$ holds, **and** $R$ holds.
+
+## Summary
+
+When you have multiple disjunctions (or other branching formulas):
+
+::: {.incremental}
+- Each one creates its own split;
+- Later splits happen **within** earlier branches;
+- The total number of branches multiplies quickly; and
+- You need to check each final branch separately for contradictions.
+:::
+
+# Testing for Validity
+
+## A New Application
+
+So far we've used tableaux to test whether sentences are tautologies, contradictions, or contingent.
+
+Now we'll use them to test whether **arguments** are valid.
+
+## Key Point
+
+An argument is valid if and only if it's impossible for the premises to be true and the conclusion false.
+
+::: {.incremental}
+- We can test this with a tableau.
+- We assume the premises are true and the conclusion is false.
+- If the tableau **closes**, this combination is impossible, so the argument is **valid**.
+:::
+
+## Setting Up the Tableau
+
+To test whether an argument is valid:
+
+::: {.incremental}
+1. Write down each premise as **true** ($\mathbb{T}$);
+2. Write down the conclusion as **false** ($\mathbb{F}$);
+3. Apply the tableau rules; and
+4. Check whether the tableau closes.
+:::
+
+## Reading the Result
+
+**If the tableau closes:**
+
+- Every branch contains a contradiction.
+- So, it's impossible for the premises to be true and conclusion false.
+- So the argument is **valid**.
+
+## Reading the Result
+
+**If the tableau stays open:**
+
+- At least one branch has no contradiction.
+- So that branch shows a way the premises could be true and conclusion false.
+- So the argument is **invalid in propositional logic**.
+
+## Why "In Propositional Logic"?
+
+We add this qualification because we're only using propositional logic rules.
+
+::: {.incremental}
+- The argument might be valid for other reasons.
+- For example, "This is a square; therefore this has four sides" has open branches.
+- But it's still a valid argument - just not in virtue of propositional logic alone.
+:::
+
+## An Important Caveat
+
+The tableau must be **completed** before we can conclude invalidity.
+
+- An incomplete open tableau doesn't tell us anything yet.
+- We need to apply all applicable rules before declaring an argument invalid.
+- For simple propositional arguments, this is usually straightforward.
+
+## Summary
+
+::: {.incremental}
+- **Start with:** Premises true, conclusion false.
+- **If it closes:** The argument is valid.
+- **If it is open:** The argument is invalid in propositional logic.
+- **Key insight:** We're testing whether premises can be true while the conclusion is false.
+:::
+
+## Example: A Valid Argument
+
+Let's test this argument for validity:
+
+$$P \rightarrow Q$$
+$$\therefore (P \wedge R) \rightarrow Q$$
+
+We'll see that this is valid.
+
+## Setup
+
+To test validity, we assume:
+
+- The premise is true: $\mathbb{T}(P \rightarrow Q)$.
+- The conclusion is false: $\mathbb{F}((P \wedge R) \rightarrow Q)$.
+
+## Initial Tableau
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, just = \TAss
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Initial truth tree for validity test with premise and negated conclusion](../images/tableaux/06-14.svg){height=138px}
+:::
+
+Now we need to apply rules to build out the tree.
+
+## Strategic Choice
+
+We have two lines we could apply rules to. Which should we do first?
+
+::: {.incremental}
+- If we apply the rules to line 1: $\mathbb{T}(P \rightarrow Q)$ we will **branch**.
+- If we apply the rules to line 2: $\mathbb{F}((P \wedge R) \rightarrow Q)$ we will **not branch**.
+
+:::
+
+## The Golden Rule
+
+**Always apply non-branching rules before branching rules.**
+
+::: {.incremental}
+- Branching multiplies the number of paths through the tree.
+- Every line you add before branching has to be added to each branch.
+- So delay branching as long as possible.
+- This keeps tableaux simpler and easier to work with.
+:::
+
+## Order of Operations
+
+Strictly speaking, either way will work. This is strategic advice, not logical advice.
+
+But really, if you branch too early, you'll have twice as much work to do, which means twice as many chances to make a mistake.
+
+## Step 1: Apply Non-Branching Rule First
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \wedge R}, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying false conditional rule to get true antecedent and false consequent](../images/tableaux/06-15.svg){height=248px}
+:::
+
+When a conditional is false, the antecedent is true and the consequent is false.
+
+## Step 2: Continue with Non-Branching Rules
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \wedge R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\True}{R}, just = {\TRule{\True}{\wedge}[3]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying conjunction rule to get both true conjuncts](../images/tableaux/06-16.svg){height=360px}
+:::
+
+When a conjunction is true, both conjuncts are true.
+
+## Step 3: Now Apply the Branching Rule
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \wedge R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\True}{R}, just = {\TRule{\True}{\wedge}[3]}
+                        [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                        [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying true conditional rule which creates two branches](../images/tableaux/06-17.svg){height=503px}
+:::
+
+Now we apply the rule for $\mathbb{T}(P \rightarrow Q)$, which creates two branches.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \wedge R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \wedge R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\True}{R}, just = {\TRule{\True}{\wedge}[3]}
+                        [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                        [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Closed truth tree showing both branches contain contradictions](../images/tableaux/06-18.svg){height=600px}
+:::
+
+**Left branch:** $\mathbb{T}P$ (line 5) and $\mathbb{F}P$ (line 7) - so it **closes**.
+
+**Right branch:** $\mathbb{F}Q$ (line 4) and $\mathbb{T}Q$ (line 7) - so it **closes**.
+
+## Conclusion
+
+Both branches close, so the entire tableau **closes**.
+
+::: {.incremental}
+- This means it's **impossible** for the premise to be true and the conclusion false.
+- Therefore, the argument is **valid**.
+- The strategy of doing non-branching rules first kept the tree manageable.
+:::
+
+## Comparing Strategies
+
+If we had branched first at line 1, we would have had two branches from line 1.
+
+::: {.incremental}
+- Then we'd have to apply line 2's rule to **each** branch.
+- And then had to apply line 3's rule to **each** of those branches.
+- That's a lot more work for the same result.
+:::
+
+## Summary
+
+When building tableaux:
+
+::: {.incremental}
+1. Look at which rules you could apply.
+2. Identify which will branch and which won't.
+3. **Always do non-branching rules first**.
+4. Only branch when you have no other choice.
+:::
+
+## Example: An Invalid Argument
+
+Let's test this argument for validity:
+
+$$P \rightarrow Q$$
+$$\therefore (P \vee R) \rightarrow Q$$
+
+Note: we've just changed $\wedge$ to $\vee$ from the previous example.
+
+## Setup
+
+To test validity, we assume:
+
+- The premise is true: $\mathbb{T}(P \rightarrow Q)$.
+- The conclusion is false: $\mathbb{F}((P \vee R) \rightarrow Q)$.
+
+## Initial Tableau
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, just = \TAss
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Initial truth tree for second validity test with premise and negated conclusion](../images/tableaux/06-19.svg){height=138px}
+:::
+
+As before, we need to decide which rule to apply first.
+
+## Apply Non-Branching Rule First
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \vee R}, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying false conditional rule to expand the negated conclusion](../images/tableaux/06-20.svg){height=249px}
+:::
+
+When a conditional is false, the antecedent is true and the consequent is false.
+
+## Now We Must Branch
+
+At this point, both remaining unchecked lines require branching:
+
+::: {.incremental}
+- Line 1: $\mathbb{T}(P \rightarrow Q)$ branches
+- Line 3: $\mathbb{T}(P \vee R)$ branches
+:::
+
+. . .
+
+Either order works. Let's do line 3 first. (Actually it would be easier to do 1 first - can you see why? But there is more to show this way.)
+
+## Apply First Branching Rule
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \vee R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying disjunction rule which creates two branches](../images/tableaux/06-21.svg){height=383px}
+:::
+
+When a disjunction is true, at least one disjunct is true. This creates two branches.
+
+## Apply Second Branching Rule
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \vee R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying conditional rule to both existing branches, creating four total branches](../images/tableaux/06-22.svg){height=526px}
+:::
+
+Now we apply the rule for line 1 to both branches.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \vee R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree with three branches closed and one remaining open](../images/tableaux/06-23.svg){height=622px}
+:::
+
+Three branches close, but crucially one stays open.
+
+## Analyzing the Branches
+
+Let's check each branch:
+
+::: {.incremental}
+- **Far left:** $\mathbb{T}P$ and $\mathbb{F}P$ - **closes**
+- **Middle left:** $\mathbb{T}P$, $\mathbb{F}Q$, and $\mathbb{T}Q$ - **closes**
+- **Middle right:** $\mathbb{T}R$, $\mathbb{F}Q$, and $\mathbb{F}P$ - **stays open**
+- **Far right:** $\mathbb{T}R$, $\mathbb{F}Q$, and $\mathbb{T}Q$ - **closes**
+:::
+
+## The Open Branch
+
+The middle right branch remains open with:
+
+- $\mathbb{T}(P \rightarrow Q)$ (line 1)
+- $\mathbb{F}Q$ (line 4)
+- $\mathbb{T}R$ (line 6)
+- $\mathbb{F}P$ (line 7)
+
+These don't contradict each other, and we've applied all applicable rules.
+
+## What This Means
+
+The open branch shows a scenario where:
+
+::: {.incremental}
+- $P$ is false;
+- $Q$ is false; and
+- $R$ is true.
+- In this scenario, $P \rightarrow Q$ is true (false antecedent);
+- But $(P \vee R) \rightarrow Q$ is false ($P \vee R$ is true because $R$ is true, but $Q$ is false).
+:::
+
+## Conclusion
+
+Since the tableau has an open branch it is possible for the premise to be true and conclusion false.
+
+::: {.incremental}
+- Therefore, the argument is **invalid in propositional logic**.
+- The open branch gives us a counterexample: $P$ false, $Q$ false, $R$ true.
+:::
+
+## Comparing the Two Arguments
+
+**Valid:** $P \rightarrow Q \therefore (P \wedge R) \rightarrow Q$
+
+**Invalid:** $P \rightarrow Q \therefore (P \vee R) \rightarrow Q$
+
+. . .
+
+The difference:
+
+- With $\wedge$: if $P \wedge R$ is true, then $P$ must be true
+- With $\vee$: if $P \vee R$ is true, $P$ might be false (if $R$ is true)
+- This is exactly the case that leads to the open branch.
+
+## A More Complex Example
+
+Let's test this argument:
+
+$$P \rightarrow Q$$
+$$Q \rightarrow R$$
+$$\neg R$$
+$$\therefore \neg P$$
+
+This is a chain of modus tollens reasoning.
+
+## Setup
+
+To test validity, we assume:
+
+- The premises are true: $\mathbb{T}(P \rightarrow Q)$, $\mathbb{T}(Q \rightarrow R)$, $\mathbb{T}\neg R$
+- The conclusion is false: $\mathbb{F}\neg P$
+
+## Initial Tableau
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, just = \TAss
+        [\sFmla{\True}{\neg R}, just = \TAss
+            [\sFmla{\False}{\neg P}, just = \TAss
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Initial truth tree for validity test with three premises and negated conclusion](../images/tableaux/06-24.svg){height=254px}
+:::
+
+Now we need to decide our strategy.
+
+## Strategic Planning
+
+Let's identify which rules will branch:
+
+::: {.incremental}
+- Line 1: $\mathbb{T}(P \rightarrow Q)$ - **branches**
+- Line 2: $\mathbb{T}(Q \rightarrow R)$ - **branches**
+- Line 3: $\mathbb{T}\neg R$ - **does not branch**
+- Line 4: $\mathbb{F}\neg P$ - **does not branch**
+:::
+
+. . .
+
+Strategy: Do lines 3 and 4 first!
+
+## Step 1: Apply Non-Branching Rules
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, just = \TAss
+        [\sFmla{\True}{\neg R}, checked, just = \TAss
+            [\sFmla{\False}{\neg P}, checked, just = \TAss
+                [\sFmla{\False}{R}, just = {\TRule{\True}{\neg}[3]}
+                    [\sFmla{\True}{P}, just = {\TRule{\False}{\neg}[4]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying the two non-branching negation rules first](../images/tableaux/06-25.svg){height=360px}
+:::
+
+We now have $\mathbb{F}R$ and $\mathbb{T}P$ on every branch we might create.
+
+## Another Strategic Choice
+
+Now both remaining lines will branch. Which should we do first?
+
+::: {.incremental}
+- Line 1: $\mathbb{T}(P \rightarrow Q)$ gives us $\mathbb{F}P$ or $\mathbb{T}Q$
+- Line 2: $\mathbb{T}(Q \rightarrow R)$ gives us $\mathbb{F}Q$ or $\mathbb{T}R$
+:::
+
+. . .
+
+Think ahead: We have $\mathbb{F}R$ (line 5). If we do line 2 first, one branch will immediately close!
+
+## Step 2: Apply Line 2 First
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, checked, just = \TAss
+        [\sFmla{\True}{\neg R}, checked, just = \TAss
+            [\sFmla{\False}{\neg P}, checked, just = \TAss
+                [\sFmla{\False}{R}, just = {\TRule{\True}{\neg}[3]}
+                    [\sFmla{\True}{P}, just = {\TRule{\False}{\neg}[4]}
+                        [\sFmla{\False}{Q}, just = {\TRule{\True}{\rightarrow}[2]}]
+                        [\sFmla{\True}{R}, just = {\TRule{\True}{\rightarrow}[2]}]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying second branching rule, creating two branches](../images/tableaux/06-26.svg){height=503px}
+:::
+
+The right branch has $\mathbb{F}R$ (line 5) and $\mathbb{T}R$ (line 8).
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, checked, just = \TAss
+        [\sFmla{\True}{\neg R}, checked, just = \TAss
+            [\sFmla{\False}{\neg P}, checked, just = \TAss
+                [\sFmla{\False}{R}, just = {\TRule{\True}{\neg}[3]}
+                    [\sFmla{\True}{P}, just = {\TRule{\False}{\neg}[4]}
+                        [\sFmla{\False}{Q}, just = {\TRule{\True}{\rightarrow}[2]}]
+                        [\sFmla{\True}{R}, just = {\TRule{\True}{\rightarrow}[2]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree with one branch closed and one remaining to process](../images/tableaux/06-27.svg){height=600px}
+:::
+
+Now we only need to work on the left branch.
+
+---
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, checked, just = \TAss
+        [\sFmla{\True}{\neg R}, checked, just = \TAss
+            [\sFmla{\False}{\neg P}, checked, just = \TAss
+                [\sFmla{\False}{R}, just = {\TRule{\True}{\neg}[3]}
+                    [\sFmla{\True}{P}, just = {\TRule{\False}{\neg}[4]}
+                        [\sFmla{\False}{Q}, just = {\TRule{\True}{\rightarrow}[2]}
+                            [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                            [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                        ]
+                        [\sFmla{\True}{R}, just = {\TRule{\True}{\rightarrow}[2]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Truth tree after applying first conditional rule to the remaining open branch](../images/tableaux/06-28.svg){height=642px}
+:::
+
+Now we apply the rule for line 1 to the remaining open branch.
+
+---
+
+::::: {.columns}
+
+:::: {.column width=65%}
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\True}{Q \rightarrow R}, checked, just = \TAss
+        [\sFmla{\True}{\neg R}, checked, just = \TAss
+            [\sFmla{\False}{\neg P}, checked, just = \TAss
+                [\sFmla{\False}{R}, just = {\TRule{\True}{\neg}[3]}
+                    [\sFmla{\True}{P}, just = {\TRule{\False}{\neg}[4]}
+                        [\sFmla{\False}{Q}, just = {\TRule{\True}{\rightarrow}[2]}
+                            [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                            [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}, close]
+                        ]
+                        [\sFmla{\True}{R}, just = {\TRule{\True}{\rightarrow}[2]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Fully closed truth tree showing all branches contain contradictions](../images/tableaux/06-29.svg){height=738px}
+:::
+::::
+
+:::: {.column width=35%}
+**Left:** 
+
+- $\mathbb{T}P$ (line 6) and 
+- $\mathbb{F}P$ (line 8) 
+- **closes**
+
+**Middle:** 
+
+- $\mathbb{F}Q$ (line 7) and 
+- $\mathbb{T}Q$ (line 8) 
+- **closes**
+
+**Right:** 
+
+Already closed
+:::
+
+:::::
+
+## All Branches Close
+
+Every branch contains a contradiction.
+
+::: {.incremental}
+- So the tableau is closed.
+- So it's impossible for the premises to be true and conclusion false.
+- So the argument is **valid**.
+:::
+
+## Strategic Lessons
+
+Notice what our strategy accomplished:
+
+::: {.incremental}
+1. We did all non-branching rules first (lines 3 and 4).
+2. We thought ahead about which branching rule to apply first.
+3. Doing line 2 before line 1 meant one branch closed immediately.
+4. This reduced our work significantly.
+:::
+
+## What If We'd Branched Differently?
+
+If we'd applied line 1 before line 2:
+
+::: {.incremental}
+- We'd get branches with $\mathbb{F}P$ or $\mathbb{T}Q$.
+- Then we'd have to apply line 2 to **both** branches.
+- We'd end up with more branches to track.
+- Same result, but more work.
+:::
+
+. . .
+
+Sometimes thinking one step ahead pays off. But it will still work if you do it the other way, as we did in the previous example.
+
+## The Logical Content
+
+This argument shows a chain of reasoning:
+
+::: {.incremental}
+- If $P$ then $Q$; and
+- If $Q$ then $R$; and
+- But $R$ is false,
+- So $Q$ must be false (otherwise $R$ would be true),
+- So $P$ must be false (otherwise $Q$ would be true).
+:::
+
+. . .
+
+The tableau mechanically verifies this reasoning is valid.
+
+## For Next Time
+
+We'll start on modal logic, but all the material for the weekly assignment is now on the table.
+

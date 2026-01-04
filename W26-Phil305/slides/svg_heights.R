@@ -1,5 +1,6 @@
-library(tidyverse)
-library(xml2)
+require(tidyverse)
+require(xml2)
+setwd("/Users/weath/Documents/github_site/bweatherson.github.io/W26-Phil305/slides")
 
 # Function to extract height from SVG file
 get_svg_height <- function(filepath) {
@@ -26,7 +27,7 @@ get_svg_height <- function(filepath) {
 }
 
 # Get all SVG files in a directory
-svg_dir <- "W26-Phil305/images/tableaux/"  # Change this to your SVG directory
+svg_dir <- "../images/tableaux/"  # Change this to your SVG directory
 svg_files <- list.files(svg_dir, pattern = "\\.svg$", full.names = TRUE)
 
 # Extract heights
@@ -38,7 +39,7 @@ svg_data <- tibble(
 
 # Calculate proportional heights
 # Choose your target height for the smallest image
-target_min_height <- 100  # pixels - adjust as needed
+target_min_height <- 80  # pixels - adjust as needed
 
 scaling_factor <- target_min_height / min(svg_data$height, na.rm = TRUE)
 
@@ -49,10 +50,10 @@ svg_data <- svg_data %>%
   )
 
 # Display results
-print(svg_data %>% select(filename, height, scaled_height, relative_to_min))
+print(svg_data %>% select(filename, scaled_height, height, relative_to_min))
 
 # Optionally write to CSV
-write_csv(svg_data, "svg_heights.csv")
+write_csv(svg_data %>% select(filename, scaled_height, height, relative_to_min), "svg_heights.csv")
 
 cat("\nScaling factor:", round(scaling_factor, 3), "\n")
 cat("Target minimum height:", target_min_height, "px\n")

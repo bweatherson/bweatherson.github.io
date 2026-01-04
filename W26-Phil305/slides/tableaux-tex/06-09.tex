@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{(P \vee Q) \wedge (\neg P \vee R)}, checked, just = \TAss
+    [\sFmla{\True}{P \vee Q}, checked, just = {\TRule{\True}{\wedge}[1]}
+        [\sFmla{\True}{\neg P \vee R}, just = {\TRule{\True}{\wedge}[1]}
+            [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[2]}]
+            [\sFmla{\True}{Q}, just = {\TRule{\True}{\vee}[2]}]
+        ]
+    ]
+]
+\end{oltableau}
+
+\end{document}

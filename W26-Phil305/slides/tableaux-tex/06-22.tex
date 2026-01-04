@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\input{tableau-preamble.tex}
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\True}{P \rightarrow Q}, checked, just = \TAss
+    [\sFmla{\False}{(P \vee R) \rightarrow Q}, checked, just = \TAss
+        [\sFmla{\True}{P \vee R}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+            [\sFmla{\False}{Q}, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{P}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                ]
+                [\sFmla{\True}{R}, just = {\TRule{\True}{\vee}[3]}
+                    [\sFmla{\False}{P}, just = {\TRule{\True}{\rightarrow}[1]}]
+                    [\sFmla{\True}{Q}, just = {\TRule{\True}{\rightarrow}[1]}]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+\end{document}
