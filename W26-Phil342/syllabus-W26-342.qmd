@@ -70,79 +70,80 @@ advdate <- function(obj, adv) {
 | **Office Hours**: Thursday 9.30-11.30 (Angell Hall, Rm 2207)
 | **Discussion Section Leader**: Mitch Barrington
 | **Email**: umitch@umich.edu
-| **Office Hours**: ?????
+| **Office Hours**: Monday 1-3 (Angell Hall, Rm 2253)
 
 &nbsp;
 
 # Key Points
 
-- The course has four parts:
-  1. Propositional Logic;
-  2. Modal Logic;
-  3. Probability and Decision; and,
-  4. Game Theory.
-- Each part of the course has a different textbook.
-- All the books are open access; they are freely available and linked through Canvas.
-- There are 12 weekly assignments, due each week on Thursday at 5pm. The best 10 count for your final grade.
-- There is a midterm test, in the last lecture before the break, and which counts for 10%.
-- There is a final exam, which counts for 20%, and which covers all the material in the course.
+- This course examines philosophical questions that arise when individual choices interact.
+- The course has two main parts: pooling (how we form collective attitudes from individual attitudes) and modeling (what simple models reveal about social structures).
+- We'll study voting methods, preference aggregation, opinion pooling, game theory, signaling, and models of scientific communities.
+- Three textbooks are available electronically through the library: *Opinion Pooling* by Lee Elkin and Richard Pettigrew, *Modeling Scientific Communities* by Cailin O'Connor, and *Essentials of Game Theory* by Kevin Leyton-Brown and Yoav Shoham.
+- Assessment consists of four short assignments (10% each), two essays (25% each), and discussion section participation (10%)
 
 # Course Description
 
-This course will introduce some important formal tools that are used elsewhere in philosophy. We will look at propositional logic, the logic of modals and conditionals, probability theory and game theory. Obviously that's a lot to cover in a short time. The aim here is to make sure you understand the basics, and the symbolism, so you can follow simple applications of these tools, and you have the foundations to understand more complicated applications.
+This course introduces topics at the intersection of philosophy, game theory, and social choice theory. We examine how individual choices and judgments combine to form group decisions, and what mathematical models can teach us about social phenomena. 
+
+The first half focuses on pooling problems: when we try to aggregate individual beliefs or preferences into collective judgments, we encounter surprising paradoxes and impossibility results. We'll explore voting methods, Arrow's theorem, judgment aggregation, and methods for pooling probabilistic opinions. 
+
+The second half looks at the use mathematical and computational models to understand social dynamics. The topics we'll cover include focal points, signaling in markets, iterated games, and agent-based models of scientific communities and knowledge production.
 
 # Required Materials
 
-There are four textbooks for the course. All of them are open access, and hence free. The second is on Canvas, the other three have to be downloaded from elsewhere.
+There are three textbooks for the course. All of them are available electronically through the library (and the first is open access, so doesn't even need a library login).
 
-- _forall x: Calgary_ by P. D. Magnus, Tim Button, J. Robert Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach. Available at <http://forallx.openlogicproject.org>.
-- _Boxes and Diamonds: Ann Arbor remix_ by Richard Zach and edited by Brian Weatherson. Available on Canvas.
-- _Odds and Ends_ by Jonathan Weisberg. Available at <https://jonathanweisberg.org/vip/>.
-- _Game Theory_ by Giacomo Bonnano. Available at <https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html>.
+- Lee Elkin and Richard Pettigrew, [Opinion Pooling](https://www.cambridge.org/core/elements/opinion-pooling/40647AA21F276CF80F67398058682294)
+- Cailin O'Connor, [Modeling Scientific Communities](https://www.cambridge.org/core/elements/abs/modelling-scientific-communities/1ED3515216067E40A37A72094EE3CB15) (if you are off-campus you can access this via [the library](https://search.lib.umich.edu/catalog/record/99187887203306381))
+- Kevin Leyton-Brown and Yoav Shoham, [Essentials of Game Theory](https://link-springer-com.proxy.lib.umich.edu/book/10.1007/978-3-031-01545-8)
 
 # Course Requirements
 
-- There will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 7%.
-- There will be a midterm exam which counts for 10% of the grade.
-- There will also be a final exam that counts for 20% of the grade.
+- There will be 4 short assignments, each worth 10% of the grade
+- There will be 2 essays, each worth 25% of the grade.
+- Lecture participation will not be graded, and we won't take attendance here. But 10% of the grade is for discussion section participation (and any other assignments the discussion section leader chooses to include).
 
 # Summary of Grading System
 
-1. Weekly assignments - 7% each, 10 assignments count, 70% total.
-2. Midterm exam - 10%.
-2. Final exam - 20%.
+1. Short assignments - 4 assignments, 10% each: 40%
+2. Essays - 2 essays, 25% each: 50%
+3. Discussion section participation. (10%)
 
 # Canvas
 
-There is a Canvas site for this course, which can be accessed from <https://canvas.umich.edu>. Course documents (syllabus, lecture notes, assignments) will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.
+There is a Canvas site for this course, which can be accessed from <https://canvas.umich.edu>. Course documents will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.
+
+There is also a github site for the course which contains more documents, and it is at <https://bweatherson.github.io/W26-Phil342-site/>.
 
 \pagebreak
 
 # Class Schedule
 
-The readings will all be from the four textbooks. You should do the reading before the scheduled class.
+Readings should be done before the scheduled class.
 
 ## Week 1: Introduction
 
 ### `r advdate(wed, 1)`
 
 **Topic**:    Introduction  
-**Reading**:    _forall x_, Chapters 1-2.
+**Reading**:    None.
 
-## Week 2: Symbols and Truth Tables
+**NOTE**: No discussion section this week.
+
+## Week 2: Voting
 
 ### `r advdate(mon, 2)`
 
-**Topic**:    Symbolization  
-**Reading**:    _forall x_, Chapters 4-6.
+**Topic**:    Voting Methods    
+**Reading**:    Eric Pacuit, [Voting Methods](https://plato.stanford.edu/entries/voting-methods/)
 
 ### `r advdate(wed, 2)`
 
-**Topic**:    Truth Tables  
-**Reading**:    _forall x_, Chapters 9-11.  
-**Assignment**:    Assignment 1 due `r advdate(thu, 2)` at 5pm.
+**Topic**:    Arrow's Theorem    
+**Reading**:    Michael Morreau, [Arrow's Theorem](https://plato.stanford.edu/archives/win2022/entries/arrows-theorem/) 
 
-## Week 3: Validity
+## Week 3: Arrow's Theorem
 
 ### `r advdate(mon, 3)`
 
@@ -150,161 +151,196 @@ No class for MLK Day
 
 ### `r advdate(wed, 3)`
 
-**Topic**:    Truth Tables and Validity  
-**Reading**:    _forall x_, Chapter 12.  
-**Assignment**:  Assignment 2 due `r advdate(thu, 3)` at 5pm.
+**Topic**:    Responses to Arrow  
+**Reading**:    No new reading
 
-## Week 4: Trees
+## Week 4: Sen's Paradox
 
 ### `r advdate(mon, 4)`
 
-**Topic**:    Truth Trees  
-**Reading**:    _Boxes and Diamonds_, Sections 2.1-2.3  
+**Topic**:    Sen's Paradox  
+**Reading**:    Amartya Sen, [The Impossibility of a Paretian Liberal](https://www.jstor.org/stable/1829633?seq=1)  
+**Suggested Reading**:   Amartya Sen, [Liberty and Social Choice](https://www.jstor.org/stable/2026284?seq=1)
 
 ### `r advdate(wed, 4)`
 
 No lecture, because I'm away at a conference. There will be a discussion section.  
-**Assignment**:  Assignment 3 due `r advdate(thu, 4)` at 5pm.
 
-## Week 5: Trees and Modality
+**Assignment**:    First short assignment due `r advdate(thu, 4)` at 5pm.
+
+## Week 5: Judgment Aggregation
 
 ### `r advdate(mon, 5)`
 
-**Topic**:    Using Truth Trees  
-**Reading**:    _Boxes and Diamonds_, Sections 2.4-2.5  
+**Topic**:    From Belief to Probability   
+**Reading**:    _Opinion Pooling_, Ch. 1 and sections 2.1-2.2.   
+**Suggested Reading**:
+
+- David Christensen, [Epistemology of Disagreement: The Good News](https://philpapers.org/go.pl?id=CHREOD&proxyId=&u=https%3A%2F%2Fphilpapers.org%2Farchive%2FCHREOD.pdf)
+- Adam Elga, [Reflection and Disagreement](https://philsci-archive.pitt.edu/2940/1/refdis.pdf)
+- Thomas Kelly, [The Epistemic Significance of Disagreement](https://philpapers.org/go.pl?id=KELTES-3&proxyId=&u=https%3A%2F%2Fwww.princeton.edu%2F~tkelly%2Fesod.pdf)
 
 ### `r advdate(wed, 5)`
 
-**Topic**:    Varieties of Modality  
-**Reading**:    _Boxes and Diamonds_, sections 3.1-3.3.  
-**Assignment**:    Assignment 4 (on trees) due `r advdate(thu, 4)` at 5pm.
+**Topic**:    Reasons for Aggregation   
+**Reading**:    _Opinion Pooling_, Rest of chapter 2.  
+**Suggested Reading**:
 
-## Week 6: Validity in Modal Logic
+- Roger White, [Epistemic Permissiveness](https://philpapers.org/go.pl?id=WHIEP&proxyId=&u=http%3A%2F%2Fweb.mit.edu%2Frog%2Fwww%2Fpapers%2FEP.pdf)
+- Miriam Schoenfield, [Permission to Believe: Why Permissivism Is True and What It Tells Us About Irrelevant Influences on Belief](https://philpapers.org/go.pl?id=SCHPTB&proxyId=&u=https%3A%2F%2Fphilpapers.org%2Farchive%2FSCHPTB.pdf)
+
+## Week 6: Constraints on Aggregation
 
 ### `r advdate(mon, 6)`
 
-**Topic**:    Models and Frames  
-**Reading**:    _Boxes and Diamonds_, sections 3.4-4.5.  
+**Topic**:    Motivating the Constraints  
+**Reading**:    _Opinion Pooling_, Chapter 3.
 
 ### `r advdate(wed, 6)`
 
-**Topic**:    Modal Tableau  
-**Reading**:    _Boxes and Diamonds_, chapter 5.  
-**Assignment**:    Assignment 5 due `r advdate(thu, 6)` at 5pm.
+**Topic**:    Linear and Geometric Pooling
+**Reading**:    _Opinion Pooling_, sections 4.1-4.2.  
+**Suggested Reading**:
 
-## Week 7: Conditionals
+- John Hawthorne, Lara Buchak, and Jeffrey Sanford Russell, [Groupthink](https://philpapers.org/go.pl?id=RUSG&proxyId=&u=https%3A%2F%2Fphilpapers.org%2Farchive%2FRUSG.pdf)
+- Jan-Willem Romeijn, [An Interpretation of Weights in Linear Opinion Pooling](https://philpapers.org/go.pl?id=ROMAIO&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.1017%2Fepi.2020.45)
+- Jean Baccelli & Rush T. Stewart, [Support for Geometric Pooling](https://philpapers.org/go.pl?id=BACSFG&proxyId=&u=https%3A%2F%2Fphilpapers.org%2Farchive%2FBACSFG.pdf)
+
+## Week 7: Evaluating the Strategies
 
 ### `r advdate(mon, 7)`
 
-**Topic**:    Examples of Modal Tableau  
-**Reading**:    No new reading  
+**Topic**:    Multiplicative Pooling  
+**Reading**:    _Opinion Pooling_, section 4.3
 
 ### `r advdate(wed, 7)`
 
-**Topic**:    Varieties of Conditionals   
-**Reading**:    _Boxes and Diamonds_, chapter 6.  
-**Assignment**:    Assignment 6 (on modal tableau) due `r advdate(thu, 7)` at 5pm.
+**Topic**:    Group Rationality   
+**Reading**:    _Opinion Pooling_, chapter 5.  
+**Suggested Reading**:
 
-## Week 8: Counterfactuals
+- James Joyce, [A Nonpragmatic Vindication of Probabilism](https://philpapers.org/go.pl?id=JOYANV-2&proxyId=&u=http%3A%2F%2Ffitelson.org%2Ftopics%2Fjoyce_1998.pdf)
+- Rush T. Stewart & Ignacio Ojea Quintana, [Learning and Pooling, Pooling and Learning](https://philpapers.org/go.pl?id=STELAP-15&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.1007%2Fs10670-017-9894-2)
 
-### `r advdate(mon, 7)`
+**Assignment**:    Second short assignment due `r advdate(thu, 7)` at 5pm.
 
-**Topic**:    Counterfactual Conditionals  
-**Reading**:    _Boxes and Diamonds_, chapter 7.
+## Week 8: Schelling
+
+### `r advdate(mon, 8)`
+
+**Topic**:    Focal Points  
+**Reading**:    Judith Mehta, Chris Starmer, and Robert Sugden, [The Nature of Salience: An Experimental Investigation of Pure Coordination Games](https://www.jstor.org/stable/2118074)  
+**Suggested Reading**:    Robert Sugden, [A Theory of Focal Points](https://www.jstor.org/stable/2235016)
 
 ### `r advdate(wed, 8)`
 
-**MIDTERM EXAM**  
+**Topic**:    Segregation  
+**Reading**:    Vi Hart and Nicky Case, [Parable of the Polygons](https://ncase.me/polygons/)  
+**Suggested Reading**:    Thomas Schelling, [Dynamic Models of Segregation](https://www.stat.berkeley.edu/~aldous/157/Papers/Schelling_Seg_Models.pdf)
 
-**Assignment**:    Assignment 7 due `r advdate(thu, 8)` at 5pm.
+**Essay**:    First essay due `r advdate(thu, 8)` at 5pm.
 
-## Week 9: Starting on Probability
+## Week 9: Game Theory
 
 ### `r advdate(mon, 10)`
 
-**Topic**:    Probability Basics  
-**Reading**:    _Odds and Ends_, chapters 1 and 5
+**Topic**:    One-shot games  
+**Reading**:    _Essentials of Game Theory_, Chapters 1 and 2
 
 ### `r advdate(wed, 10)`
 
-**Topic**:    Probability Trees  
-**Reading**:    _Odds and Ends_, chapter 1  
-**Assignment**:    No assignment this week.
+**Topic**:    Dynamic games  
+**Reading**:    _Essentials of Game Theory_, Chapters 4 and 5  
 
-## Week 10: Conditional Probability
+## Week 10: Axelrod
 
 ### `r advdate(mon, 11)`
 
-**Topic**:    Conditional Probability  
-**Reading**:    _Odds and Ends_, chapter 6
+**Topic**:    Iterated Prisoners' Dilemma    
+**Reading**:    Robert Axelrod and William D. Hamilton, [The Evolution of Cooperation](https://websites.umich.edu/~axe/research/Axelrod%20and%20Hamilton%20EC%201981.pdf)   
+**Suggested reading**:     Robert Axelrod, [Effective Choice in the Prisoner's Dilemma](https://esp.mit.edu/download/2dd80247-be60-4e73-b49d-91b5b6988ff0/S12850_axelrod_1980.pdf)
 
 ### `r advdate(wed, 11)`
 
-**Topic**:    Inverting Conditional Probability  
-**Reading**:    _Odds and Ends_, chapter 8  
-**Assignment**:    Assignment 8 due `r advdate(thu, 11)` at 5pm.
+**Topic**:    Modern Approaches to IPD   
+**Reading**:    Alexander J. Stewart and Joshua B. Plotkin, [Extortion and cooperation in the Prisoner’s Dilemma](https://www.pnas.org/doi/10.1073/pnas.1208087109)    
+**Suggested Reading**:    William H. Press and Freeman J. Dyson, [Iterated Prisoner’s Dilemma contains strategies that dominate any evolutionary opponent](https://www.pnas.org/doi/abs/10.1073/pnas.1206569109)    
+**Assignment**:    Third short assignment due `r advdate(thu, 11)` at 5pm.
 
-## Week 11: Probability and Decision
+## Week 11: Signals
 
 ### `r advdate(mon, 12)`
 
-**Topic**:    Expected Utility  
-**Reading**:    _Odds and Ends_, chapters 11 and 12
+**Topic**:    Signals in car markets   
+**Reading**:    George Akerlof, [The Market for Lemons](https://www.jstor.org/stable/1879431)
 
 ### `r advdate(wed, 12)`
 
-**Topic**:    Utility and Money  
-**Reading**:    _Odds and Ends_, sections 12.5 and 13.1.  
-**Assignment**:    Assignment 9 due `r advdate(thu, 12)` at 5pm.
+**Topic**:    Signals in employment markets   
+**Reading**:    Michael Spence, [Signaling in Retrospect and the Informational Structure of Markets](https://www.nobelprize.org/uploads/2018/06/spence-lecture.pdf)   
+**Suggested Reading**:    Michael Spence, [Job Market Signaling](https://www.jstor.org/stable/1882010)
 
-\pagebreak
 
-## Week 12: What are Games?
+## Week 12: Social Networks and Scientific Knowledge 
 
 ### `r advdate(mon, 13)`
 
-**Topic**:    Games, Payouts and Utilities  
-**Reading**:    _Game Theory_, sections 2.1 and 2.2.
+**Topic**:    Models of evidence sharing   
+**Reading**:    
+
+- _Modeling Scientific Communities_, Chapter 4 through 4.2.1.
+- Kevin J. S. Zollman, [The Communication Structure of Epistemic Communities](https://doi.org/10.1086/525605)
 
 ### `r advdate(wed, 13)`
 
-**Topic**:    Dominant Strategies and Equilibria  
-**Reading**:    _Game Theory_, sections 2.5 and 2.6.  
-**Assignment**:    Assignment 10 due `r advdate(thu, 13)` at 5pm.
+**Topic**:    Evaluating models of evidence sharing    
+**Reading**:    _Modeling Scientific Communities_, rest of Chapter 4.     
+**Suggested Reading**:    Sarita Rosenstock, Justin Bruner, and Cailin O’Connor, [In Epistemic Networks, Is Less Really More?](https://cailinoconnor.com/wp-content/uploads/2015/03/In_Epistemic_Networks_Is_Less_Really_Mor-FINAL-VERSION.pdf).
 
-## Week 13: Games and Time
+## Week 13: The Credit Economy
 
 ### `r advdate(mon, 14)`
 
-**Topic**:    Dynamic Games  
-**Reading**:    _Game Theory_, sections 3.1-3.3.
+**Topic**:    The Matthew Effect     
+**Reading**:    
+
+- _Modeling Scientific Communities_, Chapter 2 through 2.6. (Section 2.6 is the most important part.)
+- Robert K. Merton, [The Matthew Effect in Science](https://www.science.org/doi/10.1126/science.159.3810.56)
 
 ### `r advdate(wed, 14)`
 
-**Topic**:    Backward Induction  
-**Reading**:    _Game Theory_, sections 3.4 and 3.5.  
-**Assignment**:    Assignment 11 due `r advdate(thu, 14)` at 5pm.
+**Topic**:    Credit and Bias     
+**Reading**:    
 
-## Week 14: Games with Cardinal Payoffs
+- _Modeling Scientific Communities_, rest of Chapter 2.
+- Remco Heesen, [Academic Superstars: Competent or Lucky?](https://link.springer.com/article/10.1007/s11229-016-1146-5) 
+
+**Suggested Reading**:    Hannah Rubin, [Structural causes of citation gaps](https://link.springer.com/article/10.1007/s11098-021-01765-3)    
+**Assignment**:    Fourth short assignment due `r advdate(thu, 14)` at 5pm.
+
+## Week 14: Epistemic Landscapes
 
 ### `r advdate(mon, 15)`
 
-**Topic**:    Nash Equilibria  
-**Reading**:    _Game Theory_, sections 6.1‑6.3.
+**Topic**:    Landscapes and exploration  
+**Reading**:    
+
+- _Modeling Scientific Communities_, Chapter 5 through 5.1.
+- Michael Weisberg and Ryan Muldoon, [Epistemic Landscapes and the Division of Cognitive Labor](https://www.jstor.org/stable/10.1086/644786?seq=1)
 
 ### `r advdate(wed, 15)`
 
-**Topic**:    Signaling Games  
-**Reading**:    No new reading  
-**Assignment**:    Assignment 12 due `r advdate(thu, 15)` at 5pm.
+**Topic**:    Rugged epistemic landscapes  
+**Reading**:    
 
-There will be a revision class on `r advdate(mon, 16)`, with no new material, to go over the sample exam.
+- _Modeling Scientific Communities_, rest of chapter 5.
+- Johanna Thoma, [The Epistemic Division of Labor Revisited](https://eprints.lse.ac.uk/88129/1/Thoma_Division%20of%20Labour_Accepted.pdf)
 
-# Extensions
+There will be a revision class on `r advdate(mon, 16)`, with no new material, to go over any questions people have about the final essay.
 
-Because we will release the answers to the quizzes at the due date, we won't be allowing extensions on them.
+**FINAL ESSAY**: Due `r advdate(tue, 16)` at 5pm.
 
-That's why we're only counting the best 10 out of 12 assignments. People who are sick, or have other obligations, can skip up to two assignments without penalty.
+\newpage
 
 # Plagiarism
 

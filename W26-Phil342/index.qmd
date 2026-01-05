@@ -50,7 +50,7 @@ about:
 - Kevin J. S. Zollman, [The Communication Structure of Epistemic Communities](https://doi.org/10.1086/525605) (L)
 - Sarita Rosenstock, Justin Bruner, and Cailin O’Connor, [In Epistemic Networks, Is Less Really More?](https://cailinoconnor.com/wp-content/uploads/2015/03/In_Epistemic_Networks_Is_Less_Really_Mor-FINAL-VERSION.pdf) (S)
 - Remco Heesen, [Academic Superstars: Competent or Lucky?](https://link.springer.com/article/10.1007/s11229-016-1146-5) (L)
-- Robert K. Merton, [The Matthew Effect in Science](https://www.science.org/doi/10.1126/science.159.3810.56) (LS)
+- Robert K. Merton, [The Matthew Effect in Science](https://www.science.org/doi/10.1126/science.159.3810.56) (L)
 - Hannah Rubin, [Structural causes of citation gaps](https://link.springer.com/article/10.1007/s11098-021-01765-3) (LS)
 - Michael Weisberg and Ryan Muldoon, [Epistemic Landscapes and the Division of Cognitive Labor](https://www.jstor.org/stable/10.1086/644786?seq=1) (L)
 - Johanna Thoma, [The Epistemic Division of Labor Revisited](https://eprints.lse.ac.uk/88129/1/Thoma_Division%20of%20Labour_Accepted.pdf)
@@ -63,10 +63,12 @@ about:
 | 2 | 1/12/2026 | Voting Systems | [HTML](slides/02.html) | [PDF](slides/Lecture_02.pdf) |
 | 3 | 1/14/2026 | Arrow's Theorem | [HTML](slides/03.html) | [PDF](slides/03.pdf) |
 | 4 | 1/21/2026 | Responses to Arrow | [HTML](slides/04.html) | [PDF](slides/04.pdf) |
+| 5 | 1/26/2026 | Sen's Paradox | [HTML](slides/05.html) | [PDF](slides/05.pdf) |
+
 
 ## Instructions for Slides
 
-The slides are built using [revealjs](https://revealjs.com). To move around them, the three key things to know are:
+The slides are built using [revealjs](https://revealjs.com). To move around them, the four key things to know are:
 
 1. Left and right arrows move between sections.
 2. Up and down arrows move between slides within a section.
