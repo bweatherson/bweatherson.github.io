@@ -150,15 +150,15 @@
 <section class="slide level2">
 <h2>Two Problems</h2>
 <p>We don’t actually know what people’s judgments are; what we know is how they vote.</p>
-<p>First problem, they might not vote in line with their judgments. In fact, they might have good reason not to.</p>
-<p>Second problem, any method of aggregation has some unfortunate features.</p>
+<p>First problem: they might not vote in line with their judgments. In fact, they might have good reason not to.</p>
+<p>Second problem: any method of aggregation has some unfortunate features.</p>
 <p>On Wednesday we’ll make that last point more precise, but it’s going to come up today.</p>
 </section>
 <section class="slide level2 scrollable">
-<h2>Single Elections</h2>
+<h2>Single-Winner Elections</h2>
 <p>To simplify things, we’ll just look at elections for a single person.</p>
-<p>That includes elections for executive offices, like President, Governor or Mayor, or elections for single members of the legislature.</p>
-<p>There are many reasons that it’s a bad idea to have a a large role in your electoral system for single-winner elections, but that’s how most English-speaking countries<sup>1</sup> do things most of the time, and so that’s what we’ll discuss.</p>
+<p>That includes elections for executive offices, like President, Governor, or Mayor, or elections for single members of the legislature.</p>
+<p>There are many reasons that it’s a bad idea to have a large role in your electoral system for single-winner elections, but that’s how most English-speaking countries<sup>1</sup> do things most of the time, and so that’s what we’ll discuss.</p>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>New Zealand is an important exception</p></li></ol></aside></section>
 <section class="slide level2">
 <h2>Reality and Fantasy</h2>
@@ -181,7 +181,7 @@
 </section>
 <section class="slide level2">
 <h2>United States</h2>
-<p>In some sense this is the system we primarily use in the United States, with three (really) big qualifications.</p>
+<p>In some sense this is the system we primarily use in the United States, with three (really) big qualifications:</p>
 <ul>
 <li class="fragment">Qualification One: For President, this goes via the Electoral College.</li>
 <li class="fragment">Qualification Two: Being listed on the ballot is non-trivial.</li>
@@ -210,10 +210,10 @@
 </section>
 <section class="slide level2">
 <h2>Example</h2>
-<p>Imagine a voter in the following election.</p>
+<p>Imagine a voter in the following election:</p>
 <ul>
-<li class="fragment">There are three candidates, A, B and C.</li>
-<li class="fragment">The voter really dislikes A, and is indifferent between B and C.</li>
+<li class="fragment">There are three candidates, A, B, and C.</li>
+<li class="fragment">The voter really dislikes A and is indifferent between B and C.</li>
 <li class="fragment">They think that if everyone voted for their favorite candidate, it would be 40% A; 30% B; 30% C.</li>
 </ul>
 <div class="fragment">
@@ -223,22 +223,29 @@
 <section class="slide level2 scrollable">
 <h2>Extending the Challenge</h2>
 <p>If you are a politician in B or C in the previous example, what do you do?</p>
-<p>Do you spend more of your time arguing</p>
+<p>Do you spend more of your time arguing:</p>
 <ol type="1">
 <li class="fragment">That you are better than the other of B/C?</li>
 <li class="fragment">That you are more popular, and hence more likely to win, than the other in B/C?</li>
 </ol>
 <div class="fragment">
-<p>In practice in the UK, which has a lot of these three way contests, it’s often option 2.</p>
+<p>In practice in the UK, which has a lot of these three-way contests, it’s often option 2.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Who Should Win</h2>
 <p>Imagine the voter from a couple of slides back is fairly typical. Most of B’s voters like C almost as much, and most of C’s voters like B almost as much.</p>
-<p>60% of the voters prefer B/C to A.</p>
+<p>60% of the voters prefer B or C to A.</p>
 <p>But under plurality, A will win (unless there is enough strategic voting).</p>
 <p>It feels like this isn’t really respecting the wishes of the majority.</p>
 <p>It also means that whether A or B wins might be determined by whether C is on the ballot, which is bizarre.</p>
+</section>
+<section class="slide level2">
+<h2>The Condorcet Loser Problem</h2>
+<p>This problem has a name: plurality voting can elect a <strong>Condorcet loser</strong>.</p>
+<p>A candidate is a Condorcet loser if they would lose to <em>every</em> other candidate in a head-to-head race.</p>
+<p>In our example, both B and C beat A in a one-on-one election (with 60% of the vote). So A is the Condorcet loser.</p>
+<p>Yet A wins under plurality voting. This seems clearly wrong.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -247,40 +254,46 @@
 </section>
 <section class="slide level2 scrollable">
 <h2>Basic Idea</h2>
-<p>Vote in two stages.</p>
+<p>Vote in two stages:</p>
 <ol type="1">
 <li class="fragment">Every candidate is on the ballot, everyone votes.</li>
-<li class="fragment">A second round of voting between the top two vote getters, most votes wins.</li>
+<li class="fragment">A second round of voting between the top two vote-getters; most votes wins.</li>
 </ol>
 </section>
 <section class="slide level2 scrollable">
 <h2>Downsides</h2>
 <ol type="1">
 <li class="fragment">Two elections - twice the expense both for states and for voters.</li>
-<li class="fragment">Non-monotonic. Getting less votes can make you a winner.</li>
+<li class="fragment">Non-monotonic: getting fewer votes can make you a winner.</li>
 </ol>
 <div class="fragment">
-<p>This is a bit complicated, so I’ll work though it on next slide.</p>
+<p>This is a bit complicated, so I’ll work through it on the next slide.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Non-Monotonic</h2>
+<h2>Non-Monotonicity Example</h2>
 <p>Three candidates: A (40%), B (31%), C (29%).</p>
 <p>B’s voters are split between A and C for their second choice.</p>
 <p>C’s voters all prefer B to A.</p>
-<p>Question: Who will win a run-off election (if everyone votes sincerely)?</p>
+<p>Question: Who will win a runoff election (if everyone votes sincerely)?</p>
 </section>
 <section class="slide level2">
-<h2>Non-Monotonic</h2>
+<h2>Non-Monotonicity Example (continued)</h2>
 <p>Due to a minor scandal, 3% of A’s voters switch to C.</p>
-<p>Now it’s A (37%), B (31%), C (32%),</p>
-<p>Question: Who will win?</p>
+<p>Now it’s A (37%), B (31%), C (32%).</p>
+<p>Question: Who will win now?</p>
+</section>
+<section class="slide level2">
+<h2>Understanding Non-Monotonicity</h2>
+<p>In the first scenario: A and B go to the runoff, and B wins (with C voters’ support).</p>
+<p>In the second scenario: A loses some support but now <em>A and C</em> go to the runoff, and A wins (with B voters’ support).</p>
+<p>So A getting <em>fewer</em> first-round votes actually helps A win! This violates our intuition that doing better should help, not hurt.</p>
 </section>
 <section class="slide level2">
 <h2>Upsides</h2>
-<p>Removes some of the problems with plurality.</p>
+<p>Removes some of the problems with plurality:</p>
 <ul>
-<li class="fragment">Less of a challenge for voters; though maybe not zero challenge in cases like the previous two slides.</li>
+<li class="fragment">Less of a challenge for voters, though maybe not zero challenge in cases like the previous two slides.</li>
 <li class="fragment">Guarantees the winner has something like majority support, at least out of the last two candidates.</li>
 </ul>
 </section></section>
@@ -293,11 +306,13 @@
 <h2>How to Vote</h2>
 <p>Voters don’t just mark a single candidate.</p>
 <ul>
-<li class="fragment">Rather, they list their preferences between candidates. In effect, they rank order the candidates.</li>
-<li class="fragment">Some potential variations here.</li>
+<li class="fragment">Rather, they list their preferences between candidates. In effect, they rank-order the candidates.</li>
+<li class="fragment">Some potential variations here:
+<ul>
 <li class="fragment">Some systems only allow a first and second choice.</li>
 <li class="fragment">Some require a full preference ranking.</li>
 <li class="fragment">Others allow the voter to rank as many as they like.</li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2 scrollable">
@@ -306,16 +321,26 @@
 <li class="fragment">Add up all the first-preference votes.</li>
 <li class="fragment">If someone has over 50%, they win.</li>
 <li class="fragment">If not, eliminate the candidate with the fewest votes.</li>
-<li class="fragment">For each ballot paper, move it to the highest ranked remaining candidate.</li>
+<li class="fragment">For each ballot, move it to the highest-ranked remaining candidate.</li>
 <li class="fragment">Recount all the votes, with these moved votes included.</li>
 <li class="fragment">Go to step 2.</li>
 </ol>
 </section>
 <section class="slide level2">
+<h2>Alternative Names</h2>
+<p>This system is also known as:</p>
+<ul>
+<li><strong>Ranked-Choice Voting</strong> (most common in the US)</li>
+<li><strong>Alternative Vote</strong> (used in the UK)</li>
+<li><strong>The Hare Rule</strong> (after Thomas Hare, who proposed it in the 1850s)</li>
+</ul>
+<p>All these names refer to the same voting system.</p>
+</section>
+<section class="slide level2">
 <h2>Downsides</h2>
 <ul>
 <li class="fragment">The non-monotonicity problem remains.</li>
-<li class="fragment">Can be slow to count, especially if you’re doing 30 elections at a time like in US.</li>
+<li class="fragment">Can be slow to count, especially if you’re doing 30 elections at a time like in the US.</li>
 <li class="fragment">Voters don’t have preferences over all N candidates.</li>
 <li class="fragment">Between 1 and 3 percent of voters routinely mislabel their ballots, disenfranchising themselves. Sometimes this is intentional, but not always.</li>
 <li class="fragment">Some people think (though I don’t) that it’s a kind of double voting to have your vote be counted many times over.</li>
@@ -324,7 +349,7 @@
 <section class="slide level2">
 <h2>Upsides</h2>
 <p>Voters don’t have to make quite as many strategic choices (unless the non-monotonicity problem comes up).</p>
-<p>Allows for finer divisions of parties; Australia now has something like a five-party system, with two left, two right, and one centrist. (This is an <em>incredibly</em> rough description.)</p>
+<p>Allows for finer divisions of parties: Australia now has something like a five-party system, with two left, two right, and one centrist. (This is an <em>incredibly</em> rough description.)</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -334,20 +359,21 @@
 <section class="slide level2">
 <h2>Range Voting</h2>
 <p>Now we’re into systems that don’t get used for real-life elections.</p>
-<p>Range voting is an unfamiliar name for a simple system.</p>
+<p>Range voting is an unfamiliar name for a simple system:</p>
 <p>Every voter gives as many candidates as they like a score in a range, typically 0-10, or 1-5.</p>
 <p>The candidate with the highest average wins.</p>
 </section>
 <section class="slide level2">
 <h2>In Real Life</h2>
-<p>This is often used on game shows, and talent shows.</p>
-<p>It’s also sort of what we do with GPA.</p>
-<p>Every class gives you a score out of 4, and the University ranks you by average score.</p>
+<p>This is often used on game shows and talent shows.</p>
+<p>It’s also sort of what we do with GPA:</p>
+<p>Every class gives you a score out of 4, and the university ranks you by average score.</p>
 </section>
 <section class="slide level2">
 <h2>Why Not Use It</h2>
-<p>Probably everyone would just give the maximum and minimum score the candidates they do/don’t like.</p>
+<p>Probably everyone would just give the maximum and minimum scores to the candidates they do/don’t like.</p>
 <p>The problem of <strong>strategic voting</strong> would be immense.</p>
+<p>Even if voters want to vote sincerely, they have an incentive to exaggerate their preferences to maximize their influence.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -356,9 +382,9 @@
 </section>
 <section class="slide level2">
 <h2>Approval Voting</h2>
-<p>This (again) is an unfamiliar name for a simple system.</p>
+<p>This (again) is an unfamiliar name for a simple system:</p>
 <p>Every voter votes for as many candidates as they like.</p>
-<p>Intuitively they vote for every candidate they approve of, but this is just an intuition, it isn’t part of the rules in any way.</p>
+<p>Intuitively they vote for every candidate they approve of, but this is just an intuition—it isn’t part of the rules in any way.</p>
 <p>The candidate with the most votes wins.</p>
 </section>
 <section class="slide level2">
@@ -366,39 +392,45 @@
 <p>This is used for election to various bodies, like the Hall of Fame.</p>
 <p>Some municipalities have tried using something like this, though it usually hasn’t stuck.</p>
 <p>It’s actually hard to know what elections in the US would look like with this. I suspect it wouldn’t make much difference in the short run, but it’s an interesting idea.</p>
+</section>
+<section class="slide level2">
+<h2>Strategic Considerations</h2>
+<p>Unlike range voting, approval voting is less vulnerable to strategic exaggeration.</p>
+<p>However, voters still face a strategic decision: where to draw the line between “approve” and “disapprove.”</p>
+<p>If you approve of too many candidates, you dilute your vote for your favorites.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Borda Score</h1>
+<h1>Borda Count</h1>
 
 </section>
 <section class="slide level2">
 <h2>Technical Point</h2>
 <p>The previous three systems took more than the <strong>preferences</strong> of the voters into account.</p>
-<p>Even if voters vote sincerely (which I suspect you’ll have decided was unlikely) just knowing the ranking each voter has of the candidates will not tell you how they vote.</p>
+<p>Even if voters vote sincerely (which I suspect you’ll have decided was unlikely), just knowing the ranking each voter has of the candidates will not tell you how they vote.</p>
 <p>Partially for historical reasons, and partially for technical reasons, there has been a lot of attention paid to systems that do just take preferences, i.e., rankings, as inputs.</p>
 </section>
 <section class="slide level2">
-<h2>Borda Score</h2>
+<h2>Borda Count</h2>
 <p>Each voter ranks the N candidates from 1 to N.</p>
 <p>For each voter, the candidate who is ranked first gets N-1 points, the next gets N-2 points, the next N-3 points, and so on down to last who gets 0 points.</p>
 <p>The candidate with the most points wins.</p>
 </section>
 <section class="slide level2">
 <h2>College Sports</h2>
-<p>Something like this is used for the rankings of college sport teams.</p>
-<p>Voters put in a 1-25 rank, and 1st place is worth 25 points, second place 24 points and so on.</p>
+<p>Something like this is used for the rankings of college sports teams.</p>
+<p>Voters put in a 1-25 rank, and 1st place is worth 25 points, second place 24 points, and so on.</p>
 <p>It’s not quite the full Borda system, because the voters don’t rank all the way, but it’s close.</p>
 </section>
 <section class="slide level2">
 <h2>Downsides</h2>
-<p>This is already going long, so I won’t go over this, but it turns out this has the opposite problem to plurality voting.</p>
+<p>This is already going long, so I won’t go over this in detail, but it turns out this has the opposite problem to plurality voting.</p>
 <p>In plurality voting, candidates are hurt if other candidates similar to them run.</p>
-<p>In Borda, candidates are <em>helped</em> if candidates similar to them run. Everyone has an incentive to have friends and family on the ballot. This could lead to dumb outcomes.</p>
+<p>In Borda, candidates are <em>helped</em> if candidates similar to them run. Everyone has an incentive to have friends and family on the ballot. This could lead to absurd outcomes.</p>
 </section>
 <section class="slide level2">
 <h2>Condorcet Systems</h2>
-<p>I won’t go over these in detail, but I wanted to make sure you knew about another class of systems, which are called Condorcet Systems, or Condorecet Methods.</p>
+<p>I won’t go over these in detail, but I wanted to make sure you knew about another class of systems, which are called Condorcet systems or Condorcet methods.</p>
 </section>
 <section class="slide level2 nostretch">
 <h2>Condorcet and Borda</h2>
@@ -406,36 +438,64 @@
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Jean_Charles_Borda.jpg" style="width:70.0%"></p>
-<figcaption>Jean-Charles de Borda (1733-1799)</figcaption>
+<p><img data-src="images/Jean_Charles_Borda.jpg" style="width:70.0%" alt="Historical portrait painting of Jean-Charles de Borda in 18th century attire"></p>
+<figcaption>Jean-Charles de Borda (1733-1799). Portrait of French mathematician and physicist who developed the Borda count voting method.</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Nicolas_de_Condorcet.PNG" style="width:76.0%"></p>
-<figcaption>Marquis de Condorcet (1743-1794)</figcaption>
+<p><img data-src="images/Nicolas_de_Condorcet.PNG" style="width:70.0%" alt="Historical portrait painting of the Marquis de Condorcet in 18th century attire"></p>
+<figcaption>Marquis de Condorcet (1743-1794). Portrait of French philosopher and mathematician who developed the Condorcet winner criterion.</figcaption>
 </figure>
 </div>
 </div></div>
 </section>
 <section class="slide level2">
-<h2>Condorcet Constraint</h2>
-<p>If there is a candidate such that a majority of voters prefers that candidate to all other candidates, that candidate shall win.</p>
+<h2>Condorcet Winner</h2>
+<p>If there is a candidate such that a majority of voters prefers that candidate to all other candidates in head-to-head comparisons, that candidate is called the <strong>Condorcet winner</strong>.</p>
+<p>A Condorcet method is one that guarantees the Condorcet winner will be elected (when one exists).</p>
 </section>
 <section class="slide level2">
 <h2>Example</h2>
-<p>Four candidates, ABCD, 300 votes.</p>
-<ul>
-<li class="fragment">100 prefer ADBC</li>
-<li class="fragment">100 prefer CDAB</li>
-<li class="fragment">100 prefer BDCA</li>
-</ul>
-<p>Since 200 prefer D to A, 200 prefer D to B, 200 prefer D to C - D wins.</p>
+<p>Four candidates, ABCD, 300 votes:</p>
+<div id="tbl-condorcet-example" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-condorcet-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Voter preferences showing D as the Condorcet winner
+</figcaption>
+<div aria-describedby="tbl-condorcet-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"># Voters</th>
+<th style="text-align: left;">Ranking</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">ADBC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">CDAB</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">BDCA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Since 200 prefer D to A, 200 prefer D to B, 200 prefer D to C—D is the Condorcet winner.</p>
 </section>
 <section class="slide level2">
 <h2>Condorcet Methods</h2>
-<p>The systems that extend this constraint to a full system, one that issues in verdicts even when there is no Condorcet winner, are more complicated than what we’ve been using so far.</p>
+<p>The systems that extend this constraint to a full system, one that issues verdicts even when there is no Condorcet winner, are more complicated than what we’ve been using so far.</p>
+<p>We won’t cover them in detail, but they’re discussed extensively in the reading if you’re interested.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -446,7 +506,7 @@
 <h2>For Next Time</h2>
 <p>We’ll go over Kenneth Arrow’s famous proof that no system can do everything one wants in an electoral system.</p>
 <p>All the systems we looked at had clear downsides.</p>
-<p>You might think, why don’t we pick the one that doesn’t have downsides.</p>
+<p>You might think, why don’t we pick the one that doesn’t have downsides?</p>
 <p>Thanks to Arrow, we know the answer is that no such system exists.</p>
 
 

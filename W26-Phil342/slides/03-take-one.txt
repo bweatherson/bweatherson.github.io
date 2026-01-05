@@ -13,14 +13,14 @@ format:
 :::: {.columns}
 
 ::: {.column width="50%"}
-![Kenneth Arrow in 2010. Photograph shows him smiling, wearing glasses and a dark suit with patterned tie.](images/ken_arrow.jpg){fig-alt="Black and white photograph of economist Kenneth Arrow"}
+![Kenneth Arrow, photo by  Linda A. Cicero](images/ken_arrow.jpg)
 :::
 
 ::: {.column width="50%"}
 - Lived 1921-2017.
-- Worked primarily at Stanford University.
-- Won the Nobel Memorial Prize in Economic Sciences in 1972.
-- Could have won it twice over: once for work on general equilibrium theory, and once for what we'll cover today.
+- Worked primarily at Stanford.
+- Won Nobel Prize in 1972.
+- Could have won it twice over, once for work on equilibrium theory, and once for what we'll cover.
 :::
 
 ::::
@@ -28,6 +28,7 @@ format:
 ## Impossibility Theorem
 
 **Arrow's Impossibility Theorem** (1951) demonstrates that no voting system can simultaneously satisfy a set of seemingly reasonable conditions for democratic decision-making.
+
 
 ## Individual Preference Rankings
 
@@ -63,7 +64,7 @@ How do we combine individual rankings into a single social ranking?
 
 ## Assumptions Again
 
-There are a few unusual features of this setup:
+There are a few strange things about the setup.
 
 - Most of us don't have views about all possible outcomes of an election.
 - The combination just takes individual *rankings* into account. It doesn't look at *strength* of preference.
@@ -71,7 +72,7 @@ There are a few unusual features of this setup:
 
 ## A Non-Answer
 
-Say A >~$\forall$~ B if more people have A >~i~ B than have B >~i~ A, and A =~$\forall$~ B if the numbers are the same.
+Say A >~$\forall$~ B if more people have A >~i~ B than have B >~$\forall$~ A, and A =~$\forall$~ B if the numbers are the same.
 
 This is a very simple kind of majoritarian rule.
 
@@ -79,8 +80,8 @@ This is a very simple kind of majoritarian rule.
 
 You can probably see where this is going. 
 
-- Imagine that there are three options, A, B, and C.
-- And there are three voters, X, Y, and Z.
+- Imagine that there are three options, A, B and C.
+- And there are three voters, X, Y and Z.
 - X has A >~X~ B >~X~ C.
 - Y has B >~Y~ C >~Y~ A.
 - Z has C >~Z~ A >~Z~ B.
@@ -98,8 +99,8 @@ Let's try a different solution.
 
 - Ignore every part of >~i~ except who is top.
 - For each option, give it 1 point for every voter for which it's the top option.
-- If the voter has two options tied for top, give them 1/2 point each, and so on for more ties.
-- Rank the options by how many points they receive.
+- If the voter has two options tied for top, give then 1/2 point each, and so on for more ties.
+- Rank the options by how many points.
 
 ## Plurality Again
 
@@ -107,53 +108,30 @@ Let's try a different solution.
 - Any approach where each option gets a number, and you rank the numbers, will produce the right kind of ordering.
 - But it has a very strange result.
 
-## Plurality Paradox
+## Plurality Again
 
-Imagine there are three options, A, B, and C, and 100 voters. On Monday the preferences are:
+Imagine there are three options, A, B and C, and 100 voters. On Monday the preferences are like this:
 
-| Voters | Preference |
-|--------|------------|
-| 40     | A > B > C  |
-| 35     | B > C > A  |
-| 25     | C > B > A  |
+- 40 people have A > B > C.
+- 35 people have B > C > A.
+- 25 people have C > B > A.
+- So A wins, with 40 votes, and B is second, with 35.
 
-: Voter preferences on Monday {#tbl-monday}
+## Plurality Again
 
-So A wins with 40 votes, and B is second with 35.
+On Tuesday, 10 of the people in the last group change their mind, just about B and C. So now we have.
 
-<!-- ## Plurality Paradox (continued)
-
-On Tuesday, 10 people in the last group change their mind, just about B and C:
-
-| Voters | Preference |
-|--------|------------|
-| 40     | A > B > C  |
-| 35     | B > C > A  |
-| 25     | B > C > A  |
-
-: Voter preferences on Tuesday {#tbl-tuesday}
-
-Now B moves ahead of A in the social ranking, even though no one changed their mind about A and B. Is this odd? -->
-
-## Plurality Paradox (continued)
-
-On Tuesday, 10 people in the last group change their mind, just about B and C. So now we have:
-
-| Voters | Preference |
-|--------|------------|
-| 40     | A > B > C  |
-| 45     | B > C > A  |
-| 15     | C > B > A  |
-
-: Voter preferences on Tuesday {#tbl-tuesday-corrected}
-
-Now B moves ahead of A in the social ranking, even though no one changed their mind about A and B. Is this odd?
+- 40 people have A > B > C.
+- 45 people have B > C > A.
+- 15 people have C > B > A.
+- So now B moves ahead of A in the social ranking, even though no one changed their mind abiout A and B.
+- Is this odd?
 
 # The Theorem
 
 ## Arrow's Approach
 
-Rather than going through options one at a time, let's identify some principles.
+Rather than going through options one at a time, let's find some principles.
 
 - Start with a list of things we'd like the aggregation to be like.
 - See what kind of things could meet all of the requirements on our list.
@@ -190,13 +168,13 @@ Arrow identified four conditions that seem essential for any fair democratic sys
 :::: {.columns}
 
 ::: {.column width="50%"}
-![Vilfredo Pareto, circa 1870s.](images/pareto.jpg){fig-alt="Black and white photograph showing a young man with a full dark beard wearing a formal suit."}
+![Vilfredo Pareto](images/pareto.jpg)
 :::
 
 ::: {.column width="50%"}
 - Lived 1848-1923.
-- Trained in Turin, worked primarily at the University of Lausanne.
-- He died around the time Mussolini came to power. The Italian fascists claimed him as an inspiration, though this *may* have been a misreading; he often sounds like a classical liberal. 
+- Trained in Turin, worked primarily at Lausanne.
+- He died around the time Mussolini came to power, and the Italian fascists claimed him as an inspiration. This *may* have been a misreading; he often sounds like a classical liberal. 
 :::
 
 ::::
@@ -205,7 +183,7 @@ Arrow identified four conditions that seem essential for any fair democratic sys
 
 **Weak Pareto**: If for all i, A >~i~ B, then A >~$\forall$~ B.
 
-**Strong Pareto**: If for some i, A >~i~ B, and for no i, B >~i~ A (but maybe there are some ties), then A >~$\forall$~ B.
+**Strong Pareto**: If for some i, A >~i~ B, and for no i B >~i~ A (but maybe there are some ties), then A >~$\forall$~ B.
 
 The latter is more contentious, but it isn't needed for the proof.
 
@@ -227,7 +205,7 @@ This isn't a property of how the aggregation function treats what happens on any
 
 **What it means**: No single individual's preferences should always determine the group ranking, regardless of what others prefer.
 
-**Why it seems reasonable**: This is basic to democratic ideals—no one person should have absolute power.
+**Why it seems reasonable**: This is basic to democratic ideals - no one person should have absolute power.
 
 ## Non-dictatorship (D)
 
@@ -246,25 +224,84 @@ Anonymity (A)
 
 **Arrow's Theorem**: There is no social choice function that simultaneously satisfies:
 
-- Unrestricted Domain (U);
-- Weak Pareto Principle (P);
-- Independence of Irrelevant Alternatives (I); and
+- Unrestricted Domain (U)
+- Weak Pareto Principle (P)
+- Independence of Irrelevant Alternatives (I)  
 - Non-dictatorship (D)
 
 ## Proof
 
-I'm not going to make you sit through a proof here. There are many proofs available if you want to find one (including in the SEP article).
+I'm not going to make you sit through a proof here. There are a million proofs out there if you want to find one.
 
-The usual structure is to assume U, P, and I, and infer the existence of a dictator.
+The usual structure is to assume U, P and I, and infer the existence of a dictator.
 
 The main benefit of sitting through a proof is that you see just how strong a condition I is, and we'll come back to that strength next time.
 
 ## For Next Time
 
-We'll look at ways out of, or around, the problem. Some options include:
+We'll look at ways out of, or around, the problem.
 
-- Restricting the domain (dropping U);
-- Using more information than just ordinal rankings;
-- Accepting certain violations of IIA;
-- Single-peaked preferences and median voter theorems.
+<!--
+---
 
+## The Impossibility Theorem
+
+**Arrow's Theorem**: There is no social choice function that simultaneously satisfies:
+- Unrestricted Domain (U)
+- Weak Pareto Principle (P)
+- Independence of Irrelevant Alternatives (I)  
+- Non-dictatorship (D)
+
+**What this means**: Any democratic voting system must violate at least one of these seemingly reasonable conditions.
+
+**The Proof Strategy**: Arrow showed that assuming all four conditions leads to a logical contradiction.
+
+---
+
+## Why This Matters for Philosophy
+
+**Implications for Democratic Theory**:
+- Challenges the idea of "the will of the people"
+- Shows that aggregating preferences is fundamentally problematic
+- Raises questions about the legitimacy of democratic outcomes
+
+**Broader Philosophical Questions**:
+- What does this tell us about collective rationality?
+- Are there alternative approaches to social choice?
+- How should we respond to this impossibility?
+
+**Connection to Other Areas**:
+- Philosophy of mind (collective vs. individual rationality)
+- Political philosophy (legitimacy of democratic institutions)
+- Ethics (how to make fair collective decisions)
+
+---
+
+## Common Responses and Escape Routes
+
+**1. Restrict the Domain**: Limit the types of preferences allowed (violates U)
+
+**2. Accept Dictatorship**: In limited contexts, expert decision-making (violates D)
+
+**3. Drop IIA**: Accept that context matters in social choice (violates I)
+
+**4. Probabilistic Methods**: Use randomization or cardinal utilities
+
+**5. Alternative Frameworks**: Deliberative democracy, constitutional constraints
+
+**The Debate Continues**: Each response involves trade-offs and philosophical commitments.
+
+---
+
+## Discussion Questions
+
+1. Which of Arrow's four conditions would you be most willing to give up? Why?
+
+2. Does Arrow's Theorem show that democracy is impossible, or just that perfect democracy is impossible?
+
+3. How might this theorem apply to other collective decision-making contexts (committees, families, etc.)?
+
+4. Do you think the Independence of Irrelevant Alternatives condition is actually reasonable? Can you think of cases where context should matter?
+
+5. What does this theorem tell us about the nature of collective rationality?
+-->

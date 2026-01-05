@@ -14,7 +14,7 @@ format:
 
 ## Arrow's Requirements
 
-Arrow focussed on four requirements you'd like a system to have.
+Arrow focused on four requirements you'd like a system to have:
 
 1. **Unrestricted Domain** (U)
 2. **Weak Pareto Principle** (P)  
@@ -44,9 +44,9 @@ So is that bad news for voting systems?
 
 ## Dictatorship and Arrow
 
-Let's say that instead of democracy your preferred social model is benevolent dictatorship, where an all powerful ruler acts in the best interests of the people collectively.
+Let's say that instead of democracy, your preferred social model is benevolent dictatorship, where an all-powerful ruler acts in the best interests of the people collectively.
 
-- Aside one: If this was a history of social thought class, we'd walk through how popular a model this was among reformers through the 19th century.
+- Aside one: If this were a history of social thought class, we'd walk through how popular a model this was among reformers through the 19th century.
 - Aside two: For things where the government has to act although approximately zero votes will turn on how they act, this is our actual system. Think about things like the city council deciding the rules for a particular intersection.
 
 ## Dictatorship and Arrow
@@ -54,17 +54,17 @@ Let's say that instead of democracy your preferred social model is benevolent di
 If our dictator genuinely cares about the people, then what they do should be sensitive to their interests collectively. And that presumably means:
 
 1. They have to act no matter what those interests are (U)
-2. They should do A rather than B if it's in everyone's interests (W)
+2. They should do A rather than B if it's in everyone's interests (P)
 3. Whether they do A or B should only turn on which of those two is better for the people (I)
 4. They shouldn't act just in the interests of one person (D)
 
 ## Dictatorship and Arrow
 
-Note that the condition D does not just say there shouldn't be one guy making all the decisions.
+Note that the condition D does not just say there shouldn't be one person making all the decisions.
 
-It says that the decisions shouldn't be made just sensitive to what one person wants, or in the interests of one person.
+It says that the decisions shouldn't be made solely based on what one person wants, or in the interests of one person.
 
-So really all the conditions might be met, even for a benevolent dictator.
+So really all the conditions might need to be met, even for a benevolent dictator.
 
 ## Markets and Arrow
 
@@ -72,7 +72,7 @@ Well maybe you don't like dictators; I don't particularly either.
 
 Perhaps you think a market system of free trade between free people will produce a better outcome for the people collectively.
 
-That's an interesting claim, and actually one that Arrow himself did some important work on formalising.
+That's an interesting claim, and actually one that Arrow himself did some important work on formalizing.
 
 But we still need to define what it is for something to be a better outcome.
 
@@ -81,7 +81,7 @@ But we still need to define what it is for something to be a better outcome.
 And we'll now have the same problem the benevolent dictator faced.
 
 - Our theory of better outcomes should work no matter what's good or bad for individuals (U)
-- What's better for everyone should be better overall (W)
+- What's better for everyone should be better overall (P)
 - Whether A or B is better overall should just turn on which of them is better for individuals (I)
 - Whether A or B is better overall should not just turn on what's better for one person (D)
 
@@ -91,7 +91,7 @@ Arrow's Theorem does raise a challenge to democratic systems.
 
 But it raises more or less the same challenge for non-democratic systems as well.
 
-What it really challenges is the idea of a public good, and that's something that democrats, benevolent dictators, and free marketeers, all care about.
+What it really challenges is the idea of a public good, and that's something that democrats, benevolent dictators, and free marketeers all care about.
 
 # Two Partial Ways Out
 
@@ -101,21 +101,21 @@ I won't spend much time on this, but it turns out that there are some pretty int
 
 The most significant result concerns what are called **single-peaked preferences**.
 
-## Single Peaked Preferences
+## Single-Peaked Preferences
 
-Imagine that there is some linear scale you can place the options on, and for every voter, the options satisfy the following condition.
+Imagine that there is some linear scale you can place the options on, and for every voter, the options satisfy the following condition:
 
 - The voter has a preferred spot on the scale.
 - If A is between B and that preferred spot, then the voter prefers A to B.
 - E.g., all the candidates fall on a left-right spectrum, and so do all the voters, and a voter will never prefer to move away from their preferred spot on the spectrum.
 
-## Single Peaked Preferences
+## Single-Peaked Preferences
 
-Given this constraint, majority rule works. You never get Condorcet style cycles.
+Given this constraint, majority rule works. You never get Condorcet-style cycles.
 
 - Is this realistic?
 - It sometimes is! If you think in advance that your voter pool meets this condition, simple majority rule is a perfectly good rule.
-- In a different class I'd work through a more precise statement of what single-peaked means, because it's actually a little more generous a condition than it looks, but we'll leave it go here unless people have particular questions.
+- In a different class I'd work through a more precise statement of what single-peaked means, because it's actually a little more generous a condition than it looks, but we'll leave it here unless people have particular questions.
 
 ## Give Up Ordering
 
@@ -133,10 +133,10 @@ We still insist that at most one of A >~$\forall$~ B, B >~$\forall$~ A, and A =~
 
 ## Give Up Ordering
 
-This rule satisfies all our constraints, except for completeness of the social ordering.
+This rule satisfies all our constraints, except for completeness of the social ordering:
 
 - It gives a result whatever the input, satisfying U.
-- If everyone prefers A to B, so does the social ordering, satisfying W.
+- If everyone prefers A to B, so does the social ordering, satisfying P.
 - The social ordering of A and B only turns on what people think about those options, satisfying I.
 - And anyone might not get their way on A and B, satisfying D.
 
@@ -144,16 +144,16 @@ This rule satisfies all our constraints, except for completeness of the social o
 
 The problem is that this is an incredibly weak rule.
 
-- It just says, choose Pareto dominant options.
+- It just says, choose Pareto-dominant options.
 - It doesn't say what to do when none of them exist.
 - Moreover, dropping completeness essentially only gets you this extra rule.
-- Allan Gibbard (a long time member of the philosophy department at UM) proved that the only rule satisfying all four constraints but not completeness is unanimity among 'oligarchs', where membership of the oligarchy could be anything.
+- Allan Gibbard (a longtime member of the philosophy department at UM) proved that the only rule satisfying all four constraints but not completeness is unanimity among 'oligarchs', where membership of the oligarchy could be anything.
 
 # Independence of Irrelevant Alternatives
 
 ## Voting Systems
 
-Here's a research topic that at one time I thought would be interesting.
+Here's a research topic that at one time I thought would be interesting:
 
 - Look through actual existing voting systems.
 - Since they exist, they must be possible.
@@ -175,15 +175,15 @@ When you see weird failures of plurality, like when two similar candidates lose 
 
 ## Is IIA Plausible?
 
-Here's one difference between IIA and real-life voting systems.
+Here's one difference between IIA and real-life voting systems:
 
-- Voting systems tend to care a lot about which option a voter ranks **first**. (Plurality says this is all that matters, which is extreme, but all real life systems have this feature>0
+- Voting systems tend to care a lot about which option a voter ranks **first**. (Plurality says this is all that matters, which is extreme, but all real-life systems have this feature.)
 - The spirit behind IIA is that this shouldn't matter.
 - If I prefer A to B, that should count the same whether or not A is my **first** choice.
 
 ## Should First Matter?
 
-So one question to think about is basically, does being a voter's first choice matter, or is this just another spot on the preference ranking.
+So one question to think about is basically: does being a voter's first choice matter, or is this just another spot on the preference ranking?
 
 I think there's a reasonable case that being first should matter.
 
@@ -195,10 +195,10 @@ I think there's a reasonable case that being first should matter.
 
 ## Preferences Only
 
-Another way aggregation systems get around Arrow is by using numerical scales.
+Another way aggregation systems get around Arrow is by using numerical scales:
 
 - Amazon reviews average out numbers from 1-5.
-- Traffic planners try to minimise everyone's time spent at an intersection (conditional on the intersection being safe).
+- Traffic planners try to minimize everyone's time spent at an intersection (conditional on the intersection being safe).
 - How does this interact with the Arrow principles?
 
 ## Preferences and Numbers
@@ -206,11 +206,11 @@ Another way aggregation systems get around Arrow is by using numerical scales.
 The answer is that it violates one of the very first assumptions we made.
 
 - Arrow says that the aggregation system should take the preferences of the voters as an input, and return a social ordering as the output.
-- But numerical measures of how good an option is for a citizen/voter, can't be deduced from their preferences.
+- But numerical measures of how good an option is for a citizen/voter can't be deduced from their preferences.
 
 ## Preferences and Numbers
 
-In the two tables below, Alex and Charlie are 'voters', and the numbers show how they rate (on a 1-5 scale), blickets and widgets. The left table is what they think on Monday, the right table is Tuesday.
+In the two tables below, Alex and Charlie are 'voters', and the numbers show how they rate (on a 1-5 scale) blickets and widgets. The left table is what they think on Monday, the right table is Tuesday.
 
 :::: {.columns}
 
@@ -221,7 +221,7 @@ In the two tables below, Alex and Charlie are 'voters', and the numbers show how
 | Charlie |   2       |     3    |
 | Average |   3.5     |     2    |
 
-: Monday's ratings
+: Monday's ratings of blickets vs. widgets {#tbl-monday-ratings}
 :::
 
 ::: {.column width="50%"}
@@ -231,7 +231,7 @@ In the two tables below, Alex and Charlie are 'voters', and the numbers show how
 | Charlie |   1       |     5    |
 | Average |   2       |   3.5    |
 
-: Tuesday's ratings
+: Tuesday's ratings of blickets vs. widgets {#tbl-tuesday-ratings}
 :::
 
 ::::
@@ -247,7 +247,7 @@ In the two tables below, Alex and Charlie are 'voters', and the numbers show how
 | Charlie |   2       |     3    |
 | Average |   3.5     |     2    |
 
-: Monday's ratings
+: Monday's ratings {#tbl-monday-ratings-repeat}
 :::
 
 ::: {.column width="50%"}
@@ -257,14 +257,14 @@ In the two tables below, Alex and Charlie are 'voters', and the numbers show how
 | Charlie |   1       |     5    |
 | Average |   2       |   3.5    |
 
-: Tuesday's ratings
+: Tuesday's ratings {#tbl-tuesday-ratings-repeat}
 :::
 
 ::::
 
 - On Monday, blickets have a higher average score than widgets.
 - On Tuesday, it's the other way around.
-- But no one's preferences changed.
+- But no one's preferences changed—both Alex and Charlie prefer blickets to widgets on both days.
 
 ## Preferences and Numbers
 
@@ -276,11 +276,11 @@ The social ordering is not a function, in the mathematical sense, of the prefere
 
 Any numerical system will be like this.
 
-## Why Not Numbers
+## Why Not Numbers?
 
-So why isn't this the solution? Why don't we just use numerical measures of how good an option is for each person.
+So why isn't this the solution? Why don't we just use numerical measures of how good an option is for each person?
 
-- One reason is one we discussed in voting systems; it really doesn't work in voting because the incentives to vote 'strategically' are too high and too easy to spot.
+- One reason is one we discussed in voting systems: it really doesn't work in voting because the incentives to vote 'strategically' are too high and too easy to spot.
 - But another reason comes from philosophy.
 
 ## Interpersonal Utility Comparisons
@@ -289,7 +289,7 @@ If the benevolent dictator wants to use numbers not rankings, they have to gener
 
 The standard view in mid-century philosophy/economics/social science was that these were impossible.
 
-The canonical argument for this is Lionel Robbins's argument in his 1938 paper "Interpersonal Comparisons of Utility: A Comment", which turned on the difficulty of measuring comparisons between people.
+The canonical argument for this is Lionel Robbins's argument in his 1932 book *An Essay on the Nature and Significance of Economic Science*, which turned on the difficulty of measuring comparisons between people.
 
 ## Arrow and Numbers
 
@@ -303,4 +303,4 @@ If not, you're back in Arrow's framework, and you have to think about which cond
 
 We'll look at a surprising argument that sometimes the right condition to give up is the Pareto optimality condition.
 
-Some plausible looking systems of social choice end up violating it, and perhaps that's a good thing.
+Some plausible-looking systems of social choice end up violating it, and perhaps that's a good thing.
