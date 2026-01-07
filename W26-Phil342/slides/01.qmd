@@ -22,19 +22,21 @@ It introduces a range of topics that have the following features:
 
 I'm Brian Weatherson, a professor in the philosophy department.
 
-My office is **2207 Angell Hall**.
+My office is **2207 Angell Hall**. (That's not far from where we are; the numbering for Mason, Angell, Tisch and Haven is continuous.)
 
 My email is **weath@umich.edu**.
 
-My office hours are 9:30–11:30 a.m. Thursdays. You should drop by any week to ask about the course, or other philosophy courses, or to chat about how your favorite sports team is doing, etc.
+My office hours are 9:30–11:30 a.m. Thursdays. You should drop by any week **after this one** to ask about the course, or other philosophy courses, or to chat about how your favorite sports team is doing, etc.
+
+The **after this one** is because I'm away at a conference starting tomorrow; office hours will start next week.
 
 ## Discussion Sections
 
 The discussion sections for the course are led by Mitch Barrington.
 
-Their office is ???
+Their office is 2253 Angell Hall.
 
-Their office hours are ???
+Their office hours are Monday, 1pm-3pm.
 
 You should also drop by their office hours with questions about this course, other philosophy courses, etc.
 
@@ -58,9 +60,15 @@ There are two main textbooks for this course.
 
 Both books are available through the library, which has a subscription to the Cambridge Elements series.
 
-There is also a Canvas site that has a number of readings on it. This is at:
+There is also a Github site for the course that has a number of readings on it. This is at:
 
-- [canvas.umich.edu](https://canvas.umich.edu).
+::: {.columns}
+::: {.column width="100%"}
+![https://bweatherson.github.io/W26-Phil342-site/](images/Phil342-QR.png){width="30%"}
+:::
+:::
+
+There is also a Canvas page, at the regular location, where the assignments will be (and the readings are linked).
 
 ## Game Theory Text
 
@@ -73,7 +81,7 @@ Like the Elements books, the library has an electronic version of this book, so 
 ::::
 
 :::: {.column}
-![Essentials of Game Theory](images/lbs.jpg){width=60%}
+![Essentials of Game Theory](images/lbs.jpg){width=40%}
 ::::
 
 :::
@@ -93,8 +101,8 @@ We'll talk about the material in both of these as the course progresses, and nei
 
 The course will be in two halves, roughly pivoting around the midterm break.
 
-1. Pooling—how do we form collective attitudes out of individual attitudes?
-2. Modeling—what can we learn about social structures by looking at very simple models of them?
+1. **Pooling**: How do we form collective attitudes out of individual attitudes?
+2. **Modeling**: What can we learn about social structures by looking at very simple models of them?
 
 # Pooling
 
@@ -102,11 +110,11 @@ The course will be in two halves, roughly pivoting around the midterm break.
 
 ::: {.columns}
 
-:::: {.column width="50%"}
+:::: {.column width="45%"}
 ![Replay officials in booth overlooking NFL stadium field](images/nfl.jpg){fig-alt="View from behind replay officials sitting at a console with multiple monitors, overlooking an NFL football field during a game"}
 ::::
 
-:::: {.column width="50%"}
+:::: {.column width="55%"}
 It's easiest to understand some of the puzzles about pooling with an example.
 ::::
 
@@ -116,11 +124,11 @@ It's easiest to understand some of the puzzles about pooling with an example.
 
 ::: {.columns}
 
-:::: {.column width="50%"}
+:::: {.column width="45%"}
 ![Replay officials in booth overlooking NFL stadium field](images/nfl.jpg){fig-alt="View from behind replay officials sitting at a console with multiple monitors, overlooking an NFL football field during a game"}
 ::::
 
-:::: {.column width="50%"}
+:::: {.column width="55%"}
 Let's start by imagining a future world where the NFL has decided to have three replay officials on hard calls.
 ::::
 
@@ -130,7 +138,9 @@ Let's start by imagining a future world where the NFL has decided to have three 
 
 This is Michigan, so I assume most people know the basics of NFL rules, but to make sure everyone is on the same page, here's what will be relevant here.
 
-If a player (a) catches a pass and (b) runs into the end zone without going out of bounds or being tackled, then it's a touchdown. (That's the biggest scoring play.)
+If a player (a) catches a pass and (b) runs into the end zone without going out of bounds or being tackled, then it's a **touchdown**. 
+
+(That's the biggest scoring play.)
 
 There are bells and whistles, of course—what exactly counts as a pass and so on—but we just need to know that much.
 
@@ -202,14 +212,16 @@ That's how most US courts work—the receiver doesn't get a touchdown.
 
 ## Majority Rules on Components
 
-Here is a different rule. For each stage of the play, go with majority rule.
+Here is a different rule. 
+
+For each stage of the play, go with majority rule, and then use the rules of the game to work out what that means.
 
 |  Judge |  Catch  |  In Bounds |  Touchdown |
 |:------:|:-------:|:----------:|:----------:|
 |   A    |   Yes   |   Yes      |    Yes     |
 |   B    |   Yes   |   No       |    No      |
 |   C    |   No    |   Yes      |    No      |
-|   **Majority**    |   Yes    |  Yes       |    ???      |
+|   **Majority**    |   Yes    |  Yes       |    **Yes**      |
 
 : Majority rule applied to each component separately {#tbl-majority-components}
 
@@ -243,13 +255,10 @@ That's because there can be a set of inconsistent propositions where:
 
 ## Probability
 
-Until 10–15 years ago, I would have said there was a special case of this that was relatively easy.
-
-Instead of trying to pool some yes/no judgments, imagine we instead try to pool probability judgments.
-
-Then there is a simple rule you can follow: **find the average probability**.
-
-That is, you add up the probabilities everyone gives and divide by how many judges you have.
+- Until 10–15 years ago, I would have said there was a special case of this kind of pooling question that was relatively easy.
+- Instead of trying to pool some yes/no judgments, imagine we instead try to pool probability judgments.
+- Then there is a simple rule you can follow: **find the average probability**.
+- That is, you add up the probabilities everyone gives and divide by how many judges you have.
 
 ## Example
 
@@ -310,7 +319,9 @@ The models we're interested in have the following features:
 
 ## Philosophical Questions
 
-Here are two questions you could ask about this kind of activity that we won't be asking. (Although they are good questions—in different classes we might focus on them.)
+Here are two questions you could ask about this kind of activity that we won't be asking. 
+
+(Although they are good questions—in different classes we might focus on them.)
 
 1. Can you ever learn about the real world by playing around with mathematical models that deliberately oversimplify it?
 2. What kind of activity are social scientists doing when they analyze or present a model like this?

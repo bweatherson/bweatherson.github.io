@@ -206,3 +206,10 @@
 .callout-body {
   font-size: 1em !important;
 }
+
+.reveal figure figcaption {
+  font-size: 1.2em;
+  color: #000000;
+  margin-bottom: 0.2em;
+  text-align: center;
+}

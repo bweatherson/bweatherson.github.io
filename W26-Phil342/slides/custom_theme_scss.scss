@@ -212,6 +212,8 @@ $font-size-root: 40px;
 // Tables
 .reveal table {
   font-size: 0.8em;
+  border: 1px solid #ddd;  // Add this line
+  border-collapse: collapse;  // Add this line to ensure borders merge properly
   
   th {
     background-color: $primary-color;
