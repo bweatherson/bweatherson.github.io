@@ -235,7 +235,15 @@
 }
 
 .reveal figure figcaption {
-  font-size: 0.5em !important;
-  color: #333333;
+  font-size: 1.2em;
+  color: #000000;
   margin-bottom: 0.2em;
+  text-align: center;
+}
+
+.p caption {
+  font-size: 1.2em;
+  color: #000000;
+  margin-bottom: 0.2em;
+  text-align: center;
 }
