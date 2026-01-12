@@ -103,11 +103,28 @@ There are problems in both directions here.
 - Sometimes we want to treat words with different spelling as representing the same meaning - e.g., 'kangaroo' and 'kangaroos'.
 - And sometimes we want to treat words with the same spelling as expressing different meanings.
 
+## Ambiguous Words
+
+In a minute or so, try to come up with some words in English that should be symbolised differently even though they have the same spelling.
+
+- Feel free to chat amongst yourselves.
+- After a minute, we'll come up with a list.
+
+## Word Ambiguity and Sentence Ambiguity
+
+Sentences with ambiguous words are usually ambiguous.
+
+But surprisingly, the reverse isn't always true.
+
+Some ambiguous sentences don't rely on ambiguity in the words.
+
 ## Relating the First Two Questions
 
 Some kinds of ambiguity are 'resolved' by treating the word as part of the formal system. Consider two possible interpretations of this sentence.
 
-> Nothing is better than world peace
+- Nothing is better than world peace.
+ 
+What are the two interpretations of it?
 
 ## "Nothing is better than world peace"
 
@@ -118,12 +135,39 @@ Some kinds of ambiguity are 'resolved' by treating the word as part of the forma
 
 :::
 
+## Alice
+
+The _Alice in Wonderland_ books are full of this kind of wordplay.
+
+> **Alice**: "I see nobody on the road."    
+> **King**: "I only wish I had such eyes. To be able to see Nobody! And at that distance too!"
+
+The King's weird interpretation of Alice attributes the wrong form to her utterance.
+
+## Chomsky
+
+Think about this sentence, which I'm afraid will be all to true for some of you after the break.
+
+> Visiting relatives can be boring.
+
+What are the two interpretations?
+
+. . .
+
+I won't do a show of hands, but I suspect that some of you will have been evidence for each of the readings. (Though I'd be surprised if any of you was evidence for both readings in one break.)
+
 ## Ambiguity and Form
 
-- If you include words like 'nothing' as formal words, then the two readings of the sentence will have different formal representations.
+- If you include words like 'nothing' and 'nobody' as formal words, then the two readings of the World Peace sentence will have different formal representations.
 - And the logic called 'predicate logic' does exactly that; it treats 'nothing' as one of the formal words.
 - We're not covering that in this course, though some of you have covered it elsewhere.
 - Some more expansive accounts of what should be a formal word are moved by the thought that treating more words as formal removes some possible ambiguities.
+
+## Small Group Activity
+
+- Come up with some examples of ambiguous sentences.
+- Ideally, these will be ambiguous sentences that don't have an ambiguous word.
+- After a couple of minutes we'll discuss these as a group.
 
 ## Three Big Questions About Form
 
@@ -220,12 +264,25 @@ Translation
 
 - $M \wedge \neg T$
 
+## Small Group Exercises
+
+Do translations for as many of these as you get time for. We won't get through them all, but I wanted to make sure you didn't run out of questions!
+
+1. Either it will snow or it will rain, but not both.
+2. If it's sunny, we'll go to the beach and have a picnic.
+3. We'll leave unless it rains.
+4. You'll pass if you study, and you'll fail if you don't.
+5. "If it rains on Monday and Tuesday, then the game will be postponed.
+6. Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.
+7. It will rain on Monday or Tuesday, but not on both days.
+8. If either Alice or Bob comes to the party, then if Carol comes, David won't come.
+
 ## Parentheses
 
 - As in math, these tell you what order to compute things in.
 - They let you avoid the ambiguity in the following sentence.
 
-> It will rain on Monday and it will rain on Tuesday or it will rain on Wednesday.
+- It will rain on Monday and it will rain on Tuesday or it will rain on Wednesday.
 
 ## Two Translations
 
@@ -249,7 +306,7 @@ What is a situation where one of these is true but not the other?
 
 ::: {.incremental}
 - If it only rains on Wednesday, then 1 is true but 2 is false.
-- Are there any others?
+- **Are there any others?**
 :::
 
 # Recursion
