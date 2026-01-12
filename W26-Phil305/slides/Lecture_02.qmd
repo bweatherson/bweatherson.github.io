@@ -344,6 +344,12 @@ As speakers of a human language, you're used to this kind of recursion. All of t
 
  - If $S$$ is a sentence, and $N$$ is a name, then $N$ _thinks that_ $S$ is a sentence.
  - Note that the output of this rule can be the input to a new instance of it.
+
+## Other Examples
+
+**Can you think of other recursive patterns in English? That is, what other structures are there where you can keep embedding things infinitely?**
+
+Bonus question (which I only learned about last week): Can you think of a structure that works in English but *not* most other natural languages?
  
 ## Formal Language Recursion
 
@@ -405,6 +411,19 @@ The $\rightarrow$ is not the main connective because either side of it are
 - $R)$
 
 And they are not both sentences.
+
+## Examples
+
+What are the main connectives for these sentences?
+
+::: {.incremental}
+1. $(P \wedge Q) \vee R$
+2. $P \rightarrow (Q \wedge R)$
+3. $\neg P \vee (Q \rightarrow R)$
+4. $(P \vee Q) \rightarrow (R \wedge S)$
+5. $(P \wedge Q) \vee (R \rightarrow S)$
+6. $\neg(P \rightarrow Q) \leftrightarrow (R \vee S)$
+:::
 
 
 ## A Worked Example

@@ -1,3 +1,4 @@
+
 ---
 title: "Voting Systems"
 date: 1/12/2026
@@ -52,11 +53,15 @@ One thing to ask is whether there is a good reason that the ones which are not u
 
 ## United States
 
-In some sense this is the system we primarily use in the United States, with three (really) big qualifications:
+In some sense this is the system we primarily use in the United States, with some (really) big qualifications:
 
+**What exceptions can you think of?**
+
+::: {.incremental}
 - Qualification One: For President, this goes via the Electoral College.
 - Qualification Two: Being listed on the ballot is non-trivial.
 - Qualification Three: There are primaries.
+:::
 
 ## Strengths of This System
 
@@ -71,10 +76,14 @@ It does not mean that it's simple for the voter to figure out what to do. We'll 
 
 ## Disadvantages
 
+**What downsides can you think of?**
+
+::: {.incremental}
 1. Disproportional - minority parties end up with majority.
 2. Disordered - parties with fewer votes end up with more seats.
 3. Hard decisions - we'll talk about this in a bit.
 4. Adding candidates changes things - we'll also talk about this.
+:::
 
 ## Example
 
@@ -86,13 +95,13 @@ Imagine a voter in the following election:
 
 . . .
 
-What should they do?
+**What should they do? What would you do if you were this voter?**
 
 ## Extending the Challenge
 
 If you are a politician in B or C in the previous example, what do you do?
 
-Do you spend more of your time arguing:
+Do **you** spend more of your time arguing:
 
 1. That you are better than the other of B/C?
 2. That you are more popular, and hence more likely to win, than the other in B/C?
@@ -112,6 +121,10 @@ But under plurality, A will win (unless there is enough strategic voting).
 It feels like this isn't really respecting the wishes of the majority.
 
 It also means that whether A or B wins might be determined by whether C is on the ballot, which is bizarre.
+
+. . .
+
+**What are some real life cases you know of that have this pattern?**
 
 ## The Condorcet Loser Problem
 
@@ -134,12 +147,16 @@ Vote in two stages:
 
 ## Downsides
 
+**What downsides can you think of to this system?**
+
+. . .
+
 1. Two elections - twice the expense both for states and for voters.
 2. Non-monotonic: getting fewer votes can make you a winner.
 
 . . .
 
-This is a bit complicated, so I'll work through it on the next slide.
+This is a bit complicated, so we'll work through it.
 
 ## Non-Monotonicity Example
 
@@ -149,15 +166,12 @@ B's voters are split between A and C for their second choice.
 
 C's voters all prefer B to A.
 
-Question: Who will win a runoff election (if everyone votes sincerely)?
+. . .
 
-## Non-Monotonicity Example (continued)
+Two questions (work on this yourself or chat with people around you)
 
-Due to a minor scandal, 3% of A's voters switch to C.
-
-Now it's A (37%), B (31%), C (32%).
-
-Question: Who will win now?
+1. Who will win a runoff election (if everyone votes sincerely)?
+2. Who would win if A has a last minute scandal and 3% of the voters change from A to C?
 
 ## Understanding Non-Monotonicity
 
@@ -182,8 +196,8 @@ Voters don't just mark a single candidate.
 
 - Rather, they list their preferences between candidates. In effect, they rank-order the candidates.
 - Some potential variations here:
-  - Some systems only allow a first and second choice.
-  - Some require a full preference ranking.
+  - Some systems only allow a first and second choice, or a first through fifth choice.
+  - Some **require** a full preference ranking.
   - Others allow the voter to rank as many as they like.
 
 ## How to Count
@@ -209,6 +223,8 @@ All these names refer to the same voting system.
 
 ## Downsides
 
+**What downsides can you think of?**
+
 - The non-monotonicity problem remains.
 - Can be slow to count, especially if you're doing 30 elections at a time like in the US.
 - Voters don't have preferences over all N candidates.
@@ -220,6 +236,10 @@ All these names refer to the same voting system.
 Voters don't have to make quite as many strategic choices (unless the non-monotonicity problem comes up).
 
 Allows for finer divisions of parties: Australia now has something like a five-party system, with two left, two right, and one centrist. (This is an *incredibly* rough description.)
+
+## Question
+
+Which would you prefer for Michigan, **instant runoff** (as is now used in Alaska, Maine, and some council elections), **traditional runoff** (as is now used in Georgia and Louisiana, and *sort of* in California), or **status quo** (as is used in most of the other states)?
 
 # Range Voting
 
@@ -243,11 +263,9 @@ Every class gives you a score out of 4, and the university ranks you by average 
 
 ## Why Not Use It
 
-Probably everyone would just give the maximum and minimum scores to the candidates they do/don't like.
+In practice we use this a lot for commercial ratings, like products on Amazon or restaurants on Google, but it's not (as far as I know) used anywhere for elections.
 
-The problem of **strategic voting** would be immense.
-
-Even if voters want to vote sincerely, they have an incentive to exaggerate their preferences to maximize their influence.
+**Why not? What do you think would go wrong?**
 
 # Approval Voting
 
@@ -276,6 +294,10 @@ Unlike range voting, approval voting is less vulnerable to strategic exaggeratio
 However, voters still face a strategic decision: where to draw the line between "approve" and "disapprove."
 
 If you approve of too many candidates, you dilute your vote for your favorites.
+
+## Think-Pair-Share Question
+
+Would it be a good idea to introduce approval voting for **primaries** in the United States? Why or why not?
 
 # Borda Count
 
@@ -354,6 +376,20 @@ Since 200 prefer D to A, 200 prefer D to B, 200 prefer D to C—D is the Condorc
 The systems that extend this constraint to a full system, one that issues verdicts even when there is no Condorcet winner, are more complicated than what we've been using so far.
 
 We won't cover them in detail, but they're discussed extensively in the reading if you're interested.
+
+# In Class Exercise
+
+## Small Group Questions
+
+Divide into groups of 4-6 to discuss this question.
+
+In another philosophy class, with 100 students, Professor P is confused by ChatGPT and can't decide how to do the assessment for his course.
+
+So he decides he'll come up with four options and put it to a vote in the class. I'm not going to tell you what the options are, because I don't want you thinking of what will make your preferred option more likely to win.
+
+What I want you to think about is what voting system the class should use to vote?
+
+Would it change if it was a small seminar, with 15 people?
 
 # For Next Time
 

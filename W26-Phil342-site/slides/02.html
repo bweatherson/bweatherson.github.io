@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="dcterms.date" content="2026-01-12">
   <title>Voting Systems</title>
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-af96cefdc81b5b7a935a26be4957226c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-165de8befc938d0b26d7578d5b40959b.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -181,7 +181,8 @@
 </section>
 <section class="slide level2">
 <h2>United States</h2>
-<p>In some sense this is the system we primarily use in the United States, with three (really) big qualifications:</p>
+<p>In some sense this is the system we primarily use in the United States, with some (really) big qualifications:</p>
+<p><strong>What exceptions can you think of?</strong></p>
 <ul>
 <li class="fragment">Qualification One: For President, this goes via the Electoral College.</li>
 <li class="fragment">Qualification Two: Being listed on the ballot is non-trivial.</li>
@@ -201,6 +202,7 @@
 </section>
 <section class="slide level2 scrollable">
 <h2>Disadvantages</h2>
+<p><strong>What downsides can you think of?</strong></p>
 <ol type="1">
 <li class="fragment">Disproportional - minority parties end up with majority.</li>
 <li class="fragment">Disordered - parties with fewer votes end up with more seats.</li>
@@ -217,13 +219,13 @@
 <li class="fragment">They think that if everyone voted for their favorite candidate, it would be 40% A; 30% B; 30% C.</li>
 </ul>
 <div class="fragment">
-<p>What should they do?</p>
+<p><strong>What should they do? What would you do if you were this voter?</strong></p>
 </div>
 </section>
 <section class="slide level2 scrollable">
 <h2>Extending the Challenge</h2>
 <p>If you are a politician in B or C in the previous example, what do you do?</p>
-<p>Do you spend more of your time arguing:</p>
+<p>Do <strong>you</strong> spend more of your time arguing:</p>
 <ol type="1">
 <li class="fragment">That you are better than the other of B/C?</li>
 <li class="fragment">That you are more popular, and hence more likely to win, than the other in B/C?</li>
@@ -239,6 +241,9 @@
 <p>But under plurality, A will win (unless there is enough strategic voting).</p>
 <p>It feels like this isn’t really respecting the wishes of the majority.</p>
 <p>It also means that whether A or B wins might be determined by whether C is on the ballot, which is bizarre.</p>
+<div class="fragment">
+<p><strong>What are some real life cases you know of that have this pattern?</strong></p>
+</div>
 </section>
 <section class="slide level2">
 <h2>The Condorcet Loser Problem</h2>
@@ -262,26 +267,29 @@
 </section>
 <section class="slide level2 scrollable">
 <h2>Downsides</h2>
+<p><strong>What downsides can you think of to this system?</strong></p>
+<div class="fragment">
 <ol type="1">
 <li class="fragment">Two elections - twice the expense both for states and for voters.</li>
 <li class="fragment">Non-monotonic: getting fewer votes can make you a winner.</li>
 </ol>
+</div>
 <div class="fragment">
-<p>This is a bit complicated, so I’ll work through it on the next slide.</p>
+<p>This is a bit complicated, so we’ll work through it.</p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level2 scrollable">
 <h2>Non-Monotonicity Example</h2>
 <p>Three candidates: A (40%), B (31%), C (29%).</p>
 <p>B’s voters are split between A and C for their second choice.</p>
 <p>C’s voters all prefer B to A.</p>
-<p>Question: Who will win a runoff election (if everyone votes sincerely)?</p>
-</section>
-<section class="slide level2">
-<h2>Non-Monotonicity Example (continued)</h2>
-<p>Due to a minor scandal, 3% of A’s voters switch to C.</p>
-<p>Now it’s A (37%), B (31%), C (32%).</p>
-<p>Question: Who will win now?</p>
+<div class="fragment">
+<p>Two questions (work on this yourself or chat with people around you)</p>
+<ol type="1">
+<li class="fragment">Who will win a runoff election (if everyone votes sincerely)?</li>
+<li class="fragment">Who would win if A has a last minute scandal and 3% of the voters change from A to C?</li>
+</ol>
+</div>
 </section>
 <section class="slide level2">
 <h2>Understanding Non-Monotonicity</h2>
@@ -309,8 +317,8 @@
 <li class="fragment">Rather, they list their preferences between candidates. In effect, they rank-order the candidates.</li>
 <li class="fragment">Some potential variations here:
 <ul>
-<li class="fragment">Some systems only allow a first and second choice.</li>
-<li class="fragment">Some require a full preference ranking.</li>
+<li class="fragment">Some systems only allow a first and second choice, or a first through fifth choice.</li>
+<li class="fragment">Some <strong>require</strong> a full preference ranking.</li>
 <li class="fragment">Others allow the voter to rank as many as they like.</li>
 </ul></li>
 </ul>
@@ -338,6 +346,7 @@
 </section>
 <section class="slide level2">
 <h2>Downsides</h2>
+<p><strong>What downsides can you think of?</strong></p>
 <ul>
 <li class="fragment">The non-monotonicity problem remains.</li>
 <li class="fragment">Can be slow to count, especially if you’re doing 30 elections at a time like in the US.</li>
@@ -350,6 +359,10 @@
 <h2>Upsides</h2>
 <p>Voters don’t have to make quite as many strategic choices (unless the non-monotonicity problem comes up).</p>
 <p>Allows for finer divisions of parties: Australia now has something like a five-party system, with two left, two right, and one centrist. (This is an <em>incredibly</em> rough description.)</p>
+</section>
+<section class="slide level2">
+<h2>Question</h2>
+<p>Which would you prefer for Michigan, <strong>instant runoff</strong> (as is now used in Alaska, Maine, and some council elections), <strong>traditional runoff</strong> (as is now used in Georgia and Louisiana, and <em>sort of</em> in California), or <strong>status quo</strong> (as is used in most of the other states)?</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -371,9 +384,8 @@
 </section>
 <section class="slide level2">
 <h2>Why Not Use It</h2>
-<p>Probably everyone would just give the maximum and minimum scores to the candidates they do/don’t like.</p>
-<p>The problem of <strong>strategic voting</strong> would be immense.</p>
-<p>Even if voters want to vote sincerely, they have an incentive to exaggerate their preferences to maximize their influence.</p>
+<p>In practice we use this a lot for commercial ratings, like products on Amazon or restaurants on Google, but it’s not (as far as I know) used anywhere for elections.</p>
+<p><strong>Why not? What do you think would go wrong?</strong></p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -398,6 +410,10 @@
 <p>Unlike range voting, approval voting is less vulnerable to strategic exaggeration.</p>
 <p>However, voters still face a strategic decision: where to draw the line between “approve” and “disapprove.”</p>
 <p>If you approve of too many candidates, you dilute your vote for your favorites.</p>
+</section>
+<section class="slide level2">
+<h2>Think-Pair-Share Question</h2>
+<p>Would it be a good idea to introduce approval voting for <strong>primaries</strong> in the United States? Why or why not?</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -496,6 +512,19 @@ Table&nbsp;1: Voter preferences showing D as the Condorcet winner
 <h2>Condorcet Methods</h2>
 <p>The systems that extend this constraint to a full system, one that issues verdicts even when there is no Condorcet winner, are more complicated than what we’ve been using so far.</p>
 <p>We won’t cover them in detail, but they’re discussed extensively in the reading if you’re interested.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>In Class Exercise</h1>
+
+</section>
+<section class="slide level2">
+<h2>Small Group Questions</h2>
+<p>Divide into groups of 4-6 to discuss this question.</p>
+<p>In another philosophy class, with 100 students, Professor P is confused by ChatGPT and can’t decide how to do the assessment for his course.</p>
+<p>So he decides he’ll come up with four options and put it to a vote in the class. I’m not going to tell you what the options are, because I don’t want you thinking of what will make your preferred option more likely to win.</p>
+<p>What I want you to think about is what voting system the class should use to vote?</p>
+<p>Would it change if it was a small seminar, with 15 people?</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
