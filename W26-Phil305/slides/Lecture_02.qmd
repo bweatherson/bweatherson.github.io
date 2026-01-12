@@ -342,7 +342,7 @@ As speakers of a human language, you're used to this kind of recursion. All of t
 
 ## Recursive Rule
 
- - If $S$$ is a sentence, and $N$$ is a name, then $N$ _thinks that_ $S$ is a sentence.
+ - If $S$ is a sentence, and $N$ is a name, then $N$ _thinks that_ $S$ is a sentence.
  - Note that the output of this rule can be the input to a new instance of it.
 
 ## Other Examples
