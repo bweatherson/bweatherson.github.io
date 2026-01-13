@@ -1,9 +1,10 @@
 ---
 title: "Answers to Translation Questions"
-format: html
+format:
+    html: default
 ---
 
-# Questions
+## Questions
 
 1. Either it will snow or it will rain, but not both.
 2. If it's sunny, we'll go to the beach and have a picnic.
@@ -14,14 +15,14 @@ format: html
 7. It will rain on Monday or Tuesday, but not on both days.
 8. If either Alice or Bob comes to the party, then if Carol comes, David won't come.
 
-# Either it will snow or it will rain, but not both.
+## Either it will snow or it will rain, but not both.
 
 S = It will snow   
 R = It will rain
 
 - $(S \vee R) \wedge \neg(S \wedge R)$
 
-# If it's sunny, we'll go to the beach and have a picnic.
+## If it's sunny, we'll go to the beach and have a picnic.
 
 S = It is sunny   
 B = Go to beach   
@@ -29,7 +30,7 @@ P = Have picnic
 
 - $S \rightarrow (B \wedge P)$
 
-# We'll leave unless it rains.
+## We'll leave unless it rains.
 
 L = We leave   
 R = It rains
@@ -38,7 +39,7 @@ Note that _unless_ basically means _if not_. So the sentence means _We'll leave 
 
 - $\neg R \rightarrow L$
 
-# You'll pass if you study, and you'll fail if you don't.
+## You'll pass if you study, and you'll fail if you don't.
 
 P = You pass    
 S = You study hard
@@ -46,7 +47,7 @@ S = You study hard
 - $(S \rightarrow P) \wedge (\neg S \rightarrow \neg P)$, equivalently
 - $P \leftrightarrow S$
 
-# If it rains on Monday and Tuesday, then the game will be postponed.
+## If it rains on Monday and Tuesday, then the game will be postponed.
 
 M = Monday rain    
 T = Tuesday rain    
@@ -54,7 +55,7 @@ P = Game is postponed
 
 - $(M \wedge T) \rightarrow P$
 
-# Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.
+## Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.
 
 M = Monday rain    
 T = Tuesday rain    
@@ -62,14 +63,14 @@ W = Wednesday **sunny**
 
 - $(M \wedge T) \vee W$
 
-# It will rain on Monday or Tuesday, but not on both days.
+## It will rain on Monday or Tuesday, but not on both days.
 
 M = Monday rain    
 T = Tuesday rain
 
 - $(M \vee T) \wedge \neg (M \wedge T)$
 
-# If either Alice or Bob comes to the party, then if Carol comes, David won't come.
+## If either Alice or Bob comes to the party, then if Carol comes, David won't come.
 
 A = Alice comes to party    
 B = Bob comes to party    

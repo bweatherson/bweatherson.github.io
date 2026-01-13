@@ -88,7 +88,7 @@
     "href": "slides/Lecture_05.html",
     "title": "Truth Trees",
     "section": "",
-    "text": "This lecture introduces a new way of testing for validity - truth trees.\n\n\n\nBoxes and Diamonds, section 2.1\n\n\n\n\nA way for determining whether some combinations are logically possible.\nThat can be used for determining whether some arguments are valid - if the truth of the premises and the falsity of the conclusion is not logically possible; then the argument is valid.\n\n\n\n\n\nStart out writing the things you care about.\nEach time one of those things implies that some other things must be the case, write those down too.\nFor example, if you write down that \\(A \\wedge B\\) is true, also write down that \\(A\\) is true and that \\(B\\) is true. \nEach time there are multiple ways to make something you’ve written true, create multiple branches for those ways.\nFor example, if you write down that \\(A \\vee B\\) is true, create a branch where \\(A\\) is true, and a branch where \\(B\\) is true.\n\n\n\n\n\nA branch of a tableau is closed if it contains that some particular claim has incompatible truth values.\nFor now, this means that one sentence is both true and false.\n\n…\n\nThe whole tableau is closed if every branch is closed.\n\n\n\n\n\nIf the tableau is closed, then the initial assumptions cannot be true together.\nIf you are evaluating an argument, this means that the argument is valid.\n\n…\n\nIf you start the tableau by just saying that one sentence is false, the closure of the tableau means that that sentence is a logical truth.\n\n\n\n\nTableaux have two big benefits over truth tables.\n\nThey don’t grow exponentially when you increase the number of variables.\n\n…\n\nThey can be generalised to things beyond propositional logic.\n\n…\nWe are introducing them here because of point 2.\n\n\n\nHere is something the book doesn’t make a big deal of, but is kind of important.\n\nA closed tableau can show that an argument is valid.\nAn open and completed tableau can show that an argument is invalid.\n\n…\n\nThe trick here is that it’s hard to tell when a tableau is completed in the relevant sense.\nThis will be easier to illustrate in practice than in theory, so let’s start building tableau up.\n\n\n\n\nThe system we are using is what is called a signed tableau system.\n\nThat means that every line consists of two parts.\nThe bigger, second, part is a sentence.\nThe first part is a sign, which for now is a truth value.\nThat is, it is either \\(\\mathbb{T}\\) or \\(\\mathbb{F}\\).\n\n\n\n\nSo each line either says that a particular sentence is true, or says that it is false.\n\nThe book for some reason includes the word ‘might’ here.\nThat’s misleading; what they should say is that each line says what is true given (a) the starting assumptions and (b) the assumptions we made for branching purposes.\n\n\n\n\nThe system we’re using also has two other distinctive features.\n\nWe number each of the lines.\n\n…\n\nWe list why we’re writing down each line to the right of the tree.\n\n…\nBoth of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren’t well defined conventions for how to write these things out."
+    "text": "This section introduces a new way of testing for validity - truth trees.\n\n\nBoxes and Diamonds, section 2.1\n\n\n\n\n\nA way for determining whether some combinations are logically possible.\nThat can be used for determining whether some arguments are valid - if the truth of the premises and the falsity of the conclusion is not logically possible; then the argument is valid.\n\n\n\n\n\nStart out writing the things you care about.\nEach time one of those things implies that some other things must be the case, write those down too.\nFor example, if you write down that \\(A \\wedge B\\) is true, also write down that \\(A\\) is true and that \\(B\\) is true. \nEach time there are multiple ways to make something you’ve written true, create multiple branches for those ways.\nFor example, if you write down that \\(A \\vee B\\) is true, create a branch where \\(A\\) is true, and a branch where \\(B\\) is true.\n\n\n\n\n\n\nA branch of a tableau is closed if it contains that some particular claim has incompatible truth values.\nFor now, this means that one sentence is both true and false.\nThe whole tableau is closed if every branch is closed.\n\n\n\n\n\n\nIf the tableau is closed, then the initial assumptions cannot be true together.\nIf you are evaluating an argument, this means that the argument is valid.\n\n. . .\nIf you start the tableau by just saying that one sentence is false, the closure of the tableau means that that sentence is a logical truth.\n\n\n\nTableaux have two big benefits over truth tables.\n\n\nThey don’t grow exponentially when you increase the number of variables.\nThey can be generalised to things beyond propositional logic.\n\n\n. . .\nWe are introducing them here because of point 2.\n\n\n\nHere is something the book doesn’t make a big deal of, but is kind of important.\n\nA closed tableau can show that an argument is valid.\nAn open and completed tableau can show that an argument is invalid.\n\n\n\n\n\nThe trick here is that it’s hard to tell when a tableau is completed in the relevant sense.\nThis will be easier to illustrate in practice than in theory, so let’s start building tableau up.\n\n\n\n\nThe system we are using is what is called a signed tableau system.\n\nThat means that every line consists of two parts.\nThe bigger, second, part is a sentence.\nThe first part is a sign, which for now is a truth value.\nThat is, it is either \\(\\mathbb{T}\\) or \\(\\mathbb{F}\\).\n\n\n\n\nSo each line either says that a particular sentence is true, or says that it is false.\n\nThe book for some reason includes the word ‘might’ here.\nThat’s misleading; what they should say is that each line says what is true given (a) the starting assumptions and (b) the assumptions we made for branching purposes.\n\n\n\n\nThe system we’re using also has two other distinctive features.\n\nWe number each of the lines.\nWe list why we’re writing down each line to the right of the tree.\n\nBoth of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren’t well defined conventions for how to write these things out."
   },
   {
     "objectID": "slides/Lecture_05.html#plan",
@@ -123,28 +123,28 @@
     "href": "slides/Lecture_05.html#closing",
     "title": "Truth Trees",
     "section": "",
-    "text": "A branch of a tableau is closed if it contains that some particular claim has incompatible truth values.\nFor now, this means that one sentence is both true and false.\n\n…\n\nThe whole tableau is closed if every branch is closed."
+    "text": "A branch of a tableau is closed if it contains that some particular claim has incompatible truth values.\nFor now, this means that one sentence is both true and false.\nThe whole tableau is closed if every branch is closed."
   },
   {
     "objectID": "slides/Lecture_05.html#what-closure-means",
     "href": "slides/Lecture_05.html#what-closure-means",
     "title": "Truth Trees",
     "section": "",
-    "text": "If the tableau is closed, then the initial assumptions cannot be true together.\nIf you are evaluating an argument, this means that the argument is valid.\n\n…\n\nIf you start the tableau by just saying that one sentence is false, the closure of the tableau means that that sentence is a logical truth."
+    "text": "If the tableau is closed, then the initial assumptions cannot be true together.\nIf you are evaluating an argument, this means that the argument is valid.\n\n. . .\nIf you start the tableau by just saying that one sentence is false, the closure of the tableau means that that sentence is a logical truth."
   },
   {
     "objectID": "slides/Lecture_05.html#benefits-of-tableaux",
     "href": "slides/Lecture_05.html#benefits-of-tableaux",
     "title": "Truth Trees",
     "section": "",
-    "text": "Tableaux have two big benefits over truth tables.\n\nThey don’t grow exponentially when you increase the number of variables.\n\n…\n\nThey can be generalised to things beyond propositional logic.\n\n…\nWe are introducing them here because of point 2."
+    "text": "Tableaux have two big benefits over truth tables.\n\n\nThey don’t grow exponentially when you increase the number of variables.\nThey can be generalised to things beyond propositional logic.\n\n\n. . .\nWe are introducing them here because of point 2."
   },
   {
     "objectID": "slides/Lecture_05.html#open-tableaux",
     "href": "slides/Lecture_05.html#open-tableaux",
     "title": "Truth Trees",
     "section": "",
-    "text": "Here is something the book doesn’t make a big deal of, but is kind of important.\n\nA closed tableau can show that an argument is valid.\nAn open and completed tableau can show that an argument is invalid.\n\n…\n\nThe trick here is that it’s hard to tell when a tableau is completed in the relevant sense.\nThis will be easier to illustrate in practice than in theory, so let’s start building tableau up."
+    "text": "Here is something the book doesn’t make a big deal of, but is kind of important.\n\nA closed tableau can show that an argument is valid.\nAn open and completed tableau can show that an argument is invalid."
   },
   {
     "objectID": "slides/Lecture_05.html#signs",
@@ -165,7 +165,7 @@
     "href": "slides/Lecture_05.html#numbering-and-annotation",
     "title": "Truth Trees",
     "section": "",
-    "text": "The system we’re using also has two other distinctive features.\n\nWe number each of the lines.\n\n…\n\nWe list why we’re writing down each line to the right of the tree.\n\n…\nBoth of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren’t well defined conventions for how to write these things out."
+    "text": "The system we’re using also has two other distinctive features.\n\nWe number each of the lines.\nWe list why we’re writing down each line to the right of the tree.\n\nBoth of these are somewhat idiosyncratic, though not abnormal. Unlike the truth tables, there just aren’t well defined conventions for how to write these things out."
   },
   {
     "objectID": "slides/Lecture_05.html#plan-1",
@@ -10133,6 +10133,1203 @@
     "href": "index.html#instructions-for-slides",
     "title": "Philosophy 305 - Winter 2026",
     "section": "Instructions for Slides",
-    "text": "Instructions for Slides\nThe slides are built using revealjs. To move around them, the three key things to know are:\n\nLeft and right arrows move between sections.\nUp and down arrows move between slides within a section.\nIf you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.\nOr simply use space bar to advance one slide forward at any time."
+    "text": "Instructions for Slides\nThe slides are built using revealjs. To move around them, the four key things to know are:\n\nLeft and right arrows move between sections.\nUp and down arrows move between slides within a section.\nIf you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.\nOr simply use space bar to advance one slide forward at any time."
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html",
+    "href": "slides/Lecture_02_answers.html",
+    "title": "Answers to Translation Questions",
+    "section": "",
+    "text": "Either it will snow or it will rain, but not both.\nIf it’s sunny, we’ll go to the beach and have a picnic.\nWe’ll leave unless it rains.\nYou’ll pass if you study, and you’ll fail if you don’t.\nIf it rains on Monday and Tuesday, then the game will be postponed.\nEither it will rain on Monday and Tuesday, or it will be sunny on Wednesday.\nIt will rain on Monday or Tuesday, but not on both days.\nIf either Alice or Bob comes to the party, then if Carol comes, David won’t come."
+  },
+  {
+    "objectID": "slides/Lecture_02.html",
+    "href": "slides/Lecture_02.html",
+    "title": "Symbolization",
+    "section": "",
+    "text": "We’re going to get a little clearer on the notions of ‘form’ and ‘structure’ from last time.\n\n\nforall x, chapter 4, “First Steps to Symbolization”.\n\n\n\n\nAn argument is valid when\n\nThe truth of the premises guarantees the truth of the conclusion.\nEquivalently, when it is impossible for the premises to be true and the conclusion not true.\n\n\n\n\nAn argument is formally valid if\n\nIt is valid; and\nAny argument of the same form is valid.\n\nIn those cases, we infer that it is valid because of its form.\n\n\n\n\n\nWhich words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?\n\n\n\n\n\nI’m going to have a fairly pluralist, pragmatist view on this question.\n\nThis is not to say that pluralism or pragmatism is right - it’s just that it’s what I’ll adopt. (It is to say that I think it’s a reasonable approach.)\nFor some purposes the ‘formal words’ are very few, like ‘and’, ‘or’, ‘not’ etc.\nFor other purposes the set is more expansive.\n\n\n\n\n\nIf you are studying the logic of causation, you might want to say that ‘caused’ is a formal word.\nAnd that would mean any two arguments that have this structure are of the same form.\n\n\n \n\nA caused B.\n\n \n\nB caused C.\n\n\\(\\therefore\\)\n\nA caused C.\n\n\n\n\n\n\nBut for other purposes, ‘caused’ is just another binary relation between events.\nSo those arguments will have the same form as these ones.\n\n\n \n\nA happened near B.\n\n \n\nB happened near C.\n\n\\(\\therefore\\)\n\nA happened near C.\n\n\n\n\n\n\nWhat I mean by having a ‘pluralist, pragmatist’ view about form is that there is no objectively correct answer about whether these are the same form or not.\nFor some purposes it will be helpful to treat them as having the same form.\nFor other purposes it will not be.\nWe’re going to start with a notion of form where lots and lots of things have the same form, so very few arguments are valid in virtue of form.\n\n\n\n\n\nWhich words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?\n\n\n\n\nThere are problems in both directions here.\n\nSometimes we want to treat words with different spelling as representing the same meaning - e.g., ‘kangaroo’ and ‘kangaroos’.\nAnd sometimes we want to treat words with the same spelling as expressing different meanings.\n\n\n\n\nIn a minute or so, try to come up with some words in English that should be symbolised differently even though they have the same spelling.\n\nFeel free to chat amongst yourselves.\nAfter a minute, we’ll come up with a list.\n\n\n\n\nSentences with ambiguous words are usually ambiguous.\nBut surprisingly, the reverse isn’t always true.\nSome ambiguous sentences don’t rely on ambiguity in the words.\n\n\n\nSome kinds of ambiguity are ‘resolved’ by treating the word as part of the formal system. Consider two possible interpretations of this sentence.\n\nNothing is better than world peace.\n\nWhat are the two interpretations of it?\n\n\n\n\n\nThere is no thing such that it is better than world peace.\nIt is better that there is nothing than that there is world peace.\n\n\n\n\n\nThe Alice in Wonderland books are full of this kind of wordplay.\n\nAlice: “I see nobody on the road.”\nKing: “I only wish I had such eyes. To be able to see Nobody! And at that distance too!”\n\nThe King’s weird interpretation of Alice attributes the wrong form to her utterance.\n\n\n\nThink about this sentence, which I’m afraid will be all to true for some of you after the break.\n\nVisiting relatives can be boring.\n\nWhat are the two interpretations?\n. . .\nI won’t do a show of hands, but I suspect that some of you will have been evidence for each of the readings. (Though I’d be surprised if any of you was evidence for both readings in one break.)\n\n\n\n\nIf you include words like ‘nothing’ and ‘nobody’ as formal words, then the two readings of the World Peace sentence will have different formal representations.\nAnd the logic called ‘predicate logic’ does exactly that; it treats ‘nothing’ as one of the formal words.\nWe’re not covering that in this course, though some of you have covered it elsewhere.\nSome more expansive accounts of what should be a formal word are moved by the thought that treating more words as formal removes some possible ambiguities.\n\n\n\n\n\nCome up with some examples of ambiguous sentences.\nIdeally, these will be ambiguous sentences that don’t have an ambiguous word.\nAfter a couple of minutes we’ll discuss these as a group.\n\n\n\n\n\nWhich words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?\n\n\n\n\n\n\nReplacing words/sentences with letters.\nUsing parentheses.\nReplacing ‘formal words’ with symbols."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#overview",
+    "href": "slides/Lecture_02.html#overview",
+    "title": "Symbolization",
+    "section": "",
+    "text": "We’re going to get a little clearer on the notions of ‘form’ and ‘structure’ from last time.\n\n\nforall x, chapter 4, “First Steps to Symbolization”."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#definition",
+    "href": "slides/Lecture_02.html#definition",
+    "title": "Symbolization",
+    "section": "",
+    "text": "An argument is valid when\n\nThe truth of the premises guarantees the truth of the conclusion.\nEquivalently, when it is impossible for the premises to be true and the conclusion not true."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#formal-validity",
+    "href": "slides/Lecture_02.html#formal-validity",
+    "title": "Symbolization",
+    "section": "",
+    "text": "An argument is formally valid if\n\nIt is valid; and\nAny argument of the same form is valid.\n\nIn those cases, we infer that it is valid because of its form."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#three-big-questions-about-form",
+    "href": "slides/Lecture_02.html#three-big-questions-about-form",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#part-of-the-form",
+    "href": "slides/Lecture_02.html#part-of-the-form",
+    "title": "Symbolization",
+    "section": "",
+    "text": "I’m going to have a fairly pluralist, pragmatist view on this question.\n\nThis is not to say that pluralism or pragmatism is right - it’s just that it’s what I’ll adopt. (It is to say that I think it’s a reasonable approach.)\nFor some purposes the ‘formal words’ are very few, like ‘and’, ‘or’, ‘not’ etc.\nFor other purposes the set is more expansive."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#part-of-the-form-1",
+    "href": "slides/Lecture_02.html#part-of-the-form-1",
+    "title": "Symbolization",
+    "section": "",
+    "text": "If you are studying the logic of causation, you might want to say that ‘caused’ is a formal word.\nAnd that would mean any two arguments that have this structure are of the same form.\n\n\n \n\nA caused B.\n\n \n\nB caused C.\n\n\\(\\therefore\\)\n\nA caused C."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#part-of-the-form-2",
+    "href": "slides/Lecture_02.html#part-of-the-form-2",
+    "title": "Symbolization",
+    "section": "",
+    "text": "But for other purposes, ‘caused’ is just another binary relation between events.\nSo those arguments will have the same form as these ones.\n\n\n \n\nA happened near B.\n\n \n\nB happened near C.\n\n\\(\\therefore\\)\n\nA happened near C."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#part-of-the-form-3",
+    "href": "slides/Lecture_02.html#part-of-the-form-3",
+    "title": "Symbolization",
+    "section": "",
+    "text": "What I mean by having a ‘pluralist, pragmatist’ view about form is that there is no objectively correct answer about whether these are the same form or not.\nFor some purposes it will be helpful to treat them as having the same form.\nFor other purposes it will not be.\nWe’re going to start with a notion of form where lots and lots of things have the same form, so very few arguments are valid in virtue of form."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#three-big-questions-about-form-1",
+    "href": "slides/Lecture_02.html#three-big-questions-about-form-1",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#samedifferent",
+    "href": "slides/Lecture_02.html#samedifferent",
+    "title": "Symbolization",
+    "section": "",
+    "text": "There are problems in both directions here.\n\nSometimes we want to treat words with different spelling as representing the same meaning - e.g., ‘kangaroo’ and ‘kangaroos’.\nAnd sometimes we want to treat words with the same spelling as expressing different meanings."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#ambiguous-words",
+    "href": "slides/Lecture_02.html#ambiguous-words",
+    "title": "Symbolization",
+    "section": "",
+    "text": "In a minute or so, try to come up with some words in English that should be symbolised differently even though they have the same spelling.\n\nFeel free to chat amongst yourselves.\nAfter a minute, we’ll come up with a list."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#word-ambiguity-and-sentence-ambiguity",
+    "href": "slides/Lecture_02.html#word-ambiguity-and-sentence-ambiguity",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Sentences with ambiguous words are usually ambiguous.\nBut surprisingly, the reverse isn’t always true.\nSome ambiguous sentences don’t rely on ambiguity in the words."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#relating-the-first-two-questions",
+    "href": "slides/Lecture_02.html#relating-the-first-two-questions",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Some kinds of ambiguity are ‘resolved’ by treating the word as part of the formal system. Consider two possible interpretations of this sentence.\n\nNothing is better than world peace.\n\nWhat are the two interpretations of it?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#nothing-is-better-than-world-peace",
+    "href": "slides/Lecture_02.html#nothing-is-better-than-world-peace",
+    "title": "Symbolization",
+    "section": "",
+    "text": "There is no thing such that it is better than world peace.\nIt is better that there is nothing than that there is world peace."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#alice",
+    "href": "slides/Lecture_02.html#alice",
+    "title": "Symbolization",
+    "section": "",
+    "text": "The Alice in Wonderland books are full of this kind of wordplay.\n\nAlice: “I see nobody on the road.”\nKing: “I only wish I had such eyes. To be able to see Nobody! And at that distance too!”\n\nThe King’s weird interpretation of Alice attributes the wrong form to her utterance."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#chomsky",
+    "href": "slides/Lecture_02.html#chomsky",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Think about this sentence, which I’m afraid will be all to true for some of you after the break.\n\nVisiting relatives can be boring.\n\nWhat are the two interpretations?\n. . .\nI won’t do a show of hands, but I suspect that some of you will have been evidence for each of the readings. (Though I’d be surprised if any of you was evidence for both readings in one break.)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#ambiguity-and-form",
+    "href": "slides/Lecture_02.html#ambiguity-and-form",
+    "title": "Symbolization",
+    "section": "",
+    "text": "If you include words like ‘nothing’ and ‘nobody’ as formal words, then the two readings of the World Peace sentence will have different formal representations.\nAnd the logic called ‘predicate logic’ does exactly that; it treats ‘nothing’ as one of the formal words.\nWe’re not covering that in this course, though some of you have covered it elsewhere.\nSome more expansive accounts of what should be a formal word are moved by the thought that treating more words as formal removes some possible ambiguities."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#small-group-activity",
+    "href": "slides/Lecture_02.html#small-group-activity",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Come up with some examples of ambiguous sentences.\nIdeally, these will be ambiguous sentences that don’t have an ambiguous word.\nAfter a couple of minutes we’ll discuss these as a group."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#three-big-questions-about-form-2",
+    "href": "slides/Lecture_02.html#three-big-questions-about-form-2",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?\nWhich words have the same meaning and should be replaced by the same symbol, and which should be treated differently?\nHow do we break the sentence into its constituent parts?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#three-formal-tools",
+    "href": "slides/Lecture_02.html#three-formal-tools",
+    "title": "Symbolization",
+    "section": "",
+    "text": "Replacing words/sentences with letters.\nUsing parentheses.\nReplacing ‘formal words’ with symbols."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#overview-1",
+    "href": "slides/Lecture_02.html#overview-1",
+    "title": "Symbolization",
+    "section": "Overview",
+    "text": "Overview\nWe’re going to look at how to translate English sentences into a form where we can use the tools of propositional logic on them."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#associated-reading-1",
+    "href": "slides/Lecture_02.html#associated-reading-1",
+    "title": "Symbolization",
+    "section": "Associated Reading",
+    "text": "Associated Reading\nforall x, chapter 5, “Connectives”"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#aside",
+    "href": "slides/Lecture_02.html#aside",
+    "title": "Symbolization",
+    "section": "Aside",
+    "text": "Aside\nThe book goes into more detail than I’m going into here about the range of English sentences that can be translated (or at least symbolized) using the tools of propositional logic."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#sentence-letters",
+    "href": "slides/Lecture_02.html#sentence-letters",
+    "title": "Symbolization",
+    "section": "Sentence Letters",
+    "text": "Sentence Letters\n\nWe use letters, usually starting with \\(p\\) and then continuing through the alphabet, for ‘atomic’ sentences.\nforall x uses capital letters, others use lowercase. This is a matter of taste."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#symbols",
+    "href": "slides/Lecture_02.html#symbols",
+    "title": "Symbolization",
+    "section": "Symbols",
+    "text": "Symbols\n\n“and” is represented by \\(\\wedge\\)\n“or” is represented by \\(\\vee\\)\n“not” is represented by \\(\\neg\\)\n“if” is represented by \\(\\rightarrow\\)\n“if and only if” is represented by \\(\\leftrightarrow\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#an-easy-example",
+    "href": "slides/Lecture_02.html#an-easy-example",
+    "title": "Symbolization",
+    "section": "An Easy Example",
+    "text": "An Easy Example\n\nIt will rain on Monday or it will rain on Tuesday\n\nBasic Sentences\n\n\\(M\\) = It will rain on Monday\n\\(T\\) = It will rain on Tuesday\n\nTranslation\n\n\\(M \\vee T\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#another-easy-example",
+    "href": "slides/Lecture_02.html#another-easy-example",
+    "title": "Symbolization",
+    "section": "Another Easy Example",
+    "text": "Another Easy Example\n\nIt will rain on Monday and it will rain on Tuesday\n\nBasic Sentences\n\n\\(M\\) = It will rain on Monday\n\\(T\\) = It will rain on Tuesday\n\nTranslation\n\n\\(M \\wedge T\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#only-slightly-harder-example",
+    "href": "slides/Lecture_02.html#only-slightly-harder-example",
+    "title": "Symbolization",
+    "section": "Only Slightly Harder Example",
+    "text": "Only Slightly Harder Example\n\nIf it rains on Monday, it will rain on Tuesday\n\nBasic Sentences\n\n\\(M\\) = It will rain on Monday\n\\(T\\) = It will rain on Tuesday\n\nTranslation\n\n\\(M \\rightarrow T\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#and-a-bit-harder-again",
+    "href": "slides/Lecture_02.html#and-a-bit-harder-again",
+    "title": "Symbolization",
+    "section": "And A Bit Harder Again",
+    "text": "And A Bit Harder Again\n\nIt will rain on Monday, but it won’t rain on Tuesday\n\nBasic Sentences\n\n\\(M\\) = It will rain on Monday\n\\(T\\) = It will rain on Tuesday\n\nTranslation\n\n\\(M \\wedge \\neg T\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#small-group-exercises",
+    "href": "slides/Lecture_02.html#small-group-exercises",
+    "title": "Symbolization",
+    "section": "Small Group Exercises",
+    "text": "Small Group Exercises\nDo translations for as many of these as you get time for. We won’t get through them all, but I wanted to make sure you didn’t run out of questions!\n\nEither it will snow or it will rain, but not both.\nIf it’s sunny, we’ll go to the beach and have a picnic.\nWe’ll leave unless it rains.\nYou’ll pass if you study, and you’ll fail if you don’t.\n“If it rains on Monday and Tuesday, then the game will be postponed.\nEither it will rain on Monday and Tuesday, or it will be sunny on Wednesday.\nIt will rain on Monday or Tuesday, but not on both days.\nIf either Alice or Bob comes to the party, then if Carol comes, David won’t come."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#parentheses",
+    "href": "slides/Lecture_02.html#parentheses",
+    "title": "Symbolization",
+    "section": "Parentheses",
+    "text": "Parentheses\n\nAs in math, these tell you what order to compute things in.\nThey let you avoid the ambiguity in the following sentence.\nIt will rain on Monday and it will rain on Tuesday or it will rain on Wednesday."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#two-translations",
+    "href": "slides/Lecture_02.html#two-translations",
+    "title": "Symbolization",
+    "section": "Two Translations",
+    "text": "Two Translations\nBasic Sentences\n\n\\(M\\) = It will rain on Monday\n\\(T\\) = It will rain on Tuesday\n\\(W\\) = It will rain on Wednesday\n\nTranslations\n\n\\((M \\wedge T) \\vee W\\)\n\\(M \\wedge (T \\vee W)\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#whats-the-difference",
+    "href": "slides/Lecture_02.html#whats-the-difference",
+    "title": "Symbolization",
+    "section": "What’s the Difference?",
+    "text": "What’s the Difference?\n\n\\((M \\wedge T) \\vee W\\)\n\\(M \\wedge (T \\vee W)\\)\n\nWhat is a situation where one of these is true but not the other?\n\n\nIf it only rains on Wednesday, then 1 is true but 2 is false.\nAre there any others?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#overview-2",
+    "href": "slides/Lecture_02.html#overview-2",
+    "title": "Symbolization",
+    "section": "Overview",
+    "text": "Overview\nWe’re going to look at how and why we can iterate the translation procedures we’ve been investigating.\n\nAssociated Reading\nforall x, chapter 6, “Sentences of TFL”"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#recursion-1",
+    "href": "slides/Lecture_02.html#recursion-1",
+    "title": "Symbolization",
+    "section": "Recursion",
+    "text": "Recursion\nThe language of propositional logic has some fairly simple composition rules.\n\nIt says what the basic sentences are.\nIt has some rules saying that if some things are sentences, so are some other things.\n\nThe effect is that there are an infinity of possible sentences."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#natural-language-recursion",
+    "href": "slides/Lecture_02.html#natural-language-recursion",
+    "title": "Symbolization",
+    "section": "Natural Language Recursion",
+    "text": "Natural Language Recursion\nAs speakers of a human language, you’re used to this kind of recursion. All of these are sentences.\n\n\nIt will rain.\nAlex thinks that it will rain.\nKim thinks that Alex thinks that it will rain.\nAlex thinks that Kim thinks that Alex thinks that it will rain.\nAnd so on, to infinity, without adding any more words."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#recursive-rule",
+    "href": "slides/Lecture_02.html#recursive-rule",
+    "title": "Symbolization",
+    "section": "Recursive Rule",
+    "text": "Recursive Rule\n\nIf \\(S\\) is a sentence, and \\(N\\) is a name, then \\(N\\) thinks that \\(S\\) is a sentence.\nNote that the output of this rule can be the input to a new instance of it."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#other-examples",
+    "href": "slides/Lecture_02.html#other-examples",
+    "title": "Symbolization",
+    "section": "Other Examples",
+    "text": "Other Examples\nCan you think of other recursive patterns in English? That is, what other structures are there where you can keep embedding things infinitely?\nBonus question (which I only learned about last week): Can you think of a structure that works in English but not most other natural languages?"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#formal-language-recursion",
+    "href": "slides/Lecture_02.html#formal-language-recursion",
+    "title": "Symbolization",
+    "section": "Formal Language Recursion",
+    "text": "Formal Language Recursion\nThe letters \\(P, Q, R\\), etc. are sentences.\nIf \\(S\\) and \\(T\\) are sentences, then so are:\n\n\\(\\neg S\\)\n\\(S \\vee T\\)\n\\(S \\wedge T\\)\n\\(S \\rightarrow T\\)\n\\(S \\leftrightarrow T\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#multiple-steps",
+    "href": "slides/Lecture_02.html#multiple-steps",
+    "title": "Symbolization",
+    "section": "Multiple Steps",
+    "text": "Multiple Steps\nSo these are all sentences. (Note that I’m playing fast and loose with parentheses here.)\n\n\\(P\\)\n\\(Q\\)\n\\(P \\wedge Q\\)\n\\(Q \\rightarrow (P \\wedge Q)\\)\n\\(\\neg P\\)\n\\(Q \\vee \\neg P\\)\n\\((Q \\rightarrow (P \\wedge Q)) \\leftrightarrow (Q \\vee \\neg P)\\)\n\nThe last one follows from the fact that 4 and 6 are sentences."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#main-connective",
+    "href": "slides/Lecture_02.html#main-connective",
+    "title": "Symbolization",
+    "section": "Main Connective",
+    "text": "Main Connective\nFor any sentence you can make, there will be a ‘last step’ in the demonstration that it is a sentence.\n\nThat last step will involve copying down 1 or 2 other sentences, and adding a connective.\nOn the previous slide, you copy down 4 and 6, and put a \\(\\leftrightarrow\\) between them.\nThat connective you add is the main connective of the sentence.\nIt covers all the material in the sentence."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#main-connective-1",
+    "href": "slides/Lecture_02.html#main-connective-1",
+    "title": "Symbolization",
+    "section": "Main Connective",
+    "text": "Main Connective\nA binary connective is the main connective if (and only if) either side of it are two complete sentences.\n\n\\(P \\wedge (Q \\rightarrow R)\\)\n\nThe \\(\\wedge\\) is the main connective because either side of it are\n\n\\(P\\)\n\\((Q \\rightarrow R)\\)\n\nAnd they are both sentences."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#main-connective-2",
+    "href": "slides/Lecture_02.html#main-connective-2",
+    "title": "Symbolization",
+    "section": "Main Connective",
+    "text": "Main Connective\nA binary connective is the main connective if (and only if) either side of it are two complete sentences.\n\n\\(P \\wedge (Q \\rightarrow R)\\)\n\nThe \\(\\rightarrow\\) is not the main connective because either side of it are\n\n\\(P \\wedge (Q\\)\n\\(R)\\)\n\nAnd they are not both sentences."
+  },
+  {
+    "objectID": "slides/Lecture_02.html#examples",
+    "href": "slides/Lecture_02.html#examples",
+    "title": "Symbolization",
+    "section": "Examples",
+    "text": "Examples\nWhat are the main connectives for these sentences?\n\n\n\\((P \\wedge Q) \\vee R\\)\n\\(P \\rightarrow (Q \\wedge R)\\)\n\\(\\neg P \\vee (Q \\rightarrow R)\\)\n\\((P \\vee Q) \\rightarrow (R \\wedge S)\\)\n\\((P \\wedge Q) \\vee (R \\rightarrow S)\\)\n\\(\\neg(P \\rightarrow Q) \\leftrightarrow (R \\vee S)\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#a-worked-example",
+    "href": "slides/Lecture_02.html#a-worked-example",
+    "title": "Symbolization",
+    "section": "A Worked Example",
+    "text": "A Worked Example\n\n\n\n\n\n\n\n\n\n\n%%{init: {'theme':'neutral', 'themeVariables': {'fontSize':'30px'}}}%%\ngraph TD\n    %%A[\"((R ∨ S) → (P ↔ (¬Q ∨ R)))\"]\n    %%B[\"(R ∨ S)\"]\n    %%C[\"(P ↔ (¬Q ∨ R))\"]\n    %%D[\"R\"]\n    %%E[\"S\"]\n    %%F[\"P\"]\n    %%G[\"(¬Q ∨ R)\"]\n    %%H[\"¬Q\"]\n    %%I[\"R\"]\n    %%J[\"Q\"]\n    \n    %%A --&gt; B\n    %%A --&gt; C\n    %%B --&gt; D\n    %%B --&gt; E\n    %%C --&gt; F\n    %%C --&gt; G\n    %%G --&gt; H\n    %%G --&gt; I\n    %%H --&gt; J\n\n   %%style A fill:#ff9999"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#a-worked-example-1",
+    "href": "slides/Lecture_02.html#a-worked-example-1",
+    "title": "Symbolization",
+    "section": "A Worked Example",
+    "text": "A Worked Example"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#a-worked-example-2",
+    "href": "slides/Lecture_02.html#a-worked-example-2",
+    "title": "Symbolization",
+    "section": "A Worked Example",
+    "text": "A Worked Example"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#a-worked-example-3",
+    "href": "slides/Lecture_02.html#a-worked-example-3",
+    "title": "Symbolization",
+    "section": "A Worked Example",
+    "text": "A Worked Example"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#a-worked-example-4",
+    "href": "slides/Lecture_02.html#a-worked-example-4",
+    "title": "Symbolization",
+    "section": "A Worked Example",
+    "text": "A Worked Example"
+  },
+  {
+    "objectID": "slides/Lecture_02.html#for-next-time",
+    "href": "slides/Lecture_02.html#for-next-time",
+    "title": "Symbolization",
+    "section": "For Next Time",
+    "text": "For Next Time\n\nWe are going to start on how these connectives help us figure out the truth value of longer sentences.\nAnd we’re going to use that to analyse arguments."
+  },
+  {
+    "objectID": "slides/Lecture_01.html",
+    "href": "slides/Lecture_01.html",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "This is an introductory survey of some formal methods that are of broad philosophical use.\nBy introductory we mean that it doesn’t assume any background knowledge. But it’s a broad survey, so we’ll be moving reasonably fast to cover a range of topics.\n\n\n\nI’m Brian Weatherson, a professor in the philosophy department.\nMy office is 2207 Angell Hall. (That’s not far from where we are; the numbering for Mason, Angell, Tisch and Haven is continuous.)\nMy email is weath@umich.edu.\nMy office hours are 9:30–11:30 a.m. Thursdays. You should drop by any week after this one to ask about the course, or other philosophy courses, or to chat about how your favorite sports team is doing, etc.\nThe after this one is because I’m away at a conference starting tomorrow; office hours will start next week.\n\n\n\nThe discussion sections for the course are led by Brett Thompson.\nTheir office hours are Monday, 4pm-6pm, in Mason Hall 2455.\nYou should also drop by their office hours with questions about this course, other philosophy courses, etc.\n\n\n\nThere is a Github site for the course that has a number of readings on it. This is at:\n\n\n\n\n\nhttps://bweatherson.github.io/W26-Phil305-site/\n\n\n\n\nThere is also a Canvas page, at the regular location, where the assignments will be (and the readings are linked).\n\n\n\n\nPropositional Logic\nModal Logic and Conditionals\nProbability and Decision\nGame Theory\n\n\n\n\n\nThis is the logic of sentences that can be true or false, and that can combine to form longer sentences.\nSo as well as looking at simple sentences, like Nadia sings, we will look at sentences that are built from simple sentences.\nExamples of such sentences are Nadia doesn’t sing, Nadia sings and Bethany dances, and If Nadia sings, Simone sleeps.\n\n\n\n\nThis is the logic of ‘must’ and ‘might’. It has as many applications as there are interpretations of ‘must’ and ‘might’. The primary interpretations we’ll look at are:\n\nMetaphysical\nEpistemological\n\nMoral\n\n\n\n\n\nSometimes we can’t infer that a conclusion is definitely true, but we can infer that it is probably true.\nWe will look at some tools for regimenting how and when we make such inferences.\nWe will also look at how these probabilities feed into decision making under uncertainty.\n\n\n\n\n\nFinally, we will look at decisions in situations where other people are making similar decisions, and your return is affected by both what you and they do.\nThe resulting theory is a very useful tool for coming up with simple models of complicated situations.\n\n\n\n\nThere are four - all of them available through Canvas.\n\nforall x: Calgary Edition by P. D. Magnus, Tim Button, J. Robert Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach.\nBoxes and Diamonds, Ann Arbor remix, written by Richard Zach, and edited by me.\nOdds and Ends by Jonathan Weisberg.\nGame Theory by Giacomo Bonanno.\n\n. . .\nThe four books are for the four parts of the course.\n\n\n\n\n\n\n\n\nhttps://forallx.openlogicproject.org\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://bd.openlogicproject.org\n\n\n\n\n\n\n\n\n\n\nBoxes and Diamonds - Ann Arbor\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://jonathanweisberg.org/vip/\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html\n\n\n\n\n\n\n\n\nThe primary assessment will be weekly assignments, most of which will be administered through Canvas.\nSeveral are already posted, and they will be due each week on Thursday at 5pm.\nThere are exceptions for this week, and the week after the mid-term break.\nThere will also be an end of term exam.\n\n\n\n\n\nThe syllabus is available on Canvas. Indeed, it is the first thing that comes up when you load Canvas.\nRead it closely!\nIt will tell you what we’re covering each week, and where you should be each week.\nIt also goes over the assessment; after this week there are assignments most weeks. There are 12 in total and the best 10 will count towards your grade.\nThere will also be mid-term and final tests."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#aim-of-course",
+    "href": "slides/Lecture_01.html#aim-of-course",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "This is an introductory survey of some formal methods that are of broad philosophical use.\nBy introductory we mean that it doesn’t assume any background knowledge. But it’s a broad survey, so we’ll be moving reasonably fast to cover a range of topics."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#lectures-by",
+    "href": "slides/Lecture_01.html#lectures-by",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "I’m Brian Weatherson, a professor in the philosophy department.\nMy office is 2207 Angell Hall. (That’s not far from where we are; the numbering for Mason, Angell, Tisch and Haven is continuous.)\nMy email is weath@umich.edu.\nMy office hours are 9:30–11:30 a.m. Thursdays. You should drop by any week after this one to ask about the course, or other philosophy courses, or to chat about how your favorite sports team is doing, etc.\nThe after this one is because I’m away at a conference starting tomorrow; office hours will start next week."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#discussion-sections",
+    "href": "slides/Lecture_01.html#discussion-sections",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "The discussion sections for the course are led by Brett Thompson.\nTheir office hours are Monday, 4pm-6pm, in Mason Hall 2455.\nYou should also drop by their office hours with questions about this course, other philosophy courses, etc."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#course-website",
+    "href": "slides/Lecture_01.html#course-website",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "There is a Github site for the course that has a number of readings on it. This is at:\n\n\n\n\n\nhttps://bweatherson.github.io/W26-Phil305-site/\n\n\n\n\nThere is also a Canvas page, at the regular location, where the assignments will be (and the readings are linked)."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#four-sections",
+    "href": "slides/Lecture_01.html#four-sections",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "Propositional Logic\nModal Logic and Conditionals\nProbability and Decision\nGame Theory"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#propositional-logic",
+    "href": "slides/Lecture_01.html#propositional-logic",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "This is the logic of sentences that can be true or false, and that can combine to form longer sentences.\nSo as well as looking at simple sentences, like Nadia sings, we will look at sentences that are built from simple sentences.\nExamples of such sentences are Nadia doesn’t sing, Nadia sings and Bethany dances, and If Nadia sings, Simone sleeps."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#modal-logic",
+    "href": "slides/Lecture_01.html#modal-logic",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "This is the logic of ‘must’ and ‘might’. It has as many applications as there are interpretations of ‘must’ and ‘might’. The primary interpretations we’ll look at are:\n\nMetaphysical\nEpistemological\n\nMoral"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#probability-and-decision",
+    "href": "slides/Lecture_01.html#probability-and-decision",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "Sometimes we can’t infer that a conclusion is definitely true, but we can infer that it is probably true.\nWe will look at some tools for regimenting how and when we make such inferences.\nWe will also look at how these probabilities feed into decision making under uncertainty."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#game-theory",
+    "href": "slides/Lecture_01.html#game-theory",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "Finally, we will look at decisions in situations where other people are making similar decisions, and your return is affected by both what you and they do.\nThe resulting theory is a very useful tool for coming up with simple models of complicated situations."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#textbooks",
+    "href": "slides/Lecture_01.html#textbooks",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "There are four - all of them available through Canvas.\n\nforall x: Calgary Edition by P. D. Magnus, Tim Button, J. Robert Loftis, Robert Trueman, Aaron Thomas-Bolduc and Richard Zach.\nBoxes and Diamonds, Ann Arbor remix, written by Richard Zach, and edited by me.\nOdds and Ends by Jonathan Weisberg.\nGame Theory by Giacomo Bonanno.\n\n. . .\nThe four books are for the four parts of the course."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#forall-x",
+    "href": "slides/Lecture_01.html#forall-x",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "https://forallx.openlogicproject.org"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#boxes-and-diamonds",
+    "href": "slides/Lecture_01.html#boxes-and-diamonds",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "https://bd.openlogicproject.org\n\n\n\n\n\n\n\n\n\n\nBoxes and Diamonds - Ann Arbor"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#odds-and-ends",
+    "href": "slides/Lecture_01.html#odds-and-ends",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "https://jonathanweisberg.org/vip/"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#game-theory-1",
+    "href": "slides/Lecture_01.html#game-theory-1",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "https://faculty.econ.ucdavis.edu/faculty/bonanno/GT_Book.html"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#assessment",
+    "href": "slides/Lecture_01.html#assessment",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "The primary assessment will be weekly assignments, most of which will be administered through Canvas.\nSeveral are already posted, and they will be due each week on Thursday at 5pm.\nThere are exceptions for this week, and the week after the mid-term break.\nThere will also be an end of term exam."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#syllabus",
+    "href": "slides/Lecture_01.html#syllabus",
+    "title": "Introduction to Formal Methods",
+    "section": "",
+    "text": "The syllabus is available on Canvas. Indeed, it is the first thing that comes up when you load Canvas.\nRead it closely!\nIt will tell you what we’re covering each week, and where you should be each week.\nIt also goes over the assessment; after this week there are assignments most weeks. There are 12 in total and the best 10 will count towards your grade.\nThere will also be mid-term and final tests."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#quick-summary",
+    "href": "slides/Lecture_01.html#quick-summary",
+    "title": "Introduction to Formal Methods",
+    "section": "Quick Summary",
+    "text": "Quick Summary\nWe’re discussing the nature of arguments, and in particular, the role of premises and conclusions.\n\nAssociated Reading\nforall x, chapter 1, “Arguments”."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#arguments-1",
+    "href": "slides/Lecture_01.html#arguments-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Arguments",
+    "text": "Arguments\nLogic studies certain properties of arguments.\nAn argument, in the sense we’re interested in, has two parts:\n. . .\n\nPremises\nConclusion"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#example",
+    "href": "slides/Lecture_01.html#example",
+    "title": "Introduction to Formal Methods",
+    "section": "Example",
+    "text": "Example\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\n. . .\nRead \\(\\therefore\\) as ‘therefore’."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#premises",
+    "href": "slides/Lecture_01.html#premises",
+    "title": "Introduction to Formal Methods",
+    "section": "Premises",
+    "text": "Premises\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\n\nThe premises are the reasons that are given.\nIn this argument there are two."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#conclusion",
+    "href": "slides/Lecture_01.html#conclusion",
+    "title": "Introduction to Formal Methods",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\nThe conclusion is what comes after ‘therefore’ and is supported by the premises."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#ordinary-english",
+    "href": "slides/Lecture_01.html#ordinary-english",
+    "title": "Introduction to Formal Methods",
+    "section": "Ordinary English",
+    "text": "Ordinary English\n\nIn ordinary English, the order of the premises and conclusion is not as fixed as it is here.\nThe textbook has examples where the conclusion comes after the premises, as in our presentations, before the premises, and between the premises.\nThe general rule is that it is introduced by a word like ‘so’, or ‘therefore’, or, if you’re really old school, ‘hence’."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#the-premise-set",
+    "href": "slides/Lecture_01.html#the-premise-set",
+    "title": "Introduction to Formal Methods",
+    "section": "The Premise Set",
+    "text": "The Premise Set\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\nThere can be zero, one or multiple premises. Formally, we’ll say there is a set of premises."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#zero-premises",
+    "href": "slides/Lecture_01.html#zero-premises",
+    "title": "Introduction to Formal Methods",
+    "section": "Zero Premises",
+    "text": "Zero Premises\nHere’s my formal representation of (part of) the opening sentence of the Declaration of Independence.\n. . .\n\n\\(\\therefore\\)\n\nAll men are created equal.\n\n\n. . .\nSaying that something is self-evident is a way of saying that it follows from no background at all."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#one-premise",
+    "href": "slides/Lecture_01.html#one-premise",
+    "title": "Introduction to Formal Methods",
+    "section": "One Premise",
+    "text": "One Premise\n\n \n\nThe cinema is closed.\n\n\\(\\therefore\\)\n\nWe shouldn’t go to the cinema.\n\n\n. . .\nThis isn’t what we’ll call a valid argument, but it’s a perfectly good argument in lots of contexts."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#conclusion-1",
+    "href": "slides/Lecture_01.html#conclusion-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Conclusion",
+    "text": "Conclusion\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\nWe don’t allow this flexibility to conclusions.\nArguments have a single conclusion."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#chained-arguments",
+    "href": "slides/Lecture_01.html#chained-arguments",
+    "title": "Introduction to Formal Methods",
+    "section": "Chained Arguments",
+    "text": "Chained Arguments\n\nSometimes a conclusion of one argument will go to be a premise in another argument.\nBut any given argument aims to prove just one thing."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#representation",
+    "href": "slides/Lecture_01.html#representation",
+    "title": "Introduction to Formal Methods",
+    "section": "Representation",
+    "text": "Representation\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise.\n\n\nWhen I write arguments like this, I’m merely presenting them, not asserting that they have any nice features."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#overview-of-section",
+    "href": "slides/Lecture_01.html#overview-of-section",
+    "title": "Introduction to Formal Methods",
+    "section": "Overview of Section",
+    "text": "Overview of Section\nIntroducing the concept of validity.\n\nAssociated Reading\nforall x, chapter 2, “The Scope of Logic”."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#virtues-of-arguments",
+    "href": "slides/Lecture_01.html#virtues-of-arguments",
+    "title": "Introduction to Formal Methods",
+    "section": "Virtues of Arguments",
+    "text": "Virtues of Arguments\nHere are some good making features of arguments.\n\n\nPremises are true.\nPremises are known.\nPremises are accepted in debate.\nPremises are evidence for the conclusion.\nPremises guarantee the truth of the conclusion."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#logic",
+    "href": "slides/Lecture_01.html#logic",
+    "title": "Introduction to Formal Methods",
+    "section": "Logic",
+    "text": "Logic\nTo a first approximation, logic is about the last of these virtues.\n\n\nDoes the truth of a set of premises guarantee the truth of the conclusion?\nIf so, we’ll say the argument is valid."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#guarantee",
+    "href": "slides/Lecture_01.html#guarantee",
+    "title": "Introduction to Formal Methods",
+    "section": "Guarantee",
+    "text": "Guarantee\nWhat is it for the premises to guarantee truth?\n\n\nIt’s for every case where the premises are true to also be a case where the conclusion is true.\nThat’s nice, you might say, but what’s a case?"
+  },
+  {
+    "objectID": "slides/Lecture_01.html#cases",
+    "href": "slides/Lecture_01.html#cases",
+    "title": "Introduction to Formal Methods",
+    "section": "Cases",
+    "text": "Cases\n\nThis, I’m afraid, we’re going to leave a little abstract.\nAs the book in effect notes, it’s probably best to leave this as a placeholder.\nDifferent notions of what a case are get you different notions of what arguments are valid.\nBut you get into deep metaphysical waters here pretty fast; let’s retreat to some definitions."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#terminology",
+    "href": "slides/Lecture_01.html#terminology",
+    "title": "Introduction to Formal Methods",
+    "section": "Terminology",
+    "text": "Terminology\nWhen an argument, with premises \\(P_1, P_2, \\dots, P_n\\) and conclusion \\(C\\) is valid, we’ll say all the following things are true.\n\n\nThe premises entail the conclusion.\nThe conclusion follows from the premises.\nThe conclusion is a consequence of the premises."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#invalid",
+    "href": "slides/Lecture_01.html#invalid",
+    "title": "Introduction to Formal Methods",
+    "section": "Invalid",
+    "text": "Invalid\n\nAn argument is invalid just in case it is not valid.\nThat is, it is invalid if there is a case where the premises are true and the conclusion false."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure",
+    "href": "slides/Lecture_01.html#structure",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure",
+    "text": "Structure\n\nLogic is largely about validity, about which premises guarantee the truth of which conclusions.\nIt’s about a special kind of guarantee, one that holds in virtue of the structure or form of the premises and conclusion."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#a-valid-argument",
+    "href": "slides/Lecture_01.html#a-valid-argument",
+    "title": "Introduction to Formal Methods",
+    "section": "A Valid Argument",
+    "text": "A Valid Argument\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#non-structural-guarantee",
+    "href": "slides/Lecture_01.html#non-structural-guarantee",
+    "title": "Introduction to Formal Methods",
+    "section": "Non-Structural Guarantee",
+    "text": "Non-Structural Guarantee\nCompare the Skippy argument with this one.\n\n \n\nToday is Wednesday.\n\n\\(\\therefore\\)\n\nTomorrow is Thursday.\n\n\nThe premise guarantees the truth of the conclusion, but it does so in virtue of the meanings of ‘Wednesday’ and ‘Thursday’, not structural features."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#form-and-structure",
+    "href": "slides/Lecture_01.html#form-and-structure",
+    "title": "Introduction to Formal Methods",
+    "section": "Form and Structure",
+    "text": "Form and Structure\n\nIn the book they talk about the form of arguments.\nThis is just the same thing as I’m meaning by structure.\nThere is something about the Skippy example that’s special; just the form of the argument shows that it is valid."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure-and-substitution",
+    "href": "slides/Lecture_01.html#structure-and-substitution",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure and Substitution",
+    "text": "Structure and Substitution\nWhen the structure of the argument does the guaranteeing, the guarantee would persist through some substitutions.\n\n \n\nAll kangaroos are wise.\n\n \n\nSkippy is a kangaroo.\n\n\\(\\therefore\\)\n\nSkippy is wise."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure-and-substitution-1",
+    "href": "slides/Lecture_01.html#structure-and-substitution-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure and Substitution",
+    "text": "Structure and Substitution\nWhen the structure of the argument does the guaranteeing, the guarantee would persist through some substitutions.\n\n \n\nAll kangaroos are wise.\n\n \n\nLucky is a kangaroo.\n\n\\(\\therefore\\)\n\nLucky is wise."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure-and-substitution-2",
+    "href": "slides/Lecture_01.html#structure-and-substitution-2",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure and Substitution",
+    "text": "Structure and Substitution\nWhen the structure of the argument does the guaranteeing, the guarantee would persist through some substitutions.\n\n \n\nAll koalas are wise.\n\n \n\nLucky is a koala.\n\n\\(\\therefore\\)\n\nLucky is wise."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure-and-substitution-3",
+    "href": "slides/Lecture_01.html#structure-and-substitution-3",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure and Substitution",
+    "text": "Structure and Substitution\nWhen the structure of the argument does the guaranteeing, the guarantee would persist through some substitutions.\n\n \n\nAll koalas are dishonest.\n\n \n\nLucky is a koala.\n\n\\(\\therefore\\)\n\nLucky is dishonest."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#terminology-1",
+    "href": "slides/Lecture_01.html#terminology-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Terminology",
+    "text": "Terminology\n\nWe’ll say an argument is valid just in case the truth of the premises guarantees the truth of the conclusion.\nWe’ll say an argument is formally valid, or occasionally logically valid, if it is valid, and any argument with the same form/structure is valid.\nWe’ll say an argument is sound just in case it is valid and has true premises.\nWe won’t have much interest here in soundness; just in validity."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#structure-1",
+    "href": "slides/Lecture_01.html#structure-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Structure",
+    "text": "Structure\n\nYou might have noticed that I never actually defined what it is for two arguments to share a structure.\nI just said that changing a name (consistently throughout the argument), or changing a noun/adjective (consistently) preserves structure.\nBut I didn’t say more than that.\nHold that thought! We’ll have quite a lot to say as the course goes on about this notion of structure."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#validity-1",
+    "href": "slides/Lecture_01.html#validity-1",
+    "title": "Introduction to Formal Methods",
+    "section": "Validity",
+    "text": "Validity\nHere are some equivalent ways to define validity.\n\nAn argument is valid if necessarily, when the premises are true, the conclusion is too.\nAn argument is valid if it is impossible for the premises to be true and the conclusion to not be true.\n\nWe’ll use that last formulation a lot."
+  },
+  {
+    "objectID": "slides/Lecture_01.html#for-next-time",
+    "href": "slides/Lecture_01.html#for-next-time",
+    "title": "Introduction to Formal Methods",
+    "section": "For Next Time",
+    "text": "For Next Time\nWe’ll start our look at the most fundamental kind of logic: propositional logic."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#overview",
+    "href": "slides/Lecture_05.html#overview",
+    "title": "Truth Trees",
+    "section": "",
+    "text": "This section introduces a new way of testing for validity - truth trees.\n\n\nBoxes and Diamonds, section 2.1"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#open-tableaux-1",
+    "href": "slides/Lecture_05.html#open-tableaux-1",
+    "title": "Truth Trees",
+    "section": "",
+    "text": "The trick here is that it’s hard to tell when a tableau is completed in the relevant sense.\nThis will be easier to illustrate in practice than in theory, so let’s start building tableau up."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#overview-1",
+    "href": "slides/Lecture_05.html#overview-1",
+    "title": "Truth Trees",
+    "section": "Overview",
+    "text": "Overview\nThis section introduces the rules we use for building up truth trees.\n\nAssociated Reading\nBoxes and Diamonds, sections 2.2-2.3."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rules-for-neg-1",
+    "href": "slides/Lecture_05.html#rules-for-neg-1",
+    "title": "Truth Trees",
+    "section": "Rules for \\(\\neg\\)",
+    "text": "Rules for \\(\\neg\\)\n\nNote that the line numbers are just for illustration, and are arbitrary in two senses.\nFirst, you apply the rule wherever a sentence like \\(\\neg A\\) appears, not just at line 1.\nSecond, you don’t need to apply the rules immediately, so the successor line could come later than 2."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-wedge-sentence",
+    "href": "slides/Lecture_05.html#rule-for-true-wedge-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\wedge\\) sentence",
+    "text": "Rule for true \\(\\wedge\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-wedge-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-true-wedge-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\wedge\\) sentence",
+    "text": "Rule for true \\(\\wedge\\) sentence\nWhen you have a true \\(\\wedge\\) sentence, you can write down that the sentences either side of it are true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-vee-sentence",
+    "href": "slides/Lecture_05.html#rule-for-true-vee-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\vee\\) sentence",
+    "text": "Rule for true \\(\\vee\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-vee-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-true-vee-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\vee\\) sentence",
+    "text": "Rule for true \\(\\vee\\) sentence\n\nWhen you have a true \\(\\vee\\) sentence, you create two branches.\nThe way to read the tree is that at least one of the branches must be all true. \nThe ‘trunk’ above the branching (in this case just line 1), is part of both branches.\nBranches are inclusive; you are saying that at least one branch is true, not that precisely one is."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-wedge-sentence",
+    "href": "slides/Lecture_05.html#rule-for-false-wedge-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\wedge\\) sentence",
+    "text": "Rule for false \\(\\wedge\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-wedge-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-false-wedge-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\wedge\\) sentence",
+    "text": "Rule for false \\(\\wedge\\) sentence\n\nIf an \\(\\wedge\\) sentence is false, then we know that one or other (or both) of the sides are false.\nSo we create two branches, one where each side is false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-vee-sentence",
+    "href": "slides/Lecture_05.html#rule-for-false-vee-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\vee\\) sentence",
+    "text": "Rule for false \\(\\vee\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-vee-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-false-vee-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\vee\\) sentence",
+    "text": "Rule for false \\(\\vee\\) sentence\nWhen you have a false \\(\\vee\\) sentence, you know that each side is false, so you write down that they are both false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#justifying-the-rule-for-false-vee-sentences",
+    "href": "slides/Lecture_05.html#justifying-the-rule-for-false-vee-sentences",
+    "title": "Truth Trees",
+    "section": "Justifying the rule for false \\(\\vee\\) sentences",
+    "text": "Justifying the rule for false \\(\\vee\\) sentences\nRecall the truth table for \\(\\vee\\)\n\n\n\nTable 1: Truth table for \\(\\vee\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nA\nB\n\nA\n\\(\\vee\\)\nB\n\n\n\n\n\\(\\mathbb{T}\\)\n\\(\\mathbb{T}\\)\n\n\\(\\mathbb{T}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{T}\\)\n\n\n\\(\\mathbb{T}\\)\n\\(\\mathbb{F}\\)\n\n\\(\\mathbb{T}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{F}\\)\n\n\n\\(\\mathbb{F}\\)\n\\(\\mathbb{T}\\)\n\n\\(\\mathbb{F}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{T}\\)\n\n\n\\(\\mathbb{F}\\)\n\\(\\mathbb{F}\\)\n\n\\(\\mathbb{F}\\)\n\\(\\color{red}{\\mathbb{F}}\\)\n\\(\\mathbb{F}\\)\n\n\n\n\n\n\n\nThe only line where the whole sentence is \\(\\color{red}{\\mathbb{F}}\\) is line 4.\nSo if a \\(\\vee\\) sentence is \\(\\color{red}{\\mathbb{F}}\\), we know that we’re on line 4.\nAnd on line 4, both \\(A\\) and \\(B\\) are false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-rightarrow-sentence",
+    "href": "slides/Lecture_05.html#rule-for-false-rightarrow-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\rightarrow\\) sentence",
+    "text": "Rule for false \\(\\rightarrow\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-false-rightarrow-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-false-rightarrow-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for false \\(\\rightarrow\\) sentence",
+    "text": "Rule for false \\(\\rightarrow\\) sentence\nWhen you have a false \\(\\rightarrow\\) sentence, you know that the left side is true and the right side is false, so you write those things down."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#justifying-the-rule-for-false-rightarrow-sentences",
+    "href": "slides/Lecture_05.html#justifying-the-rule-for-false-rightarrow-sentences",
+    "title": "Truth Trees",
+    "section": "Justifying the rule for false \\(\\rightarrow\\) sentences",
+    "text": "Justifying the rule for false \\(\\rightarrow\\) sentences\nRecall the truth table for \\(\\rightarrow\\)\n\nTruth table for \\(\\rightarrow\\)\n\n\n\n\n\n\n\n\n\n\nA\nB\n\nA\n\\(\\rightarrow\\)\nB\n\n\n\n\n\\(\\mathbb{T}\\)\n\\(\\mathbb{T}\\)\n\n\\(\\mathbb{T}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{T}\\)\n\n\n\\(\\mathbb{T}\\)\n\\(\\mathbb{F}\\)\n\n\\(\\mathbb{T}\\)\n\\(\\color{red}{\\mathbb{F}}\\)\n\\(\\mathbb{F}\\)\n\n\n\\(\\mathbb{F}\\)\n\\(\\mathbb{T}\\)\n\n\\(\\mathbb{F}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{T}\\)\n\n\n\\(\\mathbb{F}\\)\n\\(\\mathbb{F}\\)\n\n\\(\\mathbb{F}\\)\n\\(\\color{red}{\\mathbb{T}}\\)\n\\(\\mathbb{F}\\)\n\n\n\n\nThe only line where the whole sentence is \\(\\mathbb{F}\\) is line 2.\nSo if a \\(\\rightarrow\\) sentence is \\(\\mathbb{F}\\), we know that we’re on line 2.\nAnd on line 2,\\(A\\) is true and \\(B\\) are false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-rightarrow-sentence",
+    "href": "slides/Lecture_05.html#rule-for-true-rightarrow-sentence",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\rightarrow\\) sentence",
+    "text": "Rule for true \\(\\rightarrow\\) sentence"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#rule-for-true-rightarrow-sentence-1",
+    "href": "slides/Lecture_05.html#rule-for-true-rightarrow-sentence-1",
+    "title": "Truth Trees",
+    "section": "Rule for true \\(\\rightarrow\\) sentence",
+    "text": "Rule for true \\(\\rightarrow\\) sentence\n\nWhen you have a true \\(\\rightarrow\\) sentence, you create two branches.\nOn the first, \\(A\\) is false. That covers lines 3 and 4 of the truth table.\nOn the second, \\(B\\) is true. That covers lines 1 and 3 of the truth table.\nBetween them, they cover lines 1, 3 and 4 of the truth table.\nAnd those are the lines where \\(A \\rightarrow B\\) is true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#overview-2",
+    "href": "slides/Lecture_05.html#overview-2",
+    "title": "Truth Trees",
+    "section": "Overview",
+    "text": "Overview\nThis section works through some examples of using tableaux."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#example-1-showing-a-tautology",
+    "href": "slides/Lecture_05.html#example-1-showing-a-tautology",
+    "title": "Truth Trees",
+    "section": "Example 1: Showing a Tautology",
+    "text": "Example 1: Showing a Tautology\nLet’s show that \\((P \\rightarrow Q) \\vee (Q \\rightarrow P)\\) is a tautology.\n\nYou might remember this from last time - we showed it was a tautology using a truth table.\nNow we’ll use a tableau instead."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#strategy",
+    "href": "slides/Lecture_05.html#strategy",
+    "title": "Truth Trees",
+    "section": "Strategy",
+    "text": "Strategy\nTo show a sentence is a tautology using tableaux:\n\n\nStart by assuming the sentence is false.\nIf the tableau closes, then it’s impossible for the sentence to be false.\nRemember, a tableau closes if every branch has at least one inconsistency.\nIf the tableau closes, the sentence must be true - it’s a tautology."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#building-the-tree",
+    "href": "slides/Lecture_05.html#building-the-tree",
+    "title": "Truth Trees",
+    "section": "Building the Tree",
+    "text": "Building the Tree\nWe start by writing that \\((P \\rightarrow Q) \\vee (Q \\rightarrow P)\\) is false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-vee-rule",
+    "href": "slides/Lecture_05.html#applying-the-false-vee-rule",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\vee\\) Rule",
+    "text": "Applying the False \\(\\vee\\) Rule\nSince we have a false disjunction, we know both disjuncts must be false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-first-time",
+    "href": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-first-time",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\rightarrow\\) Rule (First Time)",
+    "text": "Applying the False \\(\\rightarrow\\) Rule (First Time)\nWhen a conditional is false, the antecedent is true and the consequent is false.\nSo from \\(\\mathbb{F}(P \\rightarrow Q)\\), we get \\(\\mathbb{T}P\\) and \\(\\mathbb{F}Q\\)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-first-time-1",
+    "href": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-first-time-1",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\rightarrow\\) Rule (First Time)",
+    "text": "Applying the False \\(\\rightarrow\\) Rule (First Time)"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-second-time",
+    "href": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-second-time",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\rightarrow\\) Rule (Second Time)",
+    "text": "Applying the False \\(\\rightarrow\\) Rule (Second Time)\nNow we apply the same rule to \\(\\mathbb{F}(Q \\rightarrow P)\\) on line 3.\nThis gives us \\(\\mathbb{T}Q\\) and \\(\\mathbb{F}P\\)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-second-time-1",
+    "href": "slides/Lecture_05.html#applying-the-false-rightarrow-rule-second-time-1",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\rightarrow\\) Rule (Second Time)",
+    "text": "Applying the False \\(\\rightarrow\\) Rule (Second Time)"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#the-tree-closes",
+    "href": "slides/Lecture_05.html#the-tree-closes",
+    "title": "Truth Trees",
+    "section": "The Tree Closes",
+    "text": "The Tree Closes\nNotice what we have now:\n\nLine 4: \\(\\mathbb{T}P\\)\nLine 7: \\(\\mathbb{F}P\\)\nLine 5: \\(\\mathbb{F}Q\\)\n\nLine 6: \\(\\mathbb{T}Q\\)\n\n. . .\nBoth \\(P\\) and \\(Q\\) have incompatible truth values. The branch closes. (NB: We only need one inconsistency, even though we have two here.)"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#what-this-means",
+    "href": "slides/Lecture_05.html#what-this-means",
+    "title": "Truth Trees",
+    "section": "What This Means",
+    "text": "What This Means\n\n\nWe started by assuming \\((P \\rightarrow Q) \\vee (Q \\rightarrow P)\\) is false.\nEvery possible way to make it false led to a contradiction.\nTherefore, it cannot be false.\nThis means it’s a tautology - it must always be true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#comparison-to-truth-tables",
+    "href": "slides/Lecture_05.html#comparison-to-truth-tables",
+    "title": "Truth Trees",
+    "section": "Comparison to Truth Tables",
+    "text": "Comparison to Truth Tables\n\nWith a truth table, we had to check 4 rows.\nWith the tableau, we just followed the logical implications.\nFor more complex sentences (with 3+ variables), tableaux can be much more efficient.\nThey don’t grow exponentially like truth tables do."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#example-2-showing-a-contradiction",
+    "href": "slides/Lecture_05.html#example-2-showing-a-contradiction",
+    "title": "Truth Trees",
+    "section": "Example 2: Showing a Contradiction",
+    "text": "Example 2: Showing a Contradiction\nLet’s show that \\(((P \\vee Q) \\wedge \\neg P) \\wedge \\neg Q\\) is a contradiction.\n\nA contradiction is a sentence that can never be true.\nWe’ll use a tableau to demonstrate this."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#strategy-1",
+    "href": "slides/Lecture_05.html#strategy-1",
+    "title": "Truth Trees",
+    "section": "Strategy",
+    "text": "Strategy\nTo show a sentence is a contradiction using tableaux:\n\n\nStart by assuming the sentence is true.\nIf the tableau closes, then it’s impossible for the sentence to be true.\nThat means the sentence must be false - it’s a contradiction."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#building-the-tree-1",
+    "href": "slides/Lecture_05.html#building-the-tree-1",
+    "title": "Truth Trees",
+    "section": "Building the Tree",
+    "text": "Building the Tree\nWe start by writing that \\(((P \\vee Q) \\wedge \\neg P) \\wedge \\neg Q\\) is true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-wedge-rule",
+    "href": "slides/Lecture_05.html#applying-the-true-wedge-rule",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\wedge\\) Rule",
+    "text": "Applying the True \\(\\wedge\\) Rule\nSince we have a true conjunction, both conjuncts must be true.\nSo we get \\(\\mathbb{T}((P \\vee Q) \\wedge \\neg P)\\) and \\(\\mathbb{T}\\neg Q\\)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-wedge-rule-1",
+    "href": "slides/Lecture_05.html#applying-the-true-wedge-rule-1",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\wedge\\) Rule",
+    "text": "Applying the True \\(\\wedge\\) Rule"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-wedge-rule-again",
+    "href": "slides/Lecture_05.html#applying-the-true-wedge-rule-again",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\wedge\\) Rule Again",
+    "text": "Applying the True \\(\\wedge\\) Rule Again\nNow we apply the rule to \\(\\mathbb{T}((P \\vee Q) \\wedge \\neg P)\\) from line 2.\nThis gives us \\(\\mathbb{T}(P \\vee Q)\\) and \\(\\mathbb{T}\\neg P\\)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-wedge-rule-again-1",
+    "href": "slides/Lecture_05.html#applying-the-true-wedge-rule-again-1",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\wedge\\) Rule Again",
+    "text": "Applying the True \\(\\wedge\\) Rule Again"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-neg-rules",
+    "href": "slides/Lecture_05.html#applying-the-true-neg-rules",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\neg\\) Rules",
+    "text": "Applying the True \\(\\neg\\) Rules\nFrom \\(\\mathbb{T}\\neg P\\) we get \\(\\mathbb{F}P\\), and from \\(\\mathbb{T}\\neg Q\\) we get \\(\\mathbb{F}Q\\)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-vee-rule",
+    "href": "slides/Lecture_05.html#applying-the-true-vee-rule",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\vee\\) Rule",
+    "text": "Applying the True \\(\\vee\\) Rule\nNow we need to apply the rule for \\(\\mathbb{T}(P \\vee Q)\\) from line 4.\nThis creates two branches - one where \\(P\\) is true, one where \\(Q\\) is true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#both-branches-close",
+    "href": "slides/Lecture_05.html#both-branches-close",
+    "title": "Truth Trees",
+    "section": "Both Branches Close",
+    "text": "Both Branches Close\nLook at what we have on each branch:\nLeft branch: - Line 6: \\(\\mathbb{F}P\\) - Line 8: \\(\\mathbb{T}P\\)\n. . .\nRight branch: - Line 7: \\(\\mathbb{F}Q\\) - Line 8: \\(\\mathbb{T}Q\\)\n. . .\nBoth branches have contradictions. The entire tableau closes."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#what-this-means-1",
+    "href": "slides/Lecture_05.html#what-this-means-1",
+    "title": "Truth Trees",
+    "section": "What This Means",
+    "text": "What This Means\n\n\nWe started by assuming \\(((P \\vee Q) \\wedge \\neg P) \\wedge \\neg Q\\) is true\nWe tried every possible way to make it true (both branches)\nEvery possibility led to a contradiction\nTherefore, the sentence cannot be true - it’s a contradiction"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#understanding-the-result",
+    "href": "slides/Lecture_05.html#understanding-the-result",
+    "title": "Truth Trees",
+    "section": "Understanding the Result",
+    "text": "Understanding the Result\nThis result makes intuitive sense:\n\n\\((P \\vee Q)\\) says at least one of \\(P\\) or \\(Q\\) is true\n\\(\\neg P\\) says \\(P\\) is false\n\\(\\neg Q\\) says \\(Q\\) is false\nYou can’t have at least one true when both are false.\n\nThe tableau just systematically revealed this inconsistency."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#example-3-showing-a-contingent-sentence",
+    "href": "slides/Lecture_05.html#example-3-showing-a-contingent-sentence",
+    "title": "Truth Trees",
+    "section": "Example 3: Showing a Contingent Sentence",
+    "text": "Example 3: Showing a Contingent Sentence\nLet’s show that \\(P \\wedge (P \\rightarrow Q)\\) is neither a tautology nor a contradiction.\n\nA contingent sentence is one that could be true or false.\nWe’ll use two tableaux to demonstrate this."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#strategy-2",
+    "href": "slides/Lecture_05.html#strategy-2",
+    "title": "Truth Trees",
+    "section": "Strategy",
+    "text": "Strategy\nTo show a sentence is contingent:\n\n\nFirst, try to show it’s a tautology (start with it false)\nIf that tableau stays open, it’s not a tautology\nThen, try to show it’s a contradiction (start with it true)\nIf that tableau also stays open, it’s not a contradiction\nIf both tableaux are open, the sentence is contingent"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#first-tree-is-it-a-tautology",
+    "href": "slides/Lecture_05.html#first-tree-is-it-a-tautology",
+    "title": "Truth Trees",
+    "section": "First Tree: Is It a Tautology?",
+    "text": "First Tree: Is It a Tautology?\nWe start by assuming \\(P \\wedge (P \\rightarrow Q)\\) is false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-wedge-rule",
+    "href": "slides/Lecture_05.html#applying-the-false-wedge-rule",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\wedge\\) Rule",
+    "text": "Applying the False \\(\\wedge\\) Rule\nSince we have a false conjunction, at least one conjunct must be false.\nThis creates two branches."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-false-wedge-rule-1",
+    "href": "slides/Lecture_05.html#applying-the-false-wedge-rule-1",
+    "title": "Truth Trees",
+    "section": "Applying the False \\(\\wedge\\) Rule",
+    "text": "Applying the False \\(\\wedge\\) Rule"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#left-branch-already-complete",
+    "href": "slides/Lecture_05.html#left-branch-already-complete",
+    "title": "Truth Trees",
+    "section": "Left Branch: Already Complete",
+    "text": "Left Branch: Already Complete\nThe left branch just has \\(\\mathbb{F}P\\).\n\nThis doesn’t contradict anything.\nWe can’t apply any more rules to it.\nSo this branch is complete and open."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#right-branch-applying-false-rightarrow-rule",
+    "href": "slides/Lecture_05.html#right-branch-applying-false-rightarrow-rule",
+    "title": "Truth Trees",
+    "section": "Right Branch: Applying False \\(\\rightarrow\\) Rule",
+    "text": "Right Branch: Applying False \\(\\rightarrow\\) Rule\nOn the right branch, we have \\(\\mathbb{F}(P \\rightarrow Q)\\).\nWhen a conditional is false, the antecedent is true and the consequent is false."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#right-branch-applying-false-rightarrow-rule-1",
+    "href": "slides/Lecture_05.html#right-branch-applying-false-rightarrow-rule-1",
+    "title": "Truth Trees",
+    "section": "Right Branch: Applying False \\(\\rightarrow\\) Rule",
+    "text": "Right Branch: Applying False \\(\\rightarrow\\) Rule"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#right-branch-also-complete-and-open",
+    "href": "slides/Lecture_05.html#right-branch-also-complete-and-open",
+    "title": "Truth Trees",
+    "section": "Right Branch: Also Complete and Open",
+    "text": "Right Branch: Also Complete and Open\nThe right branch has \\(\\mathbb{F}(P \\rightarrow Q)\\), \\(\\mathbb{T}P\\), and \\(\\mathbb{F}Q\\).\n\nThese don’t contradict each other.\nWe can’t apply any more rules.\nSo this branch is also complete and open."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#what-the-first-tree-shows",
+    "href": "slides/Lecture_05.html#what-the-first-tree-shows",
+    "title": "Truth Trees",
+    "section": "What the First Tree Shows",
+    "text": "What the First Tree Shows\n\n\nWe assumed \\(P \\wedge (P \\rightarrow Q)\\) is false.\nThe tableau has open branches.\nThis means it is possible for the sentence to be false.\nTherefore, it’s not a tautology."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#second-tree-is-it-a-contradiction",
+    "href": "slides/Lecture_05.html#second-tree-is-it-a-contradiction",
+    "title": "Truth Trees",
+    "section": "Second Tree: Is It a Contradiction?",
+    "text": "Second Tree: Is It a Contradiction?\nNow we start by assuming \\(P \\wedge (P \\rightarrow Q)\\) is true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-wedge-rule-2",
+    "href": "slides/Lecture_05.html#applying-the-true-wedge-rule-2",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\wedge\\) Rule",
+    "text": "Applying the True \\(\\wedge\\) Rule\nSince we have a true conjunction, both conjuncts must be true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-rightarrow-rule",
+    "href": "slides/Lecture_05.html#applying-the-true-rightarrow-rule",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\rightarrow\\) Rule",
+    "text": "Applying the True \\(\\rightarrow\\) Rule\nNow we apply the rule for \\(\\mathbb{T}(P \\rightarrow Q)\\) from line 3.\nThis creates two branches - one where \\(P\\) is false, one where \\(Q\\) is true."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#applying-the-true-rightarrow-rule-1",
+    "href": "slides/Lecture_05.html#applying-the-true-rightarrow-rule-1",
+    "title": "Truth Trees",
+    "section": "Applying the True \\(\\rightarrow\\) Rule",
+    "text": "Applying the True \\(\\rightarrow\\) Rule"
+  },
+  {
+    "objectID": "slides/Lecture_05.html#analyzing-the-second-tree",
+    "href": "slides/Lecture_05.html#analyzing-the-second-tree",
+    "title": "Truth Trees",
+    "section": "Analyzing the Second Tree",
+    "text": "Analyzing the Second Tree\n\n\nLeft branch:\n\nLine 2: \\(\\mathbb{T}P\\)\nLine 4: \\(\\mathbb{F}P\\)\nThis branch closes.\n\n\nRight branch:\n\nLine 2: \\(\\mathbb{T}P\\)\nLine 4: \\(\\mathbb{T}Q\\)\nThese don’t contradict anything.\nThis branch is complete and open."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#what-the-second-tree-shows",
+    "href": "slides/Lecture_05.html#what-the-second-tree-shows",
+    "title": "Truth Trees",
+    "section": "What the Second Tree Shows",
+    "text": "What the Second Tree Shows\n\n\nWe assumed \\(P \\wedge (P \\rightarrow Q)\\) is true.\nThe tableau has an open branch.\nThis means it is possible for the sentence to be true.\nTherefore, it’s not a contradiction."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#conclusion",
+    "href": "slides/Lecture_05.html#conclusion",
+    "title": "Truth Trees",
+    "section": "Conclusion",
+    "text": "Conclusion\nSince \\(P \\wedge (P \\rightarrow Q)\\):\n\n\nIs not a tautology (first tree has open branches),\nIs not a contradiction (second tree has an open branch),\nIt must be contingent - sometimes true, sometimes false.\n\n\n. . .\nThe open branches actually show us when it’s true or false:\n\nIt’s false when \\(P\\) is false (first tree, left branch)\nIt’s true when both \\(P\\) and \\(Q\\) are true (second tree, right branch)."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#comparison-to-truth-tables-1",
+    "href": "slides/Lecture_05.html#comparison-to-truth-tables-1",
+    "title": "Truth Trees",
+    "section": "Comparison to Truth Tables",
+    "text": "Comparison to Truth Tables\n\n\nA tautology has a T under the main connective in every row.\nA contradiction has an F under the main connective in every row.\nA contingent sentence has a mixture Ts and Fs under the main connective."
+  },
+  {
+    "objectID": "slides/Lecture_05.html#for-next-time",
+    "href": "slides/Lecture_05.html#for-next-time",
+    "title": "Truth Trees",
+    "section": "For Next Time",
+    "text": "For Next Time\nWe’ll use trees to test for validity.\nRemember there is no lecture on Wednesday, but there is a discussion section."
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#questions",
+    "href": "slides/Lecture_02_answers.html#questions",
+    "title": "Answers to Translation Questions",
+    "section": "",
+    "text": "Either it will snow or it will rain, but not both.\nIf it’s sunny, we’ll go to the beach and have a picnic.\nWe’ll leave unless it rains.\nYou’ll pass if you study, and you’ll fail if you don’t.\nIf it rains on Monday and Tuesday, then the game will be postponed.\nEither it will rain on Monday and Tuesday, or it will be sunny on Wednesday.\nIt will rain on Monday or Tuesday, but not on both days.\nIf either Alice or Bob comes to the party, then if Carol comes, David won’t come."
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#either-it-will-snow-or-it-will-rain-but-not-both.",
+    "href": "slides/Lecture_02_answers.html#either-it-will-snow-or-it-will-rain-but-not-both.",
+    "title": "Answers to Translation Questions",
+    "section": "Either it will snow or it will rain, but not both.",
+    "text": "Either it will snow or it will rain, but not both.\nS = It will snow\nR = It will rain\n\n\\((S \\vee R) \\wedge \\neg(S \\wedge R)\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#if-its-sunny-well-go-to-the-beach-and-have-a-picnic.",
+    "href": "slides/Lecture_02_answers.html#if-its-sunny-well-go-to-the-beach-and-have-a-picnic.",
+    "title": "Answers to Translation Questions",
+    "section": "If it’s sunny, we’ll go to the beach and have a picnic.",
+    "text": "If it’s sunny, we’ll go to the beach and have a picnic.\nS = It is sunny\nB = Go to beach\nP = Have picnic\n\n\\(S \\rightarrow (B \\wedge P)\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#well-leave-unless-it-rains.",
+    "href": "slides/Lecture_02_answers.html#well-leave-unless-it-rains.",
+    "title": "Answers to Translation Questions",
+    "section": "We’ll leave unless it rains.",
+    "text": "We’ll leave unless it rains.\nL = We leave\nR = It rains\nNote that unless basically means if not. So the sentence means We’ll leave if it doesn’t rain, i.e.,\n\n\\(\\neg R \\rightarrow L\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#youll-pass-if-you-study-and-youll-fail-if-you-dont.",
+    "href": "slides/Lecture_02_answers.html#youll-pass-if-you-study-and-youll-fail-if-you-dont.",
+    "title": "Answers to Translation Questions",
+    "section": "You’ll pass if you study, and you’ll fail if you don’t.",
+    "text": "You’ll pass if you study, and you’ll fail if you don’t.\nP = You pass\nS = You study hard\n\n\\((S \\rightarrow P) \\wedge (\\neg S \\rightarrow \\neg P)\\), equivalently\n\\(P \\leftrightarrow S\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#if-it-rains-on-monday-and-tuesday-then-the-game-will-be-postponed.",
+    "href": "slides/Lecture_02_answers.html#if-it-rains-on-monday-and-tuesday-then-the-game-will-be-postponed.",
+    "title": "Answers to Translation Questions",
+    "section": "If it rains on Monday and Tuesday, then the game will be postponed.",
+    "text": "If it rains on Monday and Tuesday, then the game will be postponed.\nM = Monday rain\nT = Tuesday rain\nP = Game is postponed\n\n\\((M \\wedge T) \\rightarrow P\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#either-it-will-rain-on-monday-and-tuesday-or-it-will-be-sunny-on-wednesday.",
+    "href": "slides/Lecture_02_answers.html#either-it-will-rain-on-monday-and-tuesday-or-it-will-be-sunny-on-wednesday.",
+    "title": "Answers to Translation Questions",
+    "section": "Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.",
+    "text": "Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.\nM = Monday rain\nT = Tuesday rain\nW = Wednesday sunny\n\n\\((M \\wedge T) \\vee W\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#it-will-rain-on-monday-or-tuesday-but-not-on-both-days.",
+    "href": "slides/Lecture_02_answers.html#it-will-rain-on-monday-or-tuesday-but-not-on-both-days.",
+    "title": "Answers to Translation Questions",
+    "section": "It will rain on Monday or Tuesday, but not on both days.",
+    "text": "It will rain on Monday or Tuesday, but not on both days.\nM = Monday rain\nT = Tuesday rain\n\n\\((M \\vee T) \\wedge \\neg (M \\wedge T)\\)"
+  },
+  {
+    "objectID": "slides/Lecture_02_answers.html#if-either-alice-or-bob-comes-to-the-party-then-if-carol-comes-david-wont-come.",
+    "href": "slides/Lecture_02_answers.html#if-either-alice-or-bob-comes-to-the-party-then-if-carol-comes-david-wont-come.",
+    "title": "Answers to Translation Questions",
+    "section": "If either Alice or Bob comes to the party, then if Carol comes, David won’t come.",
+    "text": "If either Alice or Bob comes to the party, then if Carol comes, David won’t come.\nA = Alice comes to party\nB = Bob comes to party\nC = Carol comes to party\nD = David comes to party\n\n\\((A \\vee B) \\rightarrow (C \\rightarrow \\neg D)\\)"
+  },
+  {
+    "objectID": "index.html#notes",
+    "href": "index.html#notes",
+    "title": "Philosophy 305 - Winter 2026",
+    "section": "Notes",
+    "text": "Notes\n\nAnswers to symbolisation questions from January 12 lecture"
   }
 ]
