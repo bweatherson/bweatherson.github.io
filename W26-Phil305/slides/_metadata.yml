@@ -25,6 +25,7 @@ format:
   beamer:
       theme: metropolis
       classoption: handout
+      handout: true
       colortheme: default
       fonttheme: structurebold
       slide-level: 2

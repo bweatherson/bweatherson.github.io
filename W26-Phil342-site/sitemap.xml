@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bweatherson.github.io/W26-Phil342-site/slides/05.html</loc>
+    <lastmod>2026-01-13T00:50:42.572Z</lastmod>
+  </url>
+  <url>
     <loc>https://bweatherson.github.io/W26-Phil342-site/slides/01.html</loc>
-    <lastmod>2026-01-07T15:48:20.737Z</lastmod>
+    <lastmod>2026-01-13T00:50:42.571Z</lastmod>
   </url>
   <url>
     <loc>https://bweatherson.github.io/W26-Phil342-site/slides/02.html</loc>
-    <lastmod>2026-01-12T16:01:26.395Z</lastmod>
+    <lastmod>2026-01-13T19:18:24.147Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bweatherson.github.io/W26-Phil342-site/syllabus-W26-342.html</loc>
+    <lastmod>2026-01-13T00:50:42.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bweatherson.github.io/W26-Phil342-site/index.html</loc>
+    <lastmod>2026-01-13T00:50:42.570Z</lastmod>
   </url>
   <url>
     <loc>https://bweatherson.github.io/W26-Phil342-site/slides/03.html</loc>
@@ -15,17 +27,5 @@
   <url>
     <loc>https://bweatherson.github.io/W26-Phil342-site/slides/04.html</loc>
     <lastmod>2026-01-04T19:56:27.397Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bweatherson.github.io/W26-Phil342-site/slides/05.html</loc>
-    <lastmod>2026-01-05T16:09:02.574Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bweatherson.github.io/W26-Phil342-site/index.html</loc>
-    <lastmod>2026-01-05T21:37:12.098Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bweatherson.github.io/W26-Phil342-site/syllabus-W26-342.html</loc>
-    <lastmod>2026-01-05T21:01:14.737Z</lastmod>
   </url>
 </urlset>

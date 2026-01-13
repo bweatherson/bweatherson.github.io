@@ -26,6 +26,7 @@ format:
   beamer:
       theme: metropolis
       colortheme: default
+      classoption: handout
       fonttheme: structurebold
       slide-level: 2
       section-titles: false
