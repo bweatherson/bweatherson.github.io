@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <meta name="dcterms.date" content="2026-01-12">
-  <title>Symbolization</title>
+  <meta name="dcterms.date" content="2026-02-02">
+  <title>Pooling and Peer Disagreement</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-603ee52ad0fabd159ace1b455465fd68.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-165de8befc938d0b26d7578d5b40959b.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -123,565 +123,320 @@
       margin-right: 0; 
     }
   </style>
-  <meta name="mermaid-theme" content="neutral">
-  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Symbolization</h1>
+  <h1 class="title">Pooling and Peer Disagreement</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-01-12</p>
+  <p class="date">2026-02-02</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Argument Forms</h1>
+<h1>Introduction to Opinion Pooling</h1>
 
 </section>
 <section class="slide level2">
-<h2>Overview</h2>
-<p>We’re going to get a little clearer on the notions of ‘form’ and ‘structure’ from last time.</p>
-<h3>Associated Reading</h3>
-<p>forall x, chapter 4, “First Steps to Symbolization”.</p>
-</section>
-<section class="slide level2">
-<h2>Definition</h2>
-<p>An argument is valid when</p>
+<h2>An Example</h2>
+<p>Epidemiologists Anya, Bon, and Carys study polio spread in developed nations.</p>
+<p>They have different opinions about eradication by 2030:</p>
 <ul>
-<li>The truth of the premises guarantees the truth of the conclusion.</li>
-<li>Equivalently, when it is impossible for the premises to be true and the conclusion not true.</li>
+<li class="fragment">Anya: 20% sure</li>
+<li class="fragment">Bon: 60% sure<br>
+</li>
+<li class="fragment">Carys: 70% sure</li>
 </ul>
-</section>
-<section class="slide level2">
-<h2>Formal Validity</h2>
-<p>An argument is formally valid if</p>
-<ul>
-<li>It is valid; and</li>
-<li>Any argument of the same form is valid.</li>
-</ul>
-<p>In those cases, we infer that it is valid <strong>because of</strong> its form.</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>Three Big Questions About Form</h2>
-<ol type="1">
-<li class="fragment">Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?</li>
-<li class="fragment">Which words have the same meaning and should be replaced by the same symbol, and which should be treated differently?</li>
-<li class="fragment">How do we break the sentence into its constituent parts?</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Part of the Form</h2>
-<p>I’m going to have a fairly pluralist, pragmatist view on this question.</p>
-<ul>
-<li>This is not to say that pluralism or pragmatism is right - it’s just that it’s what I’ll adopt. (It is to say that I think it’s a reasonable approach.)</li>
-<li>For some purposes the ‘formal words’ are very few, like ‘and’, ‘or’, ‘not’ etc.</li>
-<li>For other purposes the set is more expansive.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Part of the Form</h2>
-<ul>
-<li>If you are studying the logic of causation, you might want to say that ‘caused’ is a formal word.</li>
-<li>And that would mean any two arguments that have this structure are of the same form.</li>
-</ul>
-<dl>
-<dt>&nbsp;</dt>
-<dd>
-A caused B.
-</dd>
-<dt>&nbsp;</dt>
-<dd>
-B caused C.
-</dd>
-<dt><span class="math inline">\(\therefore\)</span></dt>
-<dd>
-A caused C.
-</dd>
-</dl>
-</section>
-<section class="slide level2">
-<h2>Part of the Form</h2>
-<ul>
-<li>But for other purposes, ‘caused’ is just another binary relation between events.</li>
-<li>So those arguments will have the same form as these ones.</li>
-</ul>
-<dl>
-<dt>&nbsp;</dt>
-<dd>
-A happened near B.
-</dd>
-<dt>&nbsp;</dt>
-<dd>
-B happened near C.
-</dd>
-<dt><span class="math inline">\(\therefore\)</span></dt>
-<dd>
-A happened near C.
-</dd>
-</dl>
-</section>
-<section class="slide level2">
-<h2>Part of the Form</h2>
-<ul>
-<li>What I mean by having a ‘pluralist, pragmatist’ view about form is that there is no objectively correct answer about whether these are the same form or not.</li>
-<li>For some purposes it will be helpful to treat them as having the same form.</li>
-<li>For other purposes it will not be.</li>
-<li>We’re going to start with a notion of form where lots and lots of things have the same form, so very few arguments are valid in virtue of form.</li>
-</ul>
-</section>
-<section class="slide level2 scrollable">
-<h2>Three Big Questions About Form</h2>
-<ol type="1">
-<li>Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?</li>
-<li><strong>Which words have the same meaning and should be replaced by the same symbol, and which should be treated differently?</strong></li>
-<li>How do we break the sentence into its constituent parts?</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Same/Different</h2>
-<p>There are problems in both directions here.</p>
-<ul>
-<li>Sometimes we want to treat words with different spelling as representing the same meaning - e.g., ‘kangaroo’ and ‘kangaroos’.</li>
-<li>And sometimes we want to treat words with the same spelling as expressing different meanings.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Ambiguous Words</h2>
-<p>In a minute or so, try to come up with some words in English that should be symbolised differently even though they have the same spelling.</p>
-<ul>
-<li>Feel free to chat amongst yourselves.</li>
-<li>After a minute, we’ll come up with a list.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Word Ambiguity and Sentence Ambiguity</h2>
-<p>Sentences with ambiguous words are usually ambiguous.</p>
-<p>But surprisingly, the reverse isn’t always true.</p>
-<p>Some ambiguous sentences don’t rely on ambiguity in the words.</p>
-</section>
-<section class="slide level2">
-<h2>Relating the First Two Questions</h2>
-<p>Some kinds of ambiguity are ‘resolved’ by treating the word as part of the formal system. Consider two possible interpretations of this sentence.</p>
-<ul>
-<li>Nothing is better than world peace.</li>
-</ul>
-<p>What are the two interpretations of it?</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>“Nothing is better than world peace”</h2>
-<ol type="1">
-<li class="fragment">There is no thing such that it is better than world peace.</li>
-<li class="fragment">It is better that there is nothing than that there is world peace.</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Alice</h2>
-<p>The <em>Alice in Wonderland</em> books are full of this kind of wordplay.</p>
-<blockquote>
-<p><strong>Alice</strong>: “I see nobody on the road.”<br>
-<strong>King</strong>: “I only wish I had such eyes. To be able to see Nobody! And at that distance too!”</p>
-</blockquote>
-<p>The King’s weird interpretation of Alice attributes the wrong form to her utterance.</p>
-</section>
-<section class="slide level2">
-<h2>Chomsky</h2>
-<p>Think about this sentence, which I’m afraid will be all to true for some of you after the break.</p>
-<blockquote>
-<p>Visiting relatives can be boring.</p>
-</blockquote>
-<p>What are the two interpretations?</p>
 <div class="fragment">
-<p>I won’t do a show of hands, but I suspect that some of you will have been evidence for each of the readings. (Though I’d be surprised if any of you was evidence for both readings in one break.)</p>
+<p>Question: How should we combine these opinions into a single group view?</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Ambiguity and Form</h2>
-<ul>
-<li>If you include words like ‘nothing’ and ‘nobody’ as formal words, then the two readings of the World Peace sentence will have different formal representations.</li>
-<li>And the logic called ‘predicate logic’ does exactly that; it treats ‘nothing’ as one of the formal words.</li>
-<li>We’re not covering that in this course, though some of you have covered it elsewhere.</li>
-<li>Some more expansive accounts of what should be a formal word are moved by the thought that treating more words as formal removes some possible ambiguities.</li>
-</ul>
+<h2>Obvious Answer</h2>
+<p>Take the average.</p>
+<p>In this case it would be 50%, since 0.2 + 0.6 + 0.7 = 1.5, and 1.5/3 = 0.5.</p>
+<p>One guiding question for us will be how well this obvious answer works.</p>
 </section>
 <section class="slide level2">
-<h2>Small Group Activity</h2>
+<h2>Why Pool Opinions?</h2>
+<p>We need to resolve disagreements for various reasons:</p>
 <ul>
-<li>Come up with some examples of ambiguous sentences.</li>
-<li>Ideally, these will be ambiguous sentences that don’t have an ambiguous word.</li>
-<li>After a couple of minutes we’ll discuss these as a group.</li>
+<li class="fragment">To present summary views to policymakers;</li>
+<li class="fragment">To assess collective track records over time;</li>
+<li class="fragment">To update our own opinions based on the group’s views;</li>
+<li class="fragment">To make decisions on behalf of the group; and</li>
+<li class="fragment">To assess group responsibility for collective actions.</li>
 </ul>
 </section>
 <section class="slide level2 scrollable">
-<h2>Three Big Questions About Form</h2>
+<h2>What We’re Pooling</h2>
+<p>While we’re working through Elkin &amp; Pettigrew, we’ll assume:</p>
 <ol type="1">
-<li>Which words get treated as part of the form, and which get replaced by symbols when converting into formal notation?</li>
-<li>Which words have the same meaning and should be replaced by the same symbol, and which should be treated differently?</li>
-<li><strong>How do we break the sentence into its constituent parts?</strong></li>
+<li class="fragment">Opinions vary in strength (not just “believe” or “don’t believe”);</li>
+<li class="fragment">Opinions are represented numerically as <strong>credences</strong>; and</li>
+<li class="fragment">Credences are probabilistically coherent (Bayesian framework)</li>
 </ol>
+<div class="fragment">
+<p>As we briefly saw earlier, pooling ‘on-off’ beliefs raises all sorts of technical challenges that pooling credences might avoid.</p>
+<p>Further, if people have more subtle credal judgments, we should incorporate them.</p>
+</div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Three Formal Tools</h2>
+<h2>Three Motivating Problems</h2>
+<p>Pooling is interesting because of the five puzzles we already mentioned, but it relates to some pressing contemporary philosophical problems.</p>
 <ol type="1">
-<li class="fragment">Replacing words/sentences with letters.</li>
-<li class="fragment">Using parentheses.</li>
-<li class="fragment">Replacing ‘formal words’ with symbols.</li>
+<li class="fragment"><strong>Epistemic peer disagreement</strong> - How should individuals respond when equally informed people disagree?</li>
+<li class="fragment"><strong>Group belief</strong> - When does it make sense to say that a group has a belief? Among those cases, when should we say that the beliefs are rational?</li>
+<li class="fragment"><strong>Group responsibility</strong> - When are groups answerable for their opinions and actions?</li>
 </ol>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Formal Tools</h1>
+<h1>Epistemic Peer Disagreement</h1>
 
 </section>
 <section class="slide level2">
-<h2>Overview</h2>
-<p>We’re going to look at how to translate English sentences into a form where we can use the tools of propositional logic on them.</p>
+<h2>Christensen’s Restaurant Check</h2>
+<p>Some friends go to dinner. At the end of the night they get the bill. The convention is that they tip 20% and split the bill. How much should they each pay?</p>
+<ul>
+<li class="fragment">You calculate in your head: $45 each</li>
+<li class="fragment">Your friend calculates: $43 each</li>
+</ul>
+<div class="fragment">
+<p>How should you react upon learning of the disagreement? (Note I’ve changed the numbers here from the original case; there’s a reason for that.)</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Associated Reading</h2>
-<p>forall x, chapter 5, “Connectives”</p>
+<h2>Hard Version of the Problem</h2>
+<p>To make this maximally hard, assume that you and your friend are <strong>epistemic peers</strong>:</p>
+<ul>
+<li class="fragment">You have the same evidence, i.e., you can both see the bill.</li>
+<li class="fragment">You have the same cognitive abilities, i.e., neither of you is especially tired, or drunk, or otherwise likely to make a mistake.</li>
+<li class="fragment">You have the same track record, i.e., in previous cases where you’d disagreed, you’d both been right about half the time.</li>
+</ul>
+<div class="fragment">
+<p>Neither of you has a good reason to dismiss the other’s opinion.</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Aside</h2>
-<p>The book goes into more detail than I’m going into here about the range of English sentences that can be translated (or at least symbolized) using the tools of propositional logic.</p>
-</section>
-<section class="slide level2">
-<h2>Sentence Letters</h2>
+<h2>The Independence Condition</h2>
+<p>Christensen’s key constraint:</p>
+<p>“I should assess explanations for the disagreement in a way that’s independent of my reasoning on the matter under dispute.”</p>
+<p>You can’t dismiss your friend’s view simply because they disagree with you!</p>
+<div class="fragment">
+<p>Note this is a somewhat strong constraint. It means that you can’t reason as follows.</p>
 <ul>
-<li>We use letters, usually starting with <span class="math inline">\(p\)</span> and then continuing through the alphabet, for ‘atomic’ sentences.</li>
-<li>forall x uses capital letters, others use lowercase. This is a matter of taste.</li>
+<li class="fragment">The bill is $150 for four people. 150/4 is 37.5. 20% of 37.5 is 7.5, and adding that on gets to 45.</li>
+<li class="fragment">Since my friend said 43, the previous bullet point implies that they are wrong.</li>
 </ul>
-</section>
-<section class="slide level2">
-<h2>Symbols</h2>
-<ul>
-<li>“and” is represented by <span class="math inline">\(\wedge\)</span></li>
-<li>“or” is represented by <span class="math inline">\(\vee\)</span></li>
-<li>“not” is represented by <span class="math inline">\(\neg\)</span></li>
-<li>“if” is represented by <span class="math inline">\(\rightarrow\)</span></li>
-<li>“if and only if” is represented by <span class="math inline">\(\leftrightarrow\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>An Easy Example</h2>
-<blockquote>
-<p>It will rain on Monday or it will rain on Tuesday</p>
-</blockquote>
-<p>Basic Sentences</p>
-<ul>
-<li><span class="math inline">\(M\)</span> = It will rain on Monday</li>
-<li><span class="math inline">\(T\)</span> = It will rain on Tuesday</li>
-</ul>
-<p>Translation</p>
-<ul>
-<li><span class="math inline">\(M \vee T\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Another Easy Example</h2>
-<blockquote>
-<p>It will rain on Monday and it will rain on Tuesday</p>
-</blockquote>
-<p>Basic Sentences</p>
-<ul>
-<li><span class="math inline">\(M\)</span> = It will rain on Monday</li>
-<li><span class="math inline">\(T\)</span> = It will rain on Tuesday</li>
-</ul>
-<p>Translation</p>
-<ul>
-<li><span class="math inline">\(M \wedge T\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Only Slightly Harder Example</h2>
-<blockquote>
-<p>If it rains on Monday, it will rain on Tuesday</p>
-</blockquote>
-<p>Basic Sentences</p>
-<ul>
-<li><span class="math inline">\(M\)</span> = It will rain on Monday</li>
-<li><span class="math inline">\(T\)</span> = It will rain on Tuesday</li>
-</ul>
-<p>Translation</p>
-<ul>
-<li><span class="math inline">\(M \rightarrow T\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>And A Bit Harder Again</h2>
-<blockquote>
-<p>It will rain on Monday, but it won’t rain on Tuesday</p>
-</blockquote>
-<p>Basic Sentences</p>
-<ul>
-<li><span class="math inline">\(M\)</span> = It will rain on Monday</li>
-<li><span class="math inline">\(T\)</span> = It will rain on Tuesday</li>
-</ul>
-<p>Translation</p>
-<ul>
-<li><span class="math inline">\(M \wedge \neg T\)</span></li>
-</ul>
+</div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Small Group Exercises</h2>
-<p>Do translations for as many of these as you get time for. We won’t get through them all, but I wanted to make sure you didn’t run out of questions!</p>
+<h2>Conciliationism</h2>
+<p>One response: You should <strong>conciliate</strong> - move your opinion toward your peer’s.</p>
+<p><strong>The Equal Weight View</strong> (Elga): If you and your peer are equally reliable, you should give equal weight to both assessments. Moreover, the way to do that is:</p>
 <ol type="1">
-<li>Either it will snow or it will rain, but not both.</li>
-<li>If it’s sunny, we’ll go to the beach and have a picnic.</li>
-<li>We’ll leave unless it rains.</li>
-<li>You’ll pass if you study, and you’ll fail if you don’t.</li>
-<li>“If it rains on Monday and Tuesday, then the game will be postponed.</li>
-<li>Either it will rain on Monday and Tuesday, or it will be sunny on Wednesday.</li>
-<li>It will rain on Monday or Tuesday, but not on both days.</li>
-<li>If either Alice or Bob comes to the party, then if Carol comes, David won’t come.</li>
+<li>Give equal probability to each assessment being correct.</li>
+<li>Have a credence that’s a linear average of the credences of the disagreeing parties.</li>
 </ol>
+<p>After learning of the disagreement, you should think there’s a 50% chance you’re correct and 50% chance your friend is correct.</p>
 </section>
 <section class="slide level2">
-<h2>Parentheses</h2>
+<h2>Arguments for Equal Weight</h2>
+<p>Why think equal weight is correct?</p>
+<p>Roughly, if you don’t do this, you’ll believe something you don’t have evidence for, namely that you’re more likely to be correct even though in the past the two of you have been equally likely to get it right in cases of disagreement.</p>
+</section>
+<section class="slide level2">
+<h2>The Steadfast View</h2>
+<p>The steadfast view says that it can be, at least sometimes, reasonable to hold on to a view because it is yours.</p>
+<p>This is a view we often take about matters of taste; it’s fine to take a movie or an ice cream to be good because it strikes you as good, even if others disagree.</p>
+<p>The steadfast view says that this can be the right approach to disagreements.</p>
+</section>
+<section class="slide level2">
+<h2>The Right Reasons View</h2>
+<p>Kelly’s early view: You should retain your initial opinion for the <em>right reasons</em>.</p>
+<p>Each party has two pieces of evidence:</p>
 <ul>
-<li><p>As in math, these tell you what order to compute things in.</p></li>
-<li><p>They let you avoid the ambiguity in the following sentence.</p></li>
-<li><p>It will rain on Monday and it will rain on Tuesday or it will rain on Wednesday.</p></li>
+<li><strong>First-order evidence</strong>: Evidence about the bill total, that it was $150 split four ways, the arithmetic facts listed earlier, and so on.</li>
+<li><strong>Higher-order evidence</strong>: The fact that you believe $45 and your friend believes $43.</li>
 </ul>
+<p>The higher-order evidence cancels out.</p>
+<p>Result: Same total evidence as before, so whatever was reasonable pre-disagreement was reasonable post-disagreement.</p>
+</section>
+<section class="slide level2">
+<h2>Differences</h2>
+<p>The Steadfast view says both parties can keep their view.</p>
+<p>The Right Reasons view says that the party who was <strong>rational</strong> originally is still rational.</p>
+<p>If they are both rational to start with (and whether that’s possible we’ll come back to), then the views align.</p>
+<p>But in general they say different things.</p>
+</section>
+<section class="slide level2">
+<h2>The Total Evidence View</h2>
+<p>Kelly’s revised view: There’s no simple answer - it depends on your total evidence.</p>
+<p>The key point is that the ‘cancelling’ metaphor doesn’t work.</p>
+<p>In general, getting offsetting pieces of evidence can make a difference.</p>
+<div class="fragment">
+<p>Imagine that you want to know who stole the cookies, and a good friend tells you it was Brian. Then it’s fine to believe I did it.</p>
+</div>
+<div class="fragment">
+<p>Now two more good friends come up, one saying it was me, another saying it was Mitch. It doesn’t seem like these cancel; it’s reasonable to go from being confident I did it, to thinking it might have been Mitch.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Total Evidence View</h2>
+<p>Kelly’s revised view is that:</p>
+<ul>
+<li>Independence is wrong: the first-order evidence still has weight;</li>
+<li>Steadfastness is wrong: the fact that a view is yours is of no significance; but</li>
+<li>The Right Reasons view is also not always right: sometimes higher-order evidence matters.</li>
+</ul>
+<p>What he denies is that there is any simple way to summarise how higher-order evidence will matter.</p>
+</section>
+<section class="slide level2">
+<h2>The Justificationist View</h2>
+<p>Lackey: What matters is the <em>justification</em> of your belief.</p>
+<p>She rejects the independence condition through a counterexample:</p>
+<p>You’re calculating attendees at a conference. You reason: “Mark and Mary are going, Sam and Stacey are going, and 2+2=4, so four people are going.”</p>
+<p>Your colleague Harry responds: “But 2+2 does not equal 4.”</p>
+<p>Should you conciliate? <strong>No!</strong> - Harry is clearly no longer your peer.</p>
+</section>
+<section class="slide level2">
+<h2>When Justification Matters</h2>
+<p>The disagreement provides evidence, but not about math.</p>
+<p>It provides evidence <em>about Harry</em> - that he’s not actually your peer. Independence says that it’s always wrong to reason this way, but clearly it’s not always wrong.</p>
+<p>Sometimes you should stick to your guns because your belief is better justified. This is fairly similar to the Total Evidence view.</p>
 </section>
 <section class="slide level2 scrollable">
-<h2>Two Translations</h2>
-<p>Basic Sentences</p>
-<ul>
-<li><span class="math inline">\(M\)</span> = It will rain on Monday</li>
-<li><span class="math inline">\(T\)</span> = It will rain on Tuesday</li>
-<li><span class="math inline">\(W\)</span> = It will rain on Wednesday</li>
-</ul>
-<p>Translations</p>
+<h2>Discussion: When to Dismiss a “Peer”?</h2>
+<p>Harry denies 2+2=4. Lackey says he’s no longer your peer.</p>
+<p><strong>Consider these variants on the case:</strong></p>
 <ol type="1">
-<li><span class="math inline">\((M \wedge T) \vee W\)</span></li>
-<li><span class="math inline">\(M \wedge (T \vee W)\)</span></li>
+<li class="fragment">A climate scientist who denies human-caused warming.</li>
+<li class="fragment">A historian who denies a well-documented genocide.</li>
+<li class="fragment">A philosopher who denies the law of non-contradiction.</li>
+<li class="fragment">A friend who insists your shared memory is wrong.</li>
 </ol>
-</section>
-<section class="slide level2 scrollable">
-<h2>What’s the Difference?</h2>
+<p><strong>Question:</strong> In each case, should you:</p>
 <ol type="1">
-<li><span class="math inline">\((M \wedge T) \vee W\)</span></li>
-<li><span class="math inline">\(M \wedge (T \vee W)\)</span></li>
+<li class="fragment">Conciliate anyway?</li>
+<li class="fragment">Dismiss them as no longer a peer?</li>
+<li class="fragment">Something in between?</li>
 </ol>
-<p>What is a situation where one of these is true but not the other?</p>
-<ul>
-<li class="fragment">If it only rains on Wednesday, then 1 is true but 2 is false.</li>
-<li class="fragment"><strong>Are there any others?</strong></li>
-</ul>
+<div class="fragment">
+<p><em>Where’s the line? Or if there isn’t a line, what does ‘in between’ look like?</em></p>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Recursion</h1>
+<h1>The Uniqueness Debate</h1>
 
 </section>
 <section class="slide level2">
-<h2>Overview</h2>
-<p>We’re going to look at how and why we can iterate the translation procedures we’ve been investigating.</p>
-<h3>Associated Reading</h3>
-<p>forall x, chapter 6, “Sentences of TFL”</p>
+<h2>The Uniqueness Thesis</h2>
+<p><strong>Uniqueness Thesis</strong>: For any body of evidence E and proposition P, E justifies at most one credence in P.</p>
+<p>If uniqueness is true, there’s only one rational response to peer disagreement given the shared evidence.</p>
 </section>
 <section class="slide level2">
-<h2>Recursion</h2>
-<p>The language of propositional logic has some fairly simple composition rules.</p>
+<h2>Uniqueness and Disagreement</h2>
+<p>If uniqueness fails, then one of the motivations equal weight fails.</p>
+<p>Go back to Bon and Carys in the introduction (Anya is a somewhat trickier case, for reasons we’ll get to).</p>
+<p>They have the same evidence, and one of them has credence 0.6, another has credence 0.7.</p>
+<p>If Uniqueness fails, they can possibly say “Well, we don’t have the same credence, but we might both be rational. And if that’s what it is to be right, then in a sense we’re both right. So there’s no need to change our views.”</p>
+<p>So the equal weight view seems committed to uniqueness.</p>
+</section>
+<section class="slide level2">
+<h2>Uniqueness and Disagreement</h2>
+<p>But now imagine that uniqueness is correct. They should think that at most one of them is correct.</p>
+<p>If they split the difference in their credences, and end up at 0.65, there is every reason to think that they will <strong>both</strong> be incorrect.</p>
+<p>Compare in the restaurant case: we don’t think the rational thing to think here is that the answer is probably $44.</p>
+<p>David Christensen concludes that these cases are <strong>dilemmas</strong>; whatever one does will be mistaken in some sense.</p>
+<p>He thinks Equal Weight is (roughly) correct, but not as a theory of what is <strong>rational</strong>, instead as a theory of what is <strong>least bad</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Arguments for Uniqueness</h2>
+<p>Dogramaci &amp; Horowitz:</p>
+<p>“Given uniqueness, promoting rationality involves promoting conformity. Conformity allows us to function as epistemic surrogates … Our view thus explains why promoting rationality is an effective and efficient means of meeting our epistemic goal, getting to the truth.”</p>
+<p>The thought is that given Uniqueness, saying that someone is rational just is way to say that you should be like them.</p>
+<p>This is a useful way to get to the truth.</p>
+<p>Conversely, if rationality is permissive, it’s much less clear what the point of rationality talk is.</p>
+</section>
+<section class="slide level2">
+<h2>Permissivism</h2>
+<p><strong>Permissivism</strong>: There’s at least one body of evidence E and proposition P such that multiple credences in P are maximally rational.</p>
+<p>Savage (1954): “Two reasonable individuals faced with the same evidence may have different degrees of confidence in the truth of the same proposition.”</p>
+</section>
+<section class="slide level2">
+<h2>The Real Debate?</h2>
+<p>In real life, genuinely peer disagreements are rare.</p>
 <ul>
-<li>It says what the basic sentences are.</li>
-<li>It has some rules saying that if some things are sentences, so are some other things.</li>
-</ul>
-<p>The effect is that there are an infinity of possible sentences.</p>
-</section>
-<section class="slide level2">
-<h2>Natural Language Recursion</h2>
-<p>As speakers of a human language, you’re used to this kind of recursion. All of these are sentences.</p>
-<ul>
-<li class="fragment">It will rain.</li>
-<li class="fragment">Alex thinks that it will rain.</li>
-<li class="fragment">Kim thinks that Alex thinks that it will rain.</li>
-<li class="fragment">Alex thinks that Kim thinks that Alex thinks that it will rain.</li>
-<li class="fragment">And so on, to infinity, without adding any more words.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Recursive Rule</h2>
-<ul>
-<li>If <span class="math inline">\(S\)</span> is a sentence, and <span class="math inline">\(N\)</span> is a name, then <span class="math inline">\(N\)</span> <em>thinks that</em> <span class="math inline">\(S\)</span> is a sentence.</li>
-<li>Note that the output of this rule can be the input to a new instance of it.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Other Examples</h2>
-<p><strong>Can you think of other recursive patterns in English? That is, what other structures are there where you can keep embedding things infinitely?</strong></p>
-<p>Bonus question (which I only learned about last week): Can you think of a structure that works in English but <em>not</em> most other natural languages?</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>Formal Language Recursion</h2>
-<p>The letters <span class="math inline">\(P, Q, R\)</span>, etc. are sentences.</p>
-<p>If <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span> are sentences, then so are:</p>
-<ol type="1">
-<li><span class="math inline">\(\neg S\)</span></li>
-<li><span class="math inline">\(S \vee T\)</span></li>
-<li><span class="math inline">\(S \wedge T\)</span></li>
-<li><span class="math inline">\(S \rightarrow T\)</span></li>
-<li><span class="math inline">\(S \leftrightarrow T\)</span></li>
-</ol>
-</section>
-<section class="slide level2 scrollable">
-<h2>Multiple Steps</h2>
-<p>So these are all sentences. (Note that I’m playing fast and loose with parentheses here.)</p>
-<ol type="1">
-<li><span class="math inline">\(P\)</span></li>
-<li><span class="math inline">\(Q\)</span></li>
-<li><span class="math inline">\(P \wedge Q\)</span></li>
-<li><span class="math inline">\(Q \rightarrow (P \wedge Q)\)</span></li>
-<li><span class="math inline">\(\neg P\)</span></li>
-<li><span class="math inline">\(Q \vee \neg P\)</span></li>
-<li><span class="math inline">\((Q \rightarrow (P \wedge Q)) \leftrightarrow (Q \vee \neg P)\)</span></li>
-</ol>
-<p>The last one follows from the fact that 4 and 6 are sentences.</p>
-</section>
-<section class="slide level2">
-<h2>Main Connective</h2>
-<p>For any sentence you can make, there will be a ‘last step’ in the demonstration that it is a sentence.</p>
-<ul>
-<li>That last step will involve copying down 1 or 2 other sentences, and adding a connective.</li>
-<li>On the previous slide, you copy down 4 and 6, and put a <span class="math inline">\(\leftrightarrow\)</span> between them.</li>
-<li>That connective you add is the <strong>main connective</strong> of the sentence.</li>
-<li>It covers all the material in the sentence.</li>
+<li class="fragment">We might not know which of us is more reliable, because we’ve got better things to do than keep score precisely, but one of us will be.</li>
+<li class="fragment">Also, we very very rarely have exactly the same evidence. We often have close enough evidence for most purposes, but arguably disagreement cases will make us reassess that.</li>
+<li class="fragment">The debate here can very quickly get caught up with debates about what evidence really is. Does our evidence consist, for example, of things we see, or of visual appearances.</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>Main Connective</h2>
-<p>A binary connective is the main connective if (and only if) either side of it are two complete sentences.</p>
-<ul>
-<li><span class="math inline">\(P \wedge (Q \rightarrow R)\)</span></li>
-</ul>
-<p>The <span class="math inline">\(\wedge\)</span> is the main connective because either side of it are</p>
-<ul>
-<li><span class="math inline">\(P\)</span></li>
-<li><span class="math inline">\((Q \rightarrow R)\)</span></li>
-</ul>
-<p>And they are both sentences.</p>
-</section>
-<section class="slide level2">
-<h2>Main Connective</h2>
-<p>A binary connective is the main connective if (and only if) either side of it are two complete sentences.</p>
-<ul>
-<li><span class="math inline">\(P \wedge (Q \rightarrow R)\)</span></li>
-</ul>
-<p>The <span class="math inline">\(\rightarrow\)</span> is not the main connective because either side of it are</p>
-<ul>
-<li><span class="math inline">\(P \wedge (Q\)</span></li>
-<li><span class="math inline">\(R)\)</span></li>
-</ul>
-<p>And they are not both sentences.</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>Examples</h2>
-<p>What are the main connectives for these sentences?</p>
-<ol type="1">
-<li class="fragment"><span class="math inline">\((P \wedge Q) \vee R\)</span></li>
-<li class="fragment"><span class="math inline">\(P \rightarrow (Q \wedge R)\)</span></li>
-<li class="fragment"><span class="math inline">\(\neg P \vee (Q \rightarrow R)\)</span></li>
-<li class="fragment"><span class="math inline">\((P \vee Q) \rightarrow (R \wedge S)\)</span></li>
-<li class="fragment"><span class="math inline">\((P \wedge Q) \vee (R \rightarrow S)\)</span></li>
-<li class="fragment"><span class="math inline">\(\neg(P \rightarrow Q) \leftrightarrow (R \vee S)\)</span></li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>A Worked Example</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/1-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="90"></p>
-</figure>
-</div>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: {'theme':'neutral', 'themeVariables': {'fontSize':'30px'}}}%%
-graph TD
-    %%A["((R ∨ S) → (P ↔ (¬Q ∨ R)))"]
-    %%B["(R ∨ S)"]
-    %%C["(P ↔ (¬Q ∨ R))"]
-    %%D["R"]
-    %%E["S"]
-    %%F["P"]
-    %%G["(¬Q ∨ R)"]
-    %%H["¬Q"]
-    %%I["R"]
-    %%J["Q"]
-    
-    %%A --&gt; B
-    %%A --&gt; C
-    %%B --&gt; D
-    %%B --&gt; E
-    %%C --&gt; F
-    %%C --&gt; G
-    %%G --&gt; H
-    %%G --&gt; I
-    %%H --&gt; J
+<h2>Reassessing Reliability</h2>
+<p>When someone gives a surprising answer, how should we reassess their reliability?</p>
+<p>Bovens &amp; Hartmann’s Bayesian approach:</p>
+<p>Introduce a <strong>randomization parameter</strong> - as this increases, the witness is more like a randomizer (coin flipper) than a reliable indicator.</p>
+<p>Everyone makes mistakes; what we don’t know is how often they do. The more mistakes they make, the more we should move our judgment of how often they make mistakes around.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Implications for Opinion Pooling</h1>
 
-   %%style A fill:#ff9999
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
-<section class="slide level2">
-<h2>A Worked Example</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/2-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="262"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Worked Example</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/3-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="430"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Worked Example</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/4-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="430"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Worked Example</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/5-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="601"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/sentence-tree/6-trimmed.png" class="quarto-figure quarto-figure-center" alt="A tree showing how a sentence is broken down into parts" height="770"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-<h2>For Next Time</h2>
+<section class="slide level2 scrollable">
+<h2>Two Questions</h2>
+<p>Go back to Anya, Bon and Carys. Here are two questions about them:</p>
+<ol type="1">
+<li class="fragment">When we learn that they are the three best experts, and those are their judgments, what judgment should we (non-experts) come to.</li>
+<li class="fragment">When they learn about each other’s judgments, how should they change their own judgment in response to learning what a peer (in this case a peer expert) believes.</li>
+</ol>
+<div class="fragment">
+<p><strong>Background Question</strong>: Do 1 and 2 get the same answer?</p>
 <ul>
-<li>We are going to start on how these connectives help us figure out the truth value of longer sentences.</li>
-<li>And we’re going to use that to analyse arguments.</li>
+<li class="fragment">It seems what’s at the heart of the Equal Weight View is the idea that they should.</li>
+<li class="fragment">Non-experts, who don’t know the evidence, should assume that all are equally good guides to the truth. And Equal Weight says they should also do that, even though they have reasons for their individual judgments.</li>
 </ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>One Question or Two</h2>
+<p>If Equal Weight is correct, there is only one kind of pooling question here; 1 and 2 get the same answer.</p>
+<p>If Right Reason is correct, there is still only one kind of pooling question, since 2 is not a pooling question.</p>
+<p>But if Total Evidence or Justification is correct, then there may be 2 pooling questions.</p>
+</section>
+<section class="slide level2">
+<h2>Elkin and Pettigrew</h2>
+<p>They are fairly neutral on a lot of questions, but one thing that they push rather strongly is that there are <strong>many pooling questions</strong> and these might get <strong>different answers</strong>.</p>
+<p>In particular it might be that the obvious, linear average, answer is the right answer to some pooling questions, and the wrong answer to others.</p>
+</section>
+<section class="slide level2">
+<h2>Equal Weight View</h2>
+<p>When Adam Elga introduced the Equal Weight View in his 2007 paper, he effectively took it to be two things:</p>
+<ul>
+<li>Those two questions have the same answer.</li>
+<li>That answer is linear averaging.</li>
+</ul>
+<p>Often in the recent literature those two things are taken to be definitional of Equal Weight.</p>
+<div class="fragment">
+<p>But if (contra Elkin and Pettigrew) we think that pooling questions typically have the same answer, we might think that a view which accepts the first and rejects the second is still kind of an Equal Weight View.</p>
+<p>More generally, disagreement is one important way in to questions about why pooling matters.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Next Time</h2>
+<p>We’ll continue with:</p>
+<ul>
+<li>Group rationality and justified group belief (§2.2)</li>
+<li>Group rationality and responsibility (§2.3)</li>
+</ul>
+<p>These will further connect philosophical motivations to formal pooling strategies.</p>
 
 
 </section></section>
@@ -689,7 +444,7 @@ graph TD
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>PHIL 305 | University of Michigan</p>
+<p>PHIL 342 | University of Michigan</p>
 </div>
 </div></div>
 
@@ -971,7 +726,7 @@ graph TD
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil342-site");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

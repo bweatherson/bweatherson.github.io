@@ -1,0 +1,356 @@
+---
+title: "Pooling and Peer Disagreement"
+date: 2/2/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Introduction to Opinion Pooling
+
+## An Example
+
+Epidemiologists Anya, Bon, and Carys study polio spread in developed nations.
+
+They have different opinions about eradication by 2030:
+
+- Anya: 20% sure
+- Bon: 60% sure  
+- Carys: 70% sure
+
+. . .
+
+Question: How should we combine these opinions into a single group view?
+
+## Obvious Answer
+
+Take the average.
+
+In this case it would be 50%, since 0.2 + 0.6 + 0.7 = 1.5, and 1.5/3 = 0.5.
+
+One guiding question for us will be how well this obvious answer works.
+
+## Why Pool Opinions?
+
+We need to resolve disagreements for various reasons:
+
+::: {.incremental}
+- To present summary views to policymakers;
+- To assess collective track records over time;
+- To update our own opinions based on the group's views;
+- To make decisions on behalf of the group; and
+- To assess group responsibility for collective actions.
+:::
+
+## What We're Pooling
+
+While we're working through Elkin & Pettigrew, we'll assume:
+
+::: {.incremental}
+1. Opinions vary in strength (not just "believe" or "don't believe");
+2. Opinions are represented numerically as **credences**; and
+3. Credences are probabilistically coherent (Bayesian framework)
+:::
+
+. . .
+
+As we briefly saw earlier, pooling 'on-off' beliefs raises all sorts of technical challenges that pooling credences might avoid.
+
+Further, if people have more subtle credal judgments, we should incorporate them.
+
+## Three Motivating Problems
+
+Pooling is interesting because of the five puzzles we already mentioned, but it relates to some pressing contemporary philosophical problems.
+
+::: {.incremental}
+1. **Epistemic peer disagreement** - How should individuals respond when equally informed people disagree?
+2. **Group belief** - When does it make sense to say that a group has a belief? Among those cases, when should we say that the beliefs are rational?
+3. **Group responsibility** - When are groups answerable for their opinions and actions?
+:::
+
+# Epistemic Peer Disagreement
+
+## Christensen's Restaurant Check
+
+Some friends go to dinner. At the end of the night they get the bill. The convention is that they tip 20% and split the bill. How much should they each pay?
+
+- You calculate in your head: $45 each
+- Your friend calculates: $43 each
+
+. . .
+
+How should you react upon learning of the disagreement? (Note I've changed the numbers here from the original case; there's a reason for that.)
+
+## Hard Version of the Problem
+
+To make this maximally hard, assume that you and your friend are **epistemic peers**:
+
+- You have the same evidence, i.e., you can both see the bill.
+- You have the same cognitive abilities, i.e., neither of you is especially tired, or drunk, or otherwise likely to make a mistake.
+- You have the same track record, i.e., in previous cases where you'd disagreed, you'd both been right about half the time.
+
+. . .
+
+Neither of you has a good reason to dismiss the other's opinion.
+
+## The Independence Condition
+
+Christensen's key constraint:
+
+"I should assess explanations for the disagreement in a way that's independent of my reasoning on the matter under dispute."
+
+You can't dismiss your friend's view simply because they disagree with you!
+
+. . .
+
+Note this is a somewhat strong constraint. It means that you can't reason as follows.
+
+- The bill is $150 for four people. 150/4 is 37.5. 20% of 37.5 is 7.5, and adding that on gets to 45. 
+- Since my friend said 43, the previous bullet point implies that they are wrong.
+
+## Conciliationism
+
+One response: You should **conciliate** - move your opinion toward your peer's.
+
+**The Equal Weight View** (Elga): If you and your peer are equally reliable, you should give equal weight to both assessments. Moreover, the way to do that is:
+
+::: {.nonincremental}
+1. Give equal probability to each assessment being correct.
+2. Have a credence that's a linear average of the credences of the disagreeing parties.
+:::
+
+After learning of the disagreement, you should think there's a 50% chance you're correct and 50% chance your friend is correct.
+
+## Arguments for Equal Weight
+
+Why think equal weight is correct?
+
+Roughly, if you don't do this, you'll believe something you don't have evidence for, namely that you're more likely to be correct even though in the past the two of you have been equally likely to get it right in cases of disagreement.
+
+## The Steadfast View
+
+The steadfast view says that it can be, at least sometimes, reasonable to hold on to a view because it is yours.
+
+This is a view we often take about matters of taste; it's fine to take a movie or an ice cream to be good because it strikes you as good, even if others disagree.
+
+The steadfast view says that this can be the right approach to disagreements.
+
+## The Right Reasons View
+
+Kelly's early view: You should retain your initial opinion for the *right reasons*.
+
+Each party has two pieces of evidence:
+
+::: {.nonincremental}
+- **First-order evidence**: Evidence about the bill total, that it was $150 split four ways, the arithmetic facts listed earlier, and so on.
+- **Higher-order evidence**: The fact that you believe \$45 and your friend believes \$43.
+:::
+
+The higher-order evidence cancels out.
+
+Result: Same total evidence as before, so whatever was reasonable pre-disagreement was reasonable post-disagreement.
+
+## Differences
+
+The Steadfast view says both parties can keep their view.
+
+The Right Reasons view says that the party who was **rational** originally is still rational.
+
+If they are both rational to start with (and whether that's possible we'll come back to), then the views align.
+
+But in general they say different things.
+
+## The Total Evidence View
+
+Kelly's revised view: There's no simple answer - it depends on your total evidence.
+
+The key point is that the 'cancelling' metaphor doesn't work.
+
+In general, getting offsetting pieces of evidence can make a difference.
+
+. . .
+
+Imagine that you want to know who stole the cookies, and a good friend tells you it was Brian. Then it's fine to believe I did it.
+
+. . .
+
+Now two more good friends come up, one saying it was me, another saying it was Mitch. It doesn't seem like these cancel; it's reasonable to go from being confident I did it, to thinking it might have been Mitch.
+
+## The Total Evidence View
+
+Kelly's revised view is that:
+
+::: {.nonincremental}
+- Independence is wrong: the first-order evidence still has weight;
+- Steadfastness is wrong: the fact that a view is yours is of no significance; but
+- The Right Reasons view is also not always right: sometimes higher-order evidence matters.
+:::
+
+What he denies is that there is any simple way to summarise how higher-order evidence will matter.
+
+## The Justificationist View
+
+Lackey: What matters is the *justification* of your belief.
+
+She rejects the independence condition through a counterexample:
+
+You're calculating attendees at a conference. You reason: "Mark and Mary are going, Sam and Stacey are going, and 2+2=4, so four people are going."
+
+Your colleague Harry responds: "But 2+2 does not equal 4."
+
+Should you conciliate? **No!** - Harry is clearly no longer your peer.
+
+## When Justification Matters
+
+The disagreement provides evidence, but not about math.
+
+It provides evidence *about Harry* - that he's not actually your peer. Independence says that it's always wrong to reason this way, but clearly it's not always wrong.
+
+Sometimes you should stick to your guns because your belief is better justified. This is fairly similar to the Total Evidence view.
+
+## Discussion: When to Dismiss a "Peer"?
+
+Harry denies 2+2=4. Lackey says he's no longer your peer.
+
+**Consider these variants on the case:**
+
+1. A climate scientist who denies human-caused warming.
+2. A historian who denies a well-documented genocide.
+3. A philosopher who denies the law of non-contradiction.
+4. A friend who insists your shared memory is wrong.
+
+**Question:** In each case, should you:
+
+1. Conciliate anyway?
+2. Dismiss them as no longer a peer?
+3. Something in between?
+
+. . .
+
+*Where's the line? Or if there isn't a line, what does 'in between' look like?*
+
+# The Uniqueness Debate
+
+## The Uniqueness Thesis
+
+**Uniqueness Thesis**: For any body of evidence E and proposition P, E justifies at most one credence in P.
+
+If uniqueness is true, there's only one rational response to peer disagreement given the shared evidence.
+
+## Uniqueness and Disagreement
+
+If uniqueness fails, then one of the motivations equal weight fails.
+
+Go back to Bon and Carys in the introduction (Anya is a somewhat trickier case, for reasons we'll get to).
+
+They have the same evidence, and one of them has credence 0.6, another has credence 0.7.
+
+If Uniqueness fails, they can possibly say "Well, we don't have the same credence, but we might both be rational. And if that's what it is to be right, then in a sense we're both right. So there's no need to change our views."
+
+So the equal weight view seems committed to uniqueness.
+
+## Uniqueness and Disagreement
+
+But now imagine that uniqueness is correct. They should think that at most one of them is correct.
+
+If they split the difference in their credences, and end up at 0.65, there is every reason to think that they will **both** be incorrect.
+
+Compare in the restaurant case: we don't think the rational thing to think here is that the answer is probably \$44.
+
+David Christensen concludes that these cases are **dilemmas**; whatever one does will be mistaken in some sense.
+
+He thinks Equal Weight is (roughly) correct, but not as a theory of what is **rational**, instead as a theory of what is **least bad**.
+
+## Arguments for Uniqueness
+
+Dogramaci & Horowitz:
+
+"Given uniqueness, promoting rationality involves promoting conformity. Conformity allows us to function as epistemic surrogates  ...  Our view thus explains why promoting rationality is an effective and efficient means of meeting our epistemic goal, getting to the truth."
+
+The thought is that given Uniqueness, saying that someone is rational just is way to say that you should be like them.
+
+This is a useful way to get to the truth.
+
+Conversely, if rationality is permissive, it's much less clear what the point of rationality talk is.
+
+## Permissivism
+
+**Permissivism**: There's at least one body of evidence E and proposition P such that multiple credences in P are maximally rational.
+
+Savage (1954): "Two reasonable individuals faced with the same evidence may have different degrees of confidence in the truth of the same proposition."
+
+## The Real Debate?
+
+In real life, genuinely peer disagreements are rare.
+
+- We might not know which of us is more reliable, because we've got better things to do than keep score precisely, but one of us will be.
+- Also, we very very rarely have exactly the same evidence. We often have close enough evidence for most purposes, but arguably disagreement cases will make us reassess that.
+- The debate here can very quickly get caught up with debates about what evidence really is. Does our evidence consist, for example, of things we see, or of visual appearances.
+
+## Reassessing Reliability
+
+When someone gives a surprising answer, how should we reassess their reliability?
+
+Bovens & Hartmann's Bayesian approach:
+
+Introduce a **randomization parameter** - as this increases, the witness is more like a randomizer (coin flipper) than a reliable indicator.
+
+Everyone makes mistakes; what we don't know is how often they do. The more mistakes they make, the more we should move our judgment of how often they make mistakes around.
+
+# Implications for Opinion Pooling
+
+## Two Questions
+
+Go back to Anya, Bon and Carys. Here are two questions about them:
+
+1. When we learn that they are the three best experts, and those are their judgments, what judgment should we (non-experts) come to.
+2. When they learn about each other's judgments, how should they change their own judgment in response to learning what a peer (in this case a peer expert) believes.
+
+. . .
+
+**Background Question**: Do 1 and 2 get the same answer? 
+
+- It seems what's at the heart of the Equal Weight View is the idea that they should. 
+- Non-experts, who don't know the evidence, should assume that all are equally good guides to the truth. And Equal Weight says they should also do that, even though they have reasons for their individual judgments.
+
+## One Question or Two
+
+If Equal Weight is correct, there is only one kind of pooling question here; 1 and 2 get the same answer.
+
+If Right Reason is correct, there is still only one kind of pooling question, since 2 is not a pooling question.
+
+But if Total Evidence or Justification is correct, then there may be 2 pooling questions.
+
+## Elkin and Pettigrew
+
+They are fairly neutral on a lot of questions, but one thing that they push rather strongly is that there are **many pooling questions** and these might get **different answers**.
+
+In particular it might be that the obvious, linear average, answer is the right answer to some pooling questions, and the wrong answer to others.
+
+## Equal Weight View
+
+When Adam Elga introduced the Equal Weight View in his 2007 paper, he effectively took it to be two things:
+
+::: {.nonincremental}
+- Those two questions have the same answer.
+- That answer is linear averaging.
+:::
+
+Often in the recent literature those two things are taken to be definitional of Equal Weight.
+
+. . .
+
+But if (contra Elkin and Pettigrew) we think that pooling questions typically have the same answer, we might think that a view which accepts the first and rejects the second is still kind of an Equal Weight View.
+
+More generally, disagreement is one important way in to questions about why pooling matters.
+
+## Next Time
+
+We'll continue with:
+
+::: {.nonincremental}
+- Group rationality and justified group belief (§2.2)
+- Group rationality and responsibility (§2.3)
+:::
+
+These will further connect philosophical motivations to formal pooling strategies.
