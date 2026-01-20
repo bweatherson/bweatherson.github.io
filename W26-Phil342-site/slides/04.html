@@ -138,23 +138,20 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The Theorem</h1>
+<h1>Group Activity Answers</h1>
 
 </section>
-<section class="slide level2">
-<h2>Impossibility Theorem</h2>
-<p><strong>Arrow’s Impossibility Theorem</strong> (1951) demonstrates that no voting system can simultaneously satisfy a set of seemingly reasonable conditions for democratic decision-making.</p>
-</section>
 <section class="slide level2 scrollable">
-<h2>Arrow’s Requirements</h2>
-<p>Arrow focused on four requirements you’d like a system to have:</p>
+<h2>Last Time</h2>
+<p>At the end of last class, we had a group activity about three voting systems:</p>
 <ol type="1">
-<li class="fragment"><strong>Unrestricted Domain</strong> (U)</li>
-<li class="fragment"><strong>Weak Pareto Principle</strong> (P)<br>
-</li>
-<li class="fragment"><strong>Independence of Irrelevant Alternatives</strong> (I)</li>
-<li class="fragment"><strong>Non-dictatorship</strong> (D)</li>
+<li class="fragment"><strong>Plurality</strong>: Candidates get 1 point per first-place vote.</li>
+<li class="fragment"><strong>Range voting</strong>: Each voter gives 1-5 star ratings, candidates ranked by average.</li>
+<li class="fragment"><strong>Approval voting</strong>: Voters approve/disapprove each candidate, candidates ranked by approval count.</li>
 </ol>
+<div class="fragment">
+<p>We wanted to go over which of Arrow’s conditions each failed.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>The Impossibility Theorem</h2>
@@ -166,6 +163,145 @@
 </li>
 <li class="fragment">Non-dictatorship (D)</li>
 </ul>
+</section>
+<section class="slide level2">
+<h2>Plurality Voting</h2>
+<p><strong>Question</strong>: Which Arrow condition does plurality violate?</p>
+<p><strong>Answer</strong>: Both I and P</p>
+<p>We already covered one way plurality violates I last time—the example where people changing their minds about B vs C affected the ranking of A vs B.</p>
+</section>
+<section class="slide level2">
+<h2>Plurality and Pareto</h2>
+<p>But plurality also violates the Pareto principle. Imagine 100 voters choosing among A, B, C, and D.</p>
+<ul>
+<li>Everyone thinks A is second-worst and B is worst.</li>
+<li>But their first choices are split among C and D.</li>
+</ul>
+<p>The result is that A and B are tied at 0 votes each, so A =<sub>∀</sub> B in the social ranking.</p>
+<p>But Pareto says that if everyone prefers A to B, then A &gt;<sub>∀</sub> B.</p>
+<p>In practice the failure of I gets talked about more than the failure of P, because we don’t normally care about how voting systems rank unselected candidates.</p>
+</section>
+<section class="slide level2">
+<h2>Range Voting</h2>
+<p><strong>Question</strong>: Which Arrow condition does range voting violate?</p>
+<p><strong>Answer</strong>: First, it’s not even a function, so it isn’t even eligible to be an Arrow-style social choice function. It also manages to violate both I and P.</p>
+</section>
+<section class="slide level2">
+<h2>Range Voting: Not Functional</h2>
+<p>Range voting violates the basic setup assumption that the social ranking is a function of individual preferences.</p>
+<p>Same preferences can produce different social rankings if strength of preference matters. We’ll come back to that below.</p>
+</section>
+<section class="slide level2">
+<h2>Range Voting and IIA</h2>
+<p>Since the social ranking depends on numerical scores, not just preferences, range voting violates I.</p>
+<p>Here is a really simple example. Imagine that there are two voters, Mitch and Brian, and two candidates, A and B.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="tbl-monday" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-monday-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Monday (B wins)
+</figcaption>
+<div aria-describedby="tbl-monday-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Mitch</th>
+<th>Brian</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>1</td>
+<td>4</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="tbl-tuesday" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tuesday-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Tuesday (A wins)
+</figcaption>
+<div aria-describedby="tbl-tuesday-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Mitch</th>
+<th>Brian</th>
+<th>Average</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>1</td>
+<td>4</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div></div>
+<p>No one changed their comparative preference between Monday and Tuesday, but the social ordering changed. That’s what I rules out.</p>
+</section>
+<section class="slide level2">
+<h2>Range Voting and Pareto</h2>
+<p>As some of you pointed out in the groups, range voting can also violate Pareto.</p>
+<ul>
+<li>Everyone gives A and B five stars (much better than the rest)</li>
+<li>Everyone also prefers A to B</li>
+</ul>
+<p>The result is that the social ranking has A =<sub>∀</sub> B (tied at 5 stars).</p>
+<p>But Pareto says that if everyone prefers A to B, then A &gt;<sub>∀</sub> B.</p>
+</section>
+<section class="slide level2">
+<h2>Approval Voting</h2>
+<p><strong>Question</strong>: Which Arrow condition does approval voting violate?</p>
+<p><strong>Answer</strong>: Both I and P, for essentially the same reasons as range voting.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Approval Voting Issues</h2>
+<p>Approval voting has the same problems as range voting:</p>
+<ol type="1">
+<li class="fragment"><strong>Not functional</strong>: Same preferences can yield different results depending on who voters choose to “approve”</li>
+<li class="fragment"><strong>Violates I</strong>: Changing approval of C can change the A vs B ranking</li>
+<li class="fragment"><strong>Violates P</strong>: Everyone could prefer A to B but approve both equally, giving A =<sub>∀</sub> B instead of A &gt;<sub>∀</sub> B</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<p>All three systems violate multiple Arrow conditions:</p>
+<ul>
+<li class="fragment"><strong>Plurality</strong>: Violates I and P</li>
+<li class="fragment"><strong>Range voting</strong>: Not functional, violates I and P</li>
+<li class="fragment"><strong>Approval voting</strong>: Not functional, violates I and P</li>
+</ul>
+<div class="fragment">
+<p>This illustrates Arrow’s point: every real voting system must give up something.</p>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -353,7 +489,7 @@
 </section>
 <section class="slide level2">
 <h2>Preferences and Numbers</h2>
-<p>The answer is that it violates one of the very first assumptions we made.</p>
+<p>If anything, things are now <strong>worse</strong>. This isn’t even a system for converting individual preferences to social preferences.</p>
 <ul>
 <li class="fragment">Arrow says that the aggregation system should take the preferences of the voters as an input, and return a social ordering as the output.</li>
 <li class="fragment">But numerical measures of how good an option is for a citizen/voter can’t be deduced from their preferences.</li>
@@ -367,7 +503,7 @@
 <div id="tbl-monday-ratings" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-monday-ratings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Monday’s ratings of blickets vs.&nbsp;widgets
+Table&nbsp;3: Monday’s ratings of blickets vs.&nbsp;widgets
 </figcaption>
 <div aria-describedby="tbl-monday-ratings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -403,7 +539,7 @@ Table&nbsp;1: Monday’s ratings of blickets vs.&nbsp;widgets
 <div id="tbl-tuesday-ratings" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tuesday-ratings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Tuesday’s ratings of blickets vs.&nbsp;widgets
+Table&nbsp;4: Tuesday’s ratings of blickets vs.&nbsp;widgets
 </figcaption>
 <div aria-describedby="tbl-tuesday-ratings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -444,7 +580,7 @@ Table&nbsp;2: Tuesday’s ratings of blickets vs.&nbsp;widgets
 <div id="tbl-monday-ratings-repeat" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-monday-ratings-repeat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Monday’s ratings
+Table&nbsp;5: Monday’s ratings
 </figcaption>
 <div aria-describedby="tbl-monday-ratings-repeat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -480,7 +616,7 @@ Table&nbsp;3: Monday’s ratings
 <div id="tbl-tuesday-ratings-repeat" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tuesday-ratings-repeat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Tuesday’s ratings
+Table&nbsp;6: Tuesday’s ratings
 </figcaption>
 <div aria-describedby="tbl-tuesday-ratings-repeat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -545,6 +681,15 @@ Table&nbsp;4: Tuesday’s ratings
 <p>For the benevolent dictator, or the free market exponent, this turns out to be the big question.</p>
 <p>If you can say not just that A is better than B for citizen C, but you can measure how much better it is, then you should use that quantity in making social decisions.</p>
 <p>If not, you’re back in Arrow’s framework, and you have to think about which condition to give up.</p>
+</section>
+<section class="slide level2">
+<h2>Big Picture Thought</h2>
+<p>If we have time, we’ll discuss this more, but here’s one important takeaway from Arrow.</p>
+<ul>
+<li class="fragment">There is no perfect voting system.</li>
+<li class="fragment">So, don’t assume that the best voting system for one task is the best one for another.</li>
+<li class="fragment">In particular, the best systems for small groups and large groups will probably be different.</li>
+</ul>
 </section>
 <section class="slide level2">
 <h2>For Next Time</h2>
