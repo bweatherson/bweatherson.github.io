@@ -6,20 +6,19 @@ format:
     beamer: default
 ---
 
-# The Theorem
+# Group Activity Answers
 
-## Impossibility Theorem
+## Last Time
 
-**Arrow's Impossibility Theorem** (1951) demonstrates that no voting system can simultaneously satisfy a set of seemingly reasonable conditions for democratic decision-making.
+At the end of last class, we had a group activity about three voting systems:
 
-## Arrow's Requirements
+1. **Plurality**: Candidates get 1 point per first-place vote.
+2. **Range voting**: Each voter gives 1-5 star ratings, candidates ranked by average.
+3. **Approval voting**: Voters approve/disapprove each candidate, candidates ranked by approval count.
 
-Arrow focused on four requirements you'd like a system to have:
+. . .
 
-1. **Unrestricted Domain** (U)
-2. **Weak Pareto Principle** (P)  
-3. **Independence of Irrelevant Alternatives** (I)
-4. **Non-dictatorship** (D)
+We wanted to go over which of Arrow's conditions each failed.
 
 ## The Impossibility Theorem
 
@@ -29,6 +28,110 @@ Arrow focused on four requirements you'd like a system to have:
 - Weak Pareto Principle (P)
 - Independence of Irrelevant Alternatives (I)  
 - Non-dictatorship (D)
+
+## Plurality Voting
+
+**Question**: Which Arrow condition does plurality violate?
+
+**Answer**: Both I and P
+
+We already covered one way plurality violates I last time—the example where people changing their minds about B vs C affected the ranking of A vs B.
+
+## Plurality and Pareto
+
+But plurality also violates the Pareto principle. Imagine 100 voters choosing among A, B, C, and D.
+
+::: {.nonincremental}
+- Everyone thinks A is second-worst and B is worst.
+- But their first choices are split among C and D.
+:::
+
+The result is that A and B are tied at 0 votes each, so A =~∀~ B in the social ranking.
+
+But Pareto says that if everyone prefers A to B, then A >~∀~ B.
+
+In practice the failure of I gets talked about more than the failure of P, because we don't normally care about how voting systems rank unselected candidates.
+
+## Range Voting
+
+**Question**: Which Arrow condition does range voting violate?
+
+**Answer**: First, it's not even a function, so it isn't even eligible to be an Arrow-style social choice function. It also manages to violate both I and P.
+
+## Range Voting: Not Functional
+
+Range voting violates the basic setup assumption that the social ranking is a function of individual preferences.
+
+Same preferences can produce different social rankings if strength of preference matters. We'll come back to that below.
+
+## Range Voting and IIA
+
+Since the social ranking depends on numerical scores, not just preferences, range voting violates I.
+
+Here is a really simple example. Imagine that there are two voters, Mitch and Brian, and two candidates, A and B.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+|  | Mitch | Brian | Average |
+|---|-------|-------|---------|
+| A | 3     | 1     | 2       |
+| B | 1     | 4     | 2.5     |
+
+: Monday (B wins) {#tbl-monday}
+:::
+
+::: {.column width="50%"}
+|  | Mitch | Brian | Average |
+|---|-------|-------|---------|
+| A | 5     | 1     | 3       |
+| B | 1     | 4     | 2.5     |
+
+: Tuesday (A wins) {#tbl-tuesday}
+:::
+
+::::
+
+No one changed their comparative preference between Monday and Tuesday, but the social ordering changed. That's what I rules out.
+
+## Range Voting and Pareto
+
+As some of you pointed out in the groups, range voting can also violate Pareto.
+
+::: {.nonincremental}
+- Everyone gives A and B five stars (much better than the rest)
+- Everyone also prefers A to B
+:::
+
+The result is that the social ranking has A =~∀~ B (tied at 5 stars).
+
+But Pareto says that if everyone prefers A to B, then A >~∀~ B.
+
+## Approval Voting
+
+**Question**: Which Arrow condition does approval voting violate?
+
+**Answer**: Both I and P, for essentially the same reasons as range voting.
+
+## Approval Voting Issues
+
+Approval voting has the same problems as range voting:
+
+1. **Not functional**: Same preferences can yield different results depending on who voters choose to "approve"
+2. **Violates I**: Changing approval of C can change the A vs B ranking
+3. **Violates P**: Everyone could prefer A to B but approve both equally, giving A =~∀~ B instead of A >~∀~ B
+
+## Summary
+
+All three systems violate multiple Arrow conditions:
+
+- **Plurality**: Violates I and P
+- **Range voting**: Not functional, violates I and P
+- **Approval voting**: Not functional, violates I and P
+
+. . .
+
+This illustrates Arrow's point: every real voting system must give up something.
 
 # Consequences
 
@@ -203,7 +306,7 @@ Another way aggregation systems get around Arrow is by using numerical scales:
 
 ## Preferences and Numbers
 
-The answer is that it violates one of the very first assumptions we made.
+If anything, things are now **worse**. This isn't even a system for converting individual preferences to social preferences.
 
 - Arrow says that the aggregation system should take the preferences of the voters as an input, and return a social ordering as the output.
 - But numerical measures of how good an option is for a citizen/voter can't be deduced from their preferences.
@@ -298,6 +401,14 @@ For the benevolent dictator, or the free market exponent, this turns out to be t
 If you can say not just that A is better than B for citizen C, but you can measure how much better it is, then you should use that quantity in making social decisions.
 
 If not, you're back in Arrow's framework, and you have to think about which condition to give up.
+
+## Big Picture Thought
+
+If we have time, we'll discuss this more, but here's one important takeaway from Arrow.
+
+- There is no perfect voting system.
+- So, don't assume that the best voting system for one task is the best one for another.
+- In particular, the best systems for small groups and large groups will probably be different.
 
 ## For Next Time
 

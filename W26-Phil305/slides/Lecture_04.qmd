@@ -6,6 +6,104 @@ format:
         css: lecture-03-custom-tables.css
 ---
 
+# Quiz Review
+
+## Quiz 1 Results
+
+Overall, the first weekly quiz went well.
+
+- Mean score: 95.4/100
+- Median score: 100
+
+I prepped slides on two of the questions that caused the most problems, but even with those most of you got them right.
+
+If there are others you'd like to go over, I'm happy to talk through any of them.
+
+## Embedded Conditionals
+
+What is the correct truth table for ((P → Q) → P) → P?
+
+This was the hardest question it turned out; I possibly could have guessed that before seeing the answers.
+
+Let's work through it step by step.
+
+## Building the Truth Table
+
+We need to build up the truth table from the inside out.
+
+| P | Q | | ( | ( | P | → | Q | ) | → | P | ) | → | P |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | | | $\mathbb{T}$ | | $\mathbb{T}$ | | | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | | | $\mathbb{T}$ | | $\mathbb{F}$ | | | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | | | $\mathbb{F}$ | | $\mathbb{T}$ | | | $\mathbb{F}$ | | | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | | | $\mathbb{F}$ | | $\mathbb{F}$ | | | $\mathbb{F}$ | | | $\mathbb{F}$ |
+
+## Step 1: Evaluate P → Q
+
+| P | Q | | ( | ( | P | → | Q | ) | → | P | ) | → | P |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | | | $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | | | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | | | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | | | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | | | $\mathbb{F}$ | | | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | | | $\mathbb{F}$ | | | $\mathbb{F}$ |
+
+Remember: P → Q is only false when P is true and Q is false.
+
+## Step 2: Evaluate (P → Q) → P
+
+| P | Q | | ( | ( | P | → | Q | ) | → | P | ) | → | P |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | | | $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | | | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\mathbb{T}$ | | | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\mathbb{F}$ | | | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\mathbb{F}$ | | | $\mathbb{F}$ |
+
+We treat (P → Q) as the left hand side and P as the right hand side.
+
+We'll sometimes call the left hand side the **antecedent** and the right hand side the **consequent**. I know it's two more terms to learn, but it's shorter than 'left hand side' and 'right hand side'.
+
+## Step 3: Evaluate ((P → Q) → P) → P
+
+| P | Q | | ( | ( | P | → | Q | ) | → | P | ) | → | P |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| $\mathbb{T}$ | $\mathbb{T}$ | | | | $\mathbb{T}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{T}$ | $\mathbb{T}$ | | [$\mathbb{T}$]{style="color: red;"} | $\mathbb{T}$ |
+| $\mathbb{T}$ | $\mathbb{F}$ | | | | $\mathbb{T}$ | $\mathbb{F}$ | $\mathbb{F}$ | | $\mathbb{T}$ | $\mathbb{T}$ | | [$\mathbb{T}$]{style="color: red;"} | $\mathbb{T}$ |
+| $\mathbb{F}$ | $\mathbb{T}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{T}$ | | $\mathbb{F}$ | $\mathbb{F}$ | | [$\mathbb{T}$]{style="color: red;"} | $\mathbb{F}$ |
+| $\mathbb{F}$ | $\mathbb{F}$ | | | | $\mathbb{F}$ | $\mathbb{T}$ | $\mathbb{F}$ | | $\mathbb{F}$ | $\mathbb{F}$ | | [$\mathbb{T}$]{style="color: red;"} | $\mathbb{F}$ |
+
+This is what logicians call a **tautology**. It's always true, no matter what P and Q are. We'll have much more to say about tautologies in what follows.
+
+## Peirce's Law
+
+This tautology is famous enough to have a name; it's called **Peirce's Law** after the American philosopher Charles Sanders Peirce.
+
+$$((P \rightarrow Q) \rightarrow P) \rightarrow P$$
+
+It looks strange, but it's valid. If you're doing further logic classes, it comes up a bit because it turns out to fail if you make practically any change to the system.
+
+## Question: How Many Rows?
+
+How many rows are needed in a truth table for a sentence with exactly 2 atomic sentences?
+
+This had a 91% success rate—but let's clarify the reasoning.
+
+## Answer: How Many Rows?
+
+The answer is **4 rows**.
+
+- Each atomic sentence can be either $\mathbb{T}$ or $\mathbb{F}$.
+- With 2 atomic sentences, we have 2 choices for the first and 2 choices for the second.
+- Total combinations: $2 \times 2 = 4$
+
+In general, for $n$ atomic sentences, we need $2^n$ rows.
+
+## Examples
+
+- 1 atomic sentence: $2^1 = 2$ rows
+- 2 atomic sentences: $2^2 = 4$ rows
+- 3 atomic sentences: $2^3 = 8$ rows
+- 4 atomic sentences: $2^4 = 16$ rows
+
 # Background
 
 ## Overview

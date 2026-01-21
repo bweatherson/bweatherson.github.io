@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="dcterms.date" content="2026-01-21">
   <title>Truth Tables and Validity</title>
@@ -137,6 +137,482 @@
 
   <p class="date">2026-01-21</p>
 </section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Quiz Review</h1>
+
+</section>
+<section class="slide level2">
+<h2>Quiz 1 Results</h2>
+<p>Overall, the first weekly quiz went well.</p>
+<ul>
+<li>Mean score: 95.4/100</li>
+<li>Median score: 100</li>
+</ul>
+<p>I prepped slides on two of the questions that caused the most problems, but even with those most of you got them right.</p>
+<p>If there are others you’d like to go over, I’m happy to talk through any of them.</p>
+</section>
+<section class="slide level2">
+<h2>Embedded Conditionals</h2>
+<p>What is the correct truth table for ((P → Q) → P) → P?</p>
+<p>This was the hardest question it turned out; I possibly could have guessed that before seeing the answers.</p>
+<p>Let’s work through it step by step.</p>
+</section>
+<section class="slide level2">
+<h2>Building the Truth Table</h2>
+<p>We need to build up the truth table from the inside out.</p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>P</th>
+<th>Q</th>
+<th></th>
+<th>(</th>
+<th>(</th>
+<th>P</th>
+<th>→</th>
+<th>Q</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Step 1: Evaluate P → Q</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>P</th>
+<th>Q</th>
+<th></th>
+<th>(</th>
+<th>(</th>
+<th>P</th>
+<th>→</th>
+<th>Q</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Remember: P → Q is only false when P is true and Q is false.</p>
+</section>
+<section class="slide level2">
+<h2>Step 2: Evaluate (P → Q) → P</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>P</th>
+<th>Q</th>
+<th></th>
+<th>(</th>
+<th>(</th>
+<th>P</th>
+<th>→</th>
+<th>Q</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We treat (P → Q) as the left hand side and P as the right hand side.</p>
+<p>We’ll sometimes call the left hand side the <strong>antecedent</strong> and the right hand side the <strong>consequent</strong>. I know it’s two more terms to learn, but it’s shorter than ‘left hand side’ and ‘right hand side’.</p>
+</section>
+<section class="slide level2">
+<h2>Step 3: Evaluate ((P → Q) → P) → P</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>P</th>
+<th>Q</th>
+<th></th>
+<th>(</th>
+<th>(</th>
+<th>P</th>
+<th>→</th>
+<th>Q</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+<th>)</th>
+<th>→</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span style="color: red;"><span class="math inline">\(\mathbb{T}\)</span></span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span style="color: red;"><span class="math inline">\(\mathbb{T}\)</span></span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span style="color: red;"><span class="math inline">\(\mathbb{T}\)</span></span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{T}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+<td></td>
+<td><span style="color: red;"><span class="math inline">\(\mathbb{T}\)</span></span></td>
+<td><span class="math inline">\(\mathbb{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>This is what logicians call a <strong>tautology</strong>. It’s always true, no matter what P and Q are. We’ll have much more to say about tautologies in what follows.</p>
+</section>
+<section class="slide level2">
+<h2>Peirce’s Law</h2>
+<p>This tautology is famous enough to have a name; it’s called <strong>Peirce’s Law</strong> after the American philosopher Charles Sanders Peirce.</p>
+<p><span class="math display">\[((P \rightarrow Q) \rightarrow P) \rightarrow P\]</span></p>
+<p>It looks strange, but it’s valid. If you’re doing further logic classes, it comes up a bit because it turns out to fail if you make practically any change to the system.</p>
+</section>
+<section class="slide level2">
+<h2>Question: How Many Rows?</h2>
+<p>How many rows are needed in a truth table for a sentence with exactly 2 atomic sentences?</p>
+<p>This had a 91% success rate—but let’s clarify the reasoning.</p>
+</section>
+<section class="slide level2">
+<h2>Answer: How Many Rows?</h2>
+<p>The answer is <strong>4 rows</strong>.</p>
+<ul>
+<li>Each atomic sentence can be either <span class="math inline">\(\mathbb{T}\)</span> or <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li>With 2 atomic sentences, we have 2 choices for the first and 2 choices for the second.</li>
+<li>Total combinations: <span class="math inline">\(2 \times 2 = 4\)</span></li>
+</ul>
+<p>In general, for <span class="math inline">\(n\)</span> atomic sentences, we need <span class="math inline">\(2^n\)</span> rows.</p>
+</section>
+<section class="slide level2">
+<h2>Examples</h2>
+<ul>
+<li>1 atomic sentence: <span class="math inline">\(2^1 = 2\)</span> rows</li>
+<li>2 atomic sentences: <span class="math inline">\(2^2 = 4\)</span> rows</li>
+<li>3 atomic sentences: <span class="math inline">\(2^3 = 8\)</span> rows</li>
+<li>4 atomic sentences: <span class="math inline">\(2^4 = 16\)</span> rows</li>
+</ul>
+</section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Background</h1>
