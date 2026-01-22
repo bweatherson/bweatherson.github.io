@@ -1,0 +1,438 @@
+---
+title: "Opinion Pooling II: Group Rationality and Responsibility"
+date: 2/9/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Group Rationality and Justified Group Belief
+
+## Recap: Where We Left Off
+
+Last time we discussed:
+
+- Different responses to peer disagreement.
+- The uniqueness vs. permissivism debate.
+- How these relate to opinion pooling.
+
+. . .
+
+Today: What makes group beliefs *rational* and when are groups *responsible* for their beliefs and actions?
+
+## The Individual vs. Group Question
+
+Recall Anya, Bon, and Carys (20%, 60%, 70% on polio eradication).
+
+Two different questions:
+
+::: {.nonincremental}
+1. **Individual response**: When they learn of each other's views, how should each person update their own credence?
+2. **Group credence**: What credence should *the group* (as a collective agent) adopt?
+:::
+
+. . .
+
+These might get different answers. Today we focus on question 2.
+
+## What Are Group Credences?
+
+Group credences from pooling are epistemic compromises, not necessarily consensus beliefs.
+
+::: {.incremental}
+- Members agree to use pooled credences for group reasoning and decision-making.
+- But individuals need not personally adopt those credences. (Unless a strong form of Equal Weight is true.)
+- You can sign off on a committee report as genuinely being the view of the committee without agreeing with every detail.
+:::
+
+## Why Care About Group Rationality?
+
+We need rational group beliefs for:
+
+::: {.incremental}
+- Collective decision-making (e.g., boards, committees);
+- Scientific collaboration (e.g., research teams);
+- Policy recommendations (expert panels);
+- Collective action (unions, cooperatives, governments);
+- Legal responsibility (corporate liability).
+:::
+
+## A Goal-Oriented View
+
+**One theory**: A particular attitude is maximally epistemically rational for a group if and only if that attitude is amongst the most effective means toward pursuing some specified epistemic goals.
+
+This is the view Matthew Kopec (now at Harvard) suggested in his 2019 paper, and it's basically what Elkin and Pettigrew take up.
+
+## A Goal-Oriented View
+
+This isn't a compulsory view, and it has some downsides.
+
+In the individual case, people often worry that sometimes believing something against the evidence might have instrumental value, e.g., having an exaggerated view of your own abilities might lead you to take on more interesting projects.
+
+But it's what they're working with, so we'll go with it.
+
+. . .
+
+If rationality is about getting your epistemic goals, what are groups' epistemic goals?
+
+## Epistemic Goals for Groups
+
+Hopefully they include **getting to the truth**.
+
+::: {.incremental}
+- Groups should have accurate beliefs about the world.
+- This is both good in itself, and (in general) useful for achieving things.
+- Both of these are true for individuals as well as groups.
+:::
+
+. . .
+
+But is truth enough? Can we explain everything in terms of the goal of getting to truths.
+
+## The Justification Requirement
+
+The traditional view is that rational belief requires more than truth - it requires **justification**, which usually means **evidence**.
+
+. . .
+
+This should apply to groups too. Whatever is wrong with lucky guesses for individuals, it seems wrong for groups.
+
+## The Challenge for Groups
+
+It's hard enough for individuals to get to justified true belief.
+
+For groups, there are few more complications.
+
+::: {.incremental}
+- Members may have different evidence;
+- Members may have different background beliefs;
+- Members may disagree about what counts as justification (if this matters to justification, itself a tricky process);
+- Even if each individual is justfied, the pooling process itself must preserve justification somehow.
+:::
+
+# Accounts of Justified Group Belief
+
+## Two Broad Approaches
+
+Lackey categorizes views as:
+
+::: {.nonincremental}
+1. **Inflationary**, i.e. Group status can float freely from members' epistemic statuses; or
+2. **Deflationary**, i.e., Group status is just the aggregation of members' individual statuses.
+:::
+
+## Inflationary Accounts: The Cohesiveness View
+
+The core idea is that group belief requires some cohesive element binding members together.
+
+This means all the individuals sharing the belief is not enough for the group to have it, because there might not be the right kind of binding.
+
+But conversely, the group can believe something that no individual does, and even justifiably believe something that no individual does, if they are bound together in the right way.
+
+. . .
+
+This is most intuitive for **practical beliefs**, that we express with knowledge how claims.
+
+Ford Motor Company knows how to build cars, but it isn't obvious to me that any person in the company does. Cars these days are just too complicated for any one person to have that knowledge.
+
+## Inflationary Accounts: The Cohesiveness View
+
+Tuomela defines group belief in terms of individual *acceptance*.
+
+::: {.incremental}
+- "Acceptance" ≠ individual belief
+- It's a commitment to treat something as true *for some purpose*, in this case a group purpose.
+- The idea here came out of philosophy of science, where some people think that we should treat scientists as accepting the best current theories, even though the scientist might accept that the theory is probably wrong (like all past theory).
+- The kind of acceptance Tuomela cares about requires coordination.
+:::
+
+## Problems for Strong Inflationism
+
+If groups float *too* freely from members:
+
+::: {.incremental}
+- A group could have justified beliefs even if no member does.
+- Lackey objects that this seems to create justification out of nothing.
+- So perhaps it violates intuition that justification must trace back to evidence.
+- Personally, I think the Ford case is a nice response to this. Every individual has evidence about how to build gearboxes, steering systems, etc, and collectively they have evidence about how to build a **whole car**.
+:::
+
+## Deflationary Accounts: The Summative View
+
+The idea here is that group beliefs just are properly aggregated member beliefs, and that justified group beliefs are just properly aggregated *justified* member beliefs.
+
+::: {.incremental}
+- A nice upside here is that group justification derives in a natural way from member justification.
+- Pooling becomes important here; it's how we combine the individual beliefs.
+:::
+
+
+## The Deflationary Challenge
+
+If group belief is just aggregation, then:
+
+::: {.incremental}
+- The pooling method becomes really important.
+- If we use the wrong pooling method, we might destroy justification.
+- Indeed, the wrong pooling method might create false group beliefs from true individual beliefs. (Think about getting inconsistent beliefs from consistent beliefs.)
+- Arguably, the pooling method itself should become the subject of epistemic evaluation.
+:::
+
+. . .
+
+For Elkin and Pettigrew, this motivates examining which pooling axioms preserve justification.
+
+## Evidence and Pooling
+
+Consider this intuition: A group's belief should be responsive to its total evidence.
+
+. . .
+
+**Question**: When members have the same evidence but different credences, what should the group believe?
+
+::: {.incremental}
+- If uniqueness holds: At most one credence is justified by the evidence
+- Problem: Pooling might not select the justified credence!
+- If permissivism holds: Multiple credences might be justified
+- Pooling might reasonably yield any of them
+:::
+
+## The Weight of Evidence
+
+Some pooling strategies are more evidence-sensitive than others.
+
+Example considerations:
+
+::: {.incremental}
+- Should experts get more weight? (Evidence of expertise)
+- Should track records matter? (Evidence of reliability)
+- Should we discount outliers? (Evidence of error)
+- How do we incorporate shared vs. individual evidence?
+:::
+
+. . .
+
+These are both **epistemic** and **practical** questions.
+
+## Connecting to Peer Disagreement
+
+Recall the total evidence view and justificationist view:
+
+- Sometimes first-order evidence should dominate
+- Sometimes higher-order evidence (the disagreement itself) should matter more
+- The relative weight depends on the specific case
+
+. . .
+
+Implication: No single fixed-weight pooling strategy will always preserve justification.
+
+# Group Responsibility
+
+## A New Dimension
+
+So far: Groups' epistemic rationality (beliefs aimed at truth and justification)
+
+Now: Groups' **practical rationality** and **moral responsibility**
+
+. . .
+
+Key question: When are groups answerable for their opinions and actions?
+
+## Why Responsibility Matters for Pooling
+
+Groups make decisions that have consequences:
+
+::: {.incremental}
+- Corporate boards → business decisions → economic impacts
+- Expert panels → policy recommendations → social impacts
+- Research teams → scientific claims → public trust
+- Medical committees → treatment guidelines → health outcomes
+:::
+
+. . .
+
+The pooling method affects who is responsible for what.
+
+## Two Kinds of Group Responsibility
+
+Philosophers distinguish:
+
+::: {.nonincremental}
+1. **Backward-looking**: Blame/praise for past actions
+2. **Forward-looking**: Obligations for future actions
+:::
+
+. . .
+
+Both connect to pooling strategies!
+
+## Backward-Looking Responsibility
+
+When a group takes an action based on pooled credences, who is responsible if things go wrong?
+
+::: {.incremental}
+- The group as a whole?
+- Individual members proportionally?
+- Those who most influenced the pooled credence?
+- Those who should have known better?
+:::
+
+## The Equal Weight View and Responsibility
+
+If we adopt equal weight pooling:
+
+::: {.incremental}
+- Each member contributes equally to group credence
+- Suggests equal responsibility
+- But: What if some members were better informed?
+- Seems to ignore epistemic asymmetries
+:::
+
+## Weighted Pooling and Responsibility
+
+If we use weighted pooling (unequal weights):
+
+::: {.incremental}
+- Those with higher weights bear more responsibility
+- Makes sense if weights track expertise or evidence
+- But: How to justify the weights?
+- Who decides who gets more influence?
+:::
+
+## The Practical Constraint
+
+Here's a key insight: Choosing a pooling strategy is itself a group decision.
+
+. . .
+
+Implication:
+
+::: {.incremental}
+- Groups are responsible for *how* they pool opinions
+- Not just *what* pooled credences they adopt
+- The method matters morally, not just epistemically
+- Bad pooling methods can lead to unjust distributions of responsibility
+:::
+
+## Forward-Looking Responsibility
+
+Groups have obligations to:
+
+::: {.incremental}
+- Minimize predictable harms from their decisions
+- Use reliable information processing methods
+- Avoid systematic biases
+- Be responsive to new evidence
+- Act with appropriate care given stakes
+:::
+
+. . .
+
+The pooling strategy should support these obligations.
+
+## Pragmatic Desiderata for Pooling
+
+From a responsibility perspective, pooling strategies should:
+
+::: {.incremental}
+- Prevent the group from making decisions they'll regret
+- Avoid wasting resources (money, time, opportunities)
+- Respect member autonomy and agency
+- Allow for appropriate deliberation and revision
+- Be transparent and justifiable to members and outsiders
+:::
+
+## Connection to Practical Rationality
+
+We'll see later (Section 6) that several pooling axioms have pragmatic justifications:
+
+::: {.nonincremental}
+- **No Regrets**: Groups shouldn't systematically buy and sell bets at prices that guarantee loss
+- **Ex Ante Pareto**: Pooled credences shouldn't make everyone worse off than alternatives
+- **Deference**: If members would defer to each other, pooling should respect this
+:::
+
+. . .
+
+These aren't just mathematical niceties - they're responsibility constraints!
+
+## The Distributed Responsibility Problem
+
+Special challenge for groups:
+
+::: {.incremental}
+- Individual members might each act reasonably
+- But collective outcome might be irrational or harmful
+- Who is responsible then?
+- The group? Each member? No one?
+:::
+
+. . .
+
+Example: Committee where each member rationally gives different weights to evidence, but pooled result is catastrophic.
+
+## Pooling as a Commitment Device
+
+Choosing a pooling strategy commits the group:
+
+::: {.incremental}
+- To treating members' inputs in a certain way
+- To accepting certain kinds of outcomes
+- To distributing responsibility in a particular manner
+- To respecting (or not) certain procedural values
+:::
+
+. . .
+
+This is why the choice of pooling strategy is itself ethically significant.
+
+## Implications for Strategy Selection
+
+Different contexts might demand different pooling approaches:
+
+::: {.incremental}
+- **High-stakes medical decisions**: Conservative strategies that respect expertise
+- **Democratic deliberation**: Strategies that give equal voice
+- **Scientific consensus**: Strategies sensitive to track records
+- **Emergency response**: Strategies that allow quick updating
+:::
+
+## Summary: The Big Picture
+
+Group rationality and responsibility converge on pooling:
+
+::: {.nonincremental}
+1. **Epistemic**: Pooling should preserve justification and track truth
+2. **Practical**: Pooling should enable effective action
+3. **Moral**: Pooling should distribute responsibility fairly
+:::
+
+. . .
+
+No pooling strategy is perfect for all purposes!
+
+## Next Steps
+
+In the coming weeks, we'll examine:
+
+::: {.nonincremental}
+- Formal axioms for pooling (Section 3)
+- Specific pooling strategies (Section 4)
+- Accuracy-based arguments for strategies (Section 5)
+- Pragmatic arguments from practical rationality (Section 6)
+:::
+
+. . .
+
+Keep today's philosophical motivations in mind as we evaluate the formal approaches.
+
+# Discussion Questions
+
+## For Reflection
+
+::: {.nonincremental}
+1. Should epistemic peers always use equal-weight pooling?
+2. Can a group be justified in a belief if no member is individually justified?
+3. When a group makes a bad decision based on pooled credences, who is responsible?
+4. Should pooling strategies differ in high-stakes vs. low-stakes contexts?
+:::
