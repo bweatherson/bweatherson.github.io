@@ -1,3 +1,4 @@
 /.quarto/
 **/*.quarto_ipynb
 /textbooks
+.DS_Store
