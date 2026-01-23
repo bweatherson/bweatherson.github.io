@@ -1,6 +1,6 @@
 ---
 title: "Opinion Pooling II: Group Rationality and Responsibility"
-date: 2/9/2026
+date: 2/4/2026
 format:
     revealjs: default
     beamer: default
@@ -184,146 +184,127 @@ For Elkin and Pettigrew, this motivates examining which pooling axioms preserve 
 
 ## Evidence and Pooling
 
-Consider this intuition: A group's belief should be responsive to its total evidence.
+Let's assume that a group's beliefs should be responsive to its evidence. That seems like part of what justification is.
 
-. . .
-
-**Question**: When members have the same evidence but different credences, what should the group believe?
+That raises a question: when members have the same evidence but different credences, what should the group believe?
 
 ::: {.incremental}
-- If uniqueness holds: At most one credence is justified by the evidence
-- Problem: Pooling might not select the justified credence!
-- If permissivism holds: Multiple credences might be justified
-- Pooling might reasonably yield any of them
+- If uniqueness holds then most one credence is justified by the evidence.
+- It's really unlikely that pooling will yield it. And if it does, it will do so kinda by chance, since some of the inputs will be irrational.
+- If permissivism holds, then pooling could yield any of them, and actually it's not clear why it should pick one or the other.
 :::
 
 ## The Weight of Evidence
 
 Some pooling strategies are more evidence-sensitive than others.
 
-Example considerations:
+Just adding up the numbers and dividing by n is not evidence sensitive. But we could do some other options, such as:
 
 ::: {.incremental}
-- Should experts get more weight? (Evidence of expertise)
-- Should track records matter? (Evidence of reliability)
-- Should we discount outliers? (Evidence of error)
-- How do we incorporate shared vs. individual evidence?
+- Giving experts more weight.
+- Giving people with better track-records more weight. (Not always the same thing as experts.)
+- Discounting outliers. (Note this is something we do after hearing the numbers.)
 :::
 
 . . .
 
-These are both **epistemic** and **practical** questions.
-
-## Connecting to Peer Disagreement
-
-Recall the total evidence view and justificationist view:
-
-- Sometimes first-order evidence should dominate
-- Sometimes higher-order evidence (the disagreement itself) should matter more
-- The relative weight depends on the specific case
-
-. . .
-
-Implication: No single fixed-weight pooling strategy will always preserve justification.
+These are both **epistemic** and **practical** questions about how and when to do this.
 
 # Group Responsibility
 
 ## A New Dimension
 
-So far: Groups' epistemic rationality (beliefs aimed at truth and justification)
+The previous discussion was about what groups believed, and whether those beliefs were *epistemically rational*.
 
-Now: Groups' **practical rationality** and **moral responsibility**
+Now we'll move onto whether groups are *practically rational*, and to the conditions for groups being *morally responsible*.
 
 . . .
 
-Key question: When are groups answerable for their opinions and actions?
+The key question is when groups are answerable for their opinions and actions.
 
 ## Why Responsibility Matters for Pooling
 
 Groups make decisions that have consequences:
 
 ::: {.incremental}
-- Corporate boards → business decisions → economic impacts
-- Expert panels → policy recommendations → social impacts
-- Research teams → scientific claims → public trust
-- Medical committees → treatment guidelines → health outcomes
+- Corporate boards make business decisions which have economic impacts, and of course impacts on individuals.
+- Expert panels make policy recommendations that have social impacts.
+- Research teams make scientific claims which either leads people to change their behavior or, in bad cases, to lose trust in science.
+- Medical committees issue treatment guidelines that affect health outcomes.
 :::
 
 . . .
 
 The pooling method affects who is responsible for what.
 
+## Groups and Individuals
+
+When we are lookng at when individuals are responsible for various actions, we put a lot of emphasis on belief, and on reasonable belief.
+
+If I leave a door open, and this leads to a disaster, whether I'm responsible depends in part on whether I knew, or perhaps should have known, that a disaster was likely.
+
+It would be very convenient if we could apply the same kind of rules of responsibility to groups, since these are very well worked out for individuals.
+
 ## Two Kinds of Group Responsibility
 
-Philosophers distinguish:
+Philosophers distinguish two kinds of responsibility.
 
 ::: {.nonincremental}
-1. **Backward-looking**: Blame/praise for past actions
-2. **Forward-looking**: Obligations for future actions
+1. **Backward-looking responsibility** is things like blame/praise for past actions. Rewards and punishment fit this.
+2. **Forward-looking responsibility** is things like obligations to perform future actions.
 :::
 
 . . .
 
-Both connect to pooling strategies!
+Pooling strategies might be relevant to both.
 
 ## Backward-Looking Responsibility
 
-When a group takes an action based on pooled credences, who is responsible if things go wrong?
+When a group takes an action based on pooled credences, who is responsible if things go wrong? Any of the following might be plausible answers:
 
 ::: {.incremental}
-- The group as a whole?
-- Individual members proportionally?
-- Those who most influenced the pooled credence?
-- Those who should have known better?
+- The group as a whole;
+- Individual members proportionally;
+- Those who most influenced the pooled credence; or
+- Those who should have known better.
 :::
 
 ## The Equal Weight View and Responsibility
 
-If we adopt equal weight pooling:
+If we adopt equal weight pooling each member contributes equally to group credence, which suggests equal responsibility.
 
-::: {.incremental}
-- Each member contributes equally to group credence
-- Suggests equal responsibility
-- But: What if some members were better informed?
-- Seems to ignore epistemic asymmetries
-:::
+But what should we say if some members were better informed, and their credences didn't reflect the evidence. Shouldn't responsibility for bad judgments go to them.
+
+This approach ignores epistemic asymmetries.
 
 ## Weighted Pooling and Responsibility
 
-If we use weighted pooling (unequal weights):
+If we use weighted pooling, then intuitively those with higher weights bear more responsibility.
 
-::: {.incremental}
-- Those with higher weights bear more responsibility
-- Makes sense if weights track expertise or evidence
-- But: How to justify the weights?
-- Who decides who gets more influence?
-:::
+This makes sense if weights track expertise or evidence.
+
+But maybe responsibility should go to the person who gave them more weight.
 
 ## The Practical Constraint
 
-Here's a key insight: Choosing a pooling strategy is itself a group decision.
-
-. . .
-
-Implication:
+Any of you who have been part of a group decision will know that the choice of decision rule is subject to the same pressures as the decision itself. Here are some conclusions you might draw from this:
 
 ::: {.incremental}
-- Groups are responsible for *how* they pool opinions
-- Not just *what* pooled credences they adopt
-- The method matters morally, not just epistemically
-- Bad pooling methods can lead to unjust distributions of responsibility
+- Groups are responsible for *how* they pool opinions, not just *what* pooled credences they adopt.
+- The method they adopt matters morally, not just epistemically.
+- And maybe, though this is trickier, bad pooling methods can lead to unjust distributions of responsibility.
 :::
 
 ## Forward-Looking Responsibility
 
-Groups have obligations to:
+Here are some obligations you might think any group with a moderate amount of power has:
 
 ::: {.incremental}
-- Minimize predictable harms from their decisions
-- Use reliable information processing methods
-- Avoid systematic biases
-- Be responsive to new evidence
-- Act with appropriate care given stakes
+- To minimize predictable harms from their decisions;
+- To use reliable information processing methods;
+- To avoid systematic biases (which is related to the last point, but isn't the same);
+- To be responsive to new evidence; and
+- To act with appropriate care given stakes.
 :::
 
 . . .
@@ -332,107 +313,43 @@ The pooling strategy should support these obligations.
 
 ## Pragmatic Desiderata for Pooling
 
-From a responsibility perspective, pooling strategies should:
+A responsibile pooling strategy should do some, ideally all, of the following things. (In any discussion of pooling, when someone says you should do all the following things, expect an impossibility theorem to follow. Maybe this won't happen here.)
 
 ::: {.incremental}
-- Prevent the group from making decisions they'll regret
-- Avoid wasting resources (money, time, opportunities)
-- Respect member autonomy and agency
-- Allow for appropriate deliberation and revision
-- Be transparent and justifiable to members and outsiders
+- Prevent the group from making decisions they'll regret.
+- Avoid wasting resources, including time spent on deliberation.
+- Respect the agency and autonomy of the group members.
+- Allow for appropriate deliberation and revision of beliefs.
+- Be transparent and justifiable to members and outsiders. (This has become particularly important with LLMs.)
 :::
-
-## Connection to Practical Rationality
-
-We'll see later (Section 6) that several pooling axioms have pragmatic justifications:
-
-::: {.nonincremental}
-- **No Regrets**: Groups shouldn't systematically buy and sell bets at prices that guarantee loss
-- **Ex Ante Pareto**: Pooled credences shouldn't make everyone worse off than alternatives
-- **Deference**: If members would defer to each other, pooling should respect this
-:::
-
-. . .
-
-These aren't just mathematical niceties - they're responsibility constraints!
 
 ## The Distributed Responsibility Problem
 
-Special challenge for groups:
+Sometimes groups face issues that individuals don't.
 
 ::: {.incremental}
-- Individual members might each act reasonably
-- But collective outcome might be irrational or harmful
-- Who is responsible then?
-- The group? Each member? No one?
+- Reasonable individuals might lead to unreasonable, irrational, or harmful outcomes.
+- We'll see a striking example of that when we get to Schelling.
+- Who is responsible when that happens? The group? Each member? No one?
 :::
-
-. . .
-
-Example: Committee where each member rationally gives different weights to evidence, but pooled result is catastrophic.
 
 ## Pooling as a Commitment Device
 
-Choosing a pooling strategy commits the group:
+Choosing a pooling strategy before the decision is made, and indeed before the credences are known, commits the group to substantive and procedural constraints.
 
-::: {.incremental}
-- To treating members' inputs in a certain way
-- To accepting certain kinds of outcomes
-- To distributing responsibility in a particular manner
-- To respecting (or not) certain procedural values
-:::
-
-. . .
-
-This is why the choice of pooling strategy is itself ethically significant.
+These could have moral as well as epistemic justification.
 
 ## Implications for Strategy Selection
 
-Different contexts might demand different pooling approaches:
+We should not assume that the same pooling strategy is right, even when just thinking about moral responsibility, for every context. Different contexts might demand different pooling approaches:
 
 ::: {.incremental}
-- **High-stakes medical decisions**: Conservative strategies that respect expertise
-- **Democratic deliberation**: Strategies that give equal voice
-- **Scientific consensus**: Strategies sensitive to track records
-- **Emergency response**: Strategies that allow quick updating
+- **High-stakes medical decisions** arguably should use conservative strategies that respect expertise.
+- **Democratic deliberation** should give everyone equal voice.
+- **Scientific advice** should be sensitive to track-records. 
+- **Emergency response** should use strategies that are not computationally intensive, and can be applied quickly.
 :::
 
-## Summary: The Big Picture
+## For Next Time
 
-Group rationality and responsibility converge on pooling:
-
-::: {.nonincremental}
-1. **Epistemic**: Pooling should preserve justification and track truth
-2. **Practical**: Pooling should enable effective action
-3. **Moral**: Pooling should distribute responsibility fairly
-:::
-
-. . .
-
-No pooling strategy is perfect for all purposes!
-
-## Next Steps
-
-In the coming weeks, we'll examine:
-
-::: {.nonincremental}
-- Formal axioms for pooling (Section 3)
-- Specific pooling strategies (Section 4)
-- Accuracy-based arguments for strategies (Section 5)
-- Pragmatic arguments from practical rationality (Section 6)
-:::
-
-. . .
-
-Keep today's philosophical motivations in mind as we evaluate the formal approaches.
-
-# Discussion Questions
-
-## For Reflection
-
-::: {.nonincremental}
-1. Should epistemic peers always use equal-weight pooling?
-2. Can a group be justified in a belief if no member is individually justified?
-3. When a group makes a bad decision based on pooled credences, who is responsible?
-4. Should pooling strategies differ in high-stakes vs. low-stakes contexts?
-:::
+We'll move on to looking at mathematical properties of different pooling strategies.
