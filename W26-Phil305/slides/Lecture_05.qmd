@@ -10,6 +10,68 @@ format:
         include-in-header: 305-beamer-header-minimal.tex
 ---
 
+# Quiz Review
+
+## Overview
+
+The quiz went pretty well, and only one question had less than 90% correct answers. So I'll go over that question in the slides, but I'm happy to talk about any of the others.
+
+- $P \vee Q$
+- $\neg P$  
+- Therefore, $Q$
+
+We needed to identify the correct truth table and determine if the argument is valid.
+
+## The Correct Answer
+
+The correct truth table is:
+
+| P | Q | P v Q | ¬P | Q |
+|---|---|-------|----|----|
+| T | T | T | F | T |
+| T | F | T | F | F |
+| F | T | T | T | T |
+| F | F | F | T | F |
+
+And the argument **is valid**.
+
+## Error 1: Saying It's Invalid
+
+Some people chose the first option - the correct truth table but claiming the argument is invalid.
+
+To check for validity we have to look at every row where **both premises** are true.
+
+- In those rows, is the conclusion also true?
+- If yes in every case, the argument is valid
+
+## Error 1: Why It's Valid
+
+Let's check the rows where both premises are true:
+
+| P | Q | P v Q | ¬P | Q | Both premises true? |
+|---|---|-------|----|----|---------------------|
+| T | T | T | F | T | No (¬P is false) |
+| T | F | T | F | F | No (¬P is false) |
+| F | T | **T** | **T** | **T** | **Yes** |
+| F | F | F | T | F | No (P v Q is false) |
+
+Only row 3 has both premises true, and in that row the conclusion Q is also true.
+
+Therefore, the argument is **valid**.
+
+## Error 2: Wrong Truth Table for $P \vee Q$
+
+Some people chose the last option, which had this truth table:
+
+| P | Q | P v Q | ¬P | Q |
+|---|---|-------|----|----|
+| T | T | T | F | T |
+| T | F | **F** | F | F |
+| F | T | T | T | T |
+| F | F | F | T | F |
+
+The error is in row 2: when P is true and Q is false, $P \vee Q$ should be **true**, not false.
+
 # Introducing Trees
 
 ## Overview
