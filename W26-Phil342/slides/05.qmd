@@ -2,7 +2,8 @@
 title: "The Impossibility of a Paretian Liberal"
 date: 1/26/2026
 format:
-    revealjs: default
+    revealjs:
+        incremental: false
     beamer: default
 ---
 
@@ -99,7 +100,7 @@ Sen also considers an even weaker condition:
 
 **Condition L\* (Minimal Liberalism)**: There are at least two individuals such that for each of them there is at least one pair of alternatives over which they are decisive.
 
-Even this minimal condition—giving just two people control over one personal choice each—leads to impossibility.
+Even this minimal condition—giving just two people control over one personal choice each **in one situation**—leads to impossibility.
 
 # Sen's Impossibility Theorem
 
@@ -149,7 +150,7 @@ His preference ordering is: **z > x > y**
 
 - Most preferred: No one reads it (z)
 - Second: He reads it himself (x) 
-- Least preferred: Person 2 reads it (y)
+- Least preferred: Individual 2 reads it (y)
 
 Why does he prefer x to y? "Prudes, I am told, tend to prefer to be censors rather than being censored."
 
@@ -159,7 +160,7 @@ Individual 2 wants someone to read the book.
 
 His preference ordering is: **x > y > z**
 
-- Most preferred: Person 1 reads it (x)
+- Most preferred: Individual 1 reads it (x)
 - Second: He reads it himself (y)
 - Least preferred: No one reads it (z)
 
@@ -351,11 +352,11 @@ This is the most fundamental problem.
 
 Even if:
 
-- The contract is legitimate
-- People want the outcome  
-- They accept contractual means
+1. The contract is legitimate;
+2. Both parties want the outcome; and
+3. Both parties accept that the contract is valid:
 
-**The incentive to break the contract remains!**
+They still both have an incentive to break the contract.
 
 ## The Core of the Problem
 
