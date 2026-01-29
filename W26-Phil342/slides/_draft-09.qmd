@@ -13,8 +13,7 @@ format:
 Last time we discussed:
 
 - Formal axioms for pooling strategies.
-- Trade-offs between desirable properties.
-- The impossibility landscape.
+- Which combinations of them are impossible.
 
 . . .
 
@@ -32,7 +31,7 @@ Today: The most intuitive pooling strategy—**linear pooling**—and why commut
 
 . . .
 
-Formally: $P_G(A) = w_1 P_1(A) + w_2 P_2(A) + ... + w_n P_n(A)$
+Formally: $Pr_G(A) = w_1 Pr_1(A) + w_2 Pr_2(A) + ... + w_n Pr_n(A)$
 
 where the weights satisfy: $w_i \geq 0$ and $\sum_i w_i = 1$.
 
@@ -50,7 +49,7 @@ Three epidemiologists estimate the probability of polio eradication by 2030:
 
 **Equal weighting** (each gets $w = 1/3$):
 
-$P_G = \frac{1}{3}(0.20) + \frac{1}{3}(0.60) + \frac{1}{3}(0.70) = 0.50$
+$Pr_G = \frac{1}{3}(0.20) + \frac{1}{3}(0.60) + \frac{1}{3}(0.70) = 0.50$
 
 ## Unequal Weights
 
@@ -64,7 +63,7 @@ Suppose Bon is the senior researcher, so we give her more weight:
 
 . . .
 
-Then: $P_G = 0.2(0.20) + 0.5(0.60) + 0.3(0.70) = 0.55$
+Then: $Pr_G = 0.2(0.20) + 0.5(0.60) + 0.3(0.70) = 0.55$
 
 . . .
 
@@ -75,8 +74,7 @@ The group credence shifts toward the more heavily weighted expert.
 It's the most natural aggregation method:
 
 ::: {.incremental}
-- Easy to understand and compute.
-- Used everywhere: averaging test scores, combining forecasts, polling data.
+- Really easy to understand, and to use. It's what you'd use by default.
 - Respects the idea of "compromise"—everyone's opinion counts.
 - Can flexibly accommodate different weights for different people.
 :::
@@ -103,9 +101,9 @@ These all follow straightforwardly from the weighted average structure.
 
 ## Unanimity
 
-If $P_i(A) = x$ for all $i$, then:
+If $Pr_i(A) = x$ for all $i$, then:
 
-$$P_G(A) = w_1 \cdot x + w_2 \cdot x + ... + w_n \cdot x$$
+$$Pr_G(A) = w_1 \cdot x + w_2 \cdot x + ... + w_n \cdot x$$
 
 $$= x(w_1 + w_2 + ... + w_n)$$
 
@@ -119,9 +117,9 @@ The weights sum to 1, so we get back the unanimous value.
 
 Suppose the minimum credence is $m$ and the maximum is $M$.
 
-Since each $P_i(A)$ is between $m$ and $M$:
+Since each $Pr_i(A)$ is between $m$ and $M$:
 
-$$P_G(A) = \sum_i w_i P_i(A)$$
+$$Pr_G(A) = \sum_i w_i Pr_i(A)$$
 
 . . .
 
@@ -131,7 +129,7 @@ Because the weights are non-negative and sum to 1, this is a **convex combinatio
 
 Convex combinations always lie within the range of the values being combined.
 
-So: $m \leq P_G(A) \leq M$.
+So: $m \leq Pr_G(A) \leq M$.
 
 ## Eventwise Independence
 
@@ -143,9 +141,9 @@ Recall: The group credence in $A$ should depend only on individual credences in 
 
 . . .
 
-For linear pooling: $P_G(A) = \sum_i w_i P_i(A)$
+For linear pooling: $Pr_G(A) = \sum_i w_i Pr_i(A)$
 
-This formula only uses $P_1(A), P_2(A), ..., P_n(A)$.
+This formula only uses $Pr_1(A), Pr_2(A), ..., Pr_n(A)$.
 
 . . .
 
@@ -167,31 +165,6 @@ Here's the striking fact: These two properties **uniquely characterize** linear 
 
 A pooling function satisfies both unanimity preservation and eventwise independence **if and only if** it is linear pooling.
 
-## What This Means
-
-If you want both properties, you **must** use linear pooling—there's no alternative.
-
-::: {.incremental}
-- Not geometric pooling.
-- Not multiplicative pooling.
-- Not any other method.
-- Linear pooling is the unique solution.
-:::
-
-. . .
-
-This makes linear pooling mathematically special.
-
-## Why This Matters
-
-The characterization theorem tells us something important:
-
-::: {.incremental}
-- If you value unanimity and eventwise independence, your hands are tied.
-- You can't tinker with the formula to get something different.
-- Linear pooling isn't just *a* method satisfying these axioms—it's the *only* method.
-:::
-
 . . .
 
 This raises the stakes for our next question...
@@ -201,7 +174,7 @@ This raises the stakes for our next question...
 We've established:
 
 ::: {.nonincremental}
-- Linear pooling ⟺ Unanimity + Eventwise Independence
+- Linear pooling $\leftrightarrow$ Unanimity + Eventwise Independence
 :::
 
 . . .
@@ -218,15 +191,11 @@ But we also want:
 
 . . .
 
-Spoiler: No. Let's see why.
+No. Let's work through an example to see why.
 
 # The Problem: Commutativity
 
 ## Pooling and Learning
-
-Here's where things get interesting—and problematic.
-
-. . .
 
 Groups don't just form opinions once. They also **update** those opinions in light of new evidence.
 
@@ -272,7 +241,7 @@ This is the property called **commutativity** or **external Bayesianity**.
 
 A pooling function satisfies **external Bayesianity** if:
 
-$$F(P_1(\cdot|E), ..., P_n(\cdot|E)) = F(P_1, ..., P_n)(\cdot|E)$$
+$$F(Pr_1(\cdot|E), ..., Pr_n(\cdot|E)) = F(Pr_1, ..., Pr_n)(\cdot|E)$$
 
 for all evidence $E$.
 
@@ -290,113 +259,85 @@ Right side: Pool first, then update.
 
 Let's check with a simple example.
 
-Two people, two states: $\omega_1, \omega_2$.
+There are two people, called them 1 and 2. And there are two propositions, $A$ and $B$.
 
-Prior credences:
-- $P_1(\omega_1) = 0.4$, so $P_1(\omega_2) = 0.6$
-- $P_2(\omega_1) = 0.6$, so $P_2(\omega_2) = 0.4$
+Both of them agree that $A$ and $B$ are independent.
 
-Equal weights: $w_1 = w_2 = 0.5$.
+## Person 1
 
-## Evidence Arrives
+Both $A$ and $B$ are really likely.
 
-They both observe evidence $E$. Suppose:
+- $Pr_1(A) = Pr_1(B) = 0.9$, so by the independence assumption
+- $Pr_1(A \wedge B) = 0.81$, and by the rules for negation
+- $Pr_1(\neg A) = Pr_1(\neg B) = 0.1$, then applying independence a few times,
+- $Pr_1(A \wedge \neg B) = Pr_1(\neg A \wedge B) = 0.09$
+- $Pr_1(\neg A \wedge \neg B) = 0.01$
 
-- $P_1(E|\omega_1) = 0.8$, $P_1(E|\omega_2) = 0.4$
-- $P_2(E|\omega_1) = 0.8$, $P_2(E|\omega_2) = 0.4$
+## Person 2
 
-(They agree on the likelihoods.)
+Both $A$ and $B$ are really likely.
 
-. . .
+- $Pr_2(A) = Pr_2(B) = 0.1$, so by the independence assumption
+- $Pr_2(A \wedge B) = 0.01$, and by the rules for negation
+- $Pr_2(\neg A) = Pr_1(\neg B) = 0.9$, then applying independence a few times,
+- $Pr_2(A \wedge \neg B) = Pr_2(\neg A \wedge B) = 0.09$
+- $Pr_2(\neg A \wedge \neg B) = 0.81$
 
-Each person updates using Bayes' rule:
+## Equal Weight Pooling
 
-$$P_i(\omega_j|E) = \frac{P_i(\omega_j) \cdot P_i(E|\omega_j)}{P_i(E)}$$
+So pre-update for the group we get
 
-## Person 1's Update
-
-For Person 1:
-
-$P_1(E) = P_1(E|\omega_1)P_1(\omega_1) + P_1(E|\omega_2)P_1(\omega_2)$
-
-$= 0.8 \times 0.4 + 0.4 \times 0.6 = 0.32 + 0.24 = 0.56$
-
-. . .
-
-Then:
-
-$P_1(\omega_1|E) = \frac{0.8 \times 0.4}{0.56} = \frac{0.32}{0.56} = 0.571$
-
-$P_1(\omega_2|E) = \frac{0.4 \times 0.6}{0.56} = \frac{0.24}{0.56} = 0.429$
-
-## Person 2's Update
-
-For Person 2:
-
-$P_2(E) = 0.8 \times 0.6 + 0.4 \times 0.4 = 0.48 + 0.16 = 0.64$
+- $Pr_G(A \wedge B) = 0.41$, because that's (0.81 + 0.01)/2,
+- $Pr_G(\neg A \wedge \neg B) = 0.41$, because that's (0.01 + 0.81)/2,
+- $Pr_G(A \wedge \neg B) = Pr_G(\neg B \wedge A) = 0.09$, because they agree on this.
 
 . . .
 
-Then:
+Putting this into the rules for conditional probability, we get:
 
-$P_2(\omega_1|E) = \frac{0.8 \times 0.6}{0.64} = \frac{0.48}{0.64} = 0.75$
+- $Pr_G(A | B) = 0.82, because $Pr_G(A \wedge B) = 0.41$, and $Pr_G(B) = 0.5$.
 
-$P_2(\omega_2|E) = \frac{0.4 \times 0.4}{0.64} = \frac{0.16}{0.64} = 0.25$
+## Updating
 
-## Procedure 1: Pool First, Then Update
+Let's say that they are going to run an experiment on whether $B$ is true. Neither of them actually care, because they both think it's independent, but they've been told to run it so they will.
 
-**Step 1**: Pool the priors (equal weights):
+Now we have two options for pooling.
 
-$P_G(\omega_1) = 0.5 \times 0.4 + 0.5 \times 0.6 = 0.5$
-
-$P_G(\omega_2) = 0.5$
-
-. . .
-
-**Step 2**: Calculate $P_G(E)$:
-
-$P_G(E) = P_G(E|\omega_1)P_G(\omega_1) + P_G(E|\omega_2)P_G(\omega_2)$
-
-Since they agree on likelihoods: $P_G(E|\omega_j) = 0.8$ and $0.4$
-
-$P_G(E) = 0.8 \times 0.5 + 0.4 \times 0.5 = 0.6$
-
-## Procedure 1: Continued
-
-**Step 3**: Update the pooled prior:
-
-$P_G(\omega_1|E) = \frac{P_G(E|\omega_1) P_G(\omega_1)}{P_G(E)} = \frac{0.8 \times 0.5}{0.6} = \frac{0.4}{0.6} = 0.667$
-
-$P_G(\omega_2|E) = \frac{0.4 \times 0.5}{0.6} = \frac{0.2}{0.6} = 0.333$
-
-## Procedure 2: Update First, Then Pool
-
-We already calculated the individual posteriors:
-
-- $P_1(\omega_1|E) = 0.571$, $P_1(\omega_2|E) = 0.429$
-- $P_2(\omega_1|E) = 0.75$, $P_2(\omega_2|E) = 0.25$
+1. Pool-then-update.
+2. Update-then-pool.
 
 . . .
 
-**Now pool** (equal weights):
+Do they lead to the same result?
 
-$P_G(\omega_1|E) = 0.5 \times 0.571 + 0.5 \times 0.75 = 0.286 + 0.375 = 0.661$
+Let's assume that the result of the experiment is $B$ is true; it will go the same way when $B$ is false.
 
-$P_G(\omega_2|E) = 0.5 \times 0.429 + 0.5 \times 0.25 = 0.339$
+## Pool-Then-Update
 
-## Comparing the Results
+First, we work out $Pr_G$ pre-update, as above.
 
-**Procedure 1** (pool then update):
-- $P_G(\omega_1|E) = 0.667$
+Then the post-update, $Pr_G(A)$ is the value of $Pr_G(A | B)$ pre-update.
 
-**Procedure 2** (update then pool):
-- $P_G(\omega_1|E) = 0.661$
+That is, the post-update value of $Pr_G(A) = 0.82$.
+
+## Update-Then-Pool
+
+Both of 1 and 2 think $A$ and $B$ are independent. So they don't change their mind about $A$ when learning $B$.
+
+So post-update we have:
+
+- $Pr_1(A) = 0.9$, just like pre-update, and
+- $Pr_2(A) = 0.1$, also just like pre-update.
 
 . . .
 
-They're different! (The difference is small here, but it's there.)
+And then post-update $Pr_G(A) = 0.5$. Which is a very different number to 0.82.
 
-. . .
+## Generalisaing
+
+That is a very unrealistic example, but the general pattern obtains.
+
+In realistic cases, the two procedures differ by a small amount, but it turns out they almost always differ.
 
 **Linear pooling violates external Bayesianity.**
 
@@ -414,7 +355,7 @@ If the order matters, then the group's final opinion depends on **meeting logist
 
 . . .
 
-That seems problematic.
+That seems weird.
 
 ## The Manipulation Problem
 
@@ -432,7 +373,7 @@ Suppose you're chairing a committee and you prefer Procedure 1's result.
 
 ## A Deeper Issue: What Is the Group Learning From?
 
-When individuals update on $E$, they're conditioning on $E$.
+When individuals update on some evidence $E$, they're conditioning on $E$.
 
 . . .
 
@@ -447,24 +388,6 @@ But when the pooled credence updates on $E$, what exactly is the group learning 
 . . .
 
 This is why the procedures can diverge.
-
-## Raiffa's Example
-
-Howard Raiffa (1968) gave a striking example of external Bayesianity failure.
-
-. . .
-
-Imagine a group uses a pooling function that violates external Bayesianity.
-
-::: {.incremental}
-- An outsider observes the group's behavior.
-- The outsider sees the group make decisions that violate Bayesian rationality.
-- The group appears irrational, even though every individual is perfectly rational.
-:::
-
-. . .
-
-The failure to commute makes the group look like a *bad Bayesian*.
 
 ## Why Linear Pooling Fails
 
@@ -481,23 +404,13 @@ When you average probabilities, you're **not** averaging the underlying evidence
 - So updating the average is not the same as averaging the updates.
 :::
 
-## A Geometric Intuition
+## An Intuition
 
-Think of each person's credence function as a point in probability space.
+Part of what happens here is that pool-then-update implicitly builds in a judgment of the expertise of the people involved.
 
-. . .
+When they learn $B$, that implies 1 was mostly right about $A$ and 2 was mostly wrong. So in future 1 gets more weight.
 
-**Linear pooling**: Find the center of mass (weighted average).
-
-**Bayesian updating**: Move each point according to the evidence.
-
-. . .
-
-**The problem**: The center of mass of the moved points is not generally the moved center of mass.
-
-. . .
-
-Averaging and updating don't commute *geometrically*.
+That doesn't resolve the tension. And it's a big increase in weight for getting one unrelated question right.
 
 # What Can We Do About This?
 
@@ -532,7 +445,7 @@ In particular: **Geometric pooling** (and more generally, **multiplicative pooli
 
 . . .
 
-We'll explore this in a future lecture.
+We'll explore this next week.
 
 ## Option 3: Rethink What We're Pooling
 
@@ -541,31 +454,12 @@ Maybe the problem is that we're pooling the wrong thing.
 ::: {.incremental}
 - Instead of pooling probabilities, pool **likelihood ratios**.
 - Or pool **log-odds**.
-- Or pool **evidence** rather than opinions.
+- Or pool **evidence** rather than opinions. (This is what I think we should do in theory, but it's both hard and impractical.)
 :::
 
 . . .
 
 Different choices lead to different pooling methods, with different properties.
-
-## Option 4: Sequential Consultation
-
-Another approach: Don't pool all at once.
-
-. . .
-
-**Idea**: Consult people sequentially, updating as you go.
-
-::: {.incremental}
-- Start with some prior.
-- Learn person 1's opinion, update on that.
-- Learn person 2's opinion, update on that.
-- Continue until you've consulted everyone.
-:::
-
-. . .
-
-This is related to methods like **Jeffrey pooling** (Pettigrew & Weisberg, 2025).
 
 ## The Trade-Off
 
@@ -702,7 +596,3 @@ We'll explore alternatives to linear pooling:
 - How these methods handle commutativity.
 - What other trade-offs they involve.
 :::
-
-. . .
-
-The quest for the perfect pooling method continues...

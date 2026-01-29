@@ -13,36 +13,68 @@ format:
 Last time we discussed:
 
 - Group rationality and justified group belief.
-- Different accounts: inflationary vs. deflationary.
+- Inflationary vs. deflationary accounts
 - Group responsibility and its connection to pooling.
 
 . . .
 
 Today: What formal properties should pooling functions satisfy? What are the trade-offs?
 
-## Moving from Concepts to Formalism
+## Moving from Concepts to Models
 
-We've seen philosophical motivations for pooling.
-
-Now we need to get more precise about what makes a pooling strategy good.
-
-. . .
-
-This is where the **axiomatic approach** comes in.
+What makes a pooling strategy good. Elkin and Pettigrew use what they call an  **axiomatic approach**.
 
 ::: {.incremental}
 - Axioms are desirable formal properties we want pooling functions to satisfy.
+- We've seen this before with Arrow; axioms are things like No Dictators, or Pareto-optimality.
 - Different axioms capture different intuitions about what pooling should do.
-- No pooling strategy satisfies all desirable axioms (impossibility results ahead!).
+- Will there be some impossibility results incoming?
+- Yes, of course there will, there always are around here.
 :::
 
 ## The Setup
 
 A pooling function takes individual credences and outputs a group credence.
 
+A credence function measures how confident each person is in each proposition.
+
+The values are between 0 and 1, with higher numbers representing greater confidence.
+
+There are lots of arguments that credence functions should be **probability functions**. These arguments are not entirely uncontroversial, but they are very widely accepted, especially outside philosophy, and we will accept them here.
+
+## Probability
+
+A function $Pr$ is a probability function (as we're understanding them - this isn't exactly how mathematicians would understand them), satisfying these constraints.
+
+1. For all $A$, $Pr(A) \in [0, 1]$
+2. If $A \vdash B$, then $Pr(A) \geq Pr(B)$.
+3. If $\vdash \neg(A \wedge B)$ then $Pr(A \vee B) = Pr(A) + Pr(B)$.
+
+## Imprecise Credence
+
+We're not covering this, but Elkin and Pettigrew talk about it a lot, so I wanted to flag it here.
+
+Some people, **including many people in UM philosophy** think it's better to model people with sets of probability functions than with individual probability functions.
+
+The person thinks A is more likely than B just in case $Pr(A) > Pr(B)$ for every member of the set.
+
+With some extra bells and whistles, this is called the imprecise credence approach.
+
+## Imprecise Credence
+
+The bits of Elkin and Pettigrew we won't cover, starting with section 4.4, are largely about applying this approach to pooling.
+
+I could talk about this at length. I literally did a PhD thesis on it back when you had to write them on scrolls.
+
+But I think it's a distraction here; the precise case, where individual credences are individual probability functions is (a) much more widespread across different fields, and (b) hard enough.
+
+## Pooling Models
+
+We're looking for a pooling function $F$ from individual credences to group credences.
+
 ::: {.nonincremental}
-- **Inputs**: Each person $i$ has a credence function $P_i$ over some propositions.
-- **Output**: The pooling function $F$ produces a group credence function $P_G = F(P_1, P_2, ..., P_n)$.
+- **Inputs**: Each person $i$ has a credence function $Pr_i$ over some propositions.
+- **Output**: The pooling function $F$ produces a group credence function $Pr_G = F(Pr_1, Pr_2, ..., Pr_n)$.
 - **Goal**: $F$ should satisfy various desirable properties.
 :::
 
@@ -56,12 +88,12 @@ The question: Which properties are most important for which contexts?
 
 **Unanimity**: If all individuals assign the same credence to a proposition, the group should too.
 
-Formally: If $P_i(A) = x$ for all individuals $i$, then $P_G(A) = x$.
+Formally: If $Pr_i(A) = x$ for all individuals $i$, then $Pr_G(A) = x$.
 
 . . .
 
 ::: {.incremental}
-- This seems obviously right—if everyone agrees, that should be the group view.
+- This seems really—if everyone agrees, that should be the group view.
 - Violation would mean the group disagrees with all its members.
 - Sometimes called **Pareto principle** in social choice theory.
 :::
@@ -78,13 +110,26 @@ Consider a medical committee where all experts agree a treatment is 90% effectiv
 
 . . .
 
-**Good news**: Most standard pooling methods satisfy unanimity.
+**Good news**: Many standard pooling methods satisfy unanimity.
+
+## Flagging a Complication
+
+Consider a case where two detectives are investigating a murder.
+
+- One interviews all the suspects and witnesses, and ends up 90% sure that the butler did it.
+- The other looks carefully at the physical evidence, and ends up 90% sure that the butler did it.
+- Let's say we know what each detective thinks, and nothing else; and the detectives don't know each other.
+- How should we pool their credences?
+
+. . .
+
+Maybe more than 90%? After all, both the witnesses and the physical evidence point strongly in the same direction.
 
 ## Eventwise Independence
 
 **Eventwise Independence**: The group's credence in $A$ should depend only on individual credences in $A$, not on credences in other propositions.
 
-Formally: If $P_i(A) = P'_i(A)$ for all $i$, then $F(P_1, ..., P_n)(A) = F(P'_1, ..., P'_n)(A)$.
+Formally: If $Pr_i(A) = Pr'_i(A)$ for all $i$, then $F(Pr_1, ..., Pr_n)(A) = F(Pr'_1, ..., Pr'_n)(A)$.
 
 . . .
 
@@ -103,11 +148,11 @@ Imagine pooling credences about whether it will rain tomorrow.
 
 . . .
 
-This is a **separability** condition—different propositions can be pooled independently.
+This is a **separability** condition—different propositions can be pooled independently. It's like Arrow's **Independence of Irrelevant Alternatives** condition.
 
 ## The Problem with Eventwise Independence
 
-But this axiom turns out to be very restrictive.
+But this axiom, like Arrow's, turns out to be very restrictive.
 
 ::: {.incremental}
 - It's incompatible with some intuitive pooling methods.
@@ -115,13 +160,17 @@ But this axiom turns out to be very restrictive.
 - We'll see this creates tensions with other desirable properties.
 :::
 
+. . .
+
+The big thing is that propositions aren't always that separate. Should our individual opinions about $A \wedge B$ be relevant to the pooled opinion on $A$? Maybe!
+
 # Avoiding Extremes
 
 ## Ruling Out Dictators
 
 **Non-Dictatorship**: No single individual should always determine the group credence regardless of others' opinions.
 
-Formally: There should be no individual $i$ such that $P_G = P_i$ for all profiles.
+Formally: There should be no individual $i$ such that $Pr_G = Pr_i$ for all profiles.
 
 . . .
 
@@ -130,7 +179,7 @@ Why this matters:
 ::: {.incremental}
 - Groups exist to aggregate multiple perspectives.
 - A dictator rule makes the rest of the group irrelevant.
-- It's fundamentally unfair—even experts shouldn't always override everyone else.
+- It isn't really a **group** opinion if that's how things go.
 :::
 
 ## When Might Dictatorship Be Tempting?
@@ -140,9 +189,12 @@ Suppose we have a group with one genuine expert and several novices.
 ::: {.incremental}
 - Shouldn't we just use the expert's credence?
 - Maybe for *that particular question*, but not as a general rule.
-- Non-dictatorship says: no one gets automatic veto power across all issues.
-- We can still weight the expert more heavily without making them a dictator.
+- And again, things like conjunctions make life really complicated. Figuring out the group credence in $A \wedge B$, when one person is an expert on $A$ alone, turns out to be *really hard*.
 :::
+
+. . .
+
+Non-dictatorship is consistent with **differential weighting**.
 
 ## Bounding the Group's Opinions
 
@@ -166,18 +218,20 @@ If Alice thinks rain is 30% likely and Bob thinks it's 80% likely:
 
 . . .
 
-**Most pooling functions satisfy this**, but it's worth stating explicitly.
+**Most pooling functions satisfy this**, but it's worth stating explicitly. And again, the detective case from earlier complicates things.
 
 # Pooling and Learning
 
 ## The Interaction Problem
+
+Imagine the following situation. We're a group of scientists, and we all have opinions on some hypothesis $H$. We're in the middle of running some experiment $E$, and while $E$ won't settle $H$, the results will be relevant.
 
 Here's a puzzle: When should updating happen relative to pooling?
 
 Two scenarios:
 
 ::: {.nonincremental}
-1. **Pool then update**: Combine credences, then update on evidence $E$.
+1. **Pool then update**: Combine credences, then update on experiment $E$.
 2. **Update then pool**: Each person updates on $E$, then pool the updated credences.
 :::
 
@@ -189,7 +243,7 @@ Should these give the same result?
 
 **Update Tolerance**: The order of pooling and updating shouldn't matter.
 
-Formally: $F(P_1(\cdot|E), ..., P_n(\cdot|E)) = F(P_1, ..., P_n)(\cdot|E)$.
+Formally: $F(Pr_1(\cdot|E), ..., Pr_n(\cdot|E)) = F(Pr_1, ..., Pr_n)(\cdot|E)$.
 
 . . .
 
@@ -206,8 +260,7 @@ Imagine a research team receives new data.
 ::: {.incremental}
 - If they pool first, then update on the data as a group, they get one answer.
 - If each person updates individually, then they pool, they might get a different answer.
-- Without commutativity, the group's belief depends on meeting logistics!
-- This seems arbitrary and potentially manipulable.
+- Without commutativity, the group's belief depends on meeting logistics, which seems bad.
 :::
 
 ## The Cost of Commutativity
@@ -217,24 +270,35 @@ Unfortunately, commutativity is very demanding.
 ::: {.incremental}
 - It rules out many otherwise attractive pooling methods.
 - Combined with other axioms, it leads to impossibility results.
-- Trade-off: procedural robustness vs. other desirable properties.
 :::
 
 . . .
 
 We'll see which pooling methods preserve this property.
 
+## Names
+
+This principle goes by any number of different names:
+
+- Commutativity
+- Update Tolerance
+- External Bayesianity
+
+. . .
+
+I don't even know how to pronounce that last one, but it's the one the book uses.
+
 # Independence Preservation
 
 ## Preserving Judgments of Independence
 
-**Probabilistic Independence**: Events $A$ and $B$ are independent if $P(A \cap B) = P(A) \cdot P(B)$.
+**Probabilistic Independence**: Propositions $A$ and $B$ are independent if $Pr(A \wedge B) = Pr(A) \cdot Pr(B)$.
 
 . . .
 
 Question: If individuals all judge $A$ and $B$ independent, should the group?
 
-**Independence Preservation**: If $P_i(A \cap B) = P_i(A) \cdot P_i(B)$ for all $i$, then $P_G(A \cap B) = P_G(A) \cdot P_G(B)$.
+**Independence Preservation**: If $Pr_i(A \cap B) = Pr_i(A) \cdot Pr_i(B)$ for all $i$, then $Pr_G(A \cap B) = Pr_G(A) \cdot Pr_G(B)$.
 
 ## Why Independence Matters
 
@@ -321,9 +385,10 @@ Here's the bad news: No pooling function satisfies all desirable axioms.
 Classical impossibility results:
 
 ::: {.incremental}
-- McConway (1981): Eventwise independence + external Bayesianity → weighted linear pooling (but this violates independence preservation).
-- Genest & Zidek (1986): Various combinations of axioms are jointly unsatisfiable.
-- The situation only gets worse as we add more axioms.
+- No linear rule satisfies External Bayesianity plus Non-Dictatorship.
+- Only linear rules satisfy Eventwise Independence and Local Unanamity Preservation.
+- Putting these together: nothing satisfies External Bayesianity, Non-Dictatorship, Eventwise Independence, and Local Unanimity Preservation.
+- There are *many* results like this.
 :::
 
 ## What This Means
@@ -362,17 +427,6 @@ Having surveyed the axioms, we can now:
 - See which axioms each function satisfies or violates.
 - Connect the formal results to our earlier philosophical discussions.
 - Ask: Which trade-offs are justified by epistemic or practical goals?
-:::
-
-## The Bigger Picture
-
-Pooling functions aren't just mathematical curiosities.
-
-::: {.incremental}
-- They implement different theories of how groups should form beliefs.
-- They embody different visions of group rationality.
-- They have practical consequences for collective decision-making.
-- Choosing a pooling method is choosing how to be a group agent.
 :::
 
 ## For Next Time
