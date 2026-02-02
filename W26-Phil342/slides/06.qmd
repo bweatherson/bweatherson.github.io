@@ -6,6 +6,67 @@ format:
     beamer: default
 ---
 
+# Chatting about Chatbots
+
+## Policy
+
+I was hoping to not have a dedicated chatbot policy, and was hoping that the "Don't plagiarize" policy would cover everything.
+
+Because deep down, I think that's basically the right policy.
+
+But it seems not to have been sufficient, so a few more details, which will be added to the syllabus in due course.
+
+## Policy
+
+::: {.incremental}
+- Things you learn from chatbots should be treated, for purposes of assignments, like things you learned from friends.
+- To explain that, let's go through a couple of cases where a person either asks their real-life friend Claudia, or their friendly chatbot Claude, about the assignment.
+:::
+
+## Good (Or at Least OK) Uses
+
+- Hi Claude/Claudia, we're talking about pooling credences in class, do you know anything about these?
+- Hi Claude/Claudia, have you read Sen's work on liberalism, can I run an idea about it by you?
+
+. . .
+
+Why just OK, well we'll come back to that.
+
+## Bad Uses
+
+- Hi Claude/Claudia, I've got this assignment, can you write it for me?
+
+. . .
+
+What if they say something really interesting in the good uses case, and it feels like the kind of thing you should include? 
+
+- In that case you should include a footnote thanking them, and acknowledging their help.
+
+## What We'll Do
+
+In either case, our first step is to do the thing we've been doing for years, asking someone who submits something we're suspicious of to explain their answer in person.
+
+- Make sure that you know the meaning of every term you use in the answer, because we might ask you about it.
+- If your main examples are ones that are the first to come up when you run the question through ChatGPT, Claude, Gemini, Llama, or any of the other big models, you should remember that we know these tools exist, and are a little more likely to ask those questions if we see the same example in your answer.
+
+## Advisory for Chatbot Usage (Part One)
+
+- As of February 2026, these aren't really good enough to be the **last word** on the questions we're looking at. They just aren't sufficiently reliable.
+- They are, for some purposes, a decent **first word**.
+- In particular, if you use them vaguely like a search engine, using them as a source of places to look, and always following the sources, that can be helpful.
+- If you know the rough idea of the thing you're looking for, but not the technical term, they are even better than traditional search engines. Or the same if you know the technical term in one field (say psychology) but not another one (say economics).
+- Still, always check the sources; they make mistakes. (Time permitting, I'll go over some.)
+- And even if you're in a field where they are good, you still shouldn't just turn in their work. Paying a grad student to write the answer would get a good answer (if it's the right grad student), but would be very very bad!
+
+## Advisory for Chatbot Usage (Part Two)
+
+Also, remember that the point of going to college isn't just to get a nice piece of paper at the end; it's to learn stuff.
+
+- Using a chatbot is a bit like replacing a bike ride with a car; good if you need to get somewhere quickly, bad if the point was to get exercise.
+- And ultimately things like these problem sets are more like exercise than tests for whether you can get to the finish line.
+- I've gone on a bit long here, but we'll come back to this when we discuss the sources of the college wage premium.
+- If everyone uses chatbots, I'd expect the effect will be similar to the somewhat disasterous course shortening reforms in Columbia. If you're interested, see Carolina Arteaga's paper "The effect of human capital on earnings: Evidence from a reform at Colombia's top university".
+
 # Introduction to Opinion Pooling
 
 ## An Example
@@ -49,7 +110,7 @@ While we're working through Elkin & Pettigrew, we'll assume:
 ::: {.incremental}
 1. Opinions vary in strength (not just "believe" or "don't believe");
 2. Opinions are represented numerically as **credences**; and
-3. Credences are probabilistically coherent (Bayesian framework)
+3. Credences are probabilistically coherent.
 :::
 
 . . .
@@ -74,8 +135,8 @@ Pooling is interesting because of the five puzzles we already mentioned, but it 
 
 Some friends go to dinner. At the end of the night they get the bill. The convention is that they tip 20% and split the bill. How much should they each pay?
 
-- You calculate in your head: $45 each
-- Your friend calculates: $43 each
+- You calculate in your head: Everyone should pay $45 each
+- Your friend calculates: Everyone should pay $43 each
 
 . . .
 
@@ -115,7 +176,7 @@ One response: You should **conciliate** - move your opinion toward your peer's.
 **The Equal Weight View** (Elga): If you and your peer are equally reliable, you should give equal weight to both assessments. Moreover, the way to do that is:
 
 ::: {.nonincremental}
-1. Give equal probability to each assessment being correct.
+1. Give equal probability to each assessment being correct; and
 2. Have a credence that's a linear average of the credences of the disagreeing parties.
 :::
 
@@ -219,10 +280,12 @@ Harry denies 2+2=4. Lackey says he's no longer your peer.
 3. A philosopher who denies the law of non-contradiction.
 4. A friend who insists your shared memory is wrong.
 
+## Discussion: When to Dismiss a "Peer"?
+
 **Question:** In each case, should you:
 
 1. Conciliate anyway?
-2. Dismiss them as no longer a peer?
+2. Dismiss them as no longer a peer?; or
 3. Something in between?
 
 . . .
@@ -306,7 +369,7 @@ Go back to Anya, Bon and Carys. Here are two questions about them:
 1. When we learn that they are the three best experts, and those are their judgments, what judgment should we (non-experts) come to.
 2. When they learn about each other's judgments, how should they change their own judgment in response to learning what a peer (in this case a peer expert) believes.
 
-. . .
+## Two Questions
 
 **Background Question**: Do 1 and 2 get the same answer? 
 
