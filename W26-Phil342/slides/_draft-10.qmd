@@ -1,4 +1,4 @@
----
+w---
 title: "Opinion Pooling III: Geometric and Multiplicative Pooling"
 date: 2/16/2026
 format:
@@ -12,32 +12,43 @@ format:
 
 Last time we discussed linear pooling strategies.
 
-Key features:
-
 ::: {.nonincremental}
-- Take arithmetic means of credences
-- Satisfies many desirable axioms (Unanimity, Eventwise Independence, Boundedness)
-- But fails External Bayesianity
+- This means you take an average (possibly weighted) of the credences.
+- This has a lot of nice features - it preserves unanimity and boundedness, and it only considers individual propositions.
+- But fails External Bayesianity; whether you pool first or update first makes a difference.
 :::
 
 . . .
 
-Today: A different family of pooling rules based on **geometric means**
+Today we're looking at a different family of pooling rules based on **geometric means**
 
 ## The Two-Stage Process
 
 Geometric pooling works differently from linear pooling:
 
 ::: {.incremental}
-- **Stage 1**: Choose a partition of logical space
-- **Stage 2**: Pool credences over partition elements using geometric means
-- **Stage 3**: Normalize to ensure probabilities sum to 1
-- **Stage 4**: Extend to coarser propositions by summing
+- **Stage 1**: Choose a partition of logical space. These are distinct ways things could end up that cover all the possibilities.
+- **Stage 2**: Pool credences over partition elements using **geometric means**.
+- **Stage 3**: Normalize to ensure probabilities sum to 1.
+- **Stage 4**: Extend to coarser propositions by summing,
 :::
 
 . . .
 
 This multi-stage process creates interesting differences from linear pooling.
+
+## Geometric Means
+
+In general, the geometric mean of $n$ non-negative numbers is given by the following method.
+
+::: {.incremental}
+- First **multiply** (not add) the numbers;
+- Second, take the n'th root of them. For two numbers that's the square root, for three numbers the cube root, etc.
+:::
+
+. . .
+
+The geometric mean is always less than or equal to the arithmetic mean (i.e., what you get when you add the numbers and divide by how many numbers there are), with equality only when the numbers are equal.
 
 ## Example: Anya, Bon, and Carys Return
 
@@ -69,11 +80,13 @@ $$0.8^{1/3} \times 0.4^{1/3} \times 0.3^{1/3} \approx 0.458$$
 
 **Problem**: 0.438 + 0.458 = 0.896 ≠ 1
 
-We need normalization!
+. . .
+
+To get around this, we do something called **normalization**.
 
 ## Geometric Pool: Normalized
 
-Take geometric means then normalize so they sum to 1.
+All this means is that we divide each value by the sum so that they'll now sum to 1.^[This is something you do in a lot of settings, not always to do with probability, or even to set some designated value to 1, and it's always called normaliszation.]
 
 Normalization factor: $\frac{1}{0.438 + 0.458} \approx 1.118$
 
@@ -88,25 +101,25 @@ Normalized geometric pool:
 
 . . .
 
-This is close to, but not exactly the same as, the linear pool!
+This is close to, but not exactly the same as, the linear pool.
 
 ## Formal Definition: Straight Geometric Pooling
 
-Given credence functions $P_1, \ldots, P_n$ and partition $\mathcal{S}$:
+Given credence functions $Pr_1, \ldots, Pr_n$ and partition $\mathcal{S}$:
 
 For each $S \in \mathcal{S}$:
 
-$$\text{GP}_\mathcal{S}(P_1, \ldots, P_n)(S) = \frac{\sqrt[n]{P_1(S) \times \cdots \times P_n(S)}}{\sum_{S' \in \mathcal{S}} \sqrt[n]{P_1(S') \times \cdots \times P_n(S')}}$$
+$$\text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(S) = \frac{\sqrt[n]{Pr_1(S) \times \cdots \times Pr_n(S)}}{\sum_{S' \in \mathcal{S}} \sqrt[n]{Pr_1(S') \times \cdots \times Pr_n(S')}}$$
 
 . . .
 
 For any proposition $X$ that is a disjunction of elements from $\mathcal{S}$:
 
-$$\text{GP}_\mathcal{S}(P_1, \ldots, P_n)(X) = \sum_{\substack{S \in \mathcal{S} \\ S \subseteq X}} \text{GP}_\mathcal{S}(P_1, \ldots, P_n)(S)$$
+$$\text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(X) = \sum_{\substack{S \in \mathcal{S} \\ S \subseteq X}} \text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(S)$$
 
 ## Partition Sensitivity
 
-A striking feature: **The result depends on which partition you choose!**
+A striking feature: **The result depends on which partition you choose**.
 
 Example with Rodrigo and Stefan on rain:
 
@@ -129,9 +142,23 @@ Geometric pool for *No Rain*: **0.5**
 
 . . .
 
-**Key insight**: Same credences, different partitions → different pooled results!
+**Key insight**: Same credences, different partitions → different pooled results.
 
-This violates Local Unanimity Preservation.
+## Unanimity Preservation
+
+The same example, using the fine-grained partition, shows that geometric pooling violates a bunch of other constraints.
+
+### Unanimity Preservation
+
+Both people think rain is 0.5, but the pool does not.
+
+### Boundedness
+
+The group credence in rain, 0.48, is below any person's credence.
+
+### Eventwise Independence
+
+If Stefan and Rodrigo went to 0 on *Heavy Rain*, and 0.5 on *Light Rain*, the credence in *No Rain* would change, even though no one's credence in *No Rain* would change.
 
 ## Weighted Geometric Pooling
 
@@ -143,17 +170,14 @@ $$\text{GP}_\mathcal{S}^\Lambda(P_1, \ldots, P_n)(S) = \frac{\prod_{i=1}^n P_i(S
 
 . . .
 
-This allows differential weighting of experts while maintaining the geometric structure.
+This allows differential weighting of experts while maintaining the geometric structure. I am **not** going to be discussing this; it's already pushing my mathematical competence.
 
 ## Why Geometric Pooling?
 
 You might ask: Why use geometric means instead of arithmetic means?
 
 ::: {.incremental}
-- Geometric means are more sensitive to extreme values
-- A single very low credence pulls the pool down significantly
-- This can represent cautious or conservative aggregation
-- Useful when you want unanimity to have strong influence
+1. 
 :::
 
 . . .
@@ -210,15 +234,14 @@ Let's see how geometric and multiplicative pooling fare on our criteria:
 5. Non-Dictatorship
 6. External Bayesianity
 7. Probabilistic Independence Preservation
-8. No Regrets
 
-## (1a) Local Unanimity Preservation
+## (1) Local Unanimity Preservation
 
 **Do geometric/multiplicative rules satisfy this?**
 
 . . .
 
-**No!** Neither satisfies Local Unanimity Preservation.
+**No**: Neither satisfies Local Unanimity Preservation.
 
 . . .
 
@@ -226,11 +249,8 @@ Recall: Rodrigo and Stefan both assigned credence 0.5 to *No Rain*.
 
 But geometric pool on fine-grained partition gave **0.52**.
 
-. . .
 
-This is a significant violation—pooling changes unanimous credences!
-
-## (1b) Global Unanimity Preservation
+## (2) Global Unanimity Preservation
 
 **What if everyone has exactly the same probability function?**
 
@@ -246,79 +266,65 @@ When all $P_i = P$, the geometric pool equals $P$.
 
 Unless weights sum to 1, even identical credences don't stay put.
 
-## (2) Eventwise Independence
+## (3) Eventwise Independence
 
 **Does the pooled credence for $X$ depend only on individual credences for $X$?**
 
 . . .
 
-**No!** Multiplicative pooling violates this.
+**No** Multiplicative pooling violates this.
 
 . . .
 
-The normalization denominator depends on credences for *all* elements of the partition.
+The normalization denominator depends on credences for *all* elements of the partition. So the pooled credence for one proposition is affected by credences in other propositions. We also saw this with the rain example.
 
-So the pooled credence for one proposition is affected by credences in other propositions.
-
-## (3) Boundedness
+## (4) Boundedness
 
 **Does the pooled credence lie between min and max of individual credences?**
 
 . . .
 
-**No!** Geometric and multiplicative pooling violate Boundedness.
+**No** Geometric and multiplicative pooling violate Boundedness.
 
 . . .
 
 Example: Rodrigo and Stefan's pooled credence of **0.52** for *No Rain*
 
-This exceeds both individual credences of 0.5.
 
-. . .
-
-The pooled credence can lie outside the range of individual credences!
-
-## (4) Non-Dictatorship
+## (5) Non-Dictatorship
 
 **Can we avoid giving one person complete control?**
 
 . . .
 
-**Yes!** Both geometric and multiplicative pooling satisfy this.
+**Yes** Both geometric and multiplicative pooling satisfy this.
 
 As long as multiple individuals get positive weights, no single person dictates.
 
-. . .
-
 This parallels linear pooling.
 
-## (5) External Bayesianity
+## (6) External Bayesianity
 
 **If individuals update on evidence, does the group pool commute with updating?**
 
 . . .
 
-**Yes!** Both geometric and multiplicative pooling are externally Bayesian.
+**Yes** Both geometric and multiplicative pooling are externally Bayesian.
 
 . . .
 
-**Key advantage**: This is where these methods outshine linear pooling.
+We aren't going to go over the proof of this, maybe we can if there's time and anyone wants, but it's true.
 
-::: {.incremental}
-- Pool-then-update = Update-then-pool
-- Order of operations doesn't matter
-- Maintains coherence over time
-:::
+Indeed, *only* multiplicative pooling is externally Bayesian in general.
 
 ## Why External Bayesianity Matters
 
 This is a major theoretical virtue:
 
 ::: {.incremental}
-- Group can update on new evidence coherently
-- No path-dependence problems
-- Respects Bayesian reasoning at group level
-- Important for justified group belief (recall Lackey's GEAA)
+- Group can update on new evidence coherently.
+- So there aren't problems of path-dependence.
+- The pooling method respects Bayesian reasoning at group level.
 :::
 
 . . .
@@ -331,7 +337,7 @@ This advantage may justify accepting the violations of other axioms.
 
 . . .
 
-**No!** No non-dictatorial multiplicative rule satisfies this.
+**No** No non-dictatorial multiplicative rule satisfies this.
 
 . . .
 
@@ -339,23 +345,7 @@ The same problem that affects linear pooling affects these rules too.
 
 Most weighted averages (whether arithmetic or geometric) destroy independence.
 
-## (7) No Regrets
 
-**Would group members regret trading at the pooled prices?**
-
-. . .
-
-**No!** Multiplicative pooling violates No Regrets.
-
-. . .
-
-Since Boundedness is violated, pooled credences can lie outside individual ranges.
-
-This means some members would regret buying or selling at pooled prices.
-
-. . .
-
-Example: If pool assigns 0.52 but you assign 0.5, you have positive regret for buying at 0.52.
 
 # Comparison and Trade-offs
 
@@ -370,7 +360,6 @@ Example: If pool assigns 0.52 but you assign 0.5, you have positive regret for b
 | Non-Dictatorship         | ✓   |
 | External Bayesianity     | ✓   |
 | Prob. Independence Pres. | ✗   |
-| No Regrets               | ✗   |
 
 ## Score Card: Multiplicative Pooling (General)
 
@@ -383,7 +372,6 @@ Example: If pool assigns 0.52 but you assign 0.5, you have positive regret for b
 | Non-Dictatorship         | ✓   |
 | External Bayesianity     | ✓   |
 | Prob. Independence Pres. | ✗   |
-| No Regrets               | ✗   |
 
 General multiplicative pooling is strictly worse than geometric pooling.
 
@@ -400,19 +388,13 @@ General multiplicative pooling is strictly worse than geometric pooling.
 - Boundedness AND External Bayesianity
 - Eventwise Independence AND External Bayesianity
 
-. . .
-
-Each family offers different trade-offs for different purposes.
-
 ## When to Use Geometric Pooling?
 
 Geometric pooling might be preferable when:
 
 ::: {.incremental}
-- Updating on evidence is frequent and important
-- Group needs to maintain Bayesian coherence over time
-- Conservative aggregation is valued (extreme credences pull down)
-- Willing to sacrifice boundedness for external Bayesianity
+- It's really important to update frequently, and maintain coherence.
+- You want anyone to be able to pull the group credence down by having a low credence.
 :::
 
 . . .
@@ -424,75 +406,49 @@ These considerations depend heavily on the context of use.
 Linear pooling might be preferable when:
 
 ::: {.incremental}
-- Keeping pooled credences between individual credences matters
-- Eventwise independence is important
-- One-shot decisions without updating
-- Intuitive interpretation as compromise matters
+- It really matters to keep group credence within the bounds.
+- You want to be able to update when you only know credences on this question.
+- You won't be updating.
+- It's important to interpret the pool as a compromise.
 :::
-
-. . .
-
-Again, context-dependent!
-
-## The Deeper Problem
-
-All classical pooling strategies face a common challenge:
-
-::: {.incremental}
-- They fail No Regrets
-- They fail (mostly) Probabilistic Independence Preservation
-- These are *pragmatic* criteria related to action and decision
-- May indicate classical pooling inadequate for group responsibility
-:::
-
-. . .
-
-Foreshadowing: Later we'll see pragmatic arguments and imprecise probability approaches that try to address this.
 
 ## Impossibility Results
 
 Key theoretical results:
 
 ::: {.nonincremental}
-- **No classical pooling rule satisfies all desirable axioms**
-- Different combinations of axioms are jointly unsatisfiable
-- Must make principled choices about which axioms matter most
-- Context and purpose should guide these choices
+- **No classical pooling rule satisfies all the intuitive axioms**.
+- So on any occasion we have to make choices about which axioms are most important.
+- You have to be sensitive to why you are pooling to make this choice.
 :::
-
-. . .
-
-This motivates exploring non-classical approaches (coming up next week).
 
 # Philosophical Implications
 
 ## Partition Sensitivity Revisited
 
-Geometric/multiplicative pooling's partition-sensitivity raises questions:
+Geometric/multiplicative pooling's partition-sensitivity raises some questions:
 
 ::: {.incremental}
-- Is there a "correct" partition for a given context?
-- Should partition be determined by the propositions of interest?
-- Or by the structure of the possible worlds?
-- Partition choice itself becomes a substantive decision
+1. What procedure should we use for working out the relevant partition?
+2. Is there a correct partition for a particular use? If so, what features (pragmatic or theoretical) make it correct?
 :::
 
 . . .
 
-This adds a meta-level deliberation problem.
+Like with the pool-then-update or update-then-pool choice, this adds another choice that's prior to being able to pool.
 
 ## External Bayesianity and Justification
 
-Recall (from Lecture 7): Lackey's GEAA account requires:
+Recall that Lackey's GEAA account requires:
 
 ::: {.nonincremental}
-- Group belief justified only if based on justified individual beliefs
-- Group must update appropriately on new evidence
+- A group belief is justified only if it based on justified individual beliefs, and
+- To retain rationality, a group must update appropriately on new evidence.
 :::
 
 . . .
 
-External Bayesianity directly supports this!
+It feels very hard to do this without external Bayesianity.
 
 ::: {.incremental}
 - Ensures group can update coherently
@@ -502,33 +458,22 @@ External Bayesianity directly supports this!
 
 ## The Expertise Problem
 
-Weighted versions of geometric pooling raise the same issues as weighted linear pooling:
+We'll mostly use the unweighted (or equal weight) versions, but obviously if you use weighted versions, these also raise pre-pooling questions about how to assign weights.
 
-::: {.incremental}
-- How to assign weights to individuals?
-- Should weights reflect reliability, expertise, or something else?
-- Who decides the weights?
-- Risk of unjust distributions of epistemic authority
-:::
-
-. . .
-
-These normative questions can't be answered by formal methods alone.
+And in geometric pooling it's even harder because the holism of the process means it is harder to say "I'm an expert on this and you're an expert on that."
 
 ## Connection to Peer Disagreement
 
-Geometric pooling offers a different take on peer disagreement:
+A view one could have, although I don't know if anyone does have it, is that in cases of peer disagreement, the peers should:
 
 ::: {.incremental}
-- More sensitive to extreme disagreement
-- A single low credence significantly affects the pool
-- Could represent epistemic humility or caution
-- But also risks being over-influenced by outliers
+1. All converge on a pooled credence, just like the standard Equal Weight View; but
+2. This pooled credence should be given by geometric pooling.
 :::
 
 . . .
 
-Different aggregation rules embody different attitudes toward disagreement.
+This will imply that people with low credence get to reall
 
 # Looking Ahead
 
@@ -578,14 +523,4 @@ For now, remember:
 
 The choice of pooling strategy has both epistemic and practical significance.
 
-# Discussion Questions
 
-## For Reflection
-
-::: {.nonincremental}
-1. Is partition-sensitivity a bug or a feature of geometric pooling?
-2. How important is External Bayesianity for group epistemic rationality?
-3. Should groups be willing to violate Boundedness to maintain External Bayesianity?
-4. When, if ever, should a pooling method allow credences outside the individual range?
-5. How should groups choose weights for different experts?
-:::
