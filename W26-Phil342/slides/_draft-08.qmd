@@ -44,7 +44,7 @@ There are lots of arguments that credence functions should be **probability func
 
 ## Probability
 
-A function $Pr$ is a probability function (as we're understanding them - this isn't exactly how mathematicians would understand them), satisfying these constraints.
+A function $Pr$ is a probability function (as we're understanding them - this isn't exactly how mathematicians would understand them), satisfying these constraints. 
 
 1. For all $A$, $Pr(A) \in [0, 1]$
 2. If $A \vdash B$, then $Pr(A) \geq Pr(B)$.
