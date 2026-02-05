@@ -1,6 +1,6 @@
 ---
 title: "Opinion Pooling IV: Linear Pooling"
-date: 2/18/2026
+date: 2/11/2026
 format:
     revealjs: default
     beamer: default
@@ -12,7 +12,7 @@ format:
 
 Last time we discussed:
 
-- Formal axioms for pooling strategies.
+- Formal axioms for pooling strategies; and
 - Which combinations of them are impossible.
 
 . . .

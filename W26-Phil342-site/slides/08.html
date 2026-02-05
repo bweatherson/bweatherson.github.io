@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
+
+  <meta name="dcterms.date" content="2026-02-09">
+  <title>Opinion Pooling III: Desirable Features of Pooling Strategies</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-165de8befc938d0b26d7578d5b40959b.css">
+  <link rel="stylesheet" href="custom_styles_css.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">Opinion Pooling III: Desirable Features of Pooling Strategies</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-02-09</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Formal Pooling Axioms</h1>
+
+</section>
+<section class="slide level2">
+<h2>Recap: Where We Left Off</h2>
+<p>Last time we discussed:</p>
+<ul>
+<li class="fragment">Group rationality and justified group belief.</li>
+<li class="fragment">Inflationary vs.&nbsp;deflationary accounts</li>
+<li class="fragment">Group responsibility and its connection to pooling.</li>
+</ul>
+<div class="fragment">
+<p>Today: What formal properties should pooling functions satisfy? What are the trade-offs?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Moving from Concepts to Models</h2>
+<p>What makes a pooling strategy good. Elkin and Pettigrew use what they call an <strong>axiomatic approach</strong>.</p>
+<ul>
+<li class="fragment">Axioms are desirable formal properties we want pooling functions to satisfy.</li>
+<li class="fragment">We’ve seen this before with Arrow; axioms are things like No Dictators, or Pareto-optimality.</li>
+<li class="fragment">Different axioms capture different intuitions about what pooling should do.</li>
+<li class="fragment">Will there be some impossibility results incoming?</li>
+<li class="fragment">Yes, of course there will, there always are around here.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Setup</h2>
+<p>A pooling function takes individual credences and outputs a group credence.</p>
+<p>A credence function measures how confident each person is in each proposition.</p>
+<p>The values are between 0 and 1, with higher numbers representing greater confidence.</p>
+<p>There are lots of arguments that credence functions should be <strong>probability functions</strong>. These arguments are not entirely uncontroversial, but they are very widely accepted, especially outside philosophy, and we will accept them here.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Probability</h2>
+<p>A function <span class="math inline">\(Pr\)</span> is a probability function (as we’re understanding them - this isn’t exactly how mathematicians would understand them), satisfying these constraints.</p>
+<ol type="1">
+<li class="fragment">For all <span class="math inline">\(A\)</span>, <span class="math inline">\(Pr(A) \in [0, 1]\)</span></li>
+<li class="fragment">If <span class="math inline">\(A \vdash B\)</span>, then <span class="math inline">\(Pr(A) \geq Pr(B)\)</span>.</li>
+<li class="fragment">If <span class="math inline">\(\vdash \neg(A \wedge B)\)</span> then <span class="math inline">\(Pr(A \vee B) = Pr(A) + Pr(B)\)</span>.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Imprecise Credence</h2>
+<p>We’re not covering this, but Elkin and Pettigrew talk about it a lot, so I wanted to flag it here.</p>
+<p>Some people, <strong>including many people in UM philosophy</strong> think it’s better to model people with sets of probability functions than with individual probability functions.</p>
+<p>The person thinks A is more likely than B just in case <span class="math inline">\(Pr(A) &gt; Pr(B)\)</span> for every member of the set.</p>
+<p>With some extra bells and whistles, this is called the imprecise credence approach.</p>
+</section>
+<section class="slide level2">
+<h2>Imprecise Credence</h2>
+<p>The bits of Elkin and Pettigrew we won’t cover, starting with section 4.4, are largely about applying this approach to pooling.</p>
+<p>I could talk about this at length. I literally did a PhD thesis on it back when you had to write them on scrolls.</p>
+<p>But I think it’s a distraction here; the precise case, where individual credences are individual probability functions is (a) much more widespread across different fields, and (b) hard enough.</p>
+</section>
+<section class="slide level2">
+<h2>Pooling Models</h2>
+<p>We’re looking for a pooling function <span class="math inline">\(F\)</span> from individual credences to group credences.</p>
+<ul>
+<li><strong>Inputs</strong>: Each person <span class="math inline">\(i\)</span> has a credence function <span class="math inline">\(Pr_i\)</span> over some propositions.</li>
+<li><strong>Output</strong>: The pooling function <span class="math inline">\(F\)</span> produces a group credence function <span class="math inline">\(Pr_G = F(Pr_1, Pr_2, ..., Pr_n)\)</span>.</li>
+<li><strong>Goal</strong>: <span class="math inline">\(F\)</span> should satisfy various desirable properties.</li>
+</ul>
+<div class="fragment">
+<p>The question: Which properties are most important for which contexts?</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Basic Desiderata</h1>
+
+</section>
+<section class="slide level2">
+<h2>Preserving Unanimous Judgments</h2>
+<p><strong>Unanimity</strong>: If all individuals assign the same credence to a proposition, the group should too.</p>
+<p>Formally: If <span class="math inline">\(Pr_i(A) = x\)</span> for all individuals <span class="math inline">\(i\)</span>, then <span class="math inline">\(Pr_G(A) = x\)</span>.</p>
+<div class="fragment">
+<ul>
+<li class="fragment">This seems really—if everyone agrees, that should be the group view.</li>
+<li class="fragment">Violation would mean the group disagrees with all its members.</li>
+<li class="fragment">Sometimes called <strong>Pareto principle</strong> in social choice theory.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why Unanimity Matters</h2>
+<p>Consider a medical committee where all experts agree a treatment is 90% effective.</p>
+<ul>
+<li class="fragment">If the pooling function gives the group credence of 70%, something has gone wrong.</li>
+<li class="fragment">The group belief no longer represents the consensus that actually exists.</li>
+<li class="fragment">This could lead to poor decisions based on views no one actually holds.</li>
+</ul>
+<div class="fragment">
+<p><strong>Good news</strong>: Many standard pooling methods satisfy unanimity.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Flagging a Complication</h2>
+<p>Consider a case where two detectives are investigating a murder.</p>
+<ul>
+<li class="fragment">One interviews all the suspects and witnesses, and ends up 90% sure that the butler did it.</li>
+<li class="fragment">The other looks carefully at the physical evidence, and ends up 90% sure that the butler did it.</li>
+<li class="fragment">Let’s say we know what each detective thinks, and nothing else; and the detectives don’t know each other.</li>
+<li class="fragment">How should we pool their credences?</li>
+</ul>
+<div class="fragment">
+<p>Maybe more than 90%? After all, both the witnesses and the physical evidence point strongly in the same direction.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Eventwise Independence</h2>
+<p><strong>Eventwise Independence</strong>: The group’s credence in <span class="math inline">\(A\)</span> should depend only on individual credences in <span class="math inline">\(A\)</span>, not on credences in other propositions.</p>
+<p>Formally: If <span class="math inline">\(Pr_i(A) = Pr'_i(A)\)</span> for all <span class="math inline">\(i\)</span>, then <span class="math inline">\(F(Pr_1, ..., Pr_n)(A) = F(Pr'_1, ..., Pr'_n)(A)\)</span>.</p>
+<div class="fragment">
+<p>This seems reasonable: why should our credences about <em>the weather tomorrow</em> affect how we pool opinions about <em>election outcomes</em>?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Intuition Behind Eventwise Independence</h2>
+<p>Imagine pooling credences about whether it will rain tomorrow.</p>
+<ul>
+<li class="fragment">Alice: 70% chance of rain</li>
+<li class="fragment">Bob: 40% chance of rain</li>
+<li class="fragment">The pooled credence should depend only on these numbers.</li>
+<li class="fragment">It shouldn’t matter what Alice and Bob think about the stock market, or anything else.</li>
+</ul>
+<div class="fragment">
+<p>This is a <strong>separability</strong> condition—different propositions can be pooled independently. It’s like Arrow’s <strong>Independence of Irrelevant Alternatives</strong> condition.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Problem with Eventwise Independence</h2>
+<p>But this axiom, like Arrow’s, turns out to be very restrictive.</p>
+<ul>
+<li class="fragment">It’s incompatible with some intuitive pooling methods.</li>
+<li class="fragment">It can prevent the pooling function from respecting probabilistic structure.</li>
+<li class="fragment">We’ll see this creates tensions with other desirable properties.</li>
+</ul>
+<div class="fragment">
+<p>The big thing is that propositions aren’t always that separate. Should our individual opinions about <span class="math inline">\(A \wedge B\)</span> be relevant to the pooled opinion on <span class="math inline">\(A\)</span>? Maybe!</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Avoiding Extremes</h1>
+
+</section>
+<section class="slide level2">
+<h2>Ruling Out Dictators</h2>
+<p><strong>Non-Dictatorship</strong>: No single individual should always determine the group credence regardless of others’ opinions.</p>
+<p>Formally: There should be no individual <span class="math inline">\(i\)</span> such that <span class="math inline">\(Pr_G = Pr_i\)</span> for all profiles.</p>
+<div class="fragment">
+<p>Why this matters:</p>
+<ul>
+<li class="fragment">Groups exist to aggregate multiple perspectives.</li>
+<li class="fragment">A dictator rule makes the rest of the group irrelevant.</li>
+<li class="fragment">It isn’t really a <strong>group</strong> opinion if that’s how things go.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>When Might Dictatorship Be Tempting?</h2>
+<p>Suppose we have a group with one genuine expert and several novices.</p>
+<ul>
+<li class="fragment">Shouldn’t we just use the expert’s credence?</li>
+<li class="fragment">Maybe for <em>that particular question</em>, but not as a general rule.</li>
+<li class="fragment">And again, things like conjunctions make life really complicated. Figuring out the group credence in <span class="math inline">\(A \wedge B\)</span>, when one person is an expert on <span class="math inline">\(A\)</span> alone, turns out to be <em>really hard</em>.</li>
+</ul>
+<div class="fragment">
+<p>Non-dictatorship is consistent with <strong>differential weighting</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Bounding the Group’s Opinions</h2>
+<p><strong>Bounded Pooling</strong>: The group credence should lie between the minimum and maximum individual credences.</p>
+<p>Formally: <span class="math inline">\(\min_i P_i(A) \leq P_G(A) \leq \max_i P_i(A)\)</span>.</p>
+<div class="fragment">
+<p>This is sometimes called being in the <strong>convex hull</strong> of individual opinions.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why Bounds Matter</h2>
+<p>If Alice thinks rain is 30% likely and Bob thinks it’s 80% likely:</p>
+<ul>
+<li class="fragment">The group shouldn’t say 90% (more extreme than anyone).</li>
+<li class="fragment">The group shouldn’t say 20% (more extreme than anyone).</li>
+<li class="fragment">The pooled view should be a compromise, not an extrapolation.</li>
+</ul>
+<div class="fragment">
+<p><strong>Most pooling functions satisfy this</strong>, but it’s worth stating explicitly. And again, the detective case from earlier complicates things.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Pooling and Learning</h1>
+
+</section>
+<section class="slide level2 scrollable">
+<h2>The Interaction Problem</h2>
+<p>Imagine the following situation. We’re a group of scientists, and we all have opinions on some hypothesis <span class="math inline">\(H\)</span>. We’re in the middle of running some experiment <span class="math inline">\(E\)</span>, and while <span class="math inline">\(E\)</span> won’t settle <span class="math inline">\(H\)</span>, the results will be relevant.</p>
+<p>Here’s a puzzle: When should updating happen relative to pooling?</p>
+<p>Two scenarios:</p>
+<ol type="1">
+<li><strong>Pool then update</strong>: Combine credences, then update on experiment <span class="math inline">\(E\)</span>.</li>
+<li><strong>Update then pool</strong>: Each person updates on <span class="math inline">\(E\)</span>, then pool the updated credences.</li>
+</ol>
+<div class="fragment">
+<p>Should these give the same result?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Commutativity (Update Tolerance)</h2>
+<p><strong>Update Tolerance</strong>: The order of pooling and updating shouldn’t matter.</p>
+<p>Formally: <span class="math inline">\(F(Pr_1(\cdot|E), ..., Pr_n(\cdot|E)) = F(Pr_1, ..., Pr_n)(\cdot|E)\)</span>.</p>
+<div class="fragment">
+<ul>
+<li class="fragment">This says: “pool-then-update” = “update-then-pool”</li>
+<li class="fragment">It ensures learning and pooling don’t interfere with each other.</li>
+<li class="fragment">Violations mean the group’s response to evidence depends on procedural choices.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why This Matters</h2>
+<p>Imagine a research team receives new data.</p>
+<ul>
+<li class="fragment">If they pool first, then update on the data as a group, they get one answer.</li>
+<li class="fragment">If each person updates individually, then they pool, they might get a different answer.</li>
+<li class="fragment">Without commutativity, the group’s belief depends on meeting logistics, which seems bad.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Cost of Commutativity</h2>
+<p>Unfortunately, commutativity is very demanding.</p>
+<ul>
+<li class="fragment">It rules out many otherwise attractive pooling methods.</li>
+<li class="fragment">Combined with other axioms, it leads to impossibility results.</li>
+</ul>
+<div class="fragment">
+<p>We’ll see which pooling methods preserve this property.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Names</h2>
+<p>This principle goes by any number of different names:</p>
+<ul>
+<li class="fragment">Commutativity</li>
+<li class="fragment">Update Tolerance</li>
+<li class="fragment">External Bayesianity</li>
+</ul>
+<div class="fragment">
+<p>I don’t even know how to pronounce that last one, but it’s the one the book uses.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Independence Preservation</h1>
+
+</section>
+<section class="slide level2">
+<h2>Preserving Judgments of Independence</h2>
+<p><strong>Probabilistic Independence</strong>: Propositions <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if <span class="math inline">\(Pr(A \wedge B) = Pr(A) \cdot Pr(B)\)</span>.</p>
+<div class="fragment">
+<p>Question: If individuals all judge <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> independent, should the group?</p>
+<p><strong>Independence Preservation</strong>: If <span class="math inline">\(Pr_i(A \wedge B) = Pr_i(A) \cdot Pr_i(B)\)</span> for all <span class="math inline">\(i\)</span>, then <span class="math inline">\(Pr_G(A \wedge B) = Pr_G(A) \cdot Pr_G(B)\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why Independence Matters</h2>
+<p>Independence judgments reflect important structural beliefs.</p>
+<ul>
+<li class="fragment">“Coin flip outcomes are independent” is a structural claim.</li>
+<li class="fragment">If everyone agrees on this structure, pooling should preserve it.</li>
+<li class="fragment">Otherwise, we introduce dependencies that no one believes exist.</li>
+</ul>
+<div class="fragment">
+<p>This connects to justified group belief: the group should respect shared evidential structure.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Problem</h2>
+<p>Independence preservation is <strong>very hard to achieve</strong>.</p>
+<ul>
+<li class="fragment">Most pooling methods violate it.</li>
+<li class="fragment">It conflicts with other desirable axioms.</li>
+<li class="fragment">This is one source of impossibility results in pooling theory.</li>
+</ul>
+<div class="fragment">
+<p>We’ll see that different pooling strategies make different trade-offs here.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Practical Rationality Constraints</h1>
+
+</section>
+<section class="slide level2">
+<h2>Avoiding Sure Loss</h2>
+<p>Here’s a pragmatic worry: Could a pooling method lead to guaranteed losses?</p>
+<div class="fragment">
+<p><strong>No Sure Loss</strong>: The group shouldn’t accept bets that guarantee losses no matter what happens.</p>
+<ul>
+<li class="fragment">If the group is incoherent (violates probability axioms), it can be Dutch-Booked.</li>
+<li class="fragment">But even coherent pooling can create problems with sequential decisions.</li>
+<li class="fragment">The group might regret its earlier choices.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Regret Problem</h2>
+<p>Suppose the group makes a decision based on pooled credences at time 1.</p>
+<p>Later, at time 2, the group pools again (maybe with new evidence).</p>
+<div class="fragment">
+<p><strong>No Regret</strong>: The group shouldn’t systematically wish it had acted differently at time 1.</p>
+<ul>
+<li class="fragment">This is about diachronic consistency.</li>
+<li class="fragment">The group’s future self shouldn’t predictably undermine its past decisions.</li>
+<li class="fragment">Violations suggest the pooling method is unstable over time.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regret and Responsibility</h2>
+<p>This connects to our earlier discussion of group responsibility.</p>
+<ul>
+<li class="fragment">If a pooling method guarantees regret, who’s responsible for bad outcomes?</li>
+<li class="fragment">Is it fair to hold the group accountable for predictably bad decisions?</li>
+<li class="fragment">The choice of pooling method carries moral weight.</li>
+</ul>
+<div class="fragment">
+<p>This motivates careful attention to which axioms promote practical rationality.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The Impossibility Landscape</h1>
+
+</section>
+<section class="slide level2">
+<h2>We Can’t Have Everything</h2>
+<p>Here’s the bad news: No pooling function satisfies all desirable axioms.</p>
+<div class="fragment">
+<p>Classical impossibility results:</p>
+<ul>
+<li class="fragment">No linear rule satisfies External Bayesianity plus Non-Dictatorship.</li>
+<li class="fragment">Only linear rules satisfy Eventwise Independence and Local Unanamity Preservation.</li>
+<li class="fragment">Putting these together: nothing satisfies External Bayesianity, Non-Dictatorship, Eventwise Independence, and Local Unanimity Preservation.</li>
+<li class="fragment">There are <em>many</em> results like this.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>What This Means</h2>
+<p>We face genuine trade-offs:</p>
+<ul>
+<li class="fragment">Satisfying some axioms requires violating others.</li>
+<li class="fragment">Different contexts may prioritize different axioms.</li>
+<li class="fragment">There’s no one-size-fits-all pooling method.</li>
+</ul>
+<div class="fragment">
+<p>The rest of the book explores which trade-offs make sense for which purposes.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Axiomatic Method</h2>
+<p>Despite impossibilities, the axiomatic approach is valuable:</p>
+<ul>
+<li class="fragment">It clarifies exactly what we’re giving up with each choice.</li>
+<li class="fragment">It reveals hidden connections between properties.</li>
+<li class="fragment">It helps us choose pooling methods for specific contexts.</li>
+<li class="fragment">Medical decisions might prioritize different axioms than democratic votes.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Looking Ahead</h1>
+
+</section>
+<section class="slide level2">
+<h2>Next Steps</h2>
+<p>Having surveyed the axioms, we can now:</p>
+<ul>
+<li class="fragment">Examine specific pooling functions (linear, geometric, multiplicative).</li>
+<li class="fragment">See which axioms each function satisfies or violates.</li>
+<li class="fragment">Connect the formal results to our earlier philosophical discussions.</li>
+<li class="fragment">Ask: Which trade-offs are justified by epistemic or practical goals?</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>For Next Time</h2>
+<p>Next lecture: We’ll examine specific pooling strategies:</p>
+<ul>
+<li class="fragment"><strong>Linear pooling</strong>: Taking weighted averages.</li>
+<li class="fragment"><strong>Geometric pooling</strong>: Multiplicative aggregation.</li>
+<li class="fragment"><strong>Imprecise pooling</strong>: Representing group opinion as a set of credences.</li>
+</ul>
+<div class="fragment">
+<p>We’ll see how each performs on the axioms we’ve discussed today.</p>
+
+
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>PHIL 342 | University of Michigan</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil342-site");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

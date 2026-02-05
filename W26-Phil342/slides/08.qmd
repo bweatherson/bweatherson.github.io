@@ -44,7 +44,7 @@ There are lots of arguments that credence functions should be **probability func
 
 ## Probability
 
-A function $Pr$ is a probability function (as we're understanding them - this isn't exactly how mathematicians would understand them), satisfying these constraints. 
+A function $Pr$ is a probability function (as we're understanding them - this isn't exactly how mathematicians would understand them), satisfying these constraints.
 
 1. For all $A$, $Pr(A) \in [0, 1]$
 2. If $A \vdash B$, then $Pr(A) \geq Pr(B)$.
@@ -95,7 +95,7 @@ Formally: If $Pr_i(A) = x$ for all individuals $i$, then $Pr_G(A) = x$.
 ::: {.incremental}
 - This seems really—if everyone agrees, that should be the group view.
 - Violation would mean the group disagrees with all its members.
-- We called this the **Pareto principle** in social choice theory.
+- Sometimes called **Pareto principle** in social choice theory.
 :::
 
 ## Why Unanimity Matters
@@ -298,7 +298,7 @@ I don't even know how to pronounce that last one, but it's the one the book uses
 
 Question: If individuals all judge $A$ and $B$ independent, should the group?
 
-**Independence Preservation**: If $Pr_i(A \cap B) = Pr_i(A) \cdot Pr_i(B)$ for all $i$, then $Pr_G(A \cap B) = Pr_G(A) \cdot Pr_G(B)$.
+**Independence Preservation**: If $Pr_i(A \wedge B) = Pr_i(A) \cdot Pr_i(B)$ for all $i$, then $Pr_G(A \wedge B) = Pr_G(A) \cdot Pr_G(B)$.
 
 ## Why Independence Matters
 

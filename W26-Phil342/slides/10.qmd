@@ -1,5 +1,5 @@
-w---
-title: "Opinion Pooling III: Geometric and Multiplicative Pooling"
+---
+title: "Opinion Pooling V: Geometric and Multiplicative Pooling"
 date: 2/16/2026
 format:
     revealjs: default
@@ -109,13 +109,13 @@ Given credence functions $Pr_1, \ldots, Pr_n$ and partition $\mathcal{S}$:
 
 For each $S \in \mathcal{S}$:
 
-$$\text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(S) = \frac{\sqrt[n]{Pr_1(S) \times \cdots \times Pr_n(S)}}{\sum_{S' \in \mathcal{S}} \sqrt[n]{Pr_1(S') \times \cdots \times Pr_n(S')}}$$
+$$\mathrm{GP}_{\mathcal{S}}(Pr_1, \ldots, Pr_n)(S) = \frac{(Pr_1(S) \times \cdots \times Pr_n(S))^{1/n}}{\sum_{S' \in \mathcal{S}} (Pr_1(S') \times \cdots \times Pr_n(S'))^{1/n}}$$
 
 . . .
 
 For any proposition $X$ that is a disjunction of elements from $\mathcal{S}$:
 
-$$\text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(X) = \sum_{\substack{S \in \mathcal{S} \\ S \subseteq X}} \text{GP}_\mathcal{S}(Pr_1, \ldots, Pr_n)(S)$$
+$$\mathrm{GP}_{\mathcal{S}}(Pr_1, \ldots, Pr_n)(X) = \sum_{S \in \mathcal{S}, S \subseteq X} \mathrm{GP}_{\mathcal{S}}(Pr_1, \ldots, Pr_n)(S)$$
 
 ## Partition Sensitivity
 
@@ -166,7 +166,7 @@ Just like linear pooling, we can have weighted versions:
 
 Given weights $\Lambda = (\lambda_1, \ldots, \lambda_n)$ that sum to 1:
 
-$$\text{GP}_\mathcal{S}^\Lambda(P_1, \ldots, P_n)(S) = \frac{\prod_{i=1}^n P_i(S)^{\lambda_i}}{\sum_{S' \in \mathcal{S}} \prod_{i=1}^n P_i(S')^{\lambda_i}}$$
+$$\text{GP}_{\mathcal{S}}^{\Lambda}(P_1, \ldots, P_n)(S) = \frac{\prod_{i=1}^n P_i(S)^{\lambda_i}}{\sum_{S' \in \mathcal{S}} \prod_{i=1}^n P_i(S')^{\lambda_i}}$$
 
 . . .
 
@@ -177,7 +177,8 @@ This allows differential weighting of experts while maintaining the geometric st
 You might ask: Why use geometric means instead of arithmetic means?
 
 ::: {.incremental}
-1. 
+1. It is Externally Bayesian.
+2. It maybe gets the right answer in the two detectives case.
 :::
 
 . . .
@@ -202,7 +203,7 @@ This creates a whole family of strategies.
 
 Given credences $P_1, \ldots, P_n$, partition $\mathcal{S}$, and weights $\Lambda = (\lambda_1, \ldots, \lambda_n)$:
 
-$$\text{MP}_\mathcal{S}^\Lambda(P_1, \ldots, P_n)(S) = \frac{\prod_{i=1}^n P_i(S)^{\lambda_i}}{\sum_{S' \in \mathcal{S}} \prod_{i=1}^n P_i(S')^{\lambda_i}}$$
+$$\text{MP}_{\mathcal{S}}^{\Lambda}(P_1, \ldots, P_n)(S) = \frac{\prod_{i=1}^n P_i(S)^{\lambda_i}}{\sum_{S' \in \mathcal{S}} \prod_{i=1}^n P_i(S')^{\lambda_i}}$$
 
 . . .
 
@@ -331,7 +332,7 @@ This is a major theoretical virtue:
 
 This advantage may justify accepting the violations of other axioms.
 
-## (6) Probabilistic Independence Preservation
+## (7) Probabilistic Independence Preservation
 
 **If individuals judge $X$ and $Y$ independent, does the pool preserve this?**
 
@@ -473,54 +474,25 @@ A view one could have, although I don't know if anyone does have it, is that in 
 
 . . .
 
-This will imply that people with low credence get to reall
+This will imply that people with low credence get to really influence the overall result.
 
 # Looking Ahead
 
 ## Next Steps in the Course
 
-Moving forward, we'll explore:
-
-::: {.nonincremental}
-- Accuracy-based arguments for pooling strategies (Section 5)
-- Pragmatic arguments from practical rationality (Section 6)
-- Imprecise probability pooling approaches (Section 4.4)
-- How these connect to group responsibility and action
-:::
-
-. . .
-
-Each approach offers new perspectives on the pooling problem.
-
-## The Imprecise Probability Preview
-
-One promising direction: **Imprecise probability pooling**
-
-::: {.incremental}
-- Instead of single credence, group adopts a *set* of credences
-- Can satisfy both Boundedness and External Bayesianity!
-- Escapes some impossibility results
-- But introduces new challenges
-:::
-
-. . .
-
-We'll explore this in detail next week.
+Moving forward, we'll explore how we might go about choosing betwen these in particular contexts, how they relate to the motivations for pooling, and (perhaps) whether there are any further options we left out.
 
 ## Practical Takeaway
 
-For now, remember:
+For now, here's a summary
 
 ::: {.nonincremental}
-1. Classical pooling involves genuine trade-offs
-2. No single method is best for all purposes
-3. External Bayesianity is geometric pooling's key virtue
-4. But it comes at the cost of other desirable properties
-5. Context and goals should guide method selection
+1. Pooling involves trade-offs.
+2. No single pooling method is best for all purposes.
+3. External Bayesianity is geometric/multiplicative pooling's key virtue.
+4. But it comes at the cost of other desirable properties, such as unanimity.
+5. So we need to think about which of these we care most about on an occasion.
 :::
 
-. . .
-
-The choice of pooling strategy has both epistemic and practical significance.
 
 
