@@ -1,6 +1,6 @@
 ---
 title: "Opinion Pooling III: Desirable Features of Pooling Strategies"
-date: 2/11/2026
+date: 2/9/2026
 format:
     revealjs: default
     beamer: default
@@ -95,7 +95,7 @@ Formally: If $Pr_i(A) = x$ for all individuals $i$, then $Pr_G(A) = x$.
 ::: {.incremental}
 - This seems really—if everyone agrees, that should be the group view.
 - Violation would mean the group disagrees with all its members.
-- Sometimes called **Pareto principle** in social choice theory.
+- We called this the **Pareto principle** in social choice theory.
 :::
 
 ## Why Unanimity Matters
