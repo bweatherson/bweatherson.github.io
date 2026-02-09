@@ -1,0 +1,401 @@
+---
+title: "Modal Logic: Frames and Proofs"
+date: "2/11/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Frames and Axioms
+
+## Overview
+
+In this section we'll explore the connection between properties of the accessibility relation and modal axioms.
+
+### Associated Reading
+
+- Boxes and Diamonds, chapter 5
+
+## What Are Frames
+
+Frames are models without the valuations.
+
+::: {.incremental}
+- They are the $\langle W, R \rangle$ part of $\langle W, R, V\rangle$.
+- They specify the worlds and the accessibility relation, but not which atomic sentences are true at which worlds.
+:::
+
+## Two-Way Equivalence
+
+Some conditions on $R$ are strongly tied to dedicated axioms:
+
+::: {.incremental}
+- If the condition on $R$ holds, then the axiom is guaranteed to hold.
+- If the condition on $R$ does not hold, then there is guaranteed to be a way to make the axiom fail.
+:::
+
+. . .
+
+We'll illustrate this with the following pair:
+
+- $R$ is transitive
+- $\Box A \rightarrow \Box \Box A$
+
+## From $R$ to Axiom
+
+In any frame where $R$ is transitive, any instance of this schema is true at any point in any model on the frame:
+
+$$\Box A \rightarrow \Box \Box A$$
+
+. . .
+
+This is a really strong claim. It says you can pick any value you like for the following three things, and $\Box A \rightarrow \Box \Box A$ will be true:
+
+::: {.incremental}
+1. Any valuation function $V$ you like.
+2. Any point $w$ in $W$ that you like.
+3. Any substitution instance for $A$ that you like.
+:::
+
+## From Axiom to $R$
+
+The claim here is in a sense weaker, but still interesting. It says that if the $R$ in $\langle W, R \rangle$ is not transitive, then there is some way to make $\Box A \rightarrow \Box \Box A$ false.
+
+. . .
+
+That is, if you pick the right values for the following three things:
+
+::: {.incremental}
+1. The point $w$ in $W$
+2. The substitution instance for $A$
+3. The valuation function $V$
+:::
+
+. . .
+
+then $\Box A \rightarrow \Box \Box A$ will be false.
+
+## Picking the Substitution Instance
+
+In this case, it isn't that hard to construct a countermodel:
+
+::: {.incremental}
+1. Let $w$ be a point in $W$ such that for some $x, y$, we have $wRx$ and $xRy$, but not $wRy$. (Since $R$ is not transitive, we know such a point exists.)
+2. Let $A$ be $p$, i.e., an atomic sentence.
+3. Let $V$ make $p$ true at $z$ if and only if $wRz$.
+:::
+
+. . .
+
+Then at $w$, $\Box p$ will be true (since $p$ is true everywhere that $w$ can access), but $\Box \Box p$ will be false. That's because we know that $p$ is false at the point $y$ mentioned in step 1.
+
+## Reflexivity
+
+The same equivalence holds between:
+
+- $R$ is reflexive, i.e., for all $x$, $xRx$.
+- The axiom $\Box A \rightarrow A$ is valid on the frame.
+
+. . .
+
+**Left-to-right**: If $R$ is reflexive, then $x$ itself is one of the accessible worlds, so if $\Box A$ is true at $x$, then $A$ must also be true at $x$.
+
+. . .
+
+**Right-to-left**: If $R$ is not reflexive, then there is a point $x$ such that $\neg xRx$. Let $A$ be true everywhere but $x$. Then $\Box A$ will be true at $x$, since $A$ is true at all the points it can "see", but $A$ is false at $x$.
+
+## Symmetry
+
+The same equivalence holds between:
+
+- $R$ is symmetric, i.e., for all $x, y$, if $xRy$ then $yRx$.
+- The axiom $A \rightarrow \Box \Diamond A$ is valid on the frame.
+
+. . .
+
+**Left-to-right**: If $R$ is symmetric, then everywhere $x$ can see can also see $x$. So if $A$ is true at $x$, then $\Diamond A$ is true at all those worlds. So $\Box \Diamond A$ is true at $x$.
+
+. . .
+
+**Right-to-left**: If $R$ is not symmetric, then there is a pair $x, y$ such that $xRy$ and $\neg yRx$. Let $A$ be true only at $x$. Since $\neg yRx$, $\Diamond A$ is false at $y$. And since $xRy$, $\Box \Diamond A$ is false at $x$.
+
+## Philosophical Significance
+
+As we saw in the previous lecture, when we think about what these models might really mean, the $R$ relation represents a kind of possibility.
+
+. . .
+
+$wRx$ means that if $w$ is how things actually are, then $x$ is a way things might be, in the sense of might that we care about.
+
+## Two Perspectives
+
+The point of these frame-axiom correspondences is that we now have two ways to think about modal questions:
+
+::: {.incremental}
+1. We can look at the accessibility relation directly, and this may tell us something about certain modal sentences.
+2. Or we can look at the modal sentences, and that can tell us something about the accessibility relation.
+:::
+
+. . .
+
+This has become especially important in recent epistemology, where philosophers debate whether knowledge satisfies principles like $\Box A \rightarrow \Box \Box A$ (if you know something, do you know that you know it?). These debates connect directly to questions about the structure of epistemic possibility.
+
+# Modal Tableaux
+
+## Overview
+
+In this section we'll learn how to construct proofs in modal logic using the tableaux method.
+
+### Associated Reading
+
+- Boxes and Diamonds, chapter 5
+
+## Modal Tableaux: The Key Difference
+
+One big difference from propositional logic:
+
+::: {.incremental}
+- On each line, we include reference to a world.
+- The line says that a particular proposition is true or false **at a world**.
+- The tableau only closes if the tableau says the same proposition is both true and false **at the same world**.
+:::
+
+## Referring to Worlds
+
+We refer to a world with a string of numbers, such as 1.2.1.3.
+
+::: {.incremental}
+- The string tells you something (but not everything) about $R$ relations.
+- World $x$ can always access world $x.y$.
+- So there is an $R$-relation from 1.2.1 to 1.2.1.3, and indeed to 1.2.1.$n$ for any $n$.
+:::
+
+## Referring to Worlds (continued)
+
+::: {.incremental}
+- These don't exhaust the $R$-relations; perhaps there is also an $R$-relation from 1.2.1.3 back to 1.2.1.
+- But the relation from $x$ to $x.y$ is guaranteed.
+- Note that worlds can be picked out by multiple strings—we do not assume that 1.1 and 1.2 are different, though we don't assume they are the same either.
+:::
+
+## Rules for Old Connectives
+
+The rules for the propositional connectives stay as they are.
+
+. . .
+
+The only difference is that you have to note which world you are in.
+
+::: {.incremental}
+- If you have that $A \wedge B$ is true at 1.4.7, then you write down that $A$ is true at 1.4.7, and that $B$ is true at 1.4.7.
+- If $A \vee B$ is true at 1.6.8, you have two branches: one where $A$ is true at 1.6.8, and the other where $B$ is true at 1.6.8.
+:::
+
+## Rules for $\Box$ (True Case)
+
+If $\Box A$ is **true** at $x$, then for any $x.y$ that is already on the tree, we can infer that $A$ is true at $x.y$.
+
+. . .
+
+**Important note**: If there is no $x.y$ on the tree, we can't assume that there is one. $\Box A$ can be true at a world because that world can't access any other world.
+
+## Rules for $\Box$ (False Case)
+
+If $\Box A$ is **false** at $x$, then we have to add a **new** $x.y$, and make $A$ false at $x.y$.
+
+. . .
+
+It is very important that $x.y$ be new:
+
+::: {.incremental}
+- We know that $A$ is false at some accessible world, but we don't know which one.
+- For any given world already on the tree, $A$ might be true there, as long as it is false somewhere.
+- That's why we use a new number.
+- Remember that it might be that multiple strings refer to the same world.
+:::
+
+## Rules for $\Diamond$ (True Case)
+
+If $\Diamond A$ is **true** at $x$, then we have to add a **new** $x.y$, and make $A$ true at $x.y$.
+
+. . .
+
+It is very important that $x.y$ be new:
+
+::: {.incremental}
+- We know that $A$ is true at some accessible world, but we don't know which one.
+- For any given world already on the tree, $A$ might be false there, as long as it is true somewhere.
+- That's why we use a new number.
+:::
+
+## Rules for $\Diamond$ (False Case)
+
+If $\Diamond A$ is **false** at $x$, then for any $x.y$ that is already on the tree, we can infer that $A$ is false at $x.y$.
+
+. . .
+
+**Important note**: If there is no $x.y$ on the tree, we can't assume that there is one. $\Diamond A$ can be false at a world because that world can't access any other world.
+
+## Summary of Modal Rules
+
+| Formula at $x$ | Action |
+|----------------|--------|
+| $\Box A$ true | Add $A$ true at all existing $x.y$ |
+| $\Box A$ false | Add new $x.y$, make $A$ false there |
+| $\Diamond A$ true | Add new $x.y$, make $A$ true there |
+| $\Diamond A$ false | Add $A$ false at all existing $x.y$ |
+
+# Examples
+
+## Example 1: A Valid Formula
+
+Let's prove: $(\Box A \wedge \Box B) \rightarrow \Box (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Box A \land \Box B) \lif \Box (A \land B)}{1}, just =\TAss
+    [\pFmla{\True}{\Box A \land \Box B}{1}, just = {\TRule{\False}{\lif}[1]}
+        [\pFmla{\False}{\Box(A \land B)}{1}, just = {\TRule{\False}{\lif}[1]}
+            [\pFmla{\True}{\Box A}{1}, just = {\TRule{\True}{\land}[2]}
+                [\pFmla{\True}{\Box B}{1}, just = {\TRule{\True}{\land}[2]}
+                    [\pFmla{\False}{A \land B}{1.1}, just = {\TRule{\False}{\Box}[3]}
+                        [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\land}[6]}
+                            [\pFmla{\True}{A}{1.1}, just= {\TRule{\True}{\Box}[4]}, close]
+                        ]
+                        [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\land}[6]}
+                            [\pFmla{\True}{B}{1.1}, just= {\TRule{\True}{\Box}[5]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+## Example 2: Another Valid Formula
+
+Let's prove: $\Diamond (A \vee B) \rightarrow (\Diamond A \vee \Diamond B)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond(A \lor B) \lif (\Diamond A \lor \Diamond B)}{1}, just =\TAss
+    [\pFmla{\True}{\Diamond(A \lor B)}{1}, just = {\TRule{\False}{\lif}[1]}
+        [\pFmla{\False}{\Diamond A \lor \Diamond B}{1}, just = {\TRule{\False}{\lif}[1]}
+            [\pFmla{\False}{\Diamond A}{1}, just = {\TRule{\False}{\lor}[3]}
+                [\pFmla{\False}{\Diamond B}{1}, just = {\TRule{\False}{\lor}[3]}
+                    [\pFmla{\True}{A \lor B}{1.1}, just = {\TRule{\True}{\Diamond}[2]}
+                        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\lor}[6]}
+                            [\pFmla{\False}{A}{1.1}, just= {\TRule{\False}{\Diamond}[4]}, close]
+                        ]
+                        [\pFmla{\True}{B}{1.1}, just = {\TRule{\True}{\lor}[6]}
+                            [\pFmla{\False}{B}{1.1}, just= {\TRule{\False}{\Diamond}[5]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+# Other Logics
+
+## K is Special
+
+The logic we have so far is very weak.
+
+::: {.incremental}
+- It's called **logic K**, and it puts no restrictions on the $R$-relation.
+- Most applications of modal logic do have restrictions on $R$.
+- How should we model them?
+:::
+
+. . .
+
+The answer is that we model them one at a time by adding special rules.
+
+## T: The Logic of Reflexive Frames
+
+To model reflexive frames, add two new rules:
+
+::: {.incremental}
+1. If $\Box A$ is true at $x$, infer that $A$ is true at $x$.
+2. If $\Diamond A$ is false at $x$, infer that $A$ is false at $x$.
+:::
+
+. . .
+
+These rules capture the fact that every world can access itself.
+
+## 4: The Logic of Transitive Frames
+
+To model transitive frames, add two new rules:
+
+::: {.incremental}
+1. If $\Box A$ is true at $x$, and $x.y$ exists on the tree, add that $\Box A$ is true at $x.y$. (You already should have added that $A$ is true at $x.y$; that's the basic rule for $\Box$.)
+2. If $\Diamond A$ is false at $x$, and $x.y$ exists on the tree, add that $\Diamond A$ is false at $x.y$. (You already should have added that $A$ is false at $x.y$; that's the basic rule for $\Diamond$.)
+:::
+
+## Example: $\Box A \rightarrow \Box \Box A$ in K
+
+This should fail in logic K. Here's an open tableau showing it's not valid in K:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tableau stays open—no contradiction. So this formula is not valid in K.
+
+## Example: $\Box A \rightarrow \Box \Box A$ in Logic 4
+
+But now let's apply the rules for logic 4 as well. After line 5 we need to make one new inference using the transitivity rule.
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\True}{1.1, \Box A}, just = {4$\Box$ 2}
+                        [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                            [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\Box}[6]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tableau closes! So this formula is valid in logic 4, as expected.
+
+## Other Modal Logics
+
+The textbook covers several other common modal logics:
+
+::: {.incremental}
+- **S5**: Combines reflexivity, symmetry, and transitivity (add rules for all three)
+- **B**: Reflexivity and symmetry
+- **D**: Serial frames (every world accesses at least one world)
+:::
+
+. . .
+
+Each has its own philosophical applications and corresponds to different ways of thinking about necessity and possibility.
+
+## For Next Time
+
+We'll move on to conditionals and start exploring how modal logic helps us understand counterfactual reasoning.
