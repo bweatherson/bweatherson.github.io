@@ -10,14 +10,6 @@ format:
 
 # Frames and Axioms
 
-## Overview
-
-In this section we'll explore the connection between properties of the accessibility relation and modal axioms.
-
-### Associated Reading
-
-- Boxes and Diamonds, chapter 5
-
 ## What Are Frames
 
 Frames are models without the valuations.
@@ -142,19 +134,243 @@ The point of these frame-axiom correspondences is that we now have two ways to t
 
 This has become especially important in recent epistemology, where philosophers debate whether knowledge satisfies principles like $\Box A \rightarrow \Box \Box A$ (if you know something, do you know that you know it?). These debates connect directly to questions about the structure of epistemic possibility.
 
+# Simplified Tableaux for S5
+
+## What is S5?
+
+Officially, **S5** is the modal logic where $R$ is an equivalence relation:
+
+::: {.incremental}
+- **Reflexive**: Every world accesses itself
+- **Symmetric**: If $x$ accesses $y$, then $y$ accesses $x$
+- **Transitive**: If $x$ accesses $y$ and $y$ accesses $z$, then $x$ accesses $z$
+:::
+
+. . .
+
+Relations that satisfy all three of these features are called **equivalence relations**. They come up most naturally when thinking about things like *Has the same birthday* or *Is the same height*, where we divide people up into non-overlapping groups.
+
+## What is S5?
+
+For reasons I won't go into here, we get the same logic if we make a much simpler assumption about *R*.
+
+We get the same logic if we just say that R is the **universal** relation.
+
+That means for any two worlds $x$ and $y$, $xRy$ holds.
+
+## Simplified Notation for S5
+
+Because all worlds in **S5** can access each other, we don't need to track $R$, and actually we'll leave it out of this part. (It will come back in the next part.)
+
+::: {.incremental}
+- We number worlds: 1, 2, 3, etc.
+- When we drop the 'simplified', the numbering of worlds will be the first thing that gets less simple.
+:::
+
+## Simplified Rules for $\Box$
+
+**If $\Box A$ is true at any world:**
+
+- Then $A$ is true at **all** worlds (both existing and future worlds).
+
+. . .
+
+That is, if $\Box A$ is true at some world, then for **every** world that appears on the tree, we write down that $A$ is true there.
+
+. . .
+
+This rule can never be marked as complete until the tree is complete, because new worlds may be introduced.
+
+## Simplified Rules for $\Box$
+
+**If $\Box A$ is false at world $n$:**
+
+- First, check if there is already a world on the branch where $A$ is false. If so, mark the line as complete without doing anything.
+- If not, introduce a **new** world where $A$ is false.
+- It has to be new, because all you know is that $A$ is false somewhere, not that it is false at any particular place.
+
+## Simplified Rules for $\Diamond$
+
+**If $\Diamond A$ is true at any world:**
+
+- First, check if there is already a world on the branch where $A$ is true. If so, mark the line as complete without doing anything.
+- If not, introduce a **new** world where $A$ is true.
+- It has to be new, because all you know is that $A$ is true somewhere, not that it is false at any particular place.
+
+. . .
+
+If this seems familiar, it is because $\Diamond A$ being true means exactly the same thing as $\Box \neg A$ being false
+
+## Simplified Rules for $\Diamond$
+
+**If $\Diamond A$ is false at any world:**
+
+- Then $A$ is false at **all** worlds (both existing and future worlds).
+- Like with the true $\Box$ rule, we can't ever mark this as complete until the tree is done; we have to keep applying it as new worlds are introduced.
+
+## Why This Works
+
+In **S5**, since all worlds access all other worlds:
+
+::: {.incremental}
+- $\Box A$ means "$A$ is true everywhere"
+- $\Diamond A$ means "$A$ is true somewhere"
+- When you introduce a new world, it automatically accesses all existing worlds and vice versa
+- So boxed formulas immediately apply to new worlds, and new worlds immediately affect all diamond formulas
+:::
+
+## Example: $\Diamond \Box A \rightarrow \Box A$ in S5
+
+Let's prove this formula is valid in **S5**:
+  
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{3, A}, just = {\TRule{\True}{\Box}[4]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow \Box A$](../images/tableaux-09/tableau-09-01.tex.svg){height=484px}
+:::
+
+Note: When $\Box A$ is true at world 2, it immediately makes $A$ true everywhere, including the new world 3.
+
+## Example: $A \rightarrow \Box \Diamond A$
+
+On the next slide we'll show that works everywhere.
+
+Intuitively, the argument is that if $A$ is true, then no matter what's true, the world where $A$ is true is a *possible* world, so $\Diamond A$ will be true there.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{2, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\False}{1, A}, just = {\TRule{\False}{\Diamond}[4]}, close]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$A \rightarrow \Box \Diamond A$](../images/tableaux-09/tableau-09-02.tex.svg){height=484px}
+:::
+
+## Example: $\Box A \rightarrow A$
+
+On the next slide we'll show that works everywhere.
+
+Intuitively, the argument is that if $\Box A$ is true, then it is true everywhere. So it is true here.
+
+This means that **S5** is really not a good logic for moral interpretations of $\Box$, but might be a good logic for other interpretations.
+
+---
+
+::: {.content-visible when-format="revealjs"}
+![$A \rightarrow \Box \Diamond A$](../images/tableaux-09/tableau-09-02.tex.svg){height=484px}
+:::
+
+## Example: $\Box A \rightarrow A$
+
+On the next slide we'll show that works everywhere.
+
+Intuitively, the argument is that if $\Box A$ is true, then it is true everywhere. So it is true here.
+
+This means that **S5** is really not a good logic for moral interpretations of $\Box$, but might be a good logic for other interpretations.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\Box}[2]}, close]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow A$](../images/tableaux-09/tableau-09-03.tex.svg){height=484px}
+:::
+
+## Example: $\Box A \rightarrow \Box \Box A$
+
+On the next slide we'll show that works everywhere (in **S5**).
+
+Intuitively, the argument is that if $\Box A$ is true, then $A$ is true everywhere. So everywhere you go, $\Box A$ is true there. So it must be the case that $\Box A$ is true, i.e., $\Box \Box A$ is true.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{2, \Box A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\False}{3, A}, just = {\TRule{\False}{\Box}[4]}
+                    , close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Box \Box A$](../images/tableaux-09/tableau-09-04.tex.svg){height=484px}
+:::
+
+
+## Example: An Invalid Formula
+
+Let's show that $A \rightarrow \Box A$ is not valid in **S5**:
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{2, A}, just = {\TRule{\False}{\Box}[3]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$A \rightarrow \Box A$](../images/tableaux-09/tableau-09-05.tex.svg){height=484px}
+:::
+
+The tableau stays open—we have $A$ true at world 1 but false at world 2. This is consistent in **S5**.
+
+## Advantages of Simplified S5 Tableaux
+
+This tableaux system is much easier to work with than the full one in the textbook.
+
+And **S5** is actually a widely used logic. Many philosophers (though not all) think it is the right modal logic for **metaphysical** necessity. 
+
+Many economists and computer scientists act like it is the right modal logic for **epistemic** necessity (where $\Box A$ means you know that $A$), though this is almost universally rejected by philosophers.
+
+However, for other modal logics, we need the full tableaux system we'll see next.
+
 # Modal Tableaux
 
-## Overview
-
-In this section we'll learn how to construct proofs in modal logic using the tableaux method.
-
-### Associated Reading
-
-- Boxes and Diamonds, chapter 5
-
-## Modal Tableaux: The Key Difference
-
-One big difference from propositional logic:
+## Modal Tableaux Generalised
 
 ::: {.incremental}
 - On each line, we include reference to a world.
@@ -253,18 +469,20 @@ If $\Diamond A$ is **false** at $x$, then for any $x.y$ that is already on the t
 
 Let's prove: $(\Box A \wedge \Box B) \rightarrow \Box (A \wedge B)$
 
+---
+
 \begin{oltableau}
-[\pFmla{\False}{(\Box A \land \Box B) \lif \Box (A \land B)}{1}, just =\TAss
-    [\pFmla{\True}{\Box A \land \Box B}{1}, just = {\TRule{\False}{\lif}[1]}
-        [\pFmla{\False}{\Box(A \land B)}{1}, just = {\TRule{\False}{\lif}[1]}
-            [\pFmla{\True}{\Box A}{1}, just = {\TRule{\True}{\land}[2]}
-                [\pFmla{\True}{\Box B}{1}, just = {\TRule{\True}{\land}[2]}
-                    [\pFmla{\False}{A \land B}{1.1}, just = {\TRule{\False}{\Box}[3]}
-                        [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\land}[6]}
-                            [\pFmla{\True}{A}{1.1}, just= {\TRule{\True}{\Box}[4]}, close]
+[\sFmla{\False}{1, (\Box A \land \Box B) \rightarrow \Box (A \land B)}, just =\TAss
+    [\sFmla{\True}{1, \Box A \land \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\land}[2]}
+                [\sFmla{\True}{1, \Box B}, just = {\TRule{\True}{\land}[2]}
+                    [\sFmla{\False}{1.1, A \land B}, just = {\TRule{\False}{\Box}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\land}[6]}
+                            [\sFmla{\True}{1.1, A}, just= {\TRule{\True}{\Box}[4]}, close]
                         ]
-                        [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\land}[6]}
-                            [\pFmla{\True}{B}{1.1}, just= {\TRule{\True}{\Box}[5]}, close]
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\land}[6]}
+                            [\sFmla{\True}{1.1, B}, just= {\TRule{\True}{\Box}[5]}, close]
                         ]
                     ]
                 ]
@@ -273,23 +491,29 @@ Let's prove: $(\Box A \wedge \Box B) \rightarrow \Box (A \wedge B)$
     ]
 ]
 \end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$(\Box A \wedge \Box B) \rightarrow \Box (A \wedge B)$](../images/tableaux-09/tableau-09-06.tex.svg){height=484px}
+:::
 
 ## Example 2: Another Valid Formula
 
 Let's prove: $\Diamond (A \vee B) \rightarrow (\Diamond A \vee \Diamond B)$
 
+---
+
 \begin{oltableau}
-[\pFmla{\False}{\Diamond(A \lor B) \lif (\Diamond A \lor \Diamond B)}{1}, just =\TAss
-    [\pFmla{\True}{\Diamond(A \lor B)}{1}, just = {\TRule{\False}{\lif}[1]}
-        [\pFmla{\False}{\Diamond A \lor \Diamond B}{1}, just = {\TRule{\False}{\lif}[1]}
-            [\pFmla{\False}{\Diamond A}{1}, just = {\TRule{\False}{\lor}[3]}
-                [\pFmla{\False}{\Diamond B}{1}, just = {\TRule{\False}{\lor}[3]}
-                    [\pFmla{\True}{A \lor B}{1.1}, just = {\TRule{\True}{\Diamond}[2]}
-                        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\lor}[6]}
-                            [\pFmla{\False}{A}{1.1}, just= {\TRule{\False}{\Diamond}[4]}, close]
+[\sFmla{\False}{1, \Diamond(A \lor B) \rightarrow (\Diamond A \lor \Diamond B)}, just =\TAss
+    [\sFmla{\True}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Diamond}[2]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\lor}[6]}
+                            [\sFmla{\False}{1.1, A}, just= {\TRule{\False}{\Diamond}[4]}, close]
                         ]
-                        [\pFmla{\True}{B}{1.1}, just = {\TRule{\True}{\lor}[6]}
-                            [\pFmla{\False}{B}{1.1}, just= {\TRule{\False}{\Diamond}[5]}, close]
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\lor}[6]}
+                            [\sFmla{\False}{1.1, B}, just= {\TRule{\False}{\Diamond}[5]}, close]
                         ]
                     ]
                 ]
@@ -298,6 +522,10 @@ Let's prove: $\Diamond (A \vee B) \rightarrow (\Diamond A \vee \Diamond B)$
     ]
 ]
 \end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond (A \vee B) \rightarrow (\Diamond A \vee \Diamond B)$](../images/tableaux-09/tableau-09-07.tex.svg){height=484px}
+:::
 
 # Other Logics
 
@@ -315,7 +543,7 @@ The logic we have so far is very weak.
 
 The answer is that we model them one at a time by adding special rules.
 
-## T: The Logic of Reflexive Frames
+## KT: The Logic of Reflexive Frames
 
 To model reflexive frames, add two new rules:
 
@@ -328,7 +556,7 @@ To model reflexive frames, add two new rules:
 
 These rules capture the fact that every world can access itself.
 
-## 4: The Logic of Transitive Frames
+## S4: The Logic of Transitive Frames
 
 To model transitive frames, add two new rules:
 
@@ -356,11 +584,17 @@ This should fail in logic K. Here's an open tableau showing it's not valid in K:
 ]
 \end{oltableau}
 
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Box \Box A$ (in K)](../images/tableaux-09/tableau-09-08.tex.svg){height=484px}
+:::
+
 The tableau stays open—no contradiction. So this formula is not valid in K.
 
-## Example: $\Box A \rightarrow \Box \Box A$ in Logic 4
+## Example: $\Box A \rightarrow \Box \Box A$ in Logic S4
 
-But now let's apply the rules for logic 4 as well. After line 5 we need to make one new inference using the transitivity rule.
+But now let's apply the rules for logic **S4** as well. After line 5 we need to make one new inference using the transitivity rule.
+
+---
 
 \begin{oltableau}
 [\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
@@ -380,7 +614,11 @@ But now let's apply the rules for logic 4 as well. After line 5 we need to make 
 ]
 \end{oltableau}
 
-The tableau closes! So this formula is valid in logic 4, as expected.
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Box \Box A$ (in **S4**)](../images/tableaux-09/tableau-09-09.tex.svg){height=484px}
+:::
+
+The tableau closes. So this formula is valid in logic **S4**, as expected.
 
 ## Other Modal Logics
 
@@ -388,8 +626,8 @@ The textbook covers several other common modal logics:
 
 ::: {.incremental}
 - **S5**: Combines reflexivity, symmetry, and transitivity (add rules for all three)
-- **B**: Reflexivity and symmetry
-- **D**: Serial frames (every world accesses at least one world)
+- **KB**: Reflexivity and symmetry
+- **KD**: Serial frames (every world accesses at least one world)
 :::
 
 . . .
@@ -398,4 +636,4 @@ Each has its own philosophical applications and corresponds to different ways of
 
 ## For Next Time
 
-We'll move on to conditionals and start exploring how modal logic helps us understand counterfactual reasoning.
+We'll keep going with more examples of tableaux.
