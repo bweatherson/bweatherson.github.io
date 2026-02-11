@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="dcterms.date" content="2026-02-11">
   <title>Opinion Pooling IV: Linear Pooling</title>
@@ -459,6 +459,116 @@
 <li class="fragment">The group’s “rational” belief depends on procedural maneuvering.</li>
 </ul>
 </div>
+</section>
+<section class="slide level2">
+<h2>A Sure Loss Problem</h2>
+<p>The problem goes beyond arbitrariness. A group that uses update-then-pool can be <strong>Dutch booked</strong>.</p>
+<div class="fragment">
+<p>A bookie can offer the group a package of bets, each of which is fair by the group’s own credences at the time it is offered, but which <strong>guarantee a net loss</strong> for the group no matter what happens.</p>
+</div>
+<div class="fragment">
+<p>Let’s see how this works with our example. The key fact is the gap between the two procedures:</p>
+<ul>
+<li>Pool-then-update gives <span class="math inline">\(Pr_G(A | B) = 0.82\)</span>.</li>
+<li>Update-then-pool gives <span class="math inline">\(Pr_G(A) = 0.5\)</span> after learning <span class="math inline">\(B\)</span>.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Constructing the Bets</h2>
+<p>Three bets, all fair by the group’s own lights at the time they’re offered.</p>
+<p><strong>Bet 1 (before learning whether <span class="math inline">\(B\)</span>):</strong> The group buys a conditional bet from the bookie, “if <span class="math inline">\(B\)</span> turns out true, pays $1 if <span class="math inline">\(A\)</span>”, at the group’s pooled-prior conditional price of $0.82. This is a bet that pays $1 if <span class="math inline">\(A \wedge B\)</span>, pays nothing if if <span class="math inline">\(A\)</span>, and the bettor gets their money back (in this case 82 cents) if <span class="math inline">\(\neg A\)</span>.</p>
+<div class="fragment">
+<p><strong>Bet 2 (before learning whether <span class="math inline">\(B\)</span>):</strong> The group sells the bookie a small side bet paying $0.20 if <span class="math inline">\(\neg B\)</span>, receiving the fair price of $0.10.</p>
+</div>
+<div class="fragment">
+<p><strong>Bet 3 (after learning <span class="math inline">\(B\)</span>, if <span class="math inline">\(B\)</span>):</strong> The group sells a bet paying $1 if <span class="math inline">\(A\)</span>, receiving the group’s updated pooled price of $0.50.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Payoff Table</h2>
+<p>Here’s what happens to the group in each possible state of the world:</p>
+<div class="fragment">
+<div id="tbl-dutch" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dutch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Net payoffs for the group for all three bets in all four world states
+</figcaption>
+<div aria-describedby="tbl-dutch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(A \wedge B\)</span></th>
+<th><span class="math inline">\(\neg A \wedge B\)</span></th>
+<th><span class="math inline">\(A \wedge \neg B\)</span></th>
+<th><span class="math inline">\(\neg A \wedge \neg B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bet 1</td>
+<td><span class="math inline">\(0.18\)</span></td>
+<td><span class="math inline">\(-0.82\)</span></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Bet 2</td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(0.10\)</span></td>
+<td><span class="math inline">\(-0.10\)</span></td>
+<td><span class="math inline">\(-0.10\)</span></td>
+</tr>
+<tr class="odd">
+<td>Bet 3</td>
+<td><span class="math inline">\(-0.50\)</span></td>
+<td><span class="math inline">\(0.50\)</span></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong><span class="math inline">\(-0.22\)</span></strong></td>
+<td><strong><span class="math inline">\(-0.22\)</span></strong></td>
+<td><strong><span class="math inline">\(-0.10\)</span></strong></td>
+<td><strong><span class="math inline">\(-0.10\)</span></strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p>The group loses money in every cell. That is a sure loss.</p>
+</div>
+<div class="fragment">
+<p>In this scenario the group is indifferent between buying and selling each of these bets, but I could have made each bet a penny better for the group (e.g., only asked them to pay 81 cents for the first bet), and the bottom row would still be all negative.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why This Matters</h2>
+<p>The bookie isn’t cheating. Every bet is offered at a price the group considers fair, given its own credences at the time.</p>
+<div class="fragment">
+<p>The problem is that the group’s pre-experiment conditional price for <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> (0.82) doesn’t match the price it actually plans to set after learning <span class="math inline">\(B\)</span> (0.50). This internal inconsistency is exactly what the bookie exploits.</p>
+</div>
+<div class="fragment">
+<p>The fundamental problem is the mismatch between Bets 1 and 3, but combined with Bet 2 that leads to sure loss.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Generalising</h2>
+<p>The example here is silly; if group members diverge this much, they should talk about it not just pool.</p>
+<p>But the problem is general. Whenever group members disagree, there will be some set of bets like this that they will find acceptable, if they use linear pooling, which collectively lead to a sure loss.</p>
+<p>In finance terms, it is possible to essentially arbitrage them (though this does take place over time). That’s bad!</p>
 </section>
 <section class="slide level2">
 <h2>A Deeper Issue: What Is the Group Learning From?</h2>

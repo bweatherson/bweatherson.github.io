@@ -371,6 +371,81 @@ Suppose you're chairing a committee and you prefer Procedure 1's result.
 - The group's "rational" belief depends on procedural maneuvering.
 :::
 
+## A Sure Loss Problem
+
+The problem goes beyond arbitrariness. A group that uses update-then-pool can be **Dutch booked**.
+
+. . .
+
+A bookie can offer the group a package of bets, each of which is fair by the group's own credences at the time it is offered, but which **guarantee a net loss** for the group no matter what happens.
+
+. . .
+
+Let's see how this works with our example. The key fact is the gap between the two procedures:
+
+::: {.nonincremental}
+- Pool-then-update gives $Pr_G(A | B) = 0.82$.
+- Update-then-pool gives $Pr_G(A) = 0.5$ after learning $B$.
+:::
+
+## Constructing the Bets
+
+Three bets, all fair by the group's own lights at the time they're offered.
+
+**Bet 1 (before learning whether $B$):** The group buys a conditional bet from the bookie, "if $B$ turns out true, pays \$1 if $A$", at the group's pooled-prior conditional price of \$0.82. This is a bet that pays $1 if $A \wedge B$, pays nothing if if $A$, and the bettor gets their money back (in this case 82 cents) if $\neg A$.
+
+. . .
+
+**Bet 2 (before learning whether $B$):** The group sells the bookie a small side bet paying \$0.20 if $\neg B$, receiving the fair price of \$0.10.
+
+. . .
+
+**Bet 3 (after learning $B$, if $B$):** The group sells a bet paying \$1 if $A$, receiving the group's updated pooled price of \$0.50.
+
+## The Payoff Table
+
+Here's what happens to the group in each possible state of the world:
+
+. . .
+
+| | $A \wedge B$ | $\neg A \wedge B$ | $A \wedge \neg B$ | $\neg A \wedge \neg B$ |
+|---|---|---|---|---|
+| Bet 1 | $0.18$ | $-0.82$ | — | — |
+| Bet 2 | $0.10$ | $0.10$ | $-0.10$ | $-0.10$ |
+| Bet 3 | $-0.50$ | $0.50$ | — | — |
+| **Total** | **$-0.22$** | **$-0.22$** | **$-0.10$** | **$-0.10$** |
+
+: Net payoffs for the group for all three bets in all four world states {#tbl-dutch}
+
+. . .
+
+The group loses money in every cell. That is a sure loss.
+
+. . .
+
+In this scenario the group is indifferent between buying and selling each of these bets, but I could have made each bet a penny better for the group (e.g., only asked them to pay 81 cents for the first bet), and the bottom row would still be all negative.
+
+
+## Why This Matters
+
+The bookie isn't cheating. Every bet is offered at a price the group considers fair, given its own credences at the time.
+
+. . .
+
+The problem is that the group's pre-experiment conditional price for $A$ given $B$ (0.82) doesn't match the price it actually plans to set after learning $B$ (0.50). This internal inconsistency is exactly what the bookie exploits.
+
+. . .
+
+The fundamental problem is the mismatch between Bets 1 and 3, but combined with Bet 2 that leads to sure loss.
+
+## Generalising
+
+The example here is silly; if group members diverge this much, they should talk about it not just pool.
+
+But the problem is general. Whenever group members disagree, there will be some set of bets like this that they will find acceptable, if they use linear pooling, which collectively lead to a sure loss.
+
+In finance terms, it is possible to essentially arbitrage them (though this does take place over time). That's bad!
+
 ## A Deeper Issue: What Is the Group Learning From?
 
 When individuals update on some evidence $E$, they're conditioning on $E$.
