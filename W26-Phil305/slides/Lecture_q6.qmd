@@ -1,0 +1,694 @@
+---
+title: "Quiz Six Answers"
+date: "2/18/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+## Part 1: Theorem Questions - Answers and Tableaux
+
+### Question 1: $\Box(A \wedge B) \rightarrow (\Box A \vee \Box B)$ in K
+
+**Answer: YES** - This is a theorem in K. (If the conjunction is necessary, then at least one conjunct is necessary — in fact both are, so the disjunction holds trivially.)
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \wedge B) \rightarrow (\Box A \vee \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \vee \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \wedge B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[7]}
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\wedge}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The branch closes at world 1.1 with $\True A$ and $\False A$. (We could equally have expanded $\False \Box B$ first; that branch would close too via $\True B$ and $\False B$ at the new world.)
+
+---
+
+### Question 2: $(\Diamond A \vee \Diamond B) \rightarrow \Diamond(A \vee B)$ in K
+
+**Answer: YES** - This is a theorem in K.
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \vee \Diamond B) \rightarrow \Diamond(A \vee B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \vee \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \vee B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\vee}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \vee B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\vee}[6]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\vee}[6]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Both branches of the disjunction close. On the left branch, $\True 1.1{:}\, A$ contradicts $\False 1.1{:}\, A$. On the right branch, $\True 1.1{:}\, B$ contradicts $\False 1.1{:}\, B$.
+
+---
+
+### Question 3: $\Box(A \rightarrow B) \rightarrow (\Diamond A \rightarrow \Diamond B)$ in K
+
+**Answer: YES** - This is a theorem in K. (The "diamond version" of the K axiom.)
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Diamond A \rightarrow \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \rightarrow \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                            [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[8]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[8]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 4: $\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)$ in K
+
+**Answer: YES** - This is a theorem in K.
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \wedge \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A \wedge B}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[4]}
+                    [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\wedge}[4]}
+                        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\wedge}[3]}
+                            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[7]}, close]
+                        ]
+                        [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\wedge}[3]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[9]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 5: $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond(A \wedge B)$ in K
+
+**Answer: NO** - This is not a theorem in K.
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \wedge \Diamond B) \rightarrow \Diamond(A \wedge B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \wedge \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\wedge}[2]}
+                [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\False}{1.1, A \wedge B}, just = {\TRule{\False}{\Diamond}[3]}
+                            [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[5]}
+                                [\sFmla{\False}{1.2, A \wedge B}, just = {\TRule{\False}{\Diamond}[3]}
+                                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\wedge}[7]}, close]
+                                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\wedge}[7]}
+                                        [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\wedge}[9]}]
+                                        [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\wedge}[9]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tableau remains open on the branch where $\True 1.1{:}\, A$, $\False 1.1{:}\, B$, $\False 1.2{:}\, A$, $\True 1.2{:}\, B$. Countermodel: world 1 accesses worlds 1.1 and 1.2. At 1.1 $A$ is true and $B$ is false; at 1.2 $A$ is false and $B$ is true. So $\Diamond A$ and $\Diamond B$ both hold at world 1, but $\Diamond(A \wedge B)$ does not, since $A \wedge B$ is true at neither accessible world.
+
+---
+
+### Question 6: $\Box(\neg A \vee B) \rightarrow (\Box\neg A \vee \Box B)$ in K
+
+**Answer: NO** - This is not a theorem in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\neg A \vee B) \rightarrow (\Box\neg A \vee \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(\neg A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box\neg A \vee \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box\neg A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\False}{1.1, \neg A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\False}{\neg}[6]}
+                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\Box}[5]}
+                                [\sFmla{\True}{1.1, \neg A \vee B}, just = {\TRule{\True}{\Box}[2]}
+                                    [\sFmla{\True}{1.2, \neg A \vee B}, just = {\TRule{\True}{\Box}[2]}
+                                        [\sFmla{\True}{1.1, \neg A}, just = {\TRule{\True}{\vee}[9]}
+                                            [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\neg}[12]}, close]
+                                        ]
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\vee}[9]}
+                                            [\sFmla{\True}{1.2, \neg A}, just = {\TRule{\True}{\vee}[10]}
+                                                [\sFmla{\False}{1.2, A}, just = {\TRule{\True}{\neg}[14]}]
+                                            ]
+                                            [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\vee}[10]}, close]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tableau remains open on the branch where world 1.1 has $A$ true and $B$ true, and world 1.2 has $A$ false and $B$ false. Countermodel: world 1 accesses worlds 1.1 and 1.2. At 1.1, $A$ is true and $B$ is true (so $\neg A \vee B$ holds via $B$). At 1.2, $A$ is false and $B$ is false (so $\neg A \vee B$ holds via $\neg A$). Thus $\Box(\neg A \vee B)$ holds at world 1, but neither $\Box\neg A$ (fails at 1.1) nor $\Box B$ (fails at 1.2) holds, so the consequent is false.
+
+---
+
+### Question 7: $\Box(A \vee B) \rightarrow (\Diamond A \vee \Box B)$ in K
+
+**Answer: YES** - This is a theorem in K. Intuitively: if every accessible world makes at least one of $A$ or $B$ true, then either some accessible world makes $A$ true (giving $\Diamond A$), or they all make $B$ true (giving $\Box B$).
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \vee B) \rightarrow (\Diamond A \vee \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \vee \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}
+                            [\sFmla{\True}{1.1, A \vee B}, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\vee}[8]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\vee}[8]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 8: $\Diamond(A \rightarrow B) \rightarrow (\Box A \rightarrow \Diamond B)$ in K
+
+**Answer: YES** - This is a theorem in K.
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \rightarrow B) \rightarrow (\Box A \rightarrow \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Diamond}[2]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 9: $(\Box A \wedge \Diamond \neg B) \rightarrow \Diamond(A \wedge \neg B)$ in K
+
+**Answer: YES** - This is a theorem in K.
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Box A \wedge \Diamond \neg B) \rightarrow \Diamond(A \wedge \neg B)}, just = \TAss
+    [\sFmla{\True}{1, \Box A \wedge \Diamond \neg B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \wedge \neg B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\wedge}[2]}
+                [\sFmla{\True}{1, \Diamond \neg B}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1.1, \neg B}, just = {\TRule{\True}{\Diamond}[5]}
+                        [\sFmla{\False}{1.1, A \wedge \neg B}, just = {\TRule{\False}{\Diamond}[3]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\wedge}[7]}, close]
+                                [\sFmla{\False}{1.1, \neg B}, just = {\TRule{\False}{\wedge}[7]}
+                                    [\sFmla{\True}{1.1, B}, just = {\TRule{\False}{\neg}[10]}
+                                        [\sFmla{\False}{1.1, B}, just = {\TRule{\True}{\neg}[6]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 10: $\Box(A \rightarrow B) \rightarrow (\Diamond(A \wedge C) \rightarrow \Diamond(B \wedge C))$ in K
+
+**Answer: YES** - This is a theorem in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Diamond(A \wedge C) \rightarrow \Diamond(B \wedge C))}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \wedge C) \rightarrow \Diamond(B \wedge C)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond(A \wedge C)}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Diamond(B \wedge C)}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\True}{1.1, A \wedge C}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\False}{1.1, B \wedge C}, just = {\TRule{\False}{\Diamond}[5]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[6]}
+                                [\sFmla{\True}{1.1, C}, just = {\TRule{\True}{\wedge}[6]}
+                                    [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[2]}
+                                        [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[10]}, close]
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[10]}
+                                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\wedge}[7]}, close]
+                                            [\sFmla{\False}{1.1, C}, just = {\TRule{\False}{\wedge}[7]}, close]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 11: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in KT
+
+**Answer: YES** - This is a theorem in KT (but not in K).
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \vee \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\True}{1, A \vee B}, just = {\TRule{\Box}{\text{T}}[2]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\vee}[6]}
+                                [\sFmla{\True}{1.1, A \vee B}, just = {\TRule{\True}{\Box}[2]}
+                                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\vee}[9]}, close]
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\vee}[9]}, close]
+                                    ]
+                                ]
+                            ]
+                            [\sFmla{\True}{1, B}, just = {\TRule{\True}{\vee}[6]}
+                                [\sFmla{\False}{1, B}, just = {\TRule{\Diamond}{\text{T}}[5]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 12: $\Diamond(A \wedge \neg B) \rightarrow (\Diamond A \wedge \Diamond\neg B)$ in K4
+
+**Answer: YES** - This is a theorem already in K (the 4 axiom is not needed).
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \wedge \neg B) \rightarrow (\Diamond A \wedge \Diamond\neg B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \wedge \neg B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \wedge \Diamond\neg B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A \wedge \neg B}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[4]}
+                    [\sFmla{\True}{1.1, \neg B}, just = {\TRule{\True}{\wedge}[4]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\True}{\neg}[6]}
+                            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\wedge}[3]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[8]}, close]
+                            ]
+                            [\sFmla{\False}{1, \Diamond\neg B}, just = {\TRule{\False}{\wedge}[3]}
+                                [\sFmla{\False}{1.1, \neg B}, just = {\TRule{\False}{\Diamond}[10]}
+                                    [\sFmla{\True}{1.1, B}, just = {\TRule{\False}{\neg}[11]}, close]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 13: $\Box(A \rightarrow B) \rightarrow (A \rightarrow B)$ in KT
+
+**Answer: YES** - This is a theorem in KT but not in K. The T rule extracts $A \rightarrow B$ at the actual world from the box.
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (A \rightarrow B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\True}{1, A \rightarrow B}, just = {\TRule{\Box}{\text{T}}[2]}
+                        [\sFmla{\False}{1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                        [\sFmla{\True}{1, B}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 14: $\Diamond(A \vee B) \rightarrow (A \vee \Diamond B)$ in KT
+
+**Answer: NO** - This is not a theorem in KT.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \vee B) \rightarrow (A \vee \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \vee \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\True}{1.1, A \vee B}, just = {\TRule{\True}{\Diamond}[2]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                            [\sFmla{\False}{1, B}, just = {\TRule{\Diamond}{\text{T}}[5]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\vee}[6]}]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\vee}[6]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tableau remains open on the left branch where $\True 1.1{:}\, A$, $\False 1.1{:}\, B$, $\False 1{:}\, A$, $\False 1{:}\, B$. Countermodel: world 1 has $A$ false and $B$ false; world 1.1 has $A$ true and $B$ false. World 1 accesses 1.1 (and itself, by reflexivity). Then $\Diamond(A \vee B)$ holds at 1 (via 1.1), but $A$ is false at 1 and $\Diamond B$ is false at 1 (no accessible world makes $B$ true).
+
+---
+
+### Question 15: $\Box(A \wedge B) \rightarrow \Box\Box(A \wedge B)$ in K4
+
+**Answer: YES** - This is the 4 axiom applied to the compound sentence $A \wedge B$.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \wedge B) \rightarrow \Box\Box(A \wedge B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box\Box(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Box(A \wedge B)}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, A \wedge B}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\True}{1.1, \Box(A \wedge B)}, just = {\TRule{\Box}{\text{4}}[2]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[5]}
+                            [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\wedge}[5]}
+                                [\sFmla{\False}{1.1.1, A \wedge B}, just = {\TRule{\False}{\Box}[4]}
+                                    [\sFmla{\True}{1.1.1, A \wedge B}, just = {\TRule{\True}{\Box}[6]}
+                                        [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\wedge}[10]}
+                                            [\sFmla{\True}{1.1.1, B}, just = {\TRule{\True}{\wedge}[10]}
+                                                [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\wedge}[9]}, close]
+                                                [\sFmla{\False}{1.1.1, B}, just = {\TRule{\False}{\wedge}[9]}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+### Question 16: $\Diamond\Diamond(A \wedge \neg B) \rightarrow \Diamond(A \wedge \neg B)$ in S4
+
+**Answer: YES** - This is an instance of the S4 principle $\Diamond\Diamond p \rightarrow \Diamond p$ with compound $p$.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond\Diamond(A \wedge \neg B) \rightarrow \Diamond(A \wedge \neg B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond\Diamond(A \wedge \neg B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \wedge \neg B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Diamond(A \wedge \neg B)}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond(A \wedge \neg B)}, just = {\TRule{\Diamond}{\text{4}}[3]}
+                    [\sFmla{\True}{1.1.1, A \wedge \neg B}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\False}{1.1, A \wedge \neg B}, just = {\TRule{\False}{\Diamond}[5]}
+                            [\sFmla{\False}{1.1.1, A \wedge \neg B}, just = {\TRule{\False}{\Diamond}[5]}
+                                [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\wedge}[6]}
+                                    [\sFmla{\True}{1.1.1, \neg B}, just = {\TRule{\True}{\wedge}[6]}
+                                        [\sFmla{\False}{1.1.1, B}, just = {\TRule{\True}{\neg}[10]}
+                                            [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\wedge}[8]}, close]
+                                            [\sFmla{\False}{1.1.1, \neg B}, just = {\TRule{\False}{\wedge}[8]}
+                                                [\sFmla{\True}{1.1.1, B}, just = {\TRule{\False}{\neg}[12]}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+## Part 2: Full Tableaux Solutions
+
+### Problem 17: $\Box(A \vee B) \rightarrow (\neg\Box\neg A \vee \Box B)$ in K
+
+Note: $\neg\Box\neg A$ is equivalent to $\Diamond A$, so this is really $\Box(A \vee B) \rightarrow (\Diamond A \vee \Box B)$.
+
+We start by assuming the formula is false at world 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \vee B) \rightarrow (\neg\Box\neg A \vee \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \vee B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \neg\Box\neg A \vee \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \neg\Box\neg A}, just = {\TRule{\False}{\vee}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\vee}[3]}
+                    [\sFmla{\True}{1, \Box\neg A}, just = {\TRule{\False}{\neg}[4]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                            [\sFmla{\True}{1.1, A \vee B}, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\True}{1.1, \neg A}, just = {\TRule{\True}{\Box}[6]}
+                                    [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\neg}[9]}
+                                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\vee}[8]}, close]
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\vee}[8]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+**Explanation:**
+
+- Line 1: Assume the formula is false at world 1
+- Lines 2-3: False conditional gives true antecedent and false consequent
+- Lines 4-5: False disjunction gives both disjuncts false
+- Line 6: $\False\neg\Box\neg A$ gives $\True\Box\neg A$ (false negation)
+- Line 7: $\False\Box B$ introduces world 1.1 where $B$ is false
+- Line 8: $\True\Box(A \vee B)$ propagates to 1.1: $\True A \vee B$
+- Line 9: $\True\Box\neg A$ propagates to 1.1: $\True\neg A$
+- Line 10: $\True\neg A$ gives $\False A$
+- Line 11: $\True A \vee B$ branches. Left: $\True A$ contradicts $\False A$. Right: $\True B$ contradicts $\False B$.
+- All branches close, so the formula is a theorem of K.
+
+---
+
+### Problem 18: $(\Box A \wedge \Box(A \rightarrow B)) \rightarrow \Box B$ in K
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Box A \wedge \Box(A \rightarrow B)) \rightarrow \Box B}, just = \TAss
+    [\sFmla{\True}{1, \Box A \wedge \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\wedge}[2]}
+                [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[3]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                            [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[5]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[8]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[8]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+**Explanation:**
+
+- Line 1: Assume the formula is false at world 1
+- Lines 2-3: False conditional gives true antecedent and false consequent
+- Lines 4-5: True conjunction gives both conjuncts true
+- Line 6: $\False\Box B$ introduces world 1.1 with $\False B$
+- Line 7: $\True\Box A$ propagates to 1.1: $\True A$
+- Line 8: $\True\Box(A \rightarrow B)$ propagates to 1.1: $\True A \rightarrow B$
+- Line 9: True conditional branches. Left: $\False A$ contradicts $\True A$ (line 7). Right: $\True B$ contradicts $\False B$ (line 6).
+- All branches close, so the formula is a theorem of K.
+
+---
+
+### Problem 19: $\Box\neg(A \wedge B) \rightarrow (\Box A \rightarrow \Box\neg B)$ in K
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box\neg(A \wedge B) \rightarrow (\Box A \rightarrow \Box\neg B)}, just = \TAss
+    [\sFmla{\True}{1, \Box\neg(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Box\neg B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box\neg B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, \neg B}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\False}{\neg}[6]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                                [\sFmla{\True}{1.1, \neg(A \wedge B)}, just = {\TRule{\True}{\Box}[2]}
+                                    [\sFmla{\False}{1.1, A \wedge B}, just = {\TRule{\True}{\neg}[9]}
+                                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\wedge}[10]}, close]
+                                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\wedge}[10]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+**Explanation:**
+
+- Line 1: Assume false at world 1
+- Lines 2-3: False conditional
+- Lines 4-5: False conditional again (nested)
+- Line 6: $\False\Box\neg B$ introduces world 1.1 with $\False\neg B$
+- Line 7: $\False\neg B$ gives $\True B$
+- Line 8: $\True\Box A$ propagates to 1.1: $\True A$
+- Line 9: $\True\Box\neg(A \wedge B)$ propagates to 1.1: $\True\neg(A \wedge B)$
+- Line 10: $\True\neg(A \wedge B)$ gives $\False A \wedge B$
+- Line 11: $\False A \wedge B$ branches. Left: $\False A$ contradicts $\True A$. Right: $\False B$ contradicts $\True B$.
+- All branches close. This is a theorem of K.
+
+---
+
+### Problem 20: $(\Diamond\neg A \vee \Diamond\neg B) \rightarrow \Diamond\neg(A \wedge B)$ in K
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond\neg A \vee \Diamond\neg B) \rightarrow \Diamond\neg(A \wedge B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond\neg A \vee \Diamond\neg B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond\neg(A \wedge B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond\neg A}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{1.1, \neg A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, \neg(A \wedge B)}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\True}{1.1, A \wedge B}, just = {\TRule{\False}{\neg}[6]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[7]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\neg}[5]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond\neg B}, just = {\TRule{\True}{\vee}[2]}
+                [\sFmla{\True}{1.1, \neg B}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, \neg(A \wedge B)}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\True}{1.1, A \wedge B}, just = {\TRule{\False}{\neg}[6]}
+                            [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\wedge}[7]}
+                                [\sFmla{\False}{1.1, B}, just = {\TRule{\True}{\neg}[5]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+**Explanation:**
+
+- Line 1: Assume false at world 1
+- Lines 2-3: False conditional
+- Line 4: True disjunction branches
+- **Left branch** ($\Diamond\neg A$): The true diamond introduces world 1.1 where $\neg A$ is true. The false diamond propagates, giving $\False\neg(A \wedge B)$ at 1.1, i.e. $\True A \wedge B$ at 1.1. Breaking up the conjunction gives $\True A$ at 1.1, but $\True\neg A$ gives $\False A$ at 1.1. Contradiction.
+- **Right branch** ($\Diamond\neg B$): Similarly, we get $\True B$ from the conjunction and $\False B$ from $\neg B$. Contradiction.
+- All branches close. This is a theorem of K.

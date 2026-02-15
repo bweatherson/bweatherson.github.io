@@ -1,0 +1,1493 @@
+---
+title: "Modal Logic: Varieties of Conditionals"
+date: "2/16/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Assignment 5 Clarification
+
+## A Hard Problem
+
+On Assignment 5, I included this question:
+
+Is $\Box \Diamond p \rightarrow \Diamond \Box p$ a theorem of S5?
+
+. . .
+
+This turned out to be too hard for where we are in the course.
+
+## Why It Was Too Hard
+
+The tableau for this formula doesn't close, but it also doesn't stop.
+
+. . .
+
+::: {.incremental}
+- It generates an infinite tree.
+- I hadn't explained what to do when tableaux are infinite.
+- This is my fault - I should have covered this before including such a question.
+:::
+
+## What Happens
+
+Let me show you what happens when we try to build the tableau.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond p \rightarrow \Diamond \Box p}, just =\TAss
+    [\sFmla{\True}{1, \Box \Diamond p}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Box p}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond p \rightarrow \Diamond \Box p$](../images/tableaux-10/tableau-10-01.tex.svg){height=484px}
+:::
+
+Start with the formula being false at world 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond p \rightarrow \Diamond \Box p}, just =\TAss
+    [\sFmla{\True}{1, \Box \Diamond p}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Box p}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond p}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\False}{1, \Box p}, just = {\TRule{\False}{\Diamond}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+We're in S5, so $\Box \Diamond p$ being true means $\Diamond p$ is true everywhere.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond p \rightarrow \Diamond \Box p}, just =\TAss
+    [\sFmla{\True}{1, \Box \Diamond p}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Box p}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond p}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\False}{1, \Box p}, just = {\TRule{\False}{\Diamond}[3]}
+                    [\sFmla{\True}{2, p}, just = {\TRule{\True}{\Diamond}[4]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+$\Diamond p$ being true means we need a world where $p$ is true. Let's call it world 2.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond p \rightarrow \Diamond \Box p}, just =\TAss
+    [\sFmla{\True}{1, \Box \Diamond p}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Box p}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond p}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\False}{1, \Box p}, just = {\TRule{\False}{\Diamond}[3]}
+                    [\sFmla{\True}{2, p}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\True}{2, \Diamond p}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{2, \Box p}, just = {\TRule{\False}{\Diamond}[3]}
+                                [\sFmla{\True}{3, p}, just = {\TRule{\True}{\Diamond}[7]}
+                                    [\sFmla{\True}{3, \Diamond p}, just = {\TRule{\True}{\Box}[2]}
+                                        [\sFmla{\False}{3, \Box p}, just = {\TRule{\False}{\Diamond}[3]}
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The pattern continues - we need world 3, then world 4, then world 5...
+
+## The Pattern Continues
+
+What happens as we keep going?
+
+::: {.incremental}
+- We need world 3 to make $\Diamond p$ true at world 2.
+- Then we need to apply $\Box \Diamond p$ and $\Diamond \Box p$ at world 3.
+- Which requires world 4...
+- Which requires world 5...
+- The pattern continues forever. Uh oh.
+:::
+
+## The Tableau is Infinite
+
+The tableau keeps generating new worlds: 1, 2, 3, 4, 5, ...
+
+. . .
+
+At each world $n$:
+::: {.incremental}
+- $p$ is true (to satisfy $\Diamond p$ at world $n-1$)
+- $\Diamond p$ is true (from $\Box \Diamond p$)
+- $\Box p$ is false (from $\Diamond \Box p$)
+:::
+
+. . .
+
+Since the tableau **never closes** but also never stops, this shows the formula is **not valid** in S5.
+
+## The Countermodel
+
+We can describe the countermodel this represents:
+
+. . .
+
+::: {.incremental}
+- **Worlds**: Two worlds, call them $w_1$ and $w_2$
+- **Accessibility**: In S5, every world accesses every world
+- **Valuation**: $p$ is true at $w_1$, false at $w_2$
+:::
+
+. . .
+
+At both worlds:
+- $\Diamond p$ is true (since $p$ is true at $w_1$)
+- So $\Box \Diamond p$ is true
+- But $\Box p$ is false (since $p$ is false at $w_2$)
+- So $\Diamond \Box p$ is false
+
+Therefore $\Box \Diamond p \rightarrow \Diamond \Box p$ is false at both worlds.
+
+## Apologies
+
+I apologize for:
+
+::: {.incremental}
+1. Not explaining infinite tableaux before including this problem
+2. The confusion this caused on the assignment
+3. Not being clear about what to do when a tableau doesn't stop
+:::
+
+. . .
+
+**Going forward**: If a tableau doesn't close after generating several worlds and you see a repeating pattern, you can:
+- Stop and describe the countermodel the infinite branch represents
+- Or note that the tableau appears to be infinite
+
+# Applications
+
+## Applications of Modal Logic
+
+(We'll discuss applications of the different modal logics we've been studying)
+
+# Other Modal Logics
+
+## Recap: What We've Seen
+
+So far we've looked at:
+
+::: {.incremental}
+- **Logic K**: No restrictions on $R$
+- **S5**: $R$ is an equivalence relation (or universal relation)
+- Simplified tableaux for S5 where we don't track accessibility
+:::
+
+. . .
+
+But there are many logics between K and S5.
+
+## The Basic Logic: K
+
+**Logic K** is the minimal modal logic.
+
+. . .
+
+It has no special rules beyond the basic modal rules:
+
+::: {.incremental}
+- If $\Box A$ is true at $x$, add $A$ true at all existing $x.y$
+- If $\Box A$ is false at $x$, add new $x.y$ with $A$ false
+- If $\Diamond A$ is true at $x$, add new $x.y$ with $A$ true
+- If $\Diamond A$ is false at $x$, add $A$ false at all existing $x.y$
+:::
+
+## Why K is Important
+
+Logic K corresponds to frames with no restrictions on $R$ at all.
+
+. . .
+
+::: {.incremental}
+- This makes it very general
+- But also very weak - fewer theorems
+- Many formulas that "seem obviously true" are not theorems of K
+:::
+
+## K Example 1: A Non-Theorem
+
+Let's show that $\Box A \rightarrow A$ is **not** valid in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+Start by assuming it's false.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+. . .
+
+And that's it! The tree is open.
+
+. . .
+
+::: {.incremental}
+- There are no worlds of the form 1.y on the tree
+- So we never infer $A$ true at world 1 from $\Box A$ being true at 1
+- This shows K allows frames where world 1 can't access any worlds (not even itself)
+:::
+
+## K Example 2: $\Box A \rightarrow \Box \Box A$
+
+Let's show this is also not valid in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tree stays open. This represents a non-transitive accessibility relation.
+
+## Adding Conditions to K
+
+We can add special rules to K to capture different frame conditions:
+
+::: {.incremental}
+- **T**: Reflexivity ($xRx$ for all $x$)
+- **B**: Symmetry (if $xRy$ then $yRx$)
+- **4**: Transitivity (if $xRy$ and $yRz$ then $xRz$)
+:::
+
+. . .
+
+These are named after the axioms they validate:
+
+::: {.incremental}
+- **T**: $\Box A \rightarrow A$
+- **B**: $A \rightarrow \Box \Diamond A$
+- **4**: $\Box A \rightarrow \Box \Box A$
+:::
+
+## The T Rules
+
+To add reflexivity to K, add these two rules:
+
+. . .
+
+**T-Box Rule**: If $\Box A$ is true at $x$, then add that $A$ is true at $x$.
+
+. . .
+
+**T-Diamond Rule**: If $\Diamond A$ is false at $x$, then add that $A$ is false at $x$.
+
+. . .
+
+These capture the fact that every world can access itself.
+
+## KT Example: $\Box A \rightarrow A$
+
+Now let's prove this is valid in KT.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {T-rule on 2}, close]
+        ]
+    ]
+]
+\end{oltableau}
+
+The T-rule directly gives us the contradiction!
+
+## The 4 Rules
+
+To add transitivity to K, add these two rules:
+
+. . .
+
+**4-Box Rule**: If $\Box A$ is true at $x$, and $x.y$ is on the tree, then add that $\Box A$ is true at $x.y$.
+
+. . .
+
+**4-Diamond Rule**: If $\Diamond A$ is false at $x$, and $x.y$ is on the tree, then add that $\Diamond A$ is false at $x.y$.
+
+. . .
+
+Note: You already add $A$ true/false by the basic K rules. The 4 rules add the *modal formula itself*.
+
+## KT4 Example: $\Box A \rightarrow \Box \Box A$
+
+This is valid in KT4 (also called S4). Let's prove it.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Box \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\True}{1.1, \Box A}, just = {4-rule on 2}, 
+                        [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                            [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\Box}[6]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The 4-rule carries $\Box A$ down to 1.1, which gives us the contradiction.
+
+## The B Rules
+
+To add symmetry to K, add these two rules:
+
+. . .
+
+**B-Box Rule**: If $\Box A$ is true at $x.y$, then add that $A$ is true at $x$.
+
+. . .
+
+**B-Diamond Rule**: If $\Diamond A$ is false at $x.y$, then add that $A$ is false at $x$.
+
+. . .
+
+These capture the idea that accessibility goes both ways.
+
+## Combining Conditions
+
+These conditions can be combined:
+
+::: {.incremental}
+- **KT** = K + reflexivity
+- **K4** = K + transitivity
+- **KB** = K + symmetry
+- **KT4** (= **S4**) = K + reflexivity + transitivity
+- **KTB** = K + reflexivity + symmetry
+- **KB4** = K + symmetry + transitivity
+- **KTB4** (= **S5**) = K + reflexivity + symmetry + transitivity
+:::
+
+## S5 is Special
+
+When you combine all three conditions (reflexivity, symmetry, transitivity), you get an **equivalence relation**.
+
+. . .
+
+::: {.incremental}
+- This is the strongest of the standard modal logics
+- It has the most theorems
+- It's equivalent to making $R$ the universal relation
+- That's why we could use simplified tableaux for S5
+:::
+
+# Examples
+
+## Example 1: $\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
+]
+\end{oltableau}
+
+Start by assuming it's false.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+False conditional means true antecedent and false consequent.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\land}[3]}]
+            [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\land}[3]}]
+        ]
+    ]
+]
+\end{oltableau}
+
+False conjunction branches.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[5]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[5]}
+                            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}, close]
+                        ]
+                    ]
+                ]
+            ]
+            [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[5]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[5]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[4]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Both branches close. This is a theorem of K.
+
+## Example 2: $(\Diamond A \vee \Diamond B) \rightarrow \Diamond(A \vee B)$ in K
+
+Let's show this is **not** valid in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\lor}[2]}
+            ]
+            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\lor}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The disjunction branches.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.2, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\lor}[6]}
+                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\lor}[6]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Both branches close, so this **is** valid in K after all!
+
+## Example 3: $A \rightarrow \Box \Diamond A$ in K
+
+This should fail in K. Let's show it.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tree stays open! So this is not valid in K.
+
+## Example 4: $A \rightarrow \Box \Diamond A$ in KB
+
+But this **is** the characteristic axiom of symmetry. Let's prove it in KB.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}
+                    [\sFmla{\False}{1, A}, just = {B-rule on 5}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The B-rule gives us the contradiction!
+
+## Example 5: $\Diamond \Box A \rightarrow \Box A$ in K4
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\Box}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.2, A}, just = {\TRule{\True}{\Box}[4]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+This stays open in K - we have $\Box A$ true at 1.1, but we need it at 1.2. In K alone, there's no way to connect these worlds!
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\True}{1, \Box A}, just = {4-rule on 4}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+In K4, the 4-rule carries $\Box A$ from 1.1 back to 1, giving us the contradiction!
+
+## Example 6: $\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)$ in K
+
+This is the K axiom - it should be valid even in K.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \rightarrow \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[7]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Both branches close!
+
+## Example 7: $\Box A \vee \Box B \rightarrow \Box(A \vee B)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Box A \lor \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Box A \lor \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[5]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Box B}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[5]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\lor}[5]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+This is valid in K!
+
+## Example 8: $\Diamond A \wedge \Diamond B \rightarrow \Diamond(A \wedge B)$ in K
+
+This should fail - worlds accessible from 1 might be different.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\land}[2]}
+                [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\land}[2]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\land}[2]}
+                [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\land}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[5]}
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\land}[2]}
+                [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\land}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[5]}
+                            [\sFmla{\False}{1.1, A \land B}, just = {\TRule{\False}{\Diamond}[3]}
+                                [\sFmla{\False}{1.2, A \land B}, just = {\TRule{\False}{\Diamond}[3]}
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tree stays open! World 1.1 has $A$ but might not have $B$, and world 1.2 has $B$ but might not have $A$.
+
+## Example 9: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\lor}[7]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\lor}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+This closes! Valid in K.
+
+## Example 10: $\Box A \rightarrow A$ in KT
+
+We already did this one - it closes immediately with the T-rule.
+
+## Example 11: $\Diamond \Box A \rightarrow A$ in KT
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {T-rule on 4}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The tree stays open in KT - we can't get $A$ back to world 1.
+
+## Example 12: $\Diamond \Box A \rightarrow A$ in KTB
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {T-rule on 4}
+                    [\sFmla{\True}{1, A}, just = {B-rule on 5}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+With the B-rule, it closes!
+
+## Example 13: $\Box \Box A \rightarrow \Box A$ in K
+
+This is clearly valid - $\Box \Box A$ is stronger than $\Box A$.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {T-rule on 5}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Wait, I used the T-rule, but this should work even in K alone.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Box A \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Box}[2]}
+                    [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\Box}[5]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Hmm, this stays open in K. We have $A$ true at 1.1.1 but false at 1.1. That's consistent!
+
+So $\Box \Box A \rightarrow \Box A$ is **not** valid in K, but **is** valid in KT.
+
+## Example 14: $\Box(A \wedge B) \leftrightarrow (\Box A \wedge \Box B)$ in K
+
+Let's do just the left-to-right direction.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \land B) \rightarrow (\Box A \land \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \land \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \land B) \rightarrow (\Box A \land \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \land \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Valid in K!
+
+## Example 15: $\Diamond(A \vee B) \leftrightarrow (\Diamond A \vee \Diamond B)$ in K
+
+We already showed one direction. Let's do the other direction.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+So the biconditional is valid in K!
+
+## Example 16: More Practice with T
+
+$\Diamond A \rightarrow \Diamond \Diamond A$ in K vs KT
+
+---
+
+In K:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Stays open in K!
+
+---
+
+In KT:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {T-rule on 5}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Closes in KT!
+
+## Example 17: Symmetry in Action
+
+$\Box A \rightarrow \Diamond A$ in K vs KB
+
+---
+
+In K:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+Stays open - world 1 might not access any worlds!
+
+---
+
+In KB:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+Still stays open in KB alone! This needs reflexivity (T) to close.
+
+---
+
+In KT:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {T-rule on 2}
+                [\sFmla{\False}{1, A}, just = {T-rule on 3}, close]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Closes in KT!
+
+## Example 18: $\Diamond A \rightarrow \Box \Diamond A$ in S5
+
+This is a characteristic theorem of S5 - let's prove it step by step using simplified S5.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+]
+\end{oltableau}
+
+Start with it being false at 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+False conditional: true antecedent, false consequent.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+True $\Diamond$ sentences and false $\Box$ sentences have to be made true somewhere - not necessarily the same 'somewhere'.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\False}{2, A}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+False $\Diamond$ sentences are false everywhere - that is, the part inside the $\Diamond$ is false everywhere. So $A$ is false at world 2. But we just said $A$ is true at world 2! This closes, so it's a theorem of S5.
+
+## Example 19: $\Box \Diamond A \rightarrow A$ in S5
+
+Let's test whether this is valid in S5. (Spoiler: it's not!)
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+]
+\end{oltableau}
+
+Start with it being false at 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+False conditional.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+The unboxed part of a box sentence is true everywhere, so it is true here.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[4]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+True $\Diamond$ sentences have to be made true by some world. It can't be world 1, since $A$ is false there.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\True}{2, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+True $\Box$ sentences are true, unboxed, everywhere.
+
+---
+
+Now if we follow the rules mechanically we would add a new world 3 to make line 6 true, and the cycle would continue. But if we think through what the lines are saying, we can see that we can stop here:
+
+::: {.incremental}
+- Line 6 ($\Diamond A$ true at 2) has to be made true somehow
+- But line 5 says that world 2 itself makes line 6 true (since $A$ is true at 2)
+- So there isn't anything extra to do
+:::
+
+## Describing the Countermodel
+
+So here is a model where this formula fails:
+
+::: {.incremental}
+- There are two worlds: $w_1$ and $w_2$
+- At $w_1$, $A$ is false
+- At $w_2$, $A$ is true
+- Because $w_2$ exists, $\Diamond A$ is true everywhere
+- So $\Box \Diamond A$ is true everywhere
+- But at $w_1$, $\Box \Diamond A$ is true and $A$ is false
+- Therefore at $w_1$, $\Box \Diamond A \rightarrow A$ is false
+:::
+
+. . .
+
+This shows that $\Box \Diamond A \rightarrow A$ is **not** valid in S5.
+
+## Example 20: $\Box(\Box A \rightarrow A) \rightarrow \Box A$ in KT4
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A \rightarrow A}, just = {T-rule on 2}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \Box A \rightarrow A}, just = {\TRule{\True}{\Box}[2]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A \rightarrow A}, just = {T-rule on 2}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \Box A \rightarrow A}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\True}{\rightarrow}[6]}
+                            [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[7]}
+                                [\sFmla{\True}{1.1, A}, just = {T-rule on 6}, close]
+                            ]
+                        ]
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Valid in KT4!
+
+## Example 21: $\Diamond \Box A \rightarrow \Box \Diamond A$ in S5
+
+We'll use simplified S5 notation for this.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{3, A}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{3, A}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Closes in S5!
+
+## Example 22: $\neg \Box \neg A \rightarrow \Diamond A$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box \neg A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \neg \Box \neg A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \neg A}, just = {\TRule{\True}{\neg}[2]}
+                [\sFmla{\False}{1.1, \neg A}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\False}{\neg}[5]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[3]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+Valid in K! This shows that $\neg \Box \neg A$ and $\Diamond A$ are equivalent.

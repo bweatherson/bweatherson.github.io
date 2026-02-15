@@ -1,0 +1,56 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define styles -->
+  <style>
+    .logic-node { fill: white; stroke: black; stroke-width: 2; }
+    .logic-text { font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+    .edge { stroke: black; stroke-width: 1.5; }
+  </style>
+  
+  <!-- Edges (draw first so they appear behind nodes) -->
+  <!-- From K to second level -->
+  <line class="edge" x1="150" y1="350" x2="75" y2="270" />
+  <line class="edge" x1="150" y1="350" x2="150" y2="270" />
+  <line class="edge" x1="150" y1="350" x2="225" y2="270" />
+  
+  <!-- From second to third level -->
+  <line class="edge" x1="75" y1="230" x2="75" y2="150" />
+  <line class="edge" x1="75" y1="230" x2="150" y2="150" />
+  <line class="edge" x1="150" y1="230" x2="150" y2="150" />
+  <line class="edge" x1="150" y1="230" x2="225" y2="150" />
+  <line class="edge" x1="225" y1="230" x2="75" y2="150" />
+  <line class="edge" x1="225" y1="230" x2="225" y2="150" />
+  
+  <!-- From third level to S5 -->
+  <line class="edge" x1="75" y1="110" x2="150" y2="50" />
+  <line class="edge" x1="150" y1="110" x2="150" y2="50" />
+  <line class="edge" x1="225" y1="110" x2="150" y2="50" />
+  
+  <!-- Nodes -->
+  <!-- Bottom: K -->
+  <circle class="logic-node" cx="150" cy="350" r="25" />
+  <text class="logic-text" x="150" y="350">K</text>
+  
+  <!-- Second level: KT, K4, KB -->
+  <circle class="logic-node" cx="75" cy="250" r="25" />
+  <text class="logic-text" x="75" y="250">KT</text>
+  
+  <circle class="logic-node" cx="150" cy="250" r="25" />
+  <text class="logic-text" x="150" y="250">K4</text>
+  
+  <circle class="logic-node" cx="225" cy="250" r="25" />
+  <text class="logic-text" x="225" y="250">KB</text>
+  
+  <!-- Third level: KTB, S4, K4B -->
+  <circle class="logic-node" cx="75" cy="130" r="25" />
+  <text class="logic-text" x="75" y="130">KTB</text>
+  
+  <circle class="logic-node" cx="150" cy="130" r="25" />
+  <text class="logic-text" x="150" y="130">S4</text>
+  
+  <circle class="logic-node" cx="225" cy="130" r="25" />
+  <text class="logic-text" x="225" y="130">K4B</text>
+  
+  <!-- Top: S5 -->
+  <circle class="logic-node" cx="150" cy="30" r="25" />
+  <text class="logic-text" x="150" y="30">S5</text>
+</svg>

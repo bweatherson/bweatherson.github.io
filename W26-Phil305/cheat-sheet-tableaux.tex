@@ -1,0 +1,250 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+
+\pagestyle{empty}
+
+% Tableau signs
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\F}{\mathbb{F}}
+
+% Vertical dots shorthand
+\newcommand{\vmark}{\,\vert\,}
+
+% Section formatting
+\newcommand{\ruleheader}[1]{\medskip\noindent\textbf{\large #1}\par\smallskip\hrule\smallskip}
+\newcommand{\rulesubheader}[1]{\smallskip\noindent\textbf{#1}\par\smallskip}
+
+% Branching notation
+\newcommand{\branches}[2]{%
+  \begin{tabular}{@{}c@{\qquad}c@{}}
+  #1 & #2
+  \end{tabular}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Tableau Rules Cheat Sheet}\\[4pt]
+{\large Phil 305 --- Propositional and Modal Logic}
+\end{center}
+
+\ruleheader{Part 1: Propositional Connectives}
+
+Each connective has a rule for when the sentence is \textbf{true} ($\T$) and when it is \textbf{false} ($\F$). Non-branching rules add lines below; branching rules split into two branches (shown side by side).
+
+\begin{multicols}{2}
+
+\rulesubheader{Negation ($\neg$)}
+
+\begin{tabular}{@{}c@{\qquad\qquad}c@{}}
+$\T\, \neg A$ & $\F\, \neg A$ \\[2pt]
+$\Downarrow$ & $\Downarrow$ \\[2pt]
+$\F\, A$ & $\T\, A$
+\end{tabular}
+
+\smallskip
+Both rules are non-branching.
+
+\rulesubheader{Conjunction ($\wedge$)}
+
+\begin{tabular}{@{}c@{\qquad\qquad}c@{}}
+$\T\, A \wedge B$ & $\F\, A \wedge B$ \\[2pt]
+$\Downarrow$ & $\swarrow\quad\searrow$ \\[2pt]
+$\T\, A$ & $\F\, A \quad\mid\quad \F\, B$ \\
+$\T\, B$ &
+\end{tabular}
+
+\smallskip
+True: non-branching (both conjuncts true).\\
+False: branching (at least one conjunct false).
+
+\columnbreak
+
+\rulesubheader{Disjunction ($\vee$)}
+
+\begin{tabular}{@{}c@{\qquad\qquad}c@{}}
+$\T\, A \vee B$ & $\F\, A \vee B$ \\[2pt]
+$\swarrow\quad\searrow$ & $\Downarrow$ \\[2pt]
+$\T\, A \quad\mid\quad \T\, B$ & $\F\, A$ \\
+ & $\F\, B$
+\end{tabular}
+
+\smallskip
+True: branching (at least one disjunct true).\\
+False: non-branching (both disjuncts false).
+
+\rulesubheader{Conditional ($\rightarrow$)}
+
+\begin{tabular}{@{}c@{\qquad\qquad}c@{}}
+$\T\, A \rightarrow B$ & $\F\, A \rightarrow B$ \\[2pt]
+$\swarrow\quad\searrow$ & $\Downarrow$ \\[2pt]
+$\F\, A \quad\mid\quad \T\, B$ & $\T\, A$ \\
+ & $\F\, B$
+\end{tabular}
+
+\smallskip
+True: branching (antecedent false or consequent true).\\
+False: non-branching (antecedent true, consequent false).
+
+\end{multicols}
+
+\medskip
+\textbf{Closure:} A branch closes when it contains both $\T\, A$ and $\F\, A$ for some sentence $A$. A tableau closes when \emph{every} branch closes.
+
+\textbf{Strategy:} Apply non-branching rules before branching rules.
+
+\bigskip
+\ruleheader{Part 2: Modal Rules in K}
+
+In \textbf{K}, worlds are numbered with dot notation: $x$, $x.y$, $x.y.z$, etc. World $x$ can access world $x.y$ (and only those forced by the dot structure).
+
+\begin{multicols}{2}
+
+\rulesubheader{True $\Box$ (open-ended, reusable)}
+
+If $\T\, x{:}\; \Box A$ appears on the branch, then for \emph{every} world $x.y$ on the branch, add:
+$$\T\, x.y{:}\; A$$
+Apply this each time a new $x.y$ appears.
+
+\rulesubheader{False $\Diamond$ (open-ended, reusable)}
+
+If $\F\, x{:}\; \Diamond A$ appears on the branch, then for \emph{every} world $x.y$ on the branch, add:
+$$\F\, x.y{:}\; A$$
+Apply this each time a new $x.y$ appears.
+
+\columnbreak
+
+\rulesubheader{True $\Diamond$ (one-shot)}
+
+If $\T\, x{:}\; \Diamond A$ appears on the branch, introduce a \emph{new} world $x.y$ (not yet on the branch) and add:
+$$\T\, x.y{:}\; A$$
+
+\rulesubheader{False $\Box$ (one-shot)}
+
+If $\F\, x{:}\; \Box A$ appears on the branch, introduce a \emph{new} world $x.y$ (not yet on the branch) and add:
+$$\F\, x.y{:}\; A$$
+
+\end{multicols}
+
+\smallskip
+\textbf{Key distinction:} True $\Box$ / False $\Diamond$ are \emph{reusable}---they apply to every accessible world that appears. True $\Diamond$ / False $\Box$ are \emph{one-shot}---they introduce a single new world.
+
+\newpage
+
+\begin{center}
+{\LARGE\bfseries Tableau Rules Cheat Sheet (cont.)}\\[4pt]
+{\large Additional Rules for T, 4, and B}
+\end{center}
+
+\ruleheader{Part 3: Rules Beyond K}
+
+These rules are \textbf{added to} the K rules. They only affect the open-ended rules (True $\Box$ and False $\Diamond$). The one-shot rules (True $\Diamond$ and False $\Box$) stay the same in all logics.
+
+\bigskip
+
+\rulesubheader{T Rules (Reflexivity: every world accesses itself)}
+
+\begin{multicols}{2}
+
+\textbf{T-Box Rule:} If $\T\, x{:}\; \Box A$ is on the branch, add:
+$$\T\, x{:}\; A$$
+
+(Since $x$ accesses itself, $A$ must hold at $x$ too.)
+
+\columnbreak
+
+\textbf{T-Diamond Rule:} If $\F\, x{:}\; \Diamond A$ is on the branch, add:
+$$\F\, x{:}\; A$$
+
+(Since $x$ accesses itself, $A$ must fail at $x$ too.)
+
+\end{multicols}
+
+\bigskip
+
+\rulesubheader{4 Rules (Transitivity: if $x$ accesses $x.y$, then $x.y$ accesses everything $x$ accesses)}
+
+\begin{multicols}{2}
+
+\textbf{4-Box Rule:} If $\T\, x{:}\; \Box A$ is on the branch and $x.y$ is on the branch, add:
+$$\T\, x.y{:}\; \Box A$$
+
+(The whole $\Box A$, not just $A$, carries forward.)
+
+\columnbreak
+
+\textbf{4-Diamond Rule:} If $\F\, x{:}\; \Diamond A$ is on the branch and $x.y$ is on the branch, add:
+$$\F\, x.y{:}\; \Diamond A$$
+
+(The whole $\Diamond A$ false, not just $A$ false, carries forward.)
+
+\end{multicols}
+
+\bigskip
+
+\rulesubheader{B Rules (Symmetry: if $x$ accesses $x.y$, then $x.y$ also accesses $x$)}
+
+\begin{multicols}{2}
+
+\textbf{B-Box Rule:} If $\T\, x.y{:}\; \Box A$ is on the branch, add:
+$$\T\, x{:}\; A$$
+
+(Since $x.y$ can look back to $x$, $A$ must hold at $x$.)
+
+\columnbreak
+
+\textbf{B-Diamond Rule:} If $\F\, x.y{:}\; \Diamond A$ is on the branch, add:
+$$\F\, x{:}\; A$$
+
+(Since $x.y$ can look back to $x$, $A$ must fail at $x$.)
+
+\end{multicols}
+
+\bigskip
+\ruleheader{Part 4: Quick Reference --- Combining Logics}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Logic} & \textbf{Rules Used} & \textbf{Frame Condition} \\
+\midrule
+K & K rules only & No restrictions on $R$ \\
+KT & K + T rules & Reflexive ($xRx$) \\
+K4 & K + 4 rules & Transitive (if $xRy$ and $yRz$ then $xRz$) \\
+KB & K + B rules & Symmetric (if $xRy$ then $yRx$) \\
+S4 (= KT4) & K + T + 4 rules & Reflexive + Transitive \\
+KTB & K + T + B rules & Reflexive + Symmetric \\
+S5 (= KT4B) & K + T + 4 + B rules & Equivalence relation (= universal) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\textbf{Characteristic axioms:}
+\begin{itemize}[nosep]
+\item \textbf{T:} $\Box A \rightarrow A$ \quad (what's necessary is actual)
+\item \textbf{B:} $A \rightarrow \Box\Diamond A$ \quad (what's actual is necessarily possible)
+\item \textbf{4:} $\Box A \rightarrow \Box\Box A$ \quad (what's necessary is necessarily necessary)
+\end{itemize}
+
+\bigskip
+
+\textbf{Reminder for S5 (simplified tableaux):} In S5, every world accesses every world. So:
+\begin{itemize}[nosep]
+\item $\T\, \Box A$ at any world $\Rightarrow$ $\T\, A$ at \emph{every} world.
+\item $\F\, \Diamond A$ at any world $\Rightarrow$ $\F\, A$ at \emph{every} world.
+\item $\T\, \Diamond A$ at any world $\Rightarrow$ introduce one new world with $\T\, A$ (can't reuse a world where $A$ is already false).
+\item $\F\, \Box A$ at any world $\Rightarrow$ introduce one new world with $\F\, A$ (can't reuse a world where $A$ is already true).
+\end{itemize}
+
+\end{document}

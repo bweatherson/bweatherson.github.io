@@ -1,0 +1,1774 @@
+---
+title: "305 Lecture Twenty-Three - Examples"
+author: Brian Weatherson
+date: "November 25, 2019"
+output: 
+  beamer_presentation:
+    keep_tex: true
+    latex_engine: xelatex
+    fonttheme: serif
+    fig_caption: no
+    includes:
+      in_header: [305-beamer-header.tex, 305-tikz.tex]
+---
+
+# $\Box \Diamond A \rightarrow \Diamond \Box B$ (in S4)
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+]
+\end{oltableau}
+
+Start by saying the sentence is false.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    ]
+  ]
+]
+\end{oltableau}
+
+It's a false conditional, so true antecedent and false consequent.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just={T $\Box$, 2},
+        [\pFmla{\False}{\Box B}{1}, just={T $\Diamond$, 2},
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+We're in a logic with T, so apply the T rules.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just={T $\Box$, 2},
+        [\pFmla{\False}{\Box B}{1}, just={T $\Diamond$, 2},
+          [\pFmla{\True}{A}{1.1}, just={\TRule{\True}{\Diamond}[4]},
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+Now apply the rule for a true diamond sentence.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just={T $\Box$, 2},
+        [\pFmla{\False}{\Box B}{1}, just={T $\Diamond$, 2},
+          [\pFmla{\True}{A}{1.1}, just={\TRule{\True}{\Diamond}[4]},
+            [\pFmla{\True}{\Diamond A}{1.1}, just={\TRule{\Box}{\True}[2]},
+              [\pFmla{\False}{\Box B}{1.1}, just={\TRule{\False}{\Diamond}[3]},
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+K means that we have more work to do from 2 and 3.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just={T $\Box$, 2},
+        [\pFmla{\False}{\Box B}{1}, just={T $\Diamond$, 2},
+          [\pFmla{\True}{A}{1.1}, just={\TRule{\True}{\Diamond}[4]},
+            [\pFmla{\True}{\Diamond A}{1.1}, just={\TRule{\Box}{\True}[2]},
+              [\pFmla{\False}{\Box B}{1.1}, just={\TRule{\False}{\Diamond}[3]},
+                [\pFmla{\True}{\Box \Diamond A}{1.1}, just = {4 $\Box$, 2},
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+And 4 means that we have to carry down line 2 as well.
+
+## $\Box \Diamond A \rightarrow \Diamond \Box B$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow \Diamond \Box B}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond \Box B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just={T $\Box$, 2},
+        [\pFmla{\False}{\Box B}{1}, just={T $\Diamond$, 2},
+          [\pFmla{\True}{A}{1.1}, just={\TRule{\True}{\Diamond}[4]},
+            [\pFmla{\True}{\Diamond A}{1.1}, just={\TRule{\Box}{\True}[2]},
+              [\pFmla{\False}{\Box B}{1.1}, just={\TRule{\False}{\Diamond}[3]},
+                [\pFmla{\True}{\Box \Diamond A}{1.1}, just = {4 $\Box$, 2},
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+And I'm not going to go on because you can hopefully see the last three lines iterate indefinitely.
+
+# $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$ (in K)
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+True antecedent, false consequent.
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\vee}[2]}]
+      [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\vee}[2]}]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Nothing to do but branch.
+
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+        ]
+      ]
+      [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[4]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Diamond sentences have to be made true somehow.
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.1},  just = {\TRule{\False}{\Diamond}[3]}
+          ]
+        ]
+      ]
+      [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.2},  just = {\TRule{\False}{\Diamond}[3]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False diamond sentences are false at all accessible worlds.
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.1},  just = {\TRule{\False}{\Diamond}[3]}
+            [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\vee}[6]}, close]
+          ]
+        ]
+      ]
+      [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.2},  just = {\TRule{\False}{\Diamond}[3]}
+            [\pFmla{\False}{B}{1.2}, just = {\TRule{\False}{\vee}[6]}, close]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+And false or sentences have each side of the or false.
+
+## $(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \vee \Diamond B) \rightarrow \Diamond (A \vee B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \vee \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \vee B)}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.1},  just = {\TRule{\False}{\Diamond}[3]}
+            [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\vee}[6]}, close]
+          ]
+        ]
+      ]
+      [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\vee}[2]}
+        [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\False}{A \vee B}{1.2},  just = {\TRule{\False}{\Diamond}[3]}
+            [\pFmla{\False}{B}{1.2}, just = {\TRule{\False}{\vee}[6]}, close]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+I've cheated a bit here by just listing one justification for the lines after the branch. It's ok because the tree is completely symmetric; the same thing happens on each branch.
+
+# $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$ (in K)
+
+
+## Hypothesis
+
+$(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$ is a theorem of K.
+
+- So we can use the base modal rules.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+True antecedent, false consequent.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\wedge}[2]}
+        [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\wedge}[2]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Break up the and.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\wedge}[2]}
+        [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\wedge}[2]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Make $\Diamond A$ true.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\wedge}[2]}
+        [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\wedge}[2]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+            [\pFmla{\False}{A \wedge B}{1.1}, just = {\TRule{\False}{\Diamond}[3]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\wedge}[7]}, close]
+              [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\wedge}[7]}
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Two ways for $A \wedge B$ to fail; only one is possible.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\wedge}[2]}
+        [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\wedge}[2]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+            [\pFmla{\False}{A \wedge B}{1.1}, just = {\TRule{\False}{\Diamond}[3]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\wedge}[7]}, close]
+              [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\wedge}[7]}
+                  [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[5]}
+                    [\pFmla{\False}{A \wedge B}{1.2}, just = {\TRule{\False}{\Diamond}[3]}
+                    ]
+                  ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+$A \wedge B$ is still impossible.
+
+## $(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)$
+
+\begin{footnotesize}
+\begin{oltableau}
+[\pFmla{\False}{(\Diamond A \wedge \Diamond B) \rightarrow \Diamond (A \wedge B)}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A \wedge \Diamond B}{1}, just = {\TRule{\False}{\rightarrow}[1]},
+    [\pFmla{\False}{\Diamond (A \wedge B)}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\wedge}[2]}
+        [\pFmla{\True}{\Diamond B}{1}, just = {\TRule{\True}{\wedge}[2]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Diamond}[4]}
+            [\pFmla{\False}{A \wedge B}{1.1}, just = {\TRule{\False}{\Diamond}[3]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\wedge}[7]}, close]
+              [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\wedge}[7]}
+                  [\pFmla{\True}{B}{1.2}, just = {\TRule{\True}{\Diamond}[5]}
+                    [\pFmla{\False}{A \wedge B}{1.2}, just = {\TRule{\False}{\Diamond}[3]}
+                      [\pFmla{\False}{A}{1.2}, just = {\TRule{\False}{\wedge}[7]}]
+                      [\pFmla{\False}{B}{1.2}, just = {\TRule{\False}{\wedge}[7]}, close]
+                    ]
+                  ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+And we're done. All the rules have been applied - though you really need to check this - and the middle branch does not close.
+\end{footnotesize}
+
+## A Model
+
+When the tableau doesn't close, you should be able to build a model where the sentence is false at $w_1$.
+
+In fact, you should be able to read it off the tree.
+
+## A Model 
+
+- Three worlds, $w_1, w_{1.1}, w_{1.2}$.
+- The only accessibility relations are $w_1Rw_{1.1}$ and $w_1Rw_{1.2}$.
+- In general, the accessibility relations are the ones required by the restrictions (but there are none here), plus the ones required by the numbering, i.e., $w_xRw_{x.y}$.
+- $A$ is true at $w_{1.1}$ and false at $w_{1.2}$.
+- $B$ is true at $w_{1.2}$ and false at $w_{1.1}$.
+- It doesn't matter what atomics are true at $w_1$.
+- But both $\Diamond A$ and $\Diamond B$ will be true at $w_1$, while $\Diamond (A \wedge B)$ is false there.
+
+# $\neg \Box (A \wedge \neg \Box A)$ (in KT)
+
+
+## Hypothesis
+
+$\neg \Box (A \wedge \neg \Box A)$ is a theorem of KT.
+
+- So we can use all the rules, plus the special rules for T.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Turn false $\neg$ false into true $\neg \neg$
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Delete $\neg \neg$
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+It's KT, so whatever is necessary is true.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\True}{A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          [\pFmla{\True}{\neg \Box A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          ]
+        ]
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Both sides of a conjunction have to be true.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\True}{A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          [\pFmla{\True}{\neg \Box A}{1}, just = {\TRule{\True}{\wedge}[4]}
+            [\pFmla{\False}{\Box A}{1}, just = {\TRule{\False}{\neg}[6]}
+            ]
+          ]
+        ]
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Whatever isn't true is false.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\True}{A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          [\pFmla{\True}{\neg \Box A}{1}, just = {\TRule{\True}{\wedge}[4]}
+            [\pFmla{\False}{\Box A}{1}, just = {\TRule{\False}{\neg}[6]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\Box}[7]}
+              ]
+            ]
+          ]
+        ]
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+A false Box sentence requires a world that makes it false. What can we do now?
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\True}{A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          [\pFmla{\True}{\neg \Box A}{1}, just = {\TRule{\True}{\wedge}[4]}
+            [\pFmla{\False}{\Box A}{1}, just = {\TRule{\False}{\neg}[6]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\Box}[7]}
+                [\pFmla{\True}{A \wedge \neg \Box A}{1.1}, just = {\TRule{\True}{\Box}[3]}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+Line 3 is a $\Box$ sentence, so the unboxed part applies everywhere accessible.
+
+## $\neg \Box (A \wedge \neg \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\neg \Box (A \wedge \neg \Box A)}{1}, just = \TAss,
+  [\pFmla{\True}{\neg \neg \Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\False}{\neg}[1]}
+    [\pFmla{\True}{\Box (A \wedge \neg \Box A)}{1}, just = {\TRule{\True}{\neg}[2]}
+      [\pFmla{\True}{A \wedge \neg \Box A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\True}{A}{1}, just = {\TRule{\True}{\wedge}[4]}
+          [\pFmla{\True}{\neg \Box A}{1}, just = {\TRule{\True}{\wedge}[4]}
+            [\pFmla{\False}{\Box A}{1}, just = {\TRule{\False}{\neg}[6]}
+              [\pFmla{\False}{A}{1.1}, just = {\TRule{\False}{\Box}[7]}
+                [\pFmla{\True}{A \wedge \neg \Box A}{1.1}, just = {\TRule{\True}{\Box}[3]}
+                  [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\wedge}[9]}, close
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]    
+    ]
+  ]
+]
+\end{oltableau}
+
+And both parts of an and sentence have to be true - though the first is enough to close this tree.
+
+## Philosophical Consequences
+
+- This is a philosophically interesting result.
+- If $\Box$ means "Is known by X", then it says that X can't know of a particular proposition that it is true but they don't know it.
+- Assuming that X is not omniscient, so there are some things they don't know, this means there are limits to X's knowledge.
+
+## Idealism
+
+- Let B = "Brian doesn't know that B is true". (And assume, for now, that this kind of self-reference makes sense.
+- That's surely true. My knowing it implies a contradiction in the way we've just shown.
+- So we all know it, because we can all follow the proof. $\pause$
+- Except wait - it's true, and it says I don't know it, so I must not know it.
+- So there's something you all know that I don't know.
+- Though just why I don't know it is something of a mystery, since I do have a well-supported (and correct) belief that it is true.
+
+# $\Box A \rightarrow \Box \Box A$ (in KT)
+
+
+## Hypothesis
+
+$\Box A \rightarrow \Box \Box A$ is a theorem of KT.
+
+- So we can use all the rules, plus the special rules for T.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+You know the drill - left hand side true, right hand side false.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+It's T, so we have obligations when a $\Box$ sentence is true.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Now we have to make the false $\Box$ sentence actually false.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Box}[2]}        
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Carry down the true $\Box$ sentence.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Box}[2]}        
+            [\pFmla{\False}{A}{1.1.1}, just = {\TRule{\False}{\Box}[5]}
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- One more false $\Box$ sentence. \pause
+- And now we're done; all rules applied, and tree open. So it is not a theorem.
+
+## A Model 
+
+- Three worlds, $w_1, w_{1.1}, w_{1.1.1}$.
+- The accessibility relations are $w_1Rw_{1.1}, w_{1.1}Rw_{1.1.1}, w_1Rw_1, w_{1.1}Rw_{1.1}$ and $w_{1.1.1}Rw_{1.1.1}$.
+- The first two are from the tree, the next three from the restriction.
+- $A$ is true at $w_1$ and $w_{1.1}$ and false at $w_{1.1.1}$.
+- So $\Box A$ will be true only at $w_1$.
+- So $\Box \Box A$ will be false at $w_1$, as required.
+
+# $\Box A \rightarrow (A \wedge \Box \Box A)$ (in S4)
+
+
+## Hypothesis
+
+$\Box A \rightarrow (A \wedge \Box \Box A)$ is a theorem of S4 = KT4.
+
+- So we can use all the rules, plus the special rules for T and for 4.
+
+## $\Box A \rightarrow (A \wedge \Box \Box A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A \wedge \Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+You know the drill - left hand side true, right hand side false.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A \wedge \Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+We have T, so necessary truths are true.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A \wedge \Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\wedge}[3]}, close]
+        [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\wedge}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\wedge$ means branching, but happily one branch closes immediately.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A \wedge \Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\wedge}[3]}, close]
+        [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\wedge}[3]}
+          [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[5]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\Box$ sentences require new worlds where the unboxed thing is false.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow (A \wedge \Box \Box A)}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A \wedge \Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\wedge}[3]}, close]
+        [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\wedge}[3]}
+          [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[5]}
+            [\pFmla{\True}{\Box A}{1.1}, just = {4 $\Box$ 2}, close]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+But 4 requires we carry down $\Box$ sentences, and now we're done.
+
+
+
+# $A \rightarrow \Box \Diamond A$ (in S4)
+
+
+## Hypothesis
+
+$A \rightarrow \Box \Diamond A$ is a theorem of S4 = KT4.
+
+- So we can use all the rules, plus the special rules for T and for 4.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+You know the drill - left hand side true, right hand side false.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\Box$ sentences are false somewhere.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        [\pFmla{\False}{A}{1.1}, just = {T $\Diamond$ 4}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+It's T, so false $\Diamond$ sentences have to actually be false.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        [\pFmla{\False}{A}{1.1}, just = {T $\Diamond$ 4}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- But that's it 
+- We've applied all the rules, and it doesn't close.
+- So not a theorem.
+
+## A Model 
+
+- Two worlds, $w_1, w_{1.1}$.
+- The accessibility relations are $w_1Rw_{1.1}, w_1Rw_1$ and $w_{1.1}Rw_{1.1}$.
+- The first is from the tree, the next two from reflexivity.
+- In this case, transitivity doesn't require anything more. (Though double check this!)
+- $A$ is true at $w_1$ and and false at $w_{1.1}$.
+- So $\Diamond A$ will be false only at $w_{1.1}$.
+- So $\Box \Diamond A$ will be false at $w_1$, while $A$ is true, as required.
+
+
+# $A \rightarrow \Box \Diamond A$ (in KTB)
+
+
+## Hypothesis
+
+$A \rightarrow \Box \Diamond A$ is a theorem of KTB.
+
+- So we can use all the rules, plus the special rules for B and T.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+You know the drill - left hand side true, right hand side false.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\Box$ sentences are false somewhere.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        [\pFmla{\False}{A}{1}, just = {B $\Diamond$ 4}]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+In B, false $\Diamond$ sentences have to be false one step backwards as well as one step forwards.
+
+## $A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{A \rightarrow \Box \Diamond A}{1}, just = \TAss
+  [\pFmla{\True}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\False}{\Diamond A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        [\pFmla{\False}{A}{1}, just = {B $\Diamond$ 4}, close]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+And that closes the tree, so it is a theorem.
+
+
+# $\Box A \rightarrow \Box \Box A$ (in KTB)
+
+
+## Hypothesis
+
+$\Box A \rightarrow \Box \Box A$ is a theorem of KTB.
+
+- So we can use all the rules, plus the special rules for B.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+You know the drill - left hand side true, right hand side false.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+It's T, so true box sentences are true.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\Box$ sentences have to be false somewhere.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Box}[2]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+True $\Box$ sentences have to be true everywhere accessible.
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Box}[2]}
+            [\pFmla{\False}{A}{1.1.1}, just = {\TRule{\False}{\Box}[5]}
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Another false $\Box$ sentence that needs to be made false.
+
+
+## $\Box A \rightarrow \Box \Box A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box A \rightarrow \Box \Box A}{1}, just = \TAss
+  [\pFmla{\True}{\Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Box A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{1}, just = {T $\Box$ 2}
+        [\pFmla{\False}{\Box A}{1.1}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{A}{1.1}, just = {\TRule{\True}{\Box}[2]}
+            [\pFmla{\False}{A}{1.1.1}, just = {\TRule{\False}{\Box}[5]}
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+And that's it. We've applied all the rules. The extra rules for T and B don't change much here from the basic tableau in K.
+
+## A Model 
+
+- Three worlds, $w_1, w_{1.1}, w_{1.1.1}$.
+- The accessibility relations are $w_1Rw_{1.1}, w_{1.1}Rw_{1.1.1}, w_1Rw_1, w_{1.1}Rw_{1.1}, w_{1.1.1}Rw_{1.1.1}, w_{1.1}Rw_1$ and $w_{1.1.1}Rw_{1.1}$
+- The first two are from the tree, the next three from T and the last two from B.
+- $A$ is true at $w_1$ and $w_{1.1}$ and false at $w_{1.1.1}$.
+- So $\Box A$ will be true only at $w_1$.
+- So $\Box \Box A$ will be false at $w_1$, as required.
+
+
+# $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$ (in S4)
+
+
+## Hypothesis
+
+$\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$ is a theorem of S4.
+
+- So we can use all the rules, plus the special rules for T and 4.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\vee$ sentences have both sides false.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{1.1}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{1.2}, just = {\TRule{\False}{\Box}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Both of these false $\Box$ sentences have to be made false somehow.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{1.1}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{1.2}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{\Box A}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+            [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+              [\pFmla{\True}{\Box B}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                [\pFmla{\False}{A}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- False $\rightarrow$ sentences mean left false; right true.
+- Note we have no special rules for 4 or T triggered yet, because no true $\Box$ or false $\Diamond$, but that's about to change.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{1.1}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{1.2}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{\Box A}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+            [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+              [\pFmla{\True}{\Box B}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                [\pFmla{\False}{A}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                  [\pFmla{\True}{A}{1.1}, just = {T $\Box$ 6}
+                    [\pFmla{\True}{B}{1.2}, just = {T $\Box$ 8}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+T means true $\Box$ sentences are true unboxed.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{1.1}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{1.2}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{\Box A}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+            [\pFmla{\False}{B}{1.1}, just = {\TRule{\False}{\rightarrow}[4]}
+              [\pFmla{\True}{\Box B}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                [\pFmla{\False}{A}{1.2}, just = {\TRule{\False}{\rightarrow}[5]}
+                  [\pFmla{\True}{A}{1.1}, just = {T $\Box$ 6}
+                    [\pFmla{\True}{B}{1.2}, just = {T $\Box$ 8}
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+But now we've applied all the rules, and the tableau doesn't close. So not a theorem.
+
+## A Model
+
+- Three worlds, $w_1, w_{1.1}, w_{1.2}$
+- The accessibility relations are $w_1Rw_{1.1}, w_1Rw{1.2}, w_1Rw_1, w_{1.1}Rw_{1.1}, w_{1.2}Rw_{1.2}$.
+- The first two from the tree, the last three from T. Adding 4 doesn't require anything in this case.
+- $A$ is true at $w_{1.1}$ and false at $w_{1.2}$.
+- $B$ is true at $w_{1.2}$ and false at $w_{1.1}$.
+- It doesn't matter what values the atomics take at $w_1$.
+- So $\Box A$ will be true at $w_{1.1}$, while $B$ is false.
+- And $\Box B$ will be true at $w_{1.2}$, while $A$ is false.
+- So the original sentence fails at $w_1$.
+
+# $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$ (in S5)
+
+
+## Hypothesis
+
+$\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$ is a theorem of S5.
+
+- We are going to use simplified S5 because normal S5 is really painful for cases like this one.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+False $\vee$ sentences have both sides false.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{2}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{3}, just = {\TRule{\False}{\Box}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Both of these false $\Box$ sentences have to be made false somehow.
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{2}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{3}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{\Box A}{2}, just = {\TRule{\False}{\rightarrow}[4]}
+            [\pFmla{\False}{B}{2}, just = {\TRule{\False}{\rightarrow}[4]}
+              [\pFmla{\True}{\Box B}{3}, just = {\TRule{\False}{\rightarrow}[5]}
+                [\pFmla{\False}{A}{3}, just = {\TRule{\False}{\rightarrow}[5]}
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- False $\rightarrow$ sentences mean left false; right true.
+
+
+## $\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box(\Box A \rightarrow B) \vee \Box(\Box B \rightarrow A)}{1}, just = \TAss,
+  [\pFmla{\False}{\Box(\Box A \rightarrow B)}{1}, just = {\TRule{\False}{\vee}[1]}
+    [\pFmla{\False}{\Box(\Box B \rightarrow A)}{1}, just = {\TRule{\False}{\vee}[1]}
+      [\pFmla{\False}{\Box A \rightarrow B}{1.1}, just = {\TRule{\False}{\Box}[2]}
+        [\pFmla{\False}{\Box B \rightarrow A}{1.2}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\True}{\Box A}{2}, just = {\TRule{\False}{\rightarrow}[4]}
+            [\pFmla{\False}{B}{2}, just = {\TRule{\False}{\rightarrow}[4]}
+              [\pFmla{\True}{\Box B}{3}, just = {\TRule{\False}{\rightarrow}[5]}
+                [\pFmla{\False}{A}{3}, just = {\TRule{\False}{\rightarrow}[5]}
+                  [\pFmla{\True}{A}{3}, just = {\TRule{\True}{\Box}[6]}, close]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- And if $\Box A$ is true, then $A$ is true everywhere, including 3.
+- This closes the tree, so it is a theorem of S5.
+
+
+# $\Diamond A \rightarrow \Box \Diamond A$ (in S5)
+
+
+## Hypothesis
+
+$\Diamond A \rightarrow \Box \Diamond A$ is a theorem of S5.
+
+- We are going to use simplified S5 because normal S5 is really painful for cases like this one.
+- Note that if we can prove this, we'll have shown in effect that in S5, all true modal claims are necessarily true. That's the distinctive feature of S5; modality itself is never contingent.
+
+## $\Diamond A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Diamond A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+This feels familiar by now.
+
+## $\Diamond A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[2]}
+        [\pFmla{\False}{\Diamond A}{3}, just = {\TRule{\False}{\Box}[3]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- True $\Diamond$ sentences and false $\Box$ sentences have to be made true somewhere.
+- Not necessarily the same 'somewhere'.
+
+## $\Diamond A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[2]}
+        [\pFmla{\False}{\Diamond A}{3}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\False}{A}{3}, just = {\TRule{\False}{\Diamond}[5]}]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- False $\Diamond$ sentences are false everywhere.
+- That is, the part inside the $\Diamond$ is false everywhere.
+
+## $\Diamond A \rightarrow \Box \Diamond A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Diamond A \rightarrow \Box \Diamond A}{1}, just = \TAss,
+  [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[2]}
+        [\pFmla{\False}{\Diamond A}{3}, just = {\TRule{\False}{\Box}[3]}
+          [\pFmla{\False}{A}{2}, just = {\TRule{\False}{\Diamond}[5]}, close]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+And so it closes, so this is a theorem.
+
+# $\Box \Diamond A \rightarrow A$ (in S5)
+
+
+## Hypothesis
+
+$\Box \Diamond A \rightarrow A$ is a theorem of S5.
+
+- We are going to use simplified S5. \pause
+- Note this 'should' fail given what we have shown.
+- We know that $\Diamond A$ implies $\Box \Diamond A$.
+- So if $\Box \Diamond A$ implies $A$, we'll have $\Diamond A$ implies $A$, which is absurd.
+
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+]
+\end{oltableau}
+
+\bigskip
+
+Start with it being false at 1.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+This feels familiar by now.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\Box}[2]}
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+The unboxed part of a box sentence is true everywhere, so it is true here.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\Box}[2]}
+        [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[4]}
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+True $\Diamond$ sentences have to be made true by some world. It can't be this one, since $A$ is false here.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\Box}[2]}
+        [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\True}{\Diamond A}{2}, just = {\TRule{\True}{\Box}[2]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+True $\Box$ sentences are true, unboxed, everywhere.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\Box}[2]}
+        [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\True}{\Diamond A}{2}, just = {\TRule{\True}{\Box}[2]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+Now if we are following the rules mechanically we will add a new world to make $A$ true, call it world 3. And the cycle will continue.
+
+## $\Box \Diamond A \rightarrow A$
+
+\begin{oltableau}
+[\pFmla{\False}{\Box \Diamond A \rightarrow A}{1}, just = \TAss,
+  [\pFmla{\True}{\Box \Diamond A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+    [\pFmla{\False}{A}{1}, just = {\TRule{\False}{\rightarrow}[1]}
+      [\pFmla{\True}{\Diamond A}{1}, just = {\TRule{\True}{\Box}[2]}
+        [\pFmla{\True}{A}{2}, just = {\TRule{\True}{\Diamond}[4]}
+          [\pFmla{\True}{\Diamond A}{2}, just = {\TRule{\True}{\Box}[2]}
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+\end{oltableau}
+
+\bigskip
+
+- But if we think through what the lines are saying, we can see that we can stop here.
+- Line 6 has to be made true somehow.
+- But line 5 says that world 2 itself makes line 6 true.
+- So there isn't anything extra to do.
+
+## $\Box \Diamond A \rightarrow A$
+
+So here is a description of a model where this alleged theorem fails.
+
+- There are two worlds: $w_1$ and $w_2$.
+- At $w_1$, $A$ is false.
+- At $w_2$, $A$ is true.
+- Because $w_2$ exists, $\Diamond A$ is true everywhere.
+- So $\Box \Diamond A$ is true everywhere.
+- So at $w_1$, $\Box \Diamond A$ is true and $A$ is false.
+- So at $w_1$, $\Box \Diamond A \rightarrow A$ is false.

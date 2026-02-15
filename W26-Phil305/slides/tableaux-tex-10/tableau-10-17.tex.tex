@@ -1,0 +1,62 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[border=2pt]{standalone}
+
+% Use modern fonts (requires XeLaTeX)
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\setmainfont{Fira Sans}
+\setmathfont{Fira Math}
+\setmathfont[range=\mathbb]{Fira Math}
+
+% Ensure amssymb is loaded for \lozenge and \square
+\usepackage{amssymb}
+
+% Tableaux system
+\RequirePackage[tableaux]{prooftrees}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
+
+% Open Logic commands - provides tableau commands
+\usepackage{open-logic-minimal}
+
+% Redefine sFmla to ensure math mode for symbols
+\renewcommand{\sFmla}[2]{\ensuremath{#1 \; #2}}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\tableau{}}{\endtableau}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Define modal operators (using Unicode with unicode-math)
+\newcommand{\Diamond}{◇}
+\newcommand{\Box}{□}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}
+
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\False}{1, A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                [\sFmla{\False}{1.1, A}, just = {\Diamond}{\TRule{\text{T}}[4]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+\end{document}

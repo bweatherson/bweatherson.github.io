@@ -46,4 +46,12 @@
   text-align: center;
 }
 
+p.caption {
+  text-align: center;
+}
 
+img.r-stretch {
+  width: 900px !important;
+  height: auto !important;
+  max-height: none !important;
+}

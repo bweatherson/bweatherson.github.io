@@ -1,0 +1,135 @@
+# Applications
+
+## Learing from Experiments
+
+The lectures so far have been too abstract; I should have spent more time on why this stuff is a useful tool in philosophy.
+
+So I'm going to spend ten minutes talking through one case that I've alluded to so far.
+
+The point is not that modal logic helps settle a philosophical dispute; that's not what it is for.
+
+The point rather is that it gives us a cleaner way to talk about the disagreement.
+
+The disagreement in question is what to say about learning from experiments.
+
+## Scales
+
+::: {.columns}
+
+:::: {.column}
+![A kitchen scale](../images/scale.jpg)
+::::
+
+::::
+I'll say we're talking about experiments, but that might feel too fancy, because I'm going to use a really really simple example.
+
+Imagine the experimenter, call them E, puts an object on their kitchen scale and records the result.
+
+What do they learn about the mass of the object?
+::::
+
+:::
+
+## Device Fallibility
+
+I clearly haven't told you enough to answer that question - you need to know how good the scale is.
+
+Here's what to know about the scale. When the real mass of the object to be weighed is $m$, the observed value is almost always within 0.1% of $m$. So it's within 0.1g for 100g objects, within 1g for 1000g objects, and so on. This is, I think, roughly the accuracy of the scale of the previous slide.
+
+But I want to imagine a scale, unlike that one, that always reads out to 0.1g even when that's beyond it's accuracy.
+
+## Worlds
+
+So imagine our experimenter puts an object on the scale. The real mass of the object (in grams) is some value $m$. And the scale reads $o$. Hopefully these are really close.
+
+In the model we'll use for this, the worlds are pairs $\langle m, o\rangle$, representing what the real mass is, and what the observation is, i.e., what the display says.
+
+So $\langle 817.6, 817.5\rangle$ is the state where the real mass is 817.6 grams, and it reads 817.5 grams, which is pretty good all things considered.
+
+I'll just consider states that are precise to 0.1g, to avoid fussing about infinite fineness.
+
+## Learning From Experiments
+
+Here are three questions that philosophers have worried about concerning this kind of setup.
+
+::: {.incremental}
+1. What does the experimenter learn in $\langle m, o\rangle$ when they see $o$ on the scale? That is, what do they come to know?
+2. What does the experimenter know that they know after seeing $o$? This is in part a self-directed question, what do they know about their own state of mind? This might be important for when we're thinking about what future experiments they will run.
+3. Are the answers to 1 and 2 the same?
+:::
+
+A big dispute, with potentially far reaching implications, has been whether the answer to 3 is _Yes_ or _No_.
+
+## Modal Logic Approach
+
+If we're using modal logic, we start by asking a slightly different question:
+
+Upon seeing $o$, what states are still accessible, i.e., might be real, and which ones are ruled out?
+
+One nice thing about digital scales is that we don't tend to make many mistakes about what the scale says.
+
+So if it reads 817.5, we can rule out any pair $\langle m, o\rangle$ where $o \neq 817.5$.
+
+## Modal Logic Approach
+
+But the question is harder. Let's say the real value is 818.1, so the scale is a bit off. Still within 0.1%, but a bit off.
+
+That is, we're really in the world $\langle 818.1, 817.5\rangle$, though the experimenter can't possibly know that.
+
+Which states are possible for the experimenter?
+
+## Option One
+
+**Anything within 0.1% of the observed value is accessible, anything else is not**.
+
+So in this case, the accessible, epistemically possible, masses are anything from 816.7 to 818.3.
+
+This reflects the fact that it could be a bit off, about 0.8g in 800g or so, in each direction.
+
+So it's good practice to not be certain that the scale is right, and allow a margin of error.
+
+Someone who believes that it's within 816.7 to 818.3 seems to get a true belief by following a good method, so that's knowledge.
+
+## Option One
+
+One important thing to note here is that this argument didn't rely on the value of $m$.
+
+For any value of $m_1$ and $m_2$ between 816.7 and 818.3, the possibilities $\langle m_1, 817.5 \rangle$ can access each other. So accessibility, on this model, is reflexive, symmetric, and transitive.
+
+## Problems with Option One
+
+Option One might be right; it is plausible. But there are a couple of related questions, both turning on the fact that on this model, the experimenter can rule out the mass being 818.4, which is very close to the true value of 818.1.
+
+### Argument One
+
+You shouldn't be able to rule out something that's closer to reality than the accuracy of your measuring equipment. So you shouldn't be able to rule out something 0.3g away from actuality using a scale that's only accurate to 0.8g.
+
+### Argument Two
+
+It would be better if the scale said 818.1, the exact true value. If it had, the experimenter couldn't rule out 818.4. You shouldn't be able to rule out something from a flawed measurement that you couldn't rule out with a perfect measurement.
+
+## Option Two
+
+Both of these arguments point in the direction of the following rule.
+
+**In the world $\langle m, o\rangle$, the accessible worlds are those values of $\langle m', o\rangle$ where $m'$ is within 0.8g of either $m$ or $o$.**
+
+In this case, it would imply that the accessible possibilities are all values of $m$ between 816.7 (the same lower bound) and 818.9 (a higher upper bound).
+
+## Option Two
+
+I won't work through this, because we've taken long enough, but if that's the model you have, then accessibility is reflexive, but not symmetric or transitive.
+
+If it's right, there can be models where the experimenter can know something without knowing that they know it.
+
+This is because 'knows that' is basically a $\Box$ operator on these models. The experimenter knows things that are true at all accessible worlds.
+
+## Philosophical Upshot
+
+We started with what looked like an epistemology question:
+
+- If the experimenter knows something, do they know that they know it?
+
+This looked like it would require some kind of theory about the relationship between perception and introspection.
+
+Instead, we could possibly make progress on it by applying the tools of modal logic, and thinking hard about what is possible given an experiment.
