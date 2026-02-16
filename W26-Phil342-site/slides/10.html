@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="dcterms.date" content="2026-02-16">
   <title>Opinion Pooling V: Geometric and Multiplicative Pooling</title>
@@ -152,6 +152,29 @@
 <div class="fragment">
 <p>Today we’re looking at a different family of pooling rules based on <strong>geometric means</strong></p>
 </div>
+</section>
+<section class="slide level2">
+<h2>Motivation</h2>
+<p>Sometimes we express uncertainty as <strong>probabilities</strong>.</p>
+<p>But sometimes we express uncertainty as <strong>odds</strong>.</p>
+<p>For instance, it might be that <em>A</em> thinks there is a 1 in 10 chance that Michigan will win some competition, while B thinks there is a 1 in 100 chance.</p>
+<p>What is half-way between their views?</p>
+</section>
+<section class="slide level2">
+<h2>Two Answers</h2>
+<h3>Linear Pooling</h3>
+<p>The probabilities are 0.1, and 0.01, so half way between is 0.055, i.e., 5.5%.</p>
+<h3>Odds Pooling</h3>
+<p>The odds are 1 in 100, and 1 in 10, so half-way between is 1 in 55, or just under 2%.</p>
+<h3>Geometric Pooling</h3>
+<p>It’s going to end up at just over 3%, so closer to odds than linear.</p>
+</section>
+<section class="slide level2">
+<h2>Two Answers</h2>
+<p>What odds pooling and geometric pooling have in common is that they agree on the case where <em>B</em> doesn’t think Michigan is a 1-in-100 chance, they instead think Michigan is no chance at all.</p>
+<p>That is, they have 0 credence, or a 1-in-infinity chance.</p>
+<p>Both geometric pooling and odds pooling will say that the combined probability is 0.</p>
+<p>We’ll come back to this.</p>
 </section>
 <section class="slide level2">
 <h2>The Two-Stage Process</h2>
@@ -423,6 +446,9 @@
 <p>As long as multiple individuals get positive weights, no single person dictates.</p>
 <p>This parallels linear pooling.</p>
 </div>
+<div class="fragment">
+<p>That said, any one person can force the group probability of any number of events to 0 by having credence 0. This is a little dictatorial.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>(6) External Bayesianity</h2>
@@ -578,6 +604,18 @@
 <li class="fragment">You won’t be updating.</li>
 <li class="fragment">It’s important to interpret the pool as a compromise.</li>
 </ul>
+</section>
+<section class="slide level2">
+<h2>Zeroes</h2>
+<p>If you don’t 100% trust the people who are being pooled, geometric pooling has a risky feature.</p>
+<p><strong>Anyone</strong> can set the group probability of some event to 0. This seems like a lot of power to give each group member, especially if you aren’t sure they are right.</p>
+<p>In practice, I’d be very hesitant to use geometric pooling without first eliminating outliers, just for this reason.</p>
+</section>
+<section class="slide level2">
+<h2>Zeroes and Partition Sensitivity</h2>
+<p>This fact about zeroes relates to the issue about partition sensitivity.</p>
+<p>The more fine-grained the partition you use, the more chance someone will have a credence 0 in one or other of the cells.</p>
+<p>So you can very easily end up with some realistic scenario getting group credence 0, because every particular way that scenario might come about gets credence 0 according to some group member or other.</p>
 </section>
 <section class="slide level2">
 <h2>Impossibility Results</h2>

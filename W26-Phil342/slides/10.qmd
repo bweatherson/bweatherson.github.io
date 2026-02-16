@@ -22,6 +22,40 @@ Last time we discussed linear pooling strategies.
 
 Today we're looking at a different family of pooling rules based on **geometric means**
 
+## Motivation
+
+Sometimes we express uncertainty as **probabilities**.
+
+But sometimes we express uncertainty as **odds**.
+
+For instance, it might be that *A* thinks there is a 1 in 10 chance that Michigan will win some competition, while B thinks there is a 1 in 100 chance.
+
+What is half-way between their views?
+
+## Two Answers
+
+### Linear Pooling
+
+The probabilities are 0.1, and 0.01, so half way between is 0.055, i.e., 5.5%.
+
+### Odds Pooling
+
+The odds are 1 in 100, and 1 in 10, so half-way between is 1 in 55, or just under 2%.
+
+### Geometric Pooling
+
+It's going to end up at just over 3%, so closer to odds than linear.
+
+## Two Answers
+
+What odds pooling and geometric pooling have in common is that they agree on the case where *B* doesn't think Michigan is a 1-in-100 chance, they instead think Michigan is no chance at all.
+
+That is, they have 0 credence, or a 1-in-infinity chance.
+
+Both geometric pooling and odds pooling will say that the combined probability is 0.
+
+We'll come back to this.
+
 ## The Two-Stage Process
 
 Geometric pooling works differently from linear pooling:
@@ -304,6 +338,10 @@ As long as multiple individuals get positive weights, no single person dictates.
 
 This parallels linear pooling.
 
+. . .
+
+That said, any one person can force the group probability of any number of events to 0 by having credence 0. This is a little dictatorial.
+
 ## (6) External Bayesianity
 
 **If individuals update on evidence, does the group pool commute with updating?**
@@ -412,6 +450,22 @@ Linear pooling might be preferable when:
 - You won't be updating.
 - It's important to interpret the pool as a compromise.
 :::
+
+## Zeroes
+
+If you don't 100% trust the people who are being pooled, geometric pooling has a risky feature.
+
+**Anyone** can set the group probability of some event to 0. This seems like a lot of power to give each group member, especially if you aren't sure they are right.
+
+In practice, I'd be very hesitant to use geometric pooling without first eliminating outliers, just for this reason.
+
+## Zeroes and Partition Sensitivity
+
+This fact about zeroes relates to the issue about partition sensitivity.
+
+The more fine-grained the partition you use, the more chance someone will have a credence 0 in one or other of the cells.
+
+So you can very easily end up with some realistic scenario getting group credence 0, because every particular way that scenario might come about gets credence 0 according to some group member or other.
 
 ## Impossibility Results
 
