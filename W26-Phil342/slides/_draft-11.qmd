@@ -55,7 +55,7 @@ Can we measure accuracy of *entire credence functions*, not just single credence
 
 ## The Ideal Credence Function
 
-For any world $w$, the ideal credence function $V_w$ assigns:
+For any world $w$, the ideal credence function assigns:
 
 ::: {.incremental}
 - Credence **1** to all propositions true at $w$
@@ -68,67 +68,41 @@ This represents perfect knowledge of $w$.
 
 . . .
 
-**Accuracy** of credence function $P$ at world $w$ = its *proximity* to $V_w$
+**Accuracy** = how close your credences are to the ideal
 
-**Inaccuracy** of $P$ at $w$ = its *distance* from $V_w$
+**Inaccuracy** = how far your credences are from the ideal
 
-## Measuring Distance: Bregman Divergences
+## How to Measure Distance
 
-Accuracy-first epistemologists use **additive and continuous Bregman divergences** to measure distance.
-
-. . .
-
-Two popular examples:
-
-**Squared Euclidean Distance (SED)**:
-$$\text{SED}(P,Q) = \sum_{X \in \mathcal{A}} |P(A) - Q(A)|^2$$
-
-**Generalized Kullback-Leibler divergence (GKL)**:
-$$\text{GKL}(P,Q) = \sum_{X \in \mathcal{A}} P(X)\log\frac{P(X)}{Q(X)} - P(X) + Q(X)$$
-
-## Inaccuracy Measures
-
-Given a distance measure $\mathfrak{D}$, the **inaccuracy** of credence function $P$ at world $w$ is:
-
-$$\mathfrak{I}(P,w) = \mathfrak{D}(V_w, P)$$
+**Basic idea**: Sum up the "mistakes" across all your credences.
 
 . . .
 
-Two main inaccuracy measures:
+**Example**: You're 40% confident it will rain.
 
 ::: {.incremental}
-- **Brier score**: $\mathfrak{B}(P,w) = \text{SED}(V_w, P)$
-- **Additive log score**: $\mathfrak{L}(P,w) = \text{GKL}(V_w, P)$
-:::
-
-## Example: Computing Brier Score
-
-Suppose $P$ assigns credence 0.4 to $X$ and 0.6 to $\neg X$.
-
-If $X$ is true at world $w$:
-
-$$\begin{aligned}
-\mathfrak{B}(P,w) &= |V_w(X) - P(X)|^2 + |V_w(\neg X) - P(\neg X)|^2 \\
-&= |1 - 0.4|^2 + |0 - 0.6|^2 \\
-&= 0.36 + 0.36 = 0.72
-\end{aligned}$$
-
-## Why Use Bregman Divergences?
-
-These measures are **additive and continuous strictly proper inaccuracy measures**.
-
-. . .
-
-Two key results:
-
-::: {.incremental}
-1. **Probabilism vindicated**: If $C$ violates probability axioms, there exists a probability function $P$ that's guaranteed to be more accurate than $C$ at every world.
-2. **Bayesianism vindicated**: Updating by Bayes' Rule minimizes expected inaccuracy from your prior's perspective.
+- If it rains (ideal: 100% confident), you're off by 60 percentage points
+- If it doesn't rain (ideal: 0% confident), you're off by 40 percentage points
 :::
 
 . . .
 
-These provide justification for fundamental epistemic norms!
+Different ways to aggregate these errors give different accuracy measures.
+
+## A Key Result
+
+If you use appropriate accuracy measures (technical details omitted):
+
+. . .
+
+::: {.incremental}
+- **Probabilism vindicated**: If your credences violate probability rules, there's always a better credence function that's guaranteed to be more accurate
+- **Bayesianism vindicated**: Updating by Bayes' Rule minimizes expected inaccuracy
+:::
+
+. . .
+
+This provides justification for fundamental epistemic norms!
 
 # Accuracy-Based Arguments for Pooling
 
@@ -153,37 +127,25 @@ Suppose we pool to get group credence $Q$.
 
 . . .
 
-**Problem**: What if there's an alternative $Q^*$ such that *every individual scholar* thinks $Q^*$ would be more accurate than $Q$ in expectation?
+**Problem**: What if there's an alternative $Q^*$ such that *every individual scholar* thinks $Q^*$ would be more accurate than $Q$ (in expectation)?
 
 . . .
 
-Then we've ascribed the wrong credences to the group!
+Then we've ascribed the wrong credences to the group — everyone agrees there's a better option!
 
-## Accuracy Consensus (Formal)
+## The Key Requirement
 
-**Accuracy Consensus**: There should be no alternative group credence function $Q^*$ such that, for all individuals $P_i$:
-
-$$\mathbb{E}_{P_i}(\mathfrak{I}(Q^*)) < \mathbb{E}_{P_i}(\mathfrak{I}(Q))$$
+**Accuracy Consensus**: There should be no alternative group credence that all individuals prefer (in terms of expected accuracy).
 
 . . .
 
-That is:
-$$\sum_{w \in \mathcal{W}} P_i(w)\mathfrak{I}(Q^*, w) < \sum_{w \in \mathcal{W}} P_i(w)\mathfrak{I}(Q, w)$$
-
-for each $P_i$.
-
-## The Characterization Result
-
-**Theorem 7 (Pettigrew, 2019b)**: Suppose $\mathfrak{I}$ is additive, continuous, and strictly proper. Then:
-
-::: {.incremental}
-- **(i)** If $Q$ is *not* a linear pool of $P_1, \ldots, P_n$, then there exists $Q^*$ that dominates $Q$ in expected accuracy for all $P_i$.
-- **(ii)** If $Q$ *is* a linear pool, then no such $Q^*$ exists.
-:::
+This is like a Pareto optimality condition for credence functions.
 
 . . .
 
-**Conclusion**: Accuracy Consensus *characterizes* linear pooling!
+**The result**: Linear pooling is the *only* strategy that satisfies Accuracy Consensus.
+
+(More precisely: if $Q$ is not a linear pool, there exists an alternative that everyone prefers. If $Q$ is a linear pool, no such alternative exists.)
 
 ## When Does This Matter?
 
@@ -198,6 +160,27 @@ Accuracy Consensus is important when individuals must "get behind" the group cre
 . . .
 
 If accuracy is our goal for group credences, this favors linear pooling.
+
+## Discussion: The University Hiring Committee
+
+A search committee of 5 professors must decide on hiring a candidate.
+
+::: {.incremental}
+- Prof. A (20 years experience): 80% confident the candidate will succeed
+- Prof. B (15 years): 75% confident
+- Prof. C (10 years): 60% confident
+- Prof. D (5 years): 70% confident
+- Prof. E (2 years): 85% confident
+:::
+
+. . .
+
+**Questions for discussion**:
+
+::: {.nonincremental}
+1. Should they use equal weights or weight by seniority/expertise?
+2. How would you justify your choice to the committee members?
+:::
 
 ## What About Imprecise Credences?
 
@@ -343,11 +326,30 @@ Our local government official faces a trade-off:
 
 Which matters more depends on the context!
 
+## Discussion: The Climate Policy Advisor
+
+Maya works for a city government with no climate science background. She consults three climate scientists about flood risk from a proposed development:
+
+::: {.incremental}
+- Dr. Chen: 70% chance of severe flooding in next 20 years
+- Dr. Johnson: 45% chance
+- Dr. Okafor: 60% chance
+:::
+
+. . .
+
+**Questions for discussion**:
+
+::: {.nonincremental}
+1. Should Maya adopt the linear pool (58.3%) or choose one expert to defer to entirely?
+2. What if she later learns Dr. Chen has relevant local expertise? How should she update?
+:::
+
 # The Principle of Coherent Minimal Mutilation
 
 ## A Different Approach
 
-**Inspiration**: Konieczny & Pino Pérez's work on *merging operators* — combining conflicting information sources.
+**Inspiration**: How do we combine conflicting information sources?
 
 . . .
 
@@ -361,48 +363,40 @@ Executives might object if group credences diverge from individual credences *mo
 
 . . .
 
-**Idea**: Group credence should minimize total distance from individuals.
+**Idea**: Group credence should minimize total "distance" from all individuals.
 
 . . .
 
-Pick:
+**Question**: But how do we measure "distance" between credence functions?
+
+## Two Natural Distance Measures
+
+**Approach 1**: Sum of squared differences
+
+- Like the Euclidean distance you learned in geometry
+- Treats all dimensions equally
+
+. . .
+
+**Approach 2**: Information-theoretic distance
+
+- Based on how "surprised" one distribution would be by another
+- More sensitive to large discrepancies
+
+## The Surprising Results
+
+Different distance measures give different pooling strategies:
+
+. . .
 
 ::: {.incremental}
-1. A distance measure $\mathfrak{D}$ between credence functions
-2. The credence function that minimizes $\sum_{i=1}^n \mathfrak{D}(\text{group}, P_i)$
+- **Approach 1 (squared differences)** → Linear pooling!
+- **Approach 2 (information-theoretic)** → Geometric pooling!
 :::
 
-## Principle of Coherent Minimal Mutilation
-
-**CMM$_{\mathfrak{D}}$**: The group credence function is:
-
-$$\text{CMM}_{\mathfrak{D}}(P_1, \ldots, P_n) = \underset{P \in \Delta_{\mathcal{A}}}{\min} \sum_{i=1}^n \mathfrak{D}(P, P_i)$$
-
-where $\Delta_{\mathcal{A}}$ is the set of all probability functions over $\mathcal{A}$.
-
 . . .
 
-Different distance measures give different pooling strategies!
-
-## Theorem 11 (Osherson & Vardi, 2006)
-
-If we use **squared Euclidean distance** (SED):
-
-$$\text{LP}(P_1, \ldots, P_n) = \text{CMM}_{\text{SED}}(P_1, \ldots, P_n)$$
-
-. . .
-
-Linear pooling minimizes total squared distance from individuals!
-
-## Theorem 12 (Pettigrew, 2019a)
-
-If we use **generalized Kullback-Leibler divergence** (GKL):
-
-$$\text{GP}_{\mathcal{S}}(P_1, \ldots, P_n) = \text{CMM}_{\text{GKL}}(P_1, \ldots, P_n)$$
-
-. . .
-
-Geometric pooling (over the finest partition $\mathcal{S} = \mathcal{W}$) minimizes total KL divergence!
+This helps explain why both strategies seem natural — they're each minimizing distance, just measured differently.
 
 ## Contractualist Flavor
 
@@ -420,6 +414,27 @@ Group credences are legitimate when individuals have no grounds to complain:
 . . .
 
 **When to use**: Cases where individuals must "get behind" the group credence (representation, liability).
+
+## Discussion: The Medical Review Board
+
+A hospital review board must determine credences about whether a new surgical technique is safe:
+
+::: {.incremental}
+- 3 surgeons have credences: 65%, 70%, 75%
+- 2 anesthesiologists: 50%, 55%
+- 1 nurse: 80%
+- Their collective judgment will determine hospital policy
+:::
+
+. . .
+
+**Questions for discussion**:
+
+::: {.nonincremental}
+1. Which pooling approach seems most fair to all board members?
+2. Does it matter that their judgment creates policy that binds them all?
+3. Should different professional roles be weighted differently?
+:::
 
 # Preserving Justification
 
@@ -564,6 +579,27 @@ This applies generally, not just to coin tosses:
 
 For any hypotheses specifying chance functions where evidence pieces are probabilistically independent according to each chance function, the same pattern holds.
 
+## Discussion: The Archaeological Team
+
+An archaeological team studies whether a site was inhabited in the Bronze Age:
+
+::: {.incremental}
+- All three archaeologists started with the same prior (based on regional surveys): 40% confident
+- Archaeologist 1 excavated area A, found 3 bronze artifacts out of 20 items
+- Archaeologist 2 excavated area B, found 5 bronze artifacts out of 30 items  
+- Archaeologist 3 excavated area C, found 2 bronze artifacts out of 15 items
+:::
+
+. . .
+
+**Questions for discussion**:
+
+::: {.nonincremental}
+1. Should they pool their posterior credences or pool all the evidence first?
+2. Does the fact they physically separated to gather evidence matter?
+3. What if one archaeologist is more experienced at identifying artifacts?
+:::
+
 # Summary and Looking Ahead
 
 ## What We've Learned Today
@@ -642,25 +678,3 @@ Next topics in opinion pooling:
 - Imprecise probability pooling: developing the theory further
 - Applications to specific domains (scientific consensus, legal contexts, democratic deliberation)
 :::
-
-# Discussion Questions
-
-## Question 1
-
-The Diversity Prediction Theorem shows linear pooling is more accurate than random expert selection. But it violates Deference Compatibility. When should accuracy gains outweigh deference constraints?
-
-## Question 2
-
-Minimal Mutilation with SED gives linear pooling, while Minimal Mutilation with GKL gives geometric pooling. Is there a principled way to choose between distance measures, or is this choice arbitrary?
-
-## Question 3
-
-Evidence Pooling requires collecting credences over all possible worlds, making it impractical. Does this undermine the justification-based argument for geometric/multiplicative pooling, or can the theoretical result still guide us?
-
-## Question 4
-
-If Accuracy Consensus favors linear pooling for group credences, should individuals also use linear pooling when responding to peer disagreement? Or do different considerations apply to individual vs. group cases?
-
-## Question 5
-
-The impossibility results for imprecise credence accuracy seem to mirror the impossibility results for pooling strategies. Is there a deeper connection between these limitations? What does this tell us about the nature of epistemic rationality?
