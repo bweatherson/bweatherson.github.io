@@ -1,0 +1,397 @@
+---
+title: "Opinion Pooling IV: Promoting Group Epistemic Rationality"
+date: 2/23/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Accuracy and Justification in Pooling
+
+## Recap: What We've Covered So Far
+
+We've examined two families of pooling strategies:
+
+::: {.incremental}
+- **Linear pooling**: Weighted averages (satisfies most axioms, but violates External Bayesianity)
+- **Geometric pooling**: Geometric means over partitions (satisfies External Bayesianity, but partition-sensitive and violates lots of other axioms)
+:::
+
+. . .
+
+Today we're looking at how pooling relates to whether groups are **reasonable**. So we're taking more of an outsider's perspective.
+
+## Two Key Questions
+
+How well do pooling strategies promote:
+
+::: {.nonincremental}
+1. **Accuracy**: Getting closer to the truth
+2. **Justification**: Preserving epistemic warrant
+:::
+
+. . .
+
+These are hopefully related; though just what the relation is isn't always clear.
+
+# Measuring Accuracy
+
+## The Accuracy-First Approach
+
+**Core idea**: A credence can't be true or false, but it can be more or less *accurate*.
+
+. . .
+
+::: {.incremental}
+- If I'm 60% confident it will rain and you're 5% confident.
+- If it rains: my credence was more accurate.
+- If it doesn't rain: your credence was more accurate.
+:::
+
+. . .
+
+Can we measure accuracy of *entire credence functions*, not just single credences?
+
+## The Ideal Credence Function
+
+For any world $w$, the ideal credence function assigns:
+
+::: {.incremental}
+- Credence **1** to all propositions true at $w$
+- Credence **0** to all propositions false at $w$
+:::
+
+. . .
+
+This represents perfect knowledge of $w$. It's literally the God's eye view.
+
+## The Ideal Credence Function
+
+**Accuracy** = how close your credences are to the ideal
+
+**Inaccuracy** = how far your credences are from the ideal
+
+But this just raises a question, how do we measure accuracy?
+
+## How to Measure Distance
+
+**Usual starting point**: Sum up the "mistakes" across all your credences.
+
+. . .
+
+**Example**: You're 40% confident it will rain.
+
+::: {.incremental}
+- If it rains (ideal: 100% confident), you're off by 60 percentage points
+- If it doesn't rain (ideal: 0% confident), you're off by 40 percentage points
+:::
+
+. . .
+
+Different ways to aggregate these errors give different accuracy measures.
+
+## Annoying Technical Detail
+
+There are some very widely accepted constraints on how you do this measurement, and a bunch of measures that satisfy those constraints.
+
+Annoyingly, the measurement that says:
+
+- For every proposition, you get $x$ inaccuracy points when $x$ is the difference between your inaccuracy and the ideal;
+- You add up all the inaccuracy points across all propositions, and the lower the better;
+
+is **not** one of them.
+
+. . .
+
+If you say that whenever you are off by $x$, you get penalised $x^2$ accuracy points, you do get a measure that works, and indeed the most widely used measure there is. (It's called the Breir score, after a meteorologist who proposed it in the 1950s.)
+
+## A Key Result
+
+If you use these appropriate accuracy measures (technical details omitted, but the key moves here are largely due to Michigan faculty):
+
+. . .
+
+::: {.incremental}
+- **Probabilism vindicated**: If your credences violate probability rules, there's always a better credence function that's guaranteed to be more accurate.
+- **Bayesianism vindicated**: Updating by Bayes' Rule minimizes expected inaccuracy.
+:::
+
+. . .
+
+This provides justification for fundamental epistemic norms.
+
+## Accuracy Concepts
+
+Let's say that we measure inaccuracy by the square of the distance from perfection. Then there are two notions that get used a lot.
+
+- **Guaranteed Inaccuracy**. Sometimes one credence function is guaranteed to be more accurate than another.
+- **Expected Inaccuracy**. For any two probability functions, $\Pr_1$ and $\Pr_2$, we can work out how inaccurate $\Pr_1$ expects $\Pr_2$ to be.
+
+## Guaranteed Inaccuracy
+
+We're interested in whether or not it will rain tomorrow.
+
+- I have the incoherent view that it is 70% likely to rain, and 70% likely to not rain.
+- Mitch has the coherent view that it is 50% likely to rain, and 50% likely to not rain.
+
+If it rains, my inaccuracy score is $0.58$. I'm off on rain by $0.3$, and I'm off on not rain by $0.7$, and $0.3^2 + 0.7^2 = 0.58$. 
+
+. . .
+
+If it rains, Mitch's inaccuracy score is $0.5$. He's off on rain by $0.5$, and he's off on not rain by $0.5$, and $0.5^2 + 0.5^2 = 0.58$. 
+
+. . .
+
+He does better; and he also does better (for the same reason) if no rain, so he's **guaranteed** to do better.
+
+## Expected Inaccuracy
+
+Set aside these incoherent views like having credence $0.7$ in both rain and not rain. Imagine that $\Pr_1$ and $\Pr_2$ are coherent. They have credences $x_1$ and $x_2$ in rain, and $1-x_1$ and $1-x_2$ in not rain.
+
+How accurate does each *expect* the other to be?
+
+Since they are coherent, we'll ignore their credence in not rain, and just ask how accurate they expect the rain credence to be. (The other credence is, after all, forced.)
+
+## Expected Inaccuracy
+
+We just pull out the standard formula for expected value.
+
+- My expectation of your inaccuracy is given by:
+- My credence in rain, times how inaccurate you would be if it rains plus
+- My credence in not rain, times how inaccurate you would be if it doesn't rain.
+- And your expectation of my inaccuracy is calculated the same way.
+
+## Expected Inaccuracy
+
+Neat result:
+
+- If we're both coherent, I will expect that I'm more accurate than you, and you will expect you're more accurate than me.
+- In general, every person with a coherent set of credences will think they are maximally accurate *in expectation*.
+- Of course, the person who simply guesses right about everything will be more accurate, but for any such guesser, each of us should expect to do better than them.
+
+# Accuracy-Based Arguments for Pooling
+
+## The Shakespeare Scholar Scenario
+
+Let's start with an example. A huge community of Shakespeare scholars has credences about who authored the works attributed to Shakespeare.
+
+::: {.incremental}
+- Christopher Marlowe?
+- Francis Bacon?
+- Edward de Vere?
+- Shakespeare himself? (It was Shakespeare himself, but let's do the hypothetical.)
+:::
+
+. . .
+
+We want to summarize their collective view using a pooling strategy.
+
+## Accuracy Consensus
+
+Suppose we pool to get group credence $Q$.
+
+. . .
+
+**Problem**: What if there's an alternative $Q^*$ such that *every individual scholar* thinks $Q^*$ would be more accurate than $Q$ (in expectation)?
+
+. . .
+
+Then we've ascribed the wrong credences to the group, since there's a particular credence everyone agrees is better.
+
+## The Key Requirement
+
+**Accuracy Consensus**: There should be no alternative group credence that all individuals prefer (in terms of expected accuracy).
+
+. . .
+
+This is like a Pareto optimality condition for credence functions.
+
+. . .
+
+**The result**: Linear pooling is the *only* strategy that satisfies Accuracy Consensus.
+
+More precisely: if $Q$ is not a linear pool, there exists an alternative that everyone prefers. If $Q$ is a linear pool, no such alternative exists.
+
+## When Does This Matter?
+
+Accuracy Consensus is important when individuals must "get behind" the group credence, e.g., in
+
+::: {.incremental}
+- Representing group opinion to outsiders (the Shakespeare authorship debate, or the climate change example from last lecture); or
+- Assessing group liability for collective actions (corporate responsibility cases).
+:::
+
+. . .
+
+If accuracy is our goal for group credences, this favors linear pooling.
+
+## Varieties of Linearity
+
+Note that this doesn't require that everyone's views be **equally weighted**.
+
+If we use linear pooling, but give one person's views 100 times as much weight, we will still not violate this constraint.
+
+But we have to use linear pooling.
+
+# The Diversity Prediction Theorem
+
+## Estimating Numerical Quantities
+
+Pooling strategies can aggregate any numerical estimates, not just credences.
+
+. . .
+
+**County fair example**: Lila (100 kg), Mona (94 kg), Nomy (93 kg) estimate the prize marrow's weight.
+
+True weight: 91 kg.
+
+## The Surprising Result
+
+In this case the **average inaccuracy** of individual estimates exceeds the **inaccuracy of the straight linear pool**:
+
+$$\frac{1}{3}(100-91)^2 + \frac{1}{3}(94-91)^2 + \frac{1}{3}(93-91)^2 > \left(\frac{100+94+93}{3} - 91\right)^2$$
+
+. . .
+
+This holds in general. The inaccuracy of the average of some estimates is lower than the average inaccuracy.
+
+## Two Options
+
+1. Take the linear average of the estimates.
+2. Pick an estimator at random, and use their estimate.
+
+As long as the estimators differ, the inaccuracy of option 1 is **always** lower than the expected inaccuracy of option 2.
+
+. . .
+
+Of course, you might get lucky and pick the estimator who was closest to reality. But on average you'll do worse.
+
+## Estimating Values
+
+This holds *regardless* of:
+
+::: {.incremental}
+- What quantities are being estimated;
+- What the true values are; and
+- What estimates people give
+:::
+
+. . .
+
+Among other things, it holds about estimates of **truth value**, and credences just are estimates of truth value.
+
+## Summary
+
+So those are two really good features of linear pooling.
+
+1. Linear pooling, *and only linear pooling*, always produces an outcome where there's no alternative everyone prefers.
+2. Linear pooling, *and only linear pooling*, is always guaranteed to do better than just deferring to one person at random.
+
+## Deference Compatibility
+
+When deferring to experts, we want it to be *possible* that:
+
+::: {.incremental}
+1. We think experts might disagree: $P(E_1 = E_2) < 1$
+2. We defer to each expert individually: $P(X \mid E_1 = p) = p$ and $P(X \mid E_2 = q) = q$
+3. We defer to the pool of experts: $P(X \mid E_1 = p, E_2 = q) = F(p,q)$
+:::
+
+## The Problem with Linear Pooling
+
+**Bad news**: Linear pooling does *not* satisfy Deference Compatibility.
+
+## The Problem with Linear Pooling
+
+In fact, Snow Zhang recently proved a much stronger result than this.
+
+Say that a pooling method satisfies **Strict Boundedness** if whenever the experts disagree, the pooled value is strictly between the values they propose.
+
+. . .
+
+Zhang proved that if there are only finite many values that the experts might announce, e.g., if they are only going to announce to four decimal places, then no pooling method satisfying **Strict Boundedness** also satisfies **Deference Compatibility**.
+
+## Discussion: The Climate Policy Advisor
+
+Maya works for a city government with no climate science background. She consults three climate scientists about flood risk from a proposed development:
+
+::: {.incremental}
+- Dr. Chen: 70% chance of severe flooding in next 20 years
+- Dr. Johnson: 45% chance
+- Dr. Okafor: 60% chance
+:::
+
+. . .
+
+**Questions for discussion**:
+
+::: {.nonincremental}
+1. Should Maya adopt the linear pool (58.3%) or choose one expert to defer to entirely?
+2. What if she later learns Dr. Chen has relevant local expertise? How should she update?
+:::
+
+# Bigger Picture Philosophy
+
+## Contractualism
+
+In political philosophy, contractualism is the view that what grounds political authority is an implicit contract between the people.
+
+It's legitimate for the state to have power because we all agree, or at least in the right circumstances we would all agree, that it is better that they have the power.
+
+At the very least, and this is the version of the view that's most pop
+
+This basic idea was very important in European thought through the 17th and 18th centuries, and hence to the Atlantic revolutionary movements over the late 18th and early 19th centuries.
+
+## Contractualism
+
+Elkin and Pettigrew suggest that when we're ascribing views to a group, we should follow the same kind of contractualist logic.
+
+
+
+
+
+## Trade-offs Are Inevitable
+
+No single pooling strategy satisfies all desiderata:
+
+::: {.incremental}
+- Linear pooling: good for accuracy consensus and diversity, bad for External Bayesianity and deference compatibility
+- Geometric pooling: good for External Bayesianity and justification, bad for partition sensitivity and sample size
+- Context determines which trade-offs are acceptable
+:::
+
+## Philosophical Implications
+
+**The expertise problem**: How should we weight different individuals?
+
+::: {.incremental}
+- Equal weights? (Democratic but potentially inaccurate)
+- Expertise-based weights? (Accurate but who decides expertise?)
+- This connects to social epistemology and democratic theory
+:::
+
+## Philosophical Implications (cont.)
+
+**Peer disagreement revisited**: These accuracy arguments might inform *individual* responses to peer disagreement.
+
+. . .
+
+If accuracy matters, and if linear pooling promotes accuracy, perhaps individuals should adopt linear pools of their own credence and their peers' credences?
+
+. . .
+
+But: Deference Compatibility problem suggests caution here.
+
+## Looking Ahead
+
+::: {.columns}
+
+:::: {.column}
+![Movie poster for Dr. Strangelove](../images/Strangelove.jpeg)
+::::
+
+:::: {.column}
+We're going to go back in time, to look at two famous contributions by the economist/political theorist/generally interesting person Thomas Schelling.
+::::
+
+:::
