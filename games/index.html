@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom Games</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3.5rem 1rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 520px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.975rem;
+      line-height: 1.6;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .game-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s, transform 0.1s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .game-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .game-card:active {
+      transform: translateY(0);
+    }
+
+    .game-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .game-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .game-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .game-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #e7f1ff;
+      color: var(--primary);
+      border-radius: 4px;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      width: fit-content;
+    }
+
+    .game-arrow {
+      font-size: 0.8rem;
+      color: var(--primary);
+      margin-top: 0.75rem;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .game-card:hover .game-arrow { opacity: 1; }
+
+    footer {
+      margin-top: 3.5rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 400px) {
+      body { padding: 2rem 0.75rem 3rem; }
+      header h1 { font-size: 1.6rem; }
+      .games-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎮 Classroom Games</h1>
+    <p>Live multiplayer games for philosophy and economics classes.
+       Open the link on any device — the teacher controls the pace.</p>
+  </header>
+
+  <main class="games-grid">
+
+    <a class="game-card" href="guess-game.html">
+      <div class="game-icon">🎯</div>
+      <div class="game-title">Guess 2/3 of the Average</div>
+      <div class="game-desc">
+        Pick a number from 0–100. The winner is whoever is closest to
+        two-thirds of the class average. A classic demonstration of
+        iterated dominance reasoning and common knowledge.
+      </div>
+      <span class="game-tag">Game Theory</span>
+      <div class="game-arrow">Play →</div>
+    </a>
+
+    <a class="game-card" href="focal-game.html">
+      <div class="game-icon">📍</div>
+      <div class="game-title">Focal Point Game</div>
+      <div class="game-desc">
+        For five cities, name a meeting place — with no coordination allowed.
+        Score a point for each classmate who picks the same spot.
+        Demonstrates Schelling's concept of focal points in coordination games.
+      </div>
+      <span class="game-tag">Coordination</span>
+      <div class="game-arrow">Play →</div>
+    </a>
+
+  </main>
+
+  <footer>
+    Games for classroom use · Teacher URLs use <code>?teacher=…</code>
+  </footer>
+
+</body>
+</html>

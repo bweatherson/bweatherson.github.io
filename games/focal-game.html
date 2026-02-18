@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  FOCAL POINT GAME — Classroom Game
+  Based on Schelling's focal point concept
+  ============================================================
+
+  SETUP INSTRUCTIONS
+  ------------------
+  Uses the same Firebase project as guess-game.html.
+  No extra Firebase setup needed EXCEPT updating the security rules.
+
+  UPDATE SECURITY RULES in Firebase Console → Realtime Database → Rules:
+  Replace the entire contents with the rules in the comment block
+  at the bottom of this file, then click Publish.
+
+  URLS
+  ----
+  Student URL:  https://[your-site]/games/focal-game.html
+  Teacher URL:  https://[your-site]/games/focal-game.html?teacher=focal
+
+  Or activate teacher mode by clicking the page title 5 times quickly.
+
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focal Point Game</title>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-hover: #0b5ed7;
+      --success: #198754;
+      --danger: #dc3545;
+      --warning-bg: #fff3cd;
+      --winner-bg: #d1e7dd;
+      --winner-text: #0f5132;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 14rem;
+    }
+
+    /* ── Views ── */
+    .view { display: none; width: 100%; max-width: 600px; }
+    .view.active { display: block; }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      cursor: default;
+      user-select: none;
+    }
+
+    h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 0.85rem; }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: var(--font);
+      transition: border-color 0.15s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.15s, opacity 0.15s;
+    }
+
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-primary   { background: var(--primary); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+    .btn-success   { background: var(--success); color: #fff; }
+    .btn-success:hover:not(:disabled) { background: #157347; }
+    .btn-secondary { background: #6c757d; color: #fff; }
+    .btn-secondary:hover:not(:disabled) { background: #5c636a; }
+
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+      min-height: 1.2rem;
+    }
+
+    /* ── City inputs in form ── */
+    .city-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+
+    .city-label-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .city-emoji { font-size: 1.1rem; }
+
+    /* ── Waiting view ── */
+    .waiting-icon { font-size: 3rem; margin-bottom: 1rem; text-align: center; }
+    .count-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Results view ── */
+    .result-summary {
+      background: var(--warning-bg);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .winner-box {
+      background: var(--winner-bg);
+      color: var(--winner-text);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .city-result-block {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .city-result-block:last-child { border-bottom: none; }
+
+    .city-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .city-result-name { font-weight: 600; font-size: 1rem; }
+    .city-result-score {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .city-result-answer { color: var(--muted); font-size: 0.875rem; margin-bottom: 0.3rem; }
+
+    .city-groups-list {
+      font-size: 0.8rem;
+      color: #555;
+    }
+    .city-group-item {
+      display: inline-block;
+      background: #f1f3f5;
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      margin: 0.15rem 0.15rem 0 0;
+    }
+    .city-group-item.is-mine { background: #dbeafe; color: #1d4ed8; font-weight: 600; }
+
+    /* ── Tables ── */
+    .table-wrapper { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr.winner-row td { background: var(--winner-bg); color: var(--winner-text); font-weight: 600; }
+    tr:hover td { background: #f1f3f5; }
+    tr.winner-row:hover td { background: #c3e6cb; }
+
+    /* ── Connection banner ── */
+    #connection-banner {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #ffc107;
+      color: #000;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      z-index: 1000;
+    }
+
+    /* ── Teacher panel ── */
+    #teacher-panel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #1e293b;
+      color: #f1f5f9;
+      border-top: 3px solid #3b82f6;
+      z-index: 500;
+      max-height: 65vh;
+      overflow-y: auto;
+    }
+
+    #teacher-panel.active { display: block; }
+
+    .teacher-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .teacher-header h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .teacher-stats {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      flex: 1;
+      text-align: center;
+    }
+
+    .teacher-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .teacher-actions .btn { padding: 0.4rem 0.9rem; font-size: 0.875rem; }
+
+    /* ── Merge UI ── */
+    #teacher-merge-area { padding: 0.75rem 1rem; }
+
+    .merge-city-section {
+      margin-bottom: 1rem;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .merge-city-header {
+      background: #0f172a;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .merge-city-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .merge-city-stat { font-size: 0.78rem; color: #64748b; }
+
+    .merge-groups-container {
+      padding: 0.6rem 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .merge-group-chip {
+      background: #263248;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+      font-size: 0.825rem;
+      user-select: none;
+      transition: border-color 0.12s, background 0.12s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 80px;
+      max-width: 200px;
+    }
+
+    .merge-group-chip:hover { border-color: #475569; background: #1e3a5f; }
+    .merge-group-chip.selected { border-color: #3b82f6; background: #1e3a5f; }
+
+    .chip-canonical { font-weight: 600; color: #f1f5f9; word-break: break-word; }
+    .chip-count     { font-size: 0.72rem; color: #94a3b8; }
+    .chip-aliases   { font-size: 0.72rem; color: #64748b; font-style: italic; word-break: break-word; }
+
+    .merge-city-actions {
+      padding: 0.4rem 0.75rem 0.6rem;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .merge-hint { font-size: 0.78rem; color: #64748b; flex: 1; }
+    .merge-city-actions .btn { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+
+    /* ── Teacher score preview ── */
+    #teacher-scores-area {
+      padding: 0 1rem 1rem;
+      border-top: 1px solid #334155;
+    }
+
+    #teacher-scores-area h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      font-weight: 600;
+      padding: 0.6rem 0 0.4rem;
+    }
+
+    #teacher-scores-area table th { background: #1e293b; color: #94a3b8; }
+    #teacher-scores-area table td { color: #e2e8f0; border-bottom-color: #334155; }
+    #teacher-scores-area table tr:hover td { background: #334155; }
+    #teacher-scores-area .score-total { font-weight: 700; color: #86efac; }
+
+    .no-content-msg { color: #64748b; font-size: 0.875rem; padding: 0.5rem 0; text-align: center; }
+
+    /* ── Loading ── */
+    #view-loading { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      body { padding: 1rem 0.75rem 16rem; }
+      .card { padding: 1.25rem; }
+      h1 { font-size: 1.35rem; }
+      .teacher-header { flex-direction: column; align-items: flex-start; }
+      .teacher-stats { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="connection-banner">Reconnecting to server...</div>
+
+<!-- ── LOADING ── -->
+<div id="view-loading" class="view active">
+  <div class="spinner"></div>
+  <p>Connecting...</p>
+</div>
+
+<!-- ── FORM ── -->
+<div id="view-form" class="view">
+  <div class="card">
+    <h1 id="game-title">Focal Point Game</h1>
+    <p class="subtitle">
+      For each city below, name a specific place where you would go to meet
+      a stranger — with no prior agreement on where to meet.
+      Try to pick the place that <strong>most others in the class will also pick</strong>.
+      You score a point for each classmate who ends up in the same place as you.
+    </p>
+
+    <form id="focal-form" novalidate>
+      <div class="form-group">
+        <label for="input-name">Your name</label>
+        <input type="text" id="input-name"
+               placeholder="First name or nickname"
+               maxlength="50"
+               autocomplete="off" autocorrect="off"
+               autocapitalize="words" spellcheck="false">
+      </div>
+
+      <hr class="city-divider">
+
+      <!-- City inputs injected here by buildCityInputs() -->
+      <div id="city-inputs"></div>
+
+      <div class="error-msg" id="form-error"></div>
+      <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%;">
+        Submit All Answers
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ── WAITING ── -->
+<div id="view-waiting" class="view">
+  <div class="card" style="text-align:center;">
+    <div class="waiting-icon">⏳</div>
+    <h2>Answers submitted!</h2>
+    <p style="color:var(--muted);">The teacher will review answers and reveal results shortly.</p>
+    <div><span class="count-badge" id="waiting-count">— submitted so far</span></div>
+  </div>
+</div>
+
+<!-- ── RESULTS ── -->
+<div id="view-results" class="view">
+  <div class="card">
+    <h2>Results</h2>
+
+    <div class="winner-box" id="winner-box">
+      🏆 <span id="result-winner">—</span>
+    </div>
+
+    <h3>Your answers</h3>
+    <div id="student-city-results" style="margin-bottom:1.5rem;"></div>
+
+    <h3>Leaderboard</h3>
+    <div class="table-wrapper">
+      <table id="results-table">
+        <thead><tr id="results-thead-row"></tr></thead>
+        <tbody id="results-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── TEACHER PANEL ── -->
+<div id="teacher-panel">
+  <div class="teacher-header">
+    <h3>Teacher Console</h3>
+    <div class="teacher-stats" id="teacher-stats">No answers yet</div>
+    <div class="teacher-actions">
+      <button class="btn btn-success"   id="btn-reveal">Reveal Results</button>
+      <button class="btn btn-secondary" id="btn-reset">New Round</button>
+    </div>
+  </div>
+
+  <div id="teacher-merge-area">
+    <p class="no-content-msg" id="merge-placeholder">Waiting for students to submit...</p>
+  </div>
+
+  <div id="teacher-scores-area" style="display:none;">
+    <h4>Live Score Preview</h4>
+    <div class="table-wrapper">
+      <table id="teacher-scores-table">
+        <thead><tr id="teacher-scores-thead"></tr></thead>
+        <tbody id="teacher-scores-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION
+  // ============================================================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBm92jyPflQ_L-lTsm5qNG9d1sWvQ6RAXY",
+    authDomain: "guessing-game-f3929.firebaseapp.com",
+    databaseURL: "https://guessing-game-f3929-default-rtdb.firebaseio.com",
+    projectId: "guessing-game-f3929",
+    storageBucket: "guessing-game-f3929.firebasestorage.app",
+    messagingSenderId: "196518034015",
+    appId: "1:196518034015:web:030c5a47eac926785279ea"
+  };
+
+  const TEACHER_PASSWORD = 'focal';
+  const GAME_PATH        = '/focal';
+
+  const CITIES = [
+    { key: 'new_york',    label: 'New York',     emoji: '🗽' },
+    { key: 'paris',       label: 'Paris',        emoji: '🗼' },
+    { key: 'london',      label: 'London',       emoji: '🎡' },
+    { key: 'chicago',     label: 'Chicago',      emoji: '🌆' },
+    { key: 'los_angeles', label: 'Los Angeles',  emoji: '🎬' },
+  ];
+
+  // ============================================================
+  // App State
+  // ============================================================
+  const AppState = {
+    isTeacher:        false,
+    currentRound:     null,
+    gamePhase:        null,      // 'open' | 'revealed'
+    allAnswers:       {},        // { pushKey: { name, round, cities:{} } }
+    mergeData:        {},        // { cityKey: { groupId: { canonical, members[] } } }
+    resultsData:      null,
+    studentSubmitted: false,
+    studentPushKey:   null,
+    selectedChips:    {},        // { cityKey: Set<groupId> } — local only
+    db:               null,
+    _mergesRef:       null,
+    _resultsRef:      null,
+  };
+
+  // ============================================================
+  // Firebase init
+  // ============================================================
+  firebase.initializeApp(firebaseConfig);
+  AppState.db = firebase.database();
+
+  const stateRef   = AppState.db.ref(`${GAME_PATH}/state`);
+  const answersRef = AppState.db.ref(`${GAME_PATH}/answers`);
+
+  // ============================================================
+  // Round-scoped listeners (rebound on round change)
+  // ============================================================
+  function bindRoundRefs(round) {
+    if (AppState._mergesRef)  AppState._mergesRef.off();
+    if (AppState._resultsRef) AppState._resultsRef.off();
+
+    AppState._mergesRef  = AppState.db.ref(`${GAME_PATH}/merges/${round}`);
+    AppState._resultsRef = AppState.db.ref(`${GAME_PATH}/results/${round}`);
+
+    AppState._mergesRef.on('value', snap => {
+      AppState.mergeData = snap.val() || {};
+      if (AppState.isTeacher) {
+        renderMergeUI();
+        renderTeacherScores();
+      }
+    });
+
+    AppState._resultsRef.on('value', snap => {
+      AppState.resultsData = snap.val() || null;
+      renderView();
+    });
+  }
+
+  // ============================================================
+  // Global listeners
+  // ============================================================
+  AppState.db.ref('.info/connected').on('value', snap => {
+    document.getElementById('connection-banner').style.display =
+      snap.val() ? 'none' : 'block';
+  });
+
+  stateRef.on('value', snap => {
+    const state = snap.val();
+    if (!state) {
+      stateRef.set({ phase: 'open', round: 1 });
+      return;
+    }
+
+    const roundChanged     = state.round !== AppState.currentRound;
+    AppState.currentRound  = state.round || 1;
+    AppState.gamePhase     = state.phase || 'open';
+
+    const submittedRound   = parseInt(localStorage.getItem('focalSubmittedRound') || '0', 10);
+    AppState.studentSubmitted = (submittedRound === AppState.currentRound);
+    AppState.studentPushKey   = localStorage.getItem('focalPushKey') || null;
+
+    if (roundChanged) {
+      bindRoundRefs(AppState.currentRound);
+      AppState.selectedChips  = {};
+      AppState.mergeData      = {};
+      AppState.resultsData    = null;
+    }
+
+    renderView();
+  });
+
+  answersRef.on('value', snap => {
+    const all = snap.val() || {};
+    AppState.allAnswers = Object.fromEntries(
+      Object.entries(all).filter(([, v]) => v.round === AppState.currentRound)
+    );
+    renderWaitingCount();
+    if (AppState.isTeacher) {
+      renderTeacherStats();
+      renderMergeUI();
+      renderTeacherScores();
+    }
+  });
+
+  // ============================================================
+  // View management
+  // ============================================================
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+    document.getElementById('view-' + id).classList.add('active');
+  }
+
+  function renderView() {
+    const { gamePhase, studentSubmitted, resultsData } = AppState;
+
+    if (gamePhase === 'open') {
+      showView(studentSubmitted ? 'waiting' : 'form');
+    } else if (gamePhase === 'revealed') {
+      if (resultsData) {
+        renderStudentResults();
+        showView('results');
+      } else {
+        showView('waiting'); // results not yet loaded
+      }
+    }
+
+    if (AppState.isTeacher) {
+      document.getElementById('teacher-panel').classList.add('active');
+      renderTeacherStats();
+      renderMergeUI();
+      renderTeacherScores();
+    }
+  }
+
+  function renderWaitingCount() {
+    const n   = Object.keys(AppState.allAnswers).length;
+    const el  = document.getElementById('waiting-count');
+    if (el) el.textContent = `${n} answer${n !== 1 ? 's' : ''} submitted so far`;
+  }
+
+  // ============================================================
+  // Build city inputs (called once on load)
+  // ============================================================
+  function buildCityInputs() {
+    const container = document.getElementById('city-inputs');
+    container.innerHTML = CITIES.map((city, i) => `
+      ${i > 0 ? '<hr class="city-divider">' : ''}
+      <div class="form-group">
+        <div class="city-label-row">
+          <span class="city-emoji">${city.emoji}</span>
+          <span>${city.label}</span>
+        </div>
+        <input type="text"
+               id="city-input-${city.key}"
+               data-city="${city.key}"
+               placeholder="Where would you go?"
+               maxlength="100"
+               autocomplete="off" autocorrect="off" spellcheck="false">
+      </div>
+    `).join('');
+  }
+
+  buildCityInputs();
+
+  // ============================================================
+  // Student: submit
+  // ============================================================
+  document.getElementById('focal-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const errorEl = document.getElementById('form-error');
+    errorEl.textContent = '';
+
+    const name = document.getElementById('input-name').value.trim();
+    if (!name) { errorEl.textContent = 'Please enter your name.'; return; }
+
+    const cities = {};
+    for (const city of CITIES) {
+      const val = document.getElementById(`city-input-${city.key}`).value.trim();
+      if (!val) {
+        errorEl.textContent = `Please enter a meeting place for ${city.label}.`;
+        document.getElementById(`city-input-${city.key}`).focus();
+        return;
+      }
+      cities[city.key] = val;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled    = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const ref = await answersRef.push({
+        name,
+        round:        AppState.currentRound,
+        submitted_at: firebase.database.ServerValue.TIMESTAMP,
+        cities,
+      });
+      localStorage.setItem('focalSubmittedRound', AppState.currentRound);
+      localStorage.setItem('focalPushKey', ref.key);
+      AppState.studentSubmitted = true;
+      AppState.studentPushKey   = ref.key;
+      showView('waiting');
+    } catch (err) {
+      errorEl.textContent = 'Failed to submit. Please try again.';
+      btn.disabled    = false;
+      btn.textContent = 'Submit All Answers';
+    }
+  });
+
+  // ============================================================
+  // Student: results rendering
+  // ============================================================
+  function renderStudentResults() {
+    const results  = AppState.resultsData;
+    if (!results) return;
+
+    const myKey    = AppState.studentPushKey;
+    const myRecord = myKey ? results.by_student?.[myKey] : null;
+    const myAnswer = myKey ? AppState.allAnswers[myKey] : null;
+
+    // Per-city breakdown
+    const cityContainer = document.getElementById('student-city-results');
+    cityContainer.innerHTML = CITIES.map(city => {
+      const ck         = city.key;
+      const myText     = myAnswer?.cities?.[ck] || '—';
+      const myScore    = myRecord?.cities?.[ck] ?? '—';
+      const cityData   = results.by_city?.[ck];
+      const myNorm     = myText.toLowerCase();
+
+      const groupsHtml = cityData
+        ? cityData.groups
+            .sort((a, b) => b.count - a.count)
+            .map(g => {
+              const isMine = g.members
+                ? g.members.some(m => m.toLowerCase() === myNorm ||
+                    (myRecord && g.canonical.toLowerCase() === myNorm))
+                : false;
+              // simpler check: match by canonical against myText norm
+              const matched = g.canonical.toLowerCase() === myNorm ||
+                (g.aliases || []).some(a => a.toLowerCase() === myNorm);
+              return `<span class="city-group-item${matched ? ' is-mine' : ''}">
+                ${escHtml(g.canonical)} (${g.count})
+              </span>`;
+            }).join('')
+        : '';
+
+      return `
+        <div class="city-result-block">
+          <div class="city-result-header">
+            <span class="city-result-name">${city.emoji} ${city.label}</span>
+            <span class="city-result-score">${myScore === '—' ? '—' : myScore + ' pt' + (myScore !== 1 ? 's' : '')}</span>
+          </div>
+          <div class="city-result-answer">You wrote: "${escHtml(myText)}"</div>
+          ${groupsHtml ? `<div class="city-groups-list" style="margin-top:0.3rem;">${groupsHtml}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    // Winner
+    const allStudents = Object.values(results.by_student || {});
+    const maxScore    = allStudents.length > 0 ? Math.max(...allStudents.map(s => s.total)) : 0;
+    const winners     = allStudents.filter(s => s.total === maxScore);
+    const winnerText  = winners.map(w => w.name).join(' & ') + ` — ${maxScore} point${maxScore !== 1 ? 's' : ''}`;
+    document.getElementById('result-winner').textContent = winnerText;
+
+    // Leaderboard
+    const sorted = [...allStudents].sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+
+    const theadRow = document.getElementById('results-thead-row');
+    theadRow.innerHTML = `<th>#</th><th>Name</th><th>Total</th>` +
+      CITIES.map(c => `<th>${c.emoji}</th>`).join('');
+
+    const tbody = document.getElementById('results-tbody');
+    tbody.innerHTML = sorted.map((s, i) => {
+      const isWinner = s.total === maxScore;
+      const cityTds  = CITIES.map(c => `<td>${s.cities?.[c.key] ?? 0}</td>`).join('');
+      return `
+        <tr class="${isWinner ? 'winner-row' : ''}">
+          <td>${i + 1}</td>
+          <td>${escHtml(s.name)}${isWinner ? ' 🏆' : ''}</td>
+          <td><strong>${s.total}</strong></td>
+          ${cityTds}
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
+  // Teacher: stats header
+  // ============================================================
+  function renderTeacherStats() {
+    const n   = Object.keys(AppState.allAnswers).length;
+    const el  = document.getElementById('teacher-stats');
+    if (el) el.textContent = n === 0
+      ? 'No answers yet'
+      : `${n} answer${n !== 1 ? 's' : ''} submitted`;
+  }
+
+  // ============================================================
+  // Core helper: computeGroups
+  // ============================================================
+  function computeGroups(cityKey, answersObj, merges) {
+    const mergesForCity = (merges && merges[cityKey]) || {};
+
+    // Count submissions per normalized string
+    const rawCounts = {}; // norm → { best (original casing of most-common), count }
+    for (const ans of Object.values(answersObj)) {
+      const raw = (ans.cities?.[cityKey] || '').trim();
+      if (!raw) continue;
+      const norm = raw.toLowerCase();
+      if (!rawCounts[norm]) {
+        rawCounts[norm] = { best: raw, count: 0 };
+      }
+      rawCounts[norm].count++;
+      // Keep the casing of whichever variant is most common
+      // (ties: keep the first one seen — stable)
+    }
+
+    // Build norm → groupId from Firebase merge data
+    const normToGroupId = {};
+    for (const [groupId, groupDef] of Object.entries(mergesForCity)) {
+      for (const member of (groupDef.members || [])) {
+        normToGroupId[member.toLowerCase()] = groupId;
+      }
+    }
+
+    // Aggregate into groups
+    const groups = {}; // groupId → { groupId, canonical, members[], count }
+
+    for (const [norm, { best, count }] of Object.entries(rawCounts)) {
+      const gid = normToGroupId[norm];
+
+      if (gid) {
+        if (!groups[gid]) {
+          groups[gid] = {
+            groupId:   gid,
+            canonical: mergesForCity[gid].canonical,
+            members:   [],
+            count:     0,
+          };
+        }
+        groups[gid].members.push(norm);
+        groups[gid].count += count;
+      } else {
+        const syntheticId = 'unmerged__' + norm;
+        groups[syntheticId] = {
+          groupId:   syntheticId,
+          canonical: best,
+          members:   [norm],
+          count,
+        };
+      }
+    }
+
+    return Object.values(groups).sort((a, b) =>
+      b.count - a.count || a.canonical.localeCompare(b.canonical)
+    );
+  }
+
+  // ============================================================
+  // Score computation helper (avg meetings per city)
+  // ============================================================
+  function computeCityAvgMeetings(groups, totalStudents) {
+    if (totalStudents === 0) return 0;
+    // Sum of all co-locator points = sum over groups of count*(count-1)
+    const totalPoints = groups.reduce((acc, g) => acc + g.count * (g.count - 1), 0);
+    return totalPoints / totalStudents;
+  }
+
+  // ============================================================
+  // Teacher: Merge UI
+  // ============================================================
+  function renderMergeUI() {
+    const container  = document.getElementById('teacher-merge-area');
+    const placeholder = document.getElementById('merge-placeholder');
+    const answers    = AppState.allAnswers;
+    const n          = Object.keys(answers).length;
+
+    if (n === 0) {
+      if (placeholder) placeholder.style.display = 'block';
+      // Remove any existing city sections
+      container.querySelectorAll('.merge-city-section').forEach(el => el.remove());
+      return;
+    }
+    if (placeholder) placeholder.style.display = 'none';
+
+    // Build or update one section per city
+    for (const city of CITIES) {
+      const groups   = computeGroups(city.key, answers, AppState.mergeData);
+      const selected = AppState.selectedChips[city.key] || new Set();
+      const canMerge = selected.size >= 2;
+      const avgMeet  = computeCityAvgMeetings(groups, n);
+
+      const sectionId = `merge-section-${city.key}`;
+      let section     = document.getElementById(sectionId);
+      if (!section) {
+        section = document.createElement('div');
+        section.id        = sectionId;
+        section.className = 'merge-city-section';
+        container.appendChild(section);
+      }
+
+      const chipsHtml = groups.map(g => {
+        const isSelected  = selected.has(g.groupId);
+        const aliasNorms  = g.members.filter(m => m !== g.canonical.toLowerCase());
+        const aliasText   = aliasNorms.length > 0
+          ? 'also: ' + aliasNorms.slice(0, 3).map(escHtml).join(', ')
+          : '';
+        return `
+          <div class="merge-group-chip ${isSelected ? 'selected' : ''}"
+               data-city="${escAttr(city.key)}"
+               data-groupid="${escAttr(g.groupId)}">
+            <span class="chip-canonical">${escHtml(g.canonical)}</span>
+            <span class="chip-count">${g.count} student${g.count !== 1 ? 's' : ''}</span>
+            ${aliasText ? `<span class="chip-aliases">${escHtml(aliasNorms.slice(0,3).join(', '))}</span>` : ''}
+          </div>
+        `;
+      }).join('');
+
+      section.innerHTML = `
+        <div class="merge-city-header">
+          <span class="merge-city-title">${city.emoji} ${city.label}</span>
+          <span class="merge-city-stat">avg meetings: ${avgMeet.toFixed(2)}</span>
+        </div>
+        <div class="merge-groups-container">${chipsHtml || '<span style="color:#64748b;font-size:0.8rem;">No answers yet</span>'}</div>
+        <div class="merge-city-actions">
+          <span class="merge-hint">${
+            selected.size === 0 ? 'Click chips to select for merging' :
+            selected.size === 1 ? '1 selected — click another to merge' :
+            `${selected.size} selected`
+          }</span>
+          <button class="btn btn-primary"
+                  data-action="merge"
+                  data-city="${escAttr(city.key)}"
+                  ${canMerge ? '' : 'disabled'}>
+            Merge selected
+          </button>
+          ${selected.size > 0 ? `
+            <button class="btn btn-secondary"
+                    data-action="clear-selection"
+                    data-city="${escAttr(city.key)}">
+              Clear
+            </button>` : ''}
+        </div>
+      `;
+    }
+  }
+
+  // ============================================================
+  // Teacher: Score preview table
+  // ============================================================
+  function renderTeacherScores() {
+    const scoresArea = document.getElementById('teacher-scores-area');
+    const answers    = AppState.allAnswers;
+    const n          = Object.keys(answers).length;
+
+    if (n === 0) {
+      scoresArea.style.display = 'none';
+      return;
+    }
+    scoresArea.style.display = 'block';
+
+    // Compute provisional scores using current merge state
+    const { byStudent } = computeAllScores();
+
+    const sorted = Object.values(byStudent).sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+
+    // Header
+    const thead = document.getElementById('teacher-scores-thead');
+    thead.innerHTML = `<th>Name</th><th>Total</th>` +
+      CITIES.map(c => `<th>${c.emoji}</th>`).join('');
+
+    // Body
+    const tbody = document.getElementById('teacher-scores-tbody');
+    tbody.innerHTML = sorted.map(s => {
+      const cityTds = CITIES.map(c => `<td>${s.cities[c.key]}</td>`).join('');
+      return `
+        <tr>
+          <td>${escHtml(s.name)}</td>
+          <td class="score-total">${s.total}</td>
+          ${cityTds}
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
+  // Score computation (shared by preview and reveal)
+  // ============================================================
+  function computeAllScores() {
+    const answers = AppState.allAnswers;
+    const entries = Object.entries(answers);
+    const n       = entries.length;
+
+    // groupId → size (for each city)
+    const groupSizes = {};    // cityKey → { groupId: count }
+    // pushKey → { cityKey: groupId }
+    const assignments = {};   // pushKey → { cityKey: groupId }
+
+    for (const city of CITIES) {
+      const ck     = city.key;
+      const groups = computeGroups(ck, answers, AppState.mergeData);
+      groupSizes[ck] = {};
+
+      // Build norm → groupId map
+      const normToGid = {};
+      for (const g of groups) {
+        groupSizes[ck][g.groupId] = g.count;
+        for (const m of g.members) normToGid[m] = g.groupId;
+      }
+
+      for (const [pushKey, ans] of entries) {
+        if (!assignments[pushKey]) assignments[pushKey] = {};
+        const raw  = (ans.cities?.[ck] || '').trim();
+        const norm = raw.toLowerCase();
+        assignments[pushKey][ck] = normToGid[norm] || ('unmerged__' + norm);
+      }
+    }
+
+    // Score each student
+    const byStudent = {};
+    for (const [pushKey, ans] of entries) {
+      const cityScores = {};
+      let total = 0;
+      for (const city of CITIES) {
+        const ck  = city.key;
+        const gid = assignments[pushKey][ck];
+        const sz  = groupSizes[ck][gid] || 1;
+        const pts = sz - 1;
+        cityScores[ck] = pts;
+        total += pts;
+      }
+      byStudent[pushKey] = { name: ans.name, total, cities: cityScores };
+    }
+
+    // Per-city results (for reveal payload)
+    const byCity = {};
+    for (const city of CITIES) {
+      const ck     = city.key;
+      const groups = computeGroups(ck, answers, AppState.mergeData);
+
+      // Avg meetings = sum of count*(count-1) / n
+      const totalPoints = groups.reduce((acc, g) => acc + g.count * (g.count - 1), 0);
+      const avgMeetings = n > 0 ? totalPoints / n : 0;
+
+      const groupList = groups.map(g => {
+        // Collect member names
+        const memberNames = entries
+          .filter(([pk]) => assignments[pk][ck] === g.groupId)
+          .map(([, v]) => v.name);
+        return {
+          canonical: g.canonical,
+          aliases:   g.members.filter(m => m !== g.canonical.toLowerCase()),
+          count:     g.count,
+          members:   memberNames,
+        };
+      });
+
+      byCity[ck] = { avg_meetings: avgMeetings, groups: groupList };
+    }
+
+    return { byStudent, byCity };
+  }
+
+  // ============================================================
+  // Teacher: Reveal
+  // ============================================================
+  document.getElementById('btn-reveal').addEventListener('click', async () => {
+    const n = Object.keys(AppState.allAnswers).length;
+    if (n === 0) { alert('No answers submitted yet.'); return; }
+
+    const { byStudent, byCity } = computeAllScores();
+    const round = AppState.currentRound;
+
+    document.getElementById('btn-reveal').disabled = true;
+
+    try {
+      // Atomic write: results + state flip in one call
+      await AppState.db.ref('/').update({
+        [`${GAME_PATH}/results/${round}`]: { by_student: byStudent, by_city: byCity },
+        [`${GAME_PATH}/state`]:            { phase: 'revealed', round },
+      });
+    } catch (err) {
+      alert('Error revealing results: ' + err.message);
+      document.getElementById('btn-reveal').disabled = false;
+    }
+  });
+
+  // ============================================================
+  // Teacher: Reset
+  // ============================================================
+  document.getElementById('btn-reset').addEventListener('click', async () => {
+    if (!confirm('Start a new round? Students will see the form again.')) return;
+
+    const newRound = (AppState.currentRound || 1) + 1;
+    document.getElementById('btn-reveal').disabled = false;
+
+    try {
+      await stateRef.set({ phase: 'open', round: newRound });
+    } catch (err) {
+      alert('Error resetting round: ' + err.message);
+    }
+  });
+
+  // ============================================================
+  // Merge UI: event delegation (safe — reads from dataset, not inline strings)
+  // ============================================================
+  document.addEventListener('click', e => {
+    // Chip toggle
+    const chip = e.target.closest('.merge-group-chip');
+    if (chip) {
+      const cityKey = chip.dataset.city;
+      const groupId = chip.dataset.groupid;
+      if (!AppState.selectedChips[cityKey]) AppState.selectedChips[cityKey] = new Set();
+      const sel = AppState.selectedChips[cityKey];
+      if (sel.has(groupId)) sel.delete(groupId); else sel.add(groupId);
+      renderMergeUI();
+      return;
+    }
+
+    // Merge button
+    const mergeBtn = e.target.closest('[data-action="merge"]');
+    if (mergeBtn) { doMerge(mergeBtn.dataset.city); return; }
+
+    // Clear selection button
+    const clearBtn = e.target.closest('[data-action="clear-selection"]');
+    if (clearBtn) {
+      AppState.selectedChips[clearBtn.dataset.city] = new Set();
+      renderMergeUI();
+      return;
+    }
+  });
+
+  async function doMerge(cityKey) {
+    const selected = AppState.selectedChips[cityKey];
+    if (!selected || selected.size < 2) return;
+
+    const groups = computeGroups(cityKey, AppState.allAnswers, AppState.mergeData);
+
+    // Gather all member norms and find the canonical (most-submitted variant)
+    let allMembers   = [];
+    let bestCanon    = null;
+    let bestCount    = -1;
+
+    for (const groupId of selected) {
+      const grp = groups.find(g => g.groupId === groupId);
+      if (!grp) continue;
+      allMembers = allMembers.concat(grp.members);
+      if (grp.count > bestCount) {
+        bestCount = grp.count;
+        bestCanon = grp.canonical;
+      }
+    }
+
+    // Remove all selected groups from Firebase (if they were persisted)
+    // and push one new combined group
+    const cityMergesRef = AppState.db.ref(`${GAME_PATH}/merges/${AppState.currentRound}/${cityKey}`);
+    const updates       = {};
+
+    for (const groupId of selected) {
+      if (!groupId.startsWith('unmerged__')) {
+        updates[groupId] = null; // delete previously-merged group
+      }
+    }
+
+    // Push new combined group key
+    const newKey    = cityMergesRef.push().key;
+    updates[newKey] = {
+      canonical: bestCanon,
+      members:   [...new Set(allMembers)], // deduplicate
+    };
+
+    try {
+      await cityMergesRef.update(updates);
+      AppState.selectedChips[cityKey] = new Set();
+      // mergesRef listener fires and re-renders
+    } catch (err) {
+      alert('Merge failed: ' + err.message);
+    }
+  }
+
+  // ============================================================
+  // Teacher mode
+  // ============================================================
+  function activateTeacherMode() {
+    AppState.isTeacher = true;
+    localStorage.setItem('isTeacher', 'true');
+    document.getElementById('teacher-panel').classList.add('active');
+    renderTeacherStats();
+    renderMergeUI();
+    renderTeacherScores();
+  }
+
+  // URL param
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('teacher') === TEACHER_PASSWORD) activateTeacherMode();
+
+  // localStorage restore
+  if (localStorage.getItem('isTeacher') === 'true') activateTeacherMode();
+
+  // Title click ritual
+  let titleClicks = 0, titleTimer = null;
+  document.getElementById('game-title').addEventListener('click', () => {
+    if (AppState.isTeacher) return;
+    titleClicks++;
+    clearTimeout(titleTimer);
+    titleTimer = setTimeout(() => { titleClicks = 0; }, 2000);
+    if (titleClicks >= 5) {
+      titleClicks = 0;
+      const pw = prompt('Enter teacher password:');
+      if (pw === TEACHER_PASSWORD) activateTeacherMode();
+      else if (pw !== null) alert('Incorrect password.');
+    }
+  });
+
+  // ============================================================
+  // Utilities
+  // ============================================================
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function escAttr(str) {
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+</script>
+</body>
+</html>
+
+<!--
+  ============================================================
+  UPDATED FIREBASE SECURITY RULES
+  ============================================================
+  Copy everything between the { } below and paste it into
+  Firebase Console → Realtime Database → Rules, replacing
+  the existing rules, then click Publish.
+
+  {
+    "rules": {
+      "game": {
+        "state": { ".read": true, ".write": true },
+        "guesses": {
+          ".read": true,
+          "$guessId": {
+            ".write": "!data.exists()",
+            ".validate": "newData.hasChildren(['name','guess','round']) && newData.child('guess').val() >= 0 && newData.child('guess').val() <= 100 && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50"
+          }
+        }
+      },
+      "focal": {
+        "state": { ".read": true, ".write": true },
+        "answers": {
+          ".read": true,
+          "$answerId": {
+            ".write": "!data.exists()",
+            ".validate": "newData.hasChildren(['name','round','cities']) && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50 && newData.child('cities').hasChildren(['new_york','paris','london','chicago','los_angeles'])"
+          }
+        },
+        "merges": { ".read": true, ".write": true },
+        "results": { ".read": true, ".write": true }
+      }
+    }
+  }
+
+  ============================================================
+-->
