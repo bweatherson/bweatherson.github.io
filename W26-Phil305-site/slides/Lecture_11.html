@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="dcterms.date" content="2026-02-18">
   <title>Modal Logic: Tableaux Examples</title>
@@ -137,6 +137,112 @@
 
   <p class="date">2026-02-18</p>
 </section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Midterm</h1>
+
+</section>
+<section class="slide level2">
+<h2>Logistics</h2>
+<ul>
+<li>The exam will be ten questions long.</li>
+<li>Each question will be like one of the ones on this week’s quiz.</li>
+<li>The difference is that it will ask you to draw the tree.</li>
+<li>I’ll hopefully post the sample questions tomorrow.</li>
+<li>It will be here, with answers to be done on paper.</li>
+<li>We’ll find a separate room (to be announced) for folks needing accommodations.</li>
+<li>You’ll get the cheat sheet, but otherwise it is closed book.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Review</h1>
+
+</section>
+<section class="slide level2">
+<h2>True <span class="math inline">\(\Box\)</span> sentences</h2>
+<p>The new rule is that if <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(x\)</span>, then <span class="math inline">\(A\)</span> is true at <span class="math inline">\(x.y\)</span> every time that appears on the branch.</p>
+<ul>
+<li>We do <strong>not</strong> have to say that <span class="math inline">\(A\)</span> is true everywhere.</li>
+<li>But we do have to keep applying this rule whenever a new world of the form <span class="math inline">\(x.y\)</span> appears on the branch.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>True <span class="math inline">\(\Diamond\)</span> sentences</h2>
+<p>The new rule is that if <span class="math inline">\(\Diamond A\)</span> is true at <span class="math inline">\(x\)</span>, then we have to introduce a world <span class="math inline">\(x.y\)</span> where <span class="math inline">\(A\)</span> is true.</p>
+<ul>
+<li>This is more restrictive than the old rule, since there are constraints on how we introduce the world.</li>
+<li>But it also just has to be applied once, and then we’re done.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Other Two Rules</h2>
+<h3>False <span class="math inline">\(\Box\)</span> Sentences</h3>
+<p>These are just like true <span class="math inline">\(\Diamond\)</span> sentences. We introduce a new world with number <span class="math inline">\(x.y\)</span> where the underlying sentence is false.</p>
+<h3>False <span class="math inline">\(\Diamond\)</span> Sentences</h3>
+<p>These are just like true <span class="math inline">\(\Box\)</span> sentences. Whenever <span class="math inline">\(x.y\)</span> appears on the tree, we say that the underlying sentence is false.</p>
+</section>
+<section class="slide level2">
+<h2>Adding Conditions to K</h2>
+<p>We can add special rules to <strong>K</strong> to capture different frame conditions:</p>
+<ul>
+<li class="fragment"><strong>T</strong>: Reflexivity (<span class="math inline">\(xRx\)</span> for all <span class="math inline">\(x\)</span>)</li>
+<li class="fragment"><strong>B</strong>: Symmetry (if <span class="math inline">\(xRy\)</span> then <span class="math inline">\(yRx\)</span>)</li>
+<li class="fragment"><strong>4</strong>: Transitivity (if <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRz\)</span> then <span class="math inline">\(xRz\)</span>)</li>
+</ul>
+<div class="fragment">
+<p>These are associate with particular axioms:</p>
+<ul>
+<li class="fragment"><strong>T</strong>: <span class="math inline">\(\Box A \rightarrow A\)</span></li>
+<li class="fragment"><strong>B</strong>: <span class="math inline">\(A \rightarrow \Box \Diamond A\)</span></li>
+<li class="fragment"><strong>4</strong>: <span class="math inline">\(\Box A \rightarrow \Box \Box A\)</span></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>The T Rules</h2>
+<p>To add reflexivity to K, add these two rules:</p>
+<div class="fragment">
+<p><strong>T-Box Rule</strong>: If <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(x\)</span>, then add that <span class="math inline">\(A\)</span> is true at <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>T-Diamond Rule</strong>: If <span class="math inline">\(\Diamond A\)</span> is false at <span class="math inline">\(x\)</span>, then add that <span class="math inline">\(A\)</span> is false at <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="fragment">
+<p>These capture the fact that every world can access itself.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The 4 Rules</h2>
+<p>To add transitivity to <strong>K</strong>, add these two rules:</p>
+<div class="fragment">
+<p><strong>4-Box Rule</strong>: If <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(x\)</span>, and <span class="math inline">\(x.y\)</span> is on the tree, then add that <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(x.y\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>4-Diamond Rule</strong>: If <span class="math inline">\(\Diamond A\)</span> is false at <span class="math inline">\(x\)</span>, and <span class="math inline">\(x.y\)</span> is on the tree, then add that <span class="math inline">\(\Diamond A\)</span> is false at <span class="math inline">\(x.y\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Note: You already add <span class="math inline">\(A\)</span> true/false by the basic <strong>K</strong> rules.</p>
+<p>The <strong>4</strong> rules add the <em>modal formula itself</em>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The B Rules</h2>
+<p>To add symmetry to <strong>K</strong>, add these two rules:</p>
+<div class="fragment">
+<p><strong>B-Box Rule</strong>: If <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(x.y\)</span>, then add that <span class="math inline">\(A\)</span> is true at <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>B-Diamond Rule</strong>: If <span class="math inline">\(\Diamond A\)</span> is false at <span class="math inline">\(x.y\)</span>, then add that <span class="math inline">\(A\)</span> is false at <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="fragment">
+<p>These capture the idea that accessibility goes both ways.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Rest of Class</h2>
+<p>Examples!</p>
+</section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Example 1: <span class="math inline">\(\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)\)</span> in K</h1>
@@ -556,7 +662,7 @@
 </section>
 <section class="slide level2">
 <h2>Example 13: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in K</h2>
-<p>Line 2 is True <span class="math inline">\(\Box\)</span>, which is a reusable rule — it can only fire when we have an accessible world.</p>
+<p>Line 2 is True <span class="math inline">\(\Box\)</span>, which is only fires when we have an accessible world.</p>
 <p>But no accessible worlds have been introduced, and no other rules apply. The tree stays open.</p>
 <p>The countermodel: a single world <span class="math inline">\(w_1\)</span> with no accessible worlds at all. <span class="math inline">\(\Box(A \wedge \neg \Box A)\)</span> is vacuously true there (no accessible worlds to check), so <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> is false at <span class="math inline">\(w_1\)</span>, as required.</p>
 </section></section>
@@ -592,7 +698,7 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-52.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>True <span class="math inline">\(\Box\)</span> (line 2) is reusable: now that world 1.1 exists, it fires there too, giving <span class="math inline">\(A \wedge \neg \Box A\)</span> true at 1.1 (line 8). True <span class="math inline">\(\wedge\)</span> on line 8 gives <span class="math inline">\(A\)</span> true at 1.1 (line 9) — but line 7 says <span class="math inline">\(A\)</span> is false at 1.1. Contradiction. The branch closes. This formula is <strong>valid</strong> in <strong>KT</strong>.</p>
+<img data-src="../images/tableaux-11/tableau-11-52.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>True <span class="math inline">\(\Box\)</span> (line 2) is reusable: now that world 1.1 exists, it fires there too, giving <span class="math inline">\(A \wedge \neg \Box A\)</span> true at 1.1 (line 8). True <span class="math inline">\(\wedge\)</span> on line 8 gives <span class="math inline">\(A\)</span> true at 1.1 (line 9), but line 7 says <span class="math inline">\(A\)</span> is false at 1.1.</p>
 </section>
 <section class="slide level2">
 <h2>Why is this valid?</h2>
@@ -657,26 +763,26 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-53.tex.svg" width="600" class="r-stretch"><p>Assume the formula is false at world 1. The outer conditional is false, so its antecedent (line 2) is true and its consequent (line 3) is false.</p>
+<img data-src="../images/tableaux-11/tableau-11-53.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption">Step 1</p><p>Assume the formula is false at world 1. The outer conditional is false, so its antecedent (line 2) is true and its consequent (line 3) is false.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-54.tex.svg" width="600" class="r-stretch"><p>Line 3 is false: <span class="math inline">\(A \rightarrow \Box A\)</span> is a false conditional, so <span class="math inline">\(A\)</span> is true at 1 (line 4) and <span class="math inline">\(\Box A\)</span> is false at 1 (line 5). False <span class="math inline">\(\Box\)</span> on line 5 introduces world 1.1, where <span class="math inline">\(A\)</span> is false (line 6).</p>
+<img data-src="../images/tableaux-11/tableau-11-54.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption">Step 2</p><p>Line 3 is false: <span class="math inline">\(A \rightarrow \Box A\)</span> is a false conditional, so <span class="math inline">\(A\)</span> is true at 1 (line 4) and <span class="math inline">\(\Box A\)</span> is false at 1 (line 5). False <span class="math inline">\(\Box\)</span> on line 5 introduces world 1.1, where <span class="math inline">\(A\)</span> is false (line 6).</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-55.tex.svg" width="600" class="r-stretch"><p>Line 2 is a true conditional: it branches. Either the antecedent <span class="math inline">\(A \wedge \neg \Box A\)</span> is false at 1 (left branch, line 7), or the consequent <span class="math inline">\(\Diamond \Box(A \wedge \neg \Box A)\)</span> is true at 1 (right branch, line 8).</p>
+<img data-src="../images/tableaux-11/tableau-11-55.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption">Step 3</p><p>Line 2 is a true conditional: it branches. Either the antecedent <span class="math inline">\(A \wedge \neg \Box A\)</span> is false at 1 (left branch, line 7), or the consequent <span class="math inline">\(\Diamond \Box(A \wedge \neg \Box A)\)</span> is true at 1.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-56.tex.svg" width="600" class="r-stretch"></section>
+<img data-src="../images/tableaux-11/tableau-11-56.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption">Step 4</p></section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-57.tex.svg" width="400" class="r-stretch"></section>
+<img data-src="../images/tableaux-11/tableau-11-57.tex.svg" width="500" class="r-stretch quarto-figure-center"><p class="caption">Step 5</p></section>
 <section class="slide level2 scrollable">
 <h2>Upshot</h2>
 <p>Philosophers who want to endorse <em>Every truth is knowable</em> have only two options at this point.</p>

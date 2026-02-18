@@ -1,6 +1,6 @@
 ---
-title: "Opinion Pooling IV: Promoting Group Epistemic Rationality"
-date: 2/23/2026
+title: "Opinion Pooling VI: Promoting Group Epistemic Rationality"
+date: 2/18/2026
 format:
     revealjs: default
     beamer: default
@@ -142,7 +142,7 @@ If it rains, my inaccuracy score is $0.58$. I'm off on rain by $0.3$, and I'm of
 
 . . .
 
-If it rains, Mitch's inaccuracy score is $0.5$. He's off on rain by $0.5$, and he's off on not rain by $0.5$, and $0.5^2 + 0.5^2 = 0.58$. 
+If it rains, Mitch's inaccuracy score is $0.5$. He's off on rain by $0.5$, and he's off on not rain by $0.5$, and $0.5^2 + 0.5^2 = 0.5$. 
 
 . . .
 

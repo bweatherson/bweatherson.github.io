@@ -8,6 +8,119 @@ format:
         include-in-header: 305-beamer-header-minimal.tex
 ---
 
+# Midterm
+
+## Logistics
+
+- The exam will be ten questions long.
+- Each question will be like one of the ones on this week's quiz.
+- The difference is that it will ask you to draw the tree.
+- I'll hopefully post the sample questions tomorrow.
+- It will be here, with answers to be done on paper.
+- We'll find a separate room (to be announced) for folks needing accommodations.
+- You'll get the cheat sheet, but otherwise it is closed book.
+
+# Review
+
+## True $\Box$ sentences
+
+The new rule is that if $\Box A$ is true at $x$, then $A$ is true at $x.y$ every time that appears on the branch.
+
+- We do **not** have to say that $A$ is true everywhere.
+- But we do have to keep applying this rule whenever a new world of the form $x.y$ appears on the branch.
+
+## True $\Diamond$ sentences
+
+The new rule is that if $\Diamond A$ is true at $x$, then we have to introduce a world $x.y$ where $A$ is true.
+
+- This is more restrictive than the old rule, since there are constraints on how we introduce the world.
+- But it also just has to be applied once, and then we're done.
+
+## The Other Two Rules
+
+### False $\Box$ Sentences
+
+These are just like true $\Diamond$ sentences. We introduce a new world with number $x.y$ where the underlying sentence is false.
+
+### False $\Diamond$ Sentences
+
+These are just like true $\Box$ sentences. Whenever $x.y$ appears on the tree, we say that the underlying sentence is false.
+
+## Adding Conditions to K
+
+We can add special rules to **K** to capture different frame conditions:
+
+::: {.incremental}
+- **T**: Reflexivity ($xRx$ for all $x$)
+- **B**: Symmetry (if $xRy$ then $yRx$)
+- **4**: Transitivity (if $xRy$ and $yRz$ then $xRz$)
+:::
+
+. . .
+
+These are associate with particular axioms:
+
+::: {.incremental}
+- **T**: $\Box A \rightarrow A$
+- **B**: $A \rightarrow \Box \Diamond A$
+- **4**: $\Box A \rightarrow \Box \Box A$
+:::
+
+## The T Rules
+
+To add reflexivity to K, add these two rules:
+
+. . .
+
+**T-Box Rule**: If $\Box A$ is true at $x$, then add that $A$ is true at $x$.
+
+. . .
+
+**T-Diamond Rule**: If $\Diamond A$ is false at $x$, then add that $A$ is false at $x$.
+
+. . .
+
+These capture the fact that every world can access itself.
+
+## The 4 Rules
+
+To add transitivity to **K**, add these two rules:
+
+. . .
+
+**4-Box Rule**: If $\Box A$ is true at $x$, and $x.y$ is on the tree, then add that $\Box A$ is true at $x.y$.
+
+. . .
+
+**4-Diamond Rule**: If $\Diamond A$ is false at $x$, and $x.y$ is on the tree, then add that $\Diamond A$ is false at $x.y$.
+
+. . .
+
+Note: You already add $A$ true/false by the basic **K** rules.
+
+The **4** rules add the *modal formula itself*.
+
+## The B Rules
+
+To add symmetry to **K**, add these two rules:
+
+. . .
+
+**B-Box Rule**: If $\Box A$ is true at $x.y$, then add that $A$ is true at $x$.
+
+. . .
+
+**B-Diamond Rule**: If $\Diamond A$ is false at $x.y$, then add that $A$ is false at $x$.
+
+. . .
+
+These capture the idea that accessibility goes both ways.
+
+## Rest of Class
+
+Examples!
+
+
 # Example 1: $\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)$ in K
 
 ## Example 1: $\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)$ in K
@@ -1514,7 +1627,7 @@ Line 3 is false: $A \rightarrow \Box A$ is a false conditional, so $A$ is true a
 ![Step 3](../images/tableaux-11/tableau-11-55.tex.svg){width=600px}
 :::
 
-Line 2 is a true conditional: it branches. Either the antecedent $A \wedge \neg \Box A$ is false at 1 (left branch, line 7), or the consequent $\Diamond \Box(A \wedge \neg \Box A)$ is true at 1 (right branch, line 8).
+Line 2 is a true conditional: it branches. Either the antecedent $A \wedge \neg \Box A$ is false at 1 (left branch, line 7), or the consequent $\Diamond \Box(A \wedge \neg \Box A)$ is true at 1.
 
 ---
 
