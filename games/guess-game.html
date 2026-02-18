@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  GUESS 2/3 OF THE AVERAGE — Classroom Game
+  ============================================================
+
+  SETUP INSTRUCTIONS
+  ------------------
+  1. Create a Firebase project at https://console.firebase.google.com
+     - Click "Create a project", name it (e.g. "classroom-game")
+     - Disable Google Analytics (not needed)
+
+  2. Create a Realtime Database
+     - In the sidebar: Build → Realtime Database → Create Database
+     - Choose any location, start in "test mode"
+
+  3. Set security rules
+     - In Realtime Database, click the "Rules" tab
+     - Replace the contents with:
+
+       {
+         "rules": {
+           "game": {
+             "state": { ".read": true, ".write": true },
+             "guesses": {
+               ".read": true,
+               "$guessId": {
+                 ".write": "!data.exists()",
+                 ".validate": "newData.hasChildren(['name','guess','round']) && newData.child('guess').val() >= 0 && newData.child('guess').val() <= 100 && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50"
+               }
+             }
+           }
+         }
+       }
+
+     - Click "Publish"
+
+  4. Get your Firebase config
+     - Gear icon → Project Settings → scroll to "Your apps"
+     - Click "</>" to add a web app, name it, register
+     - Copy the firebaseConfig object shown
+
+  5. Paste your config below, replacing the placeholder object
+
+  6. Push this file to GitHub. It will be live at:
+       https://[your-site]/games/guess-game.html
+
+  URLS
+  ----
+  Student URL:  https://[your-site]/games/guess-game.html
+  Teacher URL:  https://[your-site]/games/guess-game.html?teacher=twothirds
+
+  Or activate teacher mode by clicking the page title 5 times quickly.
+
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess 2/3 of the Average</title>
+
+  <!-- Firebase compat SDK (broad browser support) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-hover: #0b5ed7;
+      --success: #198754;
+      --danger: #dc3545;
+      --warning-bg: #fff3cd;
+      --winner-bg: #d1e7dd;
+      --winner-text: #0f5132;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 10rem; /* bottom padding for teacher panel */
+    }
+
+    /* ── Views ── */
+    .view { display: none; width: 100%; max-width: 560px; }
+    .view.active { display: block; }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      cursor: default;
+      user-select: none;
+    }
+
+    h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 1rem; }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: var(--font);
+      transition: border-color 0.15s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.15s, opacity 0.15s;
+    }
+
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-success:hover:not(:disabled) { background: #157347; }
+
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover:not(:disabled) { background: #bb2d3b; }
+
+    .btn-secondary { background: #6c757d; color: #fff; }
+    .btn-secondary:hover:not(:disabled) { background: #5c636a; }
+
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+    }
+
+    /* ── Waiting view ── */
+    .waiting-icon { font-size: 3rem; margin-bottom: 1rem; text-align: center; }
+
+    .count-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Results view ── */
+    .result-summary {
+      background: var(--warning-bg);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-summary .stat { margin-bottom: 0.4rem; font-size: 1rem; }
+    .result-summary .stat:last-child { margin-bottom: 0; }
+    .result-summary .label { font-weight: 500; }
+
+    .winner-box {
+      background: var(--winner-bg);
+      color: var(--winner-text);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr.winner-row td { background: var(--winner-bg); color: var(--winner-text); font-weight: 600; }
+    tr:hover td { background: #f1f3f5; }
+    tr.winner-row:hover td { background: #c3e6cb; }
+
+    .distance-cell { color: var(--muted); }
+
+    /* ── Connection banner ── */
+    #connection-banner {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #ffc107;
+      color: #000;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      z-index: 1000;
+    }
+
+    /* ── Teacher panel ── */
+    #teacher-panel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #1e293b;
+      color: #f1f5f9;
+      border-top: 3px solid #3b82f6;
+      z-index: 500;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #teacher-panel.active { display: block; }
+
+    .teacher-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .teacher-header h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    .teacher-stats {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      flex: 1;
+      text-align: center;
+    }
+
+    .teacher-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+    .teacher-actions .btn { padding: 0.4rem 0.9rem; font-size: 0.875rem; }
+
+    #teacher-table-wrapper {
+      padding: 0.5rem 1rem 0.75rem;
+      overflow-x: auto;
+    }
+
+    #teacher-table th { background: #1e293b; color: #94a3b8; }
+    #teacher-table td { color: #e2e8f0; border-bottom-color: #334155; }
+    #teacher-table tr:hover td { background: #334155; }
+
+    .no-guesses-msg {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      padding: 0.75rem 0;
+      text-align: center;
+    }
+
+    /* ── Loading overlay ── */
+    #view-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.75rem 12rem; }
+      .card { padding: 1.25rem; }
+      h1 { font-size: 1.35rem; }
+      .teacher-header { flex-direction: column; align-items: flex-start; }
+      .teacher-stats { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Connection banner -->
+<div id="connection-banner">Reconnecting to server...</div>
+
+<!-- ── LOADING VIEW ── -->
+<div id="view-loading" class="view active">
+  <div class="spinner"></div>
+  <p>Connecting...</p>
+</div>
+
+<!-- ── FORM VIEW ── -->
+<div id="view-form" class="view">
+  <div class="card">
+    <h1 id="game-title">Guess 2/3 of the Average</h1>
+    <p class="subtitle">Enter a number from 0 to 100. The winner is whoever is closest to <strong>2/3 of the average</strong> of all guesses.</p>
+
+    <form id="guess-form" novalidate>
+      <div class="form-group">
+        <label for="input-name">Your name</label>
+        <input type="text" id="input-name" placeholder="First name or nickname" maxlength="50" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false">
+      </div>
+      <div class="form-group">
+        <label for="input-guess">Your guess (0–100)</label>
+        <input type="number" id="input-guess" placeholder="e.g. 33" min="0" max="100" step="1">
+      </div>
+      <div class="error-msg" id="form-error"></div>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Submit Guess</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── WAITING VIEW ── -->
+<div id="view-waiting" class="view">
+  <div class="card" style="text-align:center;">
+    <div class="waiting-icon">⏳</div>
+    <h2>Guess submitted!</h2>
+    <p style="color: var(--muted);">Your answer has been recorded. The teacher will reveal the results shortly.</p>
+    <div><span class="count-badge" id="waiting-count">— guesses so far</span></div>
+  </div>
+</div>
+
+<!-- ── RESULTS VIEW ── -->
+<div id="view-results" class="view">
+  <div class="card">
+    <h2>Results</h2>
+
+    <div class="result-summary" id="result-summary">
+      <div class="stat"><span class="label">Average guess:</span> <span id="result-avg">—</span></div>
+      <div class="stat"><span class="label">2/3 of average:</span> <span id="result-target">—</span></div>
+      <div class="stat"><span class="label">Total players:</span> <span id="result-count">—</span></div>
+    </div>
+
+    <div class="winner-box" id="winner-box">
+      🏆 Winner: <span id="result-winner">—</span>
+    </div>
+
+    <table id="results-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Guess</th>
+          <th>Distance from target</th>
+        </tr>
+      </thead>
+      <tbody id="results-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── TEACHER PANEL ── -->
+<div id="teacher-panel">
+  <div class="teacher-header">
+    <h3>Teacher Console</h3>
+    <div class="teacher-stats" id="teacher-stats">No guesses yet</div>
+    <div class="teacher-actions">
+      <button class="btn btn-success" id="btn-reveal">Reveal Results</button>
+      <button class="btn btn-secondary" id="btn-reset">New Round</button>
+    </div>
+  </div>
+  <div id="teacher-table-wrapper">
+    <div class="no-guesses-msg" id="teacher-no-guesses">Waiting for students to submit...</div>
+    <table id="teacher-table" style="display:none">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Guess</th>
+        </tr>
+      </thead>
+      <tbody id="teacher-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION — paste your Firebase config here
+  // ============================================================
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+    projectId: "YOUR_PROJECT",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Teacher password (also accepts ?teacher=twothirds in URL)
+  const TEACHER_PASSWORD = "twothirds";
+
+  // ============================================================
+  // App State
+  // ============================================================
+  const AppState = {
+    isTeacher: false,
+    currentRound: null,
+    gamePhase: null,     // 'open' | 'revealed'
+    allGuesses: [],      // filtered to current round
+    stateData: null,     // full state object from Firebase
+    studentSubmitted: false,
+    db: null,
+  };
+
+  // ============================================================
+  // Firebase Init
+  // ============================================================
+  firebase.initializeApp(firebaseConfig);
+  AppState.db = firebase.database();
+
+  const stateRef = AppState.db.ref('/game/state');
+  const guessesRef = AppState.db.ref('/game/guesses');
+
+  // ============================================================
+  // Listeners
+  // ============================================================
+  AppState.db.ref('.info/connected').on('value', (snap) => {
+    const banner = document.getElementById('connection-banner');
+    banner.style.display = snap.val() ? 'none' : 'block';
+  });
+
+  stateRef.on('value', (snapshot) => {
+    const state = snapshot.val();
+    if (!state) {
+      // No state yet — initialize it (any visitor will do this, harmless)
+      stateRef.set({ phase: 'open', round: 1 });
+      return;
+    }
+    AppState.stateData = state;
+    AppState.currentRound = state.round || 1;
+    AppState.gamePhase = state.phase || 'open';
+
+    const guessedRound = parseInt(localStorage.getItem('guessedRound') || '0', 10);
+    AppState.studentSubmitted = (guessedRound === AppState.currentRound);
+
+    renderView();
+  });
+
+  guessesRef.on('value', (snapshot) => {
+    const allData = snapshot.val() || {};
+    if (AppState.currentRound === null) return;
+    AppState.allGuesses = Object.values(allData)
+      .filter(g => g.round === AppState.currentRound);
+    renderWaitingCount();
+    renderTeacherPanel();
+  });
+
+  // ============================================================
+  // Rendering
+  // ============================================================
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+    document.getElementById('view-' + id).classList.add('active');
+  }
+
+  function renderView() {
+    const { gamePhase, studentSubmitted } = AppState;
+
+    if (gamePhase === 'open') {
+      if (studentSubmitted) {
+        showView('waiting');
+      } else {
+        showView('form');
+      }
+    } else if (gamePhase === 'revealed') {
+      showView('results');
+      renderResults();
+    }
+
+    if (AppState.isTeacher) {
+      document.getElementById('teacher-panel').classList.add('active');
+      renderTeacherPanel();
+    }
+  }
+
+  function renderWaitingCount() {
+    const count = AppState.allGuesses.length;
+    const el = document.getElementById('waiting-count');
+    if (el) el.textContent = count === 1 ? '1 guess submitted so far' : `${count} guesses submitted so far`;
+  }
+
+  function renderTeacherPanel() {
+    if (!AppState.isTeacher) return;
+    const guesses = AppState.allGuesses;
+    const count = guesses.length;
+    const statsEl = document.getElementById('teacher-stats');
+    const noGuessesEl = document.getElementById('teacher-no-guesses');
+    const tableEl = document.getElementById('teacher-table');
+    const tbody = document.getElementById('teacher-tbody');
+
+    if (count === 0) {
+      statsEl.textContent = 'No guesses yet';
+      noGuessesEl.style.display = 'block';
+      tableEl.style.display = 'none';
+      return;
+    }
+
+    const avg = guesses.reduce((s, g) => s + g.guess, 0) / count;
+    const target = (2 / 3) * avg;
+    statsEl.textContent = `${count} guess${count !== 1 ? 'es' : ''} · avg ${avg.toFixed(2)} · target ${target.toFixed(2)}`;
+
+    noGuessesEl.style.display = 'none';
+    tableEl.style.display = 'table';
+
+    // Sort by name for the live teacher view
+    const sorted = [...guesses].sort((a, b) => a.name.localeCompare(b.name));
+    tbody.innerHTML = sorted.map(g => `
+      <tr>
+        <td>${escHtml(g.name)}</td>
+        <td>${g.guess}</td>
+      </tr>
+    `).join('');
+  }
+
+  function renderResults() {
+    const state = AppState.stateData;
+    if (!state || state.phase !== 'revealed') return;
+
+    const avg = state.avg;
+    const target = state.target;
+    const guesses = AppState.allGuesses;
+
+    document.getElementById('result-avg').textContent = avg.toFixed(2);
+    document.getElementById('result-target').textContent = target.toFixed(2);
+    document.getElementById('result-count').textContent = guesses.length;
+    document.getElementById('result-winner').textContent =
+      `${state.winner_name} (guessed ${state.winner_guess})`;
+
+    // Sort by distance from target (ascending)
+    const sorted = [...guesses].sort((a, b) => {
+      const da = Math.abs(a.guess - target);
+      const db = Math.abs(b.guess - target);
+      if (da !== db) return da - db;
+      return a.guess - b.guess; // lower guess wins tiebreak
+    });
+
+    const tbody = document.getElementById('results-tbody');
+    tbody.innerHTML = sorted.map((g, i) => {
+      const dist = Math.abs(g.guess - target).toFixed(2);
+      const isWinner = g.name === state.winner_name && g.guess === state.winner_guess;
+      return `
+        <tr class="${isWinner ? 'winner-row' : ''}">
+          <td>${i + 1}</td>
+          <td>${escHtml(g.name)}${isWinner ? ' 🏆' : ''}</td>
+          <td>${g.guess}</td>
+          <td class="distance-cell">${dist}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
+  // Student: Submit Guess
+  // ============================================================
+  document.getElementById('guess-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const errorEl = document.getElementById('form-error');
+    errorEl.textContent = '';
+
+    const name = document.getElementById('input-name').value.trim();
+    const rawGuess = document.getElementById('input-guess').value.trim();
+    const guess = parseFloat(rawGuess);
+
+    if (!name) { errorEl.textContent = 'Please enter your name.'; return; }
+    if (rawGuess === '' || isNaN(guess)) { errorEl.textContent = 'Please enter a number.'; return; }
+    if (guess < 0 || guess > 100) { errorEl.textContent = 'Please enter a number between 0 and 100.'; return; }
+    if (!Number.isInteger(guess)) { errorEl.textContent = 'Please enter a whole number.'; return; }
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    try {
+      await guessesRef.push({
+        name: name,
+        guess: guess,
+        round: AppState.currentRound,
+        submitted_at: firebase.database.ServerValue.TIMESTAMP,
+      });
+      localStorage.setItem('guessedRound', AppState.currentRound);
+      AppState.studentSubmitted = true;
+      showView('waiting');
+    } catch (err) {
+      errorEl.textContent = 'Failed to submit. Please try again.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Guess';
+    }
+  });
+
+  // ============================================================
+  // Teacher: Reveal Results
+  // ============================================================
+  document.getElementById('btn-reveal').addEventListener('click', async () => {
+    const guesses = AppState.allGuesses;
+    if (guesses.length === 0) {
+      alert('No guesses have been submitted yet.');
+      return;
+    }
+
+    const avg = guesses.reduce((s, g) => s + g.guess, 0) / guesses.length;
+    const target = (2 / 3) * avg;
+
+    // Find winner: closest to target; tiebreak = lower guess; further tiebreak = earlier submission (order in array is push order)
+    const winner = guesses.reduce((best, g) => {
+      const bestDist = Math.abs(best.guess - target);
+      const gDist = Math.abs(g.guess - target);
+      if (gDist < bestDist) return g;
+      if (gDist === bestDist && g.guess < best.guess) return g;
+      return best;
+    });
+
+    document.getElementById('btn-reveal').disabled = true;
+
+    try {
+      await stateRef.set({
+        phase: 'revealed',
+        round: AppState.currentRound,
+        avg: avg,
+        target: target,
+        winner_name: winner.name,
+        winner_guess: winner.guess,
+        revealed_at: firebase.database.ServerValue.TIMESTAMP,
+      });
+    } catch (err) {
+      alert('Error revealing results: ' + err.message);
+      document.getElementById('btn-reveal').disabled = false;
+    }
+  });
+
+  // ============================================================
+  // Teacher: Reset / New Round
+  // ============================================================
+  document.getElementById('btn-reset').addEventListener('click', async () => {
+    if (!confirm('Start a new round? Students will see the submission form again.')) return;
+
+    const newRound = (AppState.currentRound || 1) + 1;
+    document.getElementById('btn-reveal').disabled = false;
+
+    try {
+      await stateRef.set({
+        phase: 'open',
+        round: newRound,
+      });
+    } catch (err) {
+      alert('Error resetting round: ' + err.message);
+    }
+  });
+
+  // ============================================================
+  // Teacher Mode Activation
+  // ============================================================
+  function activateTeacherMode() {
+    AppState.isTeacher = true;
+    localStorage.setItem('isTeacher', 'true');
+    document.getElementById('teacher-panel').classList.add('active');
+    renderTeacherPanel();
+  }
+
+  // Check URL parameter
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('teacher') === TEACHER_PASSWORD) {
+    activateTeacherMode();
+  }
+
+  // Restore from localStorage (so page refresh keeps teacher mode)
+  if (localStorage.getItem('isTeacher') === 'true') {
+    activateTeacherMode();
+  }
+
+  // Click title 5 times quickly → password prompt (fallback)
+  let titleClicks = 0;
+  let titleClickTimer = null;
+  document.getElementById('game-title').addEventListener('click', () => {
+    if (AppState.isTeacher) return;
+    titleClicks++;
+    clearTimeout(titleClickTimer);
+    titleClickTimer = setTimeout(() => { titleClicks = 0; }, 2000);
+    if (titleClicks >= 5) {
+      titleClicks = 0;
+      const pw = prompt('Enter teacher password:');
+      if (pw === TEACHER_PASSWORD) {
+        activateTeacherMode();
+      } else if (pw !== null) {
+        alert('Incorrect password.');
+      }
+    }
+  });
+
+  // ============================================================
+  // Utility
+  // ============================================================
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+</script>
+</body>
+</html>
