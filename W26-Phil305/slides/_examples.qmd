@@ -1,0 +1,738 @@
+# Example 8: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in K
+
+## Example 8: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-28.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-29.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-30.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\lor}[7]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\lor}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-31.tex.svg){width=600px}
+:::
+
+This closes! Valid in K.
+
+# Example 9: $\Box A \rightarrow A$ in KT
+
+## Example 9: $\Box A \rightarrow A$ in KT
+
+We already did this one - it closes immediately with the T$\Box$ rule.
+
+# Example 10: $\Diamond \Box A \rightarrow A$ in KT
+
+## Example 10: $\Diamond \Box A \rightarrow A$ in KT
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow A$](../images/tableaux-11/tableau-11-32.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[4]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow A$](../images/tableaux-11/tableau-11-33.tex.svg){width=600px}
+:::
+
+The tree stays open in KT - we can't get $A$ back to world 1.
+
+# Example 11: $\Diamond \Box A \rightarrow A$ in KTB
+
+## Example 11: $\Diamond \Box A \rightarrow A$ in KTB
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[4]}
+                    [\sFmla{\True}{1, A}, just = {\TRule{\Box}{\text{B}}[5]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow A$](../images/tableaux-11/tableau-11-34.tex.svg){width=600px}
+:::
+
+With the B$\Box$ rule, it closes!
+
+# Example 12: $\Box(A \wedge B) \leftrightarrow (\Box A \wedge \Box B)$ in K
+
+## Example 12: $\Box(A \wedge B) \leftrightarrow (\Box A \wedge \Box B)$ in K
+
+Let's do just the left-to-right direction.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \land B) \rightarrow (\Box A \land \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \land \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \land B) \rightarrow (\Box A \land \Box B)$](../images/tableaux-11/tableau-11-35.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \land B) \rightarrow (\Box A \land \Box B)}, just = \TAss
+    [\sFmla{\True}{1, \Box(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \land \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\land}[3]}
+                [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \land B) \rightarrow (\Box A \land \Box B)$](../images/tableaux-11/tableau-11-36.tex.svg){width=600px}
+:::
+
+Valid in K!
+
+# Example 13: $\Diamond(A \vee B) \leftrightarrow (\Diamond A \vee \Diamond B)$ in K
+
+## Example 13: $\Diamond(A \vee B) \leftrightarrow (\Diamond A \vee \Diamond B)$ in K
+
+We already showed one direction. Let's do the other direction.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$(\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)$](../images/tableaux-11/tableau-11-37.tex.svg){width=600px}
+:::
+
+So the biconditional is valid in K!
+
+# Example 14: More Practice with T
+
+## Example 14: More Practice with T
+
+$\Diamond A \rightarrow \Diamond \Diamond A$ in K vs KT
+
+---
+
+In K:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-38.tex.svg){width=600px}
+:::
+
+Stays open in K!
+
+---
+
+In KT:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\Diamond}{\text{T}}[5]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-39.tex.svg){width=600px}
+:::
+
+Closes in KT!
+
+# Example 15: Symmetry in Action
+
+## Example 15: Symmetry in Action
+
+$\Box A \rightarrow \Diamond A$ in K vs KB
+
+---
+
+In K:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Diamond A$](../images/tableaux-11/tableau-11-40.tex.svg){width=600px}
+:::
+
+Stays open - world 1 might not access any worlds!
+
+---
+
+In KB:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Diamond A$](../images/tableaux-11/tableau-11-41.tex.svg){width=600px}
+:::
+
+Still stays open in KB alone! This needs reflexivity (T) to close.
+
+---
+
+In KT:
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\Box}{\text{T}}[2]}
+                [\sFmla{\False}{1, A}, just = {\TRule{\Diamond}{\text{T}}[3]}, close]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box A \rightarrow \Diamond A$](../images/tableaux-11/tableau-11-42.tex.svg){width=600px}
+:::
+
+Closes in KT!
+
+# Example 16: $\Diamond A \rightarrow \Box \Diamond A$ in S5
+
+## Example 16: $\Diamond A \rightarrow \Box \Diamond A$ in S5
+
+This is a characteristic theorem of S5 - let's prove it step by step using simplified S5.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-43.tex.svg){width=600px}
+:::
+
+Start with it being false at 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-44.tex.svg){width=600px}
+:::
+
+False conditional: true antecedent, false consequent.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-45.tex.svg){width=600px}
+:::
+
+True $\Diamond$ sentences and false $\Box$ sentences have to be made true somewhere - not necessarily the same 'somewhere'.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\False}{2, A}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-46.tex.svg){width=600px}
+:::
+
+False $\Diamond$ sentences are false everywhere - that is, the part inside the $\Diamond$ is false everywhere. So $A$ is false at world 2. But we just said $A$ is true at world 2! This closes, so it's a theorem of S5.
+
+# Example 17: $\Box \Diamond A \rightarrow A$ in S5
+
+## Example 17: $\Box \Diamond A \rightarrow A$ in S5
+
+Let's test whether this is valid in S5. (Spoiler: it's not!)
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond A \rightarrow A$](../images/tableaux-11/tableau-11-47.tex.svg){width=600px}
+:::
+
+Start with it being false at 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond A \rightarrow A$](../images/tableaux-11/tableau-11-48.tex.svg){width=600px}
+:::
+
+False conditional.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond A \rightarrow A$](../images/tableaux-11/tableau-11-49.tex.svg){width=600px}
+:::
+
+The unboxed part of a box sentence is true everywhere, so it is true here.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[4]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond A \rightarrow A$](../images/tableaux-11/tableau-11-50.tex.svg){width=600px}
+:::
+
+True $\Diamond$ sentences have to be made true by some world. It can't be world 1, since $A$ is false there.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \Diamond A \rightarrow A}, just = \TAss
+    [\sFmla{\True}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                [\sFmla{\True}{2, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\True}{2, \Diamond A}, just = {\TRule{\True}{\Box}[2]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box \Diamond A \rightarrow A$](../images/tableaux-11/tableau-11-51.tex.svg){width=600px}
+:::
+
+True $\Box$ sentences are true, unboxed, everywhere.
+
+---
+
+Now if we follow the rules mechanically we would add a new world 3 to make line 6 true, and the cycle would continue. But if we think through what the lines are saying, we can see that we can stop here:
+
+::: {.incremental}
+- Line 6 ($\Diamond A$ true at 2) has to be made true somehow
+- But line 5 says that world 2 itself makes line 6 true (since $A$ is true at 2)
+- So there isn't anything extra to do
+:::
+
+## Describing the Countermodel
+
+So here is a model where this formula fails:
+
+::: {.incremental}
+- There are two worlds: $w_1$ and $w_2$
+- At $w_1$, $A$ is false
+- At $w_2$, $A$ is true
+- Because $w_2$ exists, $\Diamond A$ is true everywhere
+- So $\Box \Diamond A$ is true everywhere
+- But at $w_1$, $\Box \Diamond A$ is true and $A$ is false
+- Therefore at $w_1$, $\Box \Diamond A \rightarrow A$ is false
+:::
+
+. . .
+
+This shows that $\Box \Diamond A \rightarrow A$ is **not** valid in S5.
+
+# Example 18: $\Box(\Box A \rightarrow A) \rightarrow \Box A$ in KT4
+
+## Example 18: $\Box(\Box A \rightarrow A) \rightarrow \Box A$ in KT4
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(\Box A \rightarrow A) \rightarrow \Box A$](../images/tableaux-11/tableau-11-52.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A \rightarrow A}, just = {\TRule{\Box}{\text{T}}[2]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \Box A \rightarrow A}, just = {\TRule{\True}{\Box}[2]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(\Box A \rightarrow A) \rightarrow \Box A$](../images/tableaux-11/tableau-11-53.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
+    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A \rightarrow A}, just = {\TRule{\Box}{\text{T}}[2]}
+                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \Box A \rightarrow A}, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\True}{\rightarrow}[6]}
+                            [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[7]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[6]}, close]
+                            ]
+                        ]
+                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(\Box A \rightarrow A) \rightarrow \Box A$](../images/tableaux-11/tableau-11-54.tex.svg){width=600px}
+:::
+
+Valid in KT4!
+
+# Example 19: $\Diamond \Box A \rightarrow \Box \Diamond A$ in S5
+
+## Example 19: $\Diamond \Box A \rightarrow \Box \Diamond A$ in S5
+
+We'll use simplified S5 notation for this.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-55.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-56.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow \Box \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{2, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{3, \Diamond A}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{3, A}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{3, A}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond \Box A \rightarrow \Box \Diamond A$](../images/tableaux-11/tableau-11-57.tex.svg){width=600px}
+:::
+
+Closes in S5!
+
+# Example 20: $\neg \Box \neg A \rightarrow \Diamond A$ in K
+
+## Example 20: $\neg \Box \neg A \rightarrow \Diamond A$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box \neg A \rightarrow \Diamond A}, just = \TAss
+    [\sFmla{\True}{1, \neg \Box \neg A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \neg A}, just = {\TRule{\True}{\neg}[2]}
+                [\sFmla{\False}{1.1, \neg A}, just = {\TRule{\False}{\Box}[4]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\False}{\neg}[5]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[3]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box \neg A \rightarrow \Diamond A$](../images/tableaux-11/tableau-11-58.tex.svg){width=600px}
+:::
+
+Valid in K! This shows that $\neg \Box \neg A$ and $\Diamond A$ are equivalent.

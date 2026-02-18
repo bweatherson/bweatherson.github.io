@@ -47,9 +47,21 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
-    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond A \land \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A \land B}, checked, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[4]}
+                    [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[4]}
+                        [\sFmla{\False}{1, \Diamond A}, checked, just = {\TRule{\False}{\land}[3]}
+                            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[7]}, close]
+                        ]
+                        [\sFmla{\False}{1, \Diamond B}, checked, just = {\TRule{\False}{\land}[3]}
+                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\Diamond}[7]}, move by=1,close]
+                        ]
+                    ]
+                ]
+            ]
         ]
     ]
 ]

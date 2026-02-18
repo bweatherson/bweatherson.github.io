@@ -47,17 +47,21 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)}, just = \TAss
-    [\sFmla{\True}{1, \Box(A \rightarrow B)}, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Box A \rightarrow \Box B}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
-                [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[3]}
-                    [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
-                        [\sFmla{\True}{1.1, A \rightarrow B}, just = {\TRule{\True}{\Box}[2]}
-                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
-                                [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[7]}, close]
-                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[7]}, close]
-                            ]
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
+                    [\sFmla{\False}{1.1, A \lor B}, checked, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[6]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Diamond B}, checked, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[4]}, move by=2
+                    [\sFmla{\False}{1.2, A \lor B}, checked, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\lor}[9]}
+                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\lor}[9]}, close]
                         ]
                     ]
                 ]

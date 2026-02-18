@@ -47,14 +47,9 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, just = \TAss
-    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
-                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
-                    [\sFmla{\False}{1.1, A}, just = {\TRule{\Diamond}{\text{T}}[5]}, close]
-                ]
-            ]
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
         ]
     ]
 ]

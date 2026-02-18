@@ -47,11 +47,11 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
-    [\sFmla{\True}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\land}[3]}]
-            [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\land}[3]}]
+            [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Diamond}[2]}
+            ]
         ]
     ]
 ]

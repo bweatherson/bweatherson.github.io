@@ -1,0 +1,132 @@
+---
+title: "Modal Logic: Tableaux Examples"
+date: "2/18/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Example 11: $\Diamond A \rightarrow \Diamond \Diamond A$ in K
+
+## Example 11: $\Diamond A \rightarrow \Diamond \Diamond A$ in K
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-42.tex.svg){width=600px}
+:::
+
+Assume the formula is false at world 1. A false conditional gives a true antecedent ($\Diamond A$ true at 1) and a false consequent ($\Diamond \Diamond A$ false at 1).
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-43.tex.svg){width=600px}
+:::
+
+True $\Diamond$ (line 2) introduces world 1.1: since $\Diamond A$ is true at world 1, there must be an accessible world where $A$ holds. We call it 1.1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-44.tex.svg){width=600px}
+:::
+
+False $\Diamond$ (line 3) is a reusable rule: since $\Diamond \Diamond A$ is false at world 1, $\Diamond A$ must be false at every world accessible from 1. World 1.1 is accessible from 1, so $\Diamond A$ is false at 1.1.
+
+## Example 11: $\Diamond A \rightarrow \Diamond \Diamond A$ in K
+
+And there aren't any other rules to apply, so the tableau is open.
+
+The countermodel isn't very elegant.
+
+There are two worlds, $w_1$ and $w_2$. (Or $w_{1.1}$ if you prefer).
+
+The only $R$ relation is from $w_1$ to $w_2$.
+
+And $A$ is true at $w_2$.
+
+## Example 12: $\Diamond A \rightarrow \Diamond \Diamond A$ in KT
+
+If we go to **KT**, everything we've said in the tree so far is correct, but we have new rules to apply.
+
+In particular, we have to apply the **T** rules.
+
+But let's start with where we were up to last time.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\False}{\Diamond}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-45.tex.svg){width=600px}
+:::
+
+Now we have to go on to apply the **T** rules.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Diamond A \rightarrow \Diamond \Diamond A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\False}{1.1, \Diamond A}, checked, just = {\TRule{\False}{\Diamond}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\Diamond}{\text{T}}[5]}, close]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Diamond A \rightarrow \Diamond \Diamond A$](../images/tableaux-11/tableau-11-46.tex.svg){width=600px}
+:::
+
+The T$\Diamond$ rule: since $\Diamond A$ is false at world 1.1, and in KT every world accesses itself, $A$ must be false at 1.1 itself. But line 4 says $A$ is true at 1.1 — contradiction. The branch closes. This formula is **valid** in **KT**.
+

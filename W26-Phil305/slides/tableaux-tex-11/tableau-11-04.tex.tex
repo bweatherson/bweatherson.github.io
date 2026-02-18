@@ -47,24 +47,12 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, just = \TAss
-    [\sFmla{\True}{1, \Diamond(A \land B)}, just = {\TRule{\False}{\rightarrow}[1]}
+[\sFmla{\False}{1, \Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond(A \land B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, \Diamond A \land \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\land}[3]}
-                [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Diamond}[2]}
-                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[5]}
-                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[5]}
-                            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}, close]
-                        ]
-                    ]
-                ]
-            ]
-            [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\land}[3]}
-                [\sFmla{\True}{1.1, A \land B}, just = {\TRule{\True}{\Diamond}[2]}
-                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[5]}
-                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[5]}
-                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[4]}, close]
-                        ]
+            [\sFmla{\True}{1.1, A \land B}, checked, just = {\TRule{\True}{\Diamond}[2]}
+                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\land}[4]}
+                    [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\land}[4]}
                     ]
                 ]
             ]

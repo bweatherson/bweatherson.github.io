@@ -1,0 +1,122 @@
+---
+title: "Modal Logic: Tableaux Examples"
+date: "2/18/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 305-beamer-header-minimal.tex
+---
+
+# Example 8: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in K
+
+## Example 8: $\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-33.tex.svg){width=600px}
+:::
+
+Assume the formula is false at world 1. A false conditional gives us a true antecedent ($\Box(A \lor B)$) and a false consequent ($\Box A \lor \Diamond B$).
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-34.tex.svg){width=600px}
+:::
+
+A false disjunction means both disjuncts are false: $\Box A$ is false and $\Diamond B$ is false at world 1. Note these are non-branching — we get both on the same branch.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-35.tex.svg){width=600px}
+:::
+
+False $\Box$ (line 4) introduces world 1.1 with $\mathbb{F}\,1.1{:}A$. Now the two reusable rules fire at world 1.1: True $\Box$ (line 2) gives $\mathbb{T}\,1.1{:}A \lor B$, and False $\Diamond$ (line 5) gives $\mathbb{F}\,1.1{:}B$. Lines 2 and 5 stay unchecked as reusable rules.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box A \lor \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\lor}[3]}
+                [\sFmla{\False}{1, \Diamond B}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, A \lor B}, checked, just = {\TRule{\True}{\Box}[2]}
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[5]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\lor}[7]}, close]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\lor}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)$](../images/tableaux-11/tableau-11-36.tex.svg){width=600px}
+:::
+
+The true disjunction at line 7 branches: either $A$ is true at 1.1 (closing against $\mathbb{F}\,1.1{:}A$ at line 6) or $B$ is true at 1.1 (closing against $\mathbb{F}\,1.1{:}B$ at line 8). Both branches close, so the formula is valid in **K**.
+
+## Why is this valid?
+
+Suppose $\Box(A \lor B)$ is true at world 1 but $\Box A \lor \Diamond B$ is false.
+
+::: {.incremental}
+- Since $\Box A \lor \Diamond B$ is false, both $\Box A$ and $\Diamond B$ are false at world 1.
+- Since $\Diamond B$ is false, $B$ is false at all accessible worlds.
+- So if at least one of $A$ and $B$ is true at each accessible world, as the premise says, and it's never $B$, it must always be $A$.
+- But that would make $\Box A$ true, contradicting the assumption that it's false.
+:::
+
+. . .
+
+So the assumption that the formula is false leads to a contradiction. It must be valid in **K**.

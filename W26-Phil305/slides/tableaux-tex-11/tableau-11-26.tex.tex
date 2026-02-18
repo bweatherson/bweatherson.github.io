@@ -47,9 +47,25 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, just = \TAss
-    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+[\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box A \lor \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\False}{1.1, A \lor B}, checked, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[5]}, close]
+                    ]
+                ]
+            ]
+            [\sFmla{\True}{1, \Box B}, just = {\TRule{\True}{\lor}[2]}
+                [\sFmla{\False}{1.2, A \lor B}, checked, just = {\TRule{\False}{\Box}[3]}, move by = 2
+                    [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Box}[4]}
+                        [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\lor}[8]}
+                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\lor}[8]}, close]
+                        ]
+                    ]
+                ]
+            ]
         ]
     ]
 ]

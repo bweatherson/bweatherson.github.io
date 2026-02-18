@@ -47,13 +47,9 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, just = \TAss
+[\sFmla{\False}{1, (\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)}, checked, just = \TAss
     [\sFmla{\True}{1, \Diamond A \lor \Diamond B}, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, \Diamond(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1, \Diamond A}, just = {\TRule{\True}{\lor}[2]}
-            ]
-            [\sFmla{\True}{1, \Diamond B}, just = {\TRule{\True}{\lor}[2]}
-            ]
         ]
     ]
 ]

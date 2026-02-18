@@ -47,7 +47,11 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Diamond A \rightarrow \Box \Diamond A}, just = \TAss
+[\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, checked, just = \TAss
+    [\sFmla{\True}{1, \Diamond \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
 ]
 \end{oltableau}
 

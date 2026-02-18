@@ -139,7 +139,7 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Examples</h1>
+<h1>Example 1: <span class="math inline">\(\Diamond(A \wedge B) \rightarrow (\Diamond A \wedge \Diamond B)\)</span> in K</h1>
 
 </section>
 <section class="slide level2">
@@ -158,12 +158,22 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-03.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)\)</span></p><p>False conjunction branches.</p>
+<img data-src="../images/tableaux-11/tableau-11-03.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)\)</span></p><p>True <span class="math inline">\(\Diamond\)</span> introduces world 1.1.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-04.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)\)</span></p><p>Both branches close. This is a theorem of K.</p>
+<img data-src="../images/tableaux-11/tableau-11-04.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)\)</span></p><p>True conjunction gives us both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> at 1.1.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-05.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond(A \land B) \rightarrow (\Diamond A \land \Diamond B)\)</span></p><p>When we introduce worlds that make the <span class="math inline">\(\Diamond\)</span> sentences true, both branches close. So this is valid in <strong>K</strong>.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 2: <span class="math inline">\((\Diamond A \vee \Diamond B) \rightarrow \Diamond(A \vee B)\)</span> in K</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 2: <span class="math inline">\((\Diamond A \vee \Diamond B) \rightarrow \Diamond(A \vee B)\)</span> in K</h2>
@@ -172,16 +182,46 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-05.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-06.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p></section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-06.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>The disjunction branches.</p>
+<img data-src="../images/tableaux-11/tableau-11-07.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>The disjunction branches. We can’t do anything with the other line yet because there isn’t yet a 1.1.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-07.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>Both branches close, so this <strong>is</strong> valid in K.</p>
+<img data-src="../images/tableaux-11/tableau-11-08.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>On the left branch, the True <span class="math inline">\(\Diamond\)</span> rule introduces world 1.1 with <span class="math inline">\(A\)</span> true there.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-09.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>Now world 1.1 exists, so the False <span class="math inline">\(\Diamond\)</span> rule (line 3) applies: <span class="math inline">\(A \lor B\)</span> must be false at 1.1.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-10.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>The False <span class="math inline">\(\lor\)</span> rule gives <span class="math inline">\(\mathbb{F}\, 1.1{:} A\)</span>, which clashes with line 5. The left branch closes. Now work on the right branch.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-11.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>On the right branch, the True <span class="math inline">\(\Diamond\)</span> rule introduces world 1.2 with <span class="math inline">\(B\)</span> true there.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-12.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>World 1.2 now exists, so the False <span class="math inline">\(\Diamond\)</span> rule (line 3) applies again: <span class="math inline">\(A \lor B\)</span> must be false at 1.2.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-13.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>Both branches close, so this <strong>is</strong> valid in K.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 3: <span class="math inline">\(A \rightarrow \Box \Diamond A\)</span> in KT</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 3: <span class="math inline">\(A \rightarrow \Box \Diamond A\)</span> in KT</h2>
@@ -190,7 +230,7 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-08.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(A \rightarrow \Box \Diamond A\)</span></p><p>The tree stays open. So this is not valid in <strong>KT</strong>.</p>
+<img data-src="../images/tableaux-11/tableau-11-14.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(A \rightarrow \Box \Diamond A\)</span></p><p>The tree stays open. So this is not valid in <strong>KT</strong>.</p>
 <p>Note that after line 4 we’ve completed all the rules we needed to use in <strong>K</strong>, so the first four lines show it is not a theorem in <strong>K</strong>.</p>
 </section>
 <section class="slide level2">
@@ -210,6 +250,11 @@
 <li class="fragment">If a formula is <strong>not valid in a stronger logic</strong>, it is <strong>not valid in any weaker logic</strong> below it</li>
 </ul>
 </div></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 4: <span class="math inline">\(A \rightarrow \Box \Diamond A\)</span> in KB</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 4: <span class="math inline">\(A \rightarrow \Box \Diamond A\)</span> in KB</h2>
@@ -218,7 +263,12 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-18.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(A \rightarrow \Box \Diamond A\)</span></p><p>The B<span class="math inline">\(\Diamond\)</span> rule gives us the contradiction.</p>
+<img data-src="../images/tableaux-11/tableau-11-15.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(A \rightarrow \Box \Diamond A\)</span></p><p>The B<span class="math inline">\(\Diamond\)</span> rule gives us the contradiction.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 5: <span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span> in K</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 5: <span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span> in K</h2>
@@ -227,20 +277,27 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-19.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-16.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>False conditional means true antecedent and false consequent.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-20.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-17.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>The nested false conditional unpacks: <span class="math inline">\(\Box A\)</span> must be true and <span class="math inline">\(\Box B\)</span> must be false at world 1.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-21.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-18.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>False <span class="math inline">\(\Box\)</span> introduces world 1.1: <span class="math inline">\(B\)</span> must be false there.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-22.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>Both branches close, so this is valid.</p>
-<p>Indeed, this is the canonical axiom for <strong>K</strong>.</p>
+<img data-src="../images/tableaux-11/tableau-11-19.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>World 1.1 now exists, so both True <span class="math inline">\(\Box\)</span> rules fire: <span class="math inline">\(A \rightarrow B\)</span> is true at 1.1 (from line 2), and <span class="math inline">\(A\)</span> is true at 1.1 (from line 4). Note these are reusable rules, so lines 2 and 4 stay unchecked.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-20.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span></p><p>The true conditional at 1.1 branches: either <span class="math inline">\(A\)</span> is false at 1.1 (clashing with line 8) or <span class="math inline">\(B\)</span> is true at 1.1 (clashing with line 6). Both branches close, so this is valid in <strong>K</strong>.</p>
 </section>
 <section class="slide level2">
 <h2>Example 5: <span class="math inline">\(\Box(A \rightarrow B) \rightarrow (\Box A \rightarrow \Box B)\)</span> in K</h2>
@@ -254,6 +311,11 @@
 <li><span class="math inline">\(\Box B\)</span></li>
 </ul>
 <p>The general principle is that if an argument is valid, then putting a box in front of every premise and in front of the conclusion will preserve validity.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 6: <span class="math inline">\((\Box A \vee \Box B) \rightarrow \Box(A \vee B)\)</span> in K</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 6: <span class="math inline">\((\Box A \vee \Box B) \rightarrow \Box(A \vee B)\)</span> in K</h2>
@@ -261,11 +323,37 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-23.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-21.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>False conditional: true antecedent and false consequent.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-24.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>This is valid in K. Intuitively, if either one of <span class="math inline">\(\Box A\)</span> or <span class="math inline">\(\Box B\)</span> is true, we can derive <span class="math inline">\(\Box(A \lor B)\)</span></p>
+<img data-src="../images/tableaux-11/tableau-11-22.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>The true disjunction branches: left branch has <span class="math inline">\(\Box A\)</span>, right branch has <span class="math inline">\(\Box B\)</span>. Work on the left branch first.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-23.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>False <span class="math inline">\(\Box\)</span> (line 3) introduces world 1.1 on the left branch: <span class="math inline">\(A \lor B\)</span> must be false there.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-24.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>World 1.1 exists, so True <span class="math inline">\(\Box\)</span> (line 4, <span class="math inline">\(\Box A\)</span>) fires: <span class="math inline">\(A\)</span> is true at 1.1. Then False <span class="math inline">\(\lor\)</span> gives <span class="math inline">\(\mathbb{F}\,1.1{:}A\)</span>, clashing with line 5. Left branch closes. Now the right branch.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-25.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>False <span class="math inline">\(\Box\)</span> (line 3) introduces world 1.2 on the right branch: <span class="math inline">\(A \lor B\)</span> must be false there too.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-26.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Box A \lor \Box B) \rightarrow \Box(A \lor B)\)</span></p><p>This is valid in K. Intuitively, if either one of <span class="math inline">\(\Box A\)</span> or <span class="math inline">\(\Box B\)</span> is true, we can derive <span class="math inline">\(\Box(A \lor B)\)</span>.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 7: <span class="math inline">\((\Diamond A \wedge \Diamond B) \rightarrow \Diamond(A \wedge B)\)</span> in K</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 7: <span class="math inline">\((\Diamond A \wedge \Diamond B) \rightarrow \Diamond(A \wedge B)\)</span> in K</h2>
@@ -275,32 +363,48 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-25.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-26.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-27.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>The tree stays open. World 1.1 has <span class="math inline">\(A\)</span> but might not have <span class="math inline">\(B\)</span>, and world 1.2 has <span class="math inline">\(B\)</span> but might not have <span class="math inline">\(A\)</span>.</p>
-</section>
-<section class="slide level2">
-<h2>Example 7: <span class="math inline">\(\Diamond A \wedge \Diamond B \rightarrow \Diamond(A \wedge B)\)</span> in K</h2>
-<p>This should fail - worlds accessible from 1 might be different.</p>
+<img data-src="../images/tableaux-11/tableau-11-27.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>Start in the usual way; left-hand side true, right-hand side false. The left-hand side is a true <span class="math inline">\(\wedge\)</span>, so I’ve just spelled it out.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-25.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-28.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>Lines 4 and 5 require introducing new worlds, and crucially we introduce different new worlds for each. The False <span class="math inline">\(\Diamond\)</span> rule (line 3) must be applied at each. Start with world 1.1.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-26.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p></section>
+<img data-src="../images/tableaux-11/tableau-11-29.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p><span class="math inline">\(A \land B\)</span> must be false at world 1.1. Now apply the same rule at world 1.2.</p>
+</section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-27.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>The tree stays open! World 1.1 has <span class="math inline">\(A\)</span> but might not have <span class="math inline">\(B\)</span>, and world 1.2 has <span class="math inline">\(B\)</span> but might not have <span class="math inline">\(A\)</span>.</p>
+<img data-src="../images/tableaux-11/tableau-11-30.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>Now we must apply the False <span class="math inline">\(\land\)</span> rule to lines 8 and 9. Start with line 8: <span class="math inline">\(A \land B\)</span> false at 1.1 branches into <span class="math inline">\(\mathbb{F}\,1.1{:}A\)</span> or <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span>.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-31.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></p><p>The left sub-branch closes: <span class="math inline">\(\mathbb{F}\,1.1{:}A\)</span> clashes with <span class="math inline">\(\mathbb{T}\,1.1{:}A\)</span> at line 6. The right sub-branch (<span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span>) stays open. Now apply the False <span class="math inline">\(\land\)</span> rule to line 9.</p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/tableaux-11/tableau-11-32.tex.svg" style="width:80.0%"></p>
+<figcaption><span class="math inline">\((\Diamond A \land \Diamond B) \rightarrow \Diamond(A \land B)\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:35%;">
+<p>The tree stays open.</p>
+<p>The right sub-branch of line 9 closes, since <span class="math inline">\(\mathbb{F}\,1.2{:}B\)</span> clashes with <span class="math inline">\(\mathbb{T}\,1.2{:}B\)</span> at line 7.</p>
+<p>But the left sub-branch — <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span> and <span class="math inline">\(\mathbb{F}\,1.2{:}A\)</span> — remains open. World 1.1 has <span class="math inline">\(A\)</span> true but <span class="math inline">\(B\)</span> can be false, and world 1.2 has <span class="math inline">\(B\)</span> true but <span class="math inline">\(A\)</span> can be false.</p>
+</div></div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 8: <span class="math inline">\(\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)\)</span> in K</h1>
+
 </section>
 <section class="slide level2">
 <h2>Example 8: <span class="math inline">\(\Box(A \vee B) \rightarrow (\Box A \vee \Diamond B)\)</span> in K</h2>
@@ -308,222 +412,134 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-28.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-29.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-30.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-31.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>This closes! Valid in K.</p>
-</section>
-<section class="slide level2">
-<h2>Example 9: <span class="math inline">\(\Box A \rightarrow A\)</span> in KT</h2>
-<p>We already did this one - it closes immediately with the T<span class="math inline">\(\Box\)</span> rule.</p>
-</section>
-<section class="slide level2">
-<h2>Example 10: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KT</h2>
+<img data-src="../images/tableaux-11/tableau-11-33.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>Assume the formula is false at world 1. A false conditional gives us a true antecedent (<span class="math inline">\(\Box(A \lor B)\)</span>) and a false consequent (<span class="math inline">\(\Box A \lor \Diamond B\)</span>).</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-32.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-33.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>The tree stays open in KT - we can’t get <span class="math inline">\(A\)</span> back to world 1.</p>
-</section>
-<section class="slide level2">
-<h2>Example 11: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KTB</h2>
+<img data-src="../images/tableaux-11/tableau-11-34.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>A false disjunction means both disjuncts are false: <span class="math inline">\(\Box A\)</span> is false and <span class="math inline">\(\Diamond B\)</span> is false at world 1. Note these are non-branching — we get both on the same branch.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-34.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>With the B<span class="math inline">\(\Box\)</span> rule, it closes!</p>
-</section>
-<section class="slide level2">
-<h2>Example 12: <span class="math inline">\(\Box(A \wedge B) \leftrightarrow (\Box A \wedge \Box B)\)</span> in K</h2>
-<p>Let’s do just the left-to-right direction.</p>
+<img data-src="../images/tableaux-11/tableau-11-35.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>False <span class="math inline">\(\Box\)</span> (line 4) introduces world 1.1 with <span class="math inline">\(\mathbb{F}\,1.1{:}A\)</span>. Now the two reusable rules fire at world 1.1: True <span class="math inline">\(\Box\)</span> (line 2) gives <span class="math inline">\(\mathbb{T}\,1.1{:}A \lor B\)</span>, and False <span class="math inline">\(\Diamond\)</span> (line 5) gives <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span>. Lines 2 and 5 stay unchecked as reusable rules.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-35.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \land B) \rightarrow (\Box A \land \Box B)\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-36.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \land B) \rightarrow (\Box A \land \Box B)\)</span></p><p>Valid in K!</p>
+<img data-src="../images/tableaux-11/tableau-11-36.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>The true disjunction at line 7 branches: either <span class="math inline">\(A\)</span> is true at 1.1 (closing against <span class="math inline">\(\mathbb{F}\,1.1{:}A\)</span> at line 6) or <span class="math inline">\(B\)</span> is true at 1.1 (closing against <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span> at line 8). Both branches close, so the formula is valid in <strong>K</strong>.</p>
 </section>
 <section class="slide level2">
-<h2>Example 13: <span class="math inline">\(\Diamond(A \vee B) \leftrightarrow (\Diamond A \vee \Diamond B)\)</span> in K</h2>
-<p>We already showed one direction. Let’s do the other direction.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-37.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\((\Diamond A \lor \Diamond B) \rightarrow \Diamond(A \lor B)\)</span></p><p>So the biconditional is valid in K!</p>
-</section>
-<section class="slide level2">
-<h2>Example 14: More Practice with T</h2>
-<p><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span> in K vs KT</p>
-</section>
-<section class="slide level2">
-
-<p>In K:</p>
-
-<img data-src="../images/tableaux-11/tableau-11-38.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>Stays open in K!</p>
-</section>
-<section class="slide level2">
-
-<p>In KT:</p>
-
-<img data-src="../images/tableaux-11/tableau-11-39.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>Closes in KT!</p>
-</section>
-<section class="slide level2">
-<h2>Example 15: Symmetry in Action</h2>
-<p><span class="math inline">\(\Box A \rightarrow \Diamond A\)</span> in K vs KB</p>
-</section>
-<section class="slide level2">
-
-<p>In K:</p>
-
-<img data-src="../images/tableaux-11/tableau-11-40.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box A \rightarrow \Diamond A\)</span></p><p>Stays open - world 1 might not access any worlds!</p>
-</section>
-<section class="slide level2">
-
-<p>In KB:</p>
-
-<img data-src="../images/tableaux-11/tableau-11-41.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box A \rightarrow \Diamond A\)</span></p><p>Still stays open in KB alone! This needs reflexivity (T) to close.</p>
-</section>
-<section class="slide level2">
-
-<p>In KT:</p>
-
-<img data-src="../images/tableaux-11/tableau-11-42.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box A \rightarrow \Diamond A\)</span></p><p>Closes in KT!</p>
-</section>
-<section class="slide level2">
-<h2>Example 16: <span class="math inline">\(\Diamond A \rightarrow \Box \Diamond A\)</span> in S5</h2>
-<p>This is a characteristic theorem of S5 - let’s prove it step by step using simplified S5.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-43.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Box \Diamond A\)</span></p><p>Start with it being false at 1.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-44.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Box \Diamond A\)</span></p><p>False conditional: true antecedent, false consequent.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-45.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Box \Diamond A\)</span></p><p>True <span class="math inline">\(\Diamond\)</span> sentences and false <span class="math inline">\(\Box\)</span> sentences have to be made true somewhere - not necessarily the same ‘somewhere’.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-46.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Box \Diamond A\)</span></p><p>False <span class="math inline">\(\Diamond\)</span> sentences are false everywhere - that is, the part inside the <span class="math inline">\(\Diamond\)</span> is false everywhere. So <span class="math inline">\(A\)</span> is false at world 2. But we just said <span class="math inline">\(A\)</span> is true at world 2! This closes, so it’s a theorem of S5.</p>
-</section>
-<section class="slide level2">
-<h2>Example 17: <span class="math inline">\(\Box \Diamond A \rightarrow A\)</span> in S5</h2>
-<p>Let’s test whether this is valid in S5. (Spoiler: it’s not!)</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-47.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box \Diamond A \rightarrow A\)</span></p><p>Start with it being false at 1.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-48.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box \Diamond A \rightarrow A\)</span></p><p>False conditional.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-49.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box \Diamond A \rightarrow A\)</span></p><p>The unboxed part of a box sentence is true everywhere, so it is true here.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-50.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box \Diamond A \rightarrow A\)</span></p><p>True <span class="math inline">\(\Diamond\)</span> sentences have to be made true by some world. It can’t be world 1, since <span class="math inline">\(A\)</span> is false there.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-51.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box \Diamond A \rightarrow A\)</span></p><p>True <span class="math inline">\(\Box\)</span> sentences are true, unboxed, everywhere.</p>
-</section>
-<section class="slide level2">
-
-<p>Now if we follow the rules mechanically we would add a new world 3 to make line 6 true, and the cycle would continue. But if we think through what the lines are saying, we can see that we can stop here:</p>
+<h2>Why is this valid?</h2>
+<p>Suppose <span class="math inline">\(\Box(A \lor B)\)</span> is true at world 1 but <span class="math inline">\(\Box A \lor \Diamond B\)</span> is false.</p>
 <ul>
-<li class="fragment">Line 6 (<span class="math inline">\(\Diamond A\)</span> true at 2) has to be made true somehow</li>
-<li class="fragment">But line 5 says that world 2 itself makes line 6 true (since <span class="math inline">\(A\)</span> is true at 2)</li>
-<li class="fragment">So there isn’t anything extra to do</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Describing the Countermodel</h2>
-<p>So here is a model where this formula fails:</p>
-<ul>
-<li class="fragment">There are two worlds: <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span></li>
-<li class="fragment">At <span class="math inline">\(w_1\)</span>, <span class="math inline">\(A\)</span> is false</li>
-<li class="fragment">At <span class="math inline">\(w_2\)</span>, <span class="math inline">\(A\)</span> is true</li>
-<li class="fragment">Because <span class="math inline">\(w_2\)</span> exists, <span class="math inline">\(\Diamond A\)</span> is true everywhere</li>
-<li class="fragment">So <span class="math inline">\(\Box \Diamond A\)</span> is true everywhere</li>
-<li class="fragment">But at <span class="math inline">\(w_1\)</span>, <span class="math inline">\(\Box \Diamond A\)</span> is true and <span class="math inline">\(A\)</span> is false</li>
-<li class="fragment">Therefore at <span class="math inline">\(w_1\)</span>, <span class="math inline">\(\Box \Diamond A \rightarrow A\)</span> is false</li>
+<li class="fragment">Since <span class="math inline">\(\Box A \lor \Diamond B\)</span> is false, both <span class="math inline">\(\Box A\)</span> and <span class="math inline">\(\Diamond B\)</span> are false at world 1.</li>
+<li class="fragment">Since <span class="math inline">\(\Diamond B\)</span> is false, <span class="math inline">\(B\)</span> is false at all accessible worlds.</li>
+<li class="fragment">So if at least one of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is true at each accessible world, as the premise says, and it’s never <span class="math inline">\(B\)</span>, it must always be <span class="math inline">\(A\)</span>.</li>
+<li class="fragment">But that would make <span class="math inline">\(\Box A\)</span> true, contradicting the assumption that it’s false.</li>
 </ul>
 <div class="fragment">
-<p>This shows that <span class="math inline">\(\Box \Diamond A \rightarrow A\)</span> is <strong>not</strong> valid in S5.</p>
+<p>So the assumption that the formula is false leads to a contradiction. It must be valid in <strong>K</strong>.</p>
 </div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 9: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KT</h1>
+
 </section>
 <section class="slide level2">
-<h2>Example 18: <span class="math inline">\(\Box(\Box A \rightarrow A) \rightarrow \Box A\)</span> in KT4</h2>
-</section>
-<section class="slide level2">
+<h2>Example 9: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KT</h2>
 
-
-<img data-src="../images/tableaux-11/tableau-11-52.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(\Box A \rightarrow A) \rightarrow \Box A\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-53.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(\Box A \rightarrow A) \rightarrow \Box A\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-54.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(\Box A \rightarrow A) \rightarrow \Box A\)</span></p><p>Valid in KT4!</p>
-</section>
-<section class="slide level2">
-<h2>Example 19: <span class="math inline">\(\Diamond \Box A \rightarrow \Box \Diamond A\)</span> in S5</h2>
-<p>We’ll use simplified S5 notation for this.</p>
+<img data-src="../images/tableaux-11/tableau-11-37.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>Assume the formula is false at world 1. A false conditional gives a true antecedent (<span class="math inline">\(\Diamond \Box A\)</span>) and a false consequent (<span class="math inline">\(A\)</span> false at world 1).</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-55.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow \Box \Diamond A\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-56.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow \Box \Diamond A\)</span></p></section>
-<section class="slide level2">
-
-
-<img data-src="../images/tableaux-11/tableau-11-57.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow \Box \Diamond A\)</span></p><p>Closes in S5!</p>
-</section>
-<section class="slide level2">
-<h2>Example 20: <span class="math inline">\(\neg \Box \neg A \rightarrow \Diamond A\)</span> in K</h2>
+<img data-src="../images/tableaux-11/tableau-11-38.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>True <span class="math inline">\(\Diamond\)</span> (line 2) introduces world 1.1: there must be an accessible world where <span class="math inline">\(\Box A\)</span> holds.</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-58.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box \neg A \rightarrow \Diamond A\)</span></p><p>Valid in K! This shows that <span class="math inline">\(\neg \Box \neg A\)</span> and <span class="math inline">\(\Diamond A\)</span> are equivalent.</p>
+<img data-src="../images/tableaux-11/tableau-11-39.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>The T<span class="math inline">\(\Box\)</span> rule gives us <span class="math inline">\(A\)</span> true at 1.1: since <span class="math inline">\(\Box A\)</span> is true at 1.1, and every world accesses itself in KT, <span class="math inline">\(A\)</span> must hold at 1.1. But we have no way to get <span class="math inline">\(A\)</span> true back at world 1, so the tree stays open. This formula is <strong>not</strong> valid in <strong>KT</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Reading off the countermodel</h2>
+<p>The open branch describes a model where the formula fails:</p>
+<ul>
+<li class="fragment">There are two worlds: <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span>, where <span class="math inline">\(w_1\)</span> accesses <span class="math inline">\(w_2\)</span> (and each world accesses itself, as required by the T condition).</li>
+<li class="fragment"><span class="math inline">\(A\)</span> is <strong>false</strong> at <span class="math inline">\(w_1\)</span> and <strong>true</strong> at <span class="math inline">\(w_2\)</span>.</li>
+<li class="fragment">Since <span class="math inline">\(A\)</span> is true at <span class="math inline">\(w_2\)</span> and <span class="math inline">\(w_2\)</span> only accesses itself, <span class="math inline">\(\Box A\)</span> is true at <span class="math inline">\(w_2\)</span>.</li>
+<li class="fragment">Since <span class="math inline">\(w_1\)</span> accesses <span class="math inline">\(w_2\)</span> and <span class="math inline">\(\Box A\)</span> holds there, <span class="math inline">\(\Diamond \Box A\)</span> is true at <span class="math inline">\(w_1\)</span>.</li>
+<li class="fragment">So <span class="math inline">\(\Diamond \Box A\)</span> is true but <span class="math inline">\(A\)</span> is false at <span class="math inline">\(w_1\)</span>, and the formula fails.</li>
+</ul>
+<div class="fragment">
+<p>The key point: <span class="math inline">\(\Box A\)</span> being true somewhere accessible to <span class="math inline">\(w_1\)</span> does not make <span class="math inline">\(A\)</span> true at <span class="math inline">\(w_1\)</span> itself, unless accessibility is <strong>symmetric</strong>.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 10: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KTB</h1>
+
+</section>
+<section class="slide level2">
+<h2>Example 10: <span class="math inline">\(\Diamond \Box A \rightarrow A\)</span> in KTB</h2>
+<p>All the rules of <strong>KT</strong> still hold in <strong>KTB</strong>.</p>
+<p>The only difference is that there are now some new rules telling us that we can apply True <span class="math inline">\(\Box\)</span> sentences and False <span class="math inline">\(\Diamond\)</span> sentences back up the tree.</p>
+<p>But since all the old rules hold, it’s fine to just start with where we ended last time.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-40.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>Here’s where we were.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-41.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond \Box A \rightarrow A\)</span></p><p>By applying the distinctive rule for <strong>B</strong> we get <span class="math inline">\(A\)</span> being true at the one place we’ve said it can’t be true. So the tree closes, and in <strong>KTB</strong> this is valid.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 11: <span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span> in K</h1>
+
+</section>
+<section class="slide level2">
+<h2>Example 11: <span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span> in K</h2>
+
+<img data-src="../images/tableaux-11/tableau-11-42.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>Assume the formula is false at world 1. A false conditional gives a true antecedent (<span class="math inline">\(\Diamond A\)</span> true at 1) and a false consequent (<span class="math inline">\(\Diamond \Diamond A\)</span> false at 1).</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-43.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>True <span class="math inline">\(\Diamond\)</span> (line 2) introduces world 1.1: since <span class="math inline">\(\Diamond A\)</span> is true at world 1, there must be an accessible world where <span class="math inline">\(A\)</span> holds. We call it 1.1.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-44.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>False <span class="math inline">\(\Diamond\)</span> (line 3) is a reusable rule: since <span class="math inline">\(\Diamond \Diamond A\)</span> is false at world 1, <span class="math inline">\(\Diamond A\)</span> must be false at every world accessible from 1. World 1.1 is accessible from 1, so <span class="math inline">\(\Diamond A\)</span> is false at 1.1.</p>
+</section>
+<section class="slide level2">
+<h2>Example 11: <span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span> in K</h2>
+<p>And there aren’t any other rules to apply, so the tableau is open.</p>
+<p>The countermodel isn’t very elegant.</p>
+<p>There are two worlds, <span class="math inline">\(w_1\)</span> and <span class="math inline">\(w_2\)</span>. (Or <span class="math inline">\(w_{1.1}\)</span> if you prefer).</p>
+<p>The only <span class="math inline">\(R\)</span> relation is from <span class="math inline">\(w_1\)</span> to <span class="math inline">\(w_2\)</span>.</p>
+<p>And <span class="math inline">\(A\)</span> is true at <span class="math inline">\(w_2\)</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Example 12: <span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span> in KT</h2>
+<p>If we go to <strong>KT</strong>, everything we’ve said in the tree so far is correct, but we have new rules to apply.</p>
+<p>In particular, we have to apply the <strong>T</strong> rules.</p>
+<p>But let’s start with where we were up to last time.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-45.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>Now we have to go on to apply the <strong>T</strong> rules.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-46.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>The T<span class="math inline">\(\Diamond\)</span> rule: since <span class="math inline">\(\Diamond A\)</span> is false at world 1.1, and in KT every world accesses itself, <span class="math inline">\(A\)</span> must be false at 1.1 itself. But line 4 says <span class="math inline">\(A\)</span> is true at 1.1 — contradiction. The branch closes. This formula is <strong>valid</strong> in <strong>KT</strong>.</p>
 
 
 </section></section>
