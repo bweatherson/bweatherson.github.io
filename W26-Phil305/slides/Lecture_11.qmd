@@ -1238,3 +1238,360 @@ Now we have to go on to apply the **T** rules.
 :::
 
 The T$\Diamond$ rule: since $\Diamond A$ is false at world 1.1, and in KT every world accesses itself, $A$ must be false at 1.1 itself. But line 4 says $A$ is true at 1.1, generating the contradiction. The branch closes. This formula is **valid** in **KT**.
+
+# Example 13: $\neg \Box(A \wedge \neg \Box A)$ in K
+
+## Example 13: $\neg \Box(A \wedge \neg \Box A)$ in K
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-47.tex.svg){width=600px}
+:::
+
+Assume the formula is false at world 1. False $\neg$ gives us $\Box(A \wedge \neg \Box A)$ true at world 1.
+
+---
+
+## Example 13: $\neg \Box(A \wedge \neg \Box A)$ in K
+
+Line 2 is True $\Box$, which is only fires when we have an accessible world.
+
+But no accessible worlds have been introduced, and no other rules apply. The tree stays open.
+
+The countermodel: a single world $w_1$ with no accessible worlds at all. $\Box(A \wedge \neg \Box A)$ is vacuously true there (no accessible worlds to check), so $\neg \Box(A \wedge \neg \Box A)$ is false at $w_1$, as required.
+
+# Example 14: $\neg \Box(A \wedge \neg \Box A)$ in KT
+
+## Example 14: $\neg \Box(A \wedge \neg \Box A)$ in KT
+
+In **KT** every world accesses itself, so the True $\Box$ rule now has somewhere to fire. Let's start from where we were.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-48.tex.svg){width=600px}
+:::
+
+In KT, world 1 accesses itself, so we can apply the True $\Box$ rule at world 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+        [\sFmla{\True}{1, A \wedge \neg \Box A}, just = {\TRule{\Box}{\text{T}}[2]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-49.tex.svg){width=600px}
+:::
+
+The T$\Box$ rule (line 2) gives us $A \wedge \neg \Box A$ true at world 1: since $\Box(A \wedge \neg \Box A)$ is true at 1 and 1 accesses itself, the formula inside the box must hold at 1.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+        [\sFmla{\True}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[2]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\wedge}[3]}
+                [\sFmla{\True}{1, \neg \Box A}, just = {\TRule{\True}{\wedge}[3]}
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-50.tex.svg){width=600px}
+:::
+
+True $\wedge$ (line 3) gives both conjuncts: $A$ true at 1 (line 4) and $\neg \Box A$ true at 1 (line 5). Line 3 is checked.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+        [\sFmla{\True}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[2]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\wedge}[3]}
+                [\sFmla{\True}{1, \neg \Box A}, checked, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\False}{1, \Box A}, just = {\TRule{\True}{\neg}[5]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[6]}
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-51.tex.svg){width=600px}
+:::
+
+True $\neg$ (line 5) gives $\Box A$ false at 1 (line 6). False $\Box$ (line 6) introduces world 1.1 with $A$ false there (line 7). Lines 5 and 6 are checked.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
+        [\sFmla{\True}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[2]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\wedge}[3]}
+                [\sFmla{\True}{1, \neg \Box A}, checked, just = {\TRule{\True}{\wedge}[3]}
+                    [\sFmla{\False}{1, \Box A}, just = {\TRule{\True}{\neg}[5]}
+                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[6]}
+                            [\sFmla{\True}{1.1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[8]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![$\neg \Box(A \wedge \neg \Box A)$](../images/tableaux-11/tableau-11-52.tex.svg){width=600px}
+:::
+
+True $\Box$ (line 2) is reusable: now that world 1.1 exists, it fires there too, giving $A \wedge \neg \Box A$ true at 1.1 (line 8). True $\wedge$ on line 8 gives $A$ true at 1.1 (line 9), but line 7 says $A$ is false at 1.1.
+
+## Why is this valid?
+
+::: {.incremental}
+- Assume $\Box(A \wedge \neg \Box A)$ is true at $w_1$: at every accessible world, $A$ is true and $\Box A$ is false.
+- By the T condition, $w_1$ accesses itself, so $A \wedge \neg \Box A$ holds at $w_1$ itself.
+- In particular, $\neg \Box A$ is true at $w_1$: so $\Box A$ is false at $w_1$.
+- But $\Box A$ false at $w_1$ means there is some accessible world where $A$ fails.
+- That contradicts our assumption that $A$ holds at every accessible world (including $w_1$ itself, by the T condition).
+:::
+
+. . .
+
+The T condition is essential: it forces $w_1$ to be a witness against its own assumption. In K, a world with no accessible worlds escapes this argument entirely.
+
+## Interpretation
+
+Let $\Box A$ mean that our Hero, let's call them Hero, knows that $A$.
+
+Since Hero can only know true things, we want $\Box A \rightarrow A$ to always be true. So the logic for this box should be at least **KT**.
+
+And this proof shows that there is a kind of claim Hero cannot know, namely that $A$ is true and Hero doesn't know it.
+
+This is a bit odd because of course there could be a lot of things Hero doesn't know.
+
+This creates what the philosopher Roy Sorensen called *blindspots*.
+
+# Example 15
+
+## Example 15: $((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)$ in KT
+
+This is a mouthful, so I'll say a bit more about why it is relevant.
+
+Lots of philosophical views over the years have held the view that **Every truth is knowable**.
+
+## Every truth is knowable
+
+There are a lot of philosophical traditions that have included at least some strands that endorse *Every truth is knowable*.
+
+- **Pragmatism**: Protagorus's dictum "Man is the measure of all things".
+- **Idealism**: There is no mind-independent reality.
+- **Positivism**: The meaning of a claim is it's verification condition.
+- **Scientific Realism**: The scientific method can give us a full picture of the world.
+
+. . .
+
+Do note that in some of these traditions, especially the first and last, there are also plenty of people who deny Every truth is knowable.
+
+## Every truth is knowable
+
+A (relatively) recent objection to *Every truth is knowable* is that if we formulate it in modal logic, it implies the absurd claim *Every truth is known*.
+
+Well, absurd might be too strong; perhaps God knows everything. But still, it would be a striking implication.
+
+## Every truth is knowable
+
+Start by interpreting *Every truth is knowable* as the claim that for any proposition, if it's true, it is possibly known.
+
+So if we interpret $\Box$ as *It is known that*, this sort of means any claim of the form $X \rightarrow \Diamond \Box X$ is true.
+
+The left hand side of 
+
+$$
+((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)
+$$
+
+is an instance of that form, with $X = A \wedge \neg \Box A$.
+
+And the right hand side says, of arbitrary $A$, that if it's true it's known. So in effect this says any truth is known.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Step 1](../images/tableaux-11/tableau-11-53.tex.svg){width=600px}
+:::
+
+Assume the formula is false at world 1. The outer conditional is false, so its antecedent (line 2) is true and its consequent (line 3) is false.
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Step 2](../images/tableaux-11/tableau-11-54.tex.svg){width=600px}
+:::
+
+Line 3 is false: $A \rightarrow \Box A$ is a false conditional, so $A$ is true at 1 (line 4) and $\Box A$ is false at 1 (line 5). False $\Box$ on line 5 introduces world 1.1, where $A$ is false (line 6).
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\False}{1, A \wedge \neg \Box A}, just = {\TRule{\True}{\rightarrow}[2]}
+                        ]
+                        [\sFmla{\True}{1, \Diamond \Box (A \wedge \neg \Box A)}, just = {\TRule{\True}{\rightarrow}[2]}
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Step 3](../images/tableaux-11/tableau-11-55.tex.svg){width=600px}
+:::
+
+Line 2 is a true conditional: it branches. Either the antecedent $A \wedge \neg \Box A$ is false at 1 (left branch, line 7), or the consequent $\Diamond \Box(A \wedge \neg \Box A)$ is true at 1 (right branch, line 8).
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\False}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\rightarrow}[2]}
+                            [\sFmla{\False}{1, A}, just = {\TRule{\False}{\wedge}[7]}, close]
+                            [\sFmla{\False}{1, \neg \Box A}, checked, just = {\TRule{\False}{\wedge}[7]}
+                                [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\neg}[8]}, close]
+                            ]
+                        ]
+                        [\sFmla{\True}{1, \Diamond \Box (A \wedge \neg \Box A)}, just = {\TRule{\True}{\rightarrow}[2]}
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Step 4](../images/tableaux-11/tableau-11-56.tex.svg){width=600px}
+:::
+
+---
+
+\begin{oltableau}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\False}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\rightarrow}[2]}
+                            [\sFmla{\False}{1, A}, just = {\TRule{\False}{\wedge}[7]}, close]
+                            [\sFmla{\False}{1, \neg \Box A}, checked, just = {\TRule{\False}{\wedge}[7]}
+                                [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\neg}[8]}, close]
+                            ]
+                        ]
+                        [\sFmla{\True}{1, \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\True}{\rightarrow}[2]}
+                            [\sFmla{\True}{1.2, \Box (A \wedge \neg \Box A)}, just = {\TRule{\True}{\Diamond}[7]}
+                                [\sFmla{\True}{1.2, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[10]}
+                                    [\sFmla{\True}{1.2, A}, just = {\TRule{\True}{\wedge}[11]}
+                                        [\sFmla{\True}{1.2, \neg \Box A}, checked, just = {\TRule{\True}{\wedge}[11]}
+                                            [\sFmla{\False}{1.2, \Box A}, checked, just = {\TRule{\True}{\neg}[13]}
+                                                [\sFmla{\False}{1.2.1, A}, just = {\TRule{\False}{\Box}[14]}
+                                                    [\sFmla{\True}{1.2.1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\Box}[10]}
+                                                        [\sFmla{\True}{1.2.1, A}, just = {\TRule{\True}{\wedge}[16]}, close]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Step 5](../images/tableaux-11/tableau-11-57.tex.svg){width=500px}
+:::
+
+## Upshot
+
+Philosophers who want to endorse *Every truth is knowable* have only two options at this point.
+
+1. Say that somehow in translating their dictum into logic we messed up it's content. And to be fair I have been a bit slippery here with what $\Diamond$ means.
+2. Accept the conclusion that *Every truth is known*. This is easy enough if your motivation for this kind of philosophical view is theism. If not...

@@ -47,13 +47,15 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
-    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
-        [\sFmla{\True}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[2]}
-            [\sFmla{\True}{1, A}, just = {\TRule{\True}{\wedge}[3]}
-                [\sFmla{\True}{1, \neg \Box A}, checked, just = {\TRule{\True}{\wedge}[3]}
-                    [\sFmla{\False}{1, \Box A}, just = {\TRule{\True}{\neg}[5]}
-                        [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[6]}
+[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
+                        [\sFmla{\False}{1, A \wedge \neg \Box A}, just = {\TRule{\True}{\rightarrow}[2]}
+                        ]
+                        [\sFmla{\True}{1, \Diamond \Box (A \wedge \neg \Box A)}, just = {\TRule{\True}{\rightarrow}[2]}
                         ]
                     ]
                 ]

@@ -398,7 +398,7 @@
 </div><div class="column" style="width:35%;">
 <p>The tree stays open.</p>
 <p>The right sub-branch of line 9 closes, since <span class="math inline">\(\mathbb{F}\,1.2{:}B\)</span> clashes with <span class="math inline">\(\mathbb{T}\,1.2{:}B\)</span> at line 7.</p>
-<p>But the left sub-branch — <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span> and <span class="math inline">\(\mathbb{F}\,1.2{:}A\)</span> — remains open. World 1.1 has <span class="math inline">\(A\)</span> true but <span class="math inline">\(B\)</span> can be false, and world 1.2 has <span class="math inline">\(B\)</span> true but <span class="math inline">\(A\)</span> can be false.</p>
+<p>But the left sub-branch, with <span class="math inline">\(\mathbb{F}\,1.1{:}B\)</span> and <span class="math inline">\(\mathbb{F}\,1.2{:}A\)</span>, remains open. World 1.1 has <span class="math inline">\(A\)</span> true but <span class="math inline">\(B\)</span> can be false, and world 1.2 has <span class="math inline">\(B\)</span> true but <span class="math inline">\(A\)</span> can be false.</p>
 </div></div>
 </section></section>
 <section>
@@ -417,7 +417,7 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-34.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>A false disjunction means both disjuncts are false: <span class="math inline">\(\Box A\)</span> is false and <span class="math inline">\(\Diamond B\)</span> is false at world 1. Note these are non-branching — we get both on the same branch.</p>
+<img data-src="../images/tableaux-11/tableau-11-34.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Box(A \lor B) \rightarrow (\Box A \lor \Diamond B)\)</span></p><p>A false disjunction means both disjuncts are false: <span class="math inline">\(\Box A\)</span> is false and <span class="math inline">\(\Diamond B\)</span> is false at world 1. Note these are non-branching; we get both on the same branch.</p>
 </section>
 <section class="slide level2">
 
@@ -539,7 +539,151 @@
 <section class="slide level2">
 
 
-<img data-src="../images/tableaux-11/tableau-11-46.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>The T<span class="math inline">\(\Diamond\)</span> rule: since <span class="math inline">\(\Diamond A\)</span> is false at world 1.1, and in KT every world accesses itself, <span class="math inline">\(A\)</span> must be false at 1.1 itself. But line 4 says <span class="math inline">\(A\)</span> is true at 1.1 — contradiction. The branch closes. This formula is <strong>valid</strong> in <strong>KT</strong>.</p>
+<img data-src="../images/tableaux-11/tableau-11-46.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\Diamond A \rightarrow \Diamond \Diamond A\)</span></p><p>The T<span class="math inline">\(\Diamond\)</span> rule: since <span class="math inline">\(\Diamond A\)</span> is false at world 1.1, and in KT every world accesses itself, <span class="math inline">\(A\)</span> must be false at 1.1 itself. But line 4 says <span class="math inline">\(A\)</span> is true at 1.1, generating the contradiction. The branch closes. This formula is <strong>valid</strong> in <strong>KT</strong>.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 13: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in K</h1>
+
+</section>
+<section class="slide level2">
+<h2>Example 13: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in K</h2>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-47.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>Assume the formula is false at world 1. False <span class="math inline">\(\neg\)</span> gives us <span class="math inline">\(\Box(A \wedge \neg \Box A)\)</span> true at world 1.</p>
+</section>
+<section class="slide level2">
+<h2>Example 13: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in K</h2>
+<p>Line 2 is True <span class="math inline">\(\Box\)</span>, which is a reusable rule — it can only fire when we have an accessible world.</p>
+<p>But no accessible worlds have been introduced, and no other rules apply. The tree stays open.</p>
+<p>The countermodel: a single world <span class="math inline">\(w_1\)</span> with no accessible worlds at all. <span class="math inline">\(\Box(A \wedge \neg \Box A)\)</span> is vacuously true there (no accessible worlds to check), so <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> is false at <span class="math inline">\(w_1\)</span>, as required.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 14: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in KT</h1>
+
+</section>
+<section class="slide level2">
+<h2>Example 14: <span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span> in KT</h2>
+<p>In <strong>KT</strong> every world accesses itself, so the True <span class="math inline">\(\Box\)</span> rule now has somewhere to fire. Let’s start from where we were.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-48.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>In KT, world 1 accesses itself, so we can apply the True <span class="math inline">\(\Box\)</span> rule at world 1.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-49.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>The T<span class="math inline">\(\Box\)</span> rule (line 2) gives us <span class="math inline">\(A \wedge \neg \Box A\)</span> true at world 1: since <span class="math inline">\(\Box(A \wedge \neg \Box A)\)</span> is true at 1 and 1 accesses itself, the formula inside the box must hold at 1.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-50.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>True <span class="math inline">\(\wedge\)</span> (line 3) gives both conjuncts: <span class="math inline">\(A\)</span> true at 1 (line 4) and <span class="math inline">\(\neg \Box A\)</span> true at 1 (line 5). Line 3 is checked.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-51.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>True <span class="math inline">\(\neg\)</span> (line 5) gives <span class="math inline">\(\Box A\)</span> false at 1 (line 6). False <span class="math inline">\(\Box\)</span> (line 6) introduces world 1.1 with <span class="math inline">\(A\)</span> false there (line 7). Lines 5 and 6 are checked.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-52.tex.svg" width="600" class="r-stretch quarto-figure-center"><p class="caption"><span class="math inline">\(\neg \Box(A \wedge \neg \Box A)\)</span></p><p>True <span class="math inline">\(\Box\)</span> (line 2) is reusable: now that world 1.1 exists, it fires there too, giving <span class="math inline">\(A \wedge \neg \Box A\)</span> true at 1.1 (line 8). True <span class="math inline">\(\wedge\)</span> on line 8 gives <span class="math inline">\(A\)</span> true at 1.1 (line 9) — but line 7 says <span class="math inline">\(A\)</span> is false at 1.1. Contradiction. The branch closes. This formula is <strong>valid</strong> in <strong>KT</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Why is this valid?</h2>
+<ul>
+<li class="fragment">Assume <span class="math inline">\(\Box(A \wedge \neg \Box A)\)</span> is true at <span class="math inline">\(w_1\)</span>: at every accessible world, <span class="math inline">\(A\)</span> is true and <span class="math inline">\(\Box A\)</span> is false.</li>
+<li class="fragment">By the T condition, <span class="math inline">\(w_1\)</span> accesses itself, so <span class="math inline">\(A \wedge \neg \Box A\)</span> holds at <span class="math inline">\(w_1\)</span> itself.</li>
+<li class="fragment">In particular, <span class="math inline">\(\neg \Box A\)</span> is true at <span class="math inline">\(w_1\)</span>: so <span class="math inline">\(\Box A\)</span> is false at <span class="math inline">\(w_1\)</span>.</li>
+<li class="fragment">But <span class="math inline">\(\Box A\)</span> false at <span class="math inline">\(w_1\)</span> means there is some accessible world where <span class="math inline">\(A\)</span> fails.</li>
+<li class="fragment">That contradicts our assumption that <span class="math inline">\(A\)</span> holds at every accessible world (including <span class="math inline">\(w_1\)</span> itself, by the T condition).</li>
+</ul>
+<div class="fragment">
+<p>The T condition is essential: it forces <span class="math inline">\(w_1\)</span> to be a witness against its own assumption. In K, a world with no accessible worlds escapes this argument entirely.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Interpretation</h2>
+<p>Let <span class="math inline">\(\Box A\)</span> mean that our Hero, let’s call them Hero, knows that <span class="math inline">\(A\)</span>.</p>
+<p>Since Hero can only know true things, we want <span class="math inline">\(\Box A \rightarrow A\)</span> to always be true. So the logic for this box should be at least <strong>KT</strong>.</p>
+<p>And this proof shows that there is a kind of claim Hero cannot know, namely that <span class="math inline">\(A\)</span> is true and Hero doesn’t know it.</p>
+<p>This is a bit odd because of course there could be a lot of things Hero doesn’t know.</p>
+<p>This creates what the philosopher Roy Sorensen called <em>blindspots</em>.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example 15</h1>
+
+</section>
+<section class="slide level2">
+<h2>Example 15: <span class="math inline">\(((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)\)</span> in KT</h2>
+<p>This is a mouthful, so I’ll say a bit more about why it is relevant.</p>
+<p>Lots of philosophical views over the years have held the view that <strong>Every truth is knowable</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Every truth is knowable</h2>
+<p>There are a lot of philosophical traditions that have included at least some strands that endorse <em>Every truth is knowable</em>.</p>
+<ul>
+<li><strong>Pragmatism</strong>: Protagorus’s dictum “Man is the measure of all things”.</li>
+<li><strong>Idealism</strong>: There is no mind-independent reality.</li>
+<li><strong>Positivism</strong>: The meaning of a claim is it’s verification condition.</li>
+<li><strong>Scientific Realism</strong>: The scientific method can give us a full picture of the world.</li>
+</ul>
+<div class="fragment">
+<p>Do note that in some of these traditions, especially the first and last, there are also plenty of people who deny Every truth is knowable.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Every truth is knowable</h2>
+<p>A (relatively) recent objection to <em>Every truth is knowable</em> is that if we formulate it in modal logic, it implies the absurd claim <em>Every truth is known</em>.</p>
+<p>Well, absurd might be too strong; perhaps God knows everything. But still, it would be a striking implication.</p>
+</section>
+<section class="slide level2">
+<h2>Every truth is knowable</h2>
+<p>Start by interpreting <em>Every truth is knowable</em> as the claim that for any proposition, if it’s true, it is possibly known.</p>
+<p>So if we interpret <span class="math inline">\(\Box\)</span> as <em>It is known that</em>, this sort of means any claim of the form <span class="math inline">\(X \rightarrow \Diamond \Box X\)</span> is true.</p>
+<p>The left hand side of</p>
+<p><span class="math display">\[
+((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)
+\]</span></p>
+<p>is an instance of that form, with <span class="math inline">\(X = A \wedge \neg \Box A\)</span>.</p>
+<p>And the right hand side says, of arbitrary <span class="math inline">\(A\)</span>, that if it’s true it’s known. So in effect this says any truth is known.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-53.tex.svg" width="600" class="r-stretch"><p>Assume the formula is false at world 1. The outer conditional is false, so its antecedent (line 2) is true and its consequent (line 3) is false.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-54.tex.svg" width="600" class="r-stretch"><p>Line 3 is false: <span class="math inline">\(A \rightarrow \Box A\)</span> is a false conditional, so <span class="math inline">\(A\)</span> is true at 1 (line 4) and <span class="math inline">\(\Box A\)</span> is false at 1 (line 5). False <span class="math inline">\(\Box\)</span> on line 5 introduces world 1.1, where <span class="math inline">\(A\)</span> is false (line 6).</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-55.tex.svg" width="600" class="r-stretch"><p>Line 2 is a true conditional: it branches. Either the antecedent <span class="math inline">\(A \wedge \neg \Box A\)</span> is false at 1 (left branch, line 7), or the consequent <span class="math inline">\(\Diamond \Box(A \wedge \neg \Box A)\)</span> is true at 1 (right branch, line 8).</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-56.tex.svg" width="600" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../images/tableaux-11/tableau-11-57.tex.svg" width="400" class="r-stretch"></section>
+<section class="slide level2 scrollable">
+<h2>Upshot</h2>
+<p>Philosophers who want to endorse <em>Every truth is knowable</em> have only two options at this point.</p>
+<ol type="1">
+<li>Say that somehow in translating their dictum into logic we messed up it’s content. And to be fair I have been a bit slippery here with what <span class="math inline">\(\Diamond\)</span> means.</li>
+<li>Accept the conclusion that <em>Every truth is known</em>. This is easy enough if your motivation for this kind of philosophical view is theism. If not…</li>
+</ol>
 
 
 </section></section>

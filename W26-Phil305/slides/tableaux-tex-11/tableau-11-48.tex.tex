@@ -47,22 +47,8 @@
 \begin{document}
 
 \begin{oltableau}
-[\sFmla{\False}{1, \Box(\Box A \rightarrow A) \rightarrow \Box A}, just = \TAss
-    [\sFmla{\True}{1, \Box(\Box A \rightarrow A)}, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1, \Box A \rightarrow A}, just = {\TRule{\Box}{\text{T}}[2]}
-                [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[3]}
-                    [\sFmla{\True}{1.1, \Box A \rightarrow A}, just = {\TRule{\True}{\Box}[2]}
-                        [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\True}{\rightarrow}[6]}
-                            [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\Box}[7]}
-                                [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[6]}, close]
-                            ]
-                        ]
-                        [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
-                    ]
-                ]
-            ]
-        ]
+[\sFmla{\False}{1, \neg \Box(A \wedge \neg \Box A)}, checked, just = \TAss
+    [\sFmla{\True}{1, \Box(A \wedge \neg \Box A)}, just = {\TRule{\False}{\neg}[1]}
     ]
 ]
 \end{oltableau}
