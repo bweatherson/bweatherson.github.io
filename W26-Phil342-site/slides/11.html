@@ -143,14 +143,13 @@
 </section>
 <section class="slide level2">
 <h2>Recap: What We’ve Covered So Far</h2>
-<p>We’ve examined three families of pooling strategies:</p>
+<p>We’ve examined two families of pooling strategies:</p>
 <ul>
 <li class="fragment"><strong>Linear pooling</strong>: Weighted averages (satisfies most axioms, but violates External Bayesianity)</li>
-<li class="fragment"><strong>Geometric pooling</strong>: Geometric means over partitions (satisfies External Bayesianity, but partition-sensitive)</li>
-<li class="fragment"><strong>Multiplicative pooling</strong>: Generalization of geometric pooling (no unanimity preservation)</li>
+<li class="fragment"><strong>Geometric pooling</strong>: Geometric means over partitions (satisfies External Bayesianity, but partition-sensitive and violates lots of other axioms)</li>
 </ul>
 <div class="fragment">
-<p>Today: Moving beyond axioms to evaluate pooling by its <strong>epistemic consequences</strong></p>
+<p>Today we’re looking at how pooling relates to whether groups are <strong>reasonable</strong>. So we’re taking more of an outsider’s perspective.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -161,7 +160,7 @@
 <li><strong>Justification</strong>: Preserving epistemic warrant</li>
 </ol>
 <div class="fragment">
-<p>These relate to our earlier discussion of Group Rationality: groups should have accurate, justified beliefs.</p>
+<p>These are hopefully related; though just what the relation is isn’t always clear.</p>
 </div>
 </section></section>
 <section>
@@ -174,9 +173,9 @@
 <p><strong>Core idea</strong>: A credence can’t be true or false, but it can be more or less <em>accurate</em>.</p>
 <div class="fragment">
 <ul>
-<li class="fragment">If I’m 60% confident it will rain and you’re 5% confident</li>
-<li class="fragment">If it rains: my credence was more accurate</li>
-<li class="fragment">If it doesn’t rain: your credence was more accurate</li>
+<li class="fragment">If I’m 60% confident it will rain and you’re 5% confident.</li>
+<li class="fragment">If it rains: my credence was more accurate.</li>
+<li class="fragment">If it doesn’t rain: your credence was more accurate.</li>
 </ul>
 </div>
 <div class="fragment">
@@ -191,16 +190,18 @@
 <li class="fragment">Credence <strong>0</strong> to all propositions false at <span class="math inline">\(w\)</span></li>
 </ul>
 <div class="fragment">
-<p>This represents perfect knowledge of <span class="math inline">\(w\)</span>.</p>
-</div>
-<div class="fragment">
-<p><strong>Accuracy</strong> = how close your credences are to the ideal</p>
-<p><strong>Inaccuracy</strong> = how far your credences are from the ideal</p>
+<p>This represents perfect knowledge of <span class="math inline">\(w\)</span>. It’s literally the God’s eye view.</p>
 </div>
 </section>
 <section class="slide level2">
+<h2>The Ideal Credence Function</h2>
+<p><strong>Accuracy</strong> = how close your credences are to the ideal</p>
+<p><strong>Inaccuracy</strong> = how far your credences are from the ideal</p>
+<p>But this just raises a question, how do we measure accuracy?</p>
+</section>
+<section class="slide level2">
 <h2>How to Measure Distance</h2>
-<p><strong>Basic idea</strong>: Sum up the “mistakes” across all your credences.</p>
+<p><strong>Usual starting point</strong>: Sum up the “mistakes” across all your credences.</p>
 <div class="fragment">
 <p><strong>Example</strong>: You’re 40% confident it will rain.</p>
 <ul>
@@ -213,17 +214,80 @@
 </div>
 </section>
 <section class="slide level2">
+<h2>Annoying Technical Detail</h2>
+<p>There are some very widely accepted constraints on how you do this measurement, and a bunch of measures that satisfy those constraints.</p>
+<p>Annoyingly, the measurement that says:</p>
+<ul>
+<li>For every proposition, you get <span class="math inline">\(x\)</span> inaccuracy points when <span class="math inline">\(x\)</span> is the difference between your inaccuracy and the ideal;</li>
+<li>You add up all the inaccuracy points across all propositions, and the lower the better;</li>
+</ul>
+<p>is <strong>not</strong> one of them.</p>
+<div class="fragment">
+<p>If you say that whenever you are off by <span class="math inline">\(x\)</span>, you get penalised <span class="math inline">\(x^2\)</span> accuracy points, you do get a measure that works, and indeed the most widely used measure there is. (It’s called the Breir score, after a meteorologist who proposed it in the 1950s.)</p>
+</div>
+</section>
+<section class="slide level2">
 <h2>A Key Result</h2>
-<p>If you use appropriate accuracy measures (technical details omitted):</p>
+<p>If you use these appropriate accuracy measures (technical details omitted, but the key moves here are largely due to Michigan faculty):</p>
 <div class="fragment">
 <ul>
-<li class="fragment"><strong>Probabilism vindicated</strong>: If your credences violate probability rules, there’s always a better credence function that’s guaranteed to be more accurate</li>
-<li class="fragment"><strong>Bayesianism vindicated</strong>: Updating by Bayes’ Rule minimizes expected inaccuracy</li>
+<li class="fragment"><strong>Probabilism vindicated</strong>: If your credences violate probability rules, there’s always a better credence function that’s guaranteed to be more accurate.</li>
+<li class="fragment"><strong>Bayesianism vindicated</strong>: Updating by Bayes’ Rule minimizes expected inaccuracy.</li>
 </ul>
 </div>
 <div class="fragment">
-<p>This provides justification for fundamental epistemic norms!</p>
+<p>This provides justification for fundamental epistemic norms.</p>
 </div>
+</section>
+<section class="slide level2">
+<h2>Accuracy Concepts</h2>
+<p>Let’s say that we measure inaccuracy by the square of the distance from perfection. Then there are two notions that get used a lot.</p>
+<ul>
+<li class="fragment"><strong>Guaranteed Inaccuracy</strong>. Sometimes one credence function is guaranteed to be more accurate than another.</li>
+<li class="fragment"><strong>Expected Inaccuracy</strong>. For any two probability functions, <span class="math inline">\(\Pr_1\)</span> and <span class="math inline">\(\Pr_2\)</span>, we can work out how inaccurate <span class="math inline">\(\Pr_1\)</span> expects <span class="math inline">\(\Pr_2\)</span> to be.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Guaranteed Inaccuracy</h2>
+<p>We’re interested in whether or not it will rain tomorrow.</p>
+<ul>
+<li class="fragment">I have the incoherent view that it is 70% likely to rain, and 70% likely to not rain.</li>
+<li class="fragment">Mitch has the coherent view that it is 50% likely to rain, and 50% likely to not rain.</li>
+</ul>
+<div class="fragment">
+<p>If it rains, my inaccuracy score is <span class="math inline">\(0.58\)</span>. I’m off on rain by <span class="math inline">\(0.3\)</span>, and I’m off on not rain by <span class="math inline">\(0.7\)</span>, and <span class="math inline">\(0.3^2 + 0.7^2 = 0.58\)</span>.</p>
+</div>
+<div class="fragment">
+<p>If it rains, Mitch’s inaccuracy score is <span class="math inline">\(0.5\)</span>. He’s off on rain by <span class="math inline">\(0.5\)</span>, and he’s off on not rain by <span class="math inline">\(0.5\)</span>, and <span class="math inline">\(0.5^2 + 0.5^2 = 0.58\)</span>.</p>
+</div>
+<div class="fragment">
+<p>He does better; and he also does better (for the same reason) if no rain, so he’s <strong>guaranteed</strong> to do better.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Expected Inaccuracy</h2>
+<p>Set aside these incoherent views like having credence <span class="math inline">\(0.7\)</span> in both rain and not rain. Imagine that <span class="math inline">\(\Pr_1\)</span> and <span class="math inline">\(\Pr_2\)</span> are coherent. They have credences <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> in rain, and <span class="math inline">\(1-x_1\)</span> and <span class="math inline">\(1-x_2\)</span> in not rain.</p>
+<p>How accurate does each <em>expect</em> the other to be?</p>
+<p>Since they are coherent, we’ll ignore their credence in not rain, and just ask how accurate they expect the rain credence to be. (The other credence is, after all, forced.)</p>
+</section>
+<section class="slide level2">
+<h2>Expected Inaccuracy</h2>
+<p>We just pull out the standard formula for expected value.</p>
+<ul>
+<li class="fragment">My expectation of your inaccuracy is given by:</li>
+<li class="fragment">My credence in rain, times how inaccurate you would be if it rains plus</li>
+<li class="fragment">My credence in not rain, times how inaccurate you would be if it doesn’t rain.</li>
+<li class="fragment">And your expectation of my inaccuracy is calculated the same way.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Expected Inaccuracy</h2>
+<p>Neat result:</p>
+<ul>
+<li class="fragment">If we’re both coherent, I will expect that I’m more accurate than you, and you will expect you’re more accurate than me.</li>
+<li class="fragment">In general, every person with a coherent set of credences will think they are maximally accurate <em>in expectation</em>.</li>
+<li class="fragment">Of course, the person who simply guesses right about everything will be more accurate, but for any such guesser, each of us should expect to do better than them.</li>
+</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -232,12 +296,12 @@
 </section>
 <section class="slide level2">
 <h2>The Shakespeare Scholar Scenario</h2>
-<p>A huge community of Shakespeare scholars has credences about who authored the works attributed to Shakespeare.</p>
+<p>Let’s start with an example. A huge community of Shakespeare scholars has credences about who authored the works attributed to Shakespeare.</p>
 <ul>
 <li class="fragment">Christopher Marlowe?</li>
 <li class="fragment">Francis Bacon?</li>
 <li class="fragment">Edward de Vere?</li>
-<li class="fragment">Shakespeare himself?</li>
+<li class="fragment">Shakespeare himself? (It was Shakespeare himself, but let’s do the hypothetical.)</li>
 </ul>
 <div class="fragment">
 <p>We want to summarize their collective view using a pooling strategy.</p>
@@ -250,7 +314,7 @@
 <p><strong>Problem</strong>: What if there’s an alternative <span class="math inline">\(Q^*\)</span> such that <em>every individual scholar</em> thinks <span class="math inline">\(Q^*\)</span> would be more accurate than <span class="math inline">\(Q\)</span> (in expectation)?</p>
 </div>
 <div class="fragment">
-<p>Then we’ve ascribed the wrong credences to the group — everyone agrees there’s a better option!</p>
+<p>Then we’ve ascribed the wrong credences to the group, since there’s a particular credence everyone agrees is better.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -261,61 +325,25 @@
 </div>
 <div class="fragment">
 <p><strong>The result</strong>: Linear pooling is the <em>only</em> strategy that satisfies Accuracy Consensus.</p>
-<p>(More precisely: if <span class="math inline">\(Q\)</span> is not a linear pool, there exists an alternative that everyone prefers. If <span class="math inline">\(Q\)</span> is a linear pool, no such alternative exists.)</p>
+<p>More precisely: if <span class="math inline">\(Q\)</span> is not a linear pool, there exists an alternative that everyone prefers. If <span class="math inline">\(Q\)</span> is a linear pool, no such alternative exists.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>When Does This Matter?</h2>
-<p>Accuracy Consensus is important when individuals must “get behind” the group credence:</p>
+<p>Accuracy Consensus is important when individuals must “get behind” the group credence, e.g., in</p>
 <ul>
-<li class="fragment">Representing group opinion to outsiders (the Shakespeare authorship debate)</li>
-<li class="fragment">Assessing group liability for collective actions (corporate responsibility cases)</li>
-<li class="fragment">Not so important for individual peer disagreement responses</li>
+<li class="fragment">Representing group opinion to outsiders (the Shakespeare authorship debate, or the climate change example from last lecture); or</li>
+<li class="fragment">Assessing group liability for collective actions (corporate responsibility cases).</li>
 </ul>
 <div class="fragment">
 <p>If accuracy is our goal for group credences, this favors linear pooling.</p>
 </div>
 </section>
-<section class="slide level2 scrollable">
-<h2>Discussion: The University Hiring Committee</h2>
-<p>A search committee of 5 professors must decide on hiring a candidate.</p>
-<ul>
-<li class="fragment">Prof.&nbsp;A (20 years experience): 80% confident the candidate will succeed</li>
-<li class="fragment">Prof.&nbsp;B (15 years): 75% confident</li>
-<li class="fragment">Prof.&nbsp;C (10 years): 60% confident</li>
-<li class="fragment">Prof.&nbsp;D (5 years): 70% confident</li>
-<li class="fragment">Prof.&nbsp;E (2 years): 85% confident</li>
-</ul>
-<div class="fragment">
-<p><strong>Questions for discussion</strong>:</p>
-<ol type="1">
-<li>Should they use equal weights or weight by seniority/expertise?</li>
-<li>How would you justify your choice to the committee members?</li>
-</ol>
-</div>
-</section>
 <section class="slide level2">
-<h2>What About Imprecise Credences?</h2>
-<p>Does accuracy favor a particular way of pooling imprecise credences?</p>
-<div class="fragment">
-<p><strong>Current status</strong>: Open question!</p>
-<ul>
-<li class="fragment">No satisfactory theory of credal accuracy for imprecise credences yet</li>
-<li class="fragment">Impossibility results: no measure has strict propriety for imprecise credences</li>
-<li class="fragment">Work ongoing (Konek, 2019)</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Partial Result for Imprecise Credences</h2>
-<p><strong>Interesting implication</strong> of Theorem 7:</p>
-<p>For precise credences <span class="math inline">\(P_1, \ldots, P_n\)</span>, the convex hull <span class="math inline">\(\text{conv}\{P_i : i=1,\ldots,n\}\)</span> contains exactly those credence functions that are <em>not dominated</em> in expected accuracy.</p>
-<div class="fragment">
-<p>This is precisely what the <strong>IP pooling function</strong> returns!</p>
-</div>
-<div class="fragment">
-<p>Suggests an accuracy-based argument for IP pooling (at minimum, rules out functions outside the convex hull).</p>
-</div>
+<h2>Varieties of Linearity</h2>
+<p>Note that this doesn’t require that everyone’s views be <strong>equally weighted</strong>.</p>
+<p>If we use linear pooling, but give one person’s views 100 times as much weight, we will still not violate this constraint.</p>
+<p>But we have to use linear pooling.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -332,53 +360,44 @@
 </section>
 <section class="slide level2">
 <h2>The Surprising Result</h2>
-<p>The <strong>average inaccuracy</strong> of individual estimates exceeds the <strong>inaccuracy of the straight linear pool</strong>:</p>
+<p>In this case the <strong>average inaccuracy</strong> of individual estimates exceeds the <strong>inaccuracy of the straight linear pool</strong>:</p>
 <p><span class="math display">\[\frac{1}{3}(100-91)^2 + \frac{1}{3}(94-91)^2 + \frac{1}{3}(93-91)^2 &gt; \left(\frac{100+94+93}{3} - 91\right)^2\]</span></p>
 <div class="fragment">
-<p>This is no coincidence!</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Theorem 8 (Page, 2007)</h2>
-<p><strong>Diversity Prediction Theorem</strong>: For any sequence of quantities with true values <span class="math inline">\(T = (t_1, \ldots, t_m)\)</span> and individual estimates <span class="math inline">\(A_i = (a_{i1}, \ldots, a_{im})\)</span>:</p>
-<p><span class="math display">\[\text{SED}\left(T, \frac{1}{n}\sum_{i=1}^n A_i\right) = \frac{1}{n}\sum_{i=1}^n \text{SED}(T, A_i) - \frac{1}{n}\sum_{i=1}^n \text{SED}\left(A_i, \frac{1}{n}\sum_{i=1}^n A_i\right)\]</span></p>
-<div class="fragment">
-<p><strong>Key insight</strong>: The second term is always positive when estimates differ (it measures diversity).</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Corollary 9</h2>
-<p>If estimates are not all identical (<span class="math inline">\(A_i \neq A_j\)</span> for some <span class="math inline">\(i,j\)</span>), then:</p>
-<p><span class="math display">\[\text{SED}\left(T, \frac{1}{n}\sum_{i=1}^n A_i\right) &lt; \frac{1}{n}\sum_{i=1}^n \text{SED}(T, A_i)\]</span></p>
-<div class="fragment">
-<p><strong>Translation</strong>: The linear pool is more accurate than picking a random expert’s estimate!</p>
-</div>
-<div class="fragment">
-<p>This holds <em>regardless</em> of:</p>
-<ul>
-<li class="fragment">What quantities are being estimated</li>
-<li class="fragment">What the true values are</li>
-<li class="fragment">What estimates people give</li>
-</ul>
+<p>This holds in general. The inaccuracy of the average of some estimates is lower than the average inaccuracy.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
-<h2>When Does This Apply?</h2>
-<p><strong>Scenario</strong>: You’re a local government official with no expertise on a housing project’s consequences.</p>
-<p>You consult multiple experts with different credences.</p>
-<div class="fragment">
-<p><strong>Options</strong>:</p>
+<h2>Two Options</h2>
 <ol type="1">
-<li class="fragment">Pick one expert at random and defer to them</li>
-<li class="fragment">Pool the experts’ credences and defer to the pool</li>
+<li class="fragment">Take the linear average of the estimates.</li>
+<li class="fragment">Pick an estimator at random, and use their estimate.</li>
 </ol>
+<div class="fragment">
+<p>As long as the estimators differ, the inaccuracy of option 1 is <strong>always</strong> lower than the expected inaccuracy of option 2.</p>
 </div>
 <div class="fragment">
-<p>The Diversity Prediction Theorem guarantees option 2 is more accurate in expectation!</p>
+<p>Of course, you might get lucky and pick the estimator who was closest to reality. But on average you’ll do worse.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>But There’s a Catch…</h2>
+<h2>Estimating Values</h2>
+<p>This holds <em>regardless</em> of:</p>
+<ul>
+<li class="fragment">What quantities are being estimated;</li>
+<li class="fragment">What the true values are; and</li>
+<li class="fragment">What estimates people give</li>
+</ul>
+<div class="fragment">
+<p>Among other things, it holds about estimates of <strong>truth value</strong>, and credences just are estimates of truth value.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Summary</h2>
+<p>So those are two really good features of linear pooling.</p>
+<ol type="1">
+<li class="fragment">Linear pooling, <em>and only linear pooling</em>, always produces an outcome where there’s no alternative everyone prefers.</li>
+<li class="fragment">Linear pooling, <em>and only linear pooling</em>, is always guaranteed to do better than just deferring to one person at random.</li>
+</ol>
 </section>
 <section class="slide level2 scrollable">
 <h2>Deference Compatibility</h2>
@@ -388,33 +407,17 @@
 <li class="fragment">We defer to each expert individually: <span class="math inline">\(P(X \mid E_1 = p) = p\)</span> and <span class="math inline">\(P(X \mid E_2 = q) = q\)</span></li>
 <li class="fragment">We defer to the pool of experts: <span class="math inline">\(P(X \mid E_1 = p, E_2 = q) = F(p,q)\)</span></li>
 </ol>
-<div class="fragment">
-<p>All achieved by having appropriate unconditional and conditional credences.</p>
-</div>
 </section>
 <section class="slide level2">
 <h2>The Problem with Linear Pooling</h2>
 <p><strong>Bad news</strong>: Linear pooling does <em>not</em> satisfy Deference Compatibility.</p>
-<div class="fragment">
-<p>Researchers who’ve noticed this:</p>
-<ul>
-<li class="fragment">Dawid, DeGroot &amp; Mortera (1995)</li>
-<li class="fragment">Bradley (2018)</li>
-<li class="fragment">Gallow (2018)</li>
-<li class="fragment">Dawid &amp; Mortera (2020)</li>
-<li class="fragment">Zhang (ms) — shows many other pooling functions also fail</li>
-</ul>
-</div>
 </section>
 <section class="slide level2">
-<h2>The Dilemma for Experts</h2>
-<p>Our local government official faces a trade-off:</p>
-<ul>
-<li>✓ Linear pooling gives Diversity Prediction benefits</li>
-<li>✗ Linear pooling violates Deference Compatibility</li>
-</ul>
+<h2>The Problem with Linear Pooling</h2>
+<p>In fact, Snow Zhang recently proved a much stronger result than this.</p>
+<p>Say that a pooling method satisfies <strong>Strict Boundedness</strong> if whenever the experts disagree, the pooled value is strictly between the values they propose.</p>
 <div class="fragment">
-<p>Which matters more depends on the context!</p>
+<p>Zhang proved that if there are only finite many values that the experts might announce, e.g., if they are only going to announce to four decimal places, then no pooling method satisfying <strong>Strict Boundedness</strong> also satisfies <strong>Deference Compatibility</strong>.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -435,296 +438,63 @@
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The Principle of Coherent Minimal Mutilation</h1>
+<h1>Bigger Picture Philosophy</h1>
 
 </section>
 <section class="slide level2">
-<h2>A Different Approach</h2>
-<p><strong>Inspiration</strong>: How do we combine conflicting information sources?</p>
-<div class="fragment">
-<p><strong>Scenario</strong>: Corporate liability case with executives Oskar, Prince, and Quentin.</p>
-<p>We need to identify credences for the <em>executive team</em> that they cannot reasonably object to.</p>
-</div>
+<h2>Contractualism</h2>
+<p>In political philosophy, contractualism is the view that what grounds political authority is an implicit contract between the people.</p>
+<p>It’s legitimate for the state to have power because we all agree, or at least in the right circumstances we would all agree, that it is better that they have the power.</p>
+<p>At the very least, and this is the version of the view that’s most popular, a social arrangement is only legitimate if no one could reasonably object to it.</p>
+<p>This basic idea was very important in European thought through the 17th and 18th centuries, and hence to the Atlantic revolutionary movements over the late 18th and early 19th centuries.</p>
 </section>
 <section class="slide level2">
-<h2>The Objection</h2>
-<p>Executives might object if group credences diverge from individual credences <em>more than necessary</em>.</p>
-<div class="fragment">
-<p><strong>Idea</strong>: Group credence should minimize total “distance” from all individuals.</p>
-</div>
-<div class="fragment">
-<p><strong>Question</strong>: But how do we measure “distance” between credence functions?</p>
-</div>
+<h2>Contractualism</h2>
+<p>Elkin and Pettigrew suggest that when we’re ascribing views to a group, we should follow the same kind of contractualist logic.</p>
+<p>It’s only fair to ascribe an attitude to the group, in a way that matters for responsibility, if no one in the group could reasonably object to the ascription.</p>
+<p>They suggest that accuracy consensus is plausibly a requirement for this kind of non-objection principle.</p>
+<p>Is that right? Not sure. But I like the idea of thinking about the connections to political principles, and to the idea that we should make ascriptions that command a degree of universal assent.</p>
 </section>
 <section class="slide level2">
-<h2>Two Natural Distance Measures</h2>
-<p><strong>Approach 1</strong>: Sum of squared differences</p>
-<ul>
-<li class="fragment">Like the Euclidean distance you learned in geometry</li>
-<li class="fragment">Treats all dimensions equally</li>
-</ul>
-<div class="fragment">
-<p><strong>Approach 2</strong>: Information-theoretic distance</p>
-<ul>
-<li class="fragment">Based on how “surprised” one distribution would be by another</li>
-<li class="fragment">More sensitive to large discrepancies</li>
-</ul>
-</div>
+<h2>Evidentialism</h2>
+<p>We’ve mentioned a couple of times that it would be great if pooling methods could somehow merge everyone’s private evidence.</p>
+<p>When there are people who are better placed than us because they know more than we do, and we don’t know what they know, but do know what credences they have, it would be great to have a pooling formula that took in all their evidence in the right way.</p>
+<p>You can <em>sort of</em> do this with geometric pooling, but there’s a massive catch.</p>
 </section>
 <section class="slide level2">
-<h2>The Surprising Results</h2>
-<p>Different distance measures give different pooling strategies:</p>
+<h2>Evidentialism</h2>
+<p>If you know the full credal function of each of the experts, and you use geometric pooling with a maximally fine-grained partition, you get just what we wanted.</p>
+<p>The result is as if you’d learned everything the experts know.</p>
 <div class="fragment">
-<ul>
-<li class="fragment"><strong>Approach 1 (squared differences)</strong> → Linear pooling!</li>
-<li class="fragment"><strong>Approach 2 (information-theoretic)</strong> → Geometric pooling!</li>
-</ul>
-</div>
-<div class="fragment">
-<p>This helps explain why both strategies seem natural — they’re each minimizing distance, just measured differently.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Contractualist Flavor</h2>
-<p>Both Accuracy Consensus and Minimal Mutilation have a <strong>contractualist</strong> character:</p>
-<div class="fragment">
-<p>Group credences are legitimate when individuals have no grounds to complain:</p>
-<ul>
-<li class="fragment">No complaint if no alternative is preferred by all (Accuracy Consensus)</li>
-<li class="fragment">No complaint if no alternative has smaller total distance (Minimal Mutilation)</li>
-</ul>
-</div>
-<div class="fragment">
-<p><strong>When to use</strong>: Cases where individuals must “get behind” the group credence (representation, liability).</p>
+<p><em>Unfortunately</em>, to do this you need to know more than the expert’s credence on the question at issue (e.g., polio eradication).</p>
+<p>You also need to know their credence in various evidence propositions. And by looking at what they have credence 1 in, you can tell what their evidence is.</p>
+<p>The geometric pooling doesn’t actually help much.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Discussion: The Medical Review Board</h2>
-<p>A hospital review board must determine credences about whether a new surgical technique is safe:</p>
-<ul>
-<li class="fragment">3 surgeons have credences: 65%, 70%, 75%</li>
-<li class="fragment">2 anesthesiologists: 50%, 55%</li>
-<li class="fragment">1 nurse: 80%</li>
-<li class="fragment">Their collective judgment will determine hospital policy</li>
-</ul>
-<div class="fragment">
-<p><strong>Questions for discussion</strong>:</p>
+<h2>Evidentialism</h2>
+<p>There is a very big picture question here about what the nature of testimonial knowledge is. Here are three very big picture views about how testimonial knowledge works.</p>
 <ol type="1">
-<li>Which pooling approach seems most fair to all board members?</li>
-<li>Does it matter that their judgment creates policy that binds them all?</li>
-<li>Should different professional roles be weighted differently?</li>
+<li class="fragment"><strong>Sharing</strong>: The speaker knows something, and shares it with the hearer.</li>
+<li class="fragment"><strong>Indicator</strong>: The speaker is a good measuring device, like a thermometer.</li>
+<li class="fragment"><strong>Evidence Transfer</strong>. The speaker saying something gives the hearer evidence that the speaker has evidence for what they are saying. This is usually enough reason for the hearer to believe it too.</li>
 </ol>
+<div class="fragment">
+<p>Most philosophers like either option 1 or option 2. I kind of like option 3, and Elkin and Pettigrew here seem to like it too, but it’s worth nothing this is a <em>very</em> unorthodox view in philosophy, compared to 1 or 2.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Preserving Justification</h1>
+<h1>Summing Up</h1>
 
-</section>
-<section class="slide level2">
-<h2>The Justification Question</h2>
-<p>Often we want pooling to preserve individual justification.</p>
-<div class="fragment">
-<p><strong>Idea</strong>: If each group member is justified in their credences, the group credences should also be justified.</p>
-</div>
-<div class="fragment">
-<p>But what does justification <em>mean</em> for group credences?</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Evidence Pooling</h2>
-<p>One natural condition (aligned with Lackey’s GEAA view):</p>
-<div class="fragment">
-<p>If individuals:</p>
-<ul>
-<li class="fragment">Share the same prior credences</li>
-<li class="fragment">Update on their own private evidence</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Then pooling their posteriors should equal updating the shared prior on the <em>conjunction</em> of all individual evidence.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Evidence Pooling (Formal)</h2>
-<p><strong>Evidence Pooling</strong>: For all probability functions and propositions <span class="math inline">\(E_1, \ldots, E_n\)</span>:</p>
-<p><span class="math display">\[F(P_1(- \mid E_1), \ldots, P_n(- \mid E_n))(X) = F(P_1, \ldots, P_n)(X \mid E_1 \wedge \cdots \wedge E_n)\]</span></p>
-<div class="fragment">
-<p>This differs from External Bayesianity by allowing <em>different evidence</em> for each individual.</p>
-</div>
-<div class="fragment">
-<p>External Bayesianity is a special case (when all receive the same evidence).</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Which Pooling Functions Satisfy This?</h2>
-<p><strong>Good news</strong>: Geometric and multiplicative pooling over the finest partition (possible worlds <span class="math inline">\(\mathcal{W}\)</span>) both satisfy Evidence Pooling!</p>
-<div class="fragment">
-<p>(Baccelli &amp; Stewart, 2023; Weisberg &amp; Pettigrew, 2023)</p>
-</div>
-<div class="fragment">
-<p>But there’s a problem…</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>The Impracticality Problem</h2>
-<p>To use geometric/multiplicative pooling over <span class="math inline">\(\mathcal{W}\)</span>, we need each individual’s credences over <em>every possible world</em>.</p>
-<div class="fragment">
-<p><strong>But</strong>: If we can collect that, we could just ask for their private evidence directly and pool that instead!</p>
-</div>
-<div class="fragment">
-<p>The pooling function becomes overkill for this purpose.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>A More Realistic Setting</h2>
-<p>In science, we often have:</p>
-<ul>
-<li class="fragment">Partition of <strong>hypotheses</strong>: <span class="math inline">\(H_1, \ldots, H_k\)</span> (e.g., different theories)</li>
-<li class="fragment">Partition of <strong>evidence</strong>: <span class="math inline">\(E_1, \ldots, E_m\)</span> (e.g., experimental outcomes)</li>
-<li class="fragment">These partitions don’t nest within each other</li>
-<li class="fragment">Each hypothesis assigns a <em>chance</em> to each piece of evidence</li>
-</ul>
-<div class="fragment">
-<p>Examples:</p>
-<ul>
-<li class="fragment">Physics: theories of particle behavior + experimental outcomes</li>
-<li class="fragment">Climate science: different climate sensitivity values + radiosonde readings</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Coin Toss Example</h2>
-<p>Hypotheses <span class="math inline">\(H_1, \ldots, H_k\)</span> specify different biases <span class="math inline">\(q_1, \ldots, q_k\)</span> for a coin.</p>
-<div class="fragment">
-<p>Evidence: <span class="math inline">\(N\)</span> tosses with <span class="math inline">\(M\)</span> heads.</p>
-</div>
-<div class="fragment">
-<p>By Bayes’ Rule (with Principal Principle):</p>
-<p><span class="math display">\[P(H_i \mid E) = \frac{P(H_i) q_i^M (1-q_i)^{N-M}}{\sum_{j=1}^k P(H_j) q_j^M (1-q_j)^{N-M}}\]</span></p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Geometric Pooling on Coin Tosses</h2>
-<p>Taj has prior <span class="math inline">\(P_1\)</span>, witnesses <span class="math inline">\(N_1\)</span> tosses with <span class="math inline">\(M_1\)</span> heads (evidence <span class="math inline">\(E_1\)</span>).</p>
-<p>Ursula has prior <span class="math inline">\(P_2\)</span>, witnesses <span class="math inline">\(N_2\)</span> tosses with <span class="math inline">\(M_2\)</span> heads (evidence <span class="math inline">\(E_2\)</span>).</p>
-<div class="fragment">
-<p>Geometric pooling of their posteriors:</p>
-<p><span class="math display">\[\text{GP}_{\mathcal{H}}(P_1(- \mid E_1), P_2(- \mid E_2))(H_i)\]</span> <span class="math display">\[= \text{GP}_{\mathcal{H}}(P_1, P_2)\left(H_i \mid \frac{M_1 + M_2}{2} \text{ out of } \frac{N_1 + N_2}{2}\right)\]</span></p>
-</div>
-<div class="fragment">
-<p><strong>Problem</strong>: The sample size is <em>halved</em>! We update on half the evidence.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Multiplicative Pooling to the Rescue?</h2>
-<p>With multiplicative pooling (weights summing to <span class="math inline">\(n=2\)</span>):</p>
-<p><span class="math display">\[\text{MP}_{\mathcal{H}}(P_1(- \mid E_1), P_2(- \mid E_2))(H_i)\]</span> <span class="math display">\[= \text{MP}_{\mathcal{H}}(P_1, P_2)(H_i \mid (M_1 + M_2) \text{ out of } (N_1 + N_2))\]</span></p>
-<div class="fragment">
-<p><strong>Good news</strong>: Full sample size preserved!</p>
-<p><strong>Bad news</strong>: Multiplicative pooling doesn’t satisfy Unanimity Preservation.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>The Result</h2>
-<p>Even with shared priors, multiplicative pool of posteriors <span class="math inline">\(\neq\)</span> shared prior updated on total evidence.</p>
-<div class="fragment">
-<p>This applies generally, not just to coin tosses:</p>
-<p>For any hypotheses specifying chance functions where evidence pieces are probabilistically independent according to each chance function, the same pattern holds.</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Discussion: The Archaeological Team</h2>
-<p>An archaeological team studies whether a site was inhabited in the Bronze Age:</p>
-<ul>
-<li class="fragment">All three archaeologists started with the same prior (based on regional surveys): 40% confident</li>
-<li class="fragment">Archaeologist 1 excavated area A, found 3 bronze artifacts out of 20 items</li>
-<li class="fragment">Archaeologist 2 excavated area B, found 5 bronze artifacts out of 30 items<br>
-</li>
-<li class="fragment">Archaeologist 3 excavated area C, found 2 bronze artifacts out of 15 items</li>
-</ul>
-<div class="fragment">
-<p><strong>Questions for discussion</strong>:</p>
-<ol type="1">
-<li>Should they pool their posterior credences or pool all the evidence first?</li>
-<li>Does the fact they physically separated to gather evidence matter?</li>
-<li>What if one archaeologist is more experienced at identifying artifacts?</li>
-</ol>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Summary and Looking Ahead</h1>
-
-</section>
-<section class="slide level2">
-<h2>What We’ve Learned Today</h2>
-<p><strong>Accuracy-based arguments</strong>:</p>
-<ul>
-<li class="fragment">Accuracy Consensus characterizes linear pooling</li>
-<li class="fragment">Diversity Prediction Theorem favors linear pooling for estimation</li>
-<li class="fragment">But linear pooling violates Deference Compatibility</li>
-<li class="fragment">Minimal Mutilation with SED gives linear pooling, with GKL gives geometric pooling</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>What We’ve Learned Today (cont.)</h2>
-<p><strong>Justification-based arguments</strong>:</p>
-<ul>
-<li class="fragment">Evidence Pooling: want pooled posteriors to equal pooled priors updated on total evidence</li>
-<li class="fragment">Geometric/multiplicative pooling over <span class="math inline">\(\mathcal{W}\)</span> satisfy this, but impractical</li>
-<li class="fragment">For realistic scientific cases with hypothesis/evidence partitions:
-<ul>
-<li class="fragment">Geometric pooling halves sample size</li>
-<li class="fragment">Multiplicative pooling preserves sample size but loses unanimity</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>The State of Play</h2>
-<p>We now have three types of arguments for pooling strategies:</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 55%">
-<col style="width: 44%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Approach</th>
-<th>Favors</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Axiomatic</td>
-<td>Different strategies depending on which axioms we prioritize</td>
-</tr>
-<tr class="even">
-<td>Accuracy (Consensus)</td>
-<td>Linear pooling</td>
-</tr>
-<tr class="odd">
-<td>Accuracy (Diversity)</td>
-<td>Linear pooling</td>
-</tr>
-<tr class="even">
-<td>Accuracy (Minimal Mutilation)</td>
-<td>Depends on distance measure (SED → linear, GKL → geometric)</td>
-</tr>
-<tr class="odd">
-<td>Justification</td>
-<td>Geometric/multiplicative (with caveats)</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section class="slide level2">
 <h2>Trade-offs Are Inevitable</h2>
 <p>No single pooling strategy satisfies all desiderata:</p>
 <ul>
-<li class="fragment">Linear pooling: good for accuracy consensus and diversity, bad for External Bayesianity and deference compatibility</li>
-<li class="fragment">Geometric pooling: good for External Bayesianity and justification, bad for partition sensitivity and sample size</li>
-<li class="fragment">Context determines which trade-offs are acceptable</li>
+<li class="fragment">Linear pooling: good for accuracy consensus and diversity, bad for External Bayesianity and deference compatibility.</li>
+<li class="fragment">Geometric pooling: good for External Bayesianity and maybe evidence pooling, bad for partition sensitivity and attributibility.</li>
+<li class="fragment">Context determines which trade-offs are acceptable.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -733,7 +503,7 @@
 <ul>
 <li class="fragment">Equal weights? (Democratic but potentially inaccurate)</li>
 <li class="fragment">Expertise-based weights? (Accurate but who decides expertise?)</li>
-<li class="fragment">This connects to social epistemology and democratic theory</li>
+<li class="fragment">This connects to social epistemology and democratic theory.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -748,12 +518,17 @@
 </section>
 <section class="slide level2">
 <h2>Looking Ahead</h2>
-<p>Next topics in opinion pooling:</p>
-<ul>
-<li class="fragment">Pragmatic arguments: pooling for decision-making rather than representation</li>
-<li class="fragment">Imprecise probability pooling: developing the theory further</li>
-<li class="fragment">Applications to specific domains (scientific consensus, legal contexts, democratic deliberation)</li>
-</ul>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Strangelove.jpeg" height="600"></p>
+<figcaption>Movie poster for Dr.&nbsp;Strangelove</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<p>We’re going to go back in time, to look at two famous contributions by the economist/political theorist/generally interesting person Thomas Schelling.</p>
+</div></div>
 
 
 </section></section>

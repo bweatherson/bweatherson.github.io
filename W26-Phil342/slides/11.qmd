@@ -96,8 +96,10 @@ There are some very widely accepted constraints on how you do this measurement, 
 
 Annoyingly, the measurement that says:
 
+::: {.nonincremental}
 - For every proposition, you get $x$ inaccuracy points when $x$ is the difference between your inaccuracy and the ideal;
 - You add up all the inaccuracy points across all propositions, and the lower the better;
+:::
 
 is **not** one of them.
 
@@ -133,6 +135,8 @@ We're interested in whether or not it will rain tomorrow.
 
 - I have the incoherent view that it is 70% likely to rain, and 70% likely to not rain.
 - Mitch has the coherent view that it is 50% likely to rain, and 50% likely to not rain.
+
+. . .
 
 If it rains, my inaccuracy score is $0.58$. I'm off on rain by $0.3$, and I'm off on not rain by $0.7$, and $0.3^2 + 0.7^2 = 0.58$. 
 
@@ -260,6 +264,8 @@ This holds in general. The inaccuracy of the average of some estimates is lower 
 1. Take the linear average of the estimates.
 2. Pick an estimator at random, and use their estimate.
 
+. . .
+
 As long as the estimators differ, the inaccuracy of option 1 is **always** lower than the expected inaccuracy of option 2.
 
 . . .
@@ -338,7 +344,7 @@ In political philosophy, contractualism is the view that what grounds political 
 
 It's legitimate for the state to have power because we all agree, or at least in the right circumstances we would all agree, that it is better that they have the power.
 
-At the very least, and this is the version of the view that's most pop
+At the very least, and this is the version of the view that's most popular, a social arrangement is only legitimate if no one could reasonably object to it.
 
 This basic idea was very important in European thought through the 17th and 18th centuries, and hence to the Atlantic revolutionary movements over the late 18th and early 19th centuries.
 
@@ -346,18 +352,59 @@ This basic idea was very important in European thought through the 17th and 18th
 
 Elkin and Pettigrew suggest that when we're ascribing views to a group, we should follow the same kind of contractualist logic.
 
+It's only fair to ascribe an attitude to the group, in a way that matters for responsibility, if no one in the group could reasonably object to the ascription.
 
+They suggest that accuracy consensus is plausibly a requirement for this kind of non-objection principle.
 
+Is that right? Not sure. But I like the idea of thinking about the connections to political principles, and to the idea that we should make ascriptions that command a degree of universal assent.
 
+## Evidentialism
+
+We've mentioned a couple of times that it would be great if pooling methods could somehow merge everyone's private evidence.
+
+When there are people who are better placed than us because they know more than we do, and we don't know what they know, but do know what credences they have, it would be great to have a pooling formula that took in all their evidence in the right way.
+
+You can *sort of* do this with geometric pooling, but there's a massive catch.
+
+## Evidentialism
+
+If you know the full credal function of each of the experts, and you use geometric pooling with a maximally fine-grained partition, you get just what we wanted.
+
+The result is as if you'd learned everything the experts know.
+
+. . .
+
+*Unfortunately*, to do this you need to know more than the expert's credence on the question at issue (e.g., polio eradication).
+
+You also need to know their credence in various evidence propositions. And by looking at what they have credence 1 in, you can tell what their evidence is.
+
+The geometric pooling doesn't actually help much.
+
+## Evidentialism
+
+There is a very big picture question here about what the nature of testimonial knowledge is. Here are three very big picture views about how testimonial knowledge works.
+
+::: {.incremental}
+
+1. **Sharing**: The speaker knows something, and shares it with the hearer.
+2. **Indicator**: The speaker is a good measuring device, like a thermometer.
+3. **Evidence Transfer**. The speaker saying something gives the hearer evidence that the speaker has evidence for what they are saying. This is usually enough reason for the hearer to believe it too.
+:::
+
+. . .
+
+Most philosophers like either option 1 or option 2. I kind of like option 3, and Elkin and Pettigrew here seem to like it too, but it's worth nothing this is a *very* unorthodox view in philosophy, compared to 1 or 2.
+
+# Summing Up
 
 ## Trade-offs Are Inevitable
 
 No single pooling strategy satisfies all desiderata:
 
 ::: {.incremental}
-- Linear pooling: good for accuracy consensus and diversity, bad for External Bayesianity and deference compatibility
-- Geometric pooling: good for External Bayesianity and justification, bad for partition sensitivity and sample size
-- Context determines which trade-offs are acceptable
+- Linear pooling: good for accuracy consensus and diversity, bad for External Bayesianity and deference compatibility.
+- Geometric pooling: good for External Bayesianity and maybe evidence pooling, bad for partition sensitivity and attributibility.
+- Context determines which trade-offs are acceptable.
 :::
 
 ## Philosophical Implications
@@ -367,7 +414,7 @@ No single pooling strategy satisfies all desiderata:
 ::: {.incremental}
 - Equal weights? (Democratic but potentially inaccurate)
 - Expertise-based weights? (Accurate but who decides expertise?)
-- This connects to social epistemology and democratic theory
+- This connects to social epistemology and democratic theory.
 :::
 
 ## Philosophical Implications (cont.)
@@ -387,7 +434,7 @@ But: Deference Compatibility problem suggests caution here.
 ::: {.columns}
 
 :::: {.column}
-![Movie poster for Dr. Strangelove](../images/Strangelove.jpeg)
+![Movie poster for Dr. Strangelove](images/Strangelove.jpeg){height=600px}
 ::::
 
 :::: {.column}
