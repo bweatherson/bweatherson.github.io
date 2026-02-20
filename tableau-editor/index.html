@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau Editor</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --panel-bg: #fff;
+  --border: #ddd;
+  --text: #222;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --node-bg: #fff;
+  --node-hover: #f0f7ff;
+  --node-selected: #dbeafe;
+  --toolbar-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--panel-bg);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+button:hover { background: #f0f0f0; }
+button:active { background: #e5e5e5; }
+
+button.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+button.primary:hover { background: var(--accent-hover); }
+
+button.danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+button.danger:hover { background: #fef2f2; }
+
+button.small {
+  font-size: 12px;
+  padding: 3px 8px;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Main layout */
+.main-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Canvas area */
+.canvas-area {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+  position: relative;
+}
+
+/* Right panel */
+.right-panel {
+  width: 320px;
+  border-left: 1px solid var(--border);
+  background: var(--panel-bg);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.panel-section {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-section h3 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Symbol toolbar */
+.symbol-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.symbol-bar button {
+  min-width: 36px;
+  justify-content: center;
+  font-size: 16px;
+  padding: 4px 8px;
+}
+
+/* Form elements */
+.form-row {
+  margin-bottom: 8px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: #555;
+}
+
+.form-row input, .form-row select {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.form-row input:focus, .form-row select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.form-row-inline {
+  display: flex;
+  gap: 8px;
+}
+
+.form-row-inline .form-row {
+  flex: 1;
+}
+
+/* Tree node actions */
+.node-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Sign styling (used in both formula cells and rule annotations) */
+.sign {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Cambria Math', 'STIX Two Math', serif;
+}
+
+.sign.true-sign { color: #1a1a1a; }
+.sign.false-sign { color: #1a1a1a; }
+
+.world {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Tableau table layout */
+.tableau-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  table-layout: auto;
+}
+
+.tableau-table td {
+  padding: 2px 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tableau-row {
+  cursor: pointer;
+}
+
+.tableau-row:hover td {
+  background: var(--node-hover);
+}
+
+.tableau-row.selected td {
+  background: var(--node-selected);
+}
+
+.tableau-row .line-num {
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+  padding-right: 8px;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+
+.tableau-row .justification {
+  font-size: 12px;
+  color: #888;
+  padding-left: 16px;
+}
+
+.tableau-row .formula-cell {
+  font-size: 15px;
+  font-family: 'Cambria Math', 'STIX Two Math', 'Latin Modern Math', serif;
+}
+
+.tableau-row .close-mark {
+  color: var(--danger);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tableau-row .checked-mark {
+  color: var(--success);
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+/* Branch fork lines rendered as SVG in a row */
+.branch-fork-cell {
+  position: relative;
+  height: 20px;
+}
+
+.branch-fork-cell svg {
+  display: block;
+}
+
+/* Vertical continuation line in empty branch cells (disabled for now) */
+
+/* Export modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.modal pre {
+  background: #f5f5f5;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 13px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  overflow-x: auto;
+  white-space: pre;
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* Help text */
+.help-text {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+.empty-state h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.empty-state p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Keyboard shortcut hints */
+kbd {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-family: inherit;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tableau Editor</h1>
+  <div class="header-actions">
+    <button onclick="undo()" id="undoBtn" disabled title="Undo (Ctrl+Z)">Undo</button>
+    <button onclick="redo()" id="redoBtn" disabled title="Redo (Ctrl+Y)">Redo</button>
+    <button onclick="newTableau()">New</button>
+    <button onclick="showExportModal()">Export LaTeX</button>
+    <button onclick="showSaveLoadModal()">Save/Load</button>
+  </div>
+</header>
+
+<div class="main-container">
+  <div class="canvas-area" id="canvasArea">
+    <div class="tree-container" id="treeContainer"></div>
+  </div>
+
+  <div class="right-panel">
+    <div class="panel-section">
+      <h3>Logic Symbols</h3>
+      <div class="symbol-bar" id="symbolBar">
+        <button onclick="insertSymbol('→')" title="Arrow / Conditional">→</button>
+        <button onclick="insertSymbol('∧')" title="And / Conjunction">∧</button>
+        <button onclick="insertSymbol('∨')" title="Or / Disjunction">∨</button>
+        <button onclick="insertSymbol('¬')" title="Not / Negation">¬</button>
+        <button onclick="insertSymbol('↔')" title="Biconditional">↔</button>
+        <button onclick="insertSymbol('◇')" title="Diamond / Possibly">◇</button>
+        <button onclick="insertSymbol('□')" title="Box / Necessarily">□</button>
+      </div>
+      <div class="help-text">Click to insert at cursor in formula field. In formula field: <kbd>&gt;</kbd>&nbsp;→ &nbsp;<kbd>&amp;</kbd>&nbsp;∧ &nbsp;<kbd>|</kbd>&nbsp;∨ &nbsp;<kbd>~</kbd>&nbsp;¬ &nbsp;<kbd>=</kbd>&nbsp;↔ &nbsp;<kbd>&lt;</kbd>&nbsp;◇ &nbsp;<kbd>[</kbd>&nbsp;□</div>
+    </div>
+
+    <div class="panel-section" id="nodeEditor" style="display:none">
+      <h3>Edit Node</h3>
+      <div class="form-row-inline">
+        <div class="form-row">
+          <label>Sign</label>
+          <select id="nodeSign" oninput="updateSelectedNode()" onchange="updateSelectedNode()">
+            <option value="True">𝕋 True</option>
+            <option value="False">𝔽 False</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>World</label>
+          <input type="text" id="nodeWorld" placeholder="1" oninput="updateSelectedNode()" onchange="updateSelectedNode()" />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Formula</label>
+        <input type="text" id="nodeFormula" placeholder="A → B"
+               oninput="updateSelectedNode()" onchange="updateSelectedNode()"
+               onkeydown="handleFormulaKey(event)" />
+      </div>
+      <div class="form-row-inline">
+        <div class="form-row">
+          <label>Rule</label>
+          <select id="nodeRule" oninput="updateSelectedNode()" onchange="updateSelectedNode()">
+            <option value="">—</option>
+            <option value="Assumption">Assumption</option>
+            <optgroup label="Propositional">
+              <option value="arr-T">→𝕋</option>
+              <option value="arr-F">→𝔽</option>
+              <option value="and-T">∧𝕋</option>
+              <option value="and-F">∧𝔽</option>
+              <option value="or-T">∨𝕋</option>
+              <option value="or-F">∨𝔽</option>
+              <option value="not-T">¬𝕋</option>
+              <option value="not-F">¬𝔽</option>
+              <option value="iff-T">↔𝕋</option>
+              <option value="iff-F">↔𝔽</option>
+            </optgroup>
+            <optgroup label="Modal (K)">
+              <option value="box-T">□𝕋</option>
+              <option value="box-F">□𝔽</option>
+              <option value="dia-T">◇𝕋</option>
+              <option value="dia-F">◇𝔽</option>
+            </optgroup>
+            <optgroup label="Modal (T, 4, B)">
+              <option value="ax-T-box">T□</option>
+              <option value="ax-T-dia">T◇</option>
+              <option value="ax-4-box">4□</option>
+              <option value="ax-4-dia">4◇</option>
+              <option value="ax-B-box">B□</option>
+              <option value="ax-B-dia">B◇</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>From line</label>
+          <input type="text" id="nodeFromLine" placeholder="#" oninput="updateSelectedNode()" onchange="updateSelectedNode()" />
+        </div>
+      </div>
+      <div class="form-row-inline" style="margin-top: 8px;">
+        <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+          <input type="checkbox" id="nodeChecked" oninput="updateSelectedNode()" onchange="updateSelectedNode()" />
+          <span style="font-size:13px;">Checked ✓</span>
+        </label>
+        <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+          <input type="checkbox" id="nodeClosed" oninput="updateSelectedNode()" onchange="updateSelectedNode()" />
+          <span style="font-size:13px;">Closed ×</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="panel-section" id="branchEditor" style="display:none">
+      <h3>Branch Rule</h3>
+      <p class="help-text" style="margin-bottom:8px;">This rule justifies both branches below this node.</p>
+      <div class="form-row-inline">
+        <div class="form-row">
+          <label>Rule</label>
+          <select id="branchRule" oninput="updateSelectedNode()" onchange="updateSelectedNode()">
+            <option value="">—</option>
+            <optgroup label="Propositional">
+              <option value="arr-T">→𝕋</option>
+              <option value="arr-F">→𝔽</option>
+              <option value="and-T">∧𝕋</option>
+              <option value="and-F">∧𝔽</option>
+              <option value="or-T">∨𝕋</option>
+              <option value="or-F">∨𝔽</option>
+              <option value="not-T">¬𝕋</option>
+              <option value="not-F">¬𝔽</option>
+              <option value="iff-T">↔𝕋</option>
+              <option value="iff-F">↔𝔽</option>
+            </optgroup>
+            <optgroup label="Modal (K)">
+              <option value="box-T">□𝕋</option>
+              <option value="box-F">□𝔽</option>
+              <option value="dia-T">◇𝕋</option>
+              <option value="dia-F">◇𝔽</option>
+            </optgroup>
+            <optgroup label="Modal (T, 4, B)">
+              <option value="ax-T-box">T□</option>
+              <option value="ax-T-dia">T◇</option>
+              <option value="ax-4-box">4□</option>
+              <option value="ax-4-dia">4◇</option>
+              <option value="ax-B-box">B□</option>
+              <option value="ax-B-dia">B◇</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>From line</label>
+          <input type="text" id="branchFromLine" placeholder="#" oninput="updateSelectedNode()" onchange="updateSelectedNode()" />
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section" id="nodeActionsPanel" style="display:none">
+      <h3>Actions</h3>
+      <div class="node-actions">
+        <button onclick="addChild()" class="small primary">Add child</button>
+        <button onclick="addBranch()" class="small">Branch (2 children)</button>
+        <button onclick="deleteNode()" class="small danger">Delete node</button>
+      </div>
+      <div class="help-text" style="margin-top:8px;">
+        <kbd>Enter</kbd> add child &nbsp; <kbd>B</kbd> branch &nbsp; <kbd>Del</kbd> delete
+      </div>
+    </div>
+
+    <div class="panel-section" id="noSelection">
+      <p style="font-size:13px; color:#888;">Click a node in the tree to edit it, or start a new tableau.</p>
+    </div>
+
+    <div class="panel-section">
+      <h3>Keyboard Shortcuts</h3>
+      <div style="font-size: 12px; color: #666; line-height: 1.8;">
+        <kbd>Enter</kbd> Add child to selected node<br>
+        <kbd>B</kbd> Add branch (two children)<br>
+        <kbd>Delete</kbd> Delete selected node<br>
+        <kbd>↑</kbd> <kbd>↓</kbd> Navigate nodes<br>
+        <kbd>Ctrl+Z</kbd> Undo<br>
+        <kbd>Ctrl+Y</kbd> Redo<br>
+        <kbd>Ctrl+E</kbd> Export LaTeX
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Export Modal -->
+<div class="modal-overlay" id="exportModal">
+  <div class="modal">
+    <h2>Export LaTeX</h2>
+    <pre id="latexOutput"></pre>
+    <div class="modal-actions">
+      <button onclick="copyLatex()">Copy to clipboard</button>
+      <button onclick="closeExportModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Save/Load Modal -->
+<div class="modal-overlay" id="saveLoadModal">
+  <div class="modal">
+    <h2>Save / Load</h2>
+    <div style="margin-bottom: 16px;">
+      <h3 style="font-size:14px; margin-bottom:8px;">Save (JSON)</h3>
+      <pre id="jsonOutput" style="max-height:200px; overflow:auto;"></pre>
+      <button onclick="copyJSON()" class="small">Copy JSON</button>
+    </div>
+    <div style="margin-bottom:16px;">
+      <h3 style="font-size:14px; margin-bottom:8px;">Load (paste JSON)</h3>
+      <textarea id="jsonInput" style="width:100%; height:100px; font-family:monospace; font-size:12px; padding:8px; border:1px solid #ddd; border-radius:4px;"></textarea>
+      <button onclick="loadFromJSON()" class="small primary" style="margin-top:8px;">Load</button>
+    </div>
+    <div class="modal-actions">
+      <button onclick="closeSaveLoadModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA MODEL
+// ============================================================
+
+let nextId = 1;
+
+function makeNode(opts = {}) {
+  return {
+    id: nextId++,
+    sign: opts.sign || 'True',
+    world: opts.world || '1',
+    formula: opts.formula || '',
+    rule: opts.rule || '',
+    fromLine: opts.fromLine || '',
+    checked: opts.checked || false,
+    closed: opts.closed || false,
+    branchRule: opts.branchRule || '',     // rule that justifies a branch (set on parent)
+    branchFromLine: opts.branchFromLine || '', // line ref for branch rule
+    children: opts.children || []
+  };
+}
+
+// Global state
+let root = null;
+let selectedId = null;
+let undoStack = [];
+let redoStack = [];
+let lineNumberMap = {}; // nodeId -> line number
+
+// ============================================================
+// UNDO / REDO
+// ============================================================
+
+function snapshot() {
+  undoStack.push(JSON.stringify({ root, nextId, selectedId }));
+  if (undoStack.length > 100) undoStack.shift();
+  redoStack = [];
+  updateUndoButtons();
+}
+
+function undo() {
+  if (undoStack.length === 0) return;
+  redoStack.push(JSON.stringify({ root, nextId, selectedId }));
+  const state = JSON.parse(undoStack.pop());
+  root = state.root;
+  nextId = state.nextId;
+  selectedId = state.selectedId;
+  render();
+  updateUndoButtons();
+}
+
+function redo() {
+  if (redoStack.length === 0) return;
+  undoStack.push(JSON.stringify({ root, nextId, selectedId }));
+  const state = JSON.parse(redoStack.pop());
+  root = state.root;
+  nextId = state.nextId;
+  selectedId = state.selectedId;
+  render();
+  updateUndoButtons();
+}
+
+function updateUndoButtons() {
+  document.getElementById('undoBtn').disabled = undoStack.length === 0;
+  document.getElementById('redoBtn').disabled = redoStack.length === 0;
+}
+
+// ============================================================
+// TREE OPERATIONS
+// ============================================================
+
+function findNode(node, id) {
+  if (!node) return null;
+  if (node.id === id) return node;
+  for (const child of node.children) {
+    const found = findNode(child, id);
+    if (found) return found;
+  }
+  return null;
+}
+
+function findParent(node, id) {
+  if (!node) return null;
+  for (const child of node.children) {
+    if (child.id === id) return node;
+    const found = findParent(child, id);
+    if (found) return found;
+  }
+  return null;
+}
+
+function getNodeList(node, list = []) {
+  if (!node) return list;
+  list.push(node);
+  for (const child of node.children) {
+    getNodeList(child, list);
+  }
+  return list;
+}
+
+function addChild() {
+  if (!selectedId || !root) return;
+  const node = findNode(root, selectedId);
+  if (!node) return;
+  snapshot();
+  const child = makeNode({ world: node.world });
+  node.children.push(child);
+  selectedId = child.id;
+  render();
+  loadNodeIntoEditor(child);
+  document.getElementById('nodeFormula').focus();
+}
+
+function addBranch() {
+  if (!selectedId || !root) return;
+  const node = findNode(root, selectedId);
+  if (!node) return;
+  if (node.children.length > 0) return; // only branch from leaf
+  snapshot();
+  const left = makeNode({ world: node.world });
+  const right = makeNode({ world: node.world });
+  node.children.push(left, right);
+  selectedId = left.id;
+  render();
+  loadNodeIntoEditor(left);
+  document.getElementById('nodeFormula').focus();
+}
+
+function deleteNode() {
+  if (!selectedId || !root) return;
+  if (root.id === selectedId) {
+    if (confirm('Delete the entire tableau?')) {
+      snapshot();
+      root = null;
+      selectedId = null;
+      render();
+    }
+    return;
+  }
+  const parent = findParent(root, selectedId);
+  if (!parent) return;
+  snapshot();
+  parent.children = parent.children.filter(c => c.id !== selectedId);
+  selectedId = parent.id;
+  render();
+  loadNodeIntoEditor(findNode(root, selectedId));
+}
+
+// ============================================================
+// LINE NUMBERING
+// ============================================================
+
+// ============================================================
+// RENDERING - Flatten tree into rows
+// ============================================================
+
+function renderSign(sign) {
+  if (sign === 'True') return '<span class="sign true-sign">𝕋</span>';
+  return '<span class="sign false-sign">𝔽</span>';
+}
+
+function renderFormula(formula) {
+  return formula
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// Rule display and LaTeX lookup
+const RULES = {
+  'arr-T':    { display: '→<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\rightarrow' },
+  'arr-F':    { display: '→<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\rightarrow' },
+  'and-T':    { display: '∧<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\wedge' },
+  'and-F':    { display: '∧<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\wedge' },
+  'or-T':     { display: '∨<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\lor' },
+  'or-F':     { display: '∨<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\lor' },
+  'not-T':    { display: '¬<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\neg' },
+  'not-F':    { display: '¬<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\neg' },
+  'iff-T':    { display: '↔<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\leftrightarrow' },
+  'iff-F':    { display: '↔<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\leftrightarrow' },
+  'box-T':    { display: '□<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\Box' },
+  'box-F':    { display: '□<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\Box' },
+  'dia-T':    { display: '◇<span class="sign true-sign">𝕋</span>',  latexSign: '\\True',  latexOp: '\\Diamond' },
+  'dia-F':    { display: '◇<span class="sign false-sign">𝔽</span>', latexSign: '\\False', latexOp: '\\Diamond' },
+  'ax-T-box': { display: 'T□', latexArg1: '\\Box',    latexArg2: '\\text{T}' },
+  'ax-T-dia': { display: 'T◇', latexArg1: '\\Diamond', latexArg2: '\\text{T}' },
+  'ax-4-box': { display: '4□', latexArg1: '\\Box',    latexArg2: '\\text{4}' },
+  'ax-4-dia': { display: '4◇', latexArg1: '\\Diamond', latexArg2: '\\text{4}' },
+  'ax-B-box': { display: 'B□', latexArg1: '\\Box',    latexArg2: '\\text{B}' },
+  'ax-B-dia': { display: 'B◇', latexArg1: '\\Diamond', latexArg2: '\\text{B}' },
+};
+
+function renderJustification(node) {
+  if (node.rule === 'Assumption') return 'Assumption';
+  if (!node.rule) return '';
+  const info = RULES[node.rule];
+  const ruleDisplay = info ? info.display : node.rule;
+  const parts = [ruleDisplay];
+  if (node.fromLine) parts.push(node.fromLine);
+  return parts.join(' ');
+}
+
+// Flatten tree into a list of rows for display.
+//
+// Layout approach (matching prooftrees):
+// - Trunk nodes (before any branch) each get their own row, centered across all columns
+// - At a branch point, a fork indicator row is added
+// - Then all left-branch rows are listed, followed by all right-branch rows (depth-first left-to-right)
+// - Vertical continuation lines appear in sibling branch columns while a branch is being listed
+// - After a branch closes/terminates, its column becomes inactive (no more vertical lines)
+
+let nextColumnId = 1;
+// Track parent->children column relationships for colspan calculation
+let columnChildren = {}; // colId -> [child colIds] (direct children only)
+
+function flattenBranch(node, column) {
+  // Returns array of rows for this node and all its descendants.
+  if (!node) return [];
+  const rows = [];
+
+  rows.push({ node, column, isForkRow: false });
+
+  if (node.children.length === 0) {
+    // Leaf
+  } else if (node.children.length === 1) {
+    rows.push(...flattenBranch(node.children[0], column));
+  } else if (node.children.length >= 2) {
+    const childColumns = [];
+    for (let i = 0; i < node.children.length; i++) {
+      childColumns.push(nextColumnId++);
+    }
+    // Record parent-child column relationship
+    columnChildren[column] = childColumns;
+
+    rows.push({
+      node, column, isForkRow: true,
+      forkParentCol: column,
+      forkChildCols: childColumns,
+      branchRule: node.branchRule,
+      branchFromLine: node.branchFromLine
+    });
+
+    // Depth-first left-to-right
+    for (let i = 0; i < node.children.length; i++) {
+      rows.push(...flattenBranch(node.children[i], childColumns[i]));
+    }
+  }
+  return rows;
+}
+
+// Get all leaf columns descended from a given column (the actual table columns)
+function getLeafColumns(col) {
+  if (!columnChildren[col] || columnChildren[col].length === 0) return [col];
+  let leaves = [];
+  for (const child of columnChildren[col]) {
+    leaves.push(...getLeafColumns(child));
+  }
+  return leaves;
+}
+
+function buildRows() {
+  if (!root) return [];
+  nextColumnId = 1;
+  columnChildren = {};
+  const rows = flattenBranch(root, 0);
+
+  // Compute leaf columns for each column (for colspan)
+  // A "leaf column" is one that never forks further — these are the actual table columns
+
+  // Find all leaf columns in visual left-to-right order.
+  // Use getLeafColumns(0) which traverses the column tree in left-to-right order.
+  // If column 0 is itself a leaf (no forks), it returns [0].
+  const leafCols = getLeafColumns(0);
+  // If there are no branch columns (only trunk column 0), skip activeColumns computation
+  if (leafCols.length <= 1 && leafCols[0] === 0) {
+    for (let i = 0; i < rows.length; i++) {
+      rows[i].activeColumns = [];
+    }
+    return rows;
+  }
+
+  // Compute row ranges for each leaf column
+  const colFirstRow = {};
+  const colLastRow = {};
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    if (row.isForkRow) continue;
+    // Find which leaf columns this row's column maps to
+    const leaves = getLeafColumns(row.column);
+    for (const lc of leaves) {
+      if (colFirstRow[lc] === undefined) colFirstRow[lc] = i;
+      colLastRow[lc] = i;
+    }
+  }
+  // Extend ranges for fork rows
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    if (!row.isForkRow) continue;
+    for (const cc of row.forkChildCols) {
+      const leaves = getLeafColumns(cc);
+      for (const lc of leaves) {
+        if (colFirstRow[lc] === undefined || i < colFirstRow[lc]) colFirstRow[lc] = i;
+      }
+    }
+  }
+
+  // Annotate each row with activeColumns (leaf columns active at this row)
+  for (let i = 0; i < rows.length; i++) {
+    const active = [];
+    for (const lc of leafCols) {
+      const first = colFirstRow[lc];
+      const last = colLastRow[lc];
+      if (first !== undefined && last !== undefined && i >= first && i <= last) {
+        active.push(lc);
+      }
+    }
+    rows[i].activeColumns = active;
+  }
+
+  return rows;
+}
+
+function renderTableau() {
+  const rows = buildRows();
+  if (rows.length === 0) return '';
+
+  // Assign line numbers: skip fork rows, number everything else sequentially
+  let lineNum = 1;
+  lineNumberMap = {};
+  for (const row of rows) {
+    if (!row.isForkRow) {
+      lineNumberMap[row.node.id] = lineNum++;
+    }
+  }
+
+  // Determine the leaf columns (actual table columns) in visual left-to-right order
+  const leafCols = getLeafColumns(0);
+  const numCols = Math.max(leafCols.length, 1);
+
+  // Map leaf column IDs to table positions
+  const leafToPos = {};
+  leafCols.forEach((c, i) => { leafToPos[c] = i; });
+
+  // Helper: get leaf columns for any column (for colspan computation)
+  function getLeaves(col) {
+    return getLeafColumns(col);
+  }
+
+  // Helper: render formula cell HTML
+  function formulaCellHtml(node) {
+    let h = renderSign(node.sign);
+    h += ` <span class="world">${node.world},</span> `;
+    h += `<span class="formula">${renderFormula(node.formula)}</span>`;
+    if (node.checked) h += `<span class="checked-mark"> ✓</span>`;
+    if (node.closed) h += `<br><span class="close-mark">×</span>`;
+    return h;
+  }
+
+  let html = '<table class="tableau-table">';
+
+  for (let ri = 0; ri < rows.length; ri++) {
+    const row = rows[ri];
+
+    if (row.isForkRow) {
+      // Fork indicator row: show ╱ ╲ in the child columns' leaf positions
+      const brRule = row.branchRule;
+      const brFromLine = row.branchFromLine;
+      let justHtml = '';
+      if (brRule) {
+        const brInfo = RULES[brRule];
+        const brDisplay = brInfo ? brInfo.display : brRule;
+        justHtml = brDisplay;
+        if (brFromLine) justHtml += ' ' + brFromLine;
+      }
+
+      // Determine which leaf column positions get fork symbols
+      const leftChildLeaves = getLeaves(row.forkChildCols[0]);
+      const rightChildLeaves = getLeaves(row.forkChildCols[row.forkChildCols.length - 1]);
+      // The leftmost leaf of the left child gets ╱, rightmost leaf of right child gets ╲
+      const leftForkPos = leafToPos[leftChildLeaves[leftChildLeaves.length - 1]]; // rightmost leaf of left child
+      const rightForkPos = leafToPos[rightChildLeaves[0]]; // leftmost leaf of right child
+
+      html += `<tr class="fork-row">`;
+      html += `<td></td>`;
+      for (let ci = 0; ci < numCols; ci++) {
+        const lc = leafCols[ci];
+        if (ci === leftForkPos) {
+          html += `<td style="text-align:center; color:#999; font-size:18px; line-height:1; padding:0 8px;">╱</td>`;
+        } else if (ci === rightForkPos) {
+          html += `<td style="text-align:center; color:#999; font-size:18px; line-height:1; padding:0 8px;">╲</td>`;
+        } else if (row.activeColumns.includes(lc)) {
+          html += `<td class="vline-cell"></td>`;
+        } else {
+          html += `<td></td>`;
+        }
+      }
+      html += `<td class="justification">${justHtml}</td>`;
+      html += `</tr>`;
+      continue;
+    }
+
+    // Regular content row
+    const node = row.node;
+    const isSelected = node.id === selectedId;
+    const nodeLineNum = lineNumberMap[node.id] || '';
+    const justText = renderJustification(node);
+    const nodeCol = row.column;
+
+    // Determine which leaf columns this node's column maps to
+    const nodeLeaves = getLeaves(nodeCol);
+    const nodeLeafPositions = nodeLeaves.map(lc => leafToPos[lc]).filter(p => p !== undefined);
+    const nodeFirstPos = Math.min(...nodeLeafPositions);
+    const nodeLastPos = Math.max(...nodeLeafPositions);
+    const nodeColspan = nodeLastPos - nodeFirstPos + 1;
+
+    html += `<tr class="tableau-row ${isSelected ? 'selected' : ''}" data-id="${node.id}" onclick="selectNode(${node.id})">`;
+    html += `<td class="line-num">${nodeLineNum}.</td>`;
+
+    // Render cells: the node occupies leaf positions nodeFirstPos..nodeLastPos (colspan)
+    // Other positions get vertical lines if active
+    let ci = 0;
+    while (ci < numCols) {
+      if (ci === nodeFirstPos) {
+        const align = nodeColspan === numCols ? 'text-align:center;' : '';
+        html += `<td class="formula-cell" ${nodeColspan > 1 ? `colspan="${nodeColspan}"` : ''} style="${align}">${formulaCellHtml(node)}</td>`;
+        ci = nodeLastPos + 1;
+      } else {
+        const lc = leafCols[ci];
+        if (row.activeColumns.includes(lc)) {
+          html += `<td class="vline-cell"></td>`;
+        } else {
+          html += `<td></td>`;
+        }
+        ci++;
+      }
+    }
+
+    html += `<td class="justification">${justText}</td>`;
+    html += `</tr>`;
+  }
+
+  html += '</table>';
+  return html;
+}
+
+function renderTreeOnly() {
+  if (!root) return;
+  const container = document.getElementById('treeContainer');
+  container.innerHTML = renderTableau();
+}
+
+function render() {
+  const container = document.getElementById('treeContainer');
+
+  if (!root) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <h2>No tableau yet</h2>
+        <p>Start by creating the root assumption.</p>
+        <button class="primary" onclick="startNewTableau()">Create root node</button>
+        <button onclick="loadDemo()" style="margin-left:8px;">Load demo</button>
+      </div>`;
+    document.getElementById('nodeEditor').style.display = 'none';
+    document.getElementById('branchEditor').style.display = 'none';
+    document.getElementById('nodeActionsPanel').style.display = 'none';
+    document.getElementById('noSelection').style.display = 'block';
+    return;
+  }
+
+  container.innerHTML = renderTableau();
+
+  // Update editor panel
+  if (selectedId) {
+    const node = findNode(root, selectedId);
+    if (node) {
+      loadNodeIntoEditor(node);
+      document.getElementById('nodeEditor').style.display = 'block';
+      document.getElementById('nodeActionsPanel').style.display = 'block';
+      document.getElementById('noSelection').style.display = 'none';
+    }
+  } else {
+    document.getElementById('nodeEditor').style.display = 'none';
+    document.getElementById('branchEditor').style.display = 'none';
+    document.getElementById('nodeActionsPanel').style.display = 'none';
+    document.getElementById('noSelection').style.display = 'block';
+  }
+
+  updateUndoButtons();
+}
+
+// ============================================================
+// NODE EDITOR
+// ============================================================
+
+function loadNodeIntoEditor(node) {
+  if (!node) return;
+  document.getElementById('nodeSign').value = node.sign;
+  document.getElementById('nodeWorld').value = node.world;
+  document.getElementById('nodeFormula').value = node.formula;
+  document.getElementById('nodeRule').value = node.rule;
+  document.getElementById('nodeFromLine').value = node.fromLine;
+  document.getElementById('nodeChecked').checked = node.checked;
+  document.getElementById('nodeClosed').checked = node.closed;
+
+  // Show/hide branch rule editor
+  const branchPanel = document.getElementById('branchEditor');
+  if (node.children.length >= 2) {
+    branchPanel.style.display = 'block';
+    document.getElementById('branchRule').value = node.branchRule || '';
+    document.getElementById('branchFromLine').value = node.branchFromLine || '';
+  } else {
+    branchPanel.style.display = 'none';
+  }
+}
+
+let snapshotTimer = null;
+let lastSnapshotState = null;
+
+function snapshotDebounced() {
+  // Take a snapshot after a pause in editing
+  if (snapshotTimer) clearTimeout(snapshotTimer);
+  if (!lastSnapshotState) {
+    lastSnapshotState = JSON.stringify({ root, nextId, selectedId });
+  }
+  snapshotTimer = setTimeout(() => {
+    if (lastSnapshotState) {
+      undoStack.push(lastSnapshotState);
+      if (undoStack.length > 100) undoStack.shift();
+      redoStack = [];
+      updateUndoButtons();
+      lastSnapshotState = null;
+    }
+  }, 500);
+}
+
+function updateSelectedNode() {
+  if (!selectedId || !root) return;
+  const node = findNode(root, selectedId);
+  if (!node) return;
+
+  const newSign = document.getElementById('nodeSign').value;
+  const newWorld = document.getElementById('nodeWorld').value;
+  const newFormula = document.getElementById('nodeFormula').value;
+  const newRule = document.getElementById('nodeRule').value;
+  const newFromLine = document.getElementById('nodeFromLine').value;
+  const newChecked = document.getElementById('nodeChecked').checked;
+  const newClosed = document.getElementById('nodeClosed').checked;
+  const branchRuleEl = document.getElementById('branchRule');
+  const branchFromLineEl = document.getElementById('branchFromLine');
+  const newBranchRule = branchRuleEl ? branchRuleEl.value : '';
+  const newBranchFromLine = branchFromLineEl ? branchFromLineEl.value : '';
+
+  // Only snapshot if something actually changed
+  if (node.sign !== newSign || node.world !== newWorld || node.formula !== newFormula ||
+      node.rule !== newRule || node.fromLine !== newFromLine ||
+      node.checked !== newChecked || node.closed !== newClosed ||
+      node.branchRule !== newBranchRule || node.branchFromLine !== newBranchFromLine) {
+    snapshotDebounced();
+  }
+
+  node.sign = newSign;
+  node.world = newWorld;
+  node.formula = newFormula;
+  node.rule = newRule;
+  node.fromLine = newFromLine;
+  node.checked = newChecked;
+  node.closed = newClosed;
+  node.branchRule = newBranchRule;
+  node.branchFromLine = newBranchFromLine;
+
+  renderTreeOnly();
+}
+
+function selectNode(id) {
+  selectedId = id;
+  const node = findNode(root, id);
+  if (node) {
+    loadNodeIntoEditor(node);
+    document.getElementById('nodeEditor').style.display = 'block';
+    document.getElementById('nodeActionsPanel').style.display = 'block';
+    document.getElementById('noSelection').style.display = 'none';
+  }
+  // Re-render to update selection highlight
+  render();
+}
+
+// ============================================================
+// SYMBOL INSERTION
+// ============================================================
+
+function insertSymbol(sym) {
+  const input = document.getElementById('nodeFormula');
+  if (!input) return;
+  const start = input.selectionStart;
+  const end = input.selectionEnd;
+  const val = input.value;
+  input.value = val.substring(0, start) + sym + val.substring(end);
+  input.selectionStart = input.selectionEnd = start + sym.length;
+  input.focus();
+  updateSelectedNode();
+}
+
+function handleFormulaKey(e) {
+  if (e.ctrlKey || e.metaKey) return;
+
+  const replacements = {
+    '>': '→',
+    '&': '∧',
+    '|': '∨',
+    '~': '¬',
+    '<': '◇',
+    '[': '□',
+    '=': '↔',
+  };
+
+  if (replacements[e.key]) {
+    e.preventDefault();
+    insertSymbol(replacements[e.key]);
+    return;
+  }
+}
+
+// ============================================================
+// LATEX EXPORT
+// ============================================================
+
+function formulaToLatex(formula) {
+  return formula
+    .replace(/→/g, '\\rightarrow ')
+    .replace(/∧/g, '\\wedge ')
+    .replace(/∨/g, '\\lor ')
+    .replace(/¬/g, '\\neg ')
+    .replace(/↔/g, '\\leftrightarrow ')
+    .replace(/◇/g, '\\Diamond ')
+    .replace(/□/g, '\\Box ');
+}
+
+function ruleToLatexFromInfo(ruleKey, fromLine) {
+  // Generate just= LaTeX from a rule key and line number
+  if (ruleKey === 'Assumption') return '\\TAss';
+  if (!ruleKey) return '';
+  const info = RULES[ruleKey];
+  if (!info) return `{\\text{${ruleKey}}}`;
+  let result;
+  if (info.latexSign) {
+    result = `{\\TRule{${info.latexSign}}{${info.latexOp}}`;
+  } else {
+    result = `{\\TRule{${info.latexArg1}}{${info.latexArg2}}`;
+  }
+  if (fromLine) result += `[${fromLine}]`;
+  result += '}';
+  return result;
+}
+
+function nodeToLatex(node, indent = 1, inheritedRule = '', inheritedFromLine = '', addMoveBy = false, passMoveByToFirstChild = false) {
+  const pad = '    '.repeat(indent);
+  const sign = node.sign === 'True' ? '\\True' : '\\False';
+  const formula = formulaToLatex(node.formula);
+
+  let line = `${pad}[\\sFmla{${sign}}{${node.world}, ${formula.trim()}}`;
+
+  // Add checked
+  if (node.checked) line += ', checked';
+
+  // Add justification: use inherited branch rule if provided, else own rule
+  const effectiveRule = inheritedRule || node.rule;
+  const effectiveFromLine = inheritedRule ? inheritedFromLine : node.fromLine;
+  const just = ruleToLatexFromInfo(effectiveRule, effectiveFromLine);
+  if (just) line += `, just = ${just}`;
+
+  // Write move by = 2 if flagged directly on this node
+  if (addMoveBy) line += ', move by = 2';
+
+  // Add close
+  if (node.closed) line += ', close';
+
+  if (node.children.length === 0) {
+    line += ']';
+  } else {
+    line += '\n';
+    // If this node has a branchRule and 2+ children, pass it to children
+    const passBranchRule = (node.children.length >= 2 && node.branchRule) ? node.branchRule : '';
+    const passBranchFromLine = (node.children.length >= 2 && node.branchRule) ? node.branchFromLine : '';
+    for (let ci = 0; ci < node.children.length; ci++) {
+      const child = node.children[ci];
+
+      // Two sources of move by = 2:
+      // 1. Our parent told us to put it on our first child (passMoveByToFirstChild)
+      const writeMoveOnChild = (ci === 0 && passMoveByToFirstChild);
+      // 2. This child is a non-first branch sibling whose left sibling doesn't immediately close
+      //    -> need move by on that child's first child (pass it down one more level)
+      const leftSibling = ci > 0 ? node.children[ci - 1] : null;
+      const passDown = ci > 0 && leftSibling && leftSibling.children.length > 0;
+
+      line += nodeToLatex(child, indent + 1, passBranchRule, passBranchFromLine, writeMoveOnChild, passDown) + '\n';
+    }
+    line += `${pad}]`;
+  }
+
+  return line;
+}
+
+function exportLatex() {
+  if (!root) return '% Empty tableau';
+
+  let latex = `\\begin{oltableau}\n`;
+  latex += nodeToLatex(root);
+  latex += `\n\\end{oltableau}`;
+  return latex;
+}
+
+function showExportModal() {
+  document.getElementById('latexOutput').textContent = exportLatex();
+  document.getElementById('exportModal').classList.add('active');
+}
+
+function closeExportModal() {
+  document.getElementById('exportModal').classList.remove('active');
+}
+
+function copyLatex() {
+  navigator.clipboard.writeText(exportLatex());
+}
+
+// ============================================================
+// SAVE / LOAD
+// ============================================================
+
+function showSaveLoadModal() {
+  document.getElementById('jsonOutput').textContent = JSON.stringify({ root, nextId }, null, 2);
+  document.getElementById('saveLoadModal').classList.add('active');
+}
+
+function closeSaveLoadModal() {
+  document.getElementById('saveLoadModal').classList.remove('active');
+}
+
+function copyJSON() {
+  navigator.clipboard.writeText(JSON.stringify({ root, nextId }, null, 2));
+}
+
+function loadFromJSON() {
+  try {
+    const text = document.getElementById('jsonInput').value;
+    const data = JSON.parse(text);
+    if (data.root) {
+      snapshot();
+      root = data.root;
+      nextId = data.nextId || 100;
+      selectedId = root ? root.id : null;
+      render();
+      closeSaveLoadModal();
+    }
+  } catch (e) {
+    alert('Invalid JSON: ' + e.message);
+  }
+}
+
+// ============================================================
+// NEW TABLEAU
+// ============================================================
+
+function newTableau() {
+  if (root && !confirm('Start a new tableau? Current work will be lost unless saved.')) return;
+  snapshot();
+  root = null;
+  selectedId = null;
+  nextId = 1;
+  render();
+}
+
+function startNewTableau() {
+  root = makeNode({
+    sign: 'False',
+    world: '1',
+    formula: '',
+    rule: 'Assumption'
+  });
+  selectedId = root.id;
+  render();
+  document.getElementById('nodeFormula').focus();
+}
+
+function loadDemo() {
+  nextId = 1;
+  root = makeNode({ sign: 'False', world: '1', formula: '(◇A ∨ ◇B) → ◇(A ∨ B)', rule: 'Assumption', checked: true,
+    children: [
+      makeNode({ sign: 'True', world: '1', formula: '◇A ∨ ◇B', rule: 'arr-F', fromLine: '1', checked: true, children: [
+        makeNode({ sign: 'False', world: '1', formula: '◇(A ∨ B)', rule: 'arr-F', fromLine: '1', branchRule: 'or-T', branchFromLine: '2', children: [
+          // Branch on or-T
+          makeNode({ sign: 'True', world: '1', formula: '◇A', checked: true, children: [
+            makeNode({ sign: 'True', world: '1.1', formula: 'A', rule: 'dia-T', fromLine: '4', children: [
+              makeNode({ sign: 'False', world: '1.1', formula: 'A ∨ B', rule: 'dia-F', fromLine: '3', checked: true, children: [
+                makeNode({ sign: 'False', world: '1.1', formula: 'A', rule: 'or-F', fromLine: '6', closed: true })
+              ]})
+            ]})
+          ]}),
+          makeNode({ sign: 'True', world: '1', formula: '◇B', checked: true, children: [
+            makeNode({ sign: 'True', world: '1.2', formula: 'B', rule: 'dia-T', fromLine: '8', children: [
+              makeNode({ sign: 'False', world: '1.2', formula: 'A ∨ B', rule: 'dia-F', fromLine: '3', checked: true, children: [
+                makeNode({ sign: 'False', world: '1.2', formula: 'A', rule: 'or-F', fromLine: '10', children: [
+                  makeNode({ sign: 'False', world: '1.2', formula: 'B', rule: 'or-F', fromLine: '10', closed: true })
+                ]})
+              ]})
+            ]})
+          ]})
+        ]})
+      ]})
+    ]
+  });
+  selectedId = root.id;
+  render();
+}
+
+// ============================================================
+// KEYBOARD NAVIGATION
+// ============================================================
+
+function getNodeList_ordered() {
+  return getNodeList(root);
+}
+
+document.addEventListener('keydown', (e) => {
+  // Don't intercept when typing in inputs (except for specific shortcuts)
+  const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT';
+
+  // Ctrl+Z / Ctrl+Y always work
+  if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+    e.preventDefault();
+    undo();
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'y') {
+    e.preventDefault();
+    redo();
+    return;
+  }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+    e.preventDefault();
+    showExportModal();
+    return;
+  }
+
+  // Escape closes modals
+  if (e.key === 'Escape') {
+    closeExportModal();
+    closeSaveLoadModal();
+    return;
+  }
+
+  // Enter adds a child node, even from within input fields
+  if (e.key === 'Enter' && !e.ctrlKey && !e.metaKey && root && selectedId) {
+    e.preventDefault();
+    addChild();
+    return;
+  }
+
+  if (isInput) return;
+
+  if (!root || !selectedId) return;
+
+  if (e.key === 'b' || e.key === 'B') {
+    e.preventDefault();
+    addBranch();
+    return;
+  }
+  if (e.key === 'Delete' || e.key === 'Backspace') {
+    e.preventDefault();
+    deleteNode();
+    return;
+  }
+
+  // Arrow key navigation
+  const nodes = getNodeList_ordered();
+  const idx = nodes.findIndex(n => n.id === selectedId);
+  if (e.key === 'ArrowDown' && idx < nodes.length - 1) {
+    e.preventDefault();
+    selectNode(nodes[idx + 1].id);
+  }
+  if (e.key === 'ArrowUp' && idx > 0) {
+    e.preventDefault();
+    selectNode(nodes[idx - 1].id);
+  }
+});
+
+// Close modals on overlay click
+document.getElementById('exportModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('exportModal')) closeExportModal();
+});
+document.getElementById('saveLoadModal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('saveLoadModal')) closeSaveLoadModal();
+});
+
+// Re-render on resize
+window.addEventListener('resize', () => { if (root) renderTreeOnly(); });
+
+// ============================================================
+// INITIAL RENDER
+// ============================================================
+
+render();
+</script>
+</body>
+</html>

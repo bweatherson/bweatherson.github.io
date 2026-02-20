@@ -1,0 +1,15 @@
+\ProvidesPackage{open-logic-minimal}
+
+% Minimal replacements for Open Logic tableau commands
+
+% \sFmla{sign}{formula} - formats a signed formula in a tableau
+% sign is typically \True or \False
+% formula is the logical formula
+\newcommand{\sFmla}[2]{#1 \; #2}
+
+% \TRule{sign}{connective}[line] - creates justification for tableau rules
+% Example: \TRule{\True}{\neg}[1] means "True-negation rule applied to line 1"
+\DeclareDocumentCommand \TRule { m m o }{%
+  \ensuremath{{#2}{#1}\IfNoValueTF{#3}{}{\, #3}}}
+
+\endinput

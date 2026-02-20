@@ -1,0 +1,73 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+
+\pagestyle{empty}
+
+% Tableau signs
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\F}{\mathbb{F}}
+
+% Vertical dots shorthand
+\newcommand{\vmark}{\,\vert\,}
+
+% Section formatting
+\newcommand{\ruleheader}[1]{\medskip\noindent\textbf{\large #1}\par\smallskip\hrule\smallskip}
+\newcommand{\rulesubheader}[1]{\smallskip\noindent\textbf{#1}\par\smallskip}
+
+% Branching notation
+\newcommand{\branches}[2]{%
+  \begin{tabular}{@{}c@{\qquad}c@{}}
+  #1 & #2
+  \end{tabular}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Midterm}\\[4pt]
+{\large Phil 305 --- Propositional and Modal Logic}
+\end{center}
+
+\ruleheader{Part 1: S5}
+
+Use the simplified rules for \textbf{S5} to build tableaux for each of these claims. Say which of them are valid, i.e., are theorems of \textbf{S5}.
+
+\begin{enumerate}
+\item $\Box(\Box p \rightarrow q) \vee \Box(\Box q \rightarrow p)$
+\item $\Diamond \Box p \rightarrow \Box \Diamond p$
+\item $\Diamond (\neg p \vee r) \rightarrow (\Box (p \vee q) \rightarrow \Diamond (q \vee r))$
+\item $(\neg p \vee \neg \Box \Box p) \rightarrow \neg \Box p$
+\end{enumerate}
+
+\ruleheader{Part 2: K}
+
+Use the rules for \textbf{K} to build tableaux for each of these claims. Say which of them are valid, i.e., are theorems of \textbf{K}.
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item $(\Diamond p \wedge \Diamond q) \rightarrow \Box(p \vee q)$
+\item $\Diamond (p \rightarrow p) \vee \Diamond \neg (q \rightarrow q)$
+\item $\Box(p \rightarrow \neg q) \rightarrow \Box(q \rightarrow \neg p)$
+\end{enumerate}
+
+\ruleheader{Part 3: S4}
+
+Use the rules for \textbf{S4} to build tableaux for each of these claims. Say which of them are valid, i.e., are theorems of \textbf{S4}. Remember \textbf{S4} is the logic \textbf{KT4}, so it has the rules for \textbf{T} and \textbf{4} as well as \textbf{K}
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \Box(p \rightarrow q) \rightarrow (\Diamond \Diamond p \rightarrow \Diamond q)
+\item (p \wedge \Diamond \Box p) \rightarrow \Box p
+\item \Diamond \Box \Diamond \Box p \rightarrow \Diamond \Box p
+\end{enumerate}
+
+\end{document}
