@@ -1,0 +1,219 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+
+\pagestyle{empty}
+
+% Tableaux system
+\RequirePackage[tableaux]{prooftrees}
+\RequirePackage{pifont}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
+
+% Open Logic commands for tableaux
+\usepackage{open-logic-minimal}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\center\tableau{}}{\endtableau\endcenter}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Spacing around tableaux
+\usepackage{etoolbox}
+\AfterEndEnvironment{oltableau}{\vspace{9pt}}
+\BeforeBeginEnvironment{oltableau}{\vspace{9pt}}
+
+% Color definitions (if you need them later)
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{dodgerblue}{RGB}{30,144,255}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}
+
+% Section formatting
+\newcommand{\ruleheader}[1]{\medskip\noindent\textbf{\large #1}\par\smallskip\hrule\smallskip}
+\newcommand{\rulesubheader}[1]{\smallskip\noindent\textbf{#1}\par\smallskip}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Quiz 6 Answers}\\[4pt]
+{\large Phil 305}
+\end{center}
+
+\ruleheader{$ \Box(A \vee B) \rightarrow (\Diamond A \vee \Box B) \text{ is a theorem of } \textbf{KT}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (A \lor  B) \rightarrow  (\Diamond A \lor  \Box B)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (A \lor  B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A \lor  \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\lor}[3]}
+                    [\sFmla{\False}{1, \Box B}, checked, just = {\TRule{\False}{\lor}[1]}
+                        [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                            [\sFmla{\True}{1.1, A \lor  B}, checked, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\lor}[7]}
+                                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[4]}, close]
+                                ]
+                                [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\lor}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+\ruleheader{$\Box (A \rightarrow B) \rightarrow (A \rightarrow \Box B) \text{ is not a theorem of } \textbf{KT}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (A \rightarrow  B) \rightarrow  (A \rightarrow  \Box B)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (A \rightarrow  B)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, A \rightarrow  \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Box B}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{1, A \rightarrow  B}, checked, just = {\TRule{\Box}{\text{T}}[2]}
+                            [\sFmla{\False}{1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                            [\sFmla{\True}{1, B}, just = {\TRule{\True}{\rightarrow}[6]}
+                                [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Box}[5]}
+                                    [\sFmla{\True}{1.1, A \rightarrow  B}, checked, just = {\TRule{\True}{\Box}[2]}
+                                        [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[9]}]
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\rightarrow}[9]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The middle branch stays open, and the open-ended instruction at line 2 has been applied everywhere that's needed.
+
+The counterexample is where $A$ and $B$ are both true at $w_1$ and both false at $w_{1.1}$.
+
+\vspace{12pt}
+
+\ruleheader{$\Box A \rightarrow (A \wedge \Box \Box A) \text{ is not a theorem of } \textbf{K4}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box A \rightarrow  (A \wedge  \Box \Box A)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, A \wedge  \Box \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\False}{1, A}, just = {\TRule{\False}{\wedge}[3]}]
+                [\sFmla{\False}{1, \Box \Box A}, checked, just = {\TRule{\False}{\wedge}[3]}
+                    [\sFmla{\False}{1.1, \Box A}, just = {\TRule{\False}{\Box}[4]}
+                        [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\Box}{\text{4}}[2]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The left hand branch stays open. The counterexample is the somewhat degenerate model where $w_1$ can't access anything, and has $A$ false.
+
+\newpage
+\ruleheader{$\Diamond (A \rightarrow \Diamond B) \rightarrow (\Box A \rightarrow \Diamond (A \wedge B)) \text{ is a theorem of } \textbf{K4}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond (A \rightarrow  \Diamond B) \rightarrow  (\Box A \rightarrow  \Diamond (A \wedge  B))}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond (A \rightarrow  \Diamond B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box A \rightarrow  \Diamond (A \wedge  B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond (A \wedge  B)}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{1.1, A \rightarrow  \Diamond B}, checked, just = {\TRule{\True}{\Diamond}[2]}
+                            [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
+                                [\sFmla{\False}{1.1, A \wedge  B}, just = {\TRule{\False}{\Diamond}[5]}
+                                    [\sFmla{\False}{1.1, A}, just = {\TRule{\True}{\rightarrow}[6]}, close]
+                                    [\sFmla{\True}{1.1, \Diamond B}, checked, just = {\TRule{\True}{\rightarrow}[6]}
+                                        [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\Box}{\text{4}}[4]}
+                                            [\sFmla{\False}{1.1, \Diamond (A \wedge  B)}, just = {\TRule{\Diamond}{\text{4}}[5]}
+                                                [\sFmla{\True}{1.1.1, B}, just = {\TRule{\True}{\Diamond}[9]}
+                                                    [\sFmla{\True}{1.1.1, A}, just = {\TRule{\True}{\Box}[10]}
+                                                        [\sFmla{\False}{1.1.1, A \wedge  B}, checked, just = {\TRule{\False}{\Diamond}[11]}
+                                                            [\sFmla{\False}{1.1.1, A}, just = {\TRule{\False}{\wedge}[14]}, close]
+                                                            [\sFmla{\False}{1.1.1, B}, just = {\TRule{\False}{\wedge}[14]}, close]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+\ruleheader{$\Diamond (A \wedge B) \rightarrow \Box \Diamond (C \rightarrow B) \text{ is not a theorem of } \textbf{S4}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond (A \wedge  B) \rightarrow  \Box \Diamond (C \rightarrow  B)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond (A \wedge  B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \Diamond (C \rightarrow  B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1.1, A \wedge  B}, checked, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\wedge}[4]}
+                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\wedge}[4]}
+                            [\sFmla{\False}{1.2, \Diamond (C \rightarrow  B)}, just = {\TRule{\False}{\Box}[3]}
+                                [\sFmla{\False}{1.2, C \rightarrow  B}, checked, just = {\TRule{\Diamond}{\text{T}}[7]}
+                                    [\sFmla{\True}{1.2, C}, just = {\TRule{\False}{\rightarrow}[8]}
+                                        [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\rightarrow}[8]}]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The trunk stays open, and we've applied the open-ended rule everywhere it needs to be applied. The countermodel has $w_1$, which can access $w_{1.1}$ and $w_{1.2}$. At $w_{1.1}$ both $A$ and $B$ are true. At $w_{1.2}$, $C$ is true and $B$ is false. Any way of filling in the other values will still create a counterexample.
+
+\newpage
+
+\ruleheader{$\Diamond \Diamond A \rightarrow (\Diamond A \wedge \Diamond \Diamond \Diamond A) \text{ is a theorem of } \textbf{S4}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond \Diamond A \rightarrow  (\Diamond A \wedge  \Diamond \Diamond \Diamond A)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A \wedge  \Diamond \Diamond \Diamond A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1.1, \Diamond A}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\wedge}[3]}
+                        [\sFmla{\False}{1.1, \Diamond A}, just = {\TRule{\Diamond}{\text{4}}[5]}, close]
+                    ]
+                    [\sFmla{\False}{1, \Diamond \Diamond \Diamond A}, just = {\TRule{\False}{\wedge}[3]}
+                        [\sFmla{\False}{1, \Diamond \Diamond A}, just = {\TRule{\Diamond}{\text{T}}[6]}, move by = 2, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+There are a lot of ways to close this one; this is the quickest I found but it's definitely not the only one.
+
+\ruleheader{$\Diamond \Box A \rightarrow \Diamond A \text{ is a theorem of } \textbf{KTB}$}
+
+\ruleheader{$(\Box A \wedge \Box B) \rightarrow \Box \Box (A \rightarrow B) \text{ is a not theorem of } \textbf{KTB}$}
+
+\end{document}

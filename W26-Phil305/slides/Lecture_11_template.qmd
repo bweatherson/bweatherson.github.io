@@ -1,9 +1,0 @@
----
-title: "Modal Logic: Tableaux Examples"
-date: "2/18/2026"
-format:
-    revealjs:
-        css: lecture-03-custom-tables.css
-    beamer:
-        include-in-header: 305-beamer-header-minimal.tex
----
