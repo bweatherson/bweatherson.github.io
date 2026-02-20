@@ -42,7 +42,7 @@
 \DeclareDocumentMacro \TAss {Assumption}
 
 \newcommand{\ruleheader}[1]{\medskip\noindent\textbf{\large #1}\par\smallskip\hrule\smallskip}
-\newcommand{\rulesubheader}[1]{\smallskip\noindent\textbf{#1}\par\smallskip}
+\newcommand{\rulesubheader}[1]{\bigskip\noindent\textbf{#1}\par\smallskip}
 
 \setlength{\parindent}{0pt}
 
@@ -109,6 +109,8 @@ The only branch closes, so this is \textbf{valid} in \textbf{S5}.
 
 Both branches clos, so this is \textbf{valid} in \textbf{S5}.
 
+\newpage
+
 \rulesubheader{$\Box (p \vee q) \rightarrow (\Diamond (\neg q \vee r) \rightarrow \Diamond (p \vee r))$ in \textbf{S5}}
 
 \begin{oltableau}
@@ -173,5 +175,154 @@ All branches close, so this is \textbf{valid} in \textbf{S5}.
 \end{oltableau}
 
 Both branches close, so this is \textbf{valid} in \textbf{S5}. There are many ways to close this one; this is the fastest I found, but it's definitely not the only way.
+
+\newpage
+
+\rulesubheader{$(\Diamond p \wedge \Box q) \rightarrow \Diamond q$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (\Diamond p \wedge  \Box q) \rightarrow  \Diamond q}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond p \wedge  \Box q}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond q}, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond p}, checked, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Box q}, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\True}{1.1, p}, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\False}{1.1, q}, just = {\TRule{\False}{\Diamond}[3]}
+                                [\sFmla{\True}{1.1, q}, just = {\TRule{\True}{\Box}[5]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The trunk closes, so it is \textbf{valid} in \textbf{K}. What's odd about this one is that even though the right hand side of the conditional is just about $q$, the $\Diamond p$ plays a crucial role in the tableau, by making us introduce $w_1.1$.
+
+\rulesubheader{$\Box (p \wedge \neg p) \vee \Diamond (q \vee \neg q)$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (p \wedge  \neg p) \lor  \Diamond (q \lor  \neg q)}, checked, just = \TAss
+        [\sFmla{\False}{1, \Box (p \wedge  \neg p)}, checked, just = {\TRule{\False}{\lor}[1]}
+            [\sFmla{\False}{1, \Diamond (q \lor  \neg q)}, just = {\TRule{\False}{\lor}[1]}
+                [\sFmla{\False}{1.1, p \wedge  \neg p}, just = {\TRule{\False}{\Box}[2]}
+                    [\sFmla{\False}{1.1, q \lor  \neg q}, checked, just = {\TRule{\False}{\Diamond}[3]}
+                        [\sFmla{\False}{1.1, q}, just = {\TRule{\False}{\wedge}[5]}
+                            [\sFmla{\False}{1.1, \neg q}, checked, just = {\TRule{\False}{\lor}[5]}
+                                [\sFmla{\True}{1.1, q}, just = {\TRule{\False}{\neg}[7]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+This is also valid, and it's also wrong for the same reason. (Not at all on the test digression. This example shows that \textbf{K} has a very weird property. It is not Halldén-complete. A logician, Sören Halldén, in the 1950s noticed that some logics have the odd property that $X \vee Y$ is a theorem even though (a) neither $X$ nor $Y$ is, and (b) $X$ and $Y$ have no variables in common. We've come to call such logics Halldén-incomplete, and the opposite property Halldén-completeness. In general, the logics that are interesting and get used in philosophical applications are Halldén-complete.)
+
+\rulesubheader{$\Box \neg(p \vee \neg q) \rightarrow \Box p$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box \neg (p \lor  \neg q) \rightarrow  \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box \neg (p \lor  \neg q)}, just = {\TRule{\True}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \neg (p \lor  \neg q)}, checked, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\False}{1.1, p \lor  \neg q}, checked, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\lor}[6]}
+                                [\sFmla{\False}{1.1, \neg q}, checked, just = {\TRule{\False}{\lor}[6]}
+                                    [\sFmla{\True}{1.1, q}, just = {\TRule{\False}{\neg}[8]}]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The tree is open, so this is not a theorem, it is \textbf{invalid} in \textbf{K}. The countermodel has two worlds: $w_1$ and $w_1.1$, with $w_1Rw_{1.1}$. At $w_{1.1}$, $p$ is false and $q$ is true.
+
+\newpage
+
+\rulesubheader{$\Box(p \rightarrow (q \wedge r)) \rightarrow (\Diamond \Diamond p \rightarrow \Diamond (q \vee s))$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (p \rightarrow  (q \wedge  r)) \rightarrow  (\Diamond \Diamond p \rightarrow  \Diamond (q \lor  s))}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (p \rightarrow  (q  \wedge  r))}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond \Diamond p \rightarrow  \Diamond (q \lor  s)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond (q \lor  s)}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{1.1, \Diamond p}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{1.1, \Box (p \rightarrow  (q  \wedge  r))}, just = {\TRule{\Box}{\text{4}}[2]}
+                                [\sFmla{\False}{1.1, \Diamond (q \lor  s)}, just = {\TRule{\Diamond}{\text{4}}[5]}
+                                    [\sFmla{\True}{1.1.1, p}, just = {\TRule{\True}{\Diamond}[6]}
+                                        [\sFmla{\True}{1.1.1, p \rightarrow  (q \wedge  r)}, just = {\TRule{\True}{\Box}[7]}
+                                            [\sFmla{\False}{1.1.1, p}, just = {\TRule{\True}{\rightarrow}[10]}, close]
+                                            [\sFmla{\True}{1.1.1, q \wedge  r}, checked, just = {\TRule{\True}{\rightarrow}[10]}
+                                                [\sFmla{\True}{1.1.1, q}, just = {\TRule{\True}{\wedge}[11]}
+                                                    [\sFmla{\True}{1.1.1, r}, just = {\TRule{\True}{\wedge}[11]}
+                                                        [\sFmla{\False}{1.1.1, q \lor  s}, just = {\TRule{\False}{\Diamond}[8]}
+                                                            [\sFmla{\False}{1.1.1, q}, just = {\TRule{\False}{\lor}[14]}, close]
+                                                        ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+All the branches close, so this is valid.
+
+\rulesubheader{$(\Diamond \Box p \wedge \Diamond \Box q) \rightarrow \Diamond(p \wedge q)$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (p \wedge  \Diamond \Box p) \rightarrow  \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, p \wedge  \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, p}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Diamond \Box p}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\Box}[3]}
+                            [\sFmla{\True}{1.2, \Box p}, just = {\TRule{\True}{\Diamond}[5]}
+                                [\sFmla{\True}{1.2, p}, just = {\TRule{\Box}{\text{T}}[7]}]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+This is open, so it isn't valid. The countermodel has three worlds, $w_1$, $w_{1.1}$ and $w_{1.2}$. $w_1$ can access everything, the other two can only access themselves. And $p$ is true at $w_1$ and $w_{1.2}$, but false at $w_{1.1}$.
+
+\rulesubheader{$ \Box \Diamond \Box \Diamond p \rightarrow \Box \Diamond p$ in \textbf{K}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond \Box \Diamond \Box p \rightarrow  \Diamond \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Box \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond \Box p}, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1.1, \Box \Diamond \Box p}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\False}{1.1, \Diamond \Box p}, just = {\TRule{\Diamond}{\text{4}}[3]}
+                        [\sFmla{\True}{1.1, \Diamond \Box p}, just = {\TRule{\Box}{\text{T}}[4]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The trunk closes, so this is \textbf{valid}. There are \textit{a lot} of ways to do this one; this is one of the more direct.
 
 \end{document}
