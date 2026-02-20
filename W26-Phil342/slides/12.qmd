@@ -1,0 +1,334 @@
+---
+title: "Schelling on Focal Points"
+date: 2/23/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Two-Thirds Game
+
+---
+
+::: {.columns}
+
+:::: {.column width=50%}
+![QR code for two-thirds game](images/two_thirds_qr.png)
+::::
+
+:::: {.column width=50%}
+Scan this QR code or go to the Canvas announcement and follow the link.
+
+Guess a number between 0 and 100.
+
+The winner is the person closest to 2/3 of the average of everyone's guesses.
+::::
+
+:::
+
+## And the Winner Is...
+
+Congratulations to our winner!
+
+How did you do it?
+
+. . .
+
+Now let's play the game again.
+
+## And the Winner Is...
+
+Congratulations to our winner!
+
+How did you do it?
+
+. . .
+
+I'm writing these before seeing the results, but I can make two predictions about what happened.
+
+1. The winning score will be *lower* than in the first game.
+2. The winning score will be greater than 0.
+
+## Theory
+
+This game is tricky to analyse because the theoretically correct answer is zero.
+
+The only *equilibrium* is that everyone says zero.
+
+And we often analyse games in terms of what the equiilibria are.
+
+But (I'm guessing) the people who wrote 0 in their guesses **lost**.
+
+## Coordination
+
+So instead of looking at theory, let's think about what goes on in the game.
+
+Each person has to do this strangely reflexive thing.
+
+They have to think about what other people are going to do, while what the other people do is in turn reflected by their thoughts about what other people will do.
+
+The thought process turns back on itself.
+
+## Keynes
+
+An early discussion of the importance of thinking about what other people are thinking about, even when those other people are thinking about what you are thinking about, comes from John Maynard Keynes's 1936 book _The General Theory of Employment, Interest, and Money_.
+
+One of the aims of that book is to explain the instability in capitalist economies; remember that 1936 is well into the Great Depression.
+
+---
+
+> [P]rofessional investment may be likened to those newspaper competitions in which the competitors have to pick out the six prettiest faces from a hundred photographs, the prize being awarded to the competitor whose choice most nearly corresponds to the average preferences of the competitors as a whole; so that each competitor has to pick, not those faces which he himself finds prettiest, but those which he thinks likeliest to catch the fancy of the other competitors, all of whom are looking at the problem from the same point of view. 
+
+---
+
+> It is not a case of choosing those which, to the best of one’s judgment, are really the prettiest, nor even those which average opinion genuinely thinks the prettiest. We have reached the third degree where we devote our intelligences to anticipating what average opinion expects the average opinion to be. And there are some, I believe, who practise the fourth, fifth and higher degrees.
+
+## Degrees
+
+Here's one model of the two-thirds game.
+
+- Someone who just goes with initial views, without thinking about public opinion, will guess 33; they'll think all numbers are equally likely, so they'll average 50, and 2/3 of 50 is (roughly) 33.
+- At the second order, someone might guess 22, thinking that the first-order folks will guess 33.
+- At the third order, someone might guess 15, thinking that everyone else is second-order and will guess 22.
+- And so on for extra orders.
+- When you play this game repeatedly in a class, the winner the second time around is usually between 4/9 and 2/3 of the previous winning score; people are doing 1-2 more degrees.
+
+# Coordination Game
+
+---
+
+::: {.columns}
+
+:::: {.column width=50%}
+![QR code for two-thirds game](images/two_thirds_qr.png)
+::::
+
+:::: {.column width=50%}
+Scan this QR code or go to the Canvas announcement and follow the link.
+
+In each city, you have to meet up with some people in that city, who want to meet up with you, but you can't communicate with them. Where do you go?
+
+In each city, you'll get 1 point for everyone else who names the same place. Most points wins.
+
+
+::::
+
+:::
+
+
+## New York
+
+The winning answers were:
+
+. . .
+
+What made you pick those?
+
+## Paris
+
+The winning answers were:
+
+. . .
+
+I'm going to take a wild guess here and predict that this one had the highest coordination rate.
+
+## London
+
+The winning answers were:
+
+. . .
+
+My trusted coding assistant wanted to put a little ferris wheel icon for London; I'm interested to see how much that affected things.
+
+## Chicago
+
+The winning answers were:
+
+. . .
+
+Last time I taught this, Chicago had one of the highest coordination rates, in a way that surprised me and surprised the GSIs. I don't know if it will happen again.
+
+## Los Angeles
+
+The winning answers were:
+
+. . .
+
+This one is often really hard. Some people end up hiking up to the Hollywood sign, which is not what I'd choose to do.
+
+## Discussion
+
+- Do we do better with more knowledge?
+- My guess is that we don't; ideally you have some knowledge but not a lot.
+
+Note how culturally specific this is. When Schelling asked the one about NYC, the most common answer was the information desk at Grand Central. I *think* that was because he was asking students at Harvard, and trains to New England leave from Grand Central.
+
+## Criteria
+
+First-Personal
+
+- Ease of access; pleasantness of being there if waiting around.
+
+Second-Personal
+
+- How likely you think the other person is to like the location.
+
+Third-Personal
+
+- How culturally significant the place is.
+
+## Discussion
+
+Which of these best matches how you were thinking?
+
+# Modern Relevance
+
+## Focal Points
+
+Schelling came up with this notion in the context of working on strategy for the Cold War.
+
+And his main example has been rendered a bit moot by the existence of cell phones.
+
+So why are we still doing this?
+
+## Focal Points
+
+Schelling's original interest was partially in cases where neither party particularly trusts the other.
+
+It doesn't matter how good communication technology is, if you don't believe the person at the other end of the line.
+
+## Limited Warfare
+
+I think at some level that's what is going on with Russia/Ukraine/US right now.
+
+As you might have noticed, Europe has been supporting a country fighting for its life against Russia for four years. The US was too, though it's not clear how much they still are.
+
+Europe, the US, and Russia all have nukes, and nobody thinks Ukraine will get *that* support, or that Russia will use them.
+
+## Limited Warfare
+
+Somehow Russia and Ukraine's allies (Ukraine itself doesn't have much of a say in this) have formed an agreement that if neither escalates in a particular way, the other will also respect some limits.
+
+*Maybe* this has been done by direct communication.
+
+But probably there is also something like settling on a focal point. Even if there was an explicit agreement, agreeing to settle at a focal point might be more credible. (This might also be relevant to India/China hostilities, which can be deadly, but don't usually spiral out of control.)
+
+## Unknown Counterparties
+
+The bigger reason we care about focal points is that sometimes you can't communicate with the person you're trying to coordinate with because you don't know who they are, or (relatedly) there are too many of them.
+
+Two examples.
+
+1. Public celebrations.
+2. Business locations.
+
+## Public Celebrations
+
+I don't know how many of you did this - I was stuck in transit hell at the time - but I suspect some people had the following thought after Michigan won the football championship a couple of years ago.
+
+1. I want to go celebrate with other fans/students.
+2. So I want to go to where they are.
+3. And where they are will be, where enough of them think everyone else will be.
+
+## Business Locations
+
+As you may know, a new Dunkin Donuts recently opened up about 100 yards from where we are now.
+
+They had a lot of choices of location, and oddly after years of not opening in AA, they opened two stores.
+
+I don't know the inner workings of Dunkin Donuts, but I bet their main criteria for a location is foot traffic.
+
+## Business Locations
+
+Here's why this is related to focal points.
+
+1. How much foot traffic there is partially depends on how many other businesses are there. Not much foot traffic on Maynard St, despite a central location.
+2. Whether other businesses open there is in part a function of how much traffic they think the location will bring.
+3. And Dunkin itself opening is a reason to think there will be more traffic there.
+
+## Business Locations
+
+In short, Dunkin and the other, future, businesses are trying to solve a coordination problem. But Dunkin doesn't know who they are, so can't explicitly communicate with them. It can settle on a focal point solution.
+
+The same thing might go for moving into the kind of neighborhood full of people who like the things you like.
+
+# Two-and-a-Half Models
+
+## The Models
+
+Luck
+:    What Mehta et al call *primary salience*.
+
+Levels
+:    What Mehta et al sort of call *secondary salience* (though it also includes what they call tertiary etc salience).
+
+Convention
+:    What Mehta et al call *Schelling salience*.
+
+## Luck
+
+Here is one simple way that people could do better than chance in a coordination game.
+
+They all have enough of the same pre-existing dispositions in favor of one of the options, and when faced with an arbitrary choice, they act on those biases.
+
+I didn't do this, but if I put on a city where few of you know anything, it's possible you'd follow the rule *say first thing that pops into my head*, and it would work out that you coordinated pretty well. (That happened when I included Sydney one time.)
+
+## Levels Example
+
+Level 0
+:    Which option do I like the best? Would I rather be in Times Square, or the Museum of Modern Art, or by one of the lakes in Central Park?
+
+Level 1
+:    What's my best guess as to everyone else's answer to the Level 0 question?
+
+Level 2
+:    What's my best guess as to everyone else's answer to the Level 1 question?
+
+## Levels
+
+The theory is that people keep asking and answering as many of these questions as they can, or as they feel like, and choose the location that's the answer to the last question they ask.
+
+Or, more realistically, they do something inchoate that is *as if* they are stepping through these levels questions.
+
+. . .
+
+That's I think the way to read what Keynes was saying about the beauty contest.
+
+The contestant picks the prettiest face, then tries to adjust for what other people think, and maybe for what other people think other people think, and so on.
+
+## Convention Approach
+
+The essence of the convention approach (what Mehta et al call the *Schelling salience* approach) is that it removes this asymmetry.
+
+Here's how I think of it; it's kind of a Kantian view.
+
+The player should ask themselves this question: What is a rule for answering this question that everyone could rationally apply, and what happens if I apply that rule?
+
+## Convention Approach
+
+There's no sense of levels here - everything is happening all at once.
+
+And there is no asymmetry - each player asks whether it makes sense for everyone else to be just like them.
+
+This does very badly on the two-thirds game; it pushes you directly to 0.
+
+But that's not what the experimental evidence suggests happens.
+
+## Luck Approach
+
+There is pretty good evidence against the luck approach.
+
+People generally do better at this game if you tell them it's a coordination game, than if you just ask for a place in a city.
+
+But that doesn't distinguish the other two.
+
+## Levels or Convention
+
+I'm personally more sympathetic to the levels based story of what's going on, because I think it captures the two-thirds game so nicely.
+
+But there is other evidence, some of it described in Mehta et al, that is harder for the levels story to explain.
+
+## For Next Time
+
+We'll look at the piece of Schelling's work that is probably his biggest direct influence on *philosophy*: his simple model of segregation.
+
