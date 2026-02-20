@@ -214,6 +214,50 @@ There are a lot of ways to close this one; this is the quickest I found but it's
 
 \ruleheader{$\Diamond \Box A \rightarrow \Diamond A \text{ is a theorem of } \textbf{KTB}$}
 
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond \Box A \rightarrow  \Diamond A}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond A}, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\True}{1, A}, just = {\TRule{\Box}{\text{B}}[4]}
+                        [\sFmla{\False}{1, A}, just = {\TRule{\Diamond}{\text{T}}[3]}, close]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
 \ruleheader{$(\Box A \wedge \Box B) \rightarrow \Box \Box (A \rightarrow B) \text{ is a not theorem of } \textbf{KTB}$}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (\Box A \wedge  \Box B) \rightarrow  \Box \Box (A \rightarrow  B)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box A \wedge  \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \Box (A \rightarrow  B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Box B}, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\True}{1, A}, just = {\TRule{\Box}{\text{T}}[4]}
+                            [\sFmla{\True}{1, B}, just = {\TRule{\Box}{\text{T}}[5]}
+                                [\sFmla{\False}{1.1, \Box (A \rightarrow  B)}, checked, just = {\TRule{\False}{\Box}[3]}
+                                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[6]}
+                                        [\sFmla{\True}{1.1, B}, just = {\TRule{\True}{\Box}[7]}
+                                            [\sFmla{\False}{1.1.1, A \rightarrow  B}, checked, just = {\TRule{\False}{\Box}[8]}
+                                                [\sFmla{\True}{1.1.1, A}, just = {\TRule{\False}{\rightarrow}[11]}
+                                                    [\sFmla{\False}{1.1.1, B}, just = {\TRule{\False}{\rightarrow}[11]}]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+The tableau is open. The countermodel takes a bit more work to describe than the previous ones. There are three worlds, $w_1$, $w_{1.1}$ and $w_{1.1.1}$. Every world can access every world \textit{except}, $w_1$ and $w_{1.1.1}$ can access each other. (By the naming convention, $w_1Rw_{1.1}$ and $w_{1.1}Rw_{1.1.1}$; adding reflexivity and symmetry get us the rest of the relations.) $A$ is true at all three worlds, $B$ is true at the first and second, but not the third.
 
 \end{document}

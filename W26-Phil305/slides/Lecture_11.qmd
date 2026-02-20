@@ -210,7 +210,7 @@ True conjunction gives us both $A$ and $B$ at 1.1.
                             [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Diamond}[7]}, close]
                         ]
                         [\sFmla{\False}{1, \Diamond B}, checked, just = {\TRule{\False}{\land}[3]}
-                            [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\Diamond}[7]}, move by=1,close]
+                            [\sFmla{\False}{1.1, B}, just = {\TRule{\False}{\Diamond}[7]}, move by=1,close]
                         ]
                     ]
                 ]
@@ -672,7 +672,7 @@ False conditional: true antecedent and false consequent.
 \begin{oltableau}
 [\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, checked, just = \TAss
     [\sFmla{\True}{1, \Box A \lor \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Box(A \lor B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)}, just = {\TRule{\False}{\rightarrow}[1]}
             [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\lor}[2]}
             ]
             [\sFmla{\True}{1, \Box B}, just = {\TRule{\True}{\lor}[2]}
@@ -693,7 +693,7 @@ The true disjunction branches: left branch has $\Box A$, right branch has $\Box 
 \begin{oltableau}
 [\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, checked, just = \TAss
     [\sFmla{\True}{1, \Box A \lor \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Box(A \lor B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)},  just = {\TRule{\False}{\rightarrow}[1]}
             [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\lor}[2]}
                 [\sFmla{\False}{1.1, A \lor B}, just = {\TRule{\False}{\Box}[3]}
                 ]
@@ -716,7 +716,7 @@ False $\Box$ (line 3) introduces world 1.1 on the left branch: $A \lor B$ must b
 \begin{oltableau}
 [\sFmla{\False}{1, (\Box A \lor \Box B) \rightarrow \Box(A \lor B)}, checked, just = \TAss
     [\sFmla{\True}{1, \Box A \lor \Box B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, \Box(A \lor B)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+        [\sFmla{\False}{1, \Box(A \lor B)},  just = {\TRule{\False}{\rightarrow}[1]}
             [\sFmla{\True}{1, \Box A}, just = {\TRule{\True}{\lor}[2]}
                 [\sFmla{\False}{1.1, A \lor B}, checked, just = {\TRule{\False}{\Box}[3]}
                     [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Box}[4]}
@@ -1145,7 +1145,7 @@ True $\Diamond$ (line 2) introduces world 1.1: there must be an accessible world
 [\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, checked, just = \TAss
     [\sFmla{\True}{1, \Diamond \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1.1, \Box A}, checked, just = {\TRule{\True}{\Diamond}[2]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
                 [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[4]}
                 ]
             ]
@@ -1192,7 +1192,7 @@ But since all the old rules hold, it's fine to just start with where we ended la
 [\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, checked, just = \TAss
     [\sFmla{\True}{1, \Diamond \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1.1, \Box A}, checked, just = {\TRule{\True}{\Diamond}[2]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
                 [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[4]}
                 ]
             ]
@@ -1213,7 +1213,7 @@ Here's where we were.
 [\sFmla{\False}{1, \Diamond \Box A \rightarrow A}, checked, just = \TAss
     [\sFmla{\True}{1, \Diamond \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
         [\sFmla{\False}{1, A}, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1.1, \Box A}, checked, just = {\TRule{\True}{\Diamond}[2]}
+            [\sFmla{\True}{1.1, \Box A}, just = {\TRule{\True}{\Diamond}[2]}
                 [\sFmla{\True}{1.1, A}, just = {\TRule{\Box}{\text{T}}[4]}
                     [\sFmla{\True}{1, A}, just = {\TRule{\Box}{\text{B}}[4]}, close]
                 ]

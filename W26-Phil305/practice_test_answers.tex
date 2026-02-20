@@ -41,32 +41,32 @@
 \newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
 \DeclareDocumentMacro \TAss {Assumption}
 
+\newcommand{\ruleheader}[1]{\medskip\noindent\textbf{\large #1}\par\smallskip\hrule\smallskip}
+\newcommand{\rulesubheader}[1]{\smallskip\noindent\textbf{#1}\par\smallskip}
+
+\setlength{\parindent}{0pt}
+
 \begin{document}
 
+\ruleheader{Part 1: S5}
+
+Use the simplified rules for \textbf{S5} to build tableaux for each of these claims. Say which of them are valid, i.e., are theorems of \textbf{S5}.
+
+\rulesubheader{1. $\Box(\Box p \rightarrow (q \vee r)) \vee \Box(\Box q \rightarrow p)$ in \textbf{S5}}
+
 \begin{oltableau}
-[\sFmla{\False}{1, ((A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)) \rightarrow (A \rightarrow \Box A)}, checked, just = \TAss
-    [\sFmla{\True}{1, (A \wedge \neg \Box A) \rightarrow \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-        [\sFmla{\False}{1, A \rightarrow \Box A}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\True}{1, A}, just = {\TRule{\False}{\rightarrow}[3]}
-                [\sFmla{\False}{1, \Box A}, checked, just = {\TRule{\False}{\rightarrow}[3]}
-                    [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\Box}[5]}
-                        [\sFmla{\False}{1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\rightarrow}[2]}
-                            [\sFmla{\False}{1, A}, just = {\TRule{\False}{\wedge}[7]}, close]
-                            [\sFmla{\False}{1, \neg \Box A}, checked, just = {\TRule{\False}{\wedge}[7]}
-                                [\sFmla{\True}{1, \Box A}, just = {\TRule{\False}{\neg}[8]}, close]
-                            ]
-                        ]
-                        [\sFmla{\True}{1, \Diamond \Box (A \wedge \neg \Box A)}, checked, just = {\TRule{\True}{\rightarrow}[2]}
-                            [\sFmla{\True}{1.2, \Box (A \wedge \neg \Box A)}, just = {\TRule{\True}{\Diamond}[7]}
-                                [\sFmla{\True}{1.2, A \wedge \neg \Box A}, checked, just = {\TRule{\Box}{\text{T}}[10]}
-                                    [\sFmla{\True}{1.2, A}, just = {\TRule{\True}{\wedge}[11]}
-                                        [\sFmla{\True}{1.2, \neg \Box A}, checked, just = {\TRule{\True}{\wedge}[11]}
-                                            [\sFmla{\False}{1.2, \Box A}, checked, just = {\TRule{\True}{\neg}[13]}
-                                                [\sFmla{\False}{1.2.1, A}, just = {\TRule{\False}{\Box}[14]}
-                                                    [\sFmla{\True}{1.2.1, A \wedge \neg \Box A}, checked, just = {\TRule{\True}{\Box}[10]}
-                                                        [\sFmla{\True}{1.2.1, A}, just = {\TRule{\True}{\wedge}[16]}, close]
-                                                    ]
-                                                ]
+    [\sFmla{\False}{1, \Box (\Box p \rightarrow  (q \lor  r)) \lor  \Box (\Box q \rightarrow  p)}, checked, just = \TAss
+        [\sFmla{\False}{1, \Box (\Box p \rightarrow  (q \lor  r))}, checked, just = {\TRule{\False}{\lor}[1]}
+            [\sFmla{\False}{1, \Box (\Box q \rightarrow  p)}, checked, just = {\TRule{\False}{\lor}[1]}
+                [\sFmla{\False}{2, \Box p \rightarrow  (q \lor  r)}, checked, just = {\TRule{\False}{\Box}[2]}
+                    [\sFmla{\True}{2, \Box p}, just = {\TRule{\False}{\rightarrow}[4]}
+                        [\sFmla{\False}{2, q \lor  r}, checked, just = {\TRule{\False}{\rightarrow}[4]}
+                            [\sFmla{\False}{2, q}, just = {\TRule{\False}{\lor}[6]}
+                                [\sFmla{\False}{2, r}, just = {\TRule{\False}{\lor}[2]}
+                                    [\sFmla{\False}{3, \Box q \rightarrow  p}, just = {\TRule{\False}{\Box}[3]}
+                                        [\sFmla{\True}{3, \Box q}, just = {\TRule{\False}{\rightarrow}[9]}
+                                            [\sFmla{\False}{3, p}, just = {\TRule{\False}{\rightarrow}[9]}
+                                                [\sFmla{\True}{3, p}, just = {\TRule{\True}{\Box}[5]}, close]
                                             ]
                                         ]
                                     ]
@@ -78,25 +78,26 @@
             ]
         ]
     ]
-]
 \end{oltableau}
 
+The only branch closes, so this is \textbf{valid} in \textbf{S5}.
+
+\rulesubheader{$\Diamond \Box (p \rightarrow q) \rightarrow (\Box p \rightarrow \Diamond q)$ in \textbf{S5}}
+
 \begin{oltableau}
-    [\sFmla{\False}{1, (\Diamond A \lor  \Diamond B) \rightarrow  \Diamond (A \lor  B)}, checked, just = \TAss
-        [\sFmla{\True}{1, \Diamond A \lor  \Diamond B}, checked, just = {\TRule{\False}{\rightarrow}[1]}
-            [\sFmla{\False}{1, \Diamond (A \lor  B)}, just = {\TRule{\False}{\rightarrow}[1]}
-                [\sFmla{\True}{1, \Diamond A}, checked, just = {\TRule{\True}{\lor}[2]}
-                    [\sFmla{\True}{1.1, A}, just = {\TRule{\True}{\Diamond}[4]}
-                        [\sFmla{\False}{1.1, A \lor  B}, checked, just = {\TRule{\False}{\Diamond}[3]}
-                            [\sFmla{\False}{1.1, A}, just = {\TRule{\False}{\lor}[6]}, close]
-                        ]
-                    ]
-                ]
-                [\sFmla{\True}{1, \Diamond B}, checked, just = {\TRule{\True}{\lor}[2]}
-                    [\sFmla{\True}{1.2, B}, just = {\TRule{\True}{\Diamond}[8]}, move by = 2
-                        [\sFmla{\False}{1.2, A \lor  B}, checked, just = {\TRule{\False}{\Diamond}[3]}
-                            [\sFmla{\False}{1.2, A}, just = {\TRule{\False}{\lor}[10]}
-                                [\sFmla{\False}{1.2, B}, just = {\TRule{\False}{\lor}[10]}, close]
+    [\sFmla{\False}{1, \Diamond \Box (p \rightarrow  q) \rightarrow  (\Box p \rightarrow  \Diamond q)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Box (p \rightarrow  q)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p \rightarrow  \Diamond q}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Box p}, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond q}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{2, \Box (p \rightarrow  q)}, just = {\TRule{\True}{\Diamond}[2]}
+                            [\sFmla{\True}{2, p \rightarrow  q}, checked, just = {\TRule{\True}{\Box}[2]}
+                                [\sFmla{\True}{2, p}, just = {\TRule{\True}{\Box}[4]}
+                                    [\sFmla{\False}{2, q}, just = {\TRule{\False}{\Diamond}[5]}
+                                        [\sFmla{\False}{2, p}, just = {\TRule{\True}{\rightarrow}[7]}, close]
+                                        [\sFmla{\True}{2, q}, just = {\TRule{\True}{\rightarrow}[7]}, close]
+                                    ]
+                                ]
                             ]
                         ]
                     ]
@@ -105,5 +106,72 @@
         ]
     ]
 \end{oltableau}
+
+Both branches clos, so this is \textbf{valid} in \textbf{S5}.
+
+\rulesubheader{$\Box (p \vee q) \rightarrow (\Diamond (\neg q \vee r) \rightarrow \Diamond (p \vee r))$ in \textbf{S5}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (p \lor  q) \rightarrow  (\Diamond (\neg q \lor  r) \rightarrow  \Diamond (p \lor  r))}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (p \lor  q)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond (\neg q \lor  r) \rightarrow  \Diamond (p \lor  r)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond (\neg q \lor  r)}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond (p \lor  r)}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{2, \neg q \lor  r}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{2, p \lor  q}, checked, just = {\TRule{\True}{\Box}[1]}
+                                [\sFmla{\False}{2, p \lor  r}, checked, just = {\TRule{\False}{\Diamond}[5]}
+                                    [\sFmla{\False}{2, p}, just = {\TRule{\False}{\lor}[8]}
+                                        [\sFmla{\False}{2, r}, just = {\TRule{\False}{\lor}[8]}
+                                            [\sFmla{\True}{2, p}, just = {\TRule{\True}{\lor}[7]}, close]
+                                            [\sFmla{\True}{2, q}, just = {\TRule{\True}{\lor}[7]}
+                                                [\sFmla{\True}{2, \neg q}, checked, just = {\TRule{\True}{\lor}[6]}
+                                                    [\sFmla{\False}{2, q}, just = {\TRule{\True}{\neg}[12]}, close]
+                                                ]
+                                                [\sFmla{\True}{2, r}, just = {\TRule{\True}{\lor}[6]}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+All branches close, so this is \textbf{valid} in \textbf{S5}.
+
+\rulesubheader{$(\neg \Diamond p \vee \neg \Diamond \Diamond p) \rightarrow \neg \Diamond \Diamond \Diamond p$ in \textbf{S5}}
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (\neg \Diamond p \lor  \neg \Diamond \Diamond p) \rightarrow  \neg \Diamond \Diamond \Diamond p}, checked, just = \TAss
+        [\sFmla{\True}{1, \neg \Diamond p \lor  \neg \Diamond \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \neg \Diamond \Diamond \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond \Diamond \Diamond p}, checked, just = {\TRule{\False}{\neg}[3]}
+                    [\sFmla{\True}{2, \Diamond \Diamond p}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                        [\sFmla{\True}{3, \Diamond p}, checked, just = {\TRule{\True}{\Diamond}[5]}
+                            [\sFmla{\True}{4, p}, just = {\TRule{\True}{\Diamond}[6]}
+                                [\sFmla{\True}{1, \neg \Diamond p}, checked, just = {\TRule{\True}{\lor}[2]}
+                                    [\sFmla{\False}{1, \Diamond p}, just = {\TRule{\True}{\neg}[8]}
+                                        [\sFmla{\False}{4, p}, just = {\TRule{\False}{\Diamond}[9]}, close]
+                                    ]
+                                ]
+                                [\sFmla{\True}{1, \neg \Diamond \Diamond p}, checked, just = {\TRule{\True}{\lor}[2]}
+                                    [\sFmla{\False}{1, \Diamond \Diamond p}, just = {\TRule{\True}{\neg}[8]}, move by = 2
+                                        [\sFmla{\False}{3, \Diamond p}, just = {\TRule{\False}{\Diamond}[11]}, close]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+Both branches close, so this is \textbf{valid} in \textbf{S5}. There are many ways to close this one; this is the fastest I found, but it's definitely not the only way.
 
 \end{document}
