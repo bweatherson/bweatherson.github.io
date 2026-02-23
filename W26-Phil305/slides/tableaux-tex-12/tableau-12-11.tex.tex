@@ -1,0 +1,79 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[border=2pt]{standalone}
+
+% Use modern fonts (requires XeLaTeX)
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\setmainfont{Fira Sans}
+\setmathfont{Fira Math}
+\setmathfont[range=\mathbb]{Fira Math}
+
+% Ensure amssymb is loaded for \lozenge and \square
+\usepackage{amssymb}
+
+% Tableaux system
+\RequirePackage[tableaux]{prooftrees}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
+
+% Open Logic commands - provides tableau commands
+\usepackage{open-logic-minimal}
+
+% Redefine sFmla to ensure math mode for symbols
+\renewcommand{\sFmla}[2]{\ensuremath{#1 \; #2}}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\tableau{}}{\endtableau}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Define modal operators (using Unicode with unicode-math)
+\newcommand{\Diamond}{◇}
+\newcommand{\Box}{□}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}
+
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box (p \lor  q) \rightarrow  (\Diamond (\neg q \lor  r) \rightarrow  \Diamond (p \lor  r))}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (p \lor  q)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond (\neg q \lor  r) \rightarrow  \Diamond (p \lor  r)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond (\neg q \lor  r)}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond (p \lor  r)}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{2, \neg q \lor  r}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{2, p \lor  q}, checked, just = {\TRule{\True}{\Box}[1]}
+                                [\sFmla{\False}{2, p \lor  r}, checked, just = {\TRule{\False}{\Diamond}[5]}
+                                    [\sFmla{\False}{2, p}, just = {\TRule{\False}{\lor}[8]}
+                                        [\sFmla{\False}{2, r}, just = {\TRule{\False}{\lor}[8]}
+                                            [\sFmla{\True}{2, p}, just = {\TRule{\True}{\lor}[7]}, close]
+                                            [\sFmla{\True}{2, q}, just = {\TRule{\True}{\lor}[7]}
+                                                [\sFmla{\True}{2, \neg q}, checked, just = {\TRule{\True}{\lor}[6]}
+                                                    [\sFmla{\False}{2, q}, just = {\TRule{\True}{\neg}[12]}, close]
+                                                ]
+                                                [\sFmla{\True}{2, r}, just = {\TRule{\True}{\lor}[6]}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+\end{document}

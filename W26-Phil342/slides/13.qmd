@@ -1,0 +1,134 @@
+---
+title: "Schelling's Segregation Model'"
+date: 2/23/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# The Basic Model
+
+## The Setup
+
+Imagine a checkerboard populated by two groups (e.g., blue and red).
+
+- Each cell is occupied by one agent or is empty.
+- Each agent has **neighbours** (the eight surrounding cells).
+- Each agent has a **tolerance threshold**: the minimum fraction of neighbours that must be "like me" for the agent to stay put.
+- If the threshold is not met, the agent moves to a random empty cell.
+
+. . .
+
+You can study lots of questions with this, but the one that gets most discussed is: **What happens when everyone is only mildly picky?**
+
+## Key Parameters
+
+| Parameter | Meaning |
+|-----------|---------|
+| Grid size | $n \times n$ board |
+| Vacancy rate | Fraction of cells left empty |
+| Group ratio | Relative size of the two groups |
+| **Threshold** | Minimum same-type neighbour fraction to stay |
+
+The threshold is the crucial variable. What Schelling noticed was that we get lots of segregation even when it is set **well below 50%**.
+
+## The Algorithm
+
+1. Place agents randomly on the grid.
+2. For each agent, count same-type and different-type neighbours. (Remember that they will typically have fewer than 8 neighbours.)
+3. If the fraction of same-type neighbours is below threshold, mark the agent as **unhappy**.
+4. Move all unhappy agents to random empty cells.
+5. Repeat until equilibrium (no unhappy agents) or a step limit is reached.
+
+## Agent Based Models
+
+This is one of the earliest and simplest **agent-based models** (ABMs).
+
+- There is no central planner.
+- There is no coordination; just local rules.
+- But also, we don't care about *representative* agents; we really do model each agent one at a time.
+
+## The Core Result
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Threshold ≈ 35%
+
+- Set the tolerance threshold to be around 35%.
+- Each agent is happy as long as roughly **1 in 3** neighbours are like them.
+- That does not sound wildly intolerant.
+:::
+
+::: {.column width="50%"}
+### Outcome
+
+- The board rapidly **self-segregates** into large, homogeneous clusters.
+- Stable equilibrium is far more segregated than anyone individually "wanted".
+:::
+
+::::
+
+. . .
+
+> "Individuals who would be content in a mixed neighbourhood find themselves in a segregated one."
+
+
+## Why Does It Happen?
+
+The mechanism is a **tipping cascade**:
+
+1. A few agents on the boundary are *just barely* unhappy
+2. They move, which changes the neighbourhood composition for those left behind
+3. Previously happy agents now fall below their threshold
+4. They move in turn, triggering further departures
+
+Each local adjustment **shifts the context** for nearby agents, producing a chain reaction that vastly overshoots any individual's preference.
+
+---
+
+## Philosophical Significance
+
+- **Composition fallacy**: what holds for each individual need not hold for the group
+- **Emergent structure**: macro-level patterns with no macro-level intention
+- **Invisible-hand explanations**: order arising without design (cf. Nozick, Hayek)
+- **Structural vs. intentional racism**: segregation can be sustained even without overt prejudice
+- Challenges simple inference from **outcomes** to **attitudes**
+
+---
+
+## Extensions and Complications
+
+Researchers have since explored:
+
+- **Heterogeneous thresholds** --- agents with different tolerance levels
+- **Network topology** --- moving from grids to social networks
+- **Multiple groups** --- more than two types of agent
+- **Asymmetric preferences** --- groups that differ in their threshold
+- **Schelling + economics** --- adding housing prices, income, amenities
+
+Each extension deepens, but does not overturn, the basic insight.
+
+---
+
+## Limitations and Critiques
+
+- **Empirical fit**: Real-world segregation involves economics, policy, and explicit discrimination---not just preferences over neighbours
+- **Homogeneous agents**: The model assumes identical thresholds within each group
+- **Static preferences**: Agents don't learn or adapt their tolerance
+- **Binary groups**: Most societies have more than two salient categories
+- **Equilibrium ≠ welfare**: The model shows *stability*, not *desirability*
+
+The model is a **possibility proof**, not a complete causal explanation.
+
+---
+
+## Upshot
+
+Schelling's model teaches a general lesson:
+
+> **Micro-level tolerance is compatible with macro-level segregation.**
+
+This matters for social ontology, philosophy of social science, and normative debates about responsibility for structural outcomes.
+
+It remains a paradigm case of how **simple, local rules** can generate **complex, global patterns**---and why diagnosing social problems requires looking beyond individual intentions.

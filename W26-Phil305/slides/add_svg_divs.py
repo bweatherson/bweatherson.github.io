@@ -28,16 +28,23 @@ def main():
     def replacement(match):
         counter[0] += 1
         svg_index = f"{counter[0]:02d}"
+        if match.group(1) is not None:
+            # div already present, leave it unchanged
+            return match.group(0)
         div = (
             f"\\end{{oltableau}}\n\n"
             f"::: {{.content-visible when-format=\"revealjs\"}}\n"
-            f"![]"
+            f"![Figure {svg_index}]"
             f"(../images/tableaux-{lecture_num}/tableau-{lecture_num}-{svg_index}.tex.svg)\n"
             f":::"
         )
         return div
 
-    new_content = re.sub(r"\\end\{oltableau\}", replacement, content)
+    pattern = (
+        r'\\end\{oltableau\}'
+        r'(\n\n::: \{\.content-visible when-format="revealjs"\}\n!\[\]\([^)]+\)\n:::)?'
+    )
+    new_content = re.sub(pattern, replacement, content)
 
     print(new_content)
 

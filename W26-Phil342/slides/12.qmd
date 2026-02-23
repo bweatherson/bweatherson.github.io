@@ -75,11 +75,11 @@ An early discussion of the importance of thinking about what other people are th
 
 One of the aims of that book is to explain the instability in capitalist economies; remember that 1936 is well into the Great Depression.
 
----
+## The Keynesian Beauty Contest
 
 > [P]rofessional investment may be likened to those newspaper competitions in which the competitors have to pick out the six prettiest faces from a hundred photographs, the prize being awarded to the competitor whose choice most nearly corresponds to the average preferences of the competitors as a whole; so that each competitor has to pick, not those faces which he himself finds prettiest, but those which he thinks likeliest to catch the fancy of the other competitors, all of whom are looking at the problem from the same point of view. 
 
----
+## The Keynesian Beauty Contest
 
 > It is not a case of choosing those which, to the best of one’s judgment, are really the prettiest, nor even those which average opinion genuinely thinks the prettiest. We have reached the third degree where we devote our intelligences to anticipating what average opinion expects the average opinion to be. And there are some, I believe, who practise the fourth, fifth and higher degrees.
 
@@ -90,8 +90,17 @@ Here's one model of the two-thirds game.
 - Someone who just goes with initial views, without thinking about public opinion, will guess 33; they'll think all numbers are equally likely, so they'll average 50, and 2/3 of 50 is (roughly) 33.
 - At the second order, someone might guess 22, thinking that the first-order folks will guess 33.
 - At the third order, someone might guess 15, thinking that everyone else is second-order and will guess 22.
+
+## Degrees
+
+Here's one model of the two-thirds game.
+
 - And so on for extra orders.
 - When you play this game repeatedly in a class, the winner the second time around is usually between 4/9 and 2/3 of the previous winning score; people are doing 1-2 more degrees.
+
+. . .
+
+But it's not the only model. And to investigate a bit more whgether it's a plausible model, we'll turn to one of Schelling's most famous games.
 
 # Coordination Game
 
@@ -118,7 +127,7 @@ In each city, you'll get 1 point for everyone else who names the same place. Mos
 
 ## New York
 
-The winning answers were:
+First, let's talk about the winning answers.
 
 . . .
 
@@ -126,7 +135,8 @@ What made you pick those?
 
 ## Paris
 
-The winning answers were:
+First, let's talk about the winning answers.
+
 
 . . .
 
@@ -134,15 +144,17 @@ I'm going to take a wild guess here and predict that this one had the highest co
 
 ## London
 
-The winning answers were:
+First, let's talk about the winning answers.
+
 
 . . .
 
-My trusted coding assistant wanted to put a little ferris wheel icon for London; I'm interested to see how much that affected things.
+My trusted coding assistant wanted to put a little ferris wheel icon for London; I half think I should have left that in to see .
 
 ## Chicago
 
-The winning answers were:
+First, let's talk about the winning answers.
+
 
 . . .
 
@@ -150,7 +162,8 @@ Last time I taught this, Chicago had one of the highest coordination rates, in a
 
 ## Los Angeles
 
-The winning answers were:
+First, let's talk about the winning answers.
+
 
 . . .
 
@@ -161,19 +174,25 @@ This one is often really hard. Some people end up hiking up to the Hollywood sig
 - Do we do better with more knowledge?
 - My guess is that we don't; ideally you have some knowledge but not a lot.
 
+. . .
+
 Note how culturally specific this is. When Schelling asked the one about NYC, the most common answer was the information desk at Grand Central. I *think* that was because he was asking students at Harvard, and trains to New England leave from Grand Central.
 
 ## Criteria
 
-First-Personal
+### First-Personal
 
 - Ease of access; pleasantness of being there if waiting around.
 
-Second-Personal
+. . .
+
+### Second-Personal
 
 - How likely you think the other person is to like the location.
 
-Third-Personal
+. . .
+
+### Third-Personal
 
 - How culturally significant the place is.
 
@@ -331,4 +350,15 @@ But there is other evidence, some of it described in Mehta et al, that is harder
 ## For Next Time
 
 We'll look at the piece of Schelling's work that is probably his biggest direct influence on *philosophy*: his simple model of segregation.
+
+On the same page the two-thirds and cities games were, I've posted a little emulator for the Schelling model.
+
+Before next time it would be good to play around with it and think about
+
+::: {.nonincremental}
+1. What surprising results did you find?
+2. What changes would you like to see made to the model?
+:::
+
+If there you have ideas for 2, leave them in the comments on the announcement for this class, and I'll see which can be implemented.
 

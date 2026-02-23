@@ -231,6 +231,28 @@ $font-size-root: 40px;
   }
 }
 
+// Blockquotes
+.reveal blockquote {
+  color: #1a1a1a;
+  background-color: rgba(0, 102, 153, 0.08);
+  border-left: 6px solid $primary-color;
+  border-radius: 0 4px 4px 0;
+  box-shadow: none;
+  font-style: italic;
+  font-size: 0.95em;
+  margin: 0.5em 3em;
+  padding: 0.6em 1em;
+  width: auto;
+  text-align: left;
+  line-height: 1.56 !important;
+
+  p {
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.56 !important;
+  }
+}
+
 // Slide numbers
 .reveal .slide-number {
   color: $secondary-color;

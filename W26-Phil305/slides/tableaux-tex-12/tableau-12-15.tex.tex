@@ -1,0 +1,69 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\documentclass[border=2pt]{standalone}
+
+% Use modern fonts (requires XeLaTeX)
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\setmainfont{Fira Sans}
+\setmathfont{Fira Math}
+\setmathfont[range=\mathbb]{Fira Math}
+
+% Ensure amssymb is loaded for \lozenge and \square
+\usepackage{amssymb}
+
+% Tableaux system
+\RequirePackage[tableaux]{prooftrees}
+\forestset{line numbering, 
+        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+        close with format={red}}
+
+% Open Logic commands - provides tableau commands
+\usepackage{open-logic-minimal}
+
+% Redefine sFmla to ensure math mode for symbols
+\renewcommand{\sFmla}[2]{\ensuremath{#1 \; #2}}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\tableau{}}{\endtableau}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Define modal operators (using Unicode with unicode-math)
+\newcommand{\Diamond}{◇}
+\newcommand{\Box}{□}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}
+
+\begin{document}
+
+\begin{oltableau}
+[\sFmla{\False}{1, \Box \neg (p \lor  \neg q) \rightarrow  \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box \neg (p \lor  \neg q)}, just = {\TRule{\True}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\Box}[3]}
+                    [\sFmla{\True}{1.1, \neg (p \lor  \neg q)}, checked, just = {\TRule{\True}{\Box}[2]}
+                        [\sFmla{\False}{1.1, p \lor  \neg q}, checked, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\lor}[6]}
+                                [\sFmla{\False}{1.1, \neg q}, checked, just = {\TRule{\False}{\lor}[6]}
+                                    [\sFmla{\True}{1.1, q}, just = {\TRule{\False}{\neg}[8]}]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+\end{document}
