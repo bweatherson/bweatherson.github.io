@@ -23,7 +23,7 @@ format:
 
 ## Question 1
 
-### $\Box(A \vee B) \rightarrow (\Diamond A \vee \Box B) \text{ is a theorem of } \textbf{KT}$
+### $\Box(A \vee B) \rightarrow (\Diamond A \vee \Box B) \text{ is a theorem of } **KT**$
 
 ---
 
@@ -54,7 +54,7 @@ format:
 
 ## Question 2
 
-### $\Box (A \rightarrow B) \rightarrow (A \rightarrow \Box B) \text{ is not a theorem of } \textbf{KT}$
+### $\Box (A \rightarrow B) \rightarrow (A \rightarrow \Box B) \text{ is not a theorem of } **KT**$
 
 ---
 
@@ -94,7 +94,7 @@ The counterexample is where $A$ and $B$ are both true at $w_1$ and both false at
 
 ## Question 3
 
-### $\Box A \rightarrow (A \wedge \Box \Box A) \text{ is not a theorem of } \textbf{K4}$
+### $\Box A \rightarrow (A \wedge \Box \Box A) \text{ is not a theorem of } **K4**$
 
 ---
 
@@ -123,7 +123,7 @@ The left hand branch stays open. The counterexample is the somewhat degenerate m
 
 ## Question 4
 
-### $\Diamond (A \rightarrow \Diamond B) \rightarrow (\Box A \rightarrow \Diamond (A \wedge B)) \text{ is a theorem of } \textbf{K4}$
+### $\Diamond (A \rightarrow \Diamond B) \rightarrow (\Box A \rightarrow \Diamond (A \wedge B)) \text{ is a theorem of } **K4**$
 
 ---
 
@@ -169,7 +169,7 @@ The left hand branch stays open. The counterexample is the somewhat degenerate m
 
 ## Question 5
 
-### $\Diamond (A \wedge B) \rightarrow \Box \Diamond (C \rightarrow B) \text{ is not a theorem of } \textbf{S4}$
+### $\Diamond (A \wedge B) \rightarrow \Box \Diamond (C \rightarrow B) \text{ is not a theorem of } **S4**$
 
 --- 
 
@@ -209,7 +209,7 @@ Any way of filling in the other values will still create a counterexample.
 
 ## Question 6
 
-### $\Diamond \Diamond A \rightarrow (\Diamond A \wedge \Diamond \Diamond \Diamond A) \text{ is a theorem of } \textbf{S4}$
+### $\Diamond \Diamond A \rightarrow (\Diamond A \wedge \Diamond \Diamond \Diamond A) \text{ is a theorem of } **S4**$
 
 ---
 
@@ -238,7 +238,7 @@ There are a lot of ways to close this one; this is the quickest I found but it's
 
 ## Question 7
 
-### $\Diamond \Box A \rightarrow \Diamond A \text{ is a theorem of } \textbf{KTB}$
+### $\Diamond \Box A \rightarrow \Diamond A \text{ is a theorem of } **KTB**$
 
 ---
 
@@ -262,7 +262,7 @@ There are a lot of ways to close this one; this is the quickest I found but it's
 
 ## Question 8
 
-### $(\Box A \wedge \Box B) \rightarrow \Box \Box (A \rightarrow B) \text{ is a not theorem of } \textbf{KTB}$
+### $(\Box A \wedge \Box B) \rightarrow \Box \Box (A \rightarrow B) \text{ is a not theorem of } **KTB**$
 
 ---
 
@@ -316,7 +316,7 @@ $A$ is true at all three worlds, $B$ is true at the first and second, but not th
 
 ## Question 1
 
-### $\Box(\Box p \rightarrow (q \vee r)) \vee \Box(\Box q \rightarrow p)$ in \textbf{S5}
+### $\Box(\Box p \rightarrow (q \vee r)) \vee \Box(\Box q \rightarrow p)$ in **S5**
 
 ---
 
@@ -350,11 +350,11 @@ $A$ is true at all three worlds, $B$ is true at the first and second, but not th
 ![Figure 09](../images/tableaux-12/tableau-12-09.tex.svg)
 :::
 
-The only branch closes, so this is \textbf{valid} in \textbf{S5}.
+The only branch closes, so this is **valid** in **S5**.
 
 ## Question 2
 
-### $\Diamond \Box (p \rightarrow q) \rightarrow (\Box p \rightarrow \Diamond q)$ in \textbf{S5}
+### $\Diamond \Box (p \rightarrow q) \rightarrow (\Box p \rightarrow \Diamond q)$ in **S5**
 
 ---
 
@@ -385,11 +385,11 @@ The only branch closes, so this is \textbf{valid} in \textbf{S5}.
 ![Figure 10](../images/tableaux-12/tableau-12-10.tex.svg)
 :::
 
-Both branches close, so this is \textbf{valid} in \textbf{S5}.
+Both branches close, so this is **valid** in **S5**.
 
 ## Question 3
 
-### $\Box (p \vee q) \rightarrow (\Diamond (\neg q \vee r) \rightarrow \Diamond (p \vee r))$ in \textbf{S5}
+### $\Box (p \vee q) \rightarrow (\Diamond (\neg q \vee r) \rightarrow \Diamond (p \vee r))$ in **S5**
 
 ---
 
@@ -427,11 +427,11 @@ Both branches close, so this is \textbf{valid} in \textbf{S5}.
 ![Figure 11](../images/tableaux-12/tableau-12-11.tex.svg)
 :::
 
-All branches close, so this is \textbf{valid} in \textbf{S5}.
+All branches close, so this is **valid** in **S5**.
 
 ## Question 4
 
-### $(\neg \Diamond p \vee \neg \Diamond \Diamond p) \rightarrow \neg \Diamond \Diamond \Diamond p$ in \textbf{S5}
+### $(\neg \Diamond p \vee \neg \Diamond \Diamond p) \rightarrow \neg \Diamond \Diamond \Diamond p$ in **S5**
 
 ---
 
@@ -466,11 +466,11 @@ All branches close, so this is \textbf{valid} in \textbf{S5}.
 ![Figure 12](../images/tableaux-12/tableau-12-12.tex.svg)
 :::
 
-Both branches close, so this is \textbf{valid} in \textbf{S5}. There are many ways to close this one; this is the fastest I found, but it's definitely not the only way.
+Both branches close, so this is **valid** in **S5**. There are many ways to close this one; this is the fastest I found, but it's definitely not the only way.
 
 ## Question 5
 
-### $(\Diamond p \wedge \Box q) \rightarrow \Diamond q$ in \textbf{K}
+### $(\Diamond p \wedge \Box q) \rightarrow \Diamond q$ in **K**
 
 ---
 
@@ -496,11 +496,11 @@ Both branches close, so this is \textbf{valid} in \textbf{S5}. There are many wa
 ![Figure 13](../images/tableaux-12/tableau-12-13.tex.svg)
 :::
 
-The trunk closes, so it is \textbf{valid} in \textbf{K}. The role of $\Diamond p$ in this one is weird.
+The trunk closes, so it is **valid** in **K**. The role of $\Diamond p$ in this one is weird.
 
 ## Question 6
 
-### $\Box (p \wedge \neg p) \vee \Diamond (q \vee \neg q)$ in \textbf{K}
+### $\Box (p \wedge \neg p) \vee \Diamond (q \vee \neg q)$ in **K**
 
 ---
 
@@ -532,7 +532,7 @@ This is also valid, and it's also wrong for the same reason.
 
 Not at all on the test digression. 
 
-This example shows that \textbf{K} has a very weird property. It is not **Halldén-complete**. 
+This example shows that **K** has a very weird property. It is not **Halldén-complete**. 
 
 A logician, Sören Halldén, in the 1950s noticed that some logics have the odd property that $X \vee Y$ is a theorem even though (a) neither $X$ nor $Y$ is, and (b) $X$ and $Y$ have no variables in common. 
 
@@ -542,7 +542,7 @@ In general, the logics that are interesting and get used in philosophical applic
 
 ## Question 7
 
-### $\Box \neg(p \vee \neg q) \rightarrow \Box p$ in \textbf{K}
+### $\Box \neg(p \vee \neg q) \rightarrow \Box p$ in **K**
 
 ---
 
@@ -570,11 +570,11 @@ In general, the logics that are interesting and get used in philosophical applic
 ![Figure 15](../images/tableaux-12/tableau-12-15.tex.svg)
 :::
 
-The tree is open, so this is not a theorem, it is \textbf{invalid} in \textbf{K}. The countermodel has two worlds: $w_1$ and $w_1.1$, with $w_1Rw_{1.1}$. At $w_{1.1}$, $p$ is false and $q$ is true.
+The tree is open, so this is not a theorem, it is **invalid** in **K**. The countermodel has two worlds: $w_1$ and $w_1.1$, with $w_1Rw_{1.1}$. At $w_{1.1}$, $p$ is false and $q$ is true.
 
 ## Question 8
 
-### $\Box(p \rightarrow (q \wedge r)) \rightarrow (\Diamond \Diamond p \rightarrow \Diamond (q \vee s))$ in \textbf{K}
+### $\Box(p \rightarrow (q \wedge r)) \rightarrow (\Diamond \Diamond p \rightarrow \Diamond (q \vee s))$ in **K**
 
 ---
 
@@ -619,7 +619,7 @@ All the branches close, so this is valid.
 
 ## Question 9
 
-### $(\Diamond \Box p \wedge \Diamond \Box q) \rightarrow \Diamond(p \wedge q)$ in \textbf{K}
+### $(\Diamond \Box p \wedge \Diamond \Box q) \rightarrow \Diamond(p \wedge q)$ in **K**
 
 ---
 
@@ -655,7 +655,7 @@ $w_1$ can access everything, the other two can only access themselves. And $p$ i
 
 ## Question 10
 
-### $\Box \Diamond \Box \Diamond p \rightarrow \Box \Diamond p$ in \textbf{K}
+### $\Box \Diamond \Box \Diamond p \rightarrow \Box \Diamond p$ in **K**
 
 ---
 
@@ -677,4 +677,4 @@ $w_1$ can access everything, the other two can only access themselves. And $p$ i
 ![Figure 18](../images/tableaux-12/tableau-12-18.tex.svg)
 :::
 
-The trunk closes, so this is \textbf{valid}. There are \textit{a lot} of ways to do this one; this is one of the more direct.
+The trunk closes, so this is **valid**. There are \textit{a lot} of ways to do this one; this is one of the more direct.
