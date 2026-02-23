@@ -109,7 +109,7 @@ But it's not the only model. And to investigate a bit more whgether it's a plaus
 ::: {.columns}
 
 :::: {.column width=50%}
-![QR code for two-thirds game](images/two_thirds_qr.png)
+![QR code for focal point game](images/focal_point_qr.png)
 ::::
 
 :::: {.column width=50%}
@@ -351,7 +351,7 @@ But there is other evidence, some of it described in Mehta et al, that is harder
 
 We'll look at the piece of Schelling's work that is probably his biggest direct influence on *philosophy*: his simple model of segregation.
 
-On the same page the two-thirds and cities games were, I've posted a little emulator for the Schelling model.
+On the same page the two-thirds and cities games were, I've posted [a little emulator](../../games/schelling-game.html) for the Schelling model.
 
 Before next time it would be good to play around with it and think about
 
