@@ -1,0 +1,516 @@
+---
+title: "Introduction to Game Theory: Static Games"
+date: 3/9/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# What is Game Theory?
+
+## The Basic Idea
+
+Game theory studies what happens when **self-interested agents interact**.
+
+. . .
+
+"Self-interested" doesn't mean selfish. It means each person has their own preferences about how things turn out, and acts on those preferences.
+
+. . .
+
+The big question: when your outcome depends on what *other people* do, how should you act?
+
+## Why Should Philosophers Care?
+
+Game theory turns up everywhere:
+
+- **Ethics**: Is morality a solution to a coordination problem?
+- **Political philosophy**: Why do we need governments? (Hobbes!)
+- **Philosophy of science**: Why do scientists share results?
+- **Social epistemology**: When should we defer to experts?
+
+. . .
+
+And it gives us precise tools for thinking about problems we've already been discussing---like Schelling's focal points.
+
+# Normal-Form Games
+
+## The Payoff Matrix
+
+The simplest way to represent a game is with a **payoff matrix** (also called the "normal form").
+
+. . .
+
+|  | C | D |
+|--|---|---|
+| **C** | -1, -1 | -4, 0 |
+| **D** | 0, -4 | -3, -3 |
+
+: The Prisoner's Dilemma
+
+. . .
+
+- Rows = Player 1's options
+- Columns = Player 2's options
+- Each cell has two numbers: **Player 1's payoff, Player 2's payoff**
+
+## Reading the Matrix
+
+|  | C | D |
+|--|---|---|
+| **C** | -1, -1 | -4, 0 |
+| **D** | 0, -4 | -3, -3 |
+
+If Player 1 picks C and Player 2 picks D:
+
+- Player 1 gets **-4**
+- Player 2 gets **0**
+
+. . .
+
+Higher numbers are better. These could represent anything: money, happiness, years not in prison, etc.
+
+## What You Need for a Game
+
+Three ingredients:
+
+1. **Players**: Who is involved? (At least two.)
+2. **Actions**: What can each player do?
+3. **Payoffs**: What does each player get for each combination of actions?
+
+. . .
+
+That's it. The payoff matrix captures all three at once.
+
+# Classic Games
+
+## The Prisoner's Dilemma
+
+Two suspects are arrested and interrogated separately.
+
+- If both **cooperate** (stay silent): light sentence for each.
+- If both **defect** (confess): moderate sentence for each.
+- If one defects and the other cooperates: the defector goes free, the cooperator gets a harsh sentence.
+
+. . .
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | 5, 0 | 1, 1 |
+
+## What Should You Do?
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | 5, 0 | 1, 1 |
+
+Think about it from Player 1's perspective:
+
+. . .
+
+- If Player 2 cooperates: I get 3 by cooperating, **5 by defecting**
+- If Player 2 defects: I get 0 by cooperating, **1 by defecting**
+
+. . .
+
+No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect---even though both cooperating would be better for everyone!
+
+## The Dilemma
+
+This is why it's called a *dilemma*:
+
+- Individual rationality leads to (Defect, Defect) with payoffs (1, 1)
+- But (Cooperate, Cooperate) with payoffs (3, 3) is better for *both* players
+
+. . .
+
+This tension between individual and collective rationality is one of the deepest problems in social philosophy.
+
+. . .
+
+We'll come back to this when we discuss **iterated** Prisoner's Dilemma and Axelrod's tournaments.
+
+---
+
+## In-Class Activity: Prisoner's Dilemma
+
+[Placeholder for in-class PD activity]
+
+Pair up with your neighbor. You'll play the Prisoner's Dilemma **five times in a row** against the same person.
+
+. . .
+
+Before you start: think about whether you'd play differently knowing you'll see this person again.
+
+## Coordination Games
+
+Not all games involve conflict. Sometimes the challenge is just to **coordinate**.
+
+. . .
+
+|  | Left | Right |
+|--|---|---|
+| **Left** | 1, 1 | 0, 0 |
+| **Right** | 0, 0 | 1, 1 |
+
+: Which side of the road?
+
+. . .
+
+Neither player wants to mismatch. They just need to pick the same side. This is a **pure coordination game**: both players always get the same payoff.
+
+. . .
+
+Sound familiar? This is basically the Schelling coordination problem we already studied.
+
+## Battle of the Sexes
+
+What if you want to coordinate, but you *disagree about where*?
+
+. . .
+
+|  | Movie A | Movie B |
+|--|---|---|
+| **Movie A** | 2, 1 | 0, 0 |
+| **Movie B** | 0, 0 | 1, 2 |
+
+: Battle of the Sexes
+
+. . .
+
+- Both prefer going together over going separately
+- But Player 1 prefers Movie A, and Player 2 prefers Movie B
+- This has elements of both **coordination** and **competition**
+
+## Zero-Sum Games
+
+At the opposite extreme from coordination: **zero-sum games**.
+
+Whatever one player gains, the other loses.
+
+. . .
+
+|  | Heads | Tails |
+|--|---|---|
+| **Heads** | 1, -1 | -1, 1 |
+| **Tails** | -1, 1 | 1, -1 |
+
+: Matching Pennies
+
+. . .
+
+Player 1 wins if the coins match; Player 2 wins if they differ. This is pure competition---no room for cooperation.
+
+## The Spectrum
+
+These games lie on a spectrum:
+
+. . .
+
+**Pure coordination** $\longleftrightarrow$ **Mixed motives** $\longleftrightarrow$ **Pure competition**
+
+Coordination Game $\longleftrightarrow$ Battle of the Sexes $\longleftrightarrow$ Matching Pennies
+
+. . .
+
+Most real-world interactions are somewhere in the middle. Even bitter rivals usually have *some* shared interests (e.g., not destroying the world).
+
+# Prisoner's Dilemma vs. Stag Hunt
+
+## The Stag Hunt
+
+There's a game that *looks* like the Prisoner's Dilemma but works very differently.
+
+. . .
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 5, 5 | 0, 3 |
+| **Defect** | 3, 0 | 3, 3 |
+
+: Stag Hunt
+
+. . .
+
+The story: Two hunters can hunt a stag together (big payoff) or each hunt a hare alone (small but guaranteed payoff). Hunting stag only works if *both* commit to it.
+
+## What's Different?
+
+**Prisoner's Dilemma**: Defecting is always better for you, regardless of what the other player does.
+
+. . .
+
+**Stag Hunt**: The best response *depends on what the other player does*.
+
+- If they cooperate: I should cooperate too (5 > 3)
+- If they defect: I should defect too (3 > 0)
+
+. . .
+
+In the Stag Hunt, the problem isn't that rationality *forces* you to defect. The problem is **trust**---will the other person hold up their end?
+
+## Why This Matters
+
+When we model a real situation as a game, it matters *a lot* whether we think it's a Prisoner's Dilemma or a Stag Hunt.
+
+. . .
+
+- **PD framing**: People are tempted to free-ride. Solution: change the incentives (punishment, regulation).
+- **Stag Hunt framing**: People would cooperate *if they trusted each other*. Solution: build trust, communicate, establish conventions.
+
+. . .
+
+Many debates in political philosophy (Hobbes vs. Rousseau, for instance) can be read as disagreements about which game best models social life.
+
+## Discussion
+
+Think of a real-world situation that involves two or more people making choices that affect each other.
+
+. . .
+
+::: {.nonincremental}
+1. Is it more like a Prisoner's Dilemma or a Stag Hunt?
+2. What turns on the answer?
+3. Could you change the situation to shift it from one to the other?
+:::
+
+# Analyzing Games
+
+## Pareto Optimality
+
+Before we ask "what will rational players do?", let's ask: "which outcomes are *good*?"
+
+. . .
+
+An outcome is **Pareto optimal** if there's no other outcome that makes *someone* better off without making *anyone* worse off.
+
+. . .
+
+- In the Prisoner's Dilemma, (Cooperate, Cooperate) is Pareto optimal
+- (Defect, Defect) is **not** Pareto optimal---both players could do better!
+
+. . .
+
+But Pareto optimality doesn't tell us what players *will* do. For that we need equilibrium concepts.
+
+## Best Response
+
+Here's the key idea behind Nash equilibrium.
+
+. . .
+
+Your **best response** to the other player's strategy is the action that gives you the highest payoff, *given what they're doing*.
+
+. . .
+
+In the Prisoner's Dilemma:
+
+- Best response to Cooperate: **Defect** (5 > 3)
+- Best response to Defect: **Defect** (1 > 0)
+
+. . .
+
+Defect is the best response no matter what. That's what makes it a **dominant strategy**.
+
+## Nash Equilibrium
+
+A **Nash equilibrium** is a combination of strategies where *every* player is playing a best response to everyone else.
+
+. . .
+
+In other words: **nobody wants to change**, given what everyone else is doing.
+
+. . .
+
+::: {.incremental}
+- Prisoner's Dilemma: (Defect, Defect) is the unique Nash equilibrium
+- Coordination Game: (Left, Left) and (Right, Right) are both Nash equilibria
+- Battle of the Sexes: (A, A) and (B, B) are both Nash equilibria
+:::
+
+## Finding Nash Equilibria
+
+Here's a quick method for 2-player games. For each cell:
+
+1. Check if Player 1's payoff is the best in its **column** (i.e., best response to that column choice)
+2. Check if Player 2's payoff is the best in its **row** (i.e., best response to that row choice)
+3. If **both** conditions hold, it's a Nash equilibrium
+
+. . .
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, **5** |
+| **Defect** | **5**, 0 | **1**, **1** |
+
+The bold numbers are best responses. Both are bold in (Defect, Defect)---that's the Nash equilibrium.
+
+## Practice
+
+Find the Nash equilibria:
+
+|  | Left | Right |
+|--|---|---|
+| **Up** | 2, 1 | 0, 0 |
+| **Down** | 0, 0 | 1, 2 |
+
+. . .
+
+- (Up, Left): Player 1 gets 2 (best in column), Player 2 gets 1 (best in row). **Nash equilibrium!**
+- (Down, Right): Player 1 gets 1 (best in column), Player 2 gets 2 (best in row). **Nash equilibrium!**
+
+. . .
+
+This game has two equilibria. Which one gets played? That's where focal points come back in.
+
+## Nash's Theorem
+
+A landmark result (John Nash, 1951):
+
+> Every game with a finite number of players and actions has at least one Nash equilibrium.
+
+. . .
+
+The catch: it might require **mixed strategies**---randomly choosing between actions.
+
+. . .
+
+In Matching Pennies, the only Nash equilibrium is both players flipping a fair coin (50/50 Heads or Tails). Any predictable pattern can be exploited by the other player.
+
+## Mixed Strategies
+
+Why would a rational person randomize?
+
+. . .
+
+Think about penalty kicks in football. If the kicker always goes left, the goalie will always dive left. The kicker needs to be **unpredictable**.
+
+. . .
+
+More precisely: in a mixed-strategy equilibrium, each player randomizes in a way that makes the *other* player indifferent between their options.
+
+. . .
+
+If you're not indifferent, you'd want to shift your probabilities, and it wouldn't be an equilibrium.
+
+# Dominated Strategies
+
+## What's a Dominated Strategy?
+
+A strategy is **dominated** if there's another strategy that is *always* at least as good, and *sometimes* strictly better.
+
+. . .
+
+If you have a dominated strategy, you should never play it. No matter what the other players do, you have something better available.
+
+. . .
+
+In the Prisoner's Dilemma, Cooperate is dominated by Defect.
+
+## Iterated Elimination
+
+Here's a powerful technique. Consider this game:
+
+. . .
+
+|  | L | C | R |
+|--|---|---|---|
+| **U** | 3, 1 | 0, 1 | 0, 0 |
+| **M** | 1, 1 | 1, 1 | 5, 0 |
+| **D** | 0, 1 | 4, 1 | 0, 0 |
+
+. . .
+
+Step 1: For Player 2, R is dominated by L (or by C). Remove it.
+
+## Iterated Elimination (cont.)
+
+After removing R:
+
+|  | L | C |
+|--|---|---|
+| **U** | 3, 1 | 0, 1 |
+| **M** | 1, 1 | 1, 1 |
+| **D** | 0, 1 | 4, 1 |
+
+. . .
+
+Step 2: Now M is dominated by a mix of U and D. Remove it.
+
+|  | L | C |
+|--|---|---|
+| **U** | 3, 1 | 0, 1 |
+| **D** | 0, 1 | 4, 1 |
+
+. . .
+
+We've simplified a 3x3 game to 2x2!
+
+## Why This Works
+
+Iterated elimination of dominated strategies works because:
+
+. . .
+
+1. A rational player would never play a dominated strategy
+2. If you *know* the other player is rational, you know they won't play dominated strategies
+3. Once you remove those, new strategies might become dominated
+4. If you know the other player knows you're rational, you can eliminate those too...
+
+. . .
+
+This is essentially **common knowledge of rationality** at work. Each round of elimination requires one more level of "I know that you know that I know..."
+
+## Dominance vs. Nash Equilibrium
+
+How do these concepts relate?
+
+. . .
+
+- Every Nash equilibrium survives iterated elimination of dominated strategies
+- But not every strategy that survives is part of a Nash equilibrium
+- Dominance is a **weaker** requirement: it rules out fewer things
+
+. . .
+
+Think of it as two levels of analysis:
+
+1. **Dominated strategies**: "Don't play anything stupid"
+2. **Nash equilibrium**: "Play a best response to what others are doing"
+
+# Looking Ahead
+
+## What We've Covered
+
+::: {.nonincremental}
+- What a game is: players, actions, payoffs
+- Classic games: Prisoner's Dilemma, Coordination, Battle of the Sexes, Matching Pennies, Stag Hunt
+- Why PD vs. Stag Hunt matters for modeling real situations
+- Solution concepts: Pareto optimality, best response, Nash equilibrium
+- Dominated strategies and iterated elimination
+- Mixed strategies (the idea, if not the math)
+:::
+
+## What's Coming Next
+
+::: {.nonincremental}
+- **Dynamic games**: What changes when players move in sequence?
+- **Backward induction**: Solving games by thinking ahead from the end
+- **Subgame perfection**: Why some Nash equilibria involve empty threats
+:::
+
+. . .
+
+And then we'll look at Axelrod's famous tournaments on the **iterated Prisoner's Dilemma**: what happens when you play the same game against the same person over and over?
+
+## For Next Time
+
+Read chapters 4 and 5 of Leyton-Brown and Shoham, on extensive-form games.
+
+. . .
+
+Think about this question:
+
+> You're playing chess. You can see that if your opponent plays optimally from this point, they'll win. But your opponent has been making mistakes. Should you play as if they'll be rational from here on, or try to exploit their mistakes?
