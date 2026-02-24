@@ -6,7 +6,11 @@ format:
     beamer: default
 ---
 
-# The Basic Model
+# Schelling's Model
+
+## Feedback
+
+Did anyone find any surprising results from playing with the model?
 
 ## The Setup
 
@@ -168,48 +172,108 @@ What happened in real-life cases where the A's had those preferences??
 
 ## What is Being Modelled?
 
+In Schelling's original discussion, he mentions a particular story that motivated the case.
 
+- At a particular summer camp, the kids didn't seem particularly racist when they had to interact in activities.
+- But when they sat wherever they wanted for lunch, they ended up at racially homogenous tables.
 
-- **Composition fallacy**: what holds for each individual need not hold for the group
-- **Emergent structure**: macro-level patterns with no macro-level intention
-- **Invisible-hand explanations**: order arising without design (cf. Nozick, Hayek)
-- **Structural vs. intentional racism**: segregation can be sustained even without overt prejudice
-- Challenges simple inference from **outcomes** to **attitudes**
+## What is Being Modelled?
 
----
+That kind of informal grouping looks much more like the model than housing.
 
-## Extensions and Complications
+Think of all the ways in which housing is not like what we see in the model.
 
-Researchers have since explored:
+- Moving house is **expensive**.
+- People do not move **randomly**; in particular, they typically don't move to a place they can tell they'll want to move away from.
 
-- **Heterogeneous thresholds** --- agents with different tolerance levels
-- **Network topology** --- moving from grids to social networks
-- **Multiple groups** --- more than two types of agent
-- **Asymmetric preferences** --- groups that differ in their threshold
-- **Schelling + economics** --- adding housing prices, income, amenities
+## Housing
 
-Each extension deepens, but does not overturn, the basic insight.
+The point is not just that the model is unrealistic in these respects. Of course it's unrealistic; it's a bunch of points on a board.
 
----
+The point is that the behaviour in the model is being driven by the ways in which it is unrealistic.
 
-## Limitations and Critiques
+# Models
 
-- **Empirical fit**: Real-world segregation involves economics, policy, and explicit discrimination---not just preferences over neighbours
-- **Homogeneous agents**: The model assumes identical thresholds within each group
-- **Static preferences**: Agents don't learn or adapt their tolerance
-- **Binary groups**: Most societies have more than two salient categories
-- **Equilibrium ≠ welfare**: The model shows *stability*, not *desirability*
+## What Models Are
 
-The model is a **possibility proof**, not a complete causal explanation.
+Any time we make a simplified version of a situation, we are building some kind of model.
 
----
+Put that way, the accounts of a company are kind of a model.
 
-## Upshot
+But what we're interested in really are models that do at least one, and ideally all three, of the following things:
 
-Schelling's model teaches a general lesson:
+- Represent **causal** relations;
+- **Explain** some phenomena; or
+- **Predict** what will happen next
 
-> **Micro-level tolerance is compatible with macro-level segregation.**
+## What Models Are
 
-This matters for social ontology, philosophy of social science, and normative debates about responsibility for structural outcomes.
+The company accounts is a simplified picture of what's going on at the company, but it need not do any of those things.
 
-It remains a paradigm case of how **simple, local rules** can generate **complex, global patterns**---and why diagnosing social problems requires looking beyond individual intentions.
+Still, this isn't just something that scientists do.
+
+Any kind of projection, e.g., sales forecasts for the next year, or Netflix estimating viewership numbers when deciding what shows to make, require these kinds of models.
+
+## Models in (Social) Science
+
+The philosopher of science Michael Weisberg, in his 2013 book *Simulation and Similarity: Using Models to Understand the World*, argues that there are three main kinds of model used in science.
+
+1. **Concrete** models; where we use a real thing to model something else.
+2. **Mathematical** models; where we represent something using (simplified) equations.
+3. **Computational** models; where we start with a toy example, and work out what it does.
+
+## Concrete Models
+
+![Via Wikipedia, the model of the San Francisco Bay](images/bay_area.jpg){height=60%}
+
+## Mathematical Models
+
+Also via Wikipedia, the Lotka–Volterra equations for predator-prey interactions, where $x$ is the prey population density and $y$ is the predator density.
+
+$$
+\frac{dx}{dt} &= \alpha x - \beta x y, \\
+\frac{dy}{dt} &= - \gamma y + \delta x y
+$$
+
+Note that we don't model individual animals; just population level statistics.
+
+## Computational Models
+
+Here the paradigm, the one Weisberg uses as the main exemplar, is Schelling's model.
+
+Though he describes it as a model of urban segregation, and I think it's actually quite a bad model of *that*.
+
+## Models
+
+What's common to all of these is that
+
+1. They leave a lot out; but
+2. They are still similar enough to reality that they can tell us something about the real world.
+
+. . .
+
+'Similar' here needs a lot of spelling out, and in a different class we might spend a lot of time on it, but I'll leave it as given for now.
+
+# Improving Models
+
+## Additions
+
+What additions do you think would be worth adding to the Schelling model?
+
+## Subtractions
+
+What do you think should be subtracted?
+
+## Keep it Simple
+
+It's really tempting when you have a model like this, to add more and more detail.
+
+- This is especially true when you're building them on a computer, not moving coins around an actual board like Schelling.
+- But sometimes the real trick is to **subtract**.
+
+## Aim of a Model
+
+What we want to show is what feature is really doing the work.
+
+- The busier the model, the harder it is to see that.
+- The time to add detail to a model is when you are worried about something being a feature of the simplification.
