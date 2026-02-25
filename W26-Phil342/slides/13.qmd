@@ -1,5 +1,5 @@
 ---
-title: "Schelling's Segregation Model'"
+title: "Schelling's Segregation Model"
 date: 2/23/2026
 format:
     revealjs: default
@@ -87,6 +87,8 @@ The mechanism is a **tipping cascade**:
 3. Previously happy agents now fall below their threshold.
 4. They move in turn, triggering further departures.
 
+. . .
+
 Each local adjustment **shifts the context** for nearby agents, producing a chain reaction that vastly overshoots any individual's preference.
 
 ## Philosophical Significance
@@ -114,26 +116,47 @@ The next few images are taken from Alex B. Hill's website [Detroitography](https
 
 ## Detroit in 2000
 
-![Map by [Erica Fischer](https://detroitography.com/2013/03/07/detroit-racial-divide/)](images/detroit_2000.jpg){height=70%}
+::: {.columns}
 
+:::: {.column width=60%}
+![Map by [Erica Fischer](https://detroitography.com/2013/03/07/detroit-racial-divide/)](images/detroit_2000.jpg){height=70%}
+::::
+
+:::: {.column width=40%}
 Note that the boundaries are not just sharp, almost all are exactly at the municipal boundaries.
+::::
+:::
 
 ## Detroit in 2010
 
-![Update of the map for the 2010 census](images/detroit_2010.png){height=70%}
+::: {.columns}
 
+:::: {.column width=60%}
+![Update of the map for the 2010 census](images/detroit_2010.png){height=70%}
+::::
+
+:::: {.column width=40%}
 There wasn't much change by 2010, though the population density has decreased.
 
 Source: <https://detroitography.com/2013/08/12/detroit-racial-dot-map/>
+::::
+:::
 
 
-## Detroit in 2020
+---
 
-![Update of the map for the 2020 census](images/detroit_2020.jpg){height=70%}
+::: {.columns}
 
+:::: {.column width=60%}
+![Update of the map for the 2020 census](images/detroit_2020.jpg){height=50%}
+::::
+
+:::: {.column width=40%}
 And the boundaries are getting just a little blurrier in 2020.
 
 Source: <https://detroitography.com/2024/01/05/detroit-racial-dot-map-2020/>
+::::
+:::
 
 ## Schelling Model
 
@@ -165,7 +188,7 @@ We typically do **not** get segregation; we just get A's bouncing around the boa
 
 ## Model Failure
 
-What happened in real-life cases where the A's had those preferences??
+What happened in real-life cases where the A's had those preferences?
 
 - They used some mix of laws, practices, and outright violence, to get rid of the B's.
 - This is not something the model represents.
@@ -179,7 +202,9 @@ In Schelling's original discussion, he mentions a particular story that motivate
 
 ## What is Being Modelled?
 
-That kind of informal grouping looks much more like the model than housing.
+That kind of informal grouping looks much more like the model than housing. It's useful to look around you and see what kinds of homogenous and heterogenous groups there are, and long which dimensions they are homogenous and heterogenous.
+
+. . .
 
 Think of all the ways in which housing is not like what we see in the model.
 
@@ -196,7 +221,7 @@ The point is that the behaviour in the model is being driven by the ways in whic
 
 ## What Models Are
 
-Any time we make a simplified version of a situation, we are building some kind of model.
+Any time we make a simplified version of a situation, we are building a model.
 
 Put that way, the accounts of a company are kind of a model.
 
@@ -230,10 +255,10 @@ The philosopher of science Michael Weisberg, in his 2013 book *Simulation and Si
 
 Also via Wikipedia, the Lotka–Volterra equations for predator-prey interactions, where $x$ is the prey population density and $y$ is the predator density.
 
-$$
-\frac{dx}{dt} &= \alpha x - \beta x y, \\
-\frac{dy}{dt} &= - \gamma y + \delta x y
-$$
+\begin{align*}
+\frac{dx}{dt} = \alpha x - \beta x y \\
+\frac{dy}{dt} = - \gamma y + \delta x y
+\end{align*}
 
 Note that we don't model individual animals; just population level statistics.
 
@@ -277,3 +302,16 @@ What we want to show is what feature is really doing the work.
 
 - The busier the model, the harder it is to see that.
 - The time to add detail to a model is when you are worried about something being a feature of the simplification.
+- But if you can subtract noisy features, and keep the result, that's really interesting.
+
+## Back to Schelling
+
+And that's I think part of what's interesting here.
+
+It's not that this is what happens in housing, it clearly isn't, or it's even the only factor in group formation.
+
+But rather, seeing how easily agents can self-select, tells us something about what could be going on in real groups.
+
+## After Break
+
+We're going to do a week of game theory, then get onto the most famous model to come out of the University of Michigan, Robert Axelrod's Iterated Prisoner's Dilemma.
