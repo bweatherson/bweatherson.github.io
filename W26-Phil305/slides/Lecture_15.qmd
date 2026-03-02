@@ -1,0 +1,1684 @@
+---
+title: "305 Lecture 6.1 - Introducing Probability"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture introduces the basics of probability.
+
+## Associated Reading
+
+Odds and Ends, Chapter 1
+
+## Basic Idea
+
+- A probability function is a mapping from possibilities to numbers.
+- The numbers must sum to one.
+- Intuitively, the numbers measure how likely the possibilities are.
+
+## Sum to One
+
+The math of probability functions is just the math of proportions. Ultimately, all we'll be doing is the same kind of math that you would do when thinking about things like
+
+- What proportion of UM students are from North Carolina?
+- What proportion of UM undergraduates are Tigers fans?
+
+etc.
+
+## Three Big Questions
+
+> 1. What to do with these numbers?
+> 2. Where these numbers come from?
+> 3. What do the numbers even mean?
+
+## A Simple Case
+
+- Imagine that it is basketball season, and UM has planned to have both the women's and men's teams play on the same night.
+- So at the end of the night there are four possible outcomes.
+
+## Made Up Probabilities
+
+I'll stipulate that the probabilities of the four possible outcomes are given by this table.
+
+              Men Win   Men Lose
+-----------  --------- ----------
+Women Win       0.45      0.25
+Women Lose      0.20      0.10
+
+## Another Representation
+
+Here are the same numbers written a different way.
+
+ Women   Men    Probability
+------- ------ -------------
+  Win    Win        0.45
+  Win    Lose       0.25
+  Lose   Win        0.20
+  Lose   Lose       0.10
+  
+## Possibilities
+
+Say a possibility (for current purposes) is one of these maximally specific things that the probability is defined over.
+
+- It is not really a complete possibility.
+- It doesn't tell us the score, or the weather, or the results of the next election, or for that matter the results of the last election.
+- But it tells us everything that's relevant to a particular inquiry.
+- It is a lot like a line on a truth table.
+  
+## Events
+
+We will say an **event** is a proposition that can be defined using these possibilities. So here are some sample events.
+
+- The women's team wins.
+- The men's team wins.
+- At least one Michigan team wins.
+- The two teams have the same result.
+
+## Probability of Events
+
+- An event is true at some possibilities, false at others.
+- Each possibility gets a probability.
+- The probability of an event is the sum of the probabilities of the possibilities where it is true.
+
+## Examples - Probability Women's Team Wins
+
+::: columns
+
+:::: column
+
+ Women   Men    Probability
+------- ------ -------------
+  Win    Win        0.45
+  Win    Lose       0.25
+  Lose   Win        0.20
+  Lose   Lose       0.10
+  
+::::
+
+:::: column
+
+\bigskip
+- The women's team wins at lines 1 and 2.
+- So its probability is 
+- 0.45 + 0.25 = 0.7.
+
+::::
+
+:::
+
+
+## Examples - Probability Men's Team Wins
+
+
+::: columns
+
+:::: column
+
+ Women   Men    Probability
+------- ------ -------------
+  Win    Win        0.45
+  Win    Lose       0.25
+  Lose   Win        0.20
+  Lose   Lose       0.10
+  
+::::
+
+:::: column
+
+\bigskip
+- The men's team wins at lines 1 and 3.
+- So its probability is
+- 0.45 + 0.20 = 0.65.
+
+::::
+
+:::
+
+
+## Examples - At Least One Team Wins
+
+::: columns
+
+:::: column
+
+ Women   Men    Probability
+------- ------ -------------
+  Win    Win        0.45
+  Win    Lose       0.25
+  Lose   Win        0.20
+  Lose   Lose       0.10
+  
+::::
+
+:::: column
+
+\bigskip
+- At least one team wins at lines 1, 2 and 3.
+- So its probability is
+- 0.45 + 0.25 + 0.20 = 0.90.
+
+::::
+
+:::
+
+## Examples - Same Result in Each Game
+
+::: columns
+
+:::: column
+
+ Women   Men    Probability
+------- ------ -------------
+  Win    Win        0.45
+  Win    Lose       0.25
+  Lose   Win        0.20
+  Lose   Lose       0.10
+  
+::::
+
+:::: column
+
+\bigskip
+- It is the same result in each game at lines 1 and 4.
+- So its probability is
+- 0.45 + 0.10 = 0.55.
+
+::::
+
+:::
+
+## For Next Time
+
+- We will look at some properties that all probability functions share.
+
+---
+title: "305 Lecture 6.2 - About Probability Functions"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture looks at some general features of probability functions, and looks at some ways to think probabilistically about real world events.
+
+## Associated Reading
+
+Odds and Ends, Chapter 5
+
+## Scale
+
+$$
+0 \leq \Pr(A) \leq 1
+$$
+
+## Negation
+
+$$
+\Pr(\neg A) = 1 - \Pr(A)
+$$
+
+## Excluded Middle
+
+$$
+\Pr(A) + \Pr(\neg A) = 1
+$$
+
+## Partition
+
+Some events $A_1, \dots A_n$ form a partition if, necessarily, exactly one of them is true.
+
+- So they are **exclusive** - you can't have any two of them both be true.
+- And they are **exhaustive** - you have to have at least one true.
+
+## Partition
+
+If $A_1, \dots A_n$ form a partition then
+
+$$
+\Pr(A_1) + \dots + \Pr(A_n) = 1
+$$
+
+## Exclusive
+
+If $A, B$ are exclusive
+
+$$
+\Pr(A \vee B) = \Pr(A) + \Pr(B)
+$$
+
+## General Principle
+
+$$
+\Pr(A) + \Pr(B) = \Pr(A \vee B) + \Pr(A \wedge B)
+$$
+
+\pause
+
+It's worth thinking through why this is true in terms of possibilities.
+
+## For Next Time
+
+We'll look at the use of truth trees to estimate probabilities.
+
+---
+title: "305 Lecture 6.3 - Probability Trees"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+To introduce the notion of probability trees, and show how they can be used for estimating probabilities.
+
+## Reading
+
+_Odds and Ends_, sections 1.1 and 6.2. 
+
+## Trees
+
+- Often, we can't just write down numbers for the possibilities.
+- But we can write down, or at least make reasonable guesses about, numbers for certain events.
+- And we can think about how things are likely to go given those events happen.
+- This is the tree structure that is used in _Odds and Ends_.
+
+## Flight Forecasting
+
+- So let's say you're flying from Detroit to Salt Lake City via Denver (which apparently is a common route), next Monday.
+- And you want to know how likely it is you'll get there on time. 
+- The weather looks fine here in Michigan, but changing planes in Denver during winter can be a bit of a lottery.
+- You've got a tight connection, so if the first flight is delayed, you'll probably be delayed.
+- And that's not the only thing that could go wrong with planes.
+- But it's hard to put into numbers how it affects things.
+
+## One Method
+
+- Divide up the state space.
+- Work out the probability of being in one or other part of the space.
+- Work out the probability of being delayed given you are in one or other part of the space.
+- Add things up.
+
+## Nothing is Reliable
+
+> - There are a lot of ways to do this.
+> - You could divide up the space by how many flights are delayed next Monday.
+> - Or you could divide up the space by how many airline employees show up for work on Monday.
+> - Or, and let's work with this one, you could divide it up by what the weather is like in Denver. The advantage of this is that we can get an independent assessment of it without knowing a ton about the state of the aviation industry.
+
+## Three States
+
+1. Blizzard.
+2. Bad weather, but not a blizzard.
+3. Clear skies.
+
+## Two Step Process
+
+1. Work out (or at least estimate) probability of each state.
+2. Work out probability of being delayed within each of those states.
+
+This will involve a lot of guesswork - do not make travel planning decisions on the basis of the numbers I'm about to use because they are really pulled out of the air - but it's a very helpful heuristic to at least approximate the reality.
+
+## Probabilities of States
+
+Let's say the probabilities look like this.
+
+- Blizzard - 10%, or 0.1.
+- Other bad weather - 60%, or 0.6.
+- Good weather  - 30%, or 0.3.
+
+## Flight Probabilities
+
+Then we want to work out how likely it is that you get there on time in each of these three possibilities.
+
+## Blizzard
+
+- This one's easy - you're going to be late. 
+- Your plane won't land, or the plane you're connecting to won't land, or your plane won't take off.
+- Never say never, but the probability that you'll be late is 1.
+
+## Bad Weather
+
+- It snows a lot in Denver, and yet planes get through.
+- But still, things start going wrong when there's bad weather, and you've got two points where things can go wrong.
+- So let's say it's a 25% chance you're delayed in this situation.
+- Across the year, just over 90% of flights from Detroit to Denver are on time, and just under 90% of flights from Denver to Salt Lake City are on time, but things are worse in winter - even without a blizzard - that's why the 25%.
+
+
+## Good Weather
+
+- Now it would have to be some other kind of bad luck to be late.
+- That happens, but let's put it at 10% likelihood.
+- If you wake up on Monday and see it's sunny in Denver, it seems you should be at least 90% confident you'll get to Salt Lake on time.
+
+
+## The Giant Table
+
+                                     On Time                Late
+---------------------------- -------------------------- ---------------------------
+Blizzard                      $0.1 \times 0.00 = 0.00$   $0.1 \times 1.00 = 0.10$
+Bad Weather                   $0.6 \times 0.75 = 0.45$   $0.6 \times 0.25 = 0.15$
+Good weather                  $0.3 \times 0.90 = 0.27$   $0.3 \times 0.10 = 0.03$
+  
+So the probability that you arrive on time (given these literally made up assumptions) is $0.00 + 0.45 + 0.27 = 0.72$, or 72%, and the probability that you're delayed is 28%.
+
+## Probabilities and Errors
+
+- The error bars on that calculation are massive.
+- But it's a kind of sanity check on how you think things are going.
+- Especially in situations where only a handful of paths lead to a salient result (like in playoffs in sports, or when thinking about the likelihood of a particular challenger winning), doing the tree even with favorable numbers can give you a conservative estimate of some probability.
+
+## Three Cases Where This is More Precise
+
+1. Probabilities are stipulated
+2. Probabilities are due to well understood chance processes (like gambling devices)
+3. Probabilities are derived from very large data sets
+
+## For Next Time
+
+- We will look at an example where the probabilities are indeed stipulated.
+
+---
+title: "305 Lecture 6.4 - A Worked Out Probability Tree"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture walks through a worked example of how to use probability trees to calculate a probability.
+
+## Associated Reading
+
+Odds and Ends, section 1.2.
+
+## Soccer Tournament
+
+There is a big soccer tournament this weekend. The teams competing are
+
+- Fireflies
+- Penguins
+- Huskies
+- Bluebirds
+
+## Tournament Structure
+
+There will be three games.
+
+1. Fireflies vs Penguins
+2. Huskies vs Bluebirds
+3. Winner of Game 1 vs Winner of Game 2
+
+Each game will have a winner one way or the other (maybe via penalty kicks or extra time).
+
+## Team Strength
+
+The teams are not all equally good. They each have a 'strength'. Here is their respective strengths
+
+ Team        Strength
+----------- ---------- 
+ Fireflies      5
+ Penguins       4
+ Huskies        3
+ Bluebirds      1
+
+## Win Probabilities
+
+If a team with strength $x$ plays a team with strength $y$, the team with strength $x$ will win with probability
+
+$$
+\frac{x}{x+ y}
+$$
+
+\bigskip
+
+And the team with strength $y$ will win with probability
+
+$$
+\frac{y}{x + y}
+$$
+
+## Question
+
+What is the probability that each team will win the tournament?
+
+> - We will answer this by doing a tree.
+
+## Tournament Tree {.fragile}
+
+\newcommand{\pictext}[3]{
+\put(#1, #2){\makebox(0, 0)[b]{#3}}}
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{215}{20}{P}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{130}{55}{B}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{270}{55}{B}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+%\pictext{50}{125}{$\mathpzc{L}$}
+\put(70, 82){\line(1, 2){20}}
+%\pictext{90}{125}{$\mathpzc{L}$}
+\pictext{55}{95}{F}
+\pictext{85}{95}{H}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+%\pictext{120}{125}{$\mathpzc{L}$}
+\put(140, 82){\line(1, 2){20}}
+%\pictext{160}{125}{$\mathpzc{W}$}
+\pictext{125}{95}{F}
+\pictext{155}{95}{B}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+%\pictext{190}{125}{$\mathpzc{L}$}
+\put(210, 82){\line(1, 2){20}}
+%\pictext{230}{125}{$\mathpzc{W}$}
+\pictext{195}{95}{P}
+\pictext{225}{95}{H}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+%\pictext{260}{125}{$\mathpzc{W}$}
+\put(280, 82){\line(1, 2){20}}
+%\pictext{300}{125}{$\mathpzc{L}$}
+\pictext{265}{95}{P}
+\pictext{295}{95}{B}
+\end{picture}
+
+\pause
+
+Now we have to add the probabilities to it.
+
+## Tournament Tree {.fragile}
+
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{135}{8}{$\nicefrac{5}{9}$}
+\pictext{215}{20}{P}
+\pictext{215}{8}{$\nicefrac{4}{9}$}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{130}{55}{B}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{270}{55}{B}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+%\pictext{50}{125}{$\mathpzc{L}$}
+\put(70, 82){\line(1, 2){20}}
+%\pictext{90}{125}{$\mathpzc{L}$}
+\pictext{55}{95}{F}
+\pictext{85}{95}{H}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+%\pictext{120}{125}{$\mathpzc{L}$}
+\put(140, 82){\line(1, 2){20}}
+%\pictext{160}{125}{$\mathpzc{W}$}
+\pictext{125}{95}{F}
+\pictext{155}{95}{B}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+%\pictext{190}{125}{$\mathpzc{L}$}
+\put(210, 82){\line(1, 2){20}}
+%\pictext{230}{125}{$\mathpzc{W}$}
+\pictext{195}{95}{P}
+\pictext{225}{95}{H}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+%\pictext{260}{125}{$\mathpzc{W}$}
+\put(280, 82){\line(1, 2){20}}
+%\pictext{300}{125}{$\mathpzc{L}$}
+\pictext{265}{95}{P}
+\pictext{295}{95}{B}
+\end{picture}
+
+The first game is strength 5 vs strength 4, so the win probability for the stronger team is $\nicefrac{5}{5+4}$, i.e., $\nicefrac{5}{9}$.
+
+## Tournament Tree {.fragile}
+
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{135}{8}{$\nicefrac{5}{9}$}
+\pictext{215}{20}{P}
+\pictext{215}{8}{$\nicefrac{4}{9}$}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{80}{43}{$\nicefrac{3}{4}$}
+\pictext{130}{55}{B}
+\pictext{130}{43}{$\nicefrac{1}{4}$}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{220}{43}{$\nicefrac{3}{4}$}
+\pictext{270}{55}{B}
+\pictext{270}{43}{$\nicefrac{1}{4}$}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+%\pictext{50}{125}{$\mathpzc{L}$}
+\put(70, 82){\line(1, 2){20}}
+%\pictext{90}{125}{$\mathpzc{L}$}
+\pictext{55}{95}{F}
+\pictext{85}{95}{H}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+%\pictext{120}{125}{$\mathpzc{L}$}
+\put(140, 82){\line(1, 2){20}}
+%\pictext{160}{125}{$\mathpzc{W}$}
+\pictext{125}{95}{F}
+\pictext{155}{95}{B}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+%\pictext{190}{125}{$\mathpzc{L}$}
+\put(210, 82){\line(1, 2){20}}
+%\pictext{230}{125}{$\mathpzc{W}$}
+\pictext{195}{95}{P}
+\pictext{225}{95}{H}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+%\pictext{260}{125}{$\mathpzc{W}$}
+\put(280, 82){\line(1, 2){20}}
+%\pictext{300}{125}{$\mathpzc{L}$}
+\pictext{265}{95}{P}
+\pictext{295}{95}{B}
+\end{picture}
+
+The second game is strength 3 vs strength 1, so the win probability for the stronger team is $\nicefrac{3}{3+1}$, i.e., $\nicefrac{3}{4}$. And it doesn't matter how the first game went - that's the probability for the second game.
+
+## Tournament Tree {.fragile}
+
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{135}{8}{$\nicefrac{5}{9}$}
+\pictext{215}{20}{P}
+\pictext{215}{8}{$\nicefrac{4}{9}$}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{80}{43}{$\nicefrac{3}{4}$}
+\pictext{130}{55}{B}
+\pictext{130}{43}{$\nicefrac{1}{4}$}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{220}{43}{$\nicefrac{3}{4}$}
+\pictext{270}{55}{B}
+\pictext{270}{43}{$\nicefrac{1}{4}$}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+%\pictext{50}{125}{$\mathpzc{L}$}
+\put(70, 82){\line(1, 2){20}}
+%\pictext{90}{125}{$\mathpzc{L}$}
+\pictext{55}{95}{F}
+\pictext{55}{83}{$\nicefrac{5}{8}$}
+\pictext{85}{95}{H}
+\pictext{85}{83}{$\nicefrac{3}{8}$}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+%\pictext{120}{125}{$\mathpzc{L}$}
+\put(140, 82){\line(1, 2){20}}
+%\pictext{160}{125}{$\mathpzc{W}$}
+\pictext{125}{95}{F}
+\pictext{125}{83}{$\nicefrac{5}{6}$}
+\pictext{155}{95}{B}
+\pictext{155}{83}{$\nicefrac{1}{6}$}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+%\pictext{190}{125}{$\mathpzc{L}$}
+\put(210, 82){\line(1, 2){20}}
+%\pictext{230}{125}{$\mathpzc{W}$}
+\pictext{195}{95}{P}
+\pictext{195}{83}{$\nicefrac{4}{7}$}
+\pictext{225}{95}{H}
+\pictext{225}{83}{$\nicefrac{3}{7}$}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+%\pictext{260}{125}{$\mathpzc{W}$}
+\put(280, 82){\line(1, 2){20}}
+%\pictext{300}{125}{$\mathpzc{L}$}
+\pictext{265}{95}{P}
+\pictext{265}{83}{$\nicefrac{4}{5}$}
+\pictext{295}{95}{B}
+\pictext{295}{83}{$\nicefrac{1}{5}$}
+\end{picture}
+
+And now for each possible match up in game 3, we apply the formula to get the win probability for each team.
+
+## Tournament Tree {.fragile}
+
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{135}{8}{$\nicefrac{5}{9}$}
+\pictext{215}{20}{P}
+\pictext{215}{8}{$\nicefrac{4}{9}$}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{80}{43}{$\nicefrac{3}{4}$}
+\pictext{130}{55}{B}
+\pictext{130}{43}{$\nicefrac{1}{4}$}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{220}{43}{$\nicefrac{3}{4}$}
+\pictext{270}{55}{B}
+\pictext{270}{43}{$\nicefrac{1}{4}$}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+%\pictext{50}{125}{$\mathpzc{L}$}
+\put(70, 82){\line(1, 2){20}}
+%\pictext{90}{125}{$\mathpzc{L}$}
+\pictext{55}{95}{F}
+\pictext{55}{83}{$\nicefrac{5}{8}$}
+\pictext{85}{95}{H}
+\pictext{85}{83}{$\nicefrac{3}{8}$}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+%\pictext{120}{125}{$\mathpzc{L}$}
+\put(140, 82){\line(1, 2){20}}
+%\pictext{160}{125}{$\mathpzc{W}$}
+\pictext{125}{95}{F}
+\pictext{125}{83}{$\nicefrac{5}{6}$}
+\pictext{155}{95}{B}
+\pictext{155}{83}{$\nicefrac{1}{6}$}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+%\pictext{190}{125}{$\mathpzc{L}$}
+\put(210, 82){\line(1, 2){20}}
+\pictext{230}{125}{$\nicefrac{1}{7}$}
+\pictext{195}{95}{P}
+\pictext{195}{83}{$\nicefrac{4}{7}$}
+\pictext{225}{95}{H}
+\pictext{225}{83}{$\nicefrac{3}{7}$}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+%\pictext{260}{125}{$\mathpzc{W}$}
+\put(280, 82){\line(1, 2){20}}
+%\pictext{300}{125}{$\mathpzc{L}$}
+\pictext{265}{95}{P}
+\pictext{265}{83}{$\nicefrac{4}{5}$}
+\pictext{295}{95}{B}
+\pictext{295}{83}{$\nicefrac{1}{5}$}
+\end{picture}
+
+- The probability of each completed branch is the product of each of the smaller branches.
+- So the one I've marked is $\nicefrac{4}{9} \times \nicefrac{3}{4} \times \nicefrac{3}{7} = \nicefrac{1}{7}$.
+
+## Tournament Tree {.fragile}
+
+\setlength{\unitlength}{0.9pt}
+\begin{picture}(350, 150)
+\pictext{175}{0}{G1}
+\put(175, 12){\circle{4}}\put(173, 13){\line(-2, 1){69}}
+\put(177, 13){\line(2, 1){69}}
+\pictext{135}{20}{F}
+\pictext{135}{8}{$\nicefrac{5}{9}$}
+\pictext{215}{20}{P}
+\pictext{215}{8}{$\nicefrac{4}{9}$}
+\pictext{105}{33}{G2}
+\put(105, 47){\circle*{4}}
+\put(105, 47){\line(-1, 1){35}}
+\put(105, 47){\line(1, 1){35}}
+\pictext{80}{55}{H}
+\pictext{80}{43}{$\nicefrac{3}{4}$}
+\pictext{130}{55}{B}
+\pictext{130}{43}{$\nicefrac{1}{4}$}
+\pictext{245}{33}{G2}
+\put(245, 47){\circle*{4}}
+\put(245, 47){\line(-1, 1){35}}
+\put(245, 47){\line(1, 1){35}}
+\pictext{220}{55}{H}
+\pictext{220}{43}{$\nicefrac{3}{4}$}
+\pictext{270}{55}{B}
+\pictext{270}{43}{$\nicefrac{1}{4}$}
+\pictext{70}{66}{G3}
+\put(70, 82){\circle*{4}}
+\put(70, 82){\line(-1, 2){20}}
+\pictext{50}{125}{$\nicefrac{25}{96}$}
+\put(70, 82){\line(1, 2){20}}
+\pictext{90}{125}{$\nicefrac{5}{32}$}
+\pictext{55}{95}{F}
+\pictext{55}{83}{$\nicefrac{5}{8}$}
+\pictext{85}{95}{H}
+\pictext{85}{83}{$\nicefrac{3}{8}$}
+\pictext{140}{66}{G3}
+\put(140, 82){\circle*{4}}
+\put(140, 82){\line(-1, 2){20}}
+\pictext{120}{125}{$\nicefrac{25}{216}$}
+\put(140, 82){\line(1, 2){20}}
+\pictext{160}{125}{$\nicefrac{5}{216}$}
+\pictext{125}{95}{F}
+\pictext{125}{83}{$\nicefrac{5}{6}$}
+\pictext{155}{95}{B}
+\pictext{155}{83}{$\nicefrac{1}{6}$}
+\pictext{210}{66}{G3}
+\put(210, 82){\circle*{4}}
+\put(210, 82){\line(-1, 2){20}}
+\pictext{190}{125}{$\nicefrac{4}{21}$}
+\put(210, 82){\line(1, 2){20}}
+\pictext{230}{125}{$\nicefrac{1}{7}$}
+\pictext{195}{95}{P}
+\pictext{195}{83}{$\nicefrac{4}{7}$}
+\pictext{225}{95}{H}
+\pictext{225}{83}{$\nicefrac{3}{7}$}
+\pictext{280}{66}{G3}
+\put(280, 82){\circle*{4}}
+\put(280, 82){\line(-1, 2){20}}
+\pictext{260}{125}{$\nicefrac{4}{45}$}
+\put(280, 82){\line(1, 2){20}}
+\pictext{300}{125}{$\nicefrac{1}{45}$}
+\pictext{265}{95}{P}
+\pictext{265}{83}{$\nicefrac{4}{5}$}
+\pictext{295}{95}{B}
+\pictext{295}{83}{$\nicefrac{1}{5}$}
+\end{picture}
+
+I've included all the others - they usually don't cancel as nicely as that one.
+
+## Tournament Table
+
+It might be easier to see the results in a table
+
+  Winner     Runner-Up   Probability             Approx
+----------- ----------- ---------------------- ------------
+ Fireflies   Huskies     $\nicefrac{25}{96}$     0.260
+ Huskies     Fireflies   $\nicefrac{5}{32}$      0.156
+ Fireflies   Bluebirds   $\nicefrac{25}{216}$    0.116
+ Bluebirds   Fireflies   $\nicefrac{5}{216}$     0.023
+ Penguins    Huskies     $\nicefrac{4}{21}$      0.190
+ Huskies     Penguins    $\nicefrac{1}{7}$       0.143
+ Penguins    Bluebirds   $\nicefrac{4}{45}$      0.089
+ Bluebirds   Penguins    $\nicefrac{1}{45}$      0.022 
+ 
+## Tournament Table
+
+And we can rearrange that so the rows where each team wins are adjacent.
+
+  Winner     Runner-Up   Probability             Approx
+----------- ----------- ---------------------- ------------
+ Fireflies   Huskies     $\nicefrac{25}{96}$     0.260
+ Fireflies   Bluebirds   $\nicefrac{25}{216}$    0.116
+ Huskies     Fireflies   $\nicefrac{5}{32}$      0.156
+ Huskies     Penguins    $\nicefrac{1}{7}$       0.143
+ Penguins    Huskies     $\nicefrac{4}{21}$      0.190
+ Penguins    Bluebirds   $\nicefrac{4}{45}$      0.089
+ Bluebirds   Fireflies   $\nicefrac{5}{216}$     0.023
+ Bluebirds   Penguins    $\nicefrac{1}{45}$      0.022 
+
+## Tournament Table
+
+And then just adding up the probabilities for the two ways each team can win, we get the actual probabilities of each win. (I'm just doing the decimals now.)
+
+  Winner     Approx Probability
+----------- --------------------
+ Fireflies          0.376
+ Huskies            0.299
+ Penguins           0.279
+ Bluebirds          0.045
+ 
+(Those numbers don't sum to 1 precisely because of rounding.)
+
+## For Next Time
+
+- We will introduce an important new concept: conditional probability.
+
+---
+title: "305 Lecture 7.1 - Conditional Probability"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- To introduce a key new concept: **conditional probability**.
+
+## Associated Reading
+
+Odds and Ends, Chapter 6
+
+## What it is
+
+- Sometimes we don't just care about how likely something is.
+- We care about how likely it is given some other thing has happened or will happen. \pause
+- This might be because we want to plan. \pause
+- It might be because we want to compute overall probabilities. \pause
+- Or it might be because we've found something out, and want to know what it means for other likelihoods.
+
+## Prior Examples
+
+We've already used some conditional probabilities.
+
+- We already talked, for example, about the probability of the Fireflies winning conditional on them being in the final against the Bluebirds.
+
+## Inverting
+
+But there are other questions we might want to ask as well.
+
+> - E.g., conditional on the Fireflies winning, how likely is it that they played the Huskies.
+
+## Intuitions
+
+This isn't an easy question to answer intuitively.
+
+- It is more likely that the Huskies will be actually in the final - because they are the better team.
+- But it is more likely that the Fireflies will win against the Bluebirds - because they are weaker.
+- It isn't always easy to intuitively balance these forces.
+
+## Formula
+
+$$
+\Pr(A | B) = \frac{Pr(A \wedge B)}{Pr(B)}
+$$
+
+\pause
+
+- The left-hand side means "The probability of $A$ given $B$." \pause
+- And the right-hand side says that this is equal to the probability of $A \wedge B$ divided by the probability of $B$.
+
+## Fireflies
+
+$$
+\Pr(HR | FC) = \frac{\Pr(HR \wedge FC)}{\Pr(FC)}
+$$
+
+That is, the probability that the Huskies are runners-up ($HR$) given that the Fireflies are champions ($FC$), is given by the formula on the right.
+
+## Fireflies
+
+$$
+\Pr(HR | FC) = \frac{0.26}{0.26+0.116} = \frac{0.26}{0.376} \approx 0.691
+$$
+
+So conditional on the Fireflies winning, it's just under 70% likely they beat the Huskies.
+
+## Updating
+
+We are going to mostly assume that this philosophical claim is true.
+
+$$
+\Pr{}_B(A) = \Pr(A | B)
+$$
+
+The way to read that is saying that the unconditional probability of $A$ after learning $B$ equals the conditional probability of $A$ given $B$. This claim - and it is a philosophical claim not a mathematical one - is a big part of why we care about conditional probability.
+
+## For Next Time
+
+We're going to talk about when it is that two events are independent.
+
+---
+title: "305 Lecture 7.2 - Independence"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- A short lecture to introduce a big idea: the notion of independence.
+
+## Associated Reading
+
+Odds and Ends, Chapter 6.5
+
+## Independence
+
+$A$ and $B$ are independent if (and only if)
+
+$$
+\Pr(A | B) = \Pr(A)
+$$
+
+That is, taking things conditional on $B$ doesn't change $A$.
+
+## Ways Independence can Fail
+
+Causal
+
+- $B$ might be a possible cause of $A$. \pause
+- $B$ might be a possible preventer of $A$. \pause
+- $B$ might be a common effect of a frequent cause of $A$. \pause
+- $B$ might be a common effect of a frequent preventer of $A$.
+
+## Ways Indepenence can Fail
+
+Epistemic
+
+- $B$ being true could tell you that a source that also predicts $A$ is more reliable than you thought.
+
+## Two Big Real World Facts about Independence
+
+1. In reality, strict independence almost never obtains. \pause
+2. In practice, it's very often useful to assume independence for modelling purposes. \pause
+
+These are consistent, but it does mean be careful. Sometimes assuming independence is like assuming that relativistic considerations aren't important to figuring out whether a bridge will stand up. And sometimes it is like assuming that friction isn't important to figuring out whether a bridge will stand up.
+
+## An Odd Instance of Independence
+
+Two fair dice, one red and one blue, are going to be tossed. Let $A$ be that the sum of what they show is 7. Let $B$ be that the red die shows a 2.
+
+Question
+:    Are $A$ and $B$ independent? \pause
+
+Surprising answer - yes!
+
+## For Next Time
+
+- We will look at how to invert conditional probabilities, how to go from a bunch of facts of the form $\Pr(A | B) = x$ to facts of the form $\Pr(B | A) = y$.
+
+---
+title: "305 Lecture 7.3 - Inverting Conditional Probability"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture talks about how and when you can flip conditional probabilities around.
+
+## Associated Reading
+
+Odds and Ends, chapter 8 
+
+- Note I'm going to start with a somewhat different approach to these problems, before ending up in the same place as the book.
+- Very roughly, I'm going to cover the contents of chapter 8 in reverse order, so we'll end up at 8.1 in a few lectures time.
+
+## A Real World Problem
+
+- Imagine that 3% of men have disease D. 
+- A man you know has no special reason to think he's vulnerable to D, it's not like all his male ancestors had D, but no special reason to think he's immune to it either.
+- There is a test for whether one has disease D or not. 
+- Among people who have the disease, 90% test positive. 
+- But only 5% of those who do not have the disease test positive.$\pause$
+
+This man just had the test, and it came back positive. What is the probability that he has disease D?
+
+---
+
+![Testing terms](../images/wiki-sensitivity.png)
+
+## How To Solve These Problems
+
+- Start with a table with the states of the world on one axis, and states of the test on the other axis.
+- In this case it can just be a 2*2 table.
+- In each cell, write down the initial probability of ending up in that cell.
+- That will be the probability of being in that state, times the probability of that test result given that you are in that state.
+- The formula we are constantly using here is $Pr(A \wedge B) = Pr(A) Pr(B | A)$.
+
+## The Table
+
+|  | Test Positive | Test Negative |
+| --	| -------------	| -------------	|
+| Have Disease | 0.027 | 0.003 |
+| No Disease | 0.0485 | 0.9215 |
+
+$\pause$
+
+Let's talk for a bit about how we generated it.
+
+## The Table
+
+|              | Test Positive | Test Negative |
+| -----------: | :-----------: | :-----------: |
+| Have Disease |   0.027       |   0.003       |
+| No Disease   |   0.0485      |   0.9215      |
+
+- Focus on the top left cell. Why does it say 0.027?
+- Well, probability of disease is, we said, 0.03. 
+- And probability of test positive given disease is 0.9.
+- So probability of disease and test positive is 0.03 * 0.9 = 0.027, or 2.7%.
+
+## The Table
+
+|              | Test Positive | Test Negative |
+| -----------: | :-----------: | :-----------: |
+| Have Disease |   0.027       |   0.003       |
+| No Disease   |   0.0485      |   0.9215      |
+
+- Now focus on the top right cell. Why does it say 0.003?
+- Well, probability of disease is, we said, 0.03. 
+- And probability of test negative given disease is 1 - 0.9, i.e., 0.1.
+- So probability of disease and test positive is 0.03 * 0.1 = 0.003, or 0.3%.
+
+## The Table
+
+|              | Test Positive | Test Negative |
+| -----------: | :-----------: | :-----------: |
+| Have Disease |   0.027       |   0.003       |
+| No Disease   |   0.0485      |   0.9215      |
+
+- Now focus on the bottom left cell. Why does it say 0.0485?
+- Well, probability of disease is, we said, 0.03. 
+- So probability of non-disease is 0.97.
+- And probability of test positive given non-disease is 0.05.
+- So probability of non-disease and test positive is 0.97 * 0.05 = 0.0485, or 4.85%.
+
+## The Table
+
+|              | Test Positive | Test Negative |
+| -----------: | :-----------: | :-----------: |
+| Have Disease |   0.027       |   0.003       |
+| No Disease   |   0.0485      |   0.9215      |
+
+- Now focus on the bottom right cell. Why does it say 0.9215?
+- Well, probability of non-disease is 0.97.
+- And probability of test negative given non-disease is 1 - 0.05 = 0.95.
+- So probability of non-disease and test positive is 0.97 * 0.95 = 0.9215, or 92.15%.
+
+## Solving the Problem
+
+|              | Test Positive | Test Negative |
+| -----------: | :-----------: | :-----------: |
+| Have Disease |   0.027       |   0.003       |
+| No Disease   |   0.0485      |   0.9215      |
+
+- We want to know Pr(Disease $|$ Test Positive). Call this $Pr(D | TP)$.$\pause$
+- That's $Pr(D \wedge TP)$ divided by $Pr(TP)$.$\pause$
+- And $Pr(D \wedge TP)$ is 0.027.$\pause$
+- And $Pr(TP)$ is 0.0755.$\pause$
+- So the answer is roughly 0.35, i.e., $\frac{0.027}{0.0755}$.
+
+## Practical Consequence
+
+- That test looked pretty reliable.
+- But testing positive only raises the probability of having the disease toa bit over 1 in 3.
+- This wasn't really a quirk of the example.
+- When testing for relatively rare conditions, this is a really common situation.
+- Unless the test is **really** reliable, testing positive is worrying, but usually raises the dreaded probability to well under 1, often under 0.5.
+
+## General Strategy For A/B Problems
+
+- Make a 2 x 2 table, with $A, \neg A$ on the rows, and $B, \neg B$ on the columns.
+- Work out the probability of each cell.
+- To do this, repeatedly use the formula
+
+$$
+\Pr(X \wedge Y) = \Pr(X | Y)\Pr(Y)
+$$
+
+- Add up the values across the rows to get $\Pr(A), \Pr(\neg A)$.
+- Add up the values down the columns to get $\Pr(B), \Pr(\neg B)$.
+- Use the formula for conditional probability to work out the answer.
+
+## Another Example
+
+- $\Pr(A) = 0.6$.
+- $\Pr(B | A) = 0.3$.
+- $\Pr(B | \neg A) = 0.8$.
+- Find $\Pr(B)$ and $\Pr(A | B)$.
+
+## Use the Negation Rule to fill in the Basic Probabilities
+
+- $\Pr(A) = 0.6$, so $\Pr(\neg A) = 0.4$. \pause
+- $\Pr(B | A) = 0.3$, so $\Pr(\neg B | A) = 0.7$. \pause
+- $\Pr(B | \neg A) = 0.8$, sp $\Pr(\neg B | \neg A) = 0.2$.
+
+## Build the Table
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |        |             |
+|$\neg A$|        |             |
+
+## Top Left Corner
+
+\begin{align*}
+\Pr(A \wedge B) &= \Pr(B | A) \Pr(A) \\
+ &= 0.3 \times 0.6 \\
+ &= 0.18
+\end{align*}
+
+\pause
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |             |
+|$\neg A$|        |             |
+
+## Top Right Corner
+
+\begin{align*}
+\Pr(A \wedge \neg B) &= \Pr(\neg B | A) \Pr(A) \\
+ &= 0.7 \times 0.6 \\
+ &= 0.42
+\end{align*}
+
+\pause
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|        |             |
+
+## Check
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|        |             |
+
+The numbers in the top row are 0.18 + 0.42 = 0.6, which is what we were told $\Pr(A)$ was. So our work passes this little cross-check.
+
+## Bottom Left Corner
+
+\begin{align*}
+\Pr(\neg A \wedge B) &= \Pr( B | \neg A) \Pr(\neg A) \\
+ &= 0.8 \times 0.4 \\
+ &= 0.32
+\end{align*}
+
+\pause
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|  0.32  |             |
+
+## Bottom Right Corner
+
+\begin{align*}
+\Pr(\neg A \wedge \neg B) &= \Pr( \neg B | \neg A) \Pr(\neg A) \\
+ &= 0.2 \times 0.4 \\
+ &= 0.08
+\end{align*}
+
+\pause
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|  0.32  |   0.08      |
+
+## Check
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|  0.32  |   0.08      |
+
+- The bottom row sums to 0.4, as we knew $\Pr(\neg A)$ was.
+- And the whole thing sums to 1, which is good.
+
+## $\Pr(B)$
+
+|        |  $B$   |   $\neg B$  |
+|-------:|:------:|:-----------:|
+|$A$     |  0.18  |   0.42      |
+|$\neg A$|  0.32  |   0.08      |
+
+- $\Pr(B) = 0.18 + 0.32 = 0.5$. \pause
+- $\Pr(\neg B) = 0.42 + 0.08 = 0.5$ \pause
+- Given $\Pr(B)$ we could have used the negation rule to work out $\Pr(\neg B)$.
+
+## $\Pr(A | B)$
+
+\begin{align*}
+\Pr(A | B) &= \frac{\Pr(A \wedge B)}{\Pr(B)} \\
+ &= \frac{0.18}{0.5} \\
+ &= 0.36
+\end{align*}
+
+- So the answer is that $\Pr(A | B)$ is 0.36.
+- If you learn $B$, the probability of $A$ falls from 0.6 to 0.36.
+
+## For Next Time
+
+- We will revise the rules of probability, with special focus on the rules that you use to solve these kinds of problems.
+
+---
+title: "305 Lecture 7.4 - Probability Revision"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This is a short lecture just for revising some of the basic principles about probability.
+
+## Associated Reading
+
+None - this is just revision
+
+## The Negation Rule
+
+1. All logical truths have probability 1, so $\Pr(A \vee \neg A) = 1$. \pause
+2. If $X$ and $Y$ are exclusive, then $\Pr(X \vee Y) = \Pr(X) + \Pr(Y)$. \pause
+3. $A$ and $\neg A$ are exclusive. \pause
+4. So, from 1, 2, 3, we get $\Pr(A) + \Pr(\neg A) = 1$. \pause
+5. So, from 4, we get $\Pr(\neg A) = 1 - \Pr(A)$.
+
+## The Multiplication Rule
+
+By definition, 
+
+$$
+\Pr(A | B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
+$$ 
+
+\pause
+
+Multiplying both sides by $\Pr(B)$ gives us 
+
+$$
+\Pr(A \wedge B) = \Pr(A | B)\Pr(B)
+$$
+
+
+## Another Addition Rule
+
+1. $B$ is logically equivalent to $(A \wedge B) \vee (\neg A \wedge B)$. \pause
+2. So, $\Pr(B) = \Pr((A \wedge B) \vee (\neg A \wedge B))$. \pause
+3. $(A \wedge B)$ and $(\neg A \wedge B)$ are exclusive. \pause
+4. So $\Pr((A \wedge B) \vee (\neg A \wedge B)) = \Pr(A \wedge B) + \Pr(\neg A \wedge B)$. \pause
+5. By the multiplication rule, $\Pr(A \wedge B) = \Pr(B | A)\Pr(A)$. \pause
+6. Also by the multiplication rule, $\Pr(\neg A \wedge B) = \Pr(B | \neg A)\Pr(\neg A)$. \pause
+7. Putting all these together, we get
+
+$$
+\Pr(B) = \Pr(B | A)\Pr(A) + \Pr(B | \neg A)\Pr(\neg A)
+$$
+
+## Another Conditional Probability Rule
+
+Putting that formula for $\Pr(B)$ into the definition of conditional probability, we get
+
+$$
+Pr(A | B) = \frac{\Pr(A \wedge B)}{\Pr(B | A)\Pr(A) + \Pr(B | \neg A)\Pr(\neg A)}
+$$
+
+## Yet Another Conditional Probability Rule
+
+\begin{align*}
+\Pr(B | A) \times \frac{\Pr(A)}{\Pr(B)} &= \frac{\Pr(B \wedge A)}{\Pr(A)}  \times \frac{\Pr(A)}{\Pr(B)} \\
+ &= \frac{\Pr(A \wedge B)}{\Pr(A)}  \times \frac{\Pr(A)}{\Pr(B)}  \\
+ &= \frac{\Pr(A \wedge B)}{\Pr(B)} \\
+ &= \Pr(A | B)
+\end{align*}
+
+## Yet Another Conditional Probability Rule
+
+Or, as it is usually written
+
+$$
+Pr(A | B) = \frac{\Pr(B | A)\Pr(A)}{\Pr(B)}
+$$
+
+## For Next Time
+
+- We will look at a more complicated example of inverting conditional probabilities.
+
+---
+title: "305 Lecture 7.5 - The Crashing Websites"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+        - visible-midrule.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture will go over exercise 8.8 in the book, as an illustration of how to invert conditional probabilities in a slightly more complicated case.
+
+## Associated Reading
+
+Odds and Ends, Chapter 8
+
+## Odds and Ends 8.8
+
+A company makes websites, always powered by one of three server platforms: Bulldozer, Kumquat, or Penguin. Bulldozer crashes 1 out of every 10 visits, Kumquat crashes 1 in 50 visits, and Penguin only crashes 1 out of every 200 visits.
+
+Half of the websites are run on Bulldozer, 30% are run on Kumquat, and 20% are run on Penguin.
+
+You visit one of their sites for the first time and it crashes. What is the probability it was run on Penguin?
+
+## Start with a Table
+
+|           | Crash | No Crash |
+|:----------|:-----:|:--------:|
+| Bulldozer |       |          |
+| Kumquat   |       |          |
+| Penguin   |       |          |
+
+We will start by filling in the table - though really it is the left hand column that matters here
+
+## The Table
+
+|           | Crash                   | No Crash |
+|:----------|:-----------------------:|:--------:|
+| Bulldozer | $0.5 \times 0.1 = 0.05$ |          |
+| Kumquat   |                         |          |
+| Penguin   |                         |          |
+
+The formular for Bulldozer-and-Crash is
+
+$$
+\Pr(\text{Bulldozer}) \times \Pr(\text{Crash}|\text{Bulldozer}) = 0.5 \times 0.1 = 0.05
+$$
+
+## The Table
+
+|           | Crash                      | No Crash |
+|:----------|:--------------------------:|:--------:|
+| Bulldozer | $0.5 \times 0.1 = 0.05$    |          |
+| Kumquat   | $0.3 \times 0.02 = 0.006$  |          |
+| Penguin   |                            |          |
+
+The formula for Kumquat-and-Crash is
+
+$$
+\Pr(\text{Kumquat}) \times \Pr(\text{Crash}|\text{Kumquat}) = 0.3 \times 0.02 = 0.006
+$$
+
+## The Table
+
+|           | Crash                      | No Crash |
+|:----------|:--------------------------:|:--------:|
+| Bulldozer | $0.5 \times 0.1 = 0.05$    |          |
+| Kumquat   | $0.3 \times 0.02 = 0.006$  |          |
+| Penguin   | $0.2 \times 0.005 = 0.001$ |          |
+
+The formula for Penguin-and-Crash is
+
+$$
+\Pr(\text{Penguin}) \times \Pr(\text{Crash}|\text{Penguin}) = 0.2 \times 0.005 = 0.001
+$$
+
+## The Table
+
+|           | Crash          | No Crash |
+|:----------|:--------------:|:--------:|
+| Bulldozer | $0.05$         |          |
+| Kumquat   | $0.006$        |          |
+| Penguin   | $0.001$        |          |
+
+Let's rewrite it without the workings.
+
+## The Table
+
+|           | Crash          | No Crash |
+|:----------|:--------------:|:--------:|
+| Bulldozer | $0.05$         | $0.45$   |
+| Kumquat   | $0.006$        | $0.294$  |
+| Penguin   | $0.001$        | $0.199$  |
+
+We can fill in the right-hand column by noting that the rows have to add up to 0.5, 0.3 and 0.2 respectively; since those are the probabilities of the three server types.
+
+## Crash!
+
+|           | Crash          | No Crash |
+|:----------|:--------------:|:--------:|
+| Bulldozer | $0.05$         | $0.45$   |
+| Kumquat   | $0.006$        | $0.294$  |
+| Penguin   | $0.001$        | $0.199$  |
+
+So the probability of a crash is 
+
+$$
+0.05 + 0.006 + 0.001 = 0.057
+$$
+
+## Penguin given Crash
+
+So the probability of Penguin given Crash is
+
+$$
+\frac{\Pr(\text{Penguin-and-Crash})}{\Pr(\text{Crash})} = \frac{0.001}{0.057} \approx 0.0175
+$$
+
+\pause
+That's really low, because Penguin sites don't crash.
+
+
+## For Next Time
+
+- We will look at a formula that some people find helpful for solving these kinds of problems.
+
+---
+title: "305 Lecture 7.6 - Bayes's Theorem"
+author: "Brian Weatherson"
+mainfont: SF Pro Rounded
+output:
+  beamer_presentation:
+    md_extensions: +link_attributes+fenced_divs
+    keep_tex: yes
+    latex_engine: xelatex
+    includes:
+      in_header: 
+        - 305-beamer-header.tex
+mathfont: STIX Two Math
+mainfontoptions: BoldFont = SF Pro Rounded Semibold
+---
+
+## Plan
+
+- This lecture will go over one of the most famous theorems in probability: Bayes's Theorem.
+
+## Associated Reading
+
+Still chapter 8 of Odds and Ends
+
+## One Important Equivalence
+
+$$
+\Pr(B | A) \Pr(A) = \Pr(A | B) \Pr(B)
+$$
+
+We know that because these are two different ways of expressing $\Pr(A \wedge B)$.
+
+## One Important Equivalence
+
+Divide both sides by $\Pr(B)$ (and flip sides around) and you get
+
+$$
+\Pr(A | B) = \frac{\Pr(B | A) \Pr(A)}{\Pr(B)}
+$$
+
+\pause
+This is the formula that's written in neon in the textbook.
+
+## Another Important Equivalence
+
+Start again with our canonical formula for conditional probability.
+
+$$
+\Pr(A | B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
+$$
+
+## Another Important Equivalence
+
+Replace $\Pr(A \wedge B)$ with its definition in terms of conditional probability.
+
+$$
+\Pr(A | B) = \frac{\Pr(B | A)\Pr(A)}{\Pr(B)}
+$$
+
+## Another Important Equivalence
+
+Now replace $\Pr(B)$ with the formula we derived for it in an earlier lecture.
+
+$$
+\Pr(A | B) = \frac{\Pr(B | A)\Pr(A)}{\Pr(B | A)\Pr(A) + \Pr(B | \neg A)\Pr(\neg A)}
+$$
+
+And this is what is sometimes called Bayes's Theorem.
+
+## General Version
+
+- Let $X_1, \dots, X_n$ be a partition of possibility space.
+- Then $B$ is equivalent to $(B \wedge X_1) \vee \dots \vee (B \wedge X_n)$.
+- So $\Pr(B) = \Pr(B \wedge X_1) + \dots + \Pr(B \wedge X_n)$
+- And we can use that to get the very general form of Bayes's theorem
+
+## General Version
+
+$$
+\Pr(X_i | B) = \frac{\Pr(B | X_i)\Pr(X_i)}{\sum_{k=1}^n \Pr(B | X_k)\Pr(X_k)}
+$$
+
+So if you know the prior probability of each cell in the partition, and the probability of $B$ conditional on each cell, you can work out the probability of being in a particular cell given $B$.
+
+## General Version
+
+- A lot of people make a big deal about this formula.
+- I rarely find myself in situations where it is easier to use than something like the trees or tables.
+- But the fact that so many people fuss so much about it suggests that for a lot of applications it is very helpful.
+- For the assignment questions where this is relevant, it's totally up to you whether to use the formula, or trees, or tables.

@@ -1,0 +1,35 @@
+% Minimal header for tableaux only
+
+\usepackage[dvipsnames]{xcolor}
+
+% Tableaux system
+% \RequirePackage[tableaux]{prooftrees}
+% \RequirePackage{pifont}
+%\forestset{line numbering, 
+%        check with={\textcolor{ForestGreen}{\text{\ding{52}}}},
+%        close with format={red}}
+
+% Open Logic commands for tableaux
+\usepackage{open-logic-minimal}
+
+% Define the tableau environment
+\newenvironment{oltableau}{\center\tableau{}}{\endtableau\endcenter}
+
+% Define True/False symbols
+\usepackage[bb=boondox]{mathalfa}
+\DeclareMathAlphabet{\mathbx}{U}{BOONDOX-ds}{m}{n}
+\def\True{\mathbb{T}}
+\def\False{\mathbb{F}}
+
+% Spacing around tableaux
+\usepackage{etoolbox}
+\AfterEndEnvironment{oltableau}{\vspace{9pt}}
+\BeforeBeginEnvironment{oltableau}{\vspace{9pt}}
+
+% Color definitions (if you need them later)
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{dodgerblue}{RGB}{30,144,255}
+
+% Assumption code
+\newcommand*{\DeclareDocumentMacro}[2]{\def#1{#2}}
+\DeclareDocumentMacro \TAss {Assumption}

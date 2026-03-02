@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
+
+  <meta name="dcterms.date" content="2026-03-09">
+  <title>Conditionals</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-603ee52ad0fabd159ace1b455465fd68.css">
+  <link rel="stylesheet" href="custom_styles_css.css">
+  <link rel="stylesheet" href="lecture-03-custom-tables.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script>
+     MathJax = {
+      tex: {
+        macros: {
+           llbracket: "⟦",
+           rrbracket: "⟧",
+            nmodels: "\\not\\models",
+            boxright: "\\mathrel{\\Box\\!\\!\\to}"
+         }
+       }
+     };
+   </script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">Conditionals</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-03-09</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Two Types of Conditionals</h1>
+
+</section>
+<section class="slide level2 scrollable">
+<h2>Compare These Examples</h2>
+<ol type="1">
+<li>If Shakespeare didn’t write <em>Hamlet</em>, then someone else did.</li>
+<li>If Shakespeare hadn’t written <em>Hamlet</em>, then someone else would have.</li>
+</ol>
+<div class="fragment">
+<p>Intuitively, 1 is true and 2 is false.</p>
+<p>So it must be wrong to write both of them as <span class="math inline">\(\neg A \rightarrow B\)</span>.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Terminology</h2>
+<ol type="1">
+<li>If Shakespeare didn’t write <em>Hamlet</em>, then someone else did.</li>
+<li>If Shakespeare hadn’t written <em>Hamlet</em>, then someone else would have.</li>
+</ol>
+<div class="fragment">
+<p>There are some common, if misleading, names for these kinds of conditionals.</p>
+</div>
+<div class="fragment">
+<ul>
+<li>1 is called an <strong>indicative</strong> conditional.</li>
+<li>2 is called a <strong>subjunctive</strong> or <strong>counterfactual</strong> conditional</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Ideally, we’d like a theory of how each works.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Material Conditionals</h1>
+
+</section>
+<section class="slide level2">
+<h2>What is It</h2>
+<p>The material conditional is what the truth tables say is the conditional.</p>
+<ul>
+<li>We will write it as <span class="math inline">\(A \supset B\)</span></li>
+<li>This just means <span class="math inline">\(\neg (A \wedge \neg B)\)</span>, i.e., <span class="math inline">\(\neg A \vee B\)</span>.</li>
+</ul>
+<div class="fragment">
+<p>One interesting hypothesis is that this is the right way to interpret English language conditionals.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What About Hamlet</h2>
+<p>Perhaps we should say that two interesting hypotheses are that the two kinds of English language conditionals are best represented as material conditionals.</p>
+<ul>
+<li>Hypothesis 1: If it were the case that <span class="math inline">\(A\)</span> it would be the case that <span class="math inline">\(B\)</span> = <span class="math inline">\(A \supset B\)</span>.</li>
+<li>Hypothesis 2: If it is the case that <span class="math inline">\(A\)</span> then it is the case that <span class="math inline">\(B\)</span> = <span class="math inline">\(A \supset B\)</span>.</li>
+</ul>
+<div class="fragment">
+<p>The first of these is wildly implausible; the second is a bit more defensible.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Antecedent Strengthening</h2>
+<p>If indicative conditionals are material conditionals, then they should satisfy <strong>Antecedent Strengthening</strong>.</p>
+<p>That is, whenever <span class="math inline">\(A \rightarrow B\)</span> is true, <span class="math inline">\((A \wedge C) rightarrow B\)</span> should be true.</p>
+<p>But there are intuitive counterexamples to this.</p>
+<ol type="1">
+<li>If I win the lottery tonight, I’ll be very happy.</li>
+<li>So if I get hit by a car on the way home and win the lottery tonight, I’ll be vey happy</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>False Antecedents</h2>
+<p>But the big problem with the material conditional analysis is what it says about false antecedents.</p>
+<p>Note that if the material conditional analysis is right, then <span class="math inline">\((A \rightarrow B) \vee (B \rightarrow A)\)</span> is a logical truth.</p>
+<p>This does not always sound like a logical truth.</p>
+<ul>
+<li>If Brett went to Australia over break then he stayed in Ann Arbor, or if stayed in Ann Arbor, he went to Australia.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Strict Conditional</h1>
+
+</section>
+<section class="slide level2">
+<h2>Strict Conditional Analysis</h2>
+<p>Here’s a more plausible account of the conditional that avoids the last problem.</p>
+<ul>
+<li><em>If A, B</em> means <em>Necessarily, A materially implies B</em>.</li>
+<li>In symbols, <span class="math inline">\(A \rightarrow B = \Box (A \supset B)\)</span></li>
+</ul>
+<div class="fragment">
+<p>What does <span class="math inline">\(\Box\)</span> mean here? Probably something epistemic; like it is known that.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Antecedent Strengthening</h2>
+<p>Antecedent strengthening is still valid on this picture.</p>
+<ul>
+<li>Assume every <span class="math inline">\(A\)</span> world is a <span class="math inline">\(B\)</span> world.</li>
+<li>Consider an <span class="math inline">\(A \wedge C\)</span> world.</li>
+<li>It’s an <span class="math inline">\(A\)</span> world, by the rule for true <span class="math inline">\(\wedge\)</span>.</li>
+<li>So it’s a <span class="math inline">\(B\)</span> world.</li>
+<li>So <span class="math inline">\((A \wedge C) \rightarrow B\)</span>.</li>
+</ul>
+<div class="fragment">
+<p>So if you were worried about that problem, it’s still hanging around.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>False Antecedents</h2>
+<p>But <span class="math inline">\(A\)</span> being false isn’t enough for <span class="math inline">\(A \rightarrow B\)</span> any more.</p>
+<p>So it fixes those problem.</p>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<p>This is better than the material conditional theory, but not perfect. And we haven’t said anything about the subjunctive conditionals.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Antecedent Strengthening</h1>
+
+</section>
+<section class="slide level2 scrollable">
+<h2>Antecedent Strengthening</h2>
+<p>Here is one of the implications we can use to test the strict implication theory.</p>
+<ol type="1">
+<li><span class="math inline">\(A \rightarrow B\)</span></li>
+<li>So, <span class="math inline">\((C \wedge A) \rightarrow B\)</span></li>
+</ol>
+<div class="fragment">
+<p>That is <strong>valid</strong> on the strict implication theory. Is it valid for ordinary, English conditionals?</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Subjunctive Counterfactual Conditionals</h2>
+<ol type="1">
+<li>If I had struck this match, it would have lit.<br>
+</li>
+<li>If I had dropped this match in water, and struck it, it would have lit.</li>
+</ol>
+<div class="fragment">
+<p>If you think 1 is true, but 2 is false, then you think antecedent strengthening is <strong>invalid</strong> for subjunctive conditionals.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Future Directed Indicative Conditionals</h2>
+<ol type="1">
+<li>If I strike this match tomorrow, it will light.<br>
+</li>
+<li>If I soak this match in water overnight, then strike it tomorrow, it will light.</li>
+</ol>
+<div class="fragment">
+<p>If you think 1 is true, but 2 is false, then you think antecedent strengthening is <strong>invalid</strong> for future directed indicative conditionals.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Past Directed Indicative Conditionals</h2>
+<p>It is a little trickier to get a counterexample here. There are some very unnatural examples though.</p>
+<ol type="1">
+<li>If Shakespeare didn’t write Hamlet, someone else did.</li>
+<li>If we’ve all been collectively hallucinating that there is such a play as Hamlet, when in fact there is no such play, and it certainly wasn’t written by Shakespeare, then someone else wrote Hamlet.</li>
+</ol>
+<div class="fragment">
+<p>If pushed I might say 1 is true and 2 false, but I’m really not sure.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Challenge</h2>
+<p>Three examples to see how well you’re doing with these.</p>
+<ul>
+<li>Find your own counterexample to antecedent strenghening for subjunctive conditionals.</li>
+<li>Find your own counterexample to antecedent strenghening for future-directed indicative conditionals, i.e., indicative conditionals where the antecedent is about an event that may or may not happen in the future.</li>
+<li>Find your own counterexample to antecedent strenghening for past-directed indicative conditionals, i.e., indicative conditionals where the antecedent is about an event that may or may not have happened in the past.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Reverse Direction</h2>
+<p>Is the following speech ok.</p>
+<blockquote>
+<p>If I’d dropped this match in water and then struck it, it would not have lit. But if I’d struck this match, it would have lit.</p>
+</blockquote>
+<div class="fragment">
+<p>A lot of philosophers and linguists have argued that this sounds really weird. And this is going to be relevant, because on the best theory of why antecedent strengthening fails, it should be ok.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Counterfactuals</h1>
+
+</section>
+<section class="slide level2">
+<h2>Counterfactuals in Philosophy</h2>
+<p>These play a central role in lots of fields, including</p>
+<ul>
+<li>Causation</li>
+<li>Explanation</li>
+<li>Evaluation</li>
+<li>Planning</li>
+</ul>
+<div class="fragment">
+<p>The most important of these is causation.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Causation</h2>
+<p>There feel like there is a close connection between these claims.</p>
+<ul>
+<li>Causal event C caused effect event E.</li>
+<li>If C hadn’t happened, E wouldn’t have happened.</li>
+</ul>
+<p>It’s not a foolproof connection - maybe E would have happened some other way. But there is a link.</p>
+</section>
+<section class="slide level2">
+<h2>History</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../images/Scheidel.jpg" style="height:70.0%"></p>
+<figcaption>Walter Scheidel, Escape from Rome: The Failure of Empire and the Road to Prosperity</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Part of what makes this provocative is that Prof Scheidel is doing what philosophers think is obvious, using counterfactuals to provide evidence about causation and explanation.</p>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Coincidence</h2>
+<ul>
+<li>But Scheidel isn’t just interested in explanation.</li>
+<li>He’s also interested in which facts about history are coincidences, and which are not.</li>
+<li>In particular, is is a coincidence that since the fall of Rome, there has not been a large empire in Europe that has lasted more than a few years.</li>
+<li>This is a striking contrast to the many empires that have arisen in South Asia, East Asia and the Americas.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Two Ways to Answer that Question</h2>
+<ol type="1">
+<li>Is there something that could easily have happened such that if it had happened, there would have been a long lasting empire in Europe?</li>
+<li>Is there a very similar world to ours in which there is a long lasting empire in Europe?</li>
+</ol>
+<div class="fragment">
+<p>Intuition: These are sort of the same question.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>David Lewis</h2>
+
+<img data-src="../images/Lewis-intro.png" class="r-stretch quarto-figure-center"><p class="caption">Opening lines of Counterfactuals, by David Lewis, 1973</p></section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Minimal Change Semantics</h1>
+
+</section>
+<section class="slide level2">
+<h2>Basic Idea</h2>
+<ul>
+<li>Replace the on/off accessibility relation between worlds with a distance measure <span class="math inline">\(d\)</span>.</li>
+<li>So <span class="math inline">\(d(x, y)\)</span>, where <span class="math inline">\(x, y\)</span> are worlds, measures how similar <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are.</li>
+<li>But we’ll sometimes talk as if it is a distance measure, that tracks ‘how far apart’ the worlds are.</li>
+<li>And for simplicity, we’ll assume <span class="math inline">\(d(x, y)\)</span> is always an integer - there are the worlds 1 unit apart, 2 units apart, etc.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Nearest World</h2>
+<ul>
+<li>So if we’re evaluating “If A were true, B would be true”, we do the following.</li>
+<li>We find the nearest world, or worlds, where A is true.</li>
+<li>We see A is actually true, if not we look one unit away and see if there are any A worlds there, if not we look two units away and see if there are A worlds there, and so on until we find some A worlds.</li>
+<li>Say the distance they are separated from us is <span class="math inline">\(d\)</span>.</li>
+<li>Then “If A were true, B would be true” is true just in case all the worlds distance <span class="math inline">\(d\)</span> away where A is true also make B true.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Short Version</h2>
+<p><em>If A were true, B would be true</em>, means</p>
+<ul>
+<li>All of the nearest A-worlds are B-worlds.</li>
+</ul>
+<p>From now on, I’ll sometimes write this as <span class="math inline">\(A \boxright B\)</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Variably Strict</h2>
+<ul>
+<li>This makes the conditional a variably strict conditional.</li>
+<li>It’s strict, because it requires all A worlds to be B worlds.</li>
+<li>But it’s variably strict, because which worlds it ranges over varies with what the antecedent is.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Intuition Check</h2>
+<p>Here’s the thought behind Lewis’s view.</p>
+<ul>
+<li>When a counterfactual has a normal antecedent, the only worlds that matter to its truth are fairly normal worlds.</li>
+<li>To figure out what would have happened if I’d had bacon and eggs for breakfast, you only have to consider worlds that are really a lot like the actual world.</li>
+<li>But to figure out what would have happened if Columbus’s fleet had sunk, you have to think about worlds that are really different to reality.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>How Far Away</h2>
+<p>We can even try to think about really wild counterfactuals.</p>
+<blockquote>
+
+<ul>
+<li>What would happen if a vampire was the starting QB for the University of Michigan?</li>
+<li>Or a zombie?</li>
+<li>Or the number 7?</li>
+</ul>
+
+</blockquote>
+<p>Maybe some of those don’t make sense - there are no worlds, not even distant ones, where they are actual. But we can go a fair way until we get to that point.</p>
+</section>
+<section class="slide level2">
+<h2>Recap</h2>
+<p>The textbook calls this theory “minimal change semantics”. Here’s a reminder of how it works.</p>
+<ul>
+<li>Let’s say we want to find out whether <span class="math inline">\(A \boxright B\)</span> is true at <span class="math inline">\(w\)</span> (we’ll use <span class="math inline">\(\boxright\)</span> for the conditional we’re about to define).</li>
+<li>We find the world <span class="math inline">\(x\)</span> such that <span class="math inline">\(A\)</span> is true at <span class="math inline">\(x\)</span>, and <span class="math inline">\(x\)</span> is closest to <span class="math inline">\(w\)</span>, i.e., is the least distance away.</li>
+<li>Then we look to see whether <span class="math inline">\(B\)</span> is true.</li>
+<li>If so, <span class="math inline">\(A \boxright B\)</span> is true.</li>
+<li>If not, <span class="math inline">\(A \boxright B\)</span> is false.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Complication 1: No A-world</h2>
+<p>We’ll just stipulate that if there are no <span class="math inline">\(A\)</span>-worlds at all, then <span class="math inline">\(A \boxright B\)</span> is true for all <span class="math inline">\(B\)</span>. These cases are weird, and I’ll mostly set them aside.</p>
+</section>
+<section class="slide level2">
+<h2>Complication 2: No ‘closest’ A-world</h2>
+<p>Here’s something that can happen if you drop the assumption that the distances are integers.</p>
+<ul>
+<li>For any distance <span class="math inline">\(d &gt; 2\)</span>, there is a world <span class="math inline">\(x\)</span> such that the distance between <span class="math inline">\(w\)</span> and <span class="math inline">\(x\)</span> is <span class="math inline">\(d\)</span>, and <span class="math inline">\(A\)</span> is true at <span class="math inline">\(x\)</span>.</li>
+<li>But for any distance <span class="math inline">\(d \leq 2\)</span>, there is no world <span class="math inline">\(x\)</span> such that the distance between <span class="math inline">\(w\)</span> and <span class="math inline">\(x\)</span> is <span class="math inline">\(d\)</span>, and <span class="math inline">\(A\)</span> is true at $x $.</li>
+<li>So there isn’t a <strong>closest</strong> <span class="math inline">\(A\)</span>-world, because you can get closer and closer to 2, and find a yet closer <span class="math inline">\(A\)</span>-world.</li>
+<li>This is also a weird possibility, and I’ll set it aside.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Complication 3: Many equally closest A-worlds</h2>
+<p>This is more philosophically substantial.</p>
+<ul>
+<li>Imagine that for <span class="math inline">\(d\)</span> less than 2, there is no <span class="math inline">\(A\)</span>-world distance <span class="math inline">\(d\)</span> away.</li>
+<li>But at distance 2, there are multiple worlds where <span class="math inline">\(A\)</span> is true.</li>
+<li>And at some of them <span class="math inline">\(B\)</span> is true, and at others <span class="math inline">\(B\)</span> is false.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>One solution: Require all of them to be <span class="math inline">\(B\)</span> worlds</h2>
+<p>As I noted above David Lewis said that in that case we should say:</p>
+<ul>
+<li><span class="math inline">\(A \boxright B\)</span> is false. But also</li>
+<li><span class="math inline">\(A \boxright \neg B\)</span> is false.</li>
+</ul>
+<p>In general <span class="math inline">\(A \boxright\)</span> something requires that the something is true at all the nearest <span class="math inline">\(A\)</span>-worlds. And neither <span class="math inline">\(B\)</span> nor <span class="math inline">\(\neg B\)</span> is true at all of them, so neither is true.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Intuition Pump</h2>
+<p>Could you have 1 and 2 false, but 3 true?</p>
+<ol type="1">
+<li>If a UM student had been elected mayor of Ann Arbor, it would have been an undergraduate.</li>
+<li>If a UM student had been elected mayor of Ann Arbor, it would have been a postgraduate.</li>
+<li>If a UM student had been elected mayor of Ann Arbor, it would have been either an undergraduate or a postgraduate.</li>
+</ol>
+<p>Lewis said that you could have 1 and 2 both false, but 3 true, and that’s why <span class="math inline">\(\boxright\)</span> should work this way.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Another solution: Deny this is possible</h2>
+<p>But the other great founder of this tradition, Robert Stalnaker, argued that we should want these things to be equivalent (at least if <span class="math inline">\(\boxright\)</span> was going to represent something in English).</p>
+<ol type="1">
+<li><span class="math inline">\(A \boxright B \vee A \boxright C\)</span></li>
+<li><span class="math inline">\(A \boxright (B \vee C)\)</span></li>
+</ol>
+<p>And we couldn’t have that on Lewis’s picture.</p>
+</section>
+<section class="slide level2">
+<h2>Stalnaker’s Solution</h2>
+<ul>
+<li>It is a constraint on the distance metric that there are no ties.</li>
+<li>The similarity measure is a strict ordering.</li>
+<li>And it’s still a matter of debate whether Lewis or Stalnaker is right about this.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Next Time</h2>
+<ul>
+<li>We’ll talk more about this notion of similarity.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Plan</h2>
+<p>To discuss the notion of similarity at the heart of Lewis’s theory.</p>
+</section>
+<section class="slide level2">
+<h2>Reading</h2>
+<p>This isn’t covered so much in the book.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Julius Caeser in Command</h2>
+<p>Which of these (if either) sounds true?</p>
+<ol type="1">
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used nuclear weapons.</li>
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used catapults.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Respects of Similarity</h2>
+<p>Lewis argued that either could be true, in different contexts, though they couldn’t both be true at once.</p>
+<ul>
+<li>A world where Caeser is in command in Vietnam is going to be very different to reality in several ways.</li>
+<li>Making it similar requires highlighting some aspects of similarity, and, by necessity, downplaying others.<br>
+</li>
+<li>Hold fixed how belligerent Caeser is, and you get him using nuclear weapons.<br>
+</li>
+<li>Hold fixed his knowledge of weaponry, and you get him using catapults.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Conjoining</h2>
+<p>Could this be true?</p>
+<ul>
+<li>If Julius Caeser had commanded the US forces in Vietnam, he would have used catapults to fire nuclear weapons.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Feature, Not Bug</h2>
+<p>It feels like in some sense the world in which Caeser uses nuclear weapons is more similar to actuality, and in some other sense the world in which he uses catapults is more similar. Lewis argued that this was a good feature of his theory.</p>
+<ul>
+<li>These conditionals just are vague, and context-sensitive.</li>
+<li>It’s a good thing that we use a vague, content-sensitive notion like <strong>similarity</strong> to analyse them.</li>
+<li>That doesn’t make them too vague, or context-sensitive, it <strong>explains</strong> why they are so vague and context-sensitive.</li>
+</ul>
+<p>I’m not sure whether that argument works, but I’m not going to investigate it further.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>A Different Example</h2>
+<p>This seems like a tricky to figure out, historical question.</p>
+<ol type="1">
+<li>If Richard Nixon had ordered the use of nuclear weapons in Vietnam, his generals would have refused the order.</li>
+</ol>
+<p>You can imagine trying to figure that out by careful archival research, and guesswork about the parts of the archives that are off-limits to researchers.</p>
+<ul>
+<li>But there’s an argument that philosophy shows 1 is true.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Two Worlds</h2>
+<ul>
+<li>Let <span class="math inline">\(w\)</span> be the actual world where (I’ll assume), Nixon never gave such an order.</li>
+<li>Let <span class="math inline">\(w_1\)</span> be the world where the order is given, and refused, and we never hear about it, and life goes on more or less as in <span class="math inline">\(w\)</span>.</li>
+<li>Let <span class="math inline">\(w_2\)</span> be the world where the order is given, carried out, and other relevant parties (especially Russia and China) react in ways you’d expect to nuclear weapons being launched against their ally/neighbor.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Two Worlds</h2>
+<p>Which of these worlds is more similar to the actual world?</p>
+<ul>
+<li>There is a good case for <span class="math inline">\(w_1\)</span>.</li>
+<li>It just requires a few generals to act a little out of character for a few minutes.</li>
+<li>In <span class="math inline">\(w_2\)</span>, everyday life is changed in unrecognisable ways for millions of people; perhaps billions of people if it triggers a larger nuclear war.</li>
+<li>So philosophy tells us that if Nixon had ordered nuclear weapons to be used, his generals would have refused.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>History and Philosophy</h2>
+<p>This is an absurd result.</p>
+<ul>
+<li>Maybe Nixon’s generals would have refused.</li>
+<li>But you can only tell that by careful historical research, not by thinking about similarity of worlds.</li>
+<li>Something must have gone wrong.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Fixing The Problem</h2>
+<p>Insist that similarity of patterns or regularities is more important than similarity of particular facts.</p>
+<ul>
+<li>In <span class="math inline">\(w_1\)</span>, some generals (arguably) do something very out of character.</li>
+<li>That’s the kind of violation of a pattern or regularity that makes a big difference in similarity. (In the special sense of similarity that we care about.)</li>
+<li>In <span class="math inline">\(w_2\)</span> there are lots of particular facts that are different. There is a lot more radiation poisoning in Vietnam, and possibly in the United States (depending on the retaliation), but the patterns or regularities are not violated.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>A New Puzzle</h2>
+<p>Which of these is true?</p>
+<ol type="1">
+<li>If I’d jumped out my office window, I would have been seriously injured (I’m 1.5 floors above some concrete steps).</li>
+<li>If I’d jumped out my office window, I would only have done that if there were a net to catch me, so I wouldn’t have been seriously injured.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Puzzle</h2>
+<ul>
+<li>At least some of the time, we want to say that 1 is true.</li>
+<li>That’s the ‘non-backtracking’ reading of the conditional that’s relevant for thinking about decision-making, moral responsibility, causation, etc.</li>
+<li>But it’s not clear Lewis can get that result.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Three Worlds</h2>
+<ul>
+<li>World <span class="math inline">\(w\)</span> is the actual world where I stay nice and safe in my office working on these slides.</li>
+<li>World <span class="math inline">\(w_3\)</span> is where there is no net, I jump and am seriously injured.</li>
+<li>World <span class="math inline">\(w_4\)</span> is where I check that there is a net, and then jump.</li>
+<li>World <span class="math inline">\(w_4\)</span> differs from <span class="math inline">\(w\)</span> in two respects - there is a net that doesn’t really exist, and I jump out the window.</li>
+<li>But world <span class="math inline">\(w_3\)</span> differs in two ways as well - I jump out the window, and this is <strong>really</strong> out of character</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The New Puzzle</h2>
+<p>The ‘solution’ to the previous case seems to make this worse.</p>
+<ul>
+<li>If we prioritise patterns and regularities, then it looks like <span class="math inline">\(w_3\)</span> is really dissimilar to the actual world.</li>
+<li>But we want there to be an ordinary sense in which it’s just true that if I had jumped out the window, I would have been seriously injured.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li>If you use an overall, intuitive, measure of similarity, you get the wrong results in the nuclear weapons example.</li>
+<li>If you use a measure that focuses on patterns and regularities, you get the wrong result (or at least rule out a good result) in the jump out window example.</li>
+<li>This is starting to feel like a trap.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>A Way Through</h2>
+<p>Here’s how Lewis suggested getting out of the trap. (I’m simplifying a bit here; if you’re interested you should read his paper “Counterfactual Dependence and Time’s Arrow”.)</p>
+<ul>
+<li>Treat the past and the future differently.</li>
+<li>In terms of the past, what matters for similarity is keeping <strong>everything</strong>, patterns, regularities, particular facts, everything, <strong>exactly the same</strong>. The nearest worlds are an exact duplicate of ours from the Big Bang to as close as possible to the present.</li>
+<li>In terms of the future, patterns and regularities are <strong>much</strong> more important.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Intuitive Picture</h2>
+<p>How to find the nearest world where <span class="math inline">\(A\)</span> is true.</p>
+<ul>
+<li>Start at the present time and work backwards.</li>
+<li>What’s the first time where you can make <span class="math inline">\(A\)</span> true with only a single violation of patterns or regularities in the world. It might be a big violation - like gravity stopping for a second, but ideally it is just one violation.</li>
+<li>Roll the world forward from that time according to the laws of the world - the physical laws, the biological laws, the psychological laws, the economic laws and so on.</li>
+<li>If those laws leave lots of things open, then there are lots of worlds that are equally close to actuality where <span class="math inline">\(A\)</span> is true.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Two Puzzles</h2>
+<p>I like this intuitive picture a lot - I think it captures a lot of what we’re trying to do with counterfactuals. But there are still puzzles remaining. I’ll end this lecture with two of them.</p>
+<ol type="1">
+<li>The car theft puzzle.</li>
+<li>The baseball jinx puzzle.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>The Car Theft</h2>
+<ul>
+<li>Imagine that yesterday I parked my car at work in a UM garage, then drove home at the end of the day.</li>
+<li>My car wasn’t stolen yesterday (like every other day).</li>
+<li>But car thefts happen - it being stolen isn’t like aliens invading.<br>
+</li>
+<li>Think about this counterfactual:</li>
+</ul>
+<blockquote>
+<p>If my car had been stolen yesterday, it would have been stolen just before midnight.</p>
+</blockquote>
+</section>
+<section class="slide level2">
+<h2>The Car Theft</h2>
+<ul>
+<li>Intuitively, that’s not true.</li>
+<li>Just before midnight, my car was locked in my garage.</li>
+<li>During the day, it was in a public carpark at UM.</li>
+<li>If it was going to get stolen yesterday, it’s at least as likely that it would have been stolen during the day as late at night.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Three Worlds (Again)</h2>
+<ul>
+<li>Again, let <span class="math inline">\(w\)</span> be the actual, no car theft, world.</li>
+<li>Let <span class="math inline">\(w_5\)</span> be the world where my car is stolen from a UM parking lot at midday.</li>
+<li>Let <span class="math inline">\(w_6\)</span> be the world where my car is stolen from my garage just before midnight.</li>
+<li>In <span class="math inline">\(w_6\)</span>, things stay exactly the same as in <span class="math inline">\(w\)</span> for much longer - for nearly 12 hours longer.</li>
+<li>So by the metric we’re using, it’s more similar to actuality than <span class="math inline">\(w_5\)</span>.</li>
+<li>So it will be true that had my car been stolen yesterday, it would have been stolen just before midnight.</li>
+<li>This isn’t very plausible, so we still need to tinker with the similarity metric.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>The Baseball Jinx</h2>
+<p>Imagine that I watch a baseball game, and my team loses. My friends accuse me of jinxing the team. I defend myself with 1.</p>
+<ol type="1">
+<li>If I hadn’t watched, they would still have lost.</li>
+</ol>
+<p>Here’s an argument that 1 is, for all we know, false.</p>
+</section>
+<section class="slide level2">
+<h2>Physics and Baseball</h2>
+<ul>
+<li>Possibly baseball is seriously indeterministic.</li>
+<li>Possibly quantum indeterminacy in the player’s brains causes differences in outcomes.</li>
+<li>Possibly quantum indeterminacy in the interaction of the ball with the air as it travels to the plate causes just enough variation in the position of the ball when it’s hit to make the difference between a home run and a fly ball at the wall.</li>
+<li>Maybe physics will tell us otherwise, but it seems to me we can’t rule out this kind of indeterminacy.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Baseball and Uncertainty</h2>
+<p>Now compare these two worlds (to <span class="math inline">\(w\)</span>, the actual world).</p>
+<ul>
+<li>In <span class="math inline">\(w_7\)</span>, I don’t watch, but the game goes <strong>exactly</strong> as it goes in <span class="math inline">\(w\)</span>, and my team loses.</li>
+<li>In <span class="math inline">\(w_8\)</span>, things go <strong>exactly</strong> as they do in <span class="math inline">\(w\)</span> up until the start of the game, when I don’t sit down to watch it. Then they follow the laws of nature. But the laws are chancy, and in <span class="math inline">\(w_8\)</span> the variations favor my team just enough that they narrowly win rather than narrowly lose.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>The Puzzle</h2>
+<ul>
+<li>If all we care about is exact match before the ‘break point’ (when the first thing changes), then conformity to laws, patterns and regularities after the ‘break point’, then <span class="math inline">\(w_7\)</span> and <span class="math inline">\(w_8\)</span> are equally close to actuality.</li>
+<li>They both are exactly alike until I don’t watch (rather than watch) and both conform to laws afterwards.</li>
+<li>So the conditional, <em>If I hadn’t have watched, we still would have lost</em>, is false.</li>
+<li>In one of the nearest worlds where I don’t watch, we lose.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Is This a Problem</h2>
+<p>This doesn’t sound great.</p>
+<ul>
+<li>We know that we don’t make a difference to baseball games by watching or not watching them.</li>
+<li>But this theory, which otherwise looks promising, seems to say that maybe we do.</li>
+<li>This is just an open puzzle.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Next Time</h2>
+<p>We’ll talk more about the logic of these counterfactuals.</p>
+</section>
+<section class="slide level2">
+<h2>Plan</h2>
+<ul>
+<li>To discuss some features of the logic of counterfactual conditionals.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Associated Reading</h2>
+<ul>
+<li><em>Boxes and Diamonds</em>, chapter 7.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Antecedent Strengthening</h2>
+<p>This fails on the minimal change semantics.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Antecedent Strengthening</h2>
+<p>What is it?</p>
+<ol type="1">
+<li><span class="math inline">\(A \boxright B\)</span>.</li>
+<li>so, <span class="math inline">\((A \wedge C) \boxright B\)</span></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Antecedent Strengthening</h2>
+<p>Why does it fail? Because this is possible.</p>
+<ul>
+<li>The nearest <span class="math inline">\(A\)</span>-world is 10 units away, and at it, <span class="math inline">\(B\)</span> is true, but <span class="math inline">\(C\)</span> is false.</li>
+<li>The nearest <span class="math inline">\(A \wedge C\)</span>-world is 100 units away, and at it, <span class="math inline">\(C\)</span> is true (of course), but <span class="math inline">\(B\)</span> is false.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Antecedent Strengthening</h2>
+<p>Put in less technical terms, it fails when these things happen at once.</p>
+<blockquote>
+
+<ul>
+<li>In all normal worlds, when <span class="math inline">\(A\)</span> is true, <span class="math inline">\(B\)</span> is true and <span class="math inline">\(C\)</span> is false.</li>
+<li>So there are no normal worlds where <span class="math inline">\(A \wedge C\)</span>.</li>
+<li>But in the <span class="math inline">\(A \wedge C\)</span>-worlds that are only a bit abnormal, <span class="math inline">\(B\)</span> is false.</li>
+</ul>
+
+</blockquote>
+</section>
+<section class="slide level2">
+<h2>Skiing Example</h2>
+<p>Here are some things we might imagine are true in all normal possibilities.</p>
+<ul>
+<li>When it snows, it snows a normal amount - it isn’t a blizzard.</li>
+<li>When it snows, Jack goes skiing.</li>
+<li>Jack has no disposition to want to ski in a blizzard.</li>
+</ul>
+<p>So in the most normal blizzard world, Jack does not go skiing. And we have both of the following.</p>
+<ul>
+<li>If it had snowed, Jack would have gone skiing.</li>
+<li>If there had been snow and a blizzard, Jack would not have gone skiing.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Transitivity (or Conditional Syllogism)</h2>
+<p>This argument seems initially compelling for any interpretation of ‘if’.</p>
+<ol type="1">
+<li>If <span class="math inline">\(A, B\)</span>.</li>
+<li>If <span class="math inline">\(B, C\)</span>.</li>
+<li>So if <span class="math inline">\(A, C\)</span>.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Transitivity for Subjunctives</h2>
+<p>On the nearest possible world, or minimal change, semantics, this will fail for subjunctive conditionals.</p>
+<ul>
+<li>Imagine there is no nearby world where <span class="math inline">\(A\)</span>.</li>
+<li>The nearest <span class="math inline">\(A\)</span> worlds (which in these cases will be quite distant) are worlds where <span class="math inline">\(B\)</span> is true and <span class="math inline">\(C\)</span> is false.</li>
+<li>There are nearby, normal <span class="math inline">\(B\)</span> worlds, and they are all worlds where <span class="math inline">\(C\)</span> is true.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Real Life Example</h2>
+<ol type="1">
+<li>If there had been a hurricane and a blizzard on Presidents’ Day Weekend, it would have snowed on Presidents’ Day Weekend.<br>
+</li>
+<li>If it had snowed on Presidents’ Day Weekend, Jack would have gone skiing on Presidents’ Day Weekend.<br>
+</li>
+<li>So if there had been a hurricane and a blizzard on Presidents’ Day Weekend, Jack would have gone skiing on Presidents’ Day Weekend.</li>
+</ol>
+</section>
+<section class="slide level2 scrollable">
+<h2>Link To Antecedent Strengthening</h2>
+<ol type="1">
+<li>If I had crashed my car last week and won the lottery on the weekend, I’d have crashed my car last week.<br>
+</li>
+<li>If I had crashed my car last week, I’d now have less money than actually do.<br>
+</li>
+<li>So if I had crashed my car last week and won the lottery on the weekend, I’d now have less money than actually do.</li>
+</ol>
+</section>
+<section class="slide level2 scrollable">
+<h2>Recipe Here</h2>
+<p>Assume that you have <em>If A, C</em>, but not <em>If A and B, C</em>.</p>
+<ol type="1">
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A\)</span>.</li>
+<li>If <span class="math inline">\(A, C\)</span>.</li>
+<li>So, If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>.</li>
+</ol>
+<p>That should have true premises and a false conclusion.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>But Wait</h2>
+<p>But don’t we reason this way all the time.</p>
+<ol type="1">
+<li>If there had been a major earthquake in Ann Arbor last weekend, several buildings in Ann Arbor would have been destroyed.<br>
+</li>
+<li>If several buildings in Ann Arbor were destroyed, I would have been very upset.<br>
+</li>
+<li>So if there had been a major earthquake in Ann Arbor on the weekend, I would have been very upset.</li>
+</ol>
+<p>The point is not that 1-3 look true here, it’s that reasoning from 1 and 2 to 3 looks like good, ordinary, everyday reasoning.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Modified Transitivity</h2>
+<p>This argument form is valid on the minimal change semantics.</p>
+<ol type="1">
+<li>If <span class="math inline">\(A, B\)</span></li>
+<li>If <span class="math inline">\(A \wedge B, C\)</span></li>
+<li>So, if <span class="math inline">\(A, C\)</span></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Proof Of Modified Transitivity</h2>
+<ul>
+<li>Let <span class="math inline">\(d\)</span> be the distance of the nearest <span class="math inline">\(A\)</span> world.</li>
+<li>By premise 1, all of those nearest <span class="math inline">\(A\)</span> worlds, which are distance <span class="math inline">\(d\)</span> away, are <span class="math inline">\(B\)</span> worlds.<br>
+</li>
+<li>So they are also the nearest <span class="math inline">\(A \wedge B\)</span> worlds. (There can’t be any closer, because then they would be closer <span class="math inline">\(A\)</span> worlds.)<br>
+</li>
+<li>By premise 2 then, all these <span class="math inline">\(A \wedge B\)</span> worlds distance <span class="math inline">\(d\)</span> away are also <span class="math inline">\(C\)</span> worlds.</li>
+<li>So all the <span class="math inline">\(A\)</span> worlds distance <span class="math inline">\(d\)</span> away are <span class="math inline">\(C\)</span> worlds.<br>
+</li>
+<li>So, if <span class="math inline">\(A, C\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Explanation</h2>
+<p>Lewis suggested that was what was really going on when we use transitivity arguments in everyday life.</p>
+<ul>
+<li>The middle premise is really <em>If A and B, C</em>, not just <em>If B, C</em>.</li>
+<li>Is this plausible? I don’t know.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>That’s All!</h2>
+<p>Next class will just be about revision before the final. Thanks for staying to the end!</p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>PHIL 305 | University of Michigan</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/W26-Phil305-site");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
