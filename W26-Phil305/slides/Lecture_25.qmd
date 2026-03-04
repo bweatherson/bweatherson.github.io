@@ -1,0 +1,227 @@
+---
+title: "Signaling Games"
+date: "4/15/2026"
+---
+
+# Games with Private Information
+
+## Plan
+
+- So far, all players have known the full structure of the game — **complete information**.
+- Today we introduce **signaling games**: one player has private information; the other must infer it from observable actions.
+- This blends sequential game structure with asymmetric information.
+
+### Associated Reading
+
+No new reading — brings together game theory and probability.
+
+## Asymmetric Information
+
+In many real situations, players differ in what they know:
+
+::: {.incremental}
+- A job applicant knows their own ability; the employer doesn't.
+- A seller knows the quality of a used car; the buyer doesn't.
+- A firm knows its own costs; rival firms don't.
+:::
+
+. . .
+
+These are **games of incomplete information** or **asymmetric information**.
+
+## The Structure of a Signaling Game
+
+A signaling game has:
+
+::: {.incremental}
+1. A **Sender** who has private information (their **type**).
+2. A **Receiver** who observes only the Sender's **message** (signal), not their type.
+3. The Receiver takes an **action** based on what they observe.
+4. Both players receive payoffs that depend on type, message, and action.
+:::
+
+. . .
+
+The Receiver must use the message as **evidence** to infer the Sender's type — this is where probability re-enters.
+
+# The Classic Example: Job Market Signaling
+
+## Spence's Model (1973)
+
+Workers are either **high ability** (H) or **low ability** (L). Employers can't observe ability directly.
+
+. . .
+
+Workers can choose to get **education** (E) or **not** (N). Education is costly — but more costly for low-ability workers.
+
+. . .
+
+Employers observe the education choice and offer a **wage** based on what they infer.
+
+## The Signaling Game Tree
+
+```
+Nature
+├── High (prob p)
+│   └── Worker H
+│       ├── E → Employer observes E → {High Wage, Low Wage}
+│       └── N → Employer observes N → {High Wage, Low Wage}
+└── Low (prob 1−p)
+    └── Worker L
+        ├── E → Employer observes E → {High Wage, Low Wage}
+        └── N → Employer observes N → {High Wage, Low Wage}
+```
+
+. . .
+
+The Employer sees E or N, but doesn't see which branch of Nature they're on.
+
+## The Key Insight
+
+Suppose education is:
+
+- **Costly for L** workers (painful, time-consuming, expensive)
+- **Less costly for H** workers (comes naturally)
+
+. . .
+
+Then education can serve as a **credible signal** — not because it makes workers more productive, but because only high-ability workers find it worth the cost.
+
+. . .
+
+This is the logic of **costly signaling**: a signal is informative precisely because it's *too expensive* for the low type to mimic.
+
+# Equilibria in Signaling Games
+
+## Separating Equilibrium
+
+A **separating equilibrium** is one where different types send different messages.
+
+. . .
+
+In the education game:
+
+::: {.incremental}
+- H workers get education; L workers don't.
+- Employers infer: E → High Wage, N → Low Wage.
+- H workers get education because the wage gain exceeds the cost.
+- L workers don't get education because the cost exceeds the wage gain.
+:::
+
+. . .
+
+Everyone's beliefs and actions are mutually consistent.
+
+## When is the Separating Equilibrium Stable?
+
+For the separating equilibrium to hold:
+
+::: {.incremental}
+- H workers must prefer (E, High Wage) to (N, Low Wage): $\text{High Wage} - c_H > \text{Low Wage}$
+- L workers must prefer (N, Low Wage) to (E, High Wage): $\text{High Wage} - c_L < \text{Low Wage}$
+:::
+
+. . .
+
+This holds when $c_H < c_L$ by enough — that is, when the cost difference is large enough that the signal can't be profitably mimicked.
+
+## Pooling Equilibrium
+
+A **pooling equilibrium** is one where all types send the *same* message.
+
+. . .
+
+In the education game:
+
+- Both H and L workers get education (or neither does).
+- Employers can't learn anything from the signal — they pay a wage based on the *prior* probability of being high type.
+
+. . .
+
+In a pooling equilibrium, the signal carries **no information**.
+
+## Which Equilibrium Obtains?
+
+Signaling games often have **multiple equilibria** — both separating and pooling equilibria may exist simultaneously.
+
+. . .
+
+Which one we end up in depends on:
+
+::: {.incremental}
+- The cost structure (how different are $c_H$ and $c_L$?).
+- Beliefs off the equilibrium path (what does the Receiver infer from unexpected messages?).
+- Refinements: additional criteria that rule out "unreasonable" equilibria.
+:::
+
+## A Troubling Implication
+
+In Spence's model, education may be:
+
+. . .
+
+::: {.incremental}
+- A **pure signal** — costly, but adding no productivity.
+- Yet individually rational: workers get education to distinguish themselves.
+- And socially wasteful: resources spent on education that teaches nothing useful.
+:::
+
+. . .
+
+This is a striking application of game theory to economics and sociology. Whether it accurately describes real education markets is debated.
+
+# Cheap Talk
+
+## What If Signals Are Costless?
+
+Suppose messages are **free** — words, not actions. Can communication convey information?
+
+. . .
+
+**Crawford and Sobel (1982)**: Even when messages are costless, some information can be transmitted — but not all of it.
+
+. . .
+
+If the Sender and Receiver have **perfectly aligned interests**: full information transmission is possible.
+
+. . .
+
+If interests are **partially opposed**: only **coarse** information is credibly transmitted ("the value is in the upper half" but not the exact value).
+
+## Cheap Talk in Practice
+
+::: {.incremental}
+- A doctor advises a patient. Interests mostly aligned → credible communication.
+- A salesperson recommends a product. Interests diverge → be sceptical.
+- A politician makes a campaign promise. Interests may diverge → cheap talk: credible only if there are costs to breaking promises.
+:::
+
+. . .
+
+The analysis of cheap talk uses exactly the same equilibrium concepts — but applied to costless messages.
+
+## Signaling Everywhere
+
+Signaling games model:
+
+::: {.incremental}
+- **Animal displays**: peacock feathers, deer antlers — costly signals of genetic quality.
+- **Warranties**: a high-quality producer offers a long warranty (costly to low-quality imitators).
+- **Conspicuous consumption**: expensive purchases as signals of wealth.
+- **Legal pleading**: a strong case going to trial as a signal that the plaintiff won't settle cheap.
+:::
+
+## Looking Back at the Course
+
+We've now covered four major formal tools:
+
+::: {.incremental}
+1. **Propositional Logic**: valid inference, truth tables, proof systems.
+2. **Modal and Conditional Logic**: necessity, possibility, conditionals and counterfactuals.
+3. **Probability and Decision**: updating beliefs, expected utility, rational choice under uncertainty.
+4. **Game Theory**: strategic interaction, equilibrium, dynamics, signaling.
+:::
+
+. . .
+
+These tools appear throughout philosophy, economics, linguistics, and computer science. You now have the foundations to follow — and critically assess — their applications.

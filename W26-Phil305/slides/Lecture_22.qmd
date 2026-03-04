@@ -1,0 +1,183 @@
+---
+title: "Dynamic Games"
+date: "4/6/2026"
+---
+
+# Sequential Games
+
+## Plan
+
+- So far we've studied games where all players choose simultaneously.
+- Now we study **dynamic games** (also called sequential games), where players move in a specific order.
+- This requires a new representation: the **extensive form** or **game tree**.
+
+### Associated Reading
+
+*Game Theory*, Sections 2.1–2.3
+
+## Why Sequential Order Matters
+
+Compare:
+
+- **Simultaneous**: You and a rival firm set prices at the same time. Neither knows the other's choice.
+- **Sequential**: You set prices first. Your rival observes your choice, then sets theirs.
+
+. . .
+
+The sequential version gives the second mover an advantage. This is *strategically* very different.
+
+# The Extensive Form
+
+## Game Trees
+
+A **game tree** represents a sequential game:
+
+::: {.incremental}
+- **Nodes**: points where a player makes a decision.
+- **Branches**: the possible actions at each node.
+- **Terminal nodes**: the end of the game, where payoffs are assigned.
+- **Player labels**: each non-terminal node is labeled with which player moves there.
+:::
+
+## A Simple Entry Deterrence Game
+
+A potential **Entrant** decides whether to enter a market currently monopolized by an **Incumbent**.
+
+. . .
+
+If the Entrant enters, the Incumbent can either **Fight** (aggressive price war) or **Accommodate** (share the market peacefully).
+
+## The Tree
+
+```
+Entrant
+├── Stay Out → (0, 4)   [Entrant gets 0; Incumbent keeps monopoly]
+└── Enter
+    └── Incumbent
+        ├── Fight       → (−1, 1)   [Price war: both lose]
+        └── Accommodate → (2, 2)    [Both share market]
+```
+
+Payoffs: (Entrant, Incumbent)
+
+## Strategies in Extensive Form Games
+
+A **strategy** for a player specifies what they will do at **every** decision node where they might move.
+
+. . .
+
+This includes nodes they might never actually reach — the strategy is a *complete contingent plan*.
+
+. . .
+
+For the Entrant: {Stay Out} or {Enter}.
+
+For the Incumbent: {Fight} or {Accommodate} (only relevant if Entrant enters, but must be specified).
+
+## All Strategy Combinations
+
+| Entrant    | Incumbent    | Payoffs    |
+|:-----------|:-------------|:----------:|
+| Stay Out   | Fight        | (0, 4)     |
+| Stay Out   | Accommodate  | (0, 4)     |
+| Enter      | Fight        | (−1, 1)    |
+| Enter      | Accommodate  | (2, 2)     |
+
+. . .
+
+The Incumbent's strategy only matters when the Entrant actually enters. But it's still a strategy choice that must be made (even if in advance).
+
+## Information Sets
+
+Sometimes a player doesn't know where they are in the game tree. This is represented by an **information set**: a group of nodes among which the player can't distinguish.
+
+. . .
+
+A game has **perfect information** if every player always knows the full history of play when it is their turn.
+
+. . .
+
+Our examples so far are perfect information games — the Incumbent knows the Entrant has entered.
+
+# More Examples
+
+## The Ultimatum Game
+
+Player 1 proposes a split of \$10. Player 2 can Accept or Reject.
+
+- If Accepted: both get the proposed split.
+- If Rejected: both get \$0.
+
+. . .
+
+Assume P1 offers either 9/1 (keeping \$9) or 5/5 (equal split).
+
+## Ultimatum Tree
+
+```
+Player 1
+├── Offer 9/1
+│   └── Player 2
+│       ├── Accept → (9, 1)
+│       └── Reject → (0, 0)
+└── Offer 5/5
+    └── Player 2
+        ├── Accept → (5, 5)
+        └── Reject → (0, 0)
+```
+
+## Ultimatum Strategies
+
+Player 1's strategies: {Offer 9/1} or {Offer 5/5}.
+
+Player 2's strategies — a *complete plan* for both nodes:
+
+::: {.incremental}
+- Accept 9/1 and Accept 5/5
+- Accept 9/1 and Reject 5/5
+- Reject 9/1 and Accept 5/5
+- Reject 9/1 and Reject 5/5
+:::
+
+. . .
+
+That's **4 strategies** for Player 2, even though only one node gets reached in any play of the game.
+
+## The Trust Game
+
+Player 1 decides to **Trust** or **Not Trust** Player 2. If Player 1 trusts:
+
+- The amount doubles (e.g., \$10 → \$20).
+- Player 2 decides to **Honor** (split evenly) or **Exploit** (keep all).
+
+. . .
+
+```
+Player 1
+├── Not Trust → (5, 5)
+└── Trust
+    └── Player 2
+        ├── Honor   → (10, 10)
+        └── Exploit → (0, 20)
+```
+
+## What Will Rational Players Do?
+
+In the Trust Game:
+
+. . .
+
+If Player 1 trusts, Player 2 gets 10 from Honor vs. 20 from Exploit. A rational Player 2 exploits.
+
+. . .
+
+But if Player 1 knows this, they should not trust — getting 5 rather than risking 0.
+
+. . .
+
+Yet (Trust, Honor) gives (10, 10) — better for *both* than (Not Trust). This tension is central to many social and economic phenomena.
+
+## For Next Time
+
+- We will analyze these games systematically using **backward induction**.
+- This is the key method for solving sequential games with perfect information.

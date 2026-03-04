@@ -1,0 +1,219 @@
+---
+title: "Mixed Strategies and Nash Equilibria"
+date: "4/13/2026"
+---
+
+# Beyond Pure Strategies
+
+## Plan
+
+- So far, strategies have been **pure**: choose one action deterministically.
+- Today we allow players to **randomise** — play a **mixed strategy**.
+- This requires cardinal payoffs, connects back to expected utility, and completes the Nash equilibrium story.
+
+### Associated Reading
+
+*Game Theory*, Sections 5.1–5.3
+
+## Why Randomise?
+
+In some games, any deterministic choice can be exploited.
+
+. . .
+
+Consider **Matching Pennies**:
+
+|              | Heads     | Tails     |
+|-------------:|:---------:|:---------:|
+| **Heads**    | (+1, −1)  | (−1, +1)  |
+| **Tails**    | (−1, +1)  | (+1, −1)  |
+
+. . .
+
+If Row plays Heads for certain, Column plays Tails. If Row plays Tails for certain, Column plays Heads. There is **no pure strategy Nash equilibrium**.
+
+## The Solution: Mix
+
+If Row plays Heads with probability $p$ and Tails with probability $1-p$:
+
+. . .
+
+Column's expected payoff from Heads: $-p + (1-p) = 1 - 2p$
+
+Column's expected payoff from Tails: $p - (1-p) = 2p - 1$
+
+. . .
+
+Column is indifferent when $1 - 2p = 2p - 1$, i.e., $p = 1/2$.
+
+. . .
+
+At $p = 1/2$, Column cannot exploit Row's strategy — any mix gives the same expected payoff. The **mixed strategy Nash equilibrium** is for both players to mix 50/50.
+
+# Mixed Strategy Nash Equilibrium
+
+## Definition
+
+A **mixed strategy** assigns a probability to each pure strategy.
+
+. . .
+
+A **mixed strategy Nash equilibrium** is a profile of (possibly mixed) strategies such that no player can improve their *expected* payoff by unilaterally deviating.
+
+. . .
+
+**Nash's Theorem** (1950): Every finite game has at least one Nash equilibrium — in pure or mixed strategies.
+
+## The Indifference Principle
+
+In a mixed strategy Nash equilibrium, a player who mixes must be **indifferent** between the strategies they mix over.
+
+. . .
+
+Why? If one strategy had higher expected payoff than another, the player would shift all probability to that strategy — pure strategy, not a mix.
+
+. . .
+
+This gives us a way to find mixed equilibria: **set the opponent indifferent**.
+
+## Battle of the Sexes Revisited
+
+|              | Opera  | Football |
+|-------------:|:------:|:--------:|
+| **Opera**    | (2, 1) | (0, 0)   |
+| **Football** | (0, 0) | (1, 2)   |
+
+. . .
+
+We found two pure strategy Nash equilibria: (Opera, Opera) and (Football, Football).
+
+. . .
+
+Is there also a mixed equilibrium?
+
+## Finding the Mixed Equilibrium
+
+Let Row play Opera with probability $p$.
+
+. . .
+
+Column is indifferent when:
+
+$$1 \cdot p + 0 \cdot (1-p) = 0 \cdot p + 2 \cdot (1-p)$$
+$$p = 2 - 2p \implies p = \tfrac{2}{3}$$
+
+. . .
+
+Let Column play Opera with probability $q$.
+
+. . .
+
+Row is indifferent when:
+
+$$2q + 0(1-q) = 0 \cdot q + 1 \cdot (1-q)$$
+$$2q = 1 - q \implies q = \tfrac{1}{3}$$
+
+. . .
+
+**Mixed equilibrium**: Row plays Opera with probability $\frac{2}{3}$; Column plays Opera with probability $\frac{1}{3}$.
+
+## Expected Payoffs in the Mixed Equilibrium
+
+Row's expected payoff:
+$$2 \cdot \tfrac{1}{3} + 0 \cdot \tfrac{2}{3} = \tfrac{2}{3}$$
+
+Column's expected payoff:
+$$1 \cdot \tfrac{2}{3} + 0 \cdot \tfrac{1}{3} = \tfrac{2}{3}$$
+
+. . .
+
+Both do **worse** in the mixed equilibrium ($\frac{2}{3}$) than in either pure equilibrium (Row gets 2 or 1; Column gets 1 or 2).
+
+. . .
+
+The mixed equilibrium is the outcome when players can't coordinate on which pure equilibrium to play.
+
+# Cardinal Payoffs and Zero-Sum Games
+
+## Why Cardinal Payoffs Matter Now
+
+For pure strategy analysis, ordinal payoffs suffice — we just need to know which outcomes are ranked higher.
+
+. . .
+
+For mixed strategies, we need **cardinal** payoffs — the actual numbers matter, not just the order.
+
+. . .
+
+This is because mixed strategy analysis is expected utility calculation. The magnitudes of payoffs affect the optimal mixing probabilities.
+
+## Zero-Sum Games
+
+A **zero-sum game** is one where every gain for one player is an equal loss for another:
+
+$$u_1(s) + u_2(s) = 0 \text{ for all strategy profiles } s$$
+
+. . .
+
+Matching Pennies is zero-sum. Poker is (approximately) zero-sum.
+
+. . .
+
+In zero-sum games, the interests of players are **perfectly opposed**.
+
+## The Minimax Theorem
+
+For two-player zero-sum games:
+
+> **von Neumann's Minimax Theorem** (1928): There is always a mixed strategy profile where each player **maximises their minimum guaranteed payoff** (the minimax strategy).
+
+. . .
+
+The minimax strategy and the Nash equilibrium coincide in zero-sum games.
+
+. . .
+
+This was the first major theorem of game theory — proved before Nash's more general result.
+
+## Minimax in Matching Pennies
+
+Each player's minimax strategy: mix 50/50. This guarantees an expected payoff of 0.
+
+. . .
+
+Against any deterministic opponent, you can't do better on average — but you can't do worse either.
+
+. . .
+
+In zero-sum games, the minimax strategy is the uniquely rational strategy.
+
+# Interpreting Mixed Strategies
+
+## What Does Mixing Mean?
+
+Players don't literally flip coins at the start of a game (usually).
+
+. . .
+
+Several interpretations:
+
+::: {.incremental}
+- **Deliberate randomisation**: a player genuinely randomises to stay unpredictable (relevant in sports, military strategy).
+- **Population interpretation**: the equilibrium describes a *distribution* across a large population of players, not an individual's behaviour.
+- **Uncertainty interpretation**: a mixed strategy of the opponent represents *your uncertainty* about their deterministic choice.
+:::
+
+## Mixed Strategies in Practice
+
+Mixed strategy equilibria are especially relevant when:
+
+::: {.incremental}
+- **Unpredictability has strategic value**: penalty kicks in soccer, play-calling in American football.
+- **Players interact repeatedly**: random variation prevents being exploited.
+- **Coordination fails**: the mixed equilibrium is the "default" when no focal pure equilibrium exists.
+:::
+
+## For Next Time
+
+- We close with **signaling games** — a richer class of games involving private information.
+- These combine sequential structure with **asymmetric information**, and produce some surprising equilibria.

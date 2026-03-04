@@ -1,0 +1,332 @@
+---
+title: "Dominant Strategies and Nash Equilibrium"
+date: "4/1/2026"
+---
+
+# Iterated Elimination
+
+## Plan
+
+- Last time: dominant strategies solve some games cleanly.
+- But many games have no dominant strategies.
+- Today: two tools for those cases — **iterated elimination** and **Nash equilibrium**.
+
+### Associated Reading
+
+*Game Theory*, Sections 1.5 and 1.6
+
+## When Dominance Alone Isn't Enough
+
+Consider this game:
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **T** | (3, 1) | (0, 2) | (1, 3) |
+| **M** | (1, 3) | (1, 1) | (2, 0) |
+| **B** | (0, 2) | (2, 0) | (3, 1) |
+
+. . .
+
+No row or column is strictly dominated by another single row or column.
+
+. . .
+
+But we can still make progress by thinking carefully about what rational players will rule out.
+
+## Iterated Elimination of Dominated Strategies
+
+**The procedure**:
+
+1. Remove any strictly dominated strategy for any player.
+2. In the smaller game that remains, look for newly dominated strategies.
+3. Repeat until no more eliminations are possible.
+
+. . .
+
+This is justified by **common knowledge of rationality**: if everyone is rational and knows everyone is rational, no one will play a dominated strategy, so we can treat the game as if those strategies don't exist.
+
+## A Clean Example
+
+|       | **L**  | **M**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **T** | (4, 3) | (2, 1) | (3, 0) |
+| **B** | (2, 1) | (1, 2) | (1, 3) |
+
+. . .
+
+**Step 1**: Check Player 2's columns. Is R dominated?
+
+- Under T: M gives 1, R gives 0. So M is better than R when Row plays T.
+- Under B: M gives 2, R gives 3. So R is better than M when Row plays B.
+
+R is not dominated. Let's check whether M or L dominate each other... actually, check if R is dominated by L:
+
+- Under T: L gives 3, R gives 0 → L better.
+- Under B: L gives 1, R gives 3 → R better.
+
+. . .
+
+No strict dominance for Player 2 here. Let's check Player 1.
+
+## A Clean Example (continued)
+
+|       | **L**  | **M**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **T** | (4, 3) | (2, 1) | (3, 0) |
+| **B** | (2, 1) | (1, 2) | (1, 3) |
+
+**Check Player 1**: Does T dominate B?
+
+- Against L: T gives 4, B gives 2 → T better ✓
+- Against M: T gives 2, B gives 1 → T better ✓
+- Against R: T gives 3, B gives 1 → T better ✓
+
+. . .
+
+**T strictly dominates B.** Eliminate B.
+
+## After Eliminating B
+
+The game shrinks to one row:
+
+|       | **L**  | **M**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **T** | (4, 3) | (2, 1) | (3, 0) |
+
+. . .
+
+Now Player 2 chooses between L (payoff 3), M (payoff 1), R (payoff 0).
+
+. . .
+
+L strictly dominates M and R. Player 2 chooses **L**.
+
+. . .
+
+**Solution by iterated elimination**: (T, L) with payoffs **(4, 3)**.
+
+## The Limits of Iterated Elimination
+
+Iterated elimination works neatly when it resolves the game completely.
+
+. . .
+
+Often it doesn't. Many games survive iterated elimination with multiple strategy profiles remaining.
+
+. . .
+
+We need a solution concept that applies to any game.
+
+# Nash Equilibrium
+
+## The Core Idea
+
+A strategy profile is a **Nash equilibrium** if no player can improve their payoff by *unilaterally* changing their strategy — given that all other players keep theirs fixed.
+
+. . .
+
+**Definition**: A strategy profile $(s_1, s_2, \ldots, s_n)$ is a Nash equilibrium if for every player $i$ and every alternative strategy $s_i'$:
+$$\pi_i(s_i, s_{-i}) \geq \pi_i(s_i', s_{-i})$$
+
+. . .
+
+Equivalently: each player is playing a **best response** to what the others are doing.
+
+## Nash Equilibrium in the PD
+
+|                  | Ed: Normal | Ed: Extra |
+|-----------------:|:----------:|:---------:|
+| **Doug: Normal** | (2, 2)     | (0, 3)    |
+| **Doug: Extra**  | (3, 0)     | (1, 1)    |
+
+. . .
+
+Is (Normal, Normal) a Nash equilibrium?
+
+. . .
+
+No — Doug can improve from 2 to 3 by switching to Extra (given Ed plays Normal).
+
+. . .
+
+Is (Extra, Extra) a Nash equilibrium?
+
+. . .
+
+Yes — given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No improvement. Same for Ed.
+
+## Nash Equilibrium in the Coordination Game
+
+|                     | Drive Left | Drive Right |
+|--------------------:|:----------:|:-----------:|
+| **Drive Left**      | (2, 2)     | (0, 0)      |
+| **Drive Right**     | (0, 0)     | (2, 2)      |
+
+. . .
+
+(Left, Left): given P2 plays Left, P1 gets 2 from Left vs 0 from Right. No improvement. ✓
+
+. . .
+
+(Right, Right): given P2 plays Right, P1 gets 2 from Right vs 0 from Left. No improvement. ✓
+
+. . .
+
+**Two Nash equilibria.** Each is stable; the problem is coordination.
+
+## Nash Equilibrium in Battle of the Sexes
+
+|              | Opera  | Football |
+|-------------:|:------:|:--------:|
+| **Opera**    | (2, 1) | (0, 0)   |
+| **Football** | (0, 0) | (1, 2)   |
+
+. . .
+
+(Opera, Opera): P1 gets 2; switch to Football gives 0. P2 gets 1; switch to Football gives 0. ✓
+
+. . .
+
+(Football, Football): P1 gets 1; switch to Opera gives 0. P2 gets 2; switch to Opera gives 0. ✓
+
+. . .
+
+Again two equilibria — this time each favors a different player.
+
+## The Stag Hunt
+
+Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).
+
+|               | **Hunt Stag** | **Hunt Rabbit** |
+|--------------:|:-------------:|:---------------:|
+| **Hunt Stag** | (4, 4)        | (0, 3)          |
+| **Hunt Rabbit** | (3, 0)      | (3, 3)          |
+
+. . .
+
+Is (Stag, Stag) a Nash equilibrium?
+
+. . .
+
+Given P2 hunts Stag, P1 gets 4 from Stag vs 3 from Rabbit. ✓
+
+. . .
+
+Is (Rabbit, Rabbit) a Nash equilibrium?
+
+. . .
+
+Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓
+
+## Stag Hunt: Two Equilibria, Different Characters
+
+|               | **Hunt Stag** | **Hunt Rabbit** |
+|--------------:|:-------------:|:---------------:|
+| **Hunt Stag** | (4, 4)        | (0, 3)          |
+| **Hunt Rabbit** | (3, 0)      | (3, 3)          |
+
+. . .
+
+(Stag, Stag) is **Pareto superior** — both do better than in (Rabbit, Rabbit).
+
+. . .
+
+But (Stag, Stag) is **riskier**: if your partner defects to Rabbit, you get 0.
+
+. . .
+
+(Rabbit, Rabbit) is **safer**: you get 3 no matter what the other player does.
+
+. . .
+
+The Stag Hunt captures the tension between **collective optimality** and **individual risk**.
+
+## Prisoner's Dilemma vs. Stag Hunt
+
+Both games have a Pareto-superior cooperative outcome that's not always achieved.
+
+. . .
+
+But they're structurally different:
+
+::: {.incremental}
+- In the **PD**, defection is a *dominant* strategy — rational even if you know the other will cooperate.
+- In the **Stag Hunt**, cooperation is rational *if you trust* the other player will cooperate — but unilaterally it's risky.
+- PD: the problem is incentives. Stag Hunt: the problem is **trust and coordination**.
+:::
+
+## What Nash Equilibrium Does and Doesn't Tell Us
+
+Nash equilibrium identifies **stable** outcomes — situations where no one has reason to deviate.
+
+. . .
+
+It does **not** tell us:
+
+::: {.incremental}
+- Which equilibrium will be reached when there are multiple.
+- That equilibria are *good* — the PD equilibrium is Pareto inferior.
+- How players decide what to do when they haven't communicated.
+:::
+
+. . .
+
+Nash equilibrium is a *necessary condition* for a stable rational outcome, not a complete theory of rational play.
+
+## Focal Points
+
+When there are multiple Nash equilibria, how do people coordinate?
+
+. . .
+
+Thomas Schelling's insight: people converge on **focal points** — equilibria that stand out through context, convention, or salience.
+
+. . .
+
+Examples:
+- Both drive on the right in the US — a convention that solves the coordination game.
+- "If we get separated in New York, meet at Grand Central" — salience.
+
+. . .
+
+The math shows what's *stable*; culture and context determine what's *selected*.
+
+# Three Kinds of Game Theory
+
+## How Game Theory Is Done
+
+Bonanno's book focuses on **rational choice game theory**: assume common knowledge of rationality, deduce what rational players will do.
+
+. . .
+
+But game theory is also done in two other ways.
+
+. . .
+
+**Evolutionary game theory**: strategies are hard-wired, and populations of strategies grow proportionally to their success. No assumption of rationality — selection does the work.
+
+. . .
+
+**Experimental game theory**: put real people in labs and see what they actually do. Results often diverge from rational-choice predictions.
+
+## Why the Distinctions Matter
+
+In the **PD**, rational-choice theory predicts (Defect, Defect).
+
+. . .
+
+Experimental evidence: people frequently cooperate, especially when they interact repeatedly. The Axelrod tournaments showed that "tit for tat" strategies do very well.
+
+. . .
+
+Evolutionary simulations: populations can evolve toward cooperation even without any rationality assumption.
+
+. . .
+
+All three approaches study the same games but ask different questions and reach different conclusions.
+
+## For Next Time
+
+- We move from simultaneous games to **dynamic games**, where players move in sequence.
+- This requires a new representation: the **game tree** (extensive form).
+- And a new solution concept: **backward induction**.

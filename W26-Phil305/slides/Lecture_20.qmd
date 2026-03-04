@@ -1,0 +1,298 @@
+---
+title: "Games, Payoffs and Utilities"
+date: "3/30/2026"
+---
+
+# What is a Game?
+
+## Plan
+
+- We've covered logic, probability, and individual decision-making.
+- Now we turn to **game theory**: decisions where outcomes depend on what *other rational agents* choose.
+- Today: what games are, how to represent them, and when one strategy clearly dominates another.
+
+### Associated Reading
+
+*Game Theory*, Sections 1.1 and 1.2
+
+## A Motivating Example
+
+A British TV game show, *Golden Balls*, ends with a simple game called **Split or Steal**.
+
+. . .
+
+Two players, Sarah and Steven, each secretly pick one of two balls:
+
+- The **Split** ball, or
+- The **Steal** ball.
+
+. . .
+
+The jackpot is $100,000. What happens next depends on their choices.
+
+## The Possible Outcomes
+
+|              | Steven: Split       | Steven: Steal       |
+|-------------:|:-------------------:|:-------------------:|
+| **Sarah: Split** | Each gets \$50,000  | Sarah: \$0, Steven: \$100,000 |
+| **Sarah: Steal** | Sarah: \$100,000, Steven: \$0 | Both get nothing |
+
+. . .
+
+This is a **game-frame**: we know the players, the strategies, and the outcomes — but not what the players *prefer*.
+
+## Game-Frame vs. Game
+
+A **game-frame** specifies:
+
+::: {.incremental}
+- The set of **players**
+- The **strategies** available to each player
+- The **outcomes** that result from each combination of strategies
+:::
+
+. . .
+
+But to know what rational players will *do*, we also need to know their **preferences** over outcomes.
+
+. . .
+
+A **game** is a game-frame plus a ranking of outcomes for each player.
+
+## What Should Sarah Do?
+
+Suppose both players are **selfish and greedy** — they only care about their own money, and prefer more to less.
+
+. . .
+
+Sarah reasons:
+- If Steven picks **Steal**, it doesn't matter what she does — she gets nothing either way.
+- If Steven picks **Split**, she gets \$50k from Split or \$100k from Steal.
+
+. . .
+
+So: if greedy, **Steal weakly dominates Split**.
+
+. . .
+
+But wait — is this the right analysis for *every* player?
+
+## What If Sarah Is Fair-Minded?
+
+Suppose instead Sarah prefers both getting \$50k to her getting \$100k alone — she cares about fairness.
+
+. . .
+
+Her ranking is: (both \$50k) $\succ$ (she gets \$100k) $\succ$ (Steven gets \$100k) $\succ$ (both get nothing).
+
+. . .
+
+Now:
+- If Steven Splits: Sarah prefers Split (\$50k each) over Steal (\$100k for her alone).
+- If Steven Steals: Sarah prefers Split (at least Steven gets something) over Steal (nothing for anyone).
+
+. . .
+
+**Split now strictly dominates Steal** — the opposite conclusion!
+
+## The Lesson
+
+The same game-frame, different preferences, **different rational strategies**.
+
+. . .
+
+This is why game theory requires us to specify preferences carefully. The numbers in a payoff table aren't money — they're **utilities**, capturing everything a player values.
+
+. . .
+
+"Selfish and greedy" is a *model assumption*, not a universal truth. Research shows many people are strongly motivated by fairness.
+
+# Representing Games
+
+## Ordinal Utility Functions
+
+To work with preferences mathematically, we assign numbers to outcomes so that higher numbers mean more preferred.
+
+. . .
+
+**Definition**: An *ordinal utility function* $U$ assigns a number $U(o)$ to each outcome $o$ such that $U(o) > U(o')$ if and only if outcome $o$ is preferred to $o'$.
+
+. . .
+
+Important: the *magnitudes* don't matter, only the *ordering*. Utility 10 is not "twice as good" as utility 5 — it just means "better than."
+
+## The Same Game, Two Different Players
+
+With selfish/greedy preferences, assign utilities so that getting \$100k alone = 4, both get \$50k = 3, other outcomes = 2:
+
+|              | Steven: Split | Steven: Steal |
+|-------------:|:-------------:|:-------------:|
+| **Sarah: Split** | (3, 3)   | (2, 4)        |
+| **Sarah: Steal** | (4, 2)   | (2, 2)        |
+
+. . .
+
+Convention: **(Row player, Column player)** in each cell.
+
+## With Fair-Minded Preferences
+
+If Sarah is fair-minded (prefers (both \$50k) above all else), her utilities shift:
+
+|              | Steven: Split | Steven: Steal |
+|-------------:|:-------------:|:-------------:|
+| **Sarah: Split** | (4, 3)   | (2, 4)        |
+| **Sarah: Steal** | (3, 2)   | (1, 2)        |
+
+. . .
+
+Same game-frame, same second player — but different game because Sarah's ranking has changed.
+
+## The Normal (Strategic) Form
+
+A **game in normal form** (or *strategic form*) is a table where:
+
+- **Rows** = strategies for Player 1
+- **Columns** = strategies for Player 2
+- **Cells** = payoffs (utilities) for both players
+
+. . .
+
+This representation is called *normal form* or *strategic form*. It captures all the strategically relevant information when players move simultaneously.
+
+## The Prisoner's Dilemma
+
+The textbook's central example uses a different story. Two co-workers, Doug and Ed, are competing for a prize. Each can put in Normal or Extra effort.
+
+|                     | Ed: Normal | Ed: Extra |
+|--------------------:|:----------:|:---------:|
+| **Doug: Normal**    | (2, 2)     | (0, 3)    |
+| **Doug: Extra**     | (3, 0)     | (1, 1)    |
+
+. . .
+
+Each would rather get the prize (at cost of family time) than have the other get it. Extra effort is the only way to secure it.
+
+## The PD Tension
+
+|                     | Ed: Normal | Ed: Extra |
+|--------------------:|:----------:|:---------:|
+| **Doug: Normal**    | (2, 2)     | (0, 3)    |
+| **Doug: Extra**     | (3, 0)     | (1, 1)    |
+
+. . .
+
+Regardless of what Ed does, Doug does better with Extra effort: $3 > 2$ and $1 > 0$.
+
+. . .
+
+But if both choose Extra, they both get 1 — worse than both choosing Normal (both get 2).
+
+# Dominance
+
+## Strict Dominance
+
+Strategy $a$ **strictly dominates** strategy $b$ for Player $i$ if $a$ gives Player $i$ a strictly *higher* payoff than $b$ in *every possible situation* — no matter what the other players do.
+
+. . .
+
+**Formal statement**: For every strategy profile of the opponents, $\pi_i(a, s_{-i}) > \pi_i(b, s_{-i})$.
+
+. . .
+
+A rational player will never play a strictly dominated strategy.
+
+## Strict Dominance in the PD
+
+|                     | Ed: Normal | Ed: Extra |
+|--------------------:|:----------:|:---------:|
+| **Doug: Normal**    | (2, 2)     | (0, 3)    |
+| **Doug: Extra**     | (3, 0)     | (1, 1)    |
+
+. . .
+
+Does Extra strictly dominate Normal for Doug?
+
+- Against Ed: Normal → Doug gets 3 (Extra) vs 2 (Normal) ✓
+- Against Ed: Extra → Doug gets 1 (Extra) vs 0 (Normal) ✓
+
+. . .
+
+Yes — **Extra strictly dominates Normal** for Doug. By symmetry, same for Ed.
+
+## Weak Dominance
+
+Strategy $a$ **weakly dominates** strategy $b$ if:
+
+- $a$ gives Player $i$ a payoff **at least as good** as $b$ in every situation, **and**
+- $a$ gives a **strictly better** payoff in at least one situation.
+
+. . .
+
+Weak dominance is — obviously — a weaker condition. It rules out some strategies, but is somewhat more controversial.
+
+. . .
+
+In the Split/Steal game with selfish preferences: **Steal weakly dominates Split** (same payoff when opponent steals; better when opponent splits).
+
+## Dominant Strategies
+
+Strategy $a$ is a **strictly dominant strategy** if it strictly dominates every other strategy.
+
+. . .
+
+Strategy $a$ is a **weakly dominant strategy** if it weakly dominates every other strategy (and isn't equivalent to it).
+
+. . .
+
+In the PD, Extra effort is a *strictly* dominant strategy for each player.
+
+In the selfish Split/Steal game, Steal is only a *weakly* dominant strategy.
+
+## Dominant-Strategy Equilibrium
+
+A strategy profile is a **strict dominant-strategy equilibrium** if every player is using a strictly dominant strategy.
+
+. . .
+
+A strategy profile is a **weak dominant-strategy equilibrium** if every player is using a weakly dominant strategy, and at least one player's strategy is only weakly (not strictly) dominant.
+
+. . .
+
+In the PD, (Extra, Extra) is a **strict dominant-strategy equilibrium**.
+
+## Pareto Superiority
+
+Outcome $o$ is **strictly Pareto superior** to $o'$ if *every* player prefers $o$ to $o'$.
+
+. . .
+
+In the PD: (Normal, Normal) is strictly Pareto superior to (Extra, Extra).
+
+. . .
+
+This is the tragedy:
+
+::: {.incremental}
+- Individual rationality leads each player to choose Extra effort.
+- The resulting outcome (1, 1) is strictly Pareto inferior to (2, 2).
+- Rational individual choice produces a collectively bad outcome.
+:::
+
+## The Prisoner's Dilemma Is Everywhere
+
+The PD structure models any situation where:
+
+::: {.incremental}
+- There is a cooperative outcome that is good for everyone.
+- But each individual is better off defecting, regardless of what others do.
+:::
+
+. . .
+
+Examples: arms races, price competition, environmental agreements, overexploiting shared resources (Tragedy of the Commons), doping in sport.
+
+## For Next Time
+
+- Dominant strategies don't always exist.
+- We need a more general solution concept: **Nash equilibrium**.
+- And a method for narrowing down strategies when strict dominance doesn't apply: **iterated elimination**.

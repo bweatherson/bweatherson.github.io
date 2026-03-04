@@ -1,0 +1,232 @@
+---
+title: "Conditional Probability"
+date: "3/16/2026"
+---
+
+# Introduction
+
+## Plan
+
+- We've been working with probabilities of events.
+- Today we introduce **conditional probability**: the probability of something *given* that something else is true.
+- This is one of the most important and widely-used ideas in the course.
+
+### Associated Reading
+
+*Odds and Ends*, Chapter 6
+
+## Recall: The Tournament
+
+Last time we worked out win probabilities for the soccer tournament. The results were:
+
+| Winner     | Runner-Up  | Approx Prob |
+|:-----------|:-----------|:-----------:|
+| Fireflies  | Huskies    | 0.260       |
+| Huskies    | Fireflies  | 0.156       |
+| Fireflies  | Bluebirds  | 0.116       |
+| Bluebirds  | Fireflies  | 0.023       |
+| Penguins   | Huskies    | 0.190       |
+| Huskies    | Penguins   | 0.143       |
+| Penguins   | Bluebirds  | 0.089       |
+| Bluebirds  | Penguins   | 0.022       |
+
+## Win Probabilities
+
+Adding up the rows, the overall probability each team wins is:
+
+| Team      | Win Probability |
+|:----------|:---------------:|
+| Fireflies | 0.376           |
+| Huskies   | 0.299           |
+| Penguins  | 0.279           |
+| Bluebirds | 0.045           |
+
+## A New Question
+
+Those are *unconditional* probabilities — how likely each team is to win, knowing nothing about how the games go.
+
+. . .
+
+But suppose we learn something. Suppose the Fireflies have won. Then:
+
+- What is the probability the Huskies were runners-up?
+
+. . .
+
+This is a **conditional probability** question.
+
+## What Conditional Probability Is
+
+- Sometimes we don't just care about how likely something is.
+- We care about how likely it is *given* that some other thing has happened or will happen.
+
+. . .
+
+This matters for:
+
+::: {.incremental}
+- Planning for the future given new information.
+- Computing overall probabilities using partial information.
+- Updating our beliefs when we learn something new.
+:::
+
+# The Formula
+
+## The Formula
+
+$$
+\Pr(A \mid B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
+$$
+
+. . .
+
+- The left-hand side means "the probability of $A$ given $B$."
+- The right-hand side: the probability of both $A$ and $B$ being true, divided by the probability of $B$.
+
+## The Fireflies Example
+
+$$
+\Pr(\text{Huskies runners-up} \mid \text{Fireflies win}) = \frac{\Pr(\text{Huskies runners-up} \wedge \text{Fireflies win})}{\Pr(\text{Fireflies win})}
+$$
+
+. . .
+
+From the table:
+
+- $\Pr(\text{Fireflies win} \wedge \text{Huskies runners-up}) = 0.260$
+- $\Pr(\text{Fireflies win}) = 0.376$
+
+$$
+\Pr(\text{Huskies runners-up} \mid \text{Fireflies win}) = \frac{0.260}{0.376} \approx 0.691
+$$
+
+## Why This Formula?
+
+Intuitively: conditioning on $B$ means we restrict attention to the cases where $B$ is true.
+
+. . .
+
+- The probability of $A$ given $B$ is the share of the "$B$-worlds" in which $A$ is also true.
+- We take the probability of both $A$ and $B$, and divide by the probability of $B$ to rescale.
+
+## Notice
+
+The answer (0.691) is higher than the unconditional probability that the Huskies make the final (0.299).
+
+. . .
+
+Why?
+
+. . .
+
+- If the Fireflies won, they must have beaten *someone* in the final.
+- The Huskies are the strongest of the remaining teams, so they're the most likely finalist.
+- Conditioning on the Fireflies winning shifts probability toward the Huskies having been there.
+
+# Updating
+
+## Updating on New Information
+
+There is a key philosophical claim we will use throughout:
+
+$$
+\Pr_B(A) = \Pr(A \mid B)
+$$
+
+. . .
+
+The *new* unconditional probability of $A$ after learning $B$ equals the *old* conditional probability of $A$ given $B$.
+
+. . .
+
+This is not a mathematical theorem — it is a claim about how rational agents *should* respond to learning new information. It is very widely accepted.
+
+## Why It Matters
+
+- It tells us that conditional probability isn't just a mathematical curiosity.
+- It tells us how to *use* probability to represent learning and reasoning under uncertainty.
+- Whenever we learn something, we use the conditional probability formula to update.
+
+# Independence
+
+## Independence
+
+$A$ and $B$ are **independent** if and only if
+
+$$
+\Pr(A \mid B) = \Pr(A)
+$$
+
+. . .
+
+That is: taking things conditional on $B$ makes no difference to $A$.
+
+. . .
+
+Equivalently: $\Pr(A \wedge B) = \Pr(A) \times \Pr(B)$.
+
+## Ways Independence Can Fail: Causal
+
+::: {.incremental}
+- $B$ might be a possible **cause** of $A$.
+- $B$ might be a possible **preventer** of $A$.
+- $B$ might be a common effect of a frequent **cause** of $A$.
+- $B$ might be a common effect of a frequent **preventer** of $A$.
+:::
+
+## Ways Independence Can Fail: Epistemic
+
+- $B$ being true could tell you that a source which also predicts $A$ is more reliable than you thought.
+
+. . .
+
+For example: two eyewitnesses both reporting the same crime gives more evidence than one, but only if the reports are independent. If they talked to each other first, they are not independent, and we should discount accordingly.
+
+## Two Important Real-World Facts
+
+1. In reality, strict independence almost never obtains.
+
+. . .
+
+2. In practice, it's very often useful to *assume* independence for modelling purposes.
+
+. . .
+
+These are consistent — but be careful. Sometimes assuming independence is like assuming relativistic effects don't matter for bridge design. Sometimes it's fine. The context determines which.
+
+## An Interesting Example
+
+Two fair dice, one red and one blue, are tossed. Let:
+
+- $A$ = the sum of the two dice is 7
+- $B$ = the red die shows a 2
+
+. . .
+
+**Are $A$ and $B$ independent?**
+
+. . .
+
+Surprisingly: **yes**.
+
+## Checking Independence
+
+If the red die shows 2, the blue die must show 5 for the sum to be 7. That's 1 out of 6.
+
+. . .
+
+So $\Pr(A \mid B) = \frac{1}{6}$.
+
+. . .
+
+And the unconditional probability of getting a sum of 7 is: the pairs (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) — that's 6 out of 36 = $\frac{1}{6}$.
+
+. . .
+
+So $\Pr(A \mid B) = \Pr(A) = \frac{1}{6}$: they are independent.
+
+## For Next Time
+
+- We will look at how to **invert** conditional probabilities.
+- Given $\Pr(A \mid B)$, how do we work out $\Pr(B \mid A)$?
+- This turns out to be one of the most important skills in applied probability.

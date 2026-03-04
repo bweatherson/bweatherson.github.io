@@ -1,0 +1,214 @@
+---
+title: "Backward Induction"
+date: "4/8/2026"
+---
+
+# Solving Sequential Games
+
+## Plan
+
+- We now have the tools to **solve** sequential games with perfect information.
+- The method: **backward induction** — work backwards from the end of the game tree.
+- This gives us a powerful and intuitive solution concept: the **subgame perfect equilibrium**.
+
+### Associated Reading
+
+*Game Theory*, Sections 2.4 and 2.5
+
+## The Idea of Backward Induction
+
+Start at the **terminal nodes** (where payoffs are assigned) and work backwards.
+
+::: {.incremental}
+- At each decision node, assume the player there will choose the action that **maximises their own payoff**.
+- Replace that node with the resulting payoff.
+- Repeat until the whole tree is solved.
+:::
+
+. . .
+
+This is essentially **forward-looking reasoning**: rational players anticipate how the game will end, and act accordingly now.
+
+## Revisiting the Entry Deterrence Game
+
+```
+Entrant
+├── Stay Out → (0, 4)
+└── Enter
+    └── Incumbent
+        ├── Fight       → (−1, 1)
+        └── Accommodate → (2, 2)
+```
+
+Payoffs: (Entrant, Incumbent)
+
+## Applying Backward Induction
+
+**Step 1**: Look at the Incumbent's decision node.
+
+. . .
+
+Fight gives 1; Accommodate gives 2. A rational Incumbent will **Accommodate**.
+
+. . .
+
+**Step 2**: Replace the Incumbent's node with the Accommodate payoff (2, 2).
+
+```
+Entrant
+├── Stay Out → (0, 4)
+└── Enter    → (2, 2)
+```
+
+. . .
+
+**Step 3**: The Entrant now chooses between 0 and 2. They choose **Enter**.
+
+. . .
+
+**Backward induction outcome**: Enter → Accommodate, with payoffs (2, 2).
+
+## Why the Incumbent's Threat Fails
+
+The Incumbent might *prefer* the Entrant to Stay Out (they get 4 instead of 2).
+
+. . .
+
+Could the Incumbent **threaten** to Fight if the Entrant enters?
+
+. . .
+
+The threat would require fighting, which gives the Incumbent payoff 1. But a rational Incumbent prefers 2 (Accommodate).
+
+. . .
+
+The threat is **not credible** — a rational Entrant knows the Incumbent won't carry it out.
+
+. . .
+
+This is one of the main insights of backward induction: it reveals which threats and promises are credible.
+
+# Subgame Perfect Equilibrium
+
+## What Is a Subgame?
+
+A **subgame** is any part of the game tree that:
+
+::: {.incremental}
+- Begins at a single decision node.
+- Contains all branches following from that node.
+- Is a complete game in itself.
+:::
+
+. . .
+
+In the entry game: the whole game is a subgame, and so is the Incumbent's decision node after entry.
+
+## Subgame Perfect Equilibrium
+
+A **subgame perfect equilibrium** (SPE) is a strategy profile that constitutes a Nash equilibrium **in every subgame**.
+
+. . .
+
+This rules out Nash equilibria that rely on **non-credible threats or promises** off the equilibrium path.
+
+. . .
+
+In perfect information games: the backward induction outcome is always the unique SPE.
+
+## A Nash Equilibrium that isn't Subgame Perfect
+
+In the entry game, consider the strategy profile:
+
+- Entrant: **Stay Out**
+- Incumbent: **Fight** (if entered)
+
+. . .
+
+Is this a Nash equilibrium?
+
+. . .
+
+Yes — given the Incumbent will Fight, the Entrant's best response is to Stay Out (0 > −1). And the Incumbent's strategy doesn't matter since the node is not reached.
+
+. . .
+
+But it's **not subgame perfect** — at the Incumbent's subgame, Fight is not a best response (Accommodate gives 2 > 1).
+
+## The Importance of Subgame Perfection
+
+Subgame perfection refines Nash equilibrium by requiring rationality **everywhere** in the game tree, not just on the equilibrium path.
+
+. . .
+
+It eliminates equilibria held in place by empty threats.
+
+. . .
+
+This makes it the dominant solution concept for perfect information sequential games.
+
+# More Examples
+
+## The Centipede Game
+
+Two players alternate between *continuing* (C) or *stopping* (S) the game. Each stage, the pot grows — but the player who stops takes more.
+
+```
+P1          P2          P1
+C → C → C → C → C → S
+        (or stop at any point)
+```
+
+. . .
+
+At each node, stopping gives the current player a larger share than continuing — *if* the other player is about to stop.
+
+## Backward Induction in Centipede
+
+Apply backward induction from the end:
+
+::: {.incremental}
+- At the last node: Player 1 stops (gets more).
+- At the second-to-last node: Player 2 knows P1 will stop, so P2 stops.
+- At each earlier node: same logic applies.
+- **Result**: Player 1 stops immediately, at the very first move.
+:::
+
+. . .
+
+The backward induction prediction is that no cooperation ever happens — even though both players would do much better if they cooperated longer.
+
+## The Paradox of Backward Induction
+
+The Centipede Game shows a tension:
+
+. . .
+
+- **Backward induction** predicts immediate stopping.
+- But this requires Player 1 to reason: "If I reach move 3, Player 2 is rational... but how did we reach move 3?"
+
+. . .
+
+In experiments, people rarely stop immediately. Cooperation often unfolds for many rounds.
+
+. . .
+
+Whether this shows backward induction is *wrong*, or merely that people are *not* perfectly rational, is a substantive debate.
+
+## Stackelberg Competition
+
+Two firms choose how much to produce. But Firm 1 moves first; Firm 2 observes Firm 1's output, then chooses.
+
+. . .
+
+Backward induction: Firm 2 chooses its best response to whatever Firm 1 produces. Firm 1 anticipates this and chooses the quantity that maximises *its* profit given Firm 2's best response function.
+
+. . .
+
+**Stackelberg outcome**: Firm 1 produces *more* than in the simultaneous (Cournot) game, and earns higher profit. Being the **first mover is an advantage**.
+
+## For Next Time
+
+- We move to games where players may **randomise** — choose strategies with probability.
+- This requires cardinal payoffs (not just ordinal rankings).
+- And it opens up a new kind of Nash equilibrium: **mixed strategy equilibrium**.
