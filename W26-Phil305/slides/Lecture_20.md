@@ -9,7 +9,7 @@ date: "3/30/2026"
 
 - We've covered logic, probability, and individual decision-making.
 - Now we turn to **game theory**: decisions where outcomes depend on what *other rational agents* choose.
-- Today: what games are, how to represent them, and when one strategy clearly dominates another.
+- Today we're looking at what games are, how to represent them, and when one strategy clearly dominates another.
 
 ### Associated Reading
 
@@ -75,7 +75,7 @@ So: if greedy, **Steal weakly dominates Split**.
 
 . . .
 
-But wait — is this the right analysis for *every* player?
+But crucially, this is not the right analysis for *every* player.
 
 ## What If Sarah Is Fair-Minded?
 
@@ -93,15 +93,15 @@ Now:
 
 . . .
 
-**Split now strictly dominates Steal** — the opposite conclusion!
+**Split now strictly dominates Steal**.
 
 ## The Lesson
 
-The same game-frame, different preferences, **different rational strategies**.
+With the same physical outcomes, different preferences lead to **different rational strategies**.
 
 . . .
 
-This is why game theory requires us to specify preferences carefully. The numbers in a payoff table aren't money — they're **utilities**, capturing everything a player values.
+This is why game theory requires us to specify preferences carefully. The numbers in a payoff table aren't money; they're **utilities**, capturing everything a player values.
 
 . . .
 
@@ -119,7 +119,7 @@ To work with preferences mathematically, we assign numbers to outcomes so that h
 
 . . .
 
-Important: the *magnitudes* don't matter, only the *ordering*. Utility 10 is not "twice as good" as utility 5 — it just means "better than."
+When we are working with ordinal utility, the *magnitudes* don't matter, only the *ordering*. We'll come back to cases where the magnitudes do matter; but it's good to start just with rankings.
 
 ## The Same Game, Two Different Players
 
@@ -149,7 +149,7 @@ Same game-frame, same second player — but different game because Sarah's ranki
 
 ## The Normal (Strategic) Form
 
-A **game in normal form** (or *strategic form*) is a table where:
+A two player game in **normal form** (or *strategic form*) is a table where:
 
 - **Rows** = strategies for Player 1
 - **Columns** = strategies for Player 2
@@ -161,7 +161,9 @@ This representation is called *normal form* or *strategic form*. It captures all
 
 ## The Prisoner's Dilemma
 
-The textbook's central example uses a different story. Two co-workers, Doug and Ed, are competing for a prize. Each can put in Normal or Extra effort.
+The textbook's central example uses a different story. (This is on page 19.)
+
+Two co-workers, Doug and Ed, are competing for a prize. Each can put in Normal or Extra effort.
 
 |                     | Ed: Normal | Ed: Extra |
 |--------------------:|:----------:|:---------:|
@@ -172,7 +174,7 @@ The textbook's central example uses a different story. Two co-workers, Doug and 
 
 Each would rather get the prize (at cost of family time) than have the other get it. Extra effort is the only way to secure it.
 
-## The PD Tension
+## The PD (Prisoner's Dilemma) Tension
 
 |                     | Ed: Normal | Ed: Extra |
 |--------------------:|:----------:|:---------:|
@@ -217,7 +219,7 @@ Does Extra strictly dominate Normal for Doug?
 
 . . .
 
-Yes — **Extra strictly dominates Normal** for Doug. By symmetry, same for Ed.
+Yes; **Extra strictly dominates Normal** for Doug. By symmetry, same for Ed.
 
 ## Weak Dominance
 
@@ -228,7 +230,7 @@ Strategy $a$ **weakly dominates** strategy $b$ if:
 
 . . .
 
-Weak dominance is — obviously — a weaker condition. It rules out some strategies, but is somewhat more controversial.
+Weak dominance is a *weaker* condition. It rules out some strategies, but is somewhat more controversial.
 
 . . .
 
@@ -270,7 +272,7 @@ In the PD: (Normal, Normal) is strictly Pareto superior to (Extra, Extra).
 
 . . .
 
-This is the tragedy:
+This is the coordination failure in the PD:
 
 ::: {.incremental}
 - Individual rationality leads each player to choose Extra effort.
@@ -278,7 +280,7 @@ This is the tragedy:
 - Rational individual choice produces a collectively bad outcome.
 :::
 
-## The Prisoner's Dilemma Is Everywhere
+## The Prisoner's Dilemma Is Common
 
 The PD structure models any situation where:
 
@@ -289,10 +291,12 @@ The PD structure models any situation where:
 
 . . .
 
-Examples: arms races, price competition, environmental agreements, overexploiting shared resources (Tragedy of the Commons), doping in sport.
+Examples: arms races, price competition, environmental agreements, overexploiting shared resources, doping in sport.
 
 ## For Next Time
 
 - Dominant strategies don't always exist.
-- We need a more general solution concept: **Nash equilibrium**.
-- And a method for narrowing down strategies when strict dominance doesn't apply: **iterated elimination**.
+- To solve more games, we'll put two more concepts on the table:
+
+1. **Nash equilibrium**; and
+2. **iterated elimination**.

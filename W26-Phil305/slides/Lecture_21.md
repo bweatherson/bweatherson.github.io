@@ -7,9 +7,12 @@ date: "4/1/2026"
 
 ## Plan
 
-- Last time: dominant strategies solve some games cleanly.
-- But many games have no dominant strategies.
-- Today: two tools for those cases — **iterated elimination** and **Nash equilibrium**.
+Today we'll look at games that cannot be solved with dominance alone.
+
+We'll be using two tools in particular:
+
+- **iterated elimination** and 
+- **Nash equilibrium**.
 
 ### Associated Reading
 
@@ -45,7 +48,7 @@ But we can still make progress by thinking carefully about what rational players
 
 This is justified by **common knowledge of rationality**: if everyone is rational and knows everyone is rational, no one will play a dominated strategy, so we can treat the game as if those strategies don't exist.
 
-## A Clean Example
+---
 
 |       | **L**  | **M**  | **R**  |
 |------:|:------:|:------:|:------:|
@@ -68,7 +71,7 @@ R is not dominated. Let's check whether M or L dominate each other... actually, 
 
 No strict dominance for Player 2 here. Let's check Player 1.
 
-## A Clean Example (continued)
+---
 
 |       | **L**  | **M**  | **R**  |
 |------:|:------:|:------:|:------:|
@@ -145,7 +148,7 @@ Is (Normal, Normal) a Nash equilibrium?
 
 . . .
 
-No — Doug can improve from 2 to 3 by switching to Extra (given Ed plays Normal).
+No, since Doug can improve from 2 to 3 by switching to Extra (given Ed plays Normal).
 
 . . .
 
@@ -153,7 +156,7 @@ Is (Extra, Extra) a Nash equilibrium?
 
 . . .
 
-Yes — given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No improvement. Same for Ed.
+Yes, since given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No improvement. Same for Ed.
 
 ## Nash Equilibrium in the Coordination Game
 
@@ -206,6 +209,15 @@ Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individu
 
 Is (Stag, Stag) a Nash equilibrium?
 
+## The Stag Hunt
+
+Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).
+
+|               | **Hunt Stag** | **Hunt Rabbit** |
+|--------------:|:-------------:|:---------------:|
+| **Hunt Stag** | (4, 4)        | (0, 3)          |
+| **Hunt Rabbit** | (3, 0)      | (3, 3)          |
+
 . . .
 
 Given P2 hunts Stag, P1 gets 4 from Stag vs 3 from Rabbit. ✓
@@ -233,13 +245,8 @@ Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓
 
 But (Stag, Stag) is **riskier**: if your partner defects to Rabbit, you get 0.
 
-. . .
-
 (Rabbit, Rabbit) is **safer**: you get 3 no matter what the other player does.
 
-. . .
-
-The Stag Hunt captures the tension between **collective optimality** and **individual risk**.
 
 ## Prisoner's Dilemma vs. Stag Hunt
 
@@ -252,8 +259,17 @@ But they're structurally different:
 ::: {.incremental}
 - In the **PD**, defection is a *dominant* strategy — rational even if you know the other will cooperate.
 - In the **Stag Hunt**, cooperation is rational *if you trust* the other player will cooperate — but unilaterally it's risky.
-- PD: the problem is incentives. Stag Hunt: the problem is **trust and coordination**.
+- In PD the problem is incentives. In Stag Hunt the problem is **trust and coordination**.
 :::
+
+## Real Life
+
+What are some cases in your life that feel like PDs?
+
+. . .
+
+What are some cases that feel like Stag Hunts?
+
 
 ## What Nash Equilibrium Does and Doesn't Tell Us
 
@@ -273,23 +289,6 @@ It does **not** tell us:
 
 Nash equilibrium is a *necessary condition* for a stable rational outcome, not a complete theory of rational play.
 
-## Focal Points
-
-When there are multiple Nash equilibria, how do people coordinate?
-
-. . .
-
-Thomas Schelling's insight: people converge on **focal points** — equilibria that stand out through context, convention, or salience.
-
-. . .
-
-Examples:
-- Both drive on the right in the US — a convention that solves the coordination game.
-- "If we get separated in New York, meet at Grand Central" — salience.
-
-. . .
-
-The math shows what's *stable*; culture and context determine what's *selected*.
 
 # Three Kinds of Game Theory
 
@@ -301,7 +300,7 @@ Bonanno's book focuses on **rational choice game theory**: assume common knowled
 
 But game theory is also done in two other ways.
 
-. . .
+## How Game Theory Is Done
 
 **Evolutionary game theory**: strategies are hard-wired, and populations of strategies grow proportionally to their success. No assumption of rationality — selection does the work.
 

@@ -206,7 +206,7 @@ Which do you prefer?
 
 . . .
 
-Most people choose **A**.
+Many people choose **A**.
 
 ## The Allais Paradox — Second Choice
 
