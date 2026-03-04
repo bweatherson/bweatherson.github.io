@@ -451,7 +451,7 @@ Odds and Ends, Chapter 6.5
 
 ## Independence
 
-$A$ and $B$ are independent if (and only if)
+$A$ and $B$ are independent if (and only if) 
 
 $$
 \Pr(A | B) = \Pr(A)
