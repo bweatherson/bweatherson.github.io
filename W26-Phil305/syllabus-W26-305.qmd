@@ -83,7 +83,7 @@ advdate <- function(obj, adv) {
   4. Game Theory.
 - Each part of the course has a different textbook.
 - All the books are open access; they are freely available and linked through Canvas.
-- There are 12 weekly assignments, due each week on Thursday at 5pm. The best 10 count for your final grade.
+- There are 11 weekly assignments, due each week on Thursday at 5pm. The best 9 count for your final grade.
 - There is a midterm test, in the last lecture before the break, and which counts for 10%.
 - There is a final exam, which counts for 20%, and which covers all the material in the course.
 
@@ -102,13 +102,13 @@ There are four textbooks for the course. All of them are open access, and hence 
 
 # Course Requirements
 
-- There will be 12 weekly assignments. Of these your best 10 will count towards your grade, with each counting for about 7%.
+- There will be 11 weekly assignments. Of these your best 9 will count towards your grade, with each counting for about 8%.
 - There will be a midterm exam which counts for 10% of the grade.
 - There will also be a final exam that counts for 20% of the grade.
 
 # Summary of Grading System
 
-1. Weekly assignments - 7% each, 10 assignments count, 70% total.
+1. Weekly assignments - about 8% each, 9 assignments count, 70% total.
 2. Midterm exam - 10%.
 2. Final exam - 20%.
 
@@ -214,21 +214,19 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 ### `r advdate(wed, 8)`
 
-**MIDTERM EXAM**  
+**MIDTERM EXAM**
 
-**Assignment**:    Assignment 7 due `r advdate(thu, 8)` at 5pm.
-
-## Week 9: Starting on Probability
+## Week 9: Conditionals and Probability
 
 ### `r advdate(mon, 10)`
 
-**Topic**:    Probability Basics  
-**Reading**:    _Odds and Ends_, chapters 1 and 5
+**Topic**:    Conditionals (continued)
+**Reading**:    _Boxes and Diamonds_, chapters 6 and 7.
 
 ### `r advdate(wed, 10)`
 
-**Topic**:    Probability Trees  
-**Reading**:    _Odds and Ends_, chapter 1  
+**Topic**:    Probability Basics and Trees
+**Reading**:    _Odds and Ends_, chapters 1 and 5
 **Assignment**:    No assignment this week.
 
 ## Week 10: Conditional Probability
@@ -242,7 +240,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 **Topic**:    Inverting Conditional Probability  
 **Reading**:    _Odds and Ends_, chapter 8  
-**Assignment**:    Assignment 8 due `r advdate(thu, 11)` at 5pm.
+**Assignment**:    Assignment 7 due `r advdate(thu, 11)` at 5pm.
 
 ## Week 11: Probability and Decision
 
@@ -255,7 +253,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 **Topic**:    Utility and Money  
 **Reading**:    _Odds and Ends_, sections 12.5 and 13.1.  
-**Assignment**:    Assignment 9 due `r advdate(thu, 12)` at 5pm.
+**Assignment**:    Assignment 8 due `r advdate(thu, 12)` at 5pm.
 
 \pagebreak
 
@@ -270,7 +268,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 **Topic**:    Dominant Strategies and Equilibria  
 **Reading**:    _Game Theory_, sections 2.5 and 2.6.  
-**Assignment**:    Assignment 10 due `r advdate(thu, 13)` at 5pm.
+**Assignment**:    Assignment 9 due `r advdate(thu, 13)` at 5pm.
 
 ## Week 13: Games and Time
 
@@ -283,7 +281,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 **Topic**:    Backward Induction  
 **Reading**:    _Game Theory_, sections 3.4 and 3.5.  
-**Assignment**:    Assignment 11 due `r advdate(thu, 14)` at 5pm.
+**Assignment**:    Assignment 10 due `r advdate(thu, 14)` at 5pm.
 
 ## Week 14: Games with Cardinal Payoffs
 
@@ -296,7 +294,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 **Topic**:    Signaling Games  
 **Reading**:    No new reading  
-**Assignment**:    Assignment 12 due `r advdate(thu, 15)` at 5pm.
+**Assignment**:    Assignment 11 due `r advdate(thu, 15)` at 5pm.
 
 There will be a revision class on `r advdate(mon, 16)`, with no new material, to go over the sample exam.
 
@@ -304,7 +302,7 @@ There will be a revision class on `r advdate(mon, 16)`, with no new material, to
 
 Because we will release the answers to the quizzes at the due date, we won't be allowing extensions on them.
 
-That's why we're only counting the best 10 out of 12 assignments. People who are sick, or have other obligations, can skip up to two assignments without penalty.
+That's why we're only counting the best 9 out of 11 assignments. People who are sick, or have other obligations, can skip up to two assignments without penalty.
 
 # Plagiarism
 
