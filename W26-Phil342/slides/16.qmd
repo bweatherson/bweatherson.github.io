@@ -1,0 +1,309 @@
+---
+title: "The Evolution of Cooperation"
+date: 3/16/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# A Question from Last Time
+
+## The Backward Induction Argument
+
+Last time we left with a puzzle.
+
+. . .
+
+In a repeated Prisoner's Dilemma with a **known endpoint**, backward induction says you should defect in the last round, because there's no future to protect.
+
+. . .
+
+But if you'll defect in the last round, your opponent knows that. So they'll defect in the second-to-last round. And so on, all the way back to round one.
+
+. . .
+
+Does this mean rational players can *never* cooperate?
+
+## Why It Doesn't (Quite) Work That Way
+
+Technically, the argument is valid for a **finite, known-length game** between perfectly rational players who know each other are perfectly rational.
+
+. . .
+
+But three things complicate this:
+
+::: {.incremental}
+- Players don't actually reason that way in practice
+- If an opponent cooperates early, you have good reason to cooperate back
+- If the **endpoint is uncertain**, the unraveling argument fails entirely
+:::
+
+. . .
+
+The more interesting question: can we explain *why* cooperation emerges, and what strategies actually work?
+
+# Axelrod's Experiment
+
+## Robert Axelrod
+
+In 1980, Robert Axelrod, a political scientist here at the University of Michigan, ran an unusual experiment.
+
+. . .
+
+He **invited researchers** from economics, psychology, mathematics, sociology, and computer science to submit strategies for playing the iterated Prisoner's Dilemma.
+
+. . .
+
+Each strategy was a computer program. Axelrod ran a **round-robin tournament**: every strategy against every other strategy, repeated many times. Whoever accumulated the most points overall won.
+
+## The First Tournament
+
+The first tournament had **14 entries**. The strategies ranged from simple to highly sophisticated. Some tried to detect and exploit patterns, some started with defection, some tried complex conditional logic.
+
+. . .
+
+The winner was the **simplest program submitted**: four lines of code.
+
+. . .
+
+It was submitted by the game theorist Anatol Rapoport, and it was **Tit for Tat**: cooperate on the first move, then copy whatever your opponent did last round.
+
+## The Second Tournament
+
+Axelrod published the results and ran a **second tournament**. Now **62 entries** came in.
+
+. . .
+
+People knew TFT had won. Some tried to beat it directly. Some submitted variants. Some entered highly sophisticated strategies designed to detect and outmaneuver it.
+
+. . .
+
+**TFT won again.**
+
+. . .
+
+Axelrod published *The Evolution of Cooperation* in 1984. It became one of the most widely cited books in the social sciences. It's become very important in **biology**, as well as across PPE.
+
+## How the Tournament Worked
+
+::: {.nonincremental}
+- Each pair of strategies played **200 rounds** of the Prisoner's Dilemma
+- Every strategy faced every other strategy (round-robin)
+- Total score = points accumulated across all matches
+:::
+
+. . .
+
+The payoff matrix Axelrod used:
+
+|   | Cooperate | Defect |
+|---|:---------:|:------:|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | 5, 0 | 1, 1 |
+
+. . .
+
+Mutual cooperation earns 3 each. Mutual defection earns only 1 each. The temptation to defect is real, but exploitation backfires if the other player responds.
+
+. . .
+
+Note one key feature of this payoff structure. Alternating CD/DC does **worse** than continuous CC. Some people make this definitive of the game being a PD.
+
+# Our Tournament
+
+## How Our Game Works
+
+Basically the same setup as Axelrod's. 
+
+But instead of submitting code, you'll choose from a menu of pre-built strategies.
+
+. . .
+
+You'll answer a short questionnaire:
+
+::: {.nonincremental}
+1. Are you a **Reciprocator** (react to what your opponent does) or a **Pattern Hunter** (probe and exploit)?
+2. A follow-up question to narrow it down further
+3. Pick from the 2--3 strategies in your category
+:::
+
+. . .
+
+Then I'll run the round-robin tournament and we'll see what happens.
+
+## Play the Game
+
+Go to:
+
+**bweatherson.github.io/games/ipd-game.html**
+
+. . .
+
+Answer the questionnaire, pick your strategy, and enter your name.
+
+. . .
+
+Once everyone has joined, I'll run the tournament and results will appear on your screen.
+
+## Results
+
+*(Tournament results here)*
+
+# What Makes Strategies Succeed
+
+## Axelrod's Analysis
+
+After the tournaments, Axelrod analyzed what separated the successful strategies from the unsuccessful ones.
+
+. . .
+
+He found that success didn't come from being clever, aggressive, or unpredictable. It came from four surprisingly simple properties.
+
+## Property 1: Be Nice
+
+**Never be the first to defect.**
+
+. . .
+
+Of the top eight strategies in the second tournament, *all eight* were "nice". They were never the first to defect.
+
+. . .
+
+None of the strategies that defected first finished in the top half.
+
+. . .
+
+This seems counterintuitive. Shouldn't you gain an edge by defecting first?
+
+## Why Nice Strategies Win
+
+A nasty strategy can do well **once**, but it then plays *the rest of the game* in a damaged state.
+
+. . .
+
+Once you've defected first, your opponent retaliates. Now you're both locked into defecting, earning 1 per round instead of 3.
+
+. . .
+
+A nice strategy avoids this entirely. Against another nice strategy, it earns 3 per round for all 200 rounds. That adds up.
+
+## Rules Matter
+
+Let's say we ran the same tournament, but didn't add up points. Instead we treated everything like a basketball game, and asked who *won* each pairing.
+
+What's the best strategy to play in that game?
+
+. . .
+
+It's **All D**. It wins every time. But it's often the **worst** strategy using the rules as we've defined them.
+
+. . .
+
+This matters for thinking about what real world situations can be modelled this way.
+
+## Property 2: Be Retaliatory
+
+**Respond to defection quickly.**
+
+. . .
+
+Being nice doesn't mean being a pushover. Strategies that *never* defected (always cooperate) got exploited by anything that defected repeatedly, earning 0 per round instead of 3.
+
+. . .
+
+TFT retaliates *immediately*: defect on me this round, I defect back next round. No delay, no forgiveness yet.
+
+. . .
+
+This makes exploitation unprofitable from the start.
+
+## Property 3: Be Forgiving
+
+**Return to cooperation after you've punished.**
+
+. . .
+
+Strategies that retaliated but never forgave got locked into **mutual defection loops**. They earn 1 per round for the rest of the match. That's almost as bad as being exploited.
+
+. . .
+
+**TFT** forgives immediately: as soon as the opponent cooperates, **TFT** cooperates on the next move.
+
+. . .
+
+Quick retaliation *plus* quick forgiveness keeps punishment short and gets both players back to earning 3 per round.
+
+## Property 4: Be Clear
+
+**Make your strategy legible to your opponent.**
+
+. . .
+
+**TFT** is easy to understand: cooperate first, then mirror whatever your opponent just did. Any opponent can figure this out within a few rounds.
+
+. . .
+
+Many sophisticated strategies were essentially unreadable. Opponents couldn't tell if they were dealing with something cooperative or exploitative.
+
+. . .
+
+When opponents can't figure you out, they defect defensively, and you lose points you could have made through cooperation.
+
+## Don't Be Envious
+
+Axelrod noticed that many people framed the tournament wrong: they tried to **beat** their opponents. Taking that to an extreme, you might play **All D**.
+
+. . .
+
+But **TFT** *never* beats any individual opponent. Against a defector it breaks even; against a cooperator it ties; it only "loses" when the opponent defects first.
+
+. . .
+
+**The goal isn't to beat your opponent. It's to do well across all your matches.**
+
+. . .
+
+A strategy that earns 3 per round against many opponents accumulates more points than one that "wins" against a few while earning 1 per round against everyone else.
+
+## What Happened in Our Tournament?
+
+Looking at our results:
+
+. . .
+
+::: {.incremental}
+- Which strategies finished at the top? Were they nice?
+- Did any hunters outperform the reciprocators overall?
+- What happened when two hunters played *each other*?
+- Would the result change if the field had more of one type?
+:::
+
+## The Deeper Point
+
+Cooperation can emerge from **self-interest alone**: without altruism, central authority, or communication.
+
+. . .
+
+All that's required:
+
+::: {.incremental}
+- The interaction repeats (there's a "shadow of the future")
+- Players can recognize each other's behavior and respond to it
+- A strategy that rewards cooperation and punishes defection is available
+:::
+
+. . .
+
+Axelrod showed this works even in **evolutionary** settings: if successful strategies spread and unsuccessful ones die out, cooperative strategies dominate over time, even starting from a world of defectors.
+
+## For Next Time
+
+Axelrod's work raises as many questions as it answers:
+
+. . .
+
+::: {.nonincremental}
+- Does **TFT** always win, or does it depend on who else is in the field?
+- What happens to cooperation in large populations over time?
+- How does this apply beyond game theory, to arms races, trade, and everyday trust?
+:::

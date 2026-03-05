@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "WebFetch(domain:axelrod.readthedocs.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:pypi.org)"
     ]
   }
 }

@@ -25,7 +25,7 @@ The big question: when your outcome depends on what *other people* do, how shoul
 Game theory turns up everywhere:
 
 - **Ethics**: Is morality a solution to a coordination problem?
-- **Political philosophy**: Why do we need governments? (Hobbes!)
+- **Political philosophy**: Why do we need governments? 
 - **Philosophy of science**: Why do scientists share results?
 - **Social epistemology**: When should we defer to experts?
 
@@ -80,7 +80,7 @@ Three ingredients:
 
 . . .
 
-That's it. The payoff matrix captures all three at once.
+The payoff matrix captures all three at once.
 
 # Classic Games
 
@@ -115,7 +115,7 @@ Think about it from Player 1's perspective:
 
 . . .
 
-No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect---even though both cooperating would be better for everyone!
+No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect---even though both cooperating would be better for everyone.
 
 ## The Dilemma
 
@@ -131,18 +131,6 @@ This tension between individual and collective rationality is one of the deepest
 . . .
 
 We'll come back to this when we discuss **iterated** Prisoner's Dilemma and Axelrod's tournaments.
-
----
-
-## In-Class Activity: Prisoner's Dilemma
-
-[Placeholder for in-class PD activity]
-
-Pair up with your neighbor. You'll play the Prisoner's Dilemma **five times in a row** against the same person.
-
-. . .
-
-Before you start: think about whether you'd play differently knowing you'll see this person again.
 
 ## Coordination Games
 
@@ -161,9 +149,9 @@ Not all games involve conflict. Sometimes the challenge is just to **coordinate*
 
 Neither player wants to mismatch. They just need to pick the same side. This is a **pure coordination game**: both players always get the same payoff.
 
-. . .
+## Coordination Games
 
-Sound familiar? This is basically the Schelling coordination problem we already studied.
+This is basically the Schelling coordination problem we already studied.
 
 ## Battle of the Sexes
 
@@ -289,7 +277,7 @@ An outcome is **Pareto optimal** if there's no other outcome that makes *someone
 . . .
 
 - In the Prisoner's Dilemma, (Cooperate, Cooperate) is Pareto optimal
-- (Defect, Defect) is **not** Pareto optimal---both players could do better!
+- (Defect, Defect) is **not** Pareto optimal---both players could do better
 
 . . .
 
@@ -358,42 +346,12 @@ Find the Nash equilibria:
 
 . . .
 
-- (Up, Left): Player 1 gets 2 (best in column), Player 2 gets 1 (best in row). **Nash equilibrium!**
-- (Down, Right): Player 1 gets 1 (best in column), Player 2 gets 2 (best in row). **Nash equilibrium!**
+- (Up, Left): Player 1 gets 2 (best in column), Player 2 gets 1 (best in row). **Nash equilibrium**
+- (Down, Right): Player 1 gets 1 (best in column), Player 2 gets 2 (best in row). **Nash equilibrium**
 
 . . .
 
-This game has two equilibria. Which one gets played? That's where focal points come back in.
-
-## Nash's Theorem
-
-A landmark result (John Nash, 1951):
-
-> Every game with a finite number of players and actions has at least one Nash equilibrium.
-
-. . .
-
-The catch: it might require **mixed strategies**---randomly choosing between actions.
-
-. . .
-
-In Matching Pennies, the only Nash equilibrium is both players flipping a fair coin (50/50 Heads or Tails). Any predictable pattern can be exploited by the other player.
-
-## Mixed Strategies
-
-Why would a rational person randomize?
-
-. . .
-
-Think about penalty kicks in football. If the kicker always goes left, the goalie will always dive left. The kicker needs to be **unpredictable**.
-
-. . .
-
-More precisely: in a mixed-strategy equilibrium, each player randomizes in a way that makes the *other* player indifferent between their options.
-
-. . .
-
-If you're not indifferent, you'd want to shift your probabilities, and it wouldn't be an equilibrium.
+This game has two equilibria. Which one gets played? That's where focal points come back in. In the gendered examples that are often used to illustrate the game, the focal points are created and sustained by **social norms**.
 
 # Dominated Strategies
 
@@ -425,7 +383,7 @@ Here's a powerful technique. Consider this game:
 
 Step 1: For Player 2, R is dominated by L (or by C). Remove it.
 
-## Iterated Elimination (cont.)
+---
 
 After removing R:
 
@@ -446,7 +404,7 @@ Step 2: Now M is dominated by a mix of U and D. Remove it.
 
 . . .
 
-We've simplified a 3x3 game to 2x2!
+We've simplified a 3x3 game to 2x2.
 
 ## Why This Works
 
@@ -473,7 +431,7 @@ How do these concepts relate?
 - But not every strategy that survives is part of a Nash equilibrium
 - Dominance is a **weaker** requirement: it rules out fewer things
 
-. . .
+## Dominance vs. Nash Equilibrium
 
 Think of it as two levels of analysis:
 
@@ -490,7 +448,6 @@ Think of it as two levels of analysis:
 - Why PD vs. Stag Hunt matters for modeling real situations
 - Solution concepts: Pareto optimality, best response, Nash equilibrium
 - Dominated strategies and iterated elimination
-- Mixed strategies (the idea, if not the math)
 :::
 
 ## What's Coming Next

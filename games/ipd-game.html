@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prisoner's Dilemma Tournament</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-hover: #0b5ed7;
+      --success: #198754;
+      --danger: #dc3545;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 8rem;
+    }
+
+    #connection-banner {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #dc3545;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      z-index: 1000;
+    }
+
+    #main {
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: default;
+      user-select: none;
+    }
+
+    h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.1rem; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      width: 100%;
+    }
+
+    .view { display: none; width: 100%; }
+    .view.active { display: block; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+    .btn-secondary { background: #6c757d; color: white; }
+    .btn-secondary:hover:not(:disabled) { background: #5c636a; }
+    .btn-success { background: var(--success); color: white; }
+    .btn-success:hover:not(:disabled) { background: #157347; }
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      padding: 0;
+      font-size: 0.875rem;
+      text-decoration: underline;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    /* ── Questionnaire ── */
+    .step-indicator {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+      margin-bottom: 0.75rem;
+    }
+
+    .option-grid {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0.85rem 0;
+    }
+    .option-grid.two-col { grid-template-columns: 1fr 1fr; }
+    .option-grid.one-col { grid-template-columns: 1fr; }
+
+    .option-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.875rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: left;
+    }
+    .option-card:hover { border-color: var(--primary); }
+    .option-card.selected { border-color: var(--primary); background: #e8f0fe; }
+    .option-card .option-title { font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem; }
+    .option-card .option-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+    /* ── Strategy cards (step 3) ── */
+    .strategy-cards { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.85rem 0; }
+
+    .strategy-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .strategy-card:hover { border-color: var(--primary); }
+    .strategy-card.selected { border-color: var(--primary); background: #e8f0fe; }
+    .strategy-card .strategy-name { font-weight: 600; font-size: 0.9375rem; }
+    .strategy-card .strategy-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.4; }
+
+    /* ── Form ── */
+    .form-group { margin-top: 1.1rem; }
+    .form-group label { display: block; font-weight: 500; margin-bottom: 0.35rem; font-size: 0.9rem; }
+    .form-group input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.375rem;
+      font-size: 0.9375rem;
+      font-family: var(--font);
+    }
+    .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(13,110,253,0.15); }
+    .form-error { color: var(--danger); font-size: 0.875rem; margin-top: 0.5rem; min-height: 1.2em; }
+    .form-actions { display: flex; gap: 0.75rem; align-items: center; margin-top: 0.9rem; }
+
+    /* ── Waiting ── */
+    .waiting-msg { text-align: center; color: var(--muted); font-size: 0.9375rem; line-height: 1.6; }
+    .your-strategy-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: #e8f0fe;
+      border: 1px solid #bfcffd;
+      border-radius: 0.375rem;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #1a3a8f;
+    }
+    .waiting-count { font-size: 0.875rem; color: var(--muted); text-align: center; margin-top: 0.9rem; }
+
+    /* ── Results ── */
+    .results-header { font-size: 1.15rem; font-weight: 700; text-align: center; margin-bottom: 1rem; }
+
+    .results-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .results-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.775rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .results-table .score-th { text-align: right; }
+    .results-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+    .results-table tr:last-child td { border-bottom: none; }
+    .results-table .rank-cell { color: var(--muted); font-weight: 600; width: 2.25rem; }
+    .results-table .score-cell { font-weight: 600; text-align: right; }
+    .results-table .strategy-cell { font-size: 0.8rem; color: var(--muted); }
+    .results-table tr.top-row td { background: #d1e7dd; color: #0f5132; }
+    .results-table tr.top-row .strategy-cell { color: #1a6644; }
+
+    /* ── Teacher panel ── */
+    #teacher-panel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #1e293b;
+      color: #f1f5f9;
+      border-top: 3px solid #3b82f6;
+      z-index: 500;
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+    #teacher-panel.active { display: block; }
+
+    .teacher-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+    }
+    .teacher-header h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+    .teacher-stats { font-size: 0.875rem; color: #cbd5e1; flex: 1; text-align: center; }
+    .teacher-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .teacher-actions .btn { padding: 0.4rem 0.9rem; font-size: 0.8125rem; }
+
+    .no-subs-msg { padding: 1rem; text-align: center; color: #64748b; font-size: 0.875rem; }
+
+    #teacher-table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
+    #teacher-table th {
+      text-align: left;
+      padding: 0.4rem 1rem;
+      color: #94a3b8;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    #teacher-table td { padding: 0.35rem 1rem; border-top: 1px solid #334155; color: #e2e8f0; }
+  </style>
+</head>
+<body>
+
+<div id="connection-banner">⚠️ Connection lost — reconnecting…</div>
+
+<div id="main">
+  <h1 id="game-title">Prisoner's Dilemma Tournament</h1>
+
+  <!-- ── Loading ── -->
+  <div id="view-loading" class="view active">
+    <div class="card" style="text-align:center; color:var(--muted); padding:2rem;">Connecting…</div>
+  </div>
+
+  <!-- ── Questionnaire ── -->
+  <div id="view-questionnaire" class="view">
+    <div class="card">
+      <div class="step-indicator" id="step-indicator">Step 1 of 3</div>
+
+      <!-- Step 1: TFT vs Hunter -->
+      <div id="step-1">
+        <h2>What kind of strategist are you?</h2>
+        <div class="option-grid two-col">
+          <div class="option-card" data-q1="tft" onclick="selectQ1('tft')">
+            <div class="option-title">Reciprocator</div>
+            <div class="option-desc">React to what your opponent does. Reward cooperation, punish defection.</div>
+          </div>
+          <div class="option-card" data-q1="hunter" onclick="selectQ1('hunter')">
+            <div class="option-title">Pattern Hunter</div>
+            <div class="option-desc">Probe your opponent to figure out what kind of player they are, then exploit it.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2a: Forgiveness (TFT) -->
+      <div id="step-2a" style="display:none;">
+        <h2>How forgiving are you?</h2>
+        <div class="option-grid one-col">
+          <div class="option-card" data-q2="veryForgiving" onclick="selectQ2('veryForgiving')">
+            <div class="option-title">Very forgiving</div>
+            <div class="option-desc">Occasional defections don't bother me much. I give opponents plenty of rope.</div>
+          </div>
+          <div class="option-card" data-q2="standard" onclick="selectQ2('standard')">
+            <div class="option-title">Standard</div>
+            <div class="option-desc">I mirror what the opponent does — cooperate for cooperate, defect for defect.</div>
+          </div>
+          <div class="option-card" data-q2="strict" onclick="selectQ2('strict')">
+            <div class="option-title">Strict</div>
+            <div class="option-desc">I punish defection firmly and take a while to let it go.</div>
+          </div>
+          <div class="option-card" data-q2="unforgiving" onclick="selectQ2('unforgiving')">
+            <div class="option-title">Unforgiving</div>
+            <div class="option-desc">Once you've betrayed me, I'm done cooperating. I never forget.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2b: Hunter type -->
+      <div id="step-2b" style="display:none;">
+        <h2>What are you hunting for?</h2>
+        <div class="option-grid one-col">
+          <div class="option-card" data-q2="exploitable" onclick="selectQ2('exploitable')">
+            <div class="option-title">Exploitable cooperators</div>
+            <div class="option-desc">I want to find opponents who won't fight back, so I can safely defect on them.</div>
+          </div>
+          <div class="option-card" data-q2="patterns" onclick="selectQ2('patterns')">
+            <div class="option-title">Predictable patterns</div>
+            <div class="option-desc">I want to detect opponents playing a fixed, mechanical strategy and outmaneuver them.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Pick a strategy -->
+      <div id="step-3" style="display:none;">
+        <h2>Choose your strategy</h2>
+        <div class="strategy-cards" id="strategy-cards"></div>
+        <div class="form-group">
+          <label for="input-name">Your name</label>
+          <input type="text" id="input-name" maxlength="50" placeholder="Enter your name" autocomplete="off" />
+        </div>
+        <div class="form-error" id="form-error"></div>
+        <div class="form-actions">
+          <button class="btn btn-primary" id="submit-btn" onclick="submitSelection()">Join Tournament</button>
+          <button class="btn btn-link" onclick="goBack()">← Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Waiting ── -->
+  <div id="view-waiting" class="view">
+    <div class="card" style="text-align:center;">
+      <p class="waiting-msg">
+        Your strategy has been chosen.<br>
+        Waiting for the instructor to start the tournament…
+      </p>
+      <div id="your-strategy-display"></div>
+      <p class="waiting-count" id="waiting-count"></p>
+    </div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div id="view-results" class="view">
+    <div class="card">
+      <div class="results-header">Tournament Results 🏆</div>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th class="rank-cell">#</th>
+            <th>Name</th>
+            <th>Strategy</th>
+            <th class="score-th">Score</th>
+          </tr>
+        </thead>
+        <tbody id="results-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /#main -->
+
+<!-- ── Teacher Panel ── -->
+<div id="teacher-panel">
+  <div class="teacher-header">
+    <h3>Teacher Console</h3>
+    <div class="teacher-stats" id="teacher-stats">No selections yet</div>
+    <div class="teacher-actions">
+      <button class="btn btn-success" id="btn-run" disabled>Run Tournament</button>
+      <button class="btn btn-secondary" id="btn-reset">New Round</button>
+    </div>
+  </div>
+  <div id="teacher-table-wrapper">
+    <div class="no-subs-msg" id="teacher-no-subs">Waiting for students to select strategies…</div>
+    <table id="teacher-table" style="display:none;">
+      <thead><tr><th>Name</th><th>Strategy</th></tr></thead>
+      <tbody id="teacher-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+<script>
+'use strict';
+
+// ─── Firebase config (shared project) ───────────────────────
+const firebaseConfig = {
+  apiKey: "AIzaSyBm92jyPflQ_L-lTsm5qNG9d1sWvQ6RAXY",
+  authDomain: "guessing-game-f3929.firebaseapp.com",
+  databaseURL: "https://guessing-game-f3929-default-rtdb.firebaseio.com",
+  projectId: "guessing-game-f3929",
+  storageBucket: "guessing-game-f3929.firebasestorage.app",
+  messagingSenderId: "196518034015",
+  appId: "1:196518034015:web:030c5a47eac926785279ea"
+};
+
+const TEACHER_PASSWORD = 'ipd';
+
+// ─── App State ───────────────────────────────────────────────
+const AppState = {
+  db: null,
+  isTeacher: false,
+  currentRound: null,
+  gamePhase: null,
+  stateData: null,
+  allSelections: [],
+  studentSubmitted: false,
+  // Questionnaire
+  q1: null,
+  q2: null,
+  selectedStrategy: null,
+};
+
+// ─── Strategy Metadata ───────────────────────────────────────
+const STRATEGIES = {
+  tft: {
+    name: 'Tit for Tat',
+    description: 'Cooperates first, then copies whatever the opponent did last round.',
+  },
+  tft2: {
+    name: 'Tit for Two Tats',
+    description: 'Only retaliates after two consecutive defections — very tolerant of the occasional slip.',
+  },
+  gtft: {
+    name: 'Generous TFT',
+    description: 'Plays like Tit for Tat, but randomly forgives about one in ten defections.',
+  },
+  softGrudger: {
+    name: 'Soft Grudger',
+    description: 'Punishes each defection with four defections in a row, then forgives and resets.',
+  },
+  omegaTFT: {
+    name: 'Omega TFT',
+    description: 'Tracks how volatile and cooperative the opponent has been, adjusting its tolerance accordingly.',
+  },
+  twoTFT: {
+    name: 'Two Tits for Tat',
+    description: 'Defects for the next two rounds after any single opponent defection.',
+  },
+  hardTFT: {
+    name: 'Hard TFT',
+    description: 'Defects if the opponent defected at any point in the last three rounds.',
+  },
+  grudger: {
+    name: 'Grudger',
+    description: 'Cooperates until the first defection — then defects for the rest of the match. No second chances.',
+  },
+  spitefulTFT: {
+    name: 'Spiteful TFT',
+    description: 'Like Grudger, but requires two consecutive defections before locking into permanent retaliation.',
+  },
+  cooperatorHunter: {
+    name: 'Cooperator Hunter',
+    description: 'Cooperates for a few rounds to test the water. If the opponent has only ever cooperated, exploits them forever.',
+  },
+  prober: {
+    name: 'Prober',
+    description: 'Opens with D, C, C to test for exploitability. Defects forever if the test passes; otherwise plays Tit for Tat.',
+  },
+  hardProber: {
+    name: 'Hard Prober',
+    description: 'A more aggressive Prober — opens with D, D, C, C and applies the same exploit-or-TFT logic.',
+  },
+  alternatorHunter: {
+    name: 'Alternator Hunter',
+    description: 'Watches for opponents who strictly alternate C and D. Once detected, exploits the predictability.',
+  },
+  cycleHunter: {
+    name: 'Cycle Hunter',
+    description: 'Scans for any repeating cycle of length 2–5 in the opponent\'s moves. Defects once a pattern is confirmed.',
+  },
+  defectorHunter: {
+    name: 'Defector Hunter',
+    description: 'Watches for opponents who do nothing but defect. Once confirmed, stops cooperating and matches them.',
+  },
+};
+
+// ─── Questionnaire Buckets ───────────────────────────────────
+const BUCKETS = {
+  tft: {
+    veryForgiving: ['tft2', 'gtft'],
+    standard:      ['tft', 'omegaTFT'],
+    strict:        ['twoTFT', 'hardTFT', 'softGrudger'],
+    unforgiving:   ['grudger', 'spitefulTFT'],
+  },
+  hunter: {
+    exploitable: ['cooperatorHunter', 'prober', 'hardProber'],
+    patterns:    ['alternatorHunter', 'cycleHunter', 'defectorHunter'],
+  },
+};
+
+// ─── Strategy Functions ──────────────────────────────────────
+// Signature: (myHistory, oppHistory) => 'C' | 'D'
+// Histories are arrays of 'C'/'D' accumulated during a match.
+const STRATEGY_FNS = {
+
+  tft: (my, opp) => {
+    if (opp.length === 0) return 'C';
+    return opp[opp.length - 1];
+  },
+
+  tft2: (my, opp) => {
+    if (opp.length < 2) return 'C';
+    if (opp[opp.length - 1] === 'D' && opp[opp.length - 2] === 'D') return 'D';
+    return 'C';
+  },
+
+  gtft: (my, opp) => {
+    if (opp.length === 0) return 'C';
+    if (opp[opp.length - 1] === 'D') return Math.random() < 0.1 ? 'C' : 'D';
+    return 'C';
+  },
+
+  softGrudger: (my, opp) => {
+    if (opp.length === 0) return 'C';
+    // Find most recent defection; punish for 4 rounds, then forgive
+    let lastD = -1;
+    for (let i = opp.length - 1; i >= 0; i--) {
+      if (opp[i] === 'D') { lastD = i; break; }
+    }
+    if (lastD === -1) return 'C';
+    const roundsSince = opp.length - 1 - lastD;
+    return roundsSince < 4 ? 'D' : 'C';
+  },
+
+  omegaTFT: (my, opp) => {
+    // Tracks cooperation momentum and deadlock.
+    // Cooperates to break deadlock cycles; otherwise responds to cooperation level.
+    if (opp.length === 0) return 'C';
+    const DEADLOCK = 3, NOISE = 8;
+    let coopCount = 3, deadCount = 3;
+    for (let i = 0; i < opp.length; i++) {
+      coopCount = Math.max(0, Math.min(NOISE, coopCount + (opp[i] === 'C' ? 1 : -1)));
+      deadCount = Math.max(0, Math.min(NOISE, deadCount + (my[i] !== opp[i] ? 1 : -1)));
+    }
+    if (deadCount >= DEADLOCK) return 'C';
+    return coopCount > 0 ? 'C' : 'D';
+  },
+
+  twoTFT: (my, opp) => {
+    if (opp.length === 0) return 'C';
+    if (opp.length === 1) return opp[0] === 'D' ? 'D' : 'C';
+    if (opp[opp.length - 1] === 'D' || opp[opp.length - 2] === 'D') return 'D';
+    return 'C';
+  },
+
+  hardTFT: (my, opp) => {
+    if (opp.length === 0) return 'C';
+    return opp.slice(-3).includes('D') ? 'D' : 'C';
+  },
+
+  grudger: (my, opp) => {
+    return opp.includes('D') ? 'D' : 'C';
+  },
+
+  spitefulTFT: (my, opp) => {
+    // Triggered by two consecutive defections; then defects forever
+    for (let i = 1; i < opp.length; i++) {
+      if (opp[i] === 'D' && opp[i - 1] === 'D') return 'D';
+    }
+    if (opp.length === 0) return 'C';
+    return opp[opp.length - 1]; // TFT until triggered
+  },
+
+  cooperatorHunter: (my, opp) => {
+    if (opp.length < 4) return 'C';
+    return opp.every(m => m === 'C') ? 'D' : 'C';
+  },
+
+  prober: (my, opp) => {
+    // Opener: D, C, C
+    if (opp.length === 0) return 'D';
+    if (opp.length === 1) return 'C';
+    if (opp.length === 2) return 'C';
+    // If opponent cooperated in rounds 2 & 3 (responded to our C, C with C, C) → exploit
+    if (opp[1] === 'C' && opp[2] === 'C') return 'D';
+    return opp[opp.length - 1]; // else TFT
+  },
+
+  hardProber: (my, opp) => {
+    // Opener: D, D, C, C
+    if (opp.length === 0) return 'D';
+    if (opp.length === 1) return 'D';
+    if (opp.length === 2) return 'C';
+    if (opp.length === 3) return 'C';
+    // If opponent cooperated in rounds 3 & 4 → exploit
+    if (opp[2] === 'C' && opp[3] === 'C') return 'D';
+    return opp[opp.length - 1]; // else TFT
+  },
+
+  alternatorHunter: (my, opp) => {
+    if (opp.length < 6) return 'C';
+    const isAlt = opp.every((m, i) => i === 0 || m !== opp[i - 1]);
+    return isAlt ? 'D' : 'C';
+  },
+
+  cycleHunter: (my, opp) => {
+    if (opp.length < 6) return 'C';
+    for (let len = 2; len <= 5; len++) {
+      if (opp.length < len * 2) continue;
+      const cycle  = opp.slice(-len * 2, -len).join('');
+      const repeat = opp.slice(-len).join('');
+      if (cycle === repeat) return 'D';
+    }
+    return 'C';
+  },
+
+  defectorHunter: (my, opp) => {
+    if (opp.length < 4) return 'C';
+    return opp.every(m => m === 'D') ? 'D' : 'C';
+  },
+};
+
+// ─── Tournament Runner ───────────────────────────────────────
+function runTournament(entries) {
+  const ROUNDS = 200;
+  const PAYOFF = { CC: [3, 3], CD: [0, 5], DC: [5, 0], DD: [1, 1] };
+  const scores = {};
+  entries.forEach(e => { scores[e.pushKey] = 0; });
+
+  for (let i = 0; i < entries.length; i++) {
+    for (let j = i + 1; j < entries.length; j++) {
+      const a = entries[i], b = entries[j];
+      const fnA = STRATEGY_FNS[a.strategyKey];
+      const fnB = STRATEGY_FNS[b.strategyKey];
+      if (!fnA || !fnB) continue;
+
+      const hA = [], hB = [];
+      for (let r = 0; r < ROUNDS; r++) {
+        const mA = fnA(hA, hB);
+        const mB = fnB(hB, hA);
+        const [pA, pB] = PAYOFF[mA + mB];
+        scores[a.pushKey] += pA;
+        scores[b.pushKey] += pB;
+        hA.push(mA);
+        hB.push(mB);
+      }
+    }
+  }
+
+  return entries
+    .map(e => ({
+      name:         e.name,
+      strategyKey:  e.strategyKey,
+      strategyName: STRATEGIES[e.strategyKey]?.name || e.strategyKey,
+      score:        scores[e.pushKey] || 0,
+    }))
+    .sort((a, b) => b.score - a.score);
+}
+
+// ─── Utilities ───────────────────────────────────────────────
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function showView(id) {
+  const next = document.getElementById('view-' + id);
+  const wasActive = next.classList.contains('active');
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  next.classList.add('active');
+  // Only reset questionnaire when transitioning TO it from another view
+  if (id === 'questionnaire' && !wasActive) resetQuestionnaire();
+}
+
+// ─── Questionnaire Logic ─────────────────────────────────────
+function resetQuestionnaire() {
+  AppState.q1 = null;
+  AppState.q2 = null;
+  AppState.selectedStrategy = null;
+  document.getElementById('step-1').style.display = 'block';
+  document.getElementById('step-2a').style.display = 'none';
+  document.getElementById('step-2b').style.display = 'none';
+  document.getElementById('step-3').style.display = 'none';
+  document.getElementById('step-indicator').textContent = 'Step 1 of 3';
+  document.getElementById('form-error').textContent = '';
+  // Don't clear name — convenient for returning students
+  document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
+}
+
+function selectQ1(val) {
+  AppState.q1 = val;
+  AppState.q2 = null;
+  AppState.selectedStrategy = null;
+  document.querySelectorAll('[data-q1]').forEach(el =>
+    el.classList.toggle('selected', el.dataset.q1 === val));
+  document.getElementById('step-1').style.display = 'none';
+  document.getElementById('step-2a').style.display = val === 'tft'    ? 'block' : 'none';
+  document.getElementById('step-2b').style.display = val === 'hunter' ? 'block' : 'none';
+  document.getElementById('step-indicator').textContent = 'Step 2 of 3';
+}
+
+function selectQ2(val) {
+  AppState.q2 = val;
+  AppState.selectedStrategy = null;
+  document.getElementById('step-2a').style.display = 'none';
+  document.getElementById('step-2b').style.display = 'none';
+  document.getElementById('step-indicator').textContent = 'Step 3 of 3';
+  document.getElementById('form-error').textContent = '';
+  renderStrategyCards();
+  document.getElementById('step-3').style.display = 'block';
+}
+
+function renderStrategyCards() {
+  const bucket = (BUCKETS[AppState.q1] || {})[AppState.q2] || [];
+  const container = document.getElementById('strategy-cards');
+  container.innerHTML = bucket.map(key => {
+    const s = STRATEGIES[key];
+    if (!s) return '';
+    return `
+      <div class="strategy-card" data-key="${escHtml(key)}" onclick="selectStrategy('${escHtml(key)}')">
+        <div class="strategy-name">${escHtml(s.name)}</div>
+        <div class="strategy-desc">${escHtml(s.description)}</div>
+      </div>`;
+  }).join('');
+}
+
+function selectStrategy(key) {
+  AppState.selectedStrategy = key;
+  document.querySelectorAll('.strategy-card').forEach(el =>
+    el.classList.toggle('selected', el.dataset.key === key));
+}
+
+function goBack() {
+  AppState.q2 = null;
+  AppState.selectedStrategy = null;
+  document.getElementById('step-3').style.display = 'none';
+  document.getElementById('step-2a').style.display = AppState.q1 === 'tft'    ? 'block' : 'none';
+  document.getElementById('step-2b').style.display = AppState.q1 === 'hunter' ? 'block' : 'none';
+  document.getElementById('step-indicator').textContent = 'Step 2 of 3';
+}
+
+async function submitSelection() {
+  const errorEl = document.getElementById('form-error');
+  errorEl.textContent = '';
+
+  if (!AppState.selectedStrategy) {
+    errorEl.textContent = 'Please choose a strategy above.';
+    return;
+  }
+  const name = document.getElementById('input-name').value.trim();
+  if (!name) {
+    errorEl.textContent = 'Please enter your name.';
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    await AppState.db.ref('/ipd/selections').push({
+      name,
+      strategyKey: AppState.selectedStrategy,
+      round: AppState.currentRound,
+      submitted_at: firebase.database.ServerValue.TIMESTAMP,
+    });
+    localStorage.setItem('ipdSubmittedRound',    String(AppState.currentRound));
+    localStorage.setItem('ipdSelectedStrategy', AppState.selectedStrategy);
+    AppState.studentSubmitted = true;
+    renderWaitingBadge();
+    showView('waiting');
+  } catch (err) {
+    errorEl.textContent = 'Failed to submit. Please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Join Tournament';
+  }
+}
+
+// ─── Render Functions ────────────────────────────────────────
+function renderView() {
+  const { gamePhase, studentSubmitted, stateData } = AppState;
+
+  if (gamePhase === 'selecting') {
+    if (studentSubmitted) {
+      renderWaitingBadge();
+      showView('waiting');
+    } else {
+      showView('questionnaire');
+    }
+  } else if (gamePhase === 'results') {
+    if (stateData && stateData.results) {
+      renderResults(stateData.results.rankings);
+      showView('results');
+    } else {
+      showView('waiting');
+    }
+  }
+
+  if (AppState.isTeacher) {
+    document.getElementById('teacher-panel').classList.add('active');
+    renderTeacherPanel();
+  }
+}
+
+function renderWaitingBadge() {
+  const stratKey  = AppState.selectedStrategy || localStorage.getItem('ipdSelectedStrategy');
+  const stratName = STRATEGIES[stratKey]?.name;
+  const el = document.getElementById('your-strategy-display');
+  el.innerHTML = stratName
+    ? `<span class="your-strategy-badge">Your strategy: ${escHtml(stratName)}</span>`
+    : '';
+}
+
+function renderWaitingCount() {
+  const n = AppState.allSelections.length;
+  const el = document.getElementById('waiting-count');
+  if (el) {
+    el.textContent = n > 0
+      ? `${n} student${n !== 1 ? 's' : ''} ha${n !== 1 ? 've' : 's'} joined.`
+      : '';
+  }
+}
+
+function renderResults(rankings) {
+  const tbody = document.getElementById('results-tbody');
+  if (!rankings || !rankings.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);">No results yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rankings.map((r, i) => `
+    <tr class="${i === 0 ? 'top-row' : ''}">
+      <td class="rank-cell">${i + 1}</td>
+      <td>${escHtml(r.name)}${i === 0 ? ' 🏆' : ''}</td>
+      <td class="strategy-cell">${escHtml(r.strategyName)}</td>
+      <td class="score-cell">${r.score.toLocaleString()}</td>
+    </tr>`).join('');
+}
+
+function renderTeacherPanel() {
+  if (!AppState.isTeacher) return;
+  const subs   = AppState.allSelections;
+  const n      = subs.length;
+  const statsEl  = document.getElementById('teacher-stats');
+  const noSubsEl = document.getElementById('teacher-no-subs');
+  const tableEl  = document.getElementById('teacher-table');
+  const tbody    = document.getElementById('teacher-tbody');
+  const runBtn   = document.getElementById('btn-run');
+
+  if (n === 0) {
+    statsEl.textContent = 'No selections yet';
+    noSubsEl.style.display = 'block';
+    tableEl.style.display  = 'none';
+    runBtn.disabled = true;
+    return;
+  }
+
+  statsEl.textContent = `${n} student${n !== 1 ? 's' : ''} ready`;
+  runBtn.disabled = (n < 2 || AppState.gamePhase === 'results');
+  noSubsEl.style.display = 'none';
+  tableEl.style.display  = 'table';
+
+  const sorted = [...subs].sort((a, b) => a.name.localeCompare(b.name));
+  tbody.innerHTML = sorted.map(s => `
+    <tr>
+      <td>${escHtml(s.name)}</td>
+      <td>${escHtml(STRATEGIES[s.strategyKey]?.name || s.strategyKey)}</td>
+    </tr>`).join('');
+}
+
+// ─── Teacher Mode ────────────────────────────────────────────
+function activateTeacherMode() {
+  AppState.isTeacher = true;
+  localStorage.setItem('isTeacher_ipd', 'true');
+  document.getElementById('teacher-panel').classList.add('active');
+  renderTeacherPanel();
+}
+
+// 5-click title fallback
+let titleClicks = 0, titleTimer = null;
+document.getElementById('game-title').addEventListener('click', () => {
+  if (AppState.isTeacher) return;
+  titleClicks++;
+  clearTimeout(titleTimer);
+  titleTimer = setTimeout(() => { titleClicks = 0; }, 2000);
+  if (titleClicks >= 5) {
+    titleClicks = 0;
+    const pw = prompt('Enter teacher password:');
+    if (pw === TEACHER_PASSWORD) activateTeacherMode();
+    else if (pw !== null) alert('Incorrect password.');
+  }
+});
+
+// Teacher — Run Tournament
+document.getElementById('btn-run').addEventListener('click', async () => {
+  const entries = AppState.allSelections;
+  if (entries.length < 2) { alert('Need at least 2 players to run a tournament.'); return; }
+
+  const runBtn = document.getElementById('btn-run');
+  runBtn.disabled = true;
+  runBtn.textContent = 'Running…';
+
+  try {
+    const rankings = runTournament(entries);
+    await AppState.db.ref('/ipd/state').set({
+      phase:   'results',
+      round:   AppState.currentRound,
+      results: { rankings },
+    });
+  } catch (err) {
+    alert('Error running tournament: ' + err.message);
+    runBtn.disabled = false;
+    runBtn.textContent = 'Run Tournament';
+  }
+});
+
+// Teacher — New Round
+document.getElementById('btn-reset').addEventListener('click', async () => {
+  if (!confirm('Start a new round? Students will return to strategy selection.')) return;
+  const newRound = (AppState.currentRound || 1) + 1;
+  try {
+    await AppState.db.ref('/ipd/state').set({
+      phase:   'selecting',
+      round:   newRound,
+      results: null,
+    });
+    document.getElementById('btn-run').textContent = 'Run Tournament';
+  } catch (err) {
+    alert('Error resetting: ' + err.message);
+  }
+});
+
+// ─── Firebase Init & Listeners ───────────────────────────────
+firebase.initializeApp(firebaseConfig);
+AppState.db = firebase.database();
+
+const stateRef      = AppState.db.ref('/ipd/state');
+const selectionsRef = AppState.db.ref('/ipd/selections');
+
+// Connection banner
+AppState.db.ref('.info/connected').on('value', snap => {
+  document.getElementById('connection-banner').style.display =
+    snap.val() ? 'none' : 'block';
+});
+
+// State listener
+stateRef.on('value', snapshot => {
+  const state = snapshot.val();
+  if (!state) {
+    stateRef.set({ phase: 'selecting', round: 1, results: null });
+    return;
+  }
+  AppState.stateData   = state;
+  AppState.currentRound = state.round || 1;
+  AppState.gamePhase    = state.phase  || 'selecting';
+
+  const submittedRound = parseInt(localStorage.getItem('ipdSubmittedRound') || '0', 10);
+  AppState.studentSubmitted = (submittedRound === AppState.currentRound);
+
+  renderView();
+});
+
+// Selections listener
+selectionsRef.on('value', snapshot => {
+  const all = snapshot.val() || {};
+  AppState.allSelections = Object.entries(all)
+    .map(([pushKey, val]) => ({ pushKey, ...val }))
+    .filter(s => s.round === AppState.currentRound);
+
+  renderWaitingCount();
+  renderTeacherPanel();
+});
+
+// Teacher mode: URL param or localStorage
+const params = new URLSearchParams(window.location.search);
+if (params.get('teacher') === TEACHER_PASSWORD ||
+    localStorage.getItem('isTeacher_ipd') === 'true') {
+  activateTeacherMode();
+}
+</script>
+</body>
+</html>

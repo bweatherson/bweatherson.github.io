@@ -30,7 +30,7 @@ In a sequential game, the later mover can *see* what happened before deciding.
 
 . . .
 
-This might seem like it always helps the later mover (more information!), but it turns out the **first mover** often has the advantage---because they can shape the situation the later mover faces.
+This might seem like it always helps the later mover (more information), but it turns out the **first mover** often has the advantage---because they can shape the situation the later mover faces.
 
 ## Game Trees
 
@@ -39,15 +39,15 @@ We represent sequential games with **game trees** (also called the "extensive fo
 . . .
 
 ```
-        1
-       / \
-      A   B
-     /     \
-    2       2
-   / \     / \
-  C   D   E   F
-  |   |   |   |
-(3,8)(8,3)(5,5)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+    2           2
+   / \         / \
+  C   D       E   F
+ /     \     /     \
+(3,8)(8,3) (5,5) (2,10)
 ```
 
 . . .
@@ -59,15 +59,15 @@ We represent sequential games with **game trees** (also called the "extensive fo
 ## Reading the Tree
 
 ```
-        1
-       / \
-      A   B
-     /     \
-    2       2
-   / \     / \
-  C   D   E   F
-  |   |   |   |
-(3,8)(8,3)(5,5)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+    2           2
+   / \         / \
+  C   D       E   F
+ /     \     /     \
+(3,8)(8,3) (5,5) (2,10)
 ```
 
 . . .
@@ -96,15 +96,15 @@ A brother and sister are dividing two identical presents.
 ## The Game Tree
 
 ```
-           Brother
-         /    |    \
-      2-0    1-1   0-2
-       |      |      |
-     Sister Sister Sister
-     / \    / \    / \
-   Yes No Yes No  Yes No
-    |   |   |   |   |   |
-  (2,0)(0,0)(1,1)(0,0)(0,2)(0,0)
+            Brother
+         /     |     \
+      2-0     1-1    0-2
+       |       |       |
+     Sister  Sister  Sister
+     / \      / \     / \
+   Yes  No  Yes No   Yes No
+   |     |   |   |    |   |
+ (2,0)(0,0)(1,1)(0,0)(0,2)(0,0)
 ```
 
 . . .
@@ -115,21 +115,6 @@ What will the sister do at each decision point?
 
 What should the brother propose, knowing what the sister will do?
 
----
-
-## In-Class Activity: The Sharing Game
-
-[Placeholder for in-class activity]
-
-Let's play this. Pair up---one person is the brother, one is the sister.
-
-. . .
-
-::: {.nonincremental}
-1. Play the game three times, switching roles.
-2. Did anyone propose 2-0? Did anyone accept it?
-3. Did the actual outcomes match what "rational" players would do?
-:::
 
 # Backward Induction
 
@@ -152,15 +137,15 @@ The logic:
 ## Example
 
 ```
-        1
-       / \
-      A   B
-     /     \
-    2       2
-   / \     / \
-  C   D   E   F
-  |   |   |   |
-(3,8)(8,3)(5,5)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+    2           2
+   / \         / \
+  C   D       E   F
+ /     \     /     \
+(3,8)(8,3) (5,5) (2,10)
 ```
 
 . . .
@@ -175,11 +160,11 @@ The logic:
 Knowing Player 2's choices, the tree simplifies to:
 
 ```
-        1
-       / \
-      A   B
-      |   |
-     (3,8)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+  (3,8)       (2,10)
 ```
 
 . . .
@@ -197,15 +182,15 @@ Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 e
 ## Back to the Sharing Game
 
 ```
-           Brother
-         /    |    \
-      2-0    1-1   0-2
-       |      |      |
-     Sister Sister Sister
-     / \    / \    / \
-   Yes No Yes No  Yes No
-    |   |   |   |   |   |
-  (2,0)(0,0)(1,1)(0,0)(0,2)(0,0)
+            Brother
+         /     |     \
+      2-0     1-1    0-2
+       |       |       |
+     Sister  Sister  Sister
+     / \      / \     / \
+   Yes  No  Yes No   Yes No
+   |     |   |   |    |   |
+ (2,0)(0,0)(1,1)(0,0)(0,2)(0,0)
 ```
 
 . . .
@@ -251,24 +236,28 @@ But there's a problem. Some Nash equilibria involve **threats that aren't credib
 ## An Example of an Empty Threat
 
 ```
-        1
-       / \
-      A   B
-     /     \
-    2       2
-   / \     / \
-  C   D   E   F
-  |   |   |   |
-(3,8)(8,3)(5,5)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+    2           2
+   / \         / \
+  C   D       E   F
+ /     \     /     \
+(3,8)(8,3) (5,5) (2,10)
 ```
 
 . . .
 
-Here's a Nash equilibrium: Player 1 plays A, Player 2 plays "C if A, **E if B**."
+Here's a Nash equilibrium
+
+- Player 1 plays A, Player 2 plays "C if A, **E if B**."
 
 . . .
 
-Player 2 is essentially saying: "Don't play B, or I'll play E instead of F." But wait---if Player 1 *did* play B, would Player 2 really choose E (payoff 5) over F (payoff 10)?
+Player 2 is essentially saying: "Don't play B, or I'll play E instead of F." 
+
+But if Player 1 *did* play B, would Player 2 really choose E (payoff 5) over F (payoff 10)?
 
 . . .
 
@@ -277,26 +266,30 @@ Player 2 is essentially saying: "Don't play B, or I'll play E instead of F." But
 ## Why This Matters
 
 ```
-        1
-       / \
-      A   B
-     /     \
-    2       2
-   / \     / \
-  C   D   E   F
-  |   |   |   |
-(3,8)(8,3)(5,5)(2,10)
+          1
+       /     \
+      A       B
+     /         \
+    2           2
+   / \         / \
+  C   D       E   F
+ /     \     /     \
+(3,8)(8,3) (5,5) (2,10)
 ```
 
-Here's another Nash equilibrium: Player 1 plays B, Player 2 plays "**D** if A, F if B."
+Here's another Nash equilibrium: 
+
+- Player 1 plays B, Player 2 plays "**D** if A, F if B."
 
 . . .
 
-Player 1 gets 2, Player 2 gets 10. Player 2 is threatening: "If you play A, I'll play D (bad for you)."
+Player 1 gets 2, Player 2 gets 10. 
+
+Player 2 is threatening: "If you play A, I'll play D (bad for you)."
 
 . . .
 
-But this is also an empty threat! If Player 1 played A, Player 2 would prefer C (payoff 8) to D (payoff 3).
+But this is also an empty threat. If Player 1 played A, Player 2 would prefer C (payoff 8) to D (payoff 3).
 
 ## Subgame-Perfect Equilibrium
 
@@ -304,7 +297,7 @@ To rule out empty threats, we need a stronger concept: **subgame-perfect equilib
 
 . . .
 
-The idea: a strategy profile is subgame-perfect if it's a Nash equilibrium in *every* subgame---including subgames that wouldn't actually be reached.
+The idea: a strategy profile is subgame-perfect if it's a Nash equilibrium in *every* subgame, including subgames that wouldn't actually be reached.
 
 . . .
 
@@ -318,11 +311,13 @@ Here's the key insight:
 
 . . .
 
-In our example, the only SPE is: Player 1 plays A, Player 2 plays "C if A, F if B."
+In our example, the only SPE is: 
+
+- Player 1 plays A, Player 2 plays "C if A, F if B."
 
 . . .
 
-Player 2 plays the best response at *every* point in the tree, even at points that won't be reached. That's what makes the threat credible---or rather, it's what ensures there are no incredible threats.
+Player 2 plays the best response at *every* point in the tree, even at points that won't be reached. That's what makes the threat credible.
 
 ## Why "Credible Threats" Matter
 
@@ -469,33 +464,7 @@ For this class, the key takeaway is:
 | **Main idea** | Best response | Backward induction |
 | **Weakness** | Multiple equilibria | Extreme rationality assumptions |
 
-## Discussion: The Trust Game
 
-Here's a simple game to think about:
-
-. . .
-
-1. Player 1 has \$10. They can **send** some amount (say, \$5) to Player 2, or keep it all.
-2. Whatever is sent gets **tripled** (so Player 2 receives \$15).
-3. Player 2 can then send some amount back to Player 1, or keep it all.
-
-. . .
-
-::: {.nonincremental}
-- What does backward induction predict?
-- What do you think would actually happen?
-- How does this relate to the PD vs. Stag Hunt distinction from last time?
-:::
-
----
-
-## In-Class Activity: The Trust Game
-
-[Placeholder for in-class Trust Game activity]
-
-. . .
-
-Let's play a few rounds. We'll track what people actually do and compare to the backward induction prediction.
 
 ## Philosophical Upshot
 
@@ -512,7 +481,7 @@ Game theory gives us these clean, precise predictions. But real humans:
 
 . . .
 
-This doesn't mean game theory is wrong---it means the simple payoff numbers don't capture everything people value. **Reputation, fairness, and social norms** matter too.
+This creates some challenges for what to do about 
 
 ## Looking Ahead
 
