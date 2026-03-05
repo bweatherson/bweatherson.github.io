@@ -1,6 +1,12 @@
 ---
 title: "Conditional Probability"
 date: "3/16/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 
+            - 305-beamer-header-minimal-no-trees.tex
 ---
 
 # Introduction
@@ -14,46 +20,6 @@ date: "3/16/2026"
 ### Associated Reading
 
 *Odds and Ends*, Chapter 6
-
-## Recall: The Tournament
-
-Last time we worked out win probabilities for the soccer tournament. The results were:
-
-| Winner     | Runner-Up  | Approx Prob |
-|:-----------|:-----------|:-----------:|
-| Fireflies  | Huskies    | 0.260       |
-| Huskies    | Fireflies  | 0.156       |
-| Fireflies  | Bluebirds  | 0.116       |
-| Bluebirds  | Fireflies  | 0.023       |
-| Penguins   | Huskies    | 0.190       |
-| Huskies    | Penguins   | 0.143       |
-| Penguins   | Bluebirds  | 0.089       |
-| Bluebirds  | Penguins   | 0.022       |
-
-## Win Probabilities
-
-Adding up the rows, the overall probability each team wins is:
-
-| Team      | Win Probability |
-|:----------|:---------------:|
-| Fireflies | 0.376           |
-| Huskies   | 0.299           |
-| Penguins  | 0.279           |
-| Bluebirds | 0.045           |
-
-## A New Question
-
-Those are *unconditional* probabilities — how likely each team is to win, knowing nothing about how the games go.
-
-. . .
-
-But suppose we learn something. Suppose the Fireflies have won. Then:
-
-- What is the probability the Huskies were runners-up?
-
-. . .
-
-This is a **conditional probability** question.
 
 ## What Conditional Probability Is
 
@@ -83,23 +49,6 @@ $$
 - The left-hand side means "the probability of $A$ given $B$."
 - The right-hand side: the probability of both $A$ and $B$ being true, divided by the probability of $B$.
 
-## The Fireflies Example
-
-$$
-\Pr(\text{Huskies runners-up} \mid \text{Fireflies win}) = \frac{\Pr(\text{Huskies runners-up} \wedge \text{Fireflies win})}{\Pr(\text{Fireflies win})}
-$$
-
-. . .
-
-From the table:
-
-- $\Pr(\text{Fireflies win} \wedge \text{Huskies runners-up}) = 0.260$
-- $\Pr(\text{Fireflies win}) = 0.376$
-
-$$
-\Pr(\text{Huskies runners-up} \mid \text{Fireflies win}) = \frac{0.260}{0.376} \approx 0.691
-$$
-
 ## Why This Formula?
 
 Intuitively: conditioning on $B$ means we restrict attention to the cases where $B$ is true.
@@ -109,19 +58,33 @@ Intuitively: conditioning on $B$ means we restrict attention to the cases where 
 - The probability of $A$ given $B$ is the share of the "$B$-worlds" in which $A$ is also true.
 - We take the probability of both $A$ and $B$, and divide by the probability of $B$ to rescale.
 
-## Notice
+## Dividing by Zero
 
-The answer (0.691) is higher than the unconditional probability that the Huskies make the final (0.299).
-
-. . .
-
-Why?
+One pitfall: the formula requires $\Pr(B) > 0$.
 
 . . .
 
-- If the Fireflies won, they must have beaten *someone* in the final.
-- The Huskies are the strongest of the remaining teams, so they're the most likely finalist.
-- Conditioning on the Fireflies winning shifts probability toward the Huskies having been there.
+If $\Pr(B) = 0$, then $\Pr(A \mid B)$ is simply **undefined** — not zero, not a special number.
+
+. . .
+
+> There's just no such thing as 'the probability of $A$ given $B$' when $B$ has zero probability.
+
+## Conditional Probability in Trees
+
+Tree diagrams are a natural home for conditional probabilities.
+
+. . .
+
+In a probability tree, branches represent possible outcomes. The number on each branch is the probability of that outcome **conditional on all previous branches**.
+
+. . .
+
+The first branch is the only one where the probability is *unconditional* — there are no prior branches to be conditional on.
+
+. . .
+
+To find the probability of a complete path, **multiply** the branch probabilities along it.
 
 # Updating
 
@@ -147,6 +110,39 @@ This is not a mathematical theorem — it is a claim about how rational agents *
 - It tells us how to *use* probability to represent learning and reasoning under uncertainty.
 - Whenever we learn something, we use the conditional probability formula to update.
 
+# Order Matters
+
+## Order Matters
+
+In general, $\Pr(A \mid B)$ and $\Pr(B \mid A)$ are **different quantities**.
+
+. . .
+
+Example from the book: most university students are young, but most young people are not university students.
+
+- $\Pr(\text{young} \mid \text{university})$ is high.
+- $\Pr(\text{university} \mid \text{young})$ is low.
+
+. . .
+
+Switching the order of conditioning changes the meaning — and the number.
+
+## A Common Confusion
+
+The confusion between $\Pr(A \mid B)$ and $\Pr(B \mid A)$ is one of the most frequent mistakes in everyday reasoning about probability.
+
+. . .
+
+It has a name: the **transposition fallacy** (or "the prosecutor's fallacy" in legal contexts).
+
+. . .
+
+Example: "The probability that an innocent person would leave this evidence is very low — therefore the probability this person is innocent is very low." These are **not** the same probability.
+
+. . .
+
+Keeping the order straight is essential. On Wednesday we'll go into this in more detail.
+
 # Independence
 
 ## Independence
@@ -154,16 +150,28 @@ This is not a mathematical theorem — it is a claim about how rational agents *
 $A$ and $B$ are **independent** if and only if
 
 $$
-\Pr(A \mid B) = \Pr(A)
+\Pr(A \mid B) = \Pr(A) \quad \text{(and } \Pr(A) > 0\text{)}
 $$
 
 . . .
 
-That is: taking things conditional on $B$ makes no difference to $A$.
+That is: learning $B$ makes no difference to $A$'s probability.
 
 . . .
 
 Equivalently: $\Pr(A \wedge B) = \Pr(A) \times \Pr(B)$.
+
+This is the "independence means multiply" mantra from §6.5.
+
+## Three Facts About Independence
+
+The book (§6.5) establishes three useful facts:
+
+::: {.incremental}
+1. **Multiply**: $A$ and $B$ are independent iff $\Pr(A \wedge B) = \Pr(A)\Pr(B)$ (assuming both have positive probability).
+2. **Symmetry**: if $A$ is independent of $B$, then $B$ is independent of $A$.
+3. **Negations**: if $A$ is independent of $B$, it is also independent of $\neg B$ (assuming $\Pr(\neg B) > 0$).
+:::
 
 ## Ways Independence Can Fail: Causal
 
@@ -185,9 +193,6 @@ For example: two eyewitnesses both reporting the same crime gives more evidence 
 ## Two Important Real-World Facts
 
 1. In reality, strict independence almost never obtains.
-
-. . .
-
 2. In practice, it's very often useful to *assume* independence for modelling purposes.
 
 . . .
@@ -224,6 +229,178 @@ And the unconditional probability of getting a sum of 7 is: the pairs (1,6), (2,
 . . .
 
 So $\Pr(A \mid B) = \Pr(A) = \frac{1}{6}$: they are independent.
+
+# Worked Exercises
+
+## Exercise 4: Lead Exposure in Elizabeth
+
+In the city of Elizabeth, 2% of children live in Southside (near chemical plants). Of those, 14% have toxic levels of lead exposure. Elsewhere in the city, only 1% of children have toxic exposure.
+
+. . .
+
+Let $S$ = child lives in Southside, $T$ = child has toxic lead exposure.
+
+We are told:
+$$\Pr(S) = 0.02, \quad \Pr(T \mid S) = 0.14, \quad \Pr(T \mid \neg S) = 0.01$$
+
+## Exercise 4: Drawing the Tree
+
+```
+                        T   (0.14)   → Pr(S ∧ T)
+           S (0.02) ──<
+                        ¬T  (0.86)
+          /
+(start) ─<
+          \             T   (0.01)   → Pr(¬S ∧ T)
+           ¬S (0.98) ─<
+                        ¬T  (0.99)
+```
+
+## Exercise 4a: Pr(S ∧ T)
+
+**Question**: What is the probability a randomly chosen child lives in Southside *and* has toxic exposure?
+
+. . .
+
+This is the top complete path in the tree: multiply along the branches.
+
+$$\Pr(S \wedge T) = \Pr(S) \times \Pr(T \mid S) = 0.02 \times 0.14 = 0.0028$$
+
+. . .
+
+About 0.28% of all children — a small number, but the concern is whether it is *concentrated*.
+
+## Exercise 4b: Pr(T)
+
+**Question**: What is the probability a randomly chosen child has toxic exposure?
+
+. . .
+
+There are two ways to have toxic exposure: via Southside or via elsewhere. Sum the two paths:
+
+$$\Pr(T) = \Pr(S \wedge T) + \Pr(\neg S \wedge T)$$
+
+. . .
+
+$$= \Pr(S)\Pr(T \mid S) + \Pr(\neg S)\Pr(T \mid \neg S)$$
+
+$$= (0.02)(0.14) + (0.98)(0.01) = 0.0028 + 0.0098 = 0.0126$$
+
+## Exercise 4c: Pr(S | T)
+
+**Question**: Given a child has toxic exposure, what is the probability they live in Southside?
+
+. . .
+
+Apply the definition of conditional probability:
+
+$$\Pr(S \mid T) = \frac{\Pr(S \wedge T)}{\Pr(T)} = \frac{0.0028}{0.0126} = \frac{28}{126} = \frac{2}{9} \approx 0.222$$
+
+. . .
+
+Even though only 2% of children live in Southside, roughly **22%** of children with toxic exposure live there. The risk is heavily concentrated.
+
+. . .
+
+Notice: we needed $\Pr(T \mid S)$ to *find* $\Pr(S \mid T)$. Order matters — this is exactly the inversion problem.
+
+## Exercise 13: Apples and Buckets
+
+4 apples are each placed at random, independently, into one of 10 buckets. Let $B_{ij}$ be the proposition that apples $i$ and $j$ end up in the same bucket.
+
+. . .
+
+**What is $\Pr(B_{12})$?**
+
+. . .
+
+Apple 1 goes somewhere. Apple 2 must land in that same 1 bucket out of 10.
+
+$$\Pr(B_{12}) = \frac{1}{10}$$
+
+By symmetry, $\Pr(B_{ij}) = \frac{1}{10}$ for any pair $i, j$.
+
+## Exercise 13a: Is B₁₂ independent of B₃₄?
+
+$B_{12}$: apples 1 and 2 in the same bucket. $B_{34}$: apples 3 and 4 in the same bucket.
+
+. . .
+
+These involve completely *different* apples. Knowing where 1 and 2 landed tells us nothing about where 3 and 4 went.
+
+. . .
+
+Formally: $\Pr(B_{12} \wedge B_{34}) = \frac{1}{10} \times \frac{1}{10} = \frac{1}{100}$
+
+And $\Pr(B_{12}) \times \Pr(B_{34}) = \frac{1}{10} \times \frac{1}{10} = \frac{1}{100}$. ✓
+
+. . .
+
+**Yes, $B_{12}$ and $B_{34}$ are independent.**
+
+## Exercise 13b: Is B₁₂ independent of B₂₃?
+
+$B_{12}$: apples 1 and 2 together. 
+
+$B_{23}$: apples 2 and 3 together. 
+
+These share apple 2, so there is a logical relationship: if both hold, then 1, 2, and 3 are *all* in the same bucket.
+
+. . .
+
+Does knowing $B_{12}$ change the probability of $B_{23}$?
+
+. . .
+
+Apple 3 is placed *independently*. Knowing which bucket apples 1 and 2 share doesn't change where apple 3 goes. It's still equally likely to land in any of the 10 buckets.
+
+. . .
+
+So $\Pr(B_{23} \mid B_{12}) = \frac{1}{10} = \Pr(B_{23})$. **Yes, they are independent.** (Perhaps surprising)
+
+## Exercise 13c: Every Pair?
+
+The same reasoning extends to all pairs of $B_{ij}$ propositions:
+
+::: {.incremental}
+- For **non-overlapping** pairs (like $B_{12}$ and $B_{34}$): different apples, clearly independent.
+- For **overlapping** pairs (like $B_{12}$ and $B_{23}$): the shared apple's placement is already fixed in both events, so the remaining apple still lands uniformly at random.
+:::
+
+. . .
+
+**Yes, every pair of $B_{ij}$ propositions is independent.**
+
+## Exercise 13d: Every Trio?
+
+Now consider the trio $\{B_{12},\, B_{23},\, B_{13}\}$. We've just established that every *pair* in this trio is independent.
+
+. . .
+
+For three-way independence we also need:
+$$\Pr(B_{12} \wedge B_{23} \wedge B_{13}) = \Pr(B_{12})\,\Pr(B_{23})\,\Pr(B_{13}) = \frac{1}{1000}$$
+
+. . .
+
+But notice: if $B_{12}$ and $B_{23}$ both hold, then apples 1, 2, 3 are all in the same bucket — which **guarantees** $B_{13}$.
+
+$$\Pr(B_{12} \wedge B_{23} \wedge B_{13}) = \Pr(B_{12} \wedge B_{23}) = \frac{1}{100}$$
+
+. . .
+
+But $\frac{1}{100} \neq \frac{1}{1000}$. **This trio is NOT three-way independent.**
+
+## The Moral of Exercise 13
+
+Pairwise independence does **not** guarantee three-way independence.
+
+. . .
+
+This is exactly the point the book makes in §6.5 with the seasons example: a collection can be pairwise independent while the whole collection fails the joint multiplication rule.
+
+. . .
+
+It also shows something conceptually important: $B_{12}$, $B_{23}$, $B_{13}$ are logically connected (any two imply the third), but that logical connection is *not* detectable from any single pair of them probabilistically.
 
 ## For Next Time
 

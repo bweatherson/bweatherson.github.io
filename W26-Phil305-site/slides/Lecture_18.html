@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2026-03-09">
-  <title>Conditionals</title>
+  <meta name="dcterms.date" content="2026-03-23">
+  <title>Expected Utility</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,447 +130,506 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Conditionals</h1>
+  <h1 class="title">Expected Utility</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-03-09</p>
+  <p class="date">2026-03-23</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Two Types of Conditionals</h1>
+<h1>Random Variables and Expected Value</h1>
 
 </section>
-<section class="slide level2 scrollable">
-<h2>Compare These Examples</h2>
-<ol type="1">
-<li>If Shakespeare didn’t write <em>Hamlet</em>, then someone else did.</li>
-<li>If Shakespeare hadn’t written <em>Hamlet</em>, then someone else would have.</li>
-</ol>
-<div class="fragment">
-<p>Intuitively, 1 is true and 2 is false.</p>
-<p>So it must be wrong to write both of them as <span class="math inline">\(\neg A \rightarrow B\)</span>.</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Terminology</h2>
-<ol type="1">
-<li>If Shakespeare didn’t write <em>Hamlet</em>, then someone else did.</li>
-<li>If Shakespeare hadn’t written <em>Hamlet</em>, then someone else would have.</li>
-</ol>
-<div class="fragment">
-<p>There are some common, if misleading, names for these kinds of conditionals.</p>
-</div>
-<div class="fragment">
+<section class="slide level2">
+<h2>Plan</h2>
 <ul>
-<li>1 is called an <strong>indicative</strong> conditional.</li>
-<li>2 is called a <strong>subjunctive</strong> or <strong>counterfactual</strong> conditional</li>
+<li>We now move from probability to <strong>decisions</strong>.</li>
+<li>The key question: when outcomes depend on uncertain facts, how should we choose?</li>
+<li>Today we introduce the core tool: <strong>expected utility</strong>.</li>
+</ul>
+<h3>Associated Reading</h3>
+<p><em>Odds and Ends</em>, Chapters 11 and 12</p>
+</section>
+<section class="slide level2">
+<h2>Random Variables</h2>
+<ul>
+<li>A <strong>random variable</strong> is a variable that takes different numerical values in different states.</li>
+<li>In other words: a function from possibilities to numbers.</li>
+</ul>
+<div class="fragment">
+<p>Examples:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(X\)</span> = the age of the next US president at inauguration.</li>
+<li class="fragment"><span class="math inline">\(Y\)</span> = the number of children you will have in your lifetime.</li>
+<li class="fragment"><span class="math inline">\(Z\)</span> = the number of your friends who correctly predict tonight’s game.</li>
 </ul>
 </div>
+</section>
+<section class="slide level2">
+<h2>An Example</h2>
+<ul>
+<li>12 of your friends predicted the Lakers will win; 7 predicted the Clippers.</li>
+<li>Let <span class="math inline">\(X\)</span> = the number of friends who predicted correctly.</li>
+</ul>
+<p><span class="math display">\[
+X = \begin{cases} 12 &amp; \text{if Lakers win} \\ 7 &amp; \text{if Clippers win} \end{cases}
+\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Expected Value</h2>
+<p>Given a random variable <span class="math inline">\(X\)</span> and a probability function <span class="math inline">\(\Pr\)</span>:</p>
+<p><span class="math display">\[
+\text{Exp}(X) = \sum_i x_i \cdot \Pr(X = x_i)
+\]</span></p>
 <div class="fragment">
-<p>Ideally, we’d like a theory of how each works.</p>
+<p>This is a <strong>weighted average</strong> of the possible values, where the weights are the probabilities.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Back to the Example</h2>
+<p>If <span class="math inline">\(\Pr(\text{Lakers win}) = 0.7\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\text{Exp}(X) &amp;= 12 \times 0.7 + 7 \times 0.3 \\
+              &amp;= 8.4 + 2.1 \\
+              &amp;= 10.5
+\end{align*}\]</span></p>
+<div class="fragment">
+<p>Note: the “expected value” doesn’t have to be a value that <span class="math inline">\(X\)</span> can actually take — it’s an average, not a prediction.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Material Conditionals</h1>
+<h1>Decision Tables</h1>
 
 </section>
 <section class="slide level2">
-<h2>What is It</h2>
-<p>The material conditional is what the truth tables say is the conditional.</p>
-<ul>
-<li>We will write it as <span class="math inline">\(A \supset B\)</span></li>
-<li>This just means <span class="math inline">\(\neg (A \wedge \neg B)\)</span>, i.e., <span class="math inline">\(\neg A \vee B\)</span>.</li>
-</ul>
+<h2>States and Choices</h2>
+<p>We want to model decisions where outcomes depend on external facts outside our control.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">State 1</th>
+<th style="text-align: center;">State 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Choice 1</td>
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Choice 2</td>
+<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>One interesting hypothesis is that this is the right way to interpret English language conditionals.</p>
+<ul>
+<li><strong>Choices</strong>: the options available to you.</li>
+<li><strong>States</strong>: ways the world might be that affect the outcome.</li>
+<li><strong>Outcomes</strong>: a choice plus a state determines an outcome.</li>
+<li><strong>Utilities</strong>: numbers representing how good each outcome is.</li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>What About Hamlet</h2>
-<p>Perhaps we should say that two interesting hypotheses are that the two kinds of English language conditionals are best represented as material conditionals.</p>
-<ul>
-<li>Hypothesis 1: If it were the case that <span class="math inline">\(A\)</span> it would be the case that <span class="math inline">\(B\)</span> = <span class="math inline">\(A \supset B\)</span>.</li>
-<li>Hypothesis 2: If it is the case that <span class="math inline">\(A\)</span> then it is the case that <span class="math inline">\(B\)</span> = <span class="math inline">\(A \supset B\)</span>.</li>
-</ul>
+<h2>An Example</h2>
+<p>A friend has to choose between watching the Packers game and finishing a paper due Monday.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Packers Win</th>
+<th style="text-align: center;">Packers Lose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Watch Football</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Work on Paper</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>The first of these is wildly implausible; the second is a bit more defensible.</p>
+<p>The numbers reflect preferences. Higher is better.</p>
 </div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Antecedent Strengthening</h2>
-<p>If indicative conditionals are material conditionals, then they should satisfy <strong>Antecedent Strengthening</strong>.</p>
-<p>That is, whenever <span class="math inline">\(A \rightarrow B\)</span> is true, <span class="math inline">\((A \wedge C) \rightarrow B\)</span> should be true.</p>
-<p>But there are intuitive counterexamples to this.</p>
-<ol type="1">
-<li>If I win the lottery tonight, I’ll be very happy.</li>
-<li>So if I get hit by a car on the way home and win the lottery tonight, I’ll be vey happy</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>False Antecedents</h2>
-<p>But the big problem with the material conditional analysis is what it says about false antecedents.</p>
-<p>Note that if the material conditional analysis is right, then <span class="math inline">\((A \rightarrow B) \vee (B \rightarrow A)\)</span> is a logical truth.</p>
-<p>This does not always sound like a logical truth.</p>
-<ul>
-<li>If Brett went to Australia over break then he stayed in Ann Arbor, or if stayed in Ann Arbor, he went to Australia.</li>
-</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Strict Conditional</h1>
+<h1>Dominance</h1>
 
 </section>
 <section class="slide level2">
-<h2>Strict Conditional Analysis</h2>
-<p>Here’s a more plausible account of the conditional that avoids the last problem.</p>
-<ul>
-<li><em>If A, B</em> means <em>Necessarily, A materially implies B</em>.</li>
-<li>In symbols, <span class="math inline">\(A \rightarrow B = \Box (A \supset B)\)</span></li>
-</ul>
+<h2>Dominance Reasoning</h2>
+<p>The simplest rule: <strong>never choose a dominated option</strong>.</p>
 <div class="fragment">
-<p>What does <span class="math inline">\(\Box\)</span> mean here? Probably something epistemic; like it is known that.</p>
+<ul>
+<li><span class="math inline">\(A\)</span> <strong>strongly dominates</strong> <span class="math inline">\(B\)</span>: <span class="math inline">\(A\)</span> gives a strictly better outcome than <span class="math inline">\(B\)</span> in every state.</li>
+<li><span class="math inline">\(A\)</span> <strong>weakly dominates</strong> <span class="math inline">\(B\)</span>: <span class="math inline">\(A\)</span> gives at least as good an outcome as <span class="math inline">\(B\)</span> in every state, and strictly better in at least one.</li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Antecedent Strengthening</h2>
-<p>Antecedent strengthening is still valid on this picture.</p>
-<ul>
-<li>Assume every <span class="math inline">\(A\)</span> world is a <span class="math inline">\(B\)</span> world.</li>
-<li>Consider an <span class="math inline">\(A \wedge C\)</span> world.</li>
-<li>It’s an <span class="math inline">\(A\)</span> world, by the rule for true <span class="math inline">\(\wedge\)</span>.</li>
-<li>So it’s a <span class="math inline">\(B\)</span> world.</li>
-<li>So <span class="math inline">\((A \wedge C) \rightarrow B\)</span>.</li>
-</ul>
+<h2>A Case Where Dominance Applies</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Packers Win</th>
+<th style="text-align: center;">Packers Lose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Watch Football</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Work on Paper</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>So if you were worried about that problem, it’s still hanging around.</p>
+<p>Working on the paper gives a better outcome <strong>regardless</strong> of what the Packers do. It strongly dominates watching football.</p>
+</div>
+<div class="fragment">
+<p>This is compelling reasoning: if one option is better in every possible scenario, you should choose it.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>False Antecedents</h2>
-<p>But <span class="math inline">\(A\)</span> being false isn’t enough for <span class="math inline">\(A \rightarrow B\)</span> any more.</p>
-<p>So it fixes those problem.</p>
+<h2>Why Dominance Isn’t Always Enough</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Packers Win</th>
+<th style="text-align: center;">Packers Lose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Watch Football</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Work on Paper</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Neither option dominates the other. What to do depends on <strong>how likely</strong> each state is and <strong>how much</strong> you care about each outcome.</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Summary</h2>
-<p>This is better than the material conditional theory, but not perfect. And we haven’t said anything about the subjunctive conditionals.</p>
+<h2>Why Magnitude Matters</h2>
+<p>Consider two friends facing the “same” decision table (same ranking of outcomes):</p>
+<div class="fragment">
+<ul>
+<li>Chris’s cheap airline has a luggage problem in bad weather — bags arrive a day late.</li>
+<li>Robin’s cheap airline has a structural problem in bad weather — it crashes.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Clearly these are different decisions, even though the <em>ranking</em> of outcomes is identical. The <strong>magnitude</strong> of the difference between outcomes matters too.</p>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Antecedent Strengthening</h1>
+<h1>Maximising Expected Utility</h1>
 
 </section>
-<section class="slide level2 scrollable">
-<h2>Antecedent Strengthening</h2>
-<p>Here is one of the implications we can use to test the strict implication theory.</p>
-<ol type="1">
-<li><span class="math inline">\(A \rightarrow B\)</span></li>
-<li>So, <span class="math inline">\((C \wedge A) \rightarrow B\)</span></li>
-</ol>
-<div class="fragment">
-<p>That is <strong>valid</strong> on the strict implication theory. Is it valid for ordinary, English conditionals?</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Subjunctive Counterfactual Conditionals</h2>
-<ol type="1">
-<li>If I had struck this match, it would have lit.<br>
-</li>
-<li>If I had dropped this match in water, and struck it, it would have lit.</li>
-</ol>
-<div class="fragment">
-<p>If you think 1 is true, but 2 is false, then you think antecedent strengthening is <strong>invalid</strong> for subjunctive conditionals.</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Future Directed Indicative Conditionals</h2>
-<ol type="1">
-<li>If I strike this match tomorrow, it will light.<br>
-</li>
-<li>If I soak this match in water overnight, then strike it tomorrow, it will light.</li>
-</ol>
-<div class="fragment">
-<p>If you think 1 is true, but 2 is false, then you think antecedent strengthening is <strong>invalid</strong> for future directed indicative conditionals.</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Past Directed Indicative Conditionals</h2>
-<p>It is a little trickier to get a counterexample here. There are some very unnatural examples though.</p>
-<ol type="1">
-<li>If Shakespeare didn’t write Hamlet, someone else did.</li>
-<li>If we’ve all been collectively hallucinating that there is such a play as Hamlet, when in fact there is no such play, and it certainly wasn’t written by Shakespeare, then someone else wrote Hamlet.</li>
-</ol>
-<div class="fragment">
-<p>If pushed I might say 1 is true and 2 false, but I’m really not sure.</p>
-</div>
-</section>
 <section class="slide level2">
-<h2>Challenge</h2>
-<p>Three examples to see how well you’re doing with these.</p>
-<ul>
-<li>Find your own counterexample to antecedent strenghening for subjunctive conditionals.</li>
-<li>Find your own counterexample to antecedent strenghening for future-directed indicative conditionals, i.e., indicative conditionals where the antecedent is about an event that may or may not happen in the future.</li>
-<li>Find your own counterexample to antecedent strenghening for past-directed indicative conditionals, i.e., indicative conditionals where the antecedent is about an event that may or may not have happened in the past.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Reverse Direction</h2>
-<p>Is the following speech ok.</p>
+<h2>The Rule</h2>
 <blockquote>
-<p>If I’d dropped this match in water and then struck it, it would not have lit. But if I’d struck this match, it would have lit.</p>
+<p>The rational choice is the one that <strong>maximises expected utility</strong>.</p>
 </blockquote>
 <div class="fragment">
-<p>A lot of philosophers and linguists have argued that this sounds really weird. And this is going to be relevant, because on the best theory of why antecedent strengthening fails, it should be ok.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Counterfactuals</h1>
-
-</section>
-<section class="slide level2">
-<h2>Counterfactuals in Philosophy</h2>
-<p>These play a central role in lots of fields, including</p>
-<ul>
-<li>Causation</li>
-<li>Explanation</li>
-<li>Evaluation</li>
-<li>Planning</li>
-</ul>
-<div class="fragment">
-<p>The most important of these is causation.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Causation</h2>
-<p>There feel like there is a close connection between these claims.</p>
-<ul>
-<li>Causal event C caused effect event E.</li>
-<li>If C hadn’t happened, E wouldn’t have happened.</li>
-</ul>
-<p>It’s not a foolproof connection - maybe E would have happened some other way. But there is a link.</p>
-</section>
-<section class="slide level2">
-<h2>History</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../images/Scheidel.jpg" style="height:50.0%"></p>
-<figcaption>Walter Scheidel, Escape from Rome: The Failure of Empire and the Road to Prosperity</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Part of what makes this provocative is that Prof Scheidel is doing what philosophers think is obvious, using counterfactuals to provide evidence about causation and explanation.</p>
-</div></div>
-</section>
-<section class="slide level2">
-<h2>Coincidence</h2>
-<ul>
-<li>But Scheidel isn’t just interested in explanation.</li>
-<li>He’s also interested in which facts about history are coincidences, and which are not.</li>
-<li>In particular, is is a coincidence that since the fall of Rome, there has not been a large empire in Europe that has lasted more than a few years.</li>
-<li>This is a striking contrast to the many empires that have arisen in South Asia, East Asia and the Americas.</li>
-</ul>
-</section>
-<section class="slide level2 scrollable">
-<h2>Two Ways to Answer that Question</h2>
-<ol type="1">
-<li>Is there something that could easily have happened such that if it had happened, there would have been a long lasting empire in Europe?</li>
-<li>Is there a very similar world to ours in which there is a long lasting empire in Europe?</li>
-</ol>
-<div class="fragment">
-<p>Intuition: These are sort of the same question.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>David Lewis</h2>
-
-<img data-src="../images/Lewis-intro.png" class="r-stretch quarto-figure-center"><p class="caption">Opening lines of Counterfactuals, by David Lewis, 1973</p></section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Minimal Change Semantics</h1>
-
-</section>
-<section class="slide level2">
-<h2>Basic Idea</h2>
-<ul>
-<li>Replace the on/off accessibility relation between worlds with a distance measure <span class="math inline">\(d\)</span>.</li>
-<li>So <span class="math inline">\(d(x, y)\)</span>, where <span class="math inline">\(x, y\)</span> are worlds, measures how similar <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Nearest World</h2>
-<p>If we’re evaluating “If <span class="math inline">\(A\)</span> were true, <span class="math inline">\(B\)</span> would be true”, we do the following:</p>
-<ul>
-<li>We find the nearest world, or worlds, where <span class="math inline">\(A\)</span> is true.</li>
-<li>“If <span class="math inline">\(A\)</span> were true, <span class="math inline">\(B\)</span> would be true” is true just in case all the <strong>nearest</strong> worlds where <span class="math inline">\(A\)</span> is true make <span class="math inline">\(B\)</span> true.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Short Version</h2>
+<p>Expected utility of a choice = weighted average of utilities of outcomes, weighted by probabilities:</p>
 <p><span class="math display">\[
-\DeclareMathOperator{\boxright}{\Box\!\!\rightarrow}
+\text{Exp}(U(\text{Choice})) = \sum_i \Pr(\text{State}_i) \times U(\text{Choice}, \text{State}_i)
 \]</span></p>
-<p><em>If A were true, B would be true</em>, means</p>
-<ul>
-<li>All of the nearest A-worlds are B-worlds.</li>
-</ul>
-<p>From now on, I’ll sometimes write this as <span class="math inline">\(A \boxright B\)</span>.</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Variably Strict</h2>
-<ul>
-<li>This makes the conditional a variably strict conditional.</li>
-<li>It’s strict, because it requires all A worlds to be B worlds.</li>
-<li>But it’s variably strict, because which worlds it ranges over varies with what the antecedent is.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Intuition Check</h2>
-<p>Here’s the thought behind Lewis’s view.</p>
-<ul>
-<li>When a counterfactual has a normal antecedent, the only worlds that matter to its truth are fairly normal worlds.</li>
-<li>To figure out what would have happened if I’d had bacon and eggs for breakfast, you only have to consider worlds that are really a lot like the actual world.</li>
-<li>But to figure out what would have happened if Columbus’s fleet had sunk, you have to think about worlds that are really different to reality.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Complication 1: No A-world</h2>
-<p>We’ll just stipulate that if there are no <span class="math inline">\(A\)</span>-worlds at all, then <span class="math inline">\(A \boxright B\)</span> is true for all <span class="math inline">\(B\)</span>. These cases are weird, and I’ll mostly set them aside.</p>
-</section>
-<section class="slide level2">
-<h2>Complication 2: Many equally closest A-worlds</h2>
-<p>Imagine that there are much of equally near worlds where <span class="math inline">\(A\)</span> is true.</p>
-<ul>
-<li>And at some of them <span class="math inline">\(B\)</span> is true, and at others <span class="math inline">\(B\)</span> is false.</li>
-</ul>
+<h2>The Airline Example</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
+<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Fly Cheap Airline</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fly Good Airline</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align*}
+\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times 0 = 8.0 \\
+\text{Exp}(\text{Good})  &amp;= 0.8 \times 6 + 0.2 \times 5 = 5.8
+\end{align*}\]</span></p>
 <div class="fragment">
-<p>David Lewis argued that in that case both <span class="math inline">\(A \boxright B\)</span> and <span class="math inline">\(A \boxright \neg B\)</span> are false.</p>
+<p>Fly cheap — it has higher expected utility.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What If Bad Weather is Worse?</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
+<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Fly Cheap Airline</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"><strong>−20</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fly Good Airline</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align*}
+\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times (-20) = 4.0 \\
+\text{Exp}(\text{Good})  &amp;= 0.8 \times 6 + 0.2 \times 5 = 5.8
+\end{align*}\]</span></p>
+<div class="fragment">
+<p>Now fly the reliable airline. The downside risk changed everything.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What If the Gap is Small?</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
+<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Fly Cheap Airline</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fly Good Airline</td>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;"><strong>8</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align*}
+\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times 0 = 8.0 \\
+\text{Exp}(\text{Good})  &amp;= 0.8 \times 9 + 0.2 \times 8 = 8.8
+\end{align*}\]</span></p>
+<div class="fragment">
+<p>The reliable airline wins — there’s much less to gain by going cheap.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What If Bad Weather is Likely?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 38%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Good Weather (Pr = <strong>0.3</strong>)</th>
+<th style="text-align: center;">Bad Weather (Pr = <strong>0.7</strong>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Fly Cheap Airline</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Fly Good Airline</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{align*}
+\text{Exp}(\text{Cheap}) &amp;= 0.3 \times 10 + 0.7 \times 0 = 3.0 \\
+\text{Exp}(\text{Good})  &amp;= 0.3 \times 6 + 0.7 \times 5 = 5.3
+\end{align*}\]</span></p>
+<div class="fragment">
+<p>Bad weather being likely makes the reliable airline the clear choice.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Intuition Pump</h2>
-<p>Could you have 1 and 2 false, but 3 true?</p>
+<h2>What Drives the Decision</h2>
+<p>The correct choice depends on all three of:</p>
 <ol type="1">
-<li>If a UM student had been elected mayor of Ann Arbor, it would have been an undergraduate.</li>
-<li>If a UM student had been elected mayor of Ann Arbor, it would have been a postgraduate.</li>
-<li>If a UM student had been elected mayor of Ann Arbor, it would have been either an undergraduate or a postgraduate.</li>
+<li class="fragment"><strong>Probabilities</strong>: How likely are the different states?</li>
+<li class="fragment"><strong>Upside</strong>: How much do you gain by the cheaper/riskier option when things go well?</li>
+<li class="fragment"><strong>Downside</strong>: How much do you lose when things go badly?</li>
 </ol>
-<p>Lewis said that you could have 1 and 2 both false, but 3 true, and that’s why <span class="math inline">\(\boxright\)</span> should work this way.</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>Another solution: Deny this is possible</h2>
-<p>But the other great founder of this tradition, Robert Stalnaker, argued that we should want these things to be equivalent (at least if <span class="math inline">\(\boxright\)</span> was going to represent something in English).</p>
-<ol type="1">
-<li><span class="math inline">\(A \boxright B \vee A \boxright C\)</span></li>
-<li><span class="math inline">\(A \boxright (B \vee C)\)</span></li>
-</ol>
-<p>And we couldn’t have that on Lewis’s picture.</p>
-</section>
-<section class="slide level2">
-<h2>Stalnaker’s Solution</h2>
-<ul>
-<li>It is a constraint on the distance metric that there are no ties.</li>
-<li>The similarity measure is a strict ordering.</li>
-<li>And it’s still a matter of debate whether Lewis or Stalnaker is right about this.</li>
-</ul>
+<div class="fragment">
+<p>Expected utility theory is the formal framework that integrates these three factors.</p>
+</div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Logic of Conditionals</h1>
+<h1>Worked Problems</h1>
 
 </section>
 <section class="slide level2">
-<h2>Antecedent Strengthening</h2>
-<p>This fails on the minimal change semantics. Why does it fail? Because this is possible.</p>
-<ul>
-<li>The nearest <span class="math inline">\(A\)</span>-world is 10 units away, and at it, <span class="math inline">\(B\)</span> is true, but <span class="math inline">\(C\)</span> is false.</li>
-<li>The nearest <span class="math inline">\(A \wedge C\)</span>-world is 100 units away, and at it, <span class="math inline">\(C\)</span> is true (of course), but <span class="math inline">\(B\)</span> is false.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Antecedent Strengthening</h2>
-<p>Put in less technical terms, it fails when these things happen at once.</p>
-<ul>
-<li>In all normal worlds, when <span class="math inline">\(A\)</span> is true, <span class="math inline">\(B\)</span> is true and <span class="math inline">\(C\)</span> is false.</li>
-<li>So there are no normal worlds where <span class="math inline">\(A \wedge C\)</span>.</li>
-<li>But in the <span class="math inline">\(A \wedge C\)</span>-worlds that are only a bit abnormal, <span class="math inline">\(B\)</span> is false.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Skiing Example</h2>
-<p>Here are some things we might imagine are true in all normal possibilities.</p>
-<ul>
-<li>When it snows, it snows a normal amount - it isn’t a blizzard.</li>
-<li>When it snows, Jack goes skiing.</li>
-<li>Jack has no disposition to want to ski in a blizzard.</li>
-</ul>
+<h2>Fair Games</h2>
+<p>A game is <strong>fair</strong> when neither player has an advantage — both have expected payoff of zero.</p>
 <div class="fragment">
-<p>So in the most normal blizzard world, Jack does not go skiing. And we have both of the following.</p>
+<p>If you pay some amount <span class="math inline">\(x\)</span> to play a game with prizes, the game is fair when:</p>
+<p><span class="math display">\[\text{Exp}(\text{your net payoff}) = 0\]</span></p>
 </div>
 <div class="fragment">
-<ul>
-<li>If it had snowed, Jack would have gone skiing.</li>
-<li>If there had been snow and a blizzard, Jack would not have gone skiing.</li>
-</ul>
+<p>This is the same expected utility calculation, but now we’re solving <em>backwards</em>: instead of computing expected utility given the numbers, we’re finding the number that makes expected utility equal zero.</p>
 </div>
 </section>
-<section class="slide level2 scrollable">
-<h2>Transitivity (or Conditional Syllogism)</h2>
-<p>This argument seems initially compelling for any interpretation of ‘if’.</p>
-<ol type="1">
-<li>If <span class="math inline">\(A, B\)</span>.</li>
-<li>If <span class="math inline">\(B, C\)</span>.</li>
-<li>So if <span class="math inline">\(A, C\)</span>.</li>
-</ol>
+<section class="slide level2">
+<h2>Problem 16: A Coin-Flip Game</h2>
+<p>A fair coin is flipped up to three times:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Outcome</th>
+<th style="text-align: center;">Probability</th>
+<th style="text-align: center;">Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">H (first flip)</td>
+<td style="text-align: center;"><span class="math inline">\(1/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+\$2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TH (second flip)</td>
+<td style="text-align: center;"><span class="math inline">\(1/4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+\$40\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TTH (third flip)</td>
+<td style="text-align: center;"><span class="math inline">\(1/8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+\$800\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TTT</td>
+<td style="text-align: center;"><span class="math inline">\(1/8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\$x\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Question</strong>: What must <span class="math inline">\(x\)</span> be for the game to be fair?</p>
+</div>
 </section>
 <section class="slide level2">
-<h2>Transitivity for Subjunctives</h2>
-<p>On the nearest possible world, or minimal change, semantics, this will fail for subjunctive conditionals.</p>
+<h2>Problem 16: Solution</h2>
+<p>Set expected payoff equal to zero:</p>
+<p><span class="math display">\[\frac{1}{2}(2) + \frac{1}{4}(40) + \frac{1}{8}(800) + \frac{1}{8}(-x) = 0\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[1 + 10 + 100 - \frac{x}{8} = 0\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[111 = \frac{x}{8} \implies x = \$888\]</span></p>
+</div>
+<div class="fragment">
+<p>Notice the pattern in the expected contributions: <span class="math inline">\(1\)</span>, <span class="math inline">\(10\)</span>, <span class="math inline">\(100\)</span>. Each outcome is rarer but pays proportionally more — each contributes exactly 10 times as much as the previous. The total expected winnings of <span class="math inline">\(\$111\)</span> must be offset by the losing outcome.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Problem 17: A Dice Game</h2>
+<p>A fair die is rolled up to twice:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Outcome</th>
+<th style="text-align: center;">Probability</th>
+<th style="text-align: center;">Payoff</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1 on roll 1</td>
+<td style="text-align: center;"><span class="math inline">\(1/6\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+\$x\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Not 1, then 2 on roll 2</td>
+<td style="text-align: center;"><span class="math inline">\(5/6 \times 1/6 = 5/36\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+\$6x\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Not 1, then not 2</td>
+<td style="text-align: center;"><span class="math inline">\(5/6 \times 5/6 = 25/36\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-\$6\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Question</strong>: What must <span class="math inline">\(x\)</span> be for the game to be fair?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Problem 17: Solution</h2>
+<p>Set expected payoff equal to zero:</p>
+<p><span class="math display">\[\frac{1}{6}x + \frac{5}{36}(6x) + \frac{25}{36}(-6) = 0\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\frac{6x}{36} + \frac{30x}{36} - \frac{150}{36} = 0\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\frac{36x}{36} = \frac{150}{36} \implies x = \frac{25}{6} \approx \$4.17\]</span></p>
+</div>
+<div class="fragment">
+<p>The algebra is clean even though the answer isn’t a round number. Notice what’s doing the work: <span class="math inline">\(\frac{1}{6}x + \frac{5}{36}(6x)\)</span> simplifies to just <span class="math inline">\(x\)</span>, because the <span class="math inline">\(x\)</span> and <span class="math inline">\(6x\)</span> prizes are weighted so that the two winning branches together contribute exactly <span class="math inline">\(x\)</span> in expectation.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>For Next Time</h2>
 <ul>
-<li>Imagine there is no nearby world where <span class="math inline">\(A\)</span>.</li>
-<li>The nearest <span class="math inline">\(A\)</span> worlds (which in these cases will be quite distant) are worlds where <span class="math inline">\(B\)</span> is true and <span class="math inline">\(C\)</span> is false.</li>
-<li>There are nearby, normal <span class="math inline">\(B\)</span> worlds, and they are all worlds where <span class="math inline">\(C\)</span> is true.</li>
+<li>We will look at the relationship between <strong>money and utility</strong>.</li>
+<li>Why isn’t doubling your money the same as doubling your utility?</li>
+<li>And what does this tell us about insurance, gambling, and risk?</li>
 </ul>
-</section>
-<section class="slide level2 scrollable">
-<h2>Real Life Example</h2>
-<ol type="1">
-<li>If there had been a hurricane and a blizzard on Presidents’ Day Weekend, it would have snowed on Presidents’ Day Weekend.<br>
-</li>
-<li>If it had snowed on Presidents’ Day Weekend, Jack would have gone skiing on Presidents’ Day Weekend.<br>
-</li>
-<li>So if there had been a hurricane and a blizzard on Presidents’ Day Weekend, Jack would have gone skiing on Presidents’ Day Weekend.</li>
-</ol>
-</section>
-<section class="slide level2 scrollable">
-<h2>Link To Antecedent Strengthening</h2>
-<ol type="1">
-<li>If I had crashed my car last week and won the lottery on the weekend, I’d have crashed my car last week.<br>
-</li>
-<li>If I had crashed my car last week, I’d now have less money than actually do.<br>
-</li>
-<li>So if I had crashed my car last week and won the lottery on the weekend, I’d now have less money than actually do.</li>
-</ol>
-</section>
-<section class="slide level2 scrollable">
-<h2>Recipe Here</h2>
-<p>Assume that you have <em>If A, C</em>, but not <em>If A and B, C</em>.</p>
-<ol type="1">
-<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(A\)</span>.</li>
-<li>If <span class="math inline">\(A, C\)</span>.</li>
-<li>So, If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>.</li>
-</ol>
-<p>That should have true premises and a false conclusion.</p>
-</section>
-<section class="slide level2">
-<h2>Next Time</h2>
-<p>That’s the end of our little detour into conditionals.</p>
-<p>We won’t be putting these on the exam, but they come up so much throughout the rest of philosophy, and indeed everywhere else, that I thought it was worth doing a day on them.</p>
-<p>Next time we’ll start on probability.</p>
 
 
 </section></section>

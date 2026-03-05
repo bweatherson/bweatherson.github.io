@@ -4,22 +4,8 @@ date: "3/9/26"
 format:
     revealjs:
         css: lecture-03-custom-tables.css
-        include-in-header:
-         - text: |
-            <script>
-               MathJax = {
-                tex: {
-                  macros: {
-                     llbracket: "⟦",
-                     rrbracket: "⟧",
-                     nmodels: "\\not\\models",
-                     boxright: "\\mathrel{\\Box\\!\\!\\rightarrow}"
-                   }
-                 }
-               };
-             </script>
     beamer:
-        include-in-header: 
+        include-in-header:
             - 305-beamer-header-minimal-no-trees.tex
             - text: |
                 \newcommand{\boxright}{\;\Box\!\!\!\rightarrow}
@@ -84,7 +70,7 @@ The first of these is wildly implausible; the second is a bit more defensible.
 
 If indicative conditionals are material conditionals, then they should satisfy **Antecedent Strengthening**.
 
-That is, whenever $A \rightarrow B$ is true, $(A \wedge C) rightarrow B$ should be true.
+That is, whenever $A \rightarrow B$ is true, $(A \wedge C) \rightarrow B$ should be true.
 
 But there are intuitive counterexamples to this.
 
@@ -227,7 +213,7 @@ It's not a foolproof connection - maybe E would have happened some other way. Bu
 ::: {.columns}
 
 :::: {.column width=50%}
-![Walter Scheidel, Escape from Rome: The Failure of Empire and the Road to Prosperity](../images/Scheidel.jpg){height=70%}
+![Walter Scheidel, Escape from Rome: The Failure of Empire and the Road to Prosperity](../images/Scheidel.jpg){height=50%}
 ::::
 
 :::: {.column width=50%}
@@ -270,6 +256,12 @@ If we're evaluating "If $A$ were true, $B$ would be true", we do the following:
 - "If $A$ were true, $B$ would be true" is true just in case all the **nearest** worlds where $A$ is true make $B$ true.
 
 ## Short Version
+
+::: {.content-visible when-format="revealjs"}
+$$
+\DeclareMathOperator{\boxright}{\Box\!\!\rightarrow}
+$$
+:::
 
 _If A were true, B would be true_, means
 

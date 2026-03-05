@@ -1,6 +1,12 @@
 ---
 title: "Expected Utility"
 date: "3/23/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 
+            - 305-beamer-header-minimal-no-trees.tex
 ---
 
 # Random Variables and Expected Value
@@ -237,6 +243,87 @@ The correct choice depends on all three of:
 . . .
 
 Expected utility theory is the formal framework that integrates these three factors.
+
+# Worked Problems
+
+## Fair Games
+
+A game is **fair** when neither player has an advantage — both have expected payoff of zero.
+
+. . .
+
+If you pay some amount $x$ to play a game with prizes, the game is fair when:
+
+$$\text{Exp}(\text{your net payoff}) = 0$$
+
+. . .
+
+This is the same expected utility calculation, but now we're solving *backwards*: instead of computing expected utility given the numbers, we're finding the number that makes expected utility equal zero.
+
+## Problem 16: A Coin-Flip Game
+
+A fair coin is flipped up to three times:
+
+| Outcome | Probability | Payoff |
+|:--------|:-----------:|:------:|
+| H (first flip)   | $1/2$   | $+\$2$  |
+| TH (second flip) | $1/4$   | $+\$40$ |
+| TTH (third flip) | $1/8$   | $+\$800$|
+| TTT              | $1/8$   | $-\$x$  |
+
+. . .
+
+**Question**: What must $x$ be for the game to be fair?
+
+## Problem 16: Solution
+
+Set expected payoff equal to zero:
+
+$$\frac{1}{2}(2) + \frac{1}{4}(40) + \frac{1}{8}(800) + \frac{1}{8}(-x) = 0$$
+
+. . .
+
+$$1 + 10 + 100 - \frac{x}{8} = 0$$
+
+. . .
+
+$$111 = \frac{x}{8} \implies x = \$888$$
+
+. . .
+
+Notice the pattern in the expected contributions: $1$, $10$, $100$. Each outcome is rarer but pays proportionally more — each contributes exactly 10 times as much as the previous. The total expected winnings of $\$111$ must be offset by the losing outcome.
+
+## Problem 17: A Dice Game
+
+A fair die is rolled up to twice:
+
+| Outcome | Probability | Payoff |
+|:--------|:-----------:|:------:|
+| 1 on roll 1              | $1/6$   | $+\$x$  |
+| Not 1, then 2 on roll 2  | $5/6 \times 1/6 = 5/36$ | $+\$6x$ |
+| Not 1, then not 2        | $5/6 \times 5/6 = 25/36$ | $-\$6$ |
+
+. . .
+
+**Question**: What must $x$ be for the game to be fair?
+
+## Problem 17: Solution
+
+Set expected payoff equal to zero:
+
+$$\frac{1}{6}x + \frac{5}{36}(6x) + \frac{25}{36}(-6) = 0$$
+
+. . .
+
+$$\frac{6x}{36} + \frac{30x}{36} - \frac{150}{36} = 0$$
+
+. . .
+
+$$\frac{36x}{36} = \frac{150}{36} \implies x = \frac{25}{6} \approx \$4.17$$
+
+. . .
+
+The algebra is clean even though the answer isn't a round number. Notice what's doing the work: $\frac{1}{6}x + \frac{5}{36}(6x)$ simplifies to just $x$, because the $x$ and $6x$ prizes are weighted so that the two winning branches together contribute exactly $x$ in expectation.
 
 ## For Next Time
 
