@@ -30,7 +30,7 @@ A burglary was committed, and fingerprints resembling mine were found at the sce
 
 . . .
 
-From forensic science, we can estimate $\Pr(F \mid I)$ — the chance that fingerprints like mine appear at a random crime scene where I'm innocent.
+From forensic science, we can estimate $\Pr(F \mid I)$: the chance that fingerprints like mine appear at a random crime scene where I'm innocent.
 
 . . .
 
@@ -272,7 +272,7 @@ $$
 
 . . .
 
-This is **Bayes's Theorem**. It's very famous — but note that it's just a compact way of writing out what the table method does.
+This is **Bayes's Theorem**. It's very famous, but note that it's just a compact way of writing out what the table method does.
 
 ## Using Bayes's Theorem
 
@@ -282,7 +282,7 @@ $$
 
 . . .
 
-The table method and Bayes's theorem always give the same answer. Use whichever you find easier — for most exam problems, the table is clearer and less error-prone.
+The table method and Bayes's theorem always give the same answer. Use whichever you find easier. For most exam problems, the table is clearer and less error-prone.
 
 # Base Rates
 
@@ -321,11 +321,11 @@ Even though the witness is 80% accurate, it is still **more likely the cab was g
 ## The Lesson: Base Rates
 
 - When one possibility is much more likely *a priori*, it takes strong evidence to overturn it.
-- Here, Green cabs outnumber Blue 85:15 — so even a fairly reliable witness can't overcome that.
+- Here, Green cabs outnumber Blue 85:15. So even a fairly reliable witness can't overcome that.
 
 . . .
 
-We often conflate the **direction** of recent evidence with its **strength**. The witness supports "Blue" over "Green" — but the overall balance still favors Green.
+We often conflate the **direction** of recent evidence with its **strength**. The witness supports "Blue" over "Green", but the overall balance still favors Green.
 
 ## A Caution About This Example
 
@@ -361,7 +361,7 @@ An urn contains 4 marbles, each either blue or green. The number of blue marbles
 
 Let $H_k$ = the urn contains $k$ blue marbles, for $k = 0, 1, 2, 3, 4$.
 
-**Prior**: $\Pr(H_k) = \frac{1}{5}$ for each $k$ — we start with no reason to favour any particular composition.
+**Prior**: $\Pr(H_k) = \frac{1}{5}$ for each $k$. We start with no reason to favour any particular composition.
 
 ## Computing the Likelihoods
 
@@ -395,7 +395,7 @@ $$\Pr(H_1 \mid E) = \frac{(3/64) \times (1/5)}{1/16} = \frac{3}{320} \times 16 =
 
 ## What the Evidence Tells Us
 
-With a uniform prior, the posterior is **proportional to the likelihood** — the evidence does all the work:
+With a uniform prior, the posterior is **proportional to the likelihood**. The evidence does all the work:
 
 | $H_k$ | Likelihood | Posterior |
 |:-----:|:----------:|:---------:|
@@ -407,7 +407,7 @@ With a uniform prior, the posterior is **proportional to the likelihood** — th
 
 . . .
 
-The most likely urn composition after observing blue-green-blue is $H_3$ — 3 blue marbles. Intuitively: we saw two blues and one green, which is consistent with a 3:1 ratio. The uniform prior means the evidence speaks for itself.
+The most likely urn composition after observing blue-green-blue is $H_3$ (3 blue marbles). Intuitively: we saw two blues and one green, which is consistent with a 3:1 ratio. The uniform prior means the evidence speaks for itself.
 
 ## For Next Time
 

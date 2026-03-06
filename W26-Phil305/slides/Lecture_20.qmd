@@ -39,7 +39,7 @@ The jackpot is $100,000. What happens next depends on their choices.
 
 . . .
 
-This is a **game-frame**: we know the players, the strategies, and the outcomes — but not what the players *prefer*.
+This is a **game-frame**: we know the players, the strategies, and the outcomes, but not what the players *prefer*.
 
 ## Game-Frame vs. Game
 
@@ -61,12 +61,12 @@ A **game** is a game-frame plus a ranking of outcomes for each player.
 
 ## What Should Sarah Do?
 
-Suppose both players are **selfish and greedy** — they only care about their own money, and prefer more to less.
+Suppose both players are **selfish and greedy**: they only care about their own money, and prefer more to less.
 
 . . .
 
 Sarah reasons:
-- If Steven picks **Steal**, it doesn't matter what she does — she gets nothing either way.
+- If Steven picks **Steal**, it doesn't matter what she does. She gets nothing either way.
 - If Steven picks **Split**, she gets \$50k from Split or \$100k from Steal.
 
 . . .
@@ -79,7 +79,7 @@ But crucially, this is not the right analysis for *every* player.
 
 ## What If Sarah Is Fair-Minded?
 
-Suppose instead Sarah prefers both getting \$50k to her getting \$100k alone — she cares about fairness.
+Suppose instead Sarah prefers both getting \$50k to her getting \$100k alone. She cares about fairness.
 
 . . .
 
@@ -145,7 +145,7 @@ If Sarah is fair-minded (prefers (both \$50k) above all else), her utilities shi
 
 . . .
 
-Same game-frame, same second player — but different game because Sarah's ranking has changed.
+Same game-frame, same second player, but different game because Sarah's ranking has changed.
 
 ## The Normal (Strategic) Form
 
@@ -187,13 +187,13 @@ Regardless of what Ed does, Doug does better with Extra effort: $3 > 2$ and $1 >
 
 . . .
 
-But if both choose Extra, they both get 1 — worse than both choosing Normal (both get 2).
+But if both choose Extra, they both get 1. This is worse than both choosing Normal (both get 2).
 
 # Dominance
 
 ## Strict Dominance
 
-Strategy $a$ **strictly dominates** strategy $b$ for Player $i$ if $a$ gives Player $i$ a strictly *higher* payoff than $b$ in *every possible situation* — no matter what the other players do.
+Strategy $a$ **strictly dominates** strategy $b$ for Player $i$ if $a$ gives Player $i$ a strictly *higher* payoff than $b$ in *every possible situation*, no matter what the other players do.
 
 . . .
 

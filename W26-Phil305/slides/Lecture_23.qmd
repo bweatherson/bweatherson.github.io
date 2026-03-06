@@ -8,7 +8,7 @@ date: "4/8/2026"
 ## Plan
 
 - We now have the tools to **solve** sequential games with perfect information.
-- The method: **backward induction** — work backwards from the end of the game tree.
+- The method: **backward induction**. Work backwards from the end of the game tree.
 - This gives us a powerful and intuitive solution concept: the **subgame perfect equilibrium**.
 
 ### Associated Reading
@@ -82,7 +82,7 @@ The threat would require fighting, which gives the Incumbent payoff 1. But a rat
 
 . . .
 
-The threat is **not credible** — a rational Entrant knows the Incumbent won't carry it out.
+The threat is **not credible**. A rational Entrant knows the Incumbent won't carry it out.
 
 . . .
 
@@ -129,11 +129,11 @@ Is this a Nash equilibrium?
 
 . . .
 
-Yes — given the Incumbent will Fight, the Entrant's best response is to Stay Out (0 > −1). And the Incumbent's strategy doesn't matter since the node is not reached.
+Yes. Given the Incumbent will Fight, the Entrant's best response is to Stay Out (0 > −1). And the Incumbent's strategy doesn't matter since the node is not reached.
 
 . . .
 
-But it's **not subgame perfect** — at the Incumbent's subgame, Fight is not a best response (Accommodate gives 2 > 1).
+But it's **not subgame perfect**. At the Incumbent's subgame, Fight is not a best response (Accommodate gives 2 > 1).
 
 ## The Importance of Subgame Perfection
 
@@ -151,7 +151,7 @@ This makes it the dominant solution concept for perfect information sequential g
 
 ## The Centipede Game
 
-Two players alternate between *continuing* (C) or *stopping* (S) the game. Each stage, the pot grows — but the player who stops takes more.
+Two players alternate between *continuing* (C) or *stopping* (S) the game. Each stage, the pot grows, but the player who stops takes more.
 
 ```
 P1          P2          P1
@@ -161,7 +161,7 @@ C → C → C → C → C → S
 
 . . .
 
-At each node, stopping gives the current player a larger share than continuing — *if* the other player is about to stop.
+At each node, stopping gives the current player a larger share than continuing, *if* the other player is about to stop.
 
 ## Backward Induction in Centipede
 
@@ -176,7 +176,7 @@ Apply backward induction from the end:
 
 . . .
 
-The backward induction prediction is that no cooperation ever happens — even though both players would do much better if they cooperated longer.
+The backward induction prediction is that no cooperation ever happens, even though both players would do much better if they cooperated longer.
 
 ## The Paradox of Backward Induction
 
@@ -209,6 +209,6 @@ Backward induction: Firm 2 chooses its best response to whatever Firm 1 produces
 
 ## For Next Time
 
-- We move to games where players may **randomise** — choose strategies with probability.
+- We move to games where players may **randomise** by choosing strategies with probability.
 - This requires cardinal payoffs (not just ordinal rankings).
 - And it opens up a new kind of Nash equilibrium: **mixed strategy equilibrium**.

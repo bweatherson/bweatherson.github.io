@@ -69,7 +69,7 @@ If $\Pr(\text{Lakers win}) = 0.7$:
 
 . . .
 
-Note: the "expected value" doesn't have to be a value that $X$ can actually take — it's an average, not a prediction.
+Note: the "expected value" doesn't have to be a value that $X$ can actually take. It's an average, not a prediction.
 
 # Decision Tables
 
@@ -145,8 +145,8 @@ Consider two friends facing the "same" decision table (same ranking of outcomes)
 
 . . .
 
-- Chris's cheap airline has a luggage problem in bad weather — bags arrive a day late.
-- Robin's cheap airline has a structural problem in bad weather — it crashes.
+- Chris's cheap airline has a luggage problem in bad weather. Bags arrive a day late.
+- Robin's cheap airline has a structural problem in bad weather. It crashes.
 
 . . .
 
@@ -180,7 +180,7 @@ $$
 
 . . .
 
-Fly cheap — it has higher expected utility.
+Fly cheap. It has higher expected utility.
 
 ## What If Bad Weather is Worse?
 
@@ -212,7 +212,7 @@ Now fly the reliable airline. The downside risk changed everything.
 
 . . .
 
-The reliable airline wins — there's much less to gain by going cheap.
+The reliable airline wins. There's much less to gain by going cheap.
 
 ## What If Bad Weather is Likely?
 
@@ -248,7 +248,7 @@ Expected utility theory is the formal framework that integrates these three fact
 
 ## Fair Games
 
-A game is **fair** when neither player has an advantage — both have expected payoff of zero.
+A game is **fair** when neither player has an advantage. Both have expected payoff of zero.
 
 . . .
 
@@ -291,7 +291,7 @@ $$111 = \frac{x}{8} \implies x = \$888$$
 
 . . .
 
-Notice the pattern in the expected contributions: $1$, $10$, $100$. Each outcome is rarer but pays proportionally more — each contributes exactly 10 times as much as the previous. The total expected winnings of $\$111$ must be offset by the losing outcome.
+Notice the pattern in the expected contributions: $1$, $10$, $100$. Each outcome is rarer but pays proportionally more. Each contributes exactly 10 times as much as the previous. The total expected winnings of $\$111$ must be offset by the losing outcome.
 
 ## Problem 17: A Dice Game
 

@@ -64,7 +64,7 @@ One pitfall: the formula requires $\Pr(B) > 0$.
 
 . . .
 
-If $\Pr(B) = 0$, then $\Pr(A \mid B)$ is simply **undefined** — not zero, not a special number.
+If $\Pr(B) = 0$, then $\Pr(A \mid B)$ is simply **undefined** (not zero, not a special number).
 
 . . .
 
@@ -80,7 +80,7 @@ In a probability tree, branches represent possible outcomes. The number on each 
 
 . . .
 
-The first branch is the only one where the probability is *unconditional* — there are no prior branches to be conditional on.
+The first branch is the only one where the probability is *unconditional*. There are no prior branches to be conditional on.
 
 . . .
 
@@ -102,7 +102,7 @@ The *new* unconditional probability of $A$ after learning $B$ equals the *old* c
 
 . . .
 
-This is not a mathematical theorem — it is a claim about how rational agents *should* respond to learning new information. It is very widely accepted.
+This is not a mathematical theorem. It is a claim about how rational agents *should* respond to learning new information. It is very widely accepted.
 
 ## Why It Matters
 
@@ -125,7 +125,7 @@ Example from the book: most university students are young, but most young people
 
 . . .
 
-Switching the order of conditioning changes the meaning — and the number.
+Switching the order of conditioning changes the meaning and the number.
 
 ## A Common Confusion
 
@@ -137,7 +137,7 @@ It has a name: the **transposition fallacy** (or "the prosecutor's fallacy" in l
 
 . . .
 
-Example: "The probability that an innocent person would leave this evidence is very low — therefore the probability this person is innocent is very low." These are **not** the same probability.
+Example: "The probability that an innocent person would leave this evidence is very low. Therefore the probability this person is innocent is very low." These are **not** the same probability.
 
 . . .
 
@@ -197,7 +197,7 @@ For example: two eyewitnesses both reporting the same crime gives more evidence 
 
 . . .
 
-These are consistent — but be careful. Sometimes assuming independence is like assuming relativistic effects don't matter for bridge design. Sometimes it's fine. The context determines which.
+These are consistent, but be careful. Sometimes assuming independence is like assuming relativistic effects don't matter for bridge design. Sometimes it's fine. The context determines which.
 
 ## An Interesting Example
 
@@ -224,7 +224,7 @@ So $\Pr(A \mid B) = \frac{1}{6}$.
 
 . . .
 
-And the unconditional probability of getting a sum of 7 is: the pairs (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) — that's 6 out of 36 = $\frac{1}{6}$.
+And the unconditional probability of getting a sum of 7 is: the pairs (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). That's 6 out of 36 = $\frac{1}{6}$.
 
 . . .
 
@@ -268,7 +268,7 @@ $$\Pr(S \wedge T) = \Pr(S) \times \Pr(T \mid S) = 0.02 \times 0.14 = 0.0028$$
 
 . . .
 
-About 0.28% of all children — a small number, but the concern is whether it is *concentrated*.
+About 0.28% of all children (a small number), but the concern is whether it is *concentrated*.
 
 ## Exercise 4b: Pr(T)
 
@@ -302,7 +302,7 @@ Even though only 2% of children live in Southside, roughly **22%** of children w
 
 . . .
 
-Notice: we needed $\Pr(T \mid S)$ to *find* $\Pr(S \mid T)$. Order matters — this is exactly the inversion problem.
+Notice: we needed $\Pr(T \mid S)$ to *find* $\Pr(S \mid T)$. Order matters. This is exactly the inversion problem.
 
 ## Exercise 13: Apples and Buckets
 
@@ -382,7 +382,7 @@ $$\Pr(B_{12} \wedge B_{23} \wedge B_{13}) = \Pr(B_{12})\,\Pr(B_{23})\,\Pr(B_{13}
 
 . . .
 
-But notice: if $B_{12}$ and $B_{23}$ both hold, then apples 1, 2, 3 are all in the same bucket — which **guarantees** $B_{13}$.
+But notice: if $B_{12}$ and $B_{23}$ both hold, then apples 1, 2, 3 are all in the same bucket. This **guarantees** $B_{13}$.
 
 $$\Pr(B_{12} \wedge B_{23} \wedge B_{13}) = \Pr(B_{12} \wedge B_{23}) = \frac{1}{100}$$
 

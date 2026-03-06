@@ -124,7 +124,7 @@ We need a solution concept that applies to any game.
 
 ## The Core Idea
 
-A strategy profile is a **Nash equilibrium** if no player can improve their payoff by *unilaterally* changing their strategy — given that all other players keep theirs fixed.
+A strategy profile is a **Nash equilibrium** if no player can improve their payoff by *unilaterally* changing their strategy (given that all other players keep theirs fixed).
 
 . . .
 
@@ -194,7 +194,7 @@ Yes, since given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No imp
 
 . . .
 
-Again two equilibria — this time each favors a different player.
+Again two equilibria. This time each favors a different player.
 
 ## The Stag Hunt
 
@@ -239,7 +239,7 @@ Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓
 
 . . .
 
-(Stag, Stag) is **Pareto superior** — both do better than in (Rabbit, Rabbit).
+(Stag, Stag) is **Pareto superior**. Both do better than in (Rabbit, Rabbit).
 
 . . .
 
@@ -257,8 +257,8 @@ Both games have a Pareto-superior cooperative outcome that's not always achieved
 But they're structurally different:
 
 ::: {.incremental}
-- In the **PD**, defection is a *dominant* strategy — rational even if you know the other will cooperate.
-- In the **Stag Hunt**, cooperation is rational *if you trust* the other player will cooperate — but unilaterally it's risky.
+- In the **PD**, defection is a *dominant* strategy. Rational even if you know the other will cooperate.
+- In the **Stag Hunt**, cooperation is rational *if you trust* the other player will cooperate. But unilaterally it's risky.
 - In PD the problem is incentives. In Stag Hunt the problem is **trust and coordination**.
 :::
 
@@ -273,7 +273,7 @@ What are some cases that feel like Stag Hunts?
 
 ## What Nash Equilibrium Does and Doesn't Tell Us
 
-Nash equilibrium identifies **stable** outcomes — situations where no one has reason to deviate.
+Nash equilibrium identifies **stable** outcomes: situations where no one has reason to deviate.
 
 . . .
 
@@ -281,7 +281,7 @@ It does **not** tell us:
 
 ::: {.incremental}
 - Which equilibrium will be reached when there are multiple.
-- That equilibria are *good* — the PD equilibrium is Pareto inferior.
+- That equilibria are *good*. The PD equilibrium is Pareto inferior.
 - How players decide what to do when they haven't communicated.
 :::
 
@@ -302,7 +302,7 @@ But game theory is also done in two other ways.
 
 ## How Game Theory Is Done
 
-**Evolutionary game theory**: strategies are hard-wired, and populations of strategies grow proportionally to their success. No assumption of rationality — selection does the work.
+**Evolutionary game theory**: strategies are hard-wired, and populations of strategies grow proportionally to their success. No assumption of rationality. Selection does the work.
 
 . . .
 

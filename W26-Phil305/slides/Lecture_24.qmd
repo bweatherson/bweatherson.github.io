@@ -8,7 +8,7 @@ date: "4/13/2026"
 ## Plan
 
 - So far, strategies have been **pure**: choose one action deterministically.
-- Today we allow players to **randomise** — play a **mixed strategy**.
+- Today we allow players to **randomise** by playing a **mixed strategy**.
 - This requires cardinal payoffs, connects back to expected utility, and completes the Nash equilibrium story.
 
 ### Associated Reading
@@ -48,7 +48,7 @@ Column is indifferent when $1 - 2p = 2p - 1$, i.e., $p = 1/2$.
 
 . . .
 
-At $p = 1/2$, Column cannot exploit Row's strategy — any mix gives the same expected payoff. The **mixed strategy Nash equilibrium** is for both players to mix 50/50.
+At $p = 1/2$, Column cannot exploit Row's strategy. Any mix gives the same expected payoff. The **mixed strategy Nash equilibrium** is for both players to mix 50/50.
 
 # Mixed Strategy Nash Equilibrium
 
@@ -62,7 +62,7 @@ A **mixed strategy Nash equilibrium** is a profile of (possibly mixed) strategie
 
 . . .
 
-**Nash's Theorem** (1950): Every finite game has at least one Nash equilibrium — in pure or mixed strategies.
+**Nash's Theorem** (1950): Every finite game has at least one Nash equilibrium in pure or mixed strategies.
 
 ## The Indifference Principle
 
@@ -70,7 +70,7 @@ In a mixed strategy Nash equilibrium, a player who mixes must be **indifferent**
 
 . . .
 
-Why? If one strategy had higher expected payoff than another, the player would shift all probability to that strategy — pure strategy, not a mix.
+Why? If one strategy had higher expected payoff than another, the player would shift all probability to that strategy (pure strategy, not a mix).
 
 . . .
 
@@ -137,11 +137,11 @@ The mixed equilibrium is the outcome when players can't coordinate on which pure
 
 ## Why Cardinal Payoffs Matter Now
 
-For pure strategy analysis, ordinal payoffs suffice — we just need to know which outcomes are ranked higher.
+For pure strategy analysis, ordinal payoffs suffice. We just need to know which outcomes are ranked higher.
 
 . . .
 
-For mixed strategies, we need **cardinal** payoffs — the actual numbers matter, not just the order.
+For mixed strategies, we need **cardinal** payoffs. The actual numbers matter, not just the order.
 
 . . .
 
@@ -173,7 +173,7 @@ The minimax strategy and the Nash equilibrium coincide in zero-sum games.
 
 . . .
 
-This was the first major theorem of game theory — proved before Nash's more general result.
+This was the first major theorem of game theory, proved before Nash's more general result.
 
 ## Minimax in Matching Pennies
 
@@ -181,7 +181,7 @@ Each player's minimax strategy: mix 50/50. This guarantees an expected payoff of
 
 . . .
 
-Against any deterministic opponent, you can't do better on average — but you can't do worse either.
+Against any deterministic opponent, you can't do better on average, but you can't do worse either.
 
 . . .
 
@@ -215,5 +215,5 @@ Mixed strategy equilibria are especially relevant when:
 
 ## For Next Time
 
-- We close with **signaling games** — a richer class of games involving private information.
+- We close with **signaling games**: a richer class of games involving private information.
 - These combine sequential structure with **asymmetric information**, and produce some surprising equilibria.

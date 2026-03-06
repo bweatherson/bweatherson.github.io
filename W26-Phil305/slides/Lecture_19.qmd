@@ -25,7 +25,7 @@ Why? Because getting \$2x is like getting \$x, *then getting another \$x once yo
 
 . . .
 
-This is **declining marginal utility** — the extra value of each additional dollar decreases as you get richer.
+This is **declining marginal utility**: the extra value of each additional dollar decreases as you get richer.
 
 ## Two Claims
 
@@ -47,7 +47,7 @@ The graph of utility as a function of wealth should satisfy:
 
 ::: {.incremental}
 - **More money → more utility** (the curve slopes upward).
-- **Declining marginal utility** (the curve bends downward — it's concave).
+- **Declining marginal utility** (the curve bends downward; it's concave).
 :::
 
 ## Example: Utility as $\sqrt{\text{Wealth}}$
@@ -60,7 +60,7 @@ A simple model: utility = $\sqrt{\text{dollars of net wealth}}$.
 
 . . .
 
-Each extra \$300 gives you 10 more utility at first — but the jumps are worth less and less as you start wealthier.
+Each extra \$300 gives you 10 more utility at first, but the jumps are worth less and less as you start wealthier.
 
 ## Example: Utility as $\log_{10}(\text{Wealth})$
 
@@ -151,7 +151,7 @@ $$
 
 . . .
 
-$4.986 > 4.984$ — the insured outcome has **higher expected utility**. Take the insurance.
+$4.986 > 4.984$. The insured outcome has **higher expected utility**. Take the insurance.
 
 ## The Insurer's Perspective
 
@@ -166,14 +166,14 @@ As long as the insurer has a large, diversified pool of customers (so they effec
 ## Why Both Sides Win
 
 ::: {.incremental}
-- The customer has a **concave** utility curve — they value certainty more than the raw dollar amounts suggest.
+- The customer has a **concave** utility curve. They value certainty more than the raw dollar amounts suggest.
 - The insurer, by pooling many independent risks, can afford to behave as if utility is approximately linear in money.
 - This asymmetry makes mutually beneficial insurance possible.
 :::
 
 . . .
 
-Insurance isn't irrational — but this model also suggests people probably *over-insure* on small risks where the dollar amounts aren't life-changing.
+Insurance isn't irrational, but this model also suggests people probably *over-insure* on small risks where the dollar amounts aren't life-changing.
 
 # The Allais Paradox
 
@@ -191,13 +191,13 @@ Suppose options A and B both pay out the same amount if event $p$ occurs.
 
 . . .
 
-Then whether $p$ is true or false doesn't affect the comparison — you're comparing A and B only in the scenarios where $p$ is false.
+Then whether $p$ is true or false doesn't affect the comparison. You're comparing A and B only in the scenarios where $p$ is false.
 
 . . .
 
 Changing the common payoff when $p$ is true shouldn't change whether you prefer A to B.
 
-## The Allais Paradox — First Choice
+## The Allais Paradox: First Choice
 
 Which do you prefer?
 
@@ -208,7 +208,7 @@ Which do you prefer?
 
 Many people choose **A**.
 
-## The Allais Paradox — Second Choice
+## The Allais Paradox: Second Choice
 
 Which do you prefer?
 
@@ -232,7 +232,7 @@ Represent the options using 10 blue marbles, 89 maize marbles, and 1 scarlet mar
 
 . . .
 
-C and D are just A and B with the maize payoff changed from \$0 to \$1M — the *same* change for both. The Sure Thing Principle says your preference between the top pair and the bottom pair should be the same.
+C and D are just A and B with the maize payoff changed from \$0 to \$1M. The *same* change for both. The Sure Thing Principle says your preference between the top pair and the bottom pair should be the same.
 
 ## The Math
 
@@ -264,7 +264,7 @@ If you learned, before the bet, whether the marble was Maize or not-Maize:
 
 . . .
 
-- If Maize: the payoff in A/B and C/D is the same anyway — you don't care.
+- If Maize: the payoff in A/B and C/D is the same anyway. You don't care.
 - If not-Maize: you face the exact same A vs. B comparison in both cases.
 
 . . .
@@ -276,7 +276,7 @@ So by a weak dominance argument, your preference should be the same across both 
 - The Allais preferences **are common**, especially in real experiments.
 - Whether they are **rational** is genuinely contested.
 - Modified versions of decision theory (like Buchak's **risk-weighted expected utility**) can accommodate Allais preferences.
-- For this course, expected utility maximisation is the standard tool — just be aware it has known challenges.
+- For this course, expected utility maximisation is the standard tool. Just be aware it has known challenges.
 
 ## For Next Time
 

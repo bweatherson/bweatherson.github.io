@@ -66,7 +66,7 @@ A **strategy** for a player specifies what they will do at **every** decision no
 
 . . .
 
-This includes nodes they might never actually reach — the strategy is a *complete contingent plan*.
+This includes nodes they might never actually reach. The strategy is a *complete contingent plan*.
 
 . . .
 
@@ -97,7 +97,7 @@ A game has **perfect information** if every player always knows the full history
 
 . . .
 
-Our examples so far are perfect information games — the Incumbent knows the Entrant has entered.
+Our examples so far are perfect information games. The Incumbent knows the Entrant has entered.
 
 # More Examples
 
@@ -130,7 +130,7 @@ Player 1
 
 Player 1's strategies: {Offer 9/1} or {Offer 5/5}.
 
-Player 2's strategies — a *complete plan* for both nodes:
+Player 2's strategies: a *complete plan* for both nodes.
 
 ::: {.incremental}
 - Accept 9/1 and Accept 5/5
@@ -171,11 +171,11 @@ If Player 1 trusts, Player 2 gets 10 from Honor vs. 20 from Exploit. A rational 
 
 . . .
 
-But if Player 1 knows this, they should not trust — getting 5 rather than risking 0.
+But if Player 1 knows this, they should not trust. They get 5 rather than risking 0.
 
 . . .
 
-Yet (Trust, Honor) gives (10, 10) — better for *both* than (Not Trust). This tension is central to many social and economic phenomena.
+Yet (Trust, Honor) gives (10, 10), better for *both* than (Not Trust). This tension is central to many social and economic phenomena.
 
 ## For Next Time
 
