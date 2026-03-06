@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2026-03-23">
-  <title>Expected Utility</title>
+  <meta name="dcterms.date" content="2026-03-25">
+  <title>Utility and Money</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,505 +130,365 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Expected Utility</h1>
+  <h1 class="title">Utility and Money</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-03-23</p>
+  <p class="date">2026-03-25</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Random Variables and Expected Value</h1>
+<h1>Money Is Not Utility</h1>
 
 </section>
 <section class="slide level2">
 <h2>Plan</h2>
 <ul>
-<li>We now move from probability to <strong>decisions</strong>.</li>
-<li>The key question: when outcomes depend on uncertain facts, how should we choose?</li>
-<li>Today we introduce the core tool: <strong>expected utility</strong>.</li>
+<li>Money is the most familiar unit for measuring value in decisions.</li>
+<li>But dollars and utility are <strong>not the same thing</strong>.</li>
+<li>Today we explore how they differ, and why this matters.</li>
 </ul>
 <h3>Associated Reading</h3>
-<p><em>Odds and Ends</em>, Chapters 11 and 12</p>
+<p><em>Odds and Ends</em>, Sections 12.5 and 13.1</p>
 </section>
 <section class="slide level2">
-<h2>Random Variables</h2>
-<ul>
-<li>A <strong>random variable</strong> is a variable that takes different numerical values in different states.</li>
-<li>In other words: a function from possibilities to numbers.</li>
-</ul>
+<h2>Marginal Utility</h2>
+<p>Getting $2x is not twice as valuable as getting $x.</p>
 <div class="fragment">
-<p>Examples:</p>
-<ul>
-<li class="fragment"><span class="math inline">\(X\)</span> = the age of the next US president at inauguration.</li>
-<li class="fragment"><span class="math inline">\(Y\)</span> = the number of children you will have in your lifetime.</li>
-<li class="fragment"><span class="math inline">\(Z\)</span> = the number of your friends who correctly predict tonight’s game.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>An Example</h2>
-<ul>
-<li>12 of your friends predicted the Lakers will win; 7 predicted the Clippers.</li>
-<li>Let <span class="math inline">\(X\)</span> = the number of friends who predicted correctly.</li>
-</ul>
-<p><span class="math display">\[
-X = \begin{cases} 12 &amp; \text{if Lakers win} \\ 7 &amp; \text{if Clippers win} \end{cases}
-\]</span></p>
-</section>
-<section class="slide level2">
-<h2>Expected Value</h2>
-<p>Given a random variable <span class="math inline">\(X\)</span> and a probability function <span class="math inline">\(\Pr\)</span>:</p>
-<p><span class="math display">\[
-\text{Exp}(X) = \sum_i x_i \cdot \Pr(X = x_i)
-\]</span></p>
-<div class="fragment">
-<p>This is a <strong>weighted average</strong> of the possible values, where the weights are the probabilities.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Back to the Example</h2>
-<p>If <span class="math inline">\(\Pr(\text{Lakers win}) = 0.7\)</span>:</p>
-<p><span class="math display">\[\begin{align*}
-\text{Exp}(X) &amp;= 12 \times 0.7 + 7 \times 0.3 \\
-              &amp;= 8.4 + 2.1 \\
-              &amp;= 10.5
-\end{align*}\]</span></p>
-<div class="fragment">
-<p>Note: the “expected value” doesn’t have to be a value that <span class="math inline">\(X\)</span> can actually take. It’s an average, not a prediction.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Decision Tables</h1>
-
-</section>
-<section class="slide level2">
-<h2>States and Choices</h2>
-<p>We want to model decisions where outcomes depend on external facts outside our control.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">State 1</th>
-<th style="text-align: center;">State 2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Choice 1</td>
-<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Choice 2</td>
-<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<ul>
-<li><strong>Choices</strong>: the options available to you.</li>
-<li><strong>States</strong>: ways the world might be that affect the outcome.</li>
-<li><strong>Outcomes</strong>: a choice plus a state determines an outcome.</li>
-<li><strong>Utilities</strong>: numbers representing how good each outcome is.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>An Example</h2>
-<p>A friend has to choose between watching the Packers game and finishing a paper due Monday.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Packers Win</th>
-<th style="text-align: center;">Packers Lose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Watch Football</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Work on Paper</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">2</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p>The numbers reflect preferences. Higher is better.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Dominance</h1>
-
-</section>
-<section class="slide level2">
-<h2>Dominance Reasoning</h2>
-<p>The simplest rule: <strong>never choose a dominated option</strong>.</p>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(A\)</span> <strong>strongly dominates</strong> <span class="math inline">\(B\)</span>: <span class="math inline">\(A\)</span> gives a strictly better outcome than <span class="math inline">\(B\)</span> in every state.</li>
-<li><span class="math inline">\(A\)</span> <strong>weakly dominates</strong> <span class="math inline">\(B\)</span>: <span class="math inline">\(A\)</span> gives at least as good an outcome as <span class="math inline">\(B\)</span> in every state, and strictly better in at least one.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Case Where Dominance Applies</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Packers Win</th>
-<th style="text-align: center;">Packers Lose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Watch Football</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Work on Paper</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">2</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p>Working on the paper gives a better outcome <strong>regardless</strong> of what the Packers do. It strongly dominates watching football.</p>
+<p>Why? Because getting $2x is like getting $x, <em>then getting another $x once you’re already richer</em>. And the second $x is worth less to you than the first.</p>
 </div>
 <div class="fragment">
-<p>This is compelling reasoning: if one option is better in every possible scenario, you should choose it.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Why Dominance Isn’t Always Enough</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Packers Win</th>
-<th style="text-align: center;">Packers Lose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Watch Football</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Work on Paper</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">2</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p>Neither option dominates the other. What to do depends on <strong>how likely</strong> each state is and <strong>how much</strong> you care about each outcome.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Why Magnitude Matters</h2>
-<p>Consider two friends facing the “same” decision table (same ranking of outcomes):</p>
-<div class="fragment">
-<ul>
-<li>Chris’s cheap airline has a luggage problem in bad weather. Bags arrive a day late.</li>
-<li>Robin’s cheap airline has a structural problem in bad weather. It crashes.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Clearly these are different decisions, even though the <em>ranking</em> of outcomes is identical. The <strong>magnitude</strong> of the difference between outcomes matters too.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Maximising Expected Utility</h1>
-
-</section>
-<section class="slide level2">
-<h2>The Rule</h2>
-<blockquote>
-<p>The rational choice is the one that <strong>maximises expected utility</strong>.</p>
-</blockquote>
-<div class="fragment">
-<p>Expected utility of a choice = weighted average of utilities of outcomes, weighted by probabilities:</p>
-<p><span class="math display">\[
-\text{Exp}(U(\text{Choice})) = \sum_i \Pr(\text{State}_i) \times U(\text{Choice}, \text{State}_i)
-\]</span></p>
-</div>
-</section>
-<section class="slide level2">
-<h2>The Airline Example</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
-<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Fly Cheap Airline</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Fly Good Airline</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">5</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\begin{align*}
-\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times 0 = 8.0 \\
-\text{Exp}(\text{Good})  &amp;= 0.8 \times 6 + 0.2 \times 5 = 5.8
-\end{align*}\]</span></p>
-<div class="fragment">
-<p>Fly cheap. It has higher expected utility.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>What If Bad Weather is Worse?</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
-<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Fly Cheap Airline</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;"><strong>−20</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Fly Good Airline</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">5</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\begin{align*}
-\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times (-20) = 4.0 \\
-\text{Exp}(\text{Good})  &amp;= 0.8 \times 6 + 0.2 \times 5 = 5.8
-\end{align*}\]</span></p>
-<div class="fragment">
-<p>Now fly the reliable airline. The downside risk changed everything.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>What If the Gap is Small?</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Good Weather (Pr = 0.8)</th>
-<th style="text-align: center;">Bad Weather (Pr = 0.2)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Fly Cheap Airline</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Fly Good Airline</td>
-<td style="text-align: center;"><strong>9</strong></td>
-<td style="text-align: center;"><strong>8</strong></td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\begin{align*}
-\text{Exp}(\text{Cheap}) &amp;= 0.8 \times 10 + 0.2 \times 0 = 8.0 \\
-\text{Exp}(\text{Good})  &amp;= 0.8 \times 9 + 0.2 \times 8 = 8.8
-\end{align*}\]</span></p>
-<div class="fragment">
-<p>The reliable airline wins. There’s much less to gain by going cheap.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>What If Bad Weather is Likely?</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 38%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">Good Weather (Pr = <strong>0.3</strong>)</th>
-<th style="text-align: center;">Bad Weather (Pr = <strong>0.7</strong>)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Fly Cheap Airline</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Fly Good Airline</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">5</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\begin{align*}
-\text{Exp}(\text{Cheap}) &amp;= 0.3 \times 10 + 0.7 \times 0 = 3.0 \\
-\text{Exp}(\text{Good})  &amp;= 0.3 \times 6 + 0.7 \times 5 = 5.3
-\end{align*}\]</span></p>
-<div class="fragment">
-<p>Bad weather being likely makes the reliable airline the clear choice.</p>
+<p>This is <strong>declining marginal utility</strong>: the extra value of each additional dollar decreases as you get richer.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
-<h2>What Drives the Decision</h2>
-<p>The correct choice depends on all three of:</p>
+<h2>Two Claims</h2>
+<p>These two claims are both true, and closely connected:</p>
 <ol type="1">
-<li class="fragment"><strong>Probabilities</strong>: How likely are the different states?</li>
-<li class="fragment"><strong>Upside</strong>: How much do you gain by the cheaper/riskier option when things go well?</li>
-<li class="fragment"><strong>Downside</strong>: How much do you lose when things go badly?</li>
+<li>You’re better off getting a million dollars than getting a 50/50 shot at two million dollars.</li>
+<li>Getting a million dollars changes your life more than it changes a billionaire’s life.</li>
 </ol>
 <div class="fragment">
-<p>Expected utility theory is the formal framework that integrates these three factors.</p>
+<p>Both are grounded in declining marginal utility.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Utility Curve</h2>
+<p>The graph of utility as a function of wealth should satisfy:</p>
+<ul>
+<li class="fragment"><strong>More money → more utility</strong> (the curve slopes upward).</li>
+<li class="fragment"><strong>Declining marginal utility</strong> (the curve bends downward; it’s concave).</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Example: Utility as <span class="math inline">\(\sqrt{\text{Wealth}}\)</span></h2>
+<p>A simple model: utility = <span class="math inline">\(\sqrt{\text{dollars of net wealth}}\)</span>.</p>
+<ul>
+<li>Utility at $100: <span class="math inline">\(\sqrt{100} = 10\)</span></li>
+<li>Utility at $400: <span class="math inline">\(\sqrt{400} = 20\)</span></li>
+<li>Utility at $900: <span class="math inline">\(\sqrt{900} = 30\)</span></li>
+</ul>
+<div class="fragment">
+<p>Each extra $300 gives you 10 more utility at first, but the jumps are worth less and less as you start wealthier.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Example: Utility as <span class="math inline">\(\log_{10}(\text{Wealth})\)</span></h2>
+<p>A slightly more realistic model (for wealth above $1,000):</p>
+<ul>
+<li>Utility at $10,000: <span class="math inline">\(\log_{10}(10{,}000) = 4\)</span></li>
+<li>Utility at $100,000: <span class="math inline">\(\log_{10}(100{,}000) = 5\)</span></li>
+<li>Utility at $1,000,000: <span class="math inline">\(\log_{10}(1{,}000{,}000) = 6\)</span></li>
+</ul>
+<div class="fragment">
+<p>Notice that <em>multiplying</em> wealth by 10 only <em>adds</em> 1 to utility. The relationship between dollars and utility is deeply nonlinear.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Worked Example</h2>
+<p>Suppose someone has a net wealth of $100,000 (utility = 5).</p>
+<p>They are offered a bet: 50% chance of winning $900,000, 50% chance of losing $90,000.</p>
+<div class="fragment">
+<ul>
+<li>Win: new wealth = $1,000,000, utility = 6</li>
+<li>Lose: new wealth = $10,000, utility = 4</li>
+</ul>
+<p><span class="math display">\[
+\text{Exp}(U(\text{Bet})) = 0.5 \times 6 + 0.5 \times 4 = 5.0
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Expected utility of the bet = 5 = status quo utility. They should be <strong>indifferent</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Reducing the Possible Gain</h2>
+<p>Now suppose the bet is: 50% chance of winning $800,000, 50% chance of losing $90,000.</p>
+<ul>
+<li>Win: new wealth = $900,000, utility ≈ 5.95</li>
+<li>Lose: new wealth = $10,000, utility = 4</li>
+</ul>
+<p><span class="math display">\[
+\text{Exp}(U(\text{Bet})) = 0.5 \times 5.95 + 0.5 \times 4 = 4.98
+\]</span></p>
+<div class="fragment">
+<p>The bet now has <em>negative</em> expected utility even though its <em>expected dollar return</em> is still very positive (<span class="math inline">\(0.5 \times 800{,}000 - 0.5 \times 90{,}000 = \$355{,}000\)</span>).</p>
+</div>
+<div class="fragment">
+<p>Expected dollars and expected utility can point in opposite directions.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Worked Problems</h1>
+<h1>Insurance</h1>
 
 </section>
 <section class="slide level2">
-<h2>Fair Games</h2>
-<p>A game is <strong>fair</strong> when neither player has an advantage. Both have expected payoff of zero.</p>
+<h2>The Insurance Puzzle</h2>
+<p>Every insurance contract is a bet, with you and the insurer on opposite sides.</p>
 <div class="fragment">
-<p>If you pay some amount <span class="math inline">\(x\)</span> to play a game with prizes, the game is fair when:</p>
-<p><span class="math display">\[\text{Exp}(\text{your net payoff}) = 0\]</span></p>
+<p>The bet can’t have a positive expected <em>dollar</em> return for both sides simultaneously.</p>
 </div>
 <div class="fragment">
-<p>This is the same expected utility calculation, but now we’re solving <em>backwards</em>: instead of computing expected utility given the numbers, we’re finding the number that makes expected utility equal zero.</p>
+<p>So why does the insurance industry exist? Why is it rational for both sides to participate?</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Problem 16: A Coin-Flip Game</h2>
-<p>A fair coin is flipped up to three times:</p>
+<h2>An Example</h2>
+<ul>
+<li>A person has $100,000 net wealth, including a car worth $30,000.</li>
+<li>There’s a 10% chance the car is destroyed in the next year.</li>
+<li>An insurer offers: pay $3,200 now; if the car is destroyed, they refund its full value.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Without Insurance</h2>
+<ul>
+<li>90% chance: wealth stays at $100,000, utility = 5.0</li>
+<li>10% chance: wealth falls to $70,000, utility ≈ 4.845</li>
+</ul>
+<p><span class="math display">\[
+\text{Exp}(U) = 0.9 \times 5.0 + 0.1 \times 4.845 = 4.984
+\]</span></p>
+</section>
+<section class="slide level2">
+<h2>With Insurance</h2>
+<p>Guaranteed wealth: <span class="math inline">\(100{,}000 - 3{,}200 = \$96{,}800\)</span>.</p>
+<p><span class="math display">\[
+U(\$96{,}800) = \log_{10}(96{,}800) \approx 4.986
+\]</span></p>
+<div class="fragment">
+<p><span class="math inline">\(4.986 &gt; 4.984\)</span>. The insured outcome has <strong>higher expected utility</strong>. Take the insurance.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Insurer’s Perspective</h2>
+<p>The insurer collects $3,200 and pays out $30,000 with probability 10%.</p>
+<p>Expected dollar return = <span class="math inline">\(3{,}200 - 0.1 \times 30{,}000 = \$200 &gt; 0\)</span>.</p>
+<div class="fragment">
+<p>As long as the insurer has a large, diversified pool of customers (so they effectively face the expected value, not the individual gamble), the insurance contract is profitable.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why Both Sides Win</h2>
+<ul>
+<li class="fragment">The customer has a <strong>concave</strong> utility curve. They value certainty more than the raw dollar amounts suggest.</li>
+<li class="fragment">The insurer, by pooling many independent risks, can afford to behave as if utility is approximately linear in money.</li>
+<li class="fragment">This asymmetry makes mutually beneficial insurance possible.</li>
+</ul>
+<div class="fragment">
+<p>Insurance isn’t irrational, but this model also suggests people probably <em>over-insure</em> on small risks where the dollar amounts aren’t life-changing.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The Allais Paradox</h1>
+
+</section>
+<section class="slide level2">
+<h2>A Challenge to Expected Utility</h2>
+<p>Maurice Allais, a French economist, devised a pair of choices to challenge expected utility theory. The goal was to show that even committed expected utility theorists violate their own theory.</p>
+<div class="fragment">
+<p>The choices are simple. The implications are not.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Allais Paradox: First Choice</h2>
+<p>Which do you prefer?</p>
+<ul>
+<li><strong>1A</strong>: $1,000,000 for certain</li>
+<li><strong>1B</strong>: 1% chance of $0, 89% chance of $1M, 10% chance of $5M</li>
+</ul>
+<div class="fragment">
+<p>Most people choose <strong>1A</strong>. The guaranteed million is too good to risk. The 10% shot at five million is not worth the 1% chance of walking away with nothing.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Allais Paradox: Second Choice</h2>
+<p>Which do you prefer?</p>
+<ul>
+<li><strong>2A</strong>: 89% chance of $0, 11% chance of $1,000,000</li>
+<li><strong>2B</strong>: 90% chance of $0, 10% chance of $5,000,000</li>
+</ul>
+<div class="fragment">
+<p>Most people choose <strong>2B</strong>. You’ll probably walk away empty-handed either way, so the extra 1% risk seems worth it for the shot at five million.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why This Is a Problem</h2>
+<p>Represent the options using 100 tickets:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Outcome</th>
-<th style="text-align: center;">Probability</th>
-<th style="text-align: center;">Payoff</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Ticket #1</th>
+<th style="text-align: center;">Tickets #2–11</th>
+<th style="text-align: center;">Tickets #12–100</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">H (first flip)</td>
-<td style="text-align: center;"><span class="math inline">\(1/2\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(+\$2\)</span></td>
+<td style="text-align: center;">1A</td>
+<td style="text-align: center;">$1M</td>
+<td style="text-align: center;">$1M</td>
+<td style="text-align: center;">$1M</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TH (second flip)</td>
-<td style="text-align: center;"><span class="math inline">\(1/4\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(+\$40\)</span></td>
+<td style="text-align: center;">1B</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$5M</td>
+<td style="text-align: center;">$1M</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TTH (third flip)</td>
-<td style="text-align: center;"><span class="math inline">\(1/8\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(+\$800\)</span></td>
+<td style="text-align: center;">2A</td>
+<td style="text-align: center;">$1M</td>
+<td style="text-align: center;">$1M</td>
+<td style="text-align: center;">$0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">TTT</td>
-<td style="text-align: center;"><span class="math inline">\(1/8\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(-\$x\)</span></td>
+<td style="text-align: center;">2B</td>
+<td style="text-align: center;">$0</td>
+<td style="text-align: center;">$5M</td>
+<td style="text-align: center;">$0</td>
 </tr>
 </tbody>
 </table>
 <div class="fragment">
-<p><strong>Question</strong>: What must <span class="math inline">\(x\)</span> be for the game to be fair?</p>
+<p>Tickets #12–100 pay the same within each pair. The only comparison that matters is tickets #1 and #2–11. In those columns, 1A vs.&nbsp;1B is <em>exactly the same</em> as 2A vs.&nbsp;2B.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Problem 16: Solution</h2>
-<p>Set expected payoff equal to zero:</p>
-<p><span class="math display">\[\frac{1}{2}(2) + \frac{1}{4}(40) + \frac{1}{8}(800) + \frac{1}{8}(-x) = 0\]</span></p>
+<h2>The Math</h2>
+<p>Let <span class="math inline">\(x = U(\$5M)\)</span>, <span class="math inline">\(y = U(\$1M)\)</span>, <span class="math inline">\(z = U(\$0)\)</span>.</p>
+<p>If <span class="math inline">\(1A \succ 1B\)</span>: <span class="math inline">\(\quad y &gt; 0.01z + 0.89y + 0.10x\)</span></p>
 <div class="fragment">
-<p><span class="math display">\[1 + 10 + 100 - \frac{x}{8} = 0\]</span></p>
+<p>Simplifying: <span class="math inline">\(\quad 0.11y - 0.10x - 0.01z &gt; 0\)</span></p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[111 = \frac{x}{8} \implies x = \$888\]</span></p>
+<p>Now: <span class="math inline">\(\;\text{EU}(2A) - \text{EU}(2B) = (0.11y + 0.89z) - (0.10x + 0.90z) = 0.11y - 0.10x - 0.01z\)</span></p>
 </div>
 <div class="fragment">
-<p>Notice the pattern in the expected contributions: <span class="math inline">\(1\)</span>, <span class="math inline">\(10\)</span>, <span class="math inline">\(100\)</span>. Each outcome is rarer but pays proportionally more. Each contributes exactly 10 times as much as the previous. The total expected winnings of <span class="math inline">\(\$111\)</span> must be offset by the losing outcome.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Problem 17: A Dice Game</h2>
-<p>A fair die is rolled up to twice:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Outcome</th>
-<th style="text-align: center;">Probability</th>
-<th style="text-align: center;">Payoff</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1 on roll 1</td>
-<td style="text-align: center;"><span class="math inline">\(1/6\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(+\$x\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Not 1, then 2 on roll 2</td>
-<td style="text-align: center;"><span class="math inline">\(5/6 \times 1/6 = 5/36\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(+\$6x\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Not 1, then not 2</td>
-<td style="text-align: center;"><span class="math inline">\(5/6 \times 5/6 = 25/36\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(-\$6\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p><strong>Question</strong>: What must <span class="math inline">\(x\)</span> be for the game to be fair?</p>
+<p>The same expression. So <span class="math inline">\(1A \succ 1B\)</span> forces <span class="math inline">\(\text{EU}(2A) &gt; \text{EU}(2B)\)</span>. Choosing 1A over 1B and 2B over 2A is a contradiction, whatever your utilities are.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Problem 17: Solution</h2>
-<p>Set expected payoff equal to zero:</p>
-<p><span class="math display">\[\frac{1}{6}x + \frac{5}{36}(6x) + \frac{25}{36}(-6) = 0\]</span></p>
+<h2>Allais and Savage</h2>
+<p><strong>Maurice Allais</strong> (1911–2010) was a French economist. Writing at a time when many French intellectuals were skeptical of reducing decisions to a formula, he designed this example to prove Savage wrong.</p>
 <div class="fragment">
-<p><span class="math display">\[\frac{6x}{36} + \frac{30x}{36} - \frac{150}{36} = 0\]</span></p>
+<p><strong>Leonard Savage</strong> (1917–1971) was an American statistician and the leading advocate of expected utility theory.</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[\frac{36x}{36} = \frac{150}{36} \implies x = \frac{25}{6} \approx \$4.17\]</span></p>
+<p>When Savage first saw the problem, he made exactly the choices Allais predicted, violating his own theory. He then had to work out why those choices were wrong.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Allais’s Position</h2>
+<p>Allais thought the common choices (1A <span class="math inline">\(\succ\)</span> 1B, 2B <span class="math inline">\(\succ\)</span> 2A) are <em>rational</em>, and that expected utility theory is therefore wrong.</p>
+<div class="fragment">
+<p>The idea: there is something valuable about <em>certainty itself</em> that expected utility does not capture. Getting $0 when you were one step away from a guaranteed million feels qualitatively different from getting $0 in a situation that was already risky.</p>
 </div>
 <div class="fragment">
-<p>The algebra is clean even though the answer isn’t a round number. Notice what’s doing the work: <span class="math inline">\(\frac{1}{6}x + \frac{5}{36}(6x)\)</span> simplifies to just <span class="math inline">\(x\)</span>, because the <span class="math inline">\(x\)</span> and <span class="math inline">\(6x\)</span> prizes are weighted so that the two winning branches together contribute exactly <span class="math inline">\(x\)</span> in expectation.</p>
+<p>This “certainty effect” is a legitimate preference, Allais argued. Any theory that rules it out is missing something real.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Sure Thing Principle</h2>
+<p>Savage’s response is built on a principle:</p>
+<blockquote>
+<p><strong>Sure Thing Principle</strong>: If you would choose X over Y knowing E is true, and you’d also choose X over Y knowing E is false, then you should choose X over Y even without knowing whether E is true.</p>
+</blockquote>
+<div class="fragment">
+<p>The reasoning: if E makes no difference to your comparison in either scenario, E is simply irrelevant. Your choice should not depend on it.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Savage’s Response</h2>
+<p>Apply the Sure Thing Principle with E = “ticket #12–100 is drawn.”</p>
+<div class="fragment">
+<p>If E is true: 1A and 1B both pay $1M, and 2A and 2B both pay $0. No difference in either pair.</p>
+</div>
+<div class="fragment">
+<p>If E is false (ticket #1 or #2–11): the comparison is $1M vs.&nbsp;($0 or $5M), which is identical in both pairs.</p>
+</div>
+<div class="fragment">
+<p>So choosing 1A means you would not choose 2B in either scenario. By the Sure Thing Principle, you should choose 2A.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Prescriptive vs.&nbsp;Descriptive</h2>
+<p>There are two ways to use expected utility theory:</p>
+<ul>
+<li><strong>Descriptive</strong>: predicts how people will actually choose (“most people will buy insurance because…”)</li>
+<li><strong>Prescriptive</strong>: tells us how people <em>should</em> choose (“you ought to take the bet because…”)</li>
+</ul>
+<div class="fragment">
+<p>Savage’s response is prescriptive. He grants that people are <em>tempted</em> to make the Allais choices. But being tempted does not make those choices rational.</p>
+</div>
+<div class="fragment">
+<p>The Allais paradox shows that actual choices can diverge from what expected utility recommends. That is not a problem for expected utility as a <em>normative</em> theory.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What to Make of This</h2>
+<ul>
+<li>The Allais preferences are common in experiments. Both Allais and Savage agree on that.</li>
+<li>Whether they are rational is genuinely contested. Allais said yes; Savage said no.</li>
+<li>Modified theories (like Buchak’s <strong>risk-weighted expected utility</strong>) can accommodate Allais preferences while remaining systematic.</li>
+<li>For this course, expected utility maximization is the standard framework. The debates around it are real and ongoing.</li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+<h2>Practice Question</h2>
+<p>According to Savage’s response to the Allais paradox, the rule of expected utility is:</p>
+<ol type="a">
+<li>descriptive</li>
+<li>prescriptive</li>
+<li>both descriptive and prescriptive</li>
+<li>neither</li>
+</ol>
+<div class="fragment">
+<p><strong>Answer: (b).</strong> Savage treats expected utility as telling us how we <em>should</em> decide, not just describing how we do decide. The Allais preferences are common but irrational, on his view.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Practice Question</h2>
+<p>In the Allais Paradox, people tend to choose 1A over 1B, but 2B over 2A. This suggests:</p>
+<ol type="a">
+<li>for many people, the utility of $5M is not five times that of $1M</li>
+<li>people maximize expected utility, not expected monetary value</li>
+<li>people are more willing to accept a small risk when things are already risky</li>
+<li>the Sure-thing Principle is descriptive rather than prescriptive</li>
+</ol>
+<div class="fragment">
+<p><strong>Answer: (c).</strong> The context shifts between the two choices: a safe option is available in the first, but not in the second. That shift changes what people choose, even though expected utility says it shouldn’t matter.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>For Next Time</h2>
 <ul>
-<li>We will look at the relationship between <strong>money and utility</strong>.</li>
-<li>Why isn’t doubling your money the same as doubling your utility?</li>
-<li>And what does this tell us about insurance, gambling, and risk?</li>
+<li>We turn to <strong>game theory</strong>.</li>
+<li>What happens when the outcomes of your decisions depend not on nature, but on the choices of other <em>rational agents</em>?</li>
 </ul>
 
 

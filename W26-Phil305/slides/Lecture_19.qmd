@@ -1,6 +1,12 @@
 ---
 title: "Utility and Money"
 date: "3/25/2026"
+format:
+    revealjs:
+        css: lecture-03-custom-tables.css
+    beamer:
+        include-in-header: 
+            - 305-beamer-header-minimal-no-trees.tex
 ---
 
 # Money Is Not Utility
@@ -32,9 +38,6 @@ This is **declining marginal utility**: the extra value of each additional dolla
 These two claims are both true, and closely connected:
 
 1. You're better off getting a million dollars than getting a 50/50 shot at two million dollars.
-
-. . .
-
 2. Getting a million dollars changes your life more than it changes a billionaire's life.
 
 . . .
@@ -93,7 +96,7 @@ $$
 
 Expected utility of the bet = 5 = status quo utility. They should be **indifferent**.
 
-## The Same Bet is Bad with Worse Downside
+## Reducing the Possible Gain
 
 Now suppose the bet is: 50% chance of winning \$800,000, 50% chance of losing \$90,000.
 
@@ -179,104 +182,164 @@ Insurance isn't irrational, but this model also suggests people probably *over-i
 
 ## A Challenge to Expected Utility
 
-The theory we've built has a very appealing principle built in: the **Sure Thing Principle**.
+Maurice Allais, a French economist, devised a pair of choices to challenge expected utility theory. The goal was to show that even committed expected utility theorists violate their own theory.
 
 . . .
 
-If two options have the *same* payoff under some scenario, your preference between them shouldn't depend on what that payoff is.
-
-## The Sure Thing Principle
-
-Suppose options A and B both pay out the same amount if event $p$ occurs.
-
-. . .
-
-Then whether $p$ is true or false doesn't affect the comparison. You're comparing A and B only in the scenarios where $p$ is false.
-
-. . .
-
-Changing the common payoff when $p$ is true shouldn't change whether you prefer A to B.
+The choices are simple. The implications are not.
 
 ## The Allais Paradox: First Choice
 
 Which do you prefer?
 
-- **A**: A 10% chance of \$5,000,000
-- **B**: An 11% chance of \$1,000,000
+- **1A**: \$1,000,000 for certain
+- **1B**: 1% chance of \$0, 89% chance of \$1M, 10% chance of \$5M
 
 . . .
 
-Many people choose **A**.
+Most people choose **1A**. The guaranteed million is too good to risk. The 10% shot at five million is not worth the 1% chance of walking away with nothing.
 
 ## The Allais Paradox: Second Choice
 
 Which do you prefer?
 
-- **C**: 10% chance of \$5M, 89% chance of \$1M, 1% chance of nothing
-- **D**: \$1,000,000 for certain
+- **2A**: 89% chance of \$0, 11% chance of \$1,000,000
+- **2B**: 90% chance of \$0, 10% chance of \$5,000,000
 
 . . .
 
-Most people choose **D**.
+Most people choose **2B**. You'll probably walk away empty-handed either way, so the extra 1% risk seems worth it for the shot at five million.
 
-## Why This Causes a Problem
+## Why This Is a Problem
 
-Represent the options using 10 blue marbles, 89 maize marbles, and 1 scarlet marble:
+Represent the options using 100 tickets:
 
-|   | Blue (×10) | Maize (×89) | Scarlet (×1) |
-|:-:|:----------:|:-----------:|:------------:|
-| A | \$5M       | \$0         | \$0          |
-| B | \$1M       | \$0         | \$1M         |
-| C | \$5M       | \$1M        | \$0          |
-| D | \$1M       | \$1M        | \$1M         |
+|    | Ticket #1 | Tickets #2–11 | Tickets #12–100 |
+|:--:|:---------:|:-------------:|:---------------:|
+| 1A | \$1M      | \$1M          | \$1M            |
+| 1B | \$0       | \$5M          | \$1M            |
+| 2A | \$1M      | \$1M          | \$0             |
+| 2B | \$0       | \$5M          | \$0             |
 
 . . .
 
-C and D are just A and B with the maize payoff changed from \$0 to \$1M. The *same* change for both. The Sure Thing Principle says your preference between the top pair and the bottom pair should be the same.
+Tickets #12–100 pay the same within each pair. The only comparison that matters is tickets #1 and #2–11. In those columns, 1A vs. 1B is *exactly the same* as 2A vs. 2B.
 
 ## The Math
 
-Let $u(5M) = x$ and $u(1M) = y$.
+Let $x = U(\$5M)$, $y = U(\$1M)$, $z = U(\$0)$.
 
-If $A \succ B$: $0.1x > 0.11y$
-
-. . .
-
-Adding $0.89y$ to both sides: $0.1x + 0.89y > y$
+If $1A \succ 1B$: $\quad y > 0.01z + 0.89y + 0.10x$
 
 . . .
 
-But $0.1x + 0.89y = \text{Exp}(U(C))$ and $y = \text{Exp}(U(D))$.
+Simplifying: $\quad 0.11y - 0.10x - 0.01z > 0$
 
 . . .
 
-So preferring A to B *forces* you to prefer C to D. You can't rationally have both A $\succ$ B and D $\succ$ C.
-
-## Allais's Conclusion
-
-- The combination A $\succ$ B and D $\succ$ C is intuitively rational.
-- But it violates expected utility theory.
-- Therefore expected utility theory is wrong.
-
-## A Response
-
-If you learned, before the bet, whether the marble was Maize or not-Maize:
+Now: $\;\text{EU}(2A) - \text{EU}(2B) = (0.11y + 0.89z) - (0.10x + 0.90z) = 0.11y - 0.10x - 0.01z$
 
 . . .
 
-- If Maize: the payoff in A/B and C/D is the same anyway. You don't care.
-- If not-Maize: you face the exact same A vs. B comparison in both cases.
+The same expression. So $1A \succ 1B$ forces $\text{EU}(2A) > \text{EU}(2B)$. Choosing 1A over 1B and 2B over 2A is a contradiction, whatever your utilities are.
+
+## Allais and Savage
+
+**Maurice Allais** (1911–2010) was a French economist. Writing at a time when many French intellectuals were skeptical of reducing decisions to a formula, he designed this example to prove Savage wrong.
 
 . . .
 
-So by a weak dominance argument, your preference should be the same across both pairs.
+**Leonard Savage** (1917–1971) was an American statistician and the leading advocate of expected utility theory.
+
+. . .
+
+When Savage first saw the problem, he made exactly the choices Allais predicted, violating his own theory. He then had to work out why those choices were wrong.
+
+## Allais's Position
+
+Allais thought the common choices (1A $\succ$ 1B, 2B $\succ$ 2A) are *rational*, and that expected utility theory is therefore wrong.
+
+. . .
+
+The idea: there is something valuable about *certainty itself* that expected utility does not capture. Getting \$0 when you were one step away from a guaranteed million feels qualitatively different from getting \$0 in a situation that was already risky.
+
+. . .
+
+This "certainty effect" is a legitimate preference, Allais argued. Any theory that rules it out is missing something real.
+
+## The Sure Thing Principle
+
+Savage's response is built on a principle:
+
+> **Sure Thing Principle**: If you would choose X over Y knowing E is true, and you'd also choose X over Y knowing E is false, then you should choose X over Y even without knowing whether E is true.
+
+. . .
+
+The reasoning: if E makes no difference to your comparison in either scenario, E is simply irrelevant. Your choice should not depend on it.
+
+## Savage's Response
+
+Apply the Sure Thing Principle with E = "ticket #12–100 is drawn."
+
+. . .
+
+If E is true: 1A and 1B both pay \$1M, and 2A and 2B both pay \$0. No difference in either pair.
+
+. . .
+
+If E is false (ticket #1 or #2–11): the comparison is \$1M vs. (\$0 or \$5M), which is identical in both pairs.
+
+. . .
+
+So choosing 1A means you would not choose 2B in either scenario. By the Sure Thing Principle, you should choose 2A.
+
+## Prescriptive vs. Descriptive
+
+There are two ways to use expected utility theory:
+
+- **Descriptive**: predicts how people will actually choose ("most people will buy insurance because...")
+- **Prescriptive**: tells us how people *should* choose ("you ought to take the bet because...")
+
+. . .
+
+Savage's response is prescriptive. He grants that people are *tempted* to make the Allais choices. But being tempted does not make those choices rational.
+
+. . .
+
+The Allais paradox shows that actual choices can diverge from what expected utility recommends. That is not a problem for expected utility as a *normative* theory.
 
 ## What to Make of This
 
-- The Allais preferences **are common**, especially in real experiments.
-- Whether they are **rational** is genuinely contested.
-- Modified versions of decision theory (like Buchak's **risk-weighted expected utility**) can accommodate Allais preferences.
-- For this course, expected utility maximisation is the standard tool. Just be aware it has known challenges.
+- The Allais preferences are common in experiments. Both Allais and Savage agree on that.
+- Whether they are rational is genuinely contested. Allais said yes; Savage said no.
+- Modified theories (like Buchak's **risk-weighted expected utility**) can accommodate Allais preferences while remaining systematic.
+- For this course, expected utility maximization is the standard framework. The debates around it are real and ongoing.
+
+## Practice Question
+
+According to Savage's response to the Allais paradox, the rule of expected utility is:
+
+a. descriptive
+b. prescriptive
+c. both descriptive and prescriptive
+d. neither
+
+. . .
+
+**Answer: (b).** Savage treats expected utility as telling us how we *should* decide, not just describing how we do decide. The Allais preferences are common but irrational, on his view.
+
+## Practice Question
+
+In the Allais Paradox, people tend to choose 1A over 1B, but 2B over 2A. This suggests:
+
+a. for many people, the utility of \$5M is not five times that of \$1M
+b. people maximize expected utility, not expected monetary value
+c. people are more willing to accept a small risk when things are already risky
+d. the Sure-thing Principle is descriptive rather than prescriptive
+
+. . .
+
+**Answer: (c).** The context shifts between the two choices: a safe option is available in the first, but not in the second. That shift changes what people choose, even though expected utility says it shouldn't matter.
 
 ## For Next Time
 
