@@ -384,7 +384,7 @@ Two trucks each choose a spot (1–5) on a beach with 10 customers at each spot.
 
 - Customers go to the nearest truck; ties split evenly
 
-|   | **1** | **2** | **3** | **4** | **5** |
+|   | 1 | 2 | 3 | 4 | 5 |
 |---|---|---|---|---|---|
 | **1** | 25, 25 | 10, 40 | 15, 35 | 20, 30 | 25, 25 |
 | **2** | 40, 10 | 25, 25 | 20, 30 | 25, 25 | 30, 20 |
@@ -406,7 +406,7 @@ Spot 1 is **dominated** by spot 2. By symmetry, spot 5 is dominated by spot 4. E
 
 After removing spots 1 and 5:
 
-|   | **2** | **3** | **4** |
+| | 2 | 3 | 4 |
 |---|---|---|---|
 | **2** | 25, 25 | 20, 30 | 25, 25 |
 | **3** | 30, 20 | 25, 25 | 30, 20 |
@@ -420,7 +420,7 @@ After removing spots 1 and 5:
 
 The unique solution: both trucks park at **spot 3**.
 
-|   | **3** |
+|   | 3 |
 |---|---|
 | **3** | 25, 25 |
 
