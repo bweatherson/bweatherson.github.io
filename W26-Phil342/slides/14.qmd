@@ -43,8 +43,8 @@ The simplest way to represent a game is with a **payoff matrix** (also called th
 
 |  | C | D |
 |--|---|---|
-| **C** | -1, -1 | -4, 0 |
-| **D** | 0, -4 | -3, -3 |
+| **C** | 3, 3 | 0, 5 |
+| **D** | 5, 0 | 1, 1 |
 
 : The Prisoner's Dilemma
 
@@ -58,13 +58,13 @@ The simplest way to represent a game is with a **payoff matrix** (also called th
 
 |  | C | D |
 |--|---|---|
-| **C** | -1, -1 | -4, 0 |
-| **D** | 0, -4 | -3, -3 |
+| **C** | 3, 3 | 0, 5 |
+| **D** | 5, 0 | 1, 1 |
 
 If Player 1 picks C and Player 2 picks D:
 
-- Player 1 gets **-4**
-- Player 2 gets **0**
+- Player 1 gets **0**
+- Player 2 gets **5**
 
 . . .
 
@@ -293,14 +293,25 @@ Your **best response** to the other player's strategy is the action that gives y
 
 . . .
 
-In the Prisoner's Dilemma:
+In the Prisoner's Dilemma (bold = Player 1's best response):
 
-- Best response to Cooperate: **Defect** (5 > 3)
-- Best response to Defect: **Defect** (1 > 0)
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | **5**, 0 | **1**, 1 |
+
+## Best Response
+
+Now add Player 2's best responses too:
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, **5** |
+| **Defect** | **5**, 0 | **1**, **1** |
 
 . . .
 
-Defect is the best response no matter what. That's what makes it a **dominant strategy**.
+Cells where *both* numbers are bold are Nash equilibria. Only (Defect, Defect) qualifies. Defect is the best response no matter what---that's what makes it a **dominant strategy**.
 
 ## Nash Equilibrium
 
@@ -367,44 +378,55 @@ If you have a dominated strategy, you should never play it. No matter what the o
 
 In the Prisoner's Dilemma, Cooperate is dominated by Defect.
 
-## Iterated Elimination
+## Iterated Elimination: Ice Cream Trucks
 
-Here's a powerful technique. Consider this game:
+Two trucks each choose a spot (1–5) on a beach with 10 customers at each spot.
 
-. . .
+- Customers go to the nearest truck; ties split evenly
 
-|  | L | C | R |
-|--|---|---|---|
-| **U** | 3, 1 | 0, 1 | 0, 0 |
-| **M** | 1, 1 | 1, 1 | 5, 0 |
-| **D** | 0, 1 | 4, 1 | 0, 0 |
-
-. . .
-
-Step 1: For Player 2, R is dominated by L (or by C). Remove it.
+|   | **1** | **2** | **3** | **4** | **5** |
+|---|---|---|---|---|---|
+| **1** | 25, 25 | 10, 40 | 15, 35 | 20, 30 | 25, 25 |
+| **2** | 40, 10 | 25, 25 | 20, 30 | 25, 25 | 30, 20 |
+| **3** | 35, 15 | 30, 20 | 25, 25 | 30, 20 | 35, 15 |
+| **4** | 30, 20 | 25, 25 | 20, 30 | 25, 25 | 40, 10 |
+| **5** | 25, 25 | 20, 30 | 15, 35 | 10, 40 | 25, 25 |
 
 ---
 
-After removing R:
+**Step 1**: Is spot 1 ever a good choice?
 
-|  | L | C |
-|--|---|---|
-| **U** | 3, 1 | 0, 1 |
-| **M** | 1, 1 | 1, 1 |
-| **D** | 0, 1 | 4, 1 |
+Compare spot 1 vs. spot 2 for Truck 1: no matter where the other truck parks, spot 2 always gets more customers.
 
 . . .
 
-Step 2: Now M is dominated by a mix of U and D. Remove it.
+Spot 1 is **dominated** by spot 2. By symmetry, spot 5 is dominated by spot 4. Eliminate both.
 
-|  | L | C |
-|--|---|---|
-| **U** | 3, 1 | 0, 1 |
-| **D** | 0, 1 | 4, 1 |
+---
+
+After removing spots 1 and 5:
+
+|   | **2** | **3** | **4** |
+|---|---|---|---|
+| **2** | 25, 25 | 20, 30 | 25, 25 |
+| **3** | 30, 20 | 25, 25 | 30, 20 |
+| **4** | 25, 25 | 20, 30 | 25, 25 |
 
 . . .
 
-We've simplified a 3x3 game to 2x2.
+**Step 2**: Now spot 2 is dominated by spot 3 (and spot 4 by spot 3). Eliminate both.
+
+---
+
+The unique solution: both trucks park at **spot 3**.
+
+|   | **3** |
+|---|---|
+| **3** | 25, 25 |
+
+. . .
+
+This is the **median voter theorem** in action: rational competitors both converge on the center.
 
 ## Why This Works
 

@@ -185,13 +185,13 @@
 <tbody>
 <tr class="odd">
 <td><strong>C</strong></td>
-<td>-1, -1</td>
-<td>-4, 0</td>
+<td>3, 3</td>
+<td>0, 5</td>
 </tr>
 <tr class="even">
 <td><strong>D</strong></td>
-<td>0, -4</td>
-<td>-3, -3</td>
+<td>5, 0</td>
+<td>1, 1</td>
 </tr>
 </tbody>
 </table>
@@ -217,20 +217,20 @@
 <tbody>
 <tr class="odd">
 <td><strong>C</strong></td>
-<td>-1, -1</td>
-<td>-4, 0</td>
+<td>3, 3</td>
+<td>0, 5</td>
 </tr>
 <tr class="even">
 <td><strong>D</strong></td>
-<td>0, -4</td>
-<td>-3, -3</td>
+<td>5, 0</td>
+<td>1, 1</td>
 </tr>
 </tbody>
 </table>
 <p>If Player 1 picks C and Player 2 picks D:</p>
 <ul>
-<li class="fragment">Player 1 gets <strong>-4</strong></li>
-<li class="fragment">Player 2 gets <strong>0</strong></li>
+<li class="fragment">Player 1 gets <strong>0</strong></li>
+<li class="fragment">Player 2 gets <strong>5</strong></li>
 </ul>
 <div class="fragment">
 <p>Higher numbers are better. These could represent anything: money, happiness, years not in prison, etc.</p>
@@ -548,14 +548,56 @@
 <p>Your <strong>best response</strong> to the other player’s strategy is the action that gives you the highest payoff, <em>given what they’re doing</em>.</p>
 </div>
 <div class="fragment">
-<p>In the Prisoner’s Dilemma:</p>
-<ul>
-<li class="fragment">Best response to Cooperate: <strong>Defect</strong> (5 &gt; 3)</li>
-<li class="fragment">Best response to Defect: <strong>Defect</strong> (1 &gt; 0)</li>
-</ul>
+<p>In the Prisoner’s Dilemma (bold = Player 1’s best response):</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Cooperate</th>
+<th>Defect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cooperate</strong></td>
+<td>3, 3</td>
+<td>0, 5</td>
+</tr>
+<tr class="even">
+<td><strong>Defect</strong></td>
+<td><strong>5</strong>, 0</td>
+<td><strong>1</strong>, 1</td>
+</tr>
+</tbody>
+</table>
 </div>
+</section>
+<section class="slide level2">
+<h2>Best Response</h2>
+<p>Now add Player 2’s best responses too:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Cooperate</th>
+<th>Defect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cooperate</strong></td>
+<td>3, 3</td>
+<td>0, <strong>5</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Defect</strong></td>
+<td><strong>5</strong>, 0</td>
+<td><strong>1</strong>, <strong>1</strong></td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>Defect is the best response no matter what. That’s what makes it a <strong>dominant strategy</strong>.</p>
+<p>Cells where <em>both</em> numbers are bold are Nash equilibria. Only (Defect, Defect) qualifies. Defect is the best response no matter what—that’s what makes it a <strong>dominant strategy</strong>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -655,99 +697,130 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Iterated Elimination</h2>
-<p>Here’s a powerful technique. Consider this game:</p>
-<div class="fragment">
+<h2>Iterated Elimination: Ice Cream Trucks</h2>
+<p>Two trucks each choose a spot (1–5) on a beach with 10 customers at each spot.</p>
+<ul>
+<li class="fragment">Customers go to the nearest truck; ties split evenly</li>
+</ul>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th></th>
-<th>L</th>
-<th>C</th>
-<th>R</th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>U</strong></td>
-<td>3, 1</td>
-<td>0, 1</td>
-<td>0, 0</td>
+<td><strong>1</strong></td>
+<td>25, 25</td>
+<td>10, 40</td>
+<td>15, 35</td>
+<td>20, 30</td>
+<td>25, 25</td>
 </tr>
 <tr class="even">
-<td><strong>M</strong></td>
-<td>1, 1</td>
-<td>1, 1</td>
-<td>5, 0</td>
+<td><strong>2</strong></td>
+<td>40, 10</td>
+<td>25, 25</td>
+<td>20, 30</td>
+<td>25, 25</td>
+<td>30, 20</td>
 </tr>
 <tr class="odd">
-<td><strong>D</strong></td>
-<td>0, 1</td>
-<td>4, 1</td>
-<td>0, 0</td>
+<td><strong>3</strong></td>
+<td>35, 15</td>
+<td>30, 20</td>
+<td>25, 25</td>
+<td>30, 20</td>
+<td>35, 15</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td>30, 20</td>
+<td>25, 25</td>
+<td>20, 30</td>
+<td>25, 25</td>
+<td>40, 10</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>25, 25</td>
+<td>20, 30</td>
+<td>15, 35</td>
+<td>10, 40</td>
+<td>25, 25</td>
 </tr>
 </tbody>
 </table>
-</div>
+</section>
+<section class="slide level2">
+
+<p><strong>Step 1</strong>: Is spot 1 ever a good choice?</p>
+<p>Compare spot 1 vs.&nbsp;spot 2 for Truck 1: no matter where the other truck parks, spot 2 always gets more customers.</p>
 <div class="fragment">
-<p>Step 1: For Player 2, R is dominated by L (or by C). Remove it.</p>
+<p>Spot 1 is <strong>dominated</strong> by spot 2. By symmetry, spot 5 is dominated by spot 4. Eliminate both.</p>
 </div>
 </section>
 <section class="slide level2">
 
-<p>After removing R:</p>
+<p>After removing spots 1 and 5:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th></th>
-<th>L</th>
-<th>C</th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+<th><strong>4</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>U</strong></td>
-<td>3, 1</td>
-<td>0, 1</td>
+<td><strong>2</strong></td>
+<td>25, 25</td>
+<td>20, 30</td>
+<td>25, 25</td>
 </tr>
 <tr class="even">
-<td><strong>M</strong></td>
-<td>1, 1</td>
-<td>1, 1</td>
+<td><strong>3</strong></td>
+<td>30, 20</td>
+<td>25, 25</td>
+<td>30, 20</td>
 </tr>
 <tr class="odd">
-<td><strong>D</strong></td>
-<td>0, 1</td>
-<td>4, 1</td>
+<td><strong>4</strong></td>
+<td>25, 25</td>
+<td>20, 30</td>
+<td>25, 25</td>
 </tr>
 </tbody>
 </table>
 <div class="fragment">
-<p>Step 2: Now M is dominated by a mix of U and D. Remove it.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th>L</th>
-<th>C</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>U</strong></td>
-<td>3, 1</td>
-<td>0, 1</td>
-</tr>
-<tr class="even">
-<td><strong>D</strong></td>
-<td>0, 1</td>
-<td>4, 1</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Step 2</strong>: Now spot 2 is dominated by spot 3 (and spot 4 by spot 3). Eliminate both.</p>
 </div>
+</section>
+<section class="slide level2">
+
+<p>The unique solution: both trucks park at <strong>spot 3</strong>.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td>25, 25</td>
+</tr>
+</tbody>
+</table>
 <div class="fragment">
-<p>We’ve simplified a 3x3 game to 2x2.</p>
+<p>This is the <strong>median voter theorem</strong> in action: rational competitors both converge on the center.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
