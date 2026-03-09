@@ -1,0 +1,231 @@
+---
+subtitle: "444 Lecture 22"
+title: "Lemons"
+author: "Brian Weatherson"
+date: "April 4 2024"
+format:
+  revealjs:
+    theme:
+      - default
+      - robot-lung.scss
+    margin: 0.15
+    center: false
+    self-contained: true
+    slide-number: c/t
+    show-slide-number: all
+keep-md: false
+tbl-cap-location: bottom
+code-block-background: true
+---
+
+## Signaling Games
+
+- Signaling games model **communication** between **senders** and **receivers** with potentially misaligned interests.
+
+So we have three attributes:
+
+1. A **state** provided by nature.
+2. A **sender** who sees the state and sends a signal.
+3. A **receiver** who sees the signal, but not the state, and acts.
+
+## Basic Structure
+
+- A Sender with private information chooses a **signal** to send.
+- A Receiver observes the signal and takes an **action**.
+- **Payoffs** depend on the action, signal, and the **true state of the world**.
+
+## New Idea
+
+Sometimes structures that look nothing like *signaling* in any traditional sense also have this exact structure.
+
+All that we need is a situation where there are two parties with the following attributes:
+
+1. The first party (a) has more information, and (b) moves first.
+2. The second party (a) sees the move but not the information, and (b) performs an action whose value is affected by the underlying information.
+
+## Asymmetries
+
+In other words, all that we really need is:
+
+- An information asymmetry (someone knows something and someone else doesn't);
+- That is relevant (the value to each player of the outcome is sensitive to the information)'
+- And where the more informed player moves first. 
+
+## Markets
+
+In ordinary life, something like this situation often occurs in **markets**.
+
+It's really common for a seller to have more information about the thing they are selling than buyers do.
+
+## Buyers and Sellers
+
+So we can have a (stylised) situation where:
+
+- Sellers know the quality of what they are selling;
+- Buyers do not know the quality, but can observe (a) that the seller is interested in selling, and (b) what price they are offering to sell it for.
+
+## Econ 101
+
+The standard supply-demand story you get taught in high school/econ 101 assumes symmetric information.
+
+It doesn't strictly speaking assume full information.
+
+You can still tell the standard story about the market for apples even if some apples might be rotten when you cut into them.
+
+But you do need to assume that everyone has the same information about whether a particular apple is rotten.
+
+# Akerlof
+
+## George Akerlof
+
+The reading today is a famous old paper by George Akerlof, which really introduced the idea that information asymmetries might be economically important.
+
+Before that, there was kind of a thought that information asymmetries were like rationality failures; something that didn't have a place in equilibrium explanations.
+
+Akerlof is now more famous for being Janet Yellen's husband, but we're looking back at why he was famous 50 years ago.
+
+## Used Cars
+
+Here are a striking pair of facts about the used car market throughout the 20th century. It is no longer a fact about the used car market, which is also striking if you know how prevalent it was.
+
+- There was a deep market for used cars, and lots of people (including even relatively rich people) bought used cars.
+- The resale value of a very recently purchased car was 70-80% of its new value.
+
+## Unusual
+
+Cars weren't the only assets for which these two claims held, but it was pretty unusual.
+
+- Houses have a rich resale market, but they don't have a discount for used. (If anything there is a small premium for lightly used.)
+- Other large items, especially furniture, had too thin a resale market.
+
+## Explanations
+
+- Raw bias for new cars?
+- New car smell?
+- Not wanting something other people had been in.
+
+## Explanations
+
+None of these work.
+
+- The new car smell is gross, and probably poisonous.
+- The not wanting other people in story would predict something we definitely do not see; a huge premium in the price of new **houses**.
+- It would also predict that there would be a premium for cars which were never test driven, and we don't see that.
+
+## Akerlof's Explanation
+
+Assume the following stylised facts.
+
+1. There is a big variation in the quality of cars, even from a given production line.
+2. A lot of the variation can't be detected by visual inspection or a test drive.
+3. But you can tell how good the car is by owning it for a few months. 
+
+## Akerlof's Explanation
+
+Putting those together, we get the following:
+
+- Each token car has some quality that is known to seller and unknown to buyer.
+- Seller decides whether to sell at the market price for used cars.
+- Buyer doesn't know anything about the quality of the car, but does know that Seller chose to sell.
+
+## Akerlof's Explanation
+
+Given some plausible assumptions about the nature of the variation, this game has an equilibrium that looks like this:
+
+- Sellers sell if their car is rather bad, and keep it otherwise.
+- Buyers demand a huge discount to new cars to buy a used car, *because the car is probably bad*.
+- The last point is because it wouldn't be for sale if it was good.
+
+## Signals
+
+The point is that putting the car up for sale is an indication that it isn't very good.
+
+The seller might not want to signal that they have a bad car, but in fact that's what they signal.
+
+Once we allow for that fact, there can be a model where the discount exists, where everyone is a utility maximiser, and everyone has a sensible probability distribution. 
+
+That is, their probability that the car is bad matches the frequency that cars are bad, and their probability that it will go up for sale matches the frequency that people put up cars of that quality for sale.
+
+## Used Cars
+
+This model made two big assumption about the used car market:
+
+1. High variability of the quality of cars coming off a given production line;
+2. Asymmetry of information between buyer and seller.
+
+That suggests the discount should go away if either assumption ceased being true. And that's more or less what happened.
+
+## Used Cars
+
+Over the late 20th century, production lines got much more reliable. I *think* Toyota led the way here, but I'd be very happy to be told that one of the Michigan companies was also at the cutting edge.
+
+And over the early 21st century, used car buyers got access to much better sources of information about the cars they were buying (think of things like Carfax).
+
+So if Akerlof was right, you'd expect the discount to have vanished by now. That is, I think, basically what's happened.
+
+# Choosing Quality
+
+## Veconlab
+
+I'm not going to have us do the version of the market for 'lemons' (the old term for bad cars) that veconlab incorporates. It's a bit complicated, and requires that everyone's computer work at the same time.
+
+But I do want to talk through it just enough for you to understand what's happening.
+
+## Variable Quality
+
+In the game they set up, the variable quality isn't a brute fact imposed from the outside.
+
+Rather, it is something that one of the players chooses.
+
+Here is how the game works (on next slide!).
+
+## Variable Quality
+
+- Two players: businesses and customers.
+- Each business makes two choices.
+- First, they choose whether to make goods that are grade 1, 2, or 3 quality. Higher number is higher quality, and 2 has the greatest split between value to customers and production costs.
+- Second, they set a price.
+- Then customers choose whether to buy, and if so which business to buy from.
+
+## Full Information
+
+- In one version of the game, customers are told what quality was chosen before they buy.
+- In this version, it naturally moves to businesses producing grade 2 goods, and buyers paying something like 1/2 way between the cost of producing the good, and the value of having the good.
+
+## Asymmetry
+
+- In the second version, the customers are told the price each business is using, but **not** the quality of the good being produced.
+- They do get to find this out after each round.
+- There is no mechanism in the game for communicating with other buyers when someone sold you a grade 1 product.
+
+## Results
+
+- Race to the bottom.
+- Businesses will produce grade 1 goods and price them as if they were grade 2.
+- So everyone will start assuming that everything for sale is grade 1.
+- And we end up in an equilibrium of grade 1 only production.
+
+## Realism?
+
+- In the model, this outcome is worse for businesses **and** consumers.
+- Businesses might get a short term boost from passing off cheaply made goods as higher quality.
+- But if the highest gap between production costs and value to the consumer is at a higher quality point, it can't be an equilibrium *in this game*.
+
+## Realism?
+
+- If this were a model of reality (maybe it is!), there would be an odd conflict between the interests of businesses collectively, and the interests of individual businesses.
+- Each individual business would be better off with a regulation requiring them to say what the quality of the products was.
+- But each individual business might prefer to hide this.
+
+## Solutions
+
+1. Regulation (as we see a lot in food industries)
+2. Communication between buyers (as happens a lot these days)
+3. Reputation; in an industry like the one being modeled here, customers are actually better off with fewer suppliers, as long as there is enough to generate competition.
+
+## For Next Time
+
+Two big plans
+
+1. Go over an assignment (the one due the 12th) which is relatively straightforward, but needs some explaining.
+2. Explain the model of college as a signaling device.

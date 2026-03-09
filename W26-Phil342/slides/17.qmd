@@ -1,0 +1,434 @@
+---
+title: "The Emergence of Cooperation"
+date: 3/18/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Recap
+
+## TFT
+
+In Axelrod's round-robin tournaments, the winning strategy was **Tit for Tat** (TFT): cooperate on move one, then copy your opponent's last move.
+
+## Why TFT Wins (Usually)
+
+Axelrod identified four properties that successful strategies share:
+
+::: {.nonincremental}
+- **Nice**: never be the first to defect
+- **Retaliatory**: respond to defection quickly
+- **Forgiving**: return to cooperation after punishing
+- **Clear**: be legible to your opponent
+:::
+
+. . .
+
+But the tournament just ranks strategies against a fixed field. 
+
+Here's a question that might be more important in realistic situations: **Which strategies *stay* successful over time?**
+
+## The Ecological Question
+
+Imagine this variant of the tournament.
+
+Start not with 1 copy of each strategy but 100.
+
+After each round, strategies that did well get **more copies** in the next round, and strategies that did poorly get **fewer copies**.
+
+. . .
+
+This is an *ecological* simulation: the population of strategies changes based on fitness.
+
+## What Difference Does it Make?
+
+What distinctive factors do **you** have to consider when thinking about what will do well in this version of the game?
+
+. . .
+
+Two things (at least) pop out:
+
+1. Performance against conspecifics matters.
+2. Scoring big against easybeats does not matter.
+
+## What Does This Suggest
+
+How might **you** try to design a strategy to exploit this?
+
+. . .
+
+Two things jump out about the type of 'hunter'/'detector' strategies that work around here.
+
+1. 'Handshake' strategies that script a few moves then cooperate with conspecifics and defect against rivals might have advantages.
+2. There is little benefit to detecting if someone is particularly vulnerable to exploitation; after a while they'll have been exploited.
+
+## Axelrod Again
+
+Axelrod ran exactly this simulation. 
+
+The question: does TFT dominate, or does the changing environment eventually undermine it?
+
+. . .
+
+Another question that's come up separately: should we have each strategy interact with **all** other strategies or just with their **neighbors**? 
+
+We'll mostly talk about the 'interact with everyone' version here, but the 'neighbors' version might be more useful for modelling some situations.
+
+# The Evolutionary Setting
+
+## From Tournament to Evolution
+
+Axelrod and Hamilton (1981) asked: can cooperation evolve by **natural selection**, with no central authority, no communication, and no altruism?
+
+. . .
+
+The setup: think of strategies not as choices but as **heritable traits**. Organisms that do better reproduce more. Strategies that earn more points spread in the population.
+
+. . .
+
+The Prisoner's Dilemma becomes a model of biological interaction: two organisms cooperate (e.g., by helping each other) or defect (by freeloading). 
+
+Payoffs are in **fitness**, i.e., reproductive success, not dollars.
+
+## The Core Puzzle
+
+Why do **you** think would any organism ever cooperate?
+
+. . .
+
+Classical evolutionary theory had two answers:
+
+::: {.incremental}
+- **Kin selection**: you help relatives because they share your genes (Hamilton's rule: $rb > c$)
+- **Group selection**: groups with cooperators outcompete groups of defectors
+:::
+
+. . .
+
+Axelrod and Hamilton proposed a third mechanism: **reciprocal altruism** arising from repeated interaction, even among unrelated individuals.
+
+## The Key Condition
+
+For cooperation to be stable, the **shadow of the future** must be long enough.
+
+. . .
+
+More precisely: let $w$ be the probability that two organisms will interact again. Cooperation is stable if $w$ is large enough that the future gains from mutual cooperation outweigh the short-term gains from defection.
+
+. . .
+
+$$w > \frac{T - R}{T - P}$$
+
+. . .
+
+Where $T$ = temptation payoff, $R$ = reward for mutual cooperation, $P$ = punishment for mutual defection. 
+
+When interactions are likely to continue, cooperation can sustain itself.
+
+## Invasion
+
+It's impossible to work out what might work best against arrbitrary strategies; there are too many alternatives.
+
+So a lot of focus has been on the possibility of **invasion**.
+
+What happens if a community is homogenous, then a small number of a new strategy appears?
+
+Will this new strategy survive, or even take over?
+
+
+## Can TFT Invade?
+
+Start with a population of **All Defectors**. Can a small cluster of TFT players invade?
+
+. . .
+
+Answer: **yes, if there are enough TFT players and they tend to interact with each other**.
+
+. . .
+
+When TFT meets TFT: mutual cooperation earns $R$ per round for many rounds. When TFT meets All D: TFT defects back and both earn $P$.
+
+. . .
+
+If TFT players cluster together---geographically, socially, by kin---they can earn enough against each other to outperform the defectors, even accounting for losses at the boundary.
+
+## Cluster Dynamics
+
+This clustering is what Axelrod and Hamilton call the key to invasion.
+
+. . .
+
+::: {.incremental}
+- A **single** TFT mutant in an All D population does badly: it cooperates once, gets exploited, then defects---but there's no one to cooperate with afterward.
+- A **small cluster** of TFT mutants does well *against each other*, and that advantage can outweigh the losses at the boundary with defectors.
+- As TFT spreads, the advantage grows: there are more TFT players to cooperate with.
+:::
+
+## Can TFT Resist Invasion?
+
+Once TFT is established, can a mutant defector strategy invade the TFT population?
+
+. . .
+
+**No**; well, at least not easily.
+
+## Can TFT Resist Invasion?
+
+A rare defector in a TFT population gets one round of exploitation, then faces retaliation for every subsequent round. The gains from that first defection are outweighed by the costs of the long punishment period.
+
+. . .
+
+TFT is **evolutionarily stable** (in the informal sense): it resists invasion by defectors once it has taken hold.
+
+. . .
+
+That said, if there are enough invaders, and they behave differently towards in group and out group members, they may have a chance. But there need to be a *lot* of invaders.
+
+## The Ecological Simulation
+
+In the ecological version of Axelrod's tournament:
+
+::: {.incremental}
+- Initially, all 63 strategies have equal representation.
+- Each "generation," strategies are reweighted by their total score.
+- Nice strategies (which cooperated well with each other) **grew in population share**.
+- Nasty strategies (which exploited others early) **shrank**, because as nice strategies became rarer, there were fewer victims to exploit.
+:::
+
+. . .
+
+The final population was dominated by nice strategies, with TFT among the most successful.
+
+## A Cautionary Note
+
+TFT is not universally dominant. Axelrod's result depends on:
+
+::: {.nonincremental}
+- The *composition* of the field (what other strategies are present);
+- The payoff structure (how large $T$ and $P$ are relative to $R$); and
+- The length and continuity of interactions.
+:::
+
+## A Cautionary Note
+
+In some environments, more generous variants of TFT (e.g., **Generous TFT**) outperform standard TFT.
+
+. . .
+
+The deeper lesson is not "TFT always wins".
+
+It's that **niceness, retaliation, and forgiveness** are the robust ingredients.
+
+# Applications
+
+## Why This Matters Beyond Biology
+
+Axelrod's evolutionary framework has been applied across a remarkable range of fields:
+
+. . .
+
+::: {.nonincremental}
+- **Biology**: mutualism between species (cleaner fish, fig wasps, mycorrhizal fungi);
+- **International relations**: arms control treaties, trade agreements;
+- **Business**: repeated commercial dealings and reputation; and
+- **Everyday social life**: trust, reciprocity, and social norms.
+:::
+
+## Biology: Reciprocity in Nature
+
+Axelrod and Hamilton pointed to **cleaner fish** as a real-world case.
+
+. . .
+
+Cleaner wrasse remove parasites from "client" fish, who could easily eat them. 
+
+But they don't get eaten, and so clients return repeatedly to the same cleaner.
+
+. . .
+
+This is iterated PD in the wild: each interaction is potentially exploitable, but repeated interaction makes cooperation stable.
+
+. . .
+
+Similar patterns appear in fig trees and fig wasps, and in mycorrhizal fungi that trade nutrients with plant roots.
+
+## International Relations: Arms Races and Treaties
+
+Two superpowers in an arms race arguably face a PD structure: both would prefer mutual restraint, but each has an incentive to build while the other restrains.
+
+. . .
+
+The iterated setting makes cooperation possible: arms *control* agreements work as TFT-like strategies: comply as long as the other side complies, retaliate (verifiably) if they cheat.
+
+. . .
+
+Axelrod used this to explain how **Live and Let Live** emerged on the Western Front in WWI. 
+
+Small units facing each other across the trenches cooperated locally, even without orders to do so.
+
+## Is This Iterated PD?
+
+Here we have to be careful about making sure we are really dealing with PD games.
+
+Often, what people identify as PD is really a **Stag Hunt**.
+
+Think about the practice of walking on right in the halls (and especially staircases) around here. That's cooperation, but not a PD.
+
+## Business and Reputation
+
+Repeated commercial relationships support cooperation that one-shot interactions can't.
+
+. . .
+
+::: {.incremental}
+- A supplier who cheats once loses a long-term customer, so the shadow of the future disciplines behavior.
+- Online platforms (eBay, Airbnb) create iterated PD conditions artificially, through **reputation systems** that make interaction history visible. (See *The Oridinal Society* for the downstream effects of this.)
+- Professional networks and trade associations do something similar, though without the ordinal aspect.
+:::
+
+## Social Norms as Enforcement Mechanisms
+
+The evolutionary story also illuminates how **norms** function.
+
+. . .
+
+A norm against defecting (i.e., cheating) is a way of making retaliation credible. It also motivates **altruistic punishment**, which strongly enforces norms.
+
+. . .
+
+Axelrod's framework suggests that norms didn't need to be designed from the top down. They could have **evolved** from repeated local interactions, spreading as cooperating communities outperformed defecting ones.
+
+# Variations and Complications
+
+## What If the Game Is Noisy?
+
+Axelrod's original setup assumed **perfect implementation**: if you choose to cooperate, your opponent definitely sees cooperation.
+
+. . .
+
+But real interactions are often noisy. This is especially for interactions between groups.
+
+**Noisy IPD**: players submit their moves, but each move is implemented incorrectly with some small probability $\varepsilon$ (e.g., $\varepsilon = 0.01$).
+
+. . .
+
+This small change **breaks TFT badly**.
+
+## The Death Spiral Problem
+
+Suppose both players are playing TFT, and a noise event causes player A's cooperation to be received as defection.
+
+. . .
+
+Now player B retaliates (correctly, from their perspective). A then retaliates B's retaliation. B retaliates again. . .
+
+. . .
+
+A single noise event causes an **infinite defection spiral** even though neither player actually chose to defect.
+
+. . .
+
+The very property that makes TFT robust in the clean game, immediate retaliation, becomes catastrophic when moves are sometimes garbled.
+
+## Generous TFT
+
+One fix: **Generous TFT** (GTFT). Instead of always retaliating after a defection, GTFT occasionally forgives: after a defection, it cooperates with probability $p > 0$.
+
+. . .
+
+This breaks the death spiral: a noise event triggers retaliation, but GTFT eventually cooperates again, and mutual cooperation is restored.
+
+. . .
+
+GTFT outperforms TFT in noisy environments, and remains stable against invasion by defectors as long as $p$ is not too large.
+
+## Contrite TFT
+
+Another fix: **Contrite TFT**. After a noise event causes you to defect accidentally, you "apologize" by cooperating even if your opponent retaliates.
+
+The key thing here is that each player knows what each player **played**, and the players each know what they intended to play.
+
+So a player can react to their own 'mistakes'.
+
+## Contrite TFT
+
+If both players are Contrite TFT:
+
+::: {.incremental}
+- Noise event: A accidentally defects;
+- B retaliates (correctly);
+- A recognizes it was an accident, and cooperatesbeing *contrite*;
+- Finally, B sees A cooperate, resumes cooperation.
+:::
+
+. . .
+
+The death spiral never starts, because one player backs down rather than escalating.
+
+## Win-Stay, Lose-Shift
+
+Nowak and Sigmund (1993) proposed a different strategy that outperforms TFT in noisy settings: **Pavlov** (or Win-Stay, Lose-Shift).
+
+. . .
+
+The rule: repeat your last move if you got a good payoff (i.e., 3 or more), switch if you got a bad payoff.
+
+## Win-Stay, Lose-Shift
+
+::: {.incremental}
+- If you both cooperated (R): cooperate again, since you got 3.
+- If you defected and they cooperated (T): defect again, since you got 5.
+- If you both defected (P): cooperate; getting 1 leads to changes.
+- If you cooperated and they defected (S): defect, since getting 0 really leads to shifting.
+:::
+
+## Why Pavlov Works
+
+Pavlov is **not nice**: it will exploit an Always Cooperate player (cooperate, randomly defect, defect, defect...).
+
+. . .
+
+TFT can't expel an Always Cooperating invader. So a community of TFT's with random introductions will eventually include some All C's, and Pavlov will successfully invade it.
+
+. . .
+
+Pavlov is also **more robust to noise** than TFT: after an accidental defection, Pavlov's "lose-shift" rule brings it back to cooperation faster.
+
+## The Bigger Picture
+
+These variations point toward a general lesson:
+
+. . .
+
+There is **no single dominant strategy** for the iterated PD across all environments. The best strategy depends on:
+
+::: {.incremental}
+- The noise level in the interaction;
+- The composition of the population (who else is playing?);
+- The discount factor (how much the future matters); and
+- The payoff structure
+:::
+
+. . .
+
+What *does* seem robust: some combination of cooperation, retaliation, and forgiveness. The exact balance shifts with context.
+
+## Open Questions
+
+If time permits, consider:
+
+. . .
+
+::: {.nonincremental}
+- **Does TFT work in multi-player games?** The two-player structure is crucial. With many players, identifying *who* defected---and retaliating against them specifically---becomes much harder.
+- **What about different network structures?** If players only interact with neighbors, spatial structure changes which strategies survive.
+- **How does optional participation affect things?** If players can exit the game, it disrupts stable exploitation---and may help cooperation get started.
+:::
+
+## For Next Week
+
+We'll look at one of the famous use of game-theory to model real-world situations.
+
+- On Monday, we'll look at George Akerlof's use of signalling games to understand the used car market.
+- On Wednesday, we'll look at Michael Spence's similar use of signalling games to understand the college wage premium.
