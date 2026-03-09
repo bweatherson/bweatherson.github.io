@@ -1,0 +1,26 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (p \rightarrow  q) \rightarrow  (\Diamond \Diamond p \rightarrow  \Diamond q)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (p \rightarrow  q)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond \Diamond p \rightarrow  \Diamond q}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond q}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{1.1, \Diamond p}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{1.1, \Box (p \rightarrow  q)}, just = {\TRule{\Box}{\text{4}}[2]}
+                                [\sFmla{\False}{1.1, \Diamond q}, just = {\TRule{\Diamond}{\text{4}}[5]}
+                                    [\sFmla{\True}{1.1.1, p}, just = {\TRule{\True}{\Diamond}[6]}
+                                        [\sFmla{\True}{1.1.1, p \rightarrow  q}, checked, just = {\TRule{\True}{\Box}[7]}
+                                            [\sFmla{\False}{1.1.1, q}, just = {\TRule{\False}{\Diamond}[8]}
+                                                [\sFmla{\False}{1.1.1, p}, just = {\TRule{\True}{\rightarrow}[10]}, close]
+                                                [\sFmla{\True}{1.1.1, q}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}

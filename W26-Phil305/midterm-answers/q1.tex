@@ -1,0 +1,19 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (\Box p \rightarrow  q) \lor  \Box (\Box q \rightarrow  p)}, checked, just = \TAss
+        [\sFmla{\False}{1, \Box (\Box p \rightarrow  q)}, checked, just = {\TRule{\False}{\lor}[1]}
+            [\sFmla{\False}{1, \Box (\Box q \rightarrow  p)}, checked, just = {\TRule{\False}{\lor}[1]}
+                [\sFmla{\False}{2, \Box p \rightarrow  q}, checked, just = {\TRule{\False}{\Box}[2]}
+                    [\sFmla{\True}{2, \Box p}, just = {\TRule{\False}{\rightarrow}[4]}
+                        [\sFmla{\False}{2, q}, just = {\TRule{\False}{\neg}[4]}
+                            [\sFmla{\False}{3, \Box q\rightarrow p}, checked, just = {\TRule{\False}{\Box}[3]}
+                                [\sFmla{\True}{3, \Box q}, just = {\TRule{\False}{\rightarrow}[7]}
+                                    [\sFmla{\True}{2, q}, just = {\TRule{\True}{\Box}[8]}, close]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}

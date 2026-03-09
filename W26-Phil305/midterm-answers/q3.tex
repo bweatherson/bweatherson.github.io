@@ -1,0 +1,24 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, (\neg p \lor  \neg \Box \Box p) \rightarrow  \neg \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, (\neg p \lor  \neg \Box \Box p)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \neg \Box p}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{1, \Box p}, just = {\TRule{\False}{\neg}[3]}
+                    [\sFmla{\True}{1, \neg p}, checked, just = {\TRule{\True}{\lor}[2]}
+                        [\sFmla{\False}{1, p}, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\True}{1, p}, just = {\TRule{\True}{\Box}[4]}, close]
+                        ]
+                    ]
+                    [\sFmla{\True}{1, \neg \Box \Box p}, checked, just = {\TRule{\True}{\lor}[2]}
+                        [\sFmla{\False}{1, \Box \Box p}, checked, just = {\TRule{\True}{\neg}[5]}, move by = 2
+                            [\sFmla{\False}{2, \Box p}, checked, just = {\TRule{\False}{\Box}[8]}
+                                [\sFmla{\False}{3, p}, just = {\TRule{\False}{\Box}[9]}
+                                    [\sFmla{\True}{3, p}, just = {\TRule{\True}{\Box}[4]}, close]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}

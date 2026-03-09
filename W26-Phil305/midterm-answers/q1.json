@@ -1,0 +1,128 @@
+{
+  "root": {
+    "id": 1,
+    "sign": "False",
+    "world": "1",
+    "formula": "□(□p → q) ∨ □(□q → p)",
+    "rule": "Assumption",
+    "fromLine": "",
+    "checked": true,
+    "closed": false,
+    "branchRule": "",
+    "branchFromLine": "",
+    "children": [
+      {
+        "id": 2,
+        "sign": "False",
+        "world": "1",
+        "formula": "□(□p → q) ",
+        "rule": "or-F",
+        "fromLine": "1",
+        "checked": true,
+        "closed": false,
+        "branchRule": "",
+        "branchFromLine": "",
+        "children": [
+          {
+            "id": 3,
+            "sign": "False",
+            "world": "1",
+            "formula": "□(□q → p) ",
+            "rule": "or-F",
+            "fromLine": "1",
+            "checked": true,
+            "closed": false,
+            "branchRule": "",
+            "branchFromLine": "",
+            "children": [
+              {
+                "id": 4,
+                "sign": "False",
+                "world": "2",
+                "formula": "□p → q",
+                "rule": "box-F",
+                "fromLine": "2",
+                "checked": true,
+                "closed": false,
+                "branchRule": "",
+                "branchFromLine": "",
+                "children": [
+                  {
+                    "id": 5,
+                    "sign": "True",
+                    "world": "2",
+                    "formula": "□p",
+                    "rule": "arr-F",
+                    "fromLine": "4",
+                    "checked": false,
+                    "closed": false,
+                    "branchRule": "",
+                    "branchFromLine": "",
+                    "children": [
+                      {
+                        "id": 6,
+                        "sign": "False",
+                        "world": "2",
+                        "formula": "q",
+                        "rule": "not-F",
+                        "fromLine": "4",
+                        "checked": false,
+                        "closed": false,
+                        "branchRule": "",
+                        "branchFromLine": "",
+                        "children": [
+                          {
+                            "id": 7,
+                            "sign": "False",
+                            "world": "3",
+                            "formula": "□q→p",
+                            "rule": "box-F",
+                            "fromLine": "3",
+                            "checked": true,
+                            "closed": false,
+                            "branchRule": "",
+                            "branchFromLine": "",
+                            "children": [
+                              {
+                                "id": 8,
+                                "sign": "True",
+                                "world": "3",
+                                "formula": "□q",
+                                "rule": "arr-F",
+                                "fromLine": "7",
+                                "checked": false,
+                                "closed": false,
+                                "branchRule": "",
+                                "branchFromLine": "",
+                                "children": [
+                                  {
+                                    "id": 9,
+                                    "sign": "True",
+                                    "world": "2",
+                                    "formula": "q",
+                                    "rule": "box-T",
+                                    "fromLine": "8",
+                                    "checked": false,
+                                    "closed": true,
+                                    "branchRule": "",
+                                    "branchFromLine": "",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nextId": 10
+}

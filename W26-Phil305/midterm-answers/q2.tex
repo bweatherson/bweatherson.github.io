@@ -1,0 +1,15 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond \Box p \rightarrow  \Box \Diamond p}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{2, \Box p}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\False}{3, \Diamond p}, checked, just = {\TRule{\False}{\Box}[3]}
+                        [\sFmla{\True}{1, p}, just = {\TRule{\True}{\Box}[4]}
+                            [\sFmla{\False}{1, p}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}

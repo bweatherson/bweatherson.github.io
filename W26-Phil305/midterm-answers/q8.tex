@@ -1,0 +1,17 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, (p \wedge  \Diamond \Box p) \rightarrow  \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, p \wedge  \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, p}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Diamond \Box p}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\Box}[3]}
+                            [\sFmla{\True}{1.2, \Box p}, just = {\TRule{\True}{\Diamond}[5]}
+                                [\sFmla{\True}{1.2, p}, just = {\TRule{\Box}{\text{T}}[7]}]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}

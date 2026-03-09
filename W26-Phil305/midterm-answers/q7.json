@@ -1,0 +1,183 @@
+{
+  "root": {
+    "id": 1,
+    "sign": "False",
+    "world": "1",
+    "formula": "□(p → q) → (◇◇p → ◇q)",
+    "rule": "Assumption",
+    "fromLine": "",
+    "checked": true,
+    "closed": false,
+    "branchRule": "",
+    "branchFromLine": "",
+    "children": [
+      {
+        "id": 2,
+        "sign": "True",
+        "world": "1",
+        "formula": "□(p → q)",
+        "rule": "arr-F",
+        "fromLine": "1",
+        "checked": false,
+        "closed": false,
+        "branchRule": "",
+        "branchFromLine": "",
+        "children": [
+          {
+            "id": 3,
+            "sign": "False",
+            "world": "1",
+            "formula": "◇◇p → ◇q",
+            "rule": "arr-F",
+            "fromLine": "1",
+            "checked": true,
+            "closed": false,
+            "branchRule": "",
+            "branchFromLine": "",
+            "children": [
+              {
+                "id": 4,
+                "sign": "True",
+                "world": "1",
+                "formula": "◇◇p",
+                "rule": "arr-F",
+                "fromLine": "3",
+                "checked": true,
+                "closed": false,
+                "branchRule": "",
+                "branchFromLine": "",
+                "children": [
+                  {
+                    "id": 5,
+                    "sign": "False",
+                    "world": "1",
+                    "formula": "◇q",
+                    "rule": "arr-F",
+                    "fromLine": "3",
+                    "checked": false,
+                    "closed": false,
+                    "branchRule": "",
+                    "branchFromLine": "",
+                    "children": [
+                      {
+                        "id": 6,
+                        "sign": "True",
+                        "world": "1.1",
+                        "formula": "◇p",
+                        "rule": "dia-T",
+                        "fromLine": "4",
+                        "checked": true,
+                        "closed": false,
+                        "branchRule": "",
+                        "branchFromLine": "",
+                        "children": [
+                          {
+                            "id": 7,
+                            "sign": "True",
+                            "world": "1.1",
+                            "formula": "□(p → q)",
+                            "rule": "ax-4-box",
+                            "fromLine": "2",
+                            "checked": false,
+                            "closed": false,
+                            "branchRule": "",
+                            "branchFromLine": "",
+                            "children": [
+                              {
+                                "id": 8,
+                                "sign": "False",
+                                "world": "1.1",
+                                "formula": "◇q",
+                                "rule": "ax-4-dia",
+                                "fromLine": "5",
+                                "checked": false,
+                                "closed": false,
+                                "branchRule": "",
+                                "branchFromLine": "",
+                                "children": [
+                                  {
+                                    "id": 9,
+                                    "sign": "True",
+                                    "world": "1.1.1",
+                                    "formula": "p",
+                                    "rule": "dia-T",
+                                    "fromLine": "6",
+                                    "checked": false,
+                                    "closed": false,
+                                    "branchRule": "",
+                                    "branchFromLine": "",
+                                    "children": [
+                                      {
+                                        "id": 10,
+                                        "sign": "True",
+                                        "world": "1.1.1",
+                                        "formula": "p → q",
+                                        "rule": "box-T",
+                                        "fromLine": "7",
+                                        "checked": true,
+                                        "closed": false,
+                                        "branchRule": "",
+                                        "branchFromLine": "",
+                                        "children": [
+                                          {
+                                            "id": 11,
+                                            "sign": "False",
+                                            "world": "1.1.1",
+                                            "formula": "q",
+                                            "rule": "dia-F",
+                                            "fromLine": "8",
+                                            "checked": false,
+                                            "closed": false,
+                                            "branchRule": "",
+                                            "branchFromLine": "",
+                                            "children": [
+                                              {
+                                                "id": 12,
+                                                "sign": "False",
+                                                "world": "1.1.1",
+                                                "formula": "p",
+                                                "rule": "arr-T",
+                                                "fromLine": "10",
+                                                "checked": false,
+                                                "closed": true,
+                                                "branchRule": "",
+                                                "branchFromLine": "",
+                                                "children": []
+                                              },
+                                              {
+                                                "id": 13,
+                                                "sign": "True",
+                                                "world": "1.1.1",
+                                                "formula": "q",
+                                                "rule": "",
+                                                "fromLine": "",
+                                                "checked": false,
+                                                "closed": true,
+                                                "branchRule": "",
+                                                "branchFromLine": "",
+                                                "children": []
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nextId": 14
+}

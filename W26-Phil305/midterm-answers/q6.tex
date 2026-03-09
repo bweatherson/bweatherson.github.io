@@ -1,0 +1,22 @@
+\begin{oltableau}
+    [\sFmla{\False}{1, (p \wedge  \neg \neg \Box q) \rightarrow  (\neg \neg p \wedge  \Box q)}, checked, just = \TAss
+        [\sFmla{\True}{1, p \wedge  \neg \neg \Box q}, checked, just = {\TRule{\False}{\neg}[1]}
+            [\sFmla{\False}{1, \neg \neg p \wedge  \Box q}, checked, just = {\TRule{\False}{\neg}[1]}
+                [\sFmla{\True}{1, p}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \neg \neg \Box q}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\False}{1, \neg \Box q}, checked, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\True}{1, \Box q}, just = {\TRule{\False}{\neg}[6]}
+                                [\sFmla{\False}{1, \neg \neg p}, checked, just = {\TRule{\False}{\wedge}[3]}
+                                    [\sFmla{\True}{1, \neg p}, checked, just = {\TRule{\True}{\neg}[8]}
+                                        [\sFmla{\False}{1, p}, just = {\TRule{\True}{\neg}[9]}, close]
+                                    ]
+                                ]
+                                [\sFmla{\False}{1, \Box q}, just = {\TRule{\False}{\wedge}[3]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
