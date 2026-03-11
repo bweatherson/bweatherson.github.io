@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ULTIMATUM GAME — Classroom Game
+  ============================================================
+
+  SETUP INSTRUCTIONS
+  ------------------
+  This game uses the same Firebase project as guess-game.html,
+  but stores data under /ultimatum/ instead of /game/.
+
+  You only need to update your Realtime Database security rules.
+  In Firebase Console → Realtime Database → Rules, replace with:
+
+    {
+      "rules": {
+        "game": {
+          "state": { ".read": true, ".write": true },
+          "guesses": {
+            ".read": true,
+            "$guessId": {
+              ".write": "!data.exists()",
+              ".validate": "newData.hasChildren(['name','guess','round']) && newData.child('guess').val() >= 0 && newData.child('guess').val() <= 100 && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50"
+            }
+          }
+        },
+        "ultimatum": {
+          "state": { ".read": true, ".write": true },
+          "offers": {
+            ".read": true,
+            "$id": {
+              ".write": "!data.exists()",
+              ".validate": "newData.hasChildren(['name','offer','round']) && newData.child('offer').val() >= 0 && newData.child('offer').val() <= 10 && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50"
+            }
+          },
+          "reservations": {
+            ".read": true,
+            "$id": {
+              ".write": "!data.exists()",
+              ".validate": "newData.hasChildren(['name','reservation','round']) && newData.child('reservation').val() >= 0 && newData.child('reservation').val() <= 10 && newData.child('name').val().length > 0 && newData.child('name').val().length <= 50"
+            }
+          }
+        }
+      }
+    }
+
+  Click "Publish" after saving.
+
+  URLS
+  ----
+  Student URL:  https://[your-site]/games/ultimatum-game.html
+  Teacher URL:  https://[your-site]/games/ultimatum-game.html?teacher=ultimatum
+
+  Or activate teacher mode by clicking the page title 5 times quickly.
+
+  GAME FLOW
+  ---------
+  1. Teacher opens page in teacher mode (URL param or 5 clicks on title).
+  2. Students open page and enter name + offer (Round 1).
+  3. Teacher clicks "Start Round 2" when ready.
+  4. Students enter their reservation price (Round 2).
+  5. Teacher clicks "Reveal Results".
+  6. Results show: who earned the most, avg offer, avg reserve price.
+     Students are paired alphabetically; each pair plays both directions.
+
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimatum Game</title>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-hover: #0b5ed7;
+      --success: #198754;
+      --danger: #dc3545;
+      --warning-bg: #fff3cd;
+      --winner-bg: #d1e7dd;
+      --winner-text: #0f5132;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 10rem;
+    }
+
+    .view { display: none; width: 100%; max-width: 560px; }
+    .view.active { display: block; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      cursor: default;
+      user-select: none;
+    }
+
+    h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Round badge ── */
+    .round-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 0.15rem 0.65rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 1.25rem; }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: var(--font);
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+    }
+
+    input[type="text"]:read-only {
+      background: var(--bg);
+      color: var(--muted);
+      cursor: default;
+    }
+
+    /* ── Slider ── */
+    .slider-group { margin-bottom: 1.25rem; }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.35rem;
+    }
+
+    .slider-label-row label { margin-bottom: 0; }
+
+    .slider-value-display {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 2.5rem;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      outline: none;
+      cursor: pointer;
+      margin: 0.5rem 0;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover { background: var(--primary-hover); }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border: none;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+    }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0 2px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.15s, opacity 0.15s;
+    }
+
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-success:hover:not(:disabled) { background: #157347; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover:not(:disabled) { background: #bb2d3b; }
+    .btn-secondary { background: #6c757d; color: #fff; }
+    .btn-secondary:hover:not(:disabled) { background: #5c636a; }
+    .btn-warning { background: #ffc107; color: #000; }
+    .btn-warning:hover:not(:disabled) { background: #ffca2c; }
+
+    .error-msg {
+      color: var(--danger);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+    }
+
+    /* ── Waiting view ── */
+    .waiting-icon { font-size: 3rem; margin-bottom: 1rem; text-align: center; }
+
+    .count-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Results view ── */
+    .result-summary {
+      background: var(--warning-bg);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-summary .stat { margin-bottom: 0.4rem; font-size: 1rem; }
+    .result-summary .stat:last-child { margin-bottom: 0; }
+    .result-summary .label { font-weight: 500; }
+
+    .winner-box {
+      background: var(--winner-bg);
+      color: var(--winner-text);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* ── Tables ── */
+    .table-wrapper { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr.winner-row td { background: var(--winner-bg); color: var(--winner-text); font-weight: 600; }
+    tr:hover td { background: #f1f3f5; }
+    tr.winner-row:hover td { background: #c3e6cb; }
+
+    .rejected-cell { color: var(--muted); font-style: italic; }
+    .accepted-cell { color: var(--success); font-weight: 500; }
+
+    /* ── Connection banner ── */
+    #connection-banner {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #ffc107;
+      color: #000;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      z-index: 1000;
+    }
+
+    /* ── Teacher panel ── */
+    #teacher-panel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #1e293b;
+      color: #f1f5f9;
+      border-top: 3px solid #3b82f6;
+      z-index: 500;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    #teacher-panel.active { display: block; }
+
+    .teacher-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .teacher-header h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    .teacher-stats {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      flex: 1;
+      text-align: center;
+    }
+
+    .teacher-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .teacher-actions .btn { padding: 0.4rem 0.9rem; font-size: 0.875rem; }
+
+    #teacher-table-wrapper {
+      padding: 0.5rem 1rem 0.75rem;
+      overflow-x: auto;
+    }
+
+    #teacher-table th { background: #1e293b; color: #94a3b8; }
+    #teacher-table td { color: #e2e8f0; border-bottom-color: #334155; }
+    #teacher-table tr:hover td { background: #334155; }
+
+    .no-entries-msg {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      padding: 0.75rem 0;
+      text-align: center;
+    }
+
+    /* ── Loading overlay ── */
+    #view-loading {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+    }
+
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.75rem 12rem; }
+      .card { padding: 1.25rem; }
+      h1 { font-size: 1.35rem; }
+      .teacher-header { flex-direction: column; align-items: flex-start; }
+      .teacher-stats { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="connection-banner">Reconnecting to server...</div>
+
+<!-- ── LOADING ── -->
+<div id="view-loading" class="view active">
+  <div class="spinner"></div>
+  <p>Connecting...</p>
+</div>
+
+<!-- ── ROUND 1: OFFER ── -->
+<div id="view-round1-form" class="view">
+  <div class="card">
+    <h1 id="game-title">Ultimatum Game</h1>
+    <p class="subtitle">You have <strong>$10</strong> to split with another player. Decide how much to offer them.</p>
+    <div class="round-badge">Round 1 — Your Offer</div>
+
+    <form id="round1-form" novalidate>
+      <div class="form-group">
+        <label for="input-name">Your name</label>
+        <input type="text" id="input-name" placeholder="First name or nickname" maxlength="50"
+               autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false">
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-label-row">
+          <label for="offer-slider">Amount you offer the other player</label>
+          <span class="slider-value-display">$<span id="offer-display">5</span></span>
+        </div>
+        <input type="range" id="offer-slider" min="0" max="10" step="1" value="5">
+        <div class="slider-ticks">
+          <span>$0</span><span>$1</span><span>$2</span><span>$3</span><span>$4</span>
+          <span>$5</span><span>$6</span><span>$7</span><span>$8</span><span>$9</span><span>$10</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:0.5rem;">
+          You keep <strong>$<span id="keep-display">5</span></strong>, the other player receives <strong>$<span id="offer-display2">5</span></strong>.
+        </p>
+      </div>
+
+      <div class="error-msg" id="round1-error"></div>
+      <button type="submit" class="btn btn-primary" id="round1-submit">Submit Offer</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── ROUND 1: WAITING ── -->
+<div id="view-round1-waiting" class="view">
+  <div class="card" style="text-align:center;">
+    <div class="waiting-icon">✅</div>
+    <h2>Offer submitted!</h2>
+    <p style="color:var(--muted);">Your offer has been recorded. Wait for the teacher to start Round 2.</p>
+    <div><span class="count-badge" id="r1-waiting-count">— offers submitted</span></div>
+  </div>
+</div>
+
+<!-- ── ROUND 2: RESERVATION ── -->
+<div id="view-round2-form" class="view">
+  <div class="card">
+    <h1>Ultimatum Game</h1>
+    <p class="subtitle">Now imagine you are the <strong>receiver</strong>. What is the lowest offer you would accept?</p>
+    <div class="round-badge">Round 2 — Reservation Price</div>
+
+    <form id="round2-form" novalidate>
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="input-name-r2" readonly>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-label-row">
+          <label for="reservation-slider">Minimum offer you would accept</label>
+          <span class="slider-value-display">$<span id="reservation-display">1</span></span>
+        </div>
+        <input type="range" id="reservation-slider" min="0" max="10" step="1" value="1">
+        <div class="slider-ticks">
+          <span>$0</span><span>$1</span><span>$2</span><span>$3</span><span>$4</span>
+          <span>$5</span><span>$6</span><span>$7</span><span>$8</span><span>$9</span><span>$10</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--muted); margin-top:0.5rem;">
+          You will reject any offer below <strong>$<span id="reservation-display2">1</span></strong>.
+        </p>
+      </div>
+
+      <div class="error-msg" id="round2-error"></div>
+      <button type="submit" class="btn btn-primary" id="round2-submit">Submit Reservation Price</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── ROUND 2: WAITING ── -->
+<div id="view-round2-waiting" class="view">
+  <div class="card" style="text-align:center;">
+    <div class="waiting-icon">⏳</div>
+    <h2>Reservation price submitted!</h2>
+    <p style="color:var(--muted);">Both answers recorded. The teacher will reveal results shortly.</p>
+    <div><span class="count-badge" id="r2-waiting-count">— reservation prices submitted</span></div>
+  </div>
+</div>
+
+<!-- ── RESULTS ── -->
+<div id="view-results" class="view">
+  <div class="card">
+    <h2>Results</h2>
+
+    <div class="result-summary" id="result-summary">
+      <div class="stat"><span class="label">Average offer:</span> $<span id="result-avg-offer">—</span></div>
+      <div class="stat"><span class="label">Average reservation price:</span> $<span id="result-avg-res">—</span></div>
+      <div class="stat"><span class="label">Players paired:</span> <span id="result-count">—</span></div>
+    </div>
+
+    <div class="winner-box" id="winner-box">
+      💰 Most money earned: <span id="result-winner">—</span>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="results-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Offered</th>
+            <th>Reserve</th>
+            <th>Paired with</th>
+            <th>Total earned</th>
+          </tr>
+        </thead>
+        <tbody id="results-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── TEACHER PANEL ── -->
+<div id="teacher-panel">
+  <div class="teacher-header">
+    <h3>Teacher Console</h3>
+    <div class="teacher-stats" id="teacher-stats">Waiting...</div>
+    <div class="teacher-actions" id="teacher-actions">
+      <!-- Buttons injected dynamically based on phase -->
+    </div>
+  </div>
+  <div id="teacher-table-wrapper">
+    <div class="no-entries-msg" id="teacher-no-entries">Waiting for students to submit...</div>
+    <table id="teacher-table" style="display:none">
+      <thead>
+        <tr id="teacher-thead-row">
+          <th>Name</th>
+          <th>Offer</th>
+        </tr>
+      </thead>
+      <tbody id="teacher-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION — same Firebase project as guess-game.html
+  // ============================================================
+  const firebaseConfig = {
+    apiKey: "AIzaSyBm92jyPflQ_L-lTsm5qNG9d1sWvQ6RAXY",
+    authDomain: "guessing-game-f3929.firebaseapp.com",
+    databaseURL: "https://guessing-game-f3929-default-rtdb.firebaseio.com",
+    projectId: "guessing-game-f3929",
+    storageBucket: "guessing-game-f3929.firebasestorage.app",
+    messagingSenderId: "196518034015",
+    appId: "1:196518034015:web:030c5a47eac926785279ea"
+  };
+
+  const TEACHER_PASSWORD = "ultimatum";
+
+  // ============================================================
+  // App State
+  // ============================================================
+  const S = {
+    isTeacher: false,
+    phase: null,        // 'round1_open' | 'round2_open' | 'revealed'
+    round: null,
+    offers: [],         // { name, offer, round, key }
+    reservations: [],   // { name, reservation, round, key }
+    db: null,
+  };
+
+  // ============================================================
+  // Firebase Init
+  // ============================================================
+  firebase.initializeApp(firebaseConfig);
+  S.db = firebase.database();
+
+  const stateRef    = S.db.ref('/ultimatum/state');
+  const offersRef   = S.db.ref('/ultimatum/offers');
+  const reservsRef  = S.db.ref('/ultimatum/reservations');
+
+  // ============================================================
+  // Listeners
+  // ============================================================
+  S.db.ref('.info/connected').on('value', snap => {
+    document.getElementById('connection-banner').style.display = snap.val() ? 'none' : 'block';
+  });
+
+  stateRef.on('value', snap => {
+    const state = snap.val();
+    if (!state) {
+      stateRef.set({ phase: 'round1_open', round: 1 });
+      return;
+    }
+    S.phase = state.phase || 'round1_open';
+    S.round = state.round || 1;
+    renderView();
+  });
+
+  offersRef.on('value', snap => {
+    const data = snap.val() || {};
+    S.offers = Object.entries(data)
+      .map(([key, v]) => ({ ...v, key }))
+      .filter(v => v.round === S.round);
+    updateWaitingCounts();
+    renderTeacherPanel();
+  });
+
+  reservsRef.on('value', snap => {
+    const data = snap.val() || {};
+    S.reservations = Object.entries(data)
+      .map(([key, v]) => ({ ...v, key }))
+      .filter(v => v.round === S.round);
+    updateWaitingCounts();
+    renderTeacherPanel();
+  });
+
+  // ============================================================
+  // View routing
+  // ============================================================
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+    const el = document.getElementById('view-' + id);
+    if (el) el.classList.add('active');
+  }
+
+  function renderView() {
+    if (!S.phase) return;
+
+    const submittedRound  = parseInt(localStorage.getItem('ug_round') || '0', 10);
+    const submittedOffer  = localStorage.getItem('ug_offer_submitted') === 'true' && submittedRound === S.round;
+    const submittedReserv = localStorage.getItem('ug_reserv_submitted') === 'true' && submittedRound === S.round;
+
+    if (S.phase === 'round1_open') {
+      if (submittedOffer) {
+        showView('round1-waiting');
+      } else {
+        showView('round1-form');
+      }
+    } else if (S.phase === 'round2_open') {
+      if (submittedReserv) {
+        showView('round2-waiting');
+      } else if (submittedOffer) {
+        // Pre-fill name from localStorage, show reservation form
+        const savedName = localStorage.getItem('ug_name') || '';
+        document.getElementById('input-name-r2').value = savedName;
+        showView('round2-form');
+      } else {
+        // Student missed round 1 — show a message inside round2 form
+        document.getElementById('input-name-r2').value = '';
+        document.getElementById('input-name-r2').removeAttribute('readonly');
+        document.getElementById('input-name-r2').placeholder = 'First name or nickname';
+        showView('round2-form');
+      }
+    } else if (S.phase === 'revealed') {
+      showView('results');
+      renderResults();
+    }
+
+    if (S.isTeacher) {
+      document.getElementById('teacher-panel').classList.add('active');
+      renderTeacherPanel();
+    }
+  }
+
+  function updateWaitingCounts() {
+    const r1 = document.getElementById('r1-waiting-count');
+    const r2 = document.getElementById('r2-waiting-count');
+    const n1 = S.offers.length;
+    const n2 = S.reservations.length;
+    if (r1) r1.textContent = n1 === 1 ? '1 offer submitted' : `${n1} offers submitted`;
+    if (r2) r2.textContent = n2 === 1 ? '1 reservation price submitted' : `${n2} reservation prices submitted`;
+  }
+
+  // ============================================================
+  // Slider wiring
+  // ============================================================
+  function wireSlider(sliderId, displayIds, transformFn) {
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
+    const update = () => {
+      const v = parseInt(slider.value, 10);
+      displayIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = transformFn ? transformFn(id, v) : v;
+      });
+    };
+    slider.addEventListener('input', update);
+    update();
+  }
+
+  wireSlider('offer-slider',
+    ['offer-display', 'keep-display', 'offer-display2'],
+    (id, v) => {
+      if (id === 'keep-display') return v === 0 ? '0' : (10 - v);
+      return v;
+    }
+  );
+
+  wireSlider('reservation-slider',
+    ['reservation-display', 'reservation-display2'],
+    (_id, v) => v
+  );
+
+  // ============================================================
+  // Round 1 submit
+  // ============================================================
+  document.getElementById('round1-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const errorEl = document.getElementById('round1-error');
+    errorEl.textContent = '';
+
+    const name = document.getElementById('input-name').value.trim();
+    if (!name) { errorEl.textContent = 'Please enter your name.'; return; }
+
+    const offer = parseInt(document.getElementById('offer-slider').value, 10);
+
+    const btn = document.getElementById('round1-submit');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      await offersRef.push({
+        name,
+        offer,
+        round: S.round,
+        submitted_at: firebase.database.ServerValue.TIMESTAMP,
+      });
+      localStorage.setItem('ug_round', S.round);
+      localStorage.setItem('ug_name', name);
+      localStorage.setItem('ug_offer_submitted', 'true');
+      showView('round1-waiting');
+    } catch (err) {
+      errorEl.textContent = 'Failed to submit. Please try again.';
+      btn.disabled = false;
+      btn.textContent = 'Submit Offer';
+    }
+  });
+
+  // ============================================================
+  // Round 2 submit
+  // ============================================================
+  document.getElementById('round2-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const errorEl = document.getElementById('round2-error');
+    errorEl.textContent = '';
+
+    let name = document.getElementById('input-name-r2').value.trim();
+    if (!name) {
+      name = localStorage.getItem('ug_name') || '';
+    }
+    if (!name) { errorEl.textContent = 'Name not found — please enter your name.'; return; }
+
+    const reservation = parseInt(document.getElementById('reservation-slider').value, 10);
+
+    const btn = document.getElementById('round2-submit');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      await reservsRef.push({
+        name,
+        reservation,
+        round: S.round,
+        submitted_at: firebase.database.ServerValue.TIMESTAMP,
+      });
+      localStorage.setItem('ug_reserv_submitted', 'true');
+      showView('round2-waiting');
+    } catch (err) {
+      errorEl.textContent = 'Failed to submit. Please try again.';
+      btn.disabled = false;
+      btn.textContent = 'Submit Reservation Price';
+    }
+  });
+
+  // ============================================================
+  // Results computation
+  // ============================================================
+  function computeResults() {
+    // Build per-student records (use last submission if a name appears twice)
+    const offerMap = {};
+    for (const o of S.offers) {
+      offerMap[o.name.toLowerCase()] = { name: o.name, offer: o.offer };
+    }
+    const reservMap = {};
+    for (const r of S.reservations) {
+      reservMap[r.name.toLowerCase()] = { name: r.name, reservation: r.reservation };
+    }
+
+    // Students who submitted both
+    const bothKeys = Object.keys(offerMap).filter(k => reservMap[k]);
+    const students = bothKeys
+      .sort()  // alphabetical for deterministic pairing
+      .map(k => ({
+        name: offerMap[k].name,
+        offer: offerMap[k].offer,
+        reservation: reservMap[k].reservation,
+        earned: 0,
+        pairedWith: null,
+        details: [],
+      }));
+
+    // Pair students: (0,1), (2,3), etc. Odd last student left unmatched.
+    for (let i = 0; i + 1 < students.length; i += 2) {
+      const A = students[i];
+      const B = students[i + 1];
+      A.pairedWith = B.name;
+      B.pairedWith = A.name;
+
+      // A proposes to B
+      if (A.offer >= B.reservation) {
+        A.earned += (10 - A.offer);
+        B.earned += A.offer;
+        A.details.push({ role: 'proposer', to: B.name, offer: A.offer, accepted: true, earned: 10 - A.offer });
+        B.details.push({ role: 'receiver', from: A.name, offer: A.offer, accepted: true, earned: A.offer });
+      } else {
+        A.details.push({ role: 'proposer', to: B.name, offer: A.offer, accepted: false, earned: 0 });
+        B.details.push({ role: 'receiver', from: A.name, offer: A.offer, accepted: false, earned: 0 });
+      }
+
+      // B proposes to A
+      if (B.offer >= A.reservation) {
+        B.earned += (10 - B.offer);
+        A.earned += B.offer;
+        B.details.push({ role: 'proposer', to: A.name, offer: B.offer, accepted: true, earned: 10 - B.offer });
+        A.details.push({ role: 'receiver', from: B.name, offer: B.offer, accepted: true, earned: B.offer });
+      } else {
+        B.details.push({ role: 'proposer', to: A.name, offer: B.offer, accepted: false, earned: 0 });
+        A.details.push({ role: 'receiver', from: B.name, offer: B.offer, accepted: false, earned: 0 });
+      }
+    }
+
+    // Handle unmatched last student
+    if (students.length % 2 === 1) {
+      const last = students[students.length - 1];
+      last.pairedWith = '(no partner)';
+    }
+
+    const avgOffer = S.offers.length
+      ? S.offers.reduce((s, o) => s + o.offer, 0) / S.offers.length
+      : 0;
+    const avgReserv = S.reservations.length
+      ? S.reservations.reduce((s, r) => s + r.reservation, 0) / S.reservations.length
+      : 0;
+
+    const winner = students.length
+      ? students.reduce((best, s) => s.earned > best.earned ? s : best, students[0])
+      : null;
+
+    return { students, avgOffer, avgReserv, winner };
+  }
+
+  function renderResults() {
+    const { students, avgOffer, avgReserv, winner } = computeResults();
+
+    document.getElementById('result-avg-offer').textContent = avgOffer.toFixed(2);
+    document.getElementById('result-avg-res').textContent  = avgReserv.toFixed(2);
+    document.getElementById('result-count').textContent    = students.length;
+
+    if (winner) {
+      document.getElementById('result-winner').textContent =
+        `${escHtml(winner.name)} — $${winner.earned}`;
+    }
+
+    const sorted = [...students].sort((a, b) => b.earned - a.earned);
+    const tbody = document.getElementById('results-tbody');
+    tbody.innerHTML = sorted.map((s, i) => {
+      const isWinner = winner && s.name === winner.name;
+      const pairedWith = s.pairedWith || '—';
+      return `
+        <tr class="${isWinner ? 'winner-row' : ''}">
+          <td>${escHtml(s.name)}${isWinner ? ' 💰' : ''}</td>
+          <td>$${s.offer}</td>
+          <td>$${s.reservation}</td>
+          <td>${escHtml(pairedWith)}</td>
+          <td><strong>$${s.earned}</strong></td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  // ============================================================
+  // Teacher panel
+  // ============================================================
+  function renderTeacherPanel() {
+    if (!S.isTeacher) return;
+
+    const actionsEl = document.getElementById('teacher-actions');
+    const statsEl   = document.getElementById('teacher-stats');
+    const noEntriesEl = document.getElementById('teacher-no-entries');
+    const tableEl   = document.getElementById('teacher-table');
+    const theadRow  = document.getElementById('teacher-thead-row');
+    const tbody     = document.getElementById('teacher-tbody');
+
+    // Stats line
+    if (S.phase === 'round1_open') {
+      statsEl.textContent = `Round 1 open — ${S.offers.length} offer${S.offers.length !== 1 ? 's' : ''} received`;
+    } else if (S.phase === 'round2_open') {
+      statsEl.textContent = `Round 2 open — ${S.reservations.length} of ${S.offers.length} reservation prices received`;
+    } else if (S.phase === 'revealed') {
+      statsEl.textContent = 'Results revealed';
+    }
+
+    // Action buttons
+    actionsEl.innerHTML = '';
+    if (S.phase === 'round1_open') {
+      const btn = makeBtn('Start Round 2', 'btn-warning', async () => {
+        if (S.offers.length === 0) { alert('No offers submitted yet.'); return; }
+        btn.disabled = true;
+        await stateRef.set({ phase: 'round2_open', round: S.round });
+      });
+      actionsEl.appendChild(btn);
+    } else if (S.phase === 'round2_open') {
+      const btn = makeBtn('Reveal Results', 'btn-success', async () => {
+        btn.disabled = true;
+        await stateRef.set({ phase: 'revealed', round: S.round });
+      });
+      actionsEl.appendChild(btn);
+    }
+
+    const resetBtn = makeBtn('New Game', 'btn-secondary', async () => {
+      if (!confirm('Start a new game? Students will see the offer form again.')) return;
+      const newRound = (S.round || 1) + 1;
+      await stateRef.set({ phase: 'round1_open', round: newRound });
+    });
+    actionsEl.appendChild(resetBtn);
+
+    // Live table
+    let rows = [];
+    let headers = ['Name', 'Offer'];
+    if (S.phase === 'round2_open' || S.phase === 'revealed') {
+      headers = ['Name', 'Offer', 'Reserve'];
+      // Merge offers + reservations by name
+      const reservMap = {};
+      for (const r of S.reservations) reservMap[r.name.toLowerCase()] = r.reservation;
+      rows = [...S.offers]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(o => {
+          const res = reservMap[o.name.toLowerCase()];
+          return `<tr><td>${escHtml(o.name)}</td><td>$${o.offer}</td><td>${res !== undefined ? '$' + res : '—'}</td></tr>`;
+        });
+    } else {
+      rows = [...S.offers]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(o => `<tr><td>${escHtml(o.name)}</td><td>$${o.offer}</td></tr>`);
+    }
+
+    if (rows.length === 0) {
+      noEntriesEl.style.display = 'block';
+      tableEl.style.display = 'none';
+    } else {
+      noEntriesEl.style.display = 'none';
+      tableEl.style.display = 'table';
+      theadRow.innerHTML = headers.map(h => `<th>${h}</th>`).join('');
+      tbody.innerHTML = rows.join('');
+    }
+  }
+
+  function makeBtn(text, cls, handler) {
+    const btn = document.createElement('button');
+    btn.className = `btn ${cls}`;
+    btn.textContent = text;
+    btn.addEventListener('click', handler);
+    return btn;
+  }
+
+  // ============================================================
+  // Teacher mode activation
+  // ============================================================
+  function activateTeacherMode() {
+    S.isTeacher = true;
+    localStorage.setItem('ug_isTeacher', 'true');
+    document.getElementById('teacher-panel').classList.add('active');
+    renderTeacherPanel();
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('teacher') === TEACHER_PASSWORD) activateTeacherMode();
+  if (localStorage.getItem('ug_isTeacher') === 'true') activateTeacherMode();
+
+  let titleClicks = 0, titleClickTimer = null;
+  document.getElementById('game-title').addEventListener('click', () => {
+    if (S.isTeacher) return;
+    titleClicks++;
+    clearTimeout(titleClickTimer);
+    titleClickTimer = setTimeout(() => { titleClicks = 0; }, 2000);
+    if (titleClicks >= 5) {
+      titleClicks = 0;
+      const pw = prompt('Enter teacher password:');
+      if (pw === TEACHER_PASSWORD) {
+        activateTeacherMode();
+      } else if (pw !== null) {
+        alert('Incorrect password.');
+      }
+    }
+  });
+
+  // ============================================================
+  // Utility
+  // ============================================================
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+</script>
+</body>
+</html>

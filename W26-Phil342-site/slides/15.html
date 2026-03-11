@@ -160,8 +160,140 @@
 <p>In a sequential game, the later mover can <em>see</em> what happened before deciding.</p>
 </div>
 <div class="fragment">
-<p>This might seem like it always helps the later mover (more information), but it turns out the <strong>first mover</strong> often has the advantage—because they can shape the situation the later mover faces.</p>
+<p>This might seem like it always helps the later mover (more information), but it turns out the <strong>first mover</strong> often has the advantage, because they can shape the situation the later mover faces.</p>
 </div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Summary</h2>
+<ol type="1">
+<li class="fragment">We could try to analyse all dynamic games as strategic games, e.g., analyse chess just as a battle between chess programs.</li>
+<li class="fragment">Nobody does that though, because it doesn’t work in practice or in theory.</li>
+<li class="fragment">In practice it’s too hard.</li>
+<li class="fragment">In theory it leaves in strategies that don’t make sense.</li>
+<li class="fragment">But the theoretical reason doesn’t work in practice, and that’s itself interesting.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Strategic Form</h2>
+<p>A <strong>strategy</strong> for a player in a dynamic game is a plan for what to do in every possible situation.</p>
+<p>One way to solve a strategic game would be to ask:</p>
+<blockquote>
+<p>If the two players were just picking strategies, which strategies would make sense to pick?</p>
+</blockquote>
+</section>
+<section class="slide level2">
+<h2>Practical Problem</h2>
+<p>Strategy sets are <strong>really really big</strong>.</p>
+<p>Even for something as simple as Connect Four, there are trillions of board states, and usually 7 available moves per board state, so there are in the order of <span class="math inline">\(7^N\)</span> possible strategies, where <span class="math inline">\(N\)</span> is the number of board states.</p>
+<p>It’s impractical.</p>
+</section>
+<section class="slide level2">
+<h2>Theoretical Problem</h2>
+<p>Some strategies don’t make sense when you try to carry them out.</p>
+<p>Imagine a sequential version of <strong>Battle of the Sexes</strong>. I’m Column, and you’re Row.</p>
+<p>You have 2 options, I have 4. (Why?)</p>
+<div class="fragment">
+<p>Here’s a Nash Equilibrium of the game:</p>
+<ul>
+<li class="fragment">You play B</li>
+<li class="fragment">I play B no matter what</li>
+<li class="fragment">You get 1, I get 2</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Theoretical Problem</h2>
+<p>Neither of us can do better by changing strategies.</p>
+<div class="fragment">
+<p>But, this strategy requires me to do something self-defeating if you play A.</p>
+</div>
+<div class="fragment">
+<p>My strategy is known as a <strong>non-credible</strong> or <strong>incredible</strong> threat.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Two Problems with Reduction</h2>
+<p>So can we treat all dynamic games as the interaction of strategies?</p>
+<p>No:</p>
+<ol type="1">
+<li class="fragment">The strategy tree is too big</li>
+<li class="fragment">Some things that make sense as strategies don’t make sense to carry out</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Problem with the Problem</h2>
+<p>People do carry out ‘non-credible’ threats!</p>
+<p>Most famously, this happens in the <strong>ultimatum game</strong>.</p>
+</section>
+<section class="slide level2">
+<h2>Ultimatum Game</h2>
+<p>There are two players, and ten dollars.</p>
+<div class="fragment">
+<p>Player 1, the proposer, proposes a split of the money.</p>
+</div>
+<div class="fragment">
+<p>Player 2, the receiver, hears the proposal, and has a choice to take it or leave it.</p>
+</div>
+<div class="fragment">
+<p>If they take it, each gets the money P1 proposes. If they leave it, both get nothing.</p>
+</div>
+<div class="fragment">
+<p>Question: what do <strong>you</strong> think will happen?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Ultimatum Game</h2>
+<p>Answer: It’s really culturally specific. But here’s something we never see as a widespread phenomenon.</p>
+<ul>
+<li class="fragment">P1 proposes that they get all minus a sliver of the money, and P2 accepts.</li>
+<li class="fragment">P2 typically rejects small offers, and P1 usually is smart enough to not make it.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Origins of the Ultimatum Game</h2>
+<p>The ultimatum game was introduced in 1982. Researchers expected to confirm the game-theoretic prediction: proposers would offer close to nothing, and receivers would accept (since something beats nothing).</p>
+<div class="fragment">
+<p>Instead, they found that in lab experiments with German students:</p>
+<ul>
+<li class="fragment">Proposers typically offered 40–50% of the pot.</li>
+<li class="fragment">Receivers frequently rejected “unfair” offers below about 20%.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Ultimatum Game Across Cultures</h2>
+<p>Henrich et al.&nbsp;(2001) ran the ultimatum game across 15 small-scale societies.</p>
+<div class="fragment">
+<p>The variation was enormous, and bore no resemblance to the game-theoretic prediction:</p>
+<ul>
+<li class="fragment"><strong>Machiguenga</strong> (Peruvian Amazon): mean offers around 26%, very few rejections.</li>
+<li class="fragment"><strong>Lamalera</strong> (Indonesia): mean offers over 57%.</li>
+<li class="fragment"><strong>Hadza</strong> (Tanzania): offers near 50%, but <em>high</em> rejection rates.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>The pattern of offers and rejections tracked each society’s real-world economic institutions and cooperative norms — not individual self-interest.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Our version</p>
+
+<img data-src="images/ultimatum.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Ultimatum Game. Or go to bweatherson.github.io/ultimatum-game.html</p></section>
+<section class="slide level2">
+<h2>History</h2>
+<p>A potted history of game theory:</p>
+<ul>
+<li class="fragment">Through the 1980s, people kept working out more and more complicated cases where a strategy in a dynamic game for one reason or another didn’t make sense, and tried to come up with a theory to cover all the cases.</li>
+<li class="fragment">It never really worked, there were always more ways for strategies to not make sense in theory.</li>
+<li class="fragment">Around the same time, economists started taking seriously empirical research on things like the ultimatum game, and realised people did things that ‘didn’t make sense’ even in simple games.</li>
+<li class="fragment">So the research project of trying to classify ways in which strategies ‘didn’t make sense’ basically fizzled out, while the research program of studying reactions of people (or at least undergraduates) to simple games thrived, and still thrives.</li>
+</ul>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Theory of Dynamic Games</h1>
+
 </section>
 <section class="slide level2">
 <h2>Game Trees</h2>
@@ -296,7 +428,7 @@
 <p><strong>Result</strong>: Player 1 plays A, Player 2 plays C, outcome is <strong>(3, 8)</strong>.</p>
 </div>
 <div class="fragment">
-<p>Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 exist in the tree. But Player 1 can’t force those outcomes—Player 2 gets to respond.</p>
+<p>Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 exist in the tree. But Player 1 can’t force those outcomes. Player 2 gets to respond.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -342,7 +474,7 @@
 </section>
 <section class="slide level2">
 <h2>Nash Equilibrium in Sequential Games</h2>
-<p>We can still find Nash equilibria in sequential games—just convert the tree to a payoff matrix.</p>
+<p>We can still find Nash equilibria in sequential games. We just convert the tree to a payoff matrix.</p>
 <div class="fragment">
 <p>But there’s a problem. Some Nash equilibria involve <strong>threats that aren’t credible</strong>.</p>
 </div>

@@ -126,6 +126,39 @@ Answer: It's really culturally specific. But here's something we never see as a 
 - P1 proposes that they get all minus a sliver of the money, and P2 accepts.
 - P2 typically rejects small offers, and P1 usually is smart enough to not make it.
 
+## Origins of the Ultimatum Game
+
+The ultimatum game was introduced in 1982. Researchers expected to confirm the game-theoretic prediction: proposers would offer close to nothing, and receivers would accept (since something beats nothing).
+
+. . .
+
+Instead, they found that in lab experiments with German students:
+
+- Proposers typically offered 40–50% of the pot.
+- Receivers frequently rejected "unfair" offers below about 20%.
+
+## Ultimatum Game Across Cultures
+
+Henrich et al. (2001) ran the ultimatum game across 15 small-scale societies.
+
+. . .
+
+The variation was enormous, and bore no resemblance to the game-theoretic prediction:
+
+- **Machiguenga** (Peruvian Amazon): mean offers around 26%, very few rejections.
+- **Lamalera** (Indonesia): mean offers over 57%.
+- **Hadza** (Tanzania): offers near 50%, but *high* rejection rates.
+
+. . .
+
+The pattern of offers and rejections tracked each society's real-world economic institutions and cooperative norms — not individual self-interest.
+
+---
+
+Our version
+
+![Ultimatum Game. Or go to bweatherson.github.io/ultimatum-game.html](images/ultimatum.png){width=50%}
+
 ## History
 
 A potted history of game theory:
