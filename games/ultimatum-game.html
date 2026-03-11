@@ -543,7 +543,7 @@
     <div class="result-summary" id="result-summary">
       <div class="stat"><span class="label">Average offer:</span> $<span id="result-avg-offer">—</span></div>
       <div class="stat"><span class="label">Average reservation price:</span> $<span id="result-avg-res">—</span></div>
-      <div class="stat"><span class="label">Players paired:</span> <span id="result-count">—</span></div>
+      <div class="stat"><span class="label">Players:</span> <span id="result-count">—</span> <span id="result-games-note" style="color:var(--muted); font-size:0.85rem;"></span></div>
     </div>
 
     <div class="winner-box" id="winner-box">
@@ -557,7 +557,8 @@
             <th>Name</th>
             <th>Offered</th>
             <th>Reserve</th>
-            <th>Paired with</th>
+            <th title="How many of their proposals were accepted">Proposals accepted</th>
+            <th title="How many incoming offers they accepted">Offers accepted</th>
             <th>Total earned</th>
           </tr>
         </thead>
@@ -613,10 +614,15 @@
     isTeacher: false,
     phase: null,        // 'round1_open' | 'round2_open' | 'revealed'
     round: null,
-    offers: [],         // { name, offer, round, key }
-    reservations: [],   // { name, reservation, round, key }
+    rawOffers: [],      // all offers from Firebase, unfiltered
+    rawReservations: [], // all reservations from Firebase, unfiltered
     db: null,
   };
+
+  // Always filter by current round at point of use, so a round change
+  // is reflected immediately without waiting for a new Firebase push.
+  function currentOffers()       { return S.rawOffers.filter(o => o.round === S.round); }
+  function currentReservations() { return S.rawReservations.filter(r => r.round === S.round); }
 
   // ============================================================
   // Firebase Init
@@ -648,18 +654,14 @@
 
   offersRef.on('value', snap => {
     const data = snap.val() || {};
-    S.offers = Object.entries(data)
-      .map(([key, v]) => ({ ...v, key }))
-      .filter(v => v.round === S.round);
+    S.rawOffers = Object.entries(data).map(([key, v]) => ({ ...v, key }));
     updateWaitingCounts();
     renderTeacherPanel();
   });
 
   reservsRef.on('value', snap => {
     const data = snap.val() || {};
-    S.reservations = Object.entries(data)
-      .map(([key, v]) => ({ ...v, key }))
-      .filter(v => v.round === S.round);
+    S.rawReservations = Object.entries(data).map(([key, v]) => ({ ...v, key }));
     updateWaitingCounts();
     renderTeacherPanel();
   });
@@ -715,8 +717,8 @@
   function updateWaitingCounts() {
     const r1 = document.getElementById('r1-waiting-count');
     const r2 = document.getElementById('r2-waiting-count');
-    const n1 = S.offers.length;
-    const n2 = S.reservations.length;
+    const n1 = currentOffers().length;
+    const n2 = currentReservations().length;
     if (r1) r1.textContent = n1 === 1 ? '1 offer submitted' : `${n1} offers submitted`;
     if (r2) r2.textContent = n2 === 1 ? '1 reservation price submitted' : `${n2} reservation prices submitted`;
   }
@@ -740,10 +742,7 @@
 
   wireSlider('offer-slider',
     ['offer-display', 'keep-display', 'offer-display2'],
-    (id, v) => {
-      if (id === 'keep-display') return v === 0 ? '0' : (10 - v);
-      return v;
-    }
+    (id, v) => id === 'keep-display' ? (10 - v) : v
   );
 
   wireSlider('reservation-slider',
@@ -778,6 +777,7 @@
       localStorage.setItem('ug_round', S.round);
       localStorage.setItem('ug_name', name);
       localStorage.setItem('ug_offer_submitted', 'true');
+      localStorage.removeItem('ug_reserv_submitted'); // clear stale flag from any previous game
       showView('round1-waiting');
     } catch (err) {
       errorEl.textContent = 'Failed to submit. Please try again.';
@@ -828,68 +828,61 @@
   function computeResults() {
     // Build per-student records (use last submission if a name appears twice)
     const offerMap = {};
-    for (const o of S.offers) {
+    for (const o of currentOffers()) {
       offerMap[o.name.toLowerCase()] = { name: o.name, offer: o.offer };
     }
     const reservMap = {};
-    for (const r of S.reservations) {
+    for (const r of currentReservations()) {
       reservMap[r.name.toLowerCase()] = { name: r.name, reservation: r.reservation };
     }
 
     // Students who submitted both
     const bothKeys = Object.keys(offerMap).filter(k => reservMap[k]);
+    const n = bothKeys.length;
     const students = bothKeys
-      .sort()  // alphabetical for deterministic pairing
+      .sort()
       .map(k => ({
         name: offerMap[k].name,
         offer: offerMap[k].offer,
         reservation: reservMap[k].reservation,
         earned: 0,
-        pairedWith: null,
-        details: [],
+        proposalsAccepted: 0,  // how many of their offers were accepted
+        offersAccepted: 0,     // how many incoming offers they accepted
       }));
 
-    // Pair students: (0,1), (2,3), etc. Odd last student left unmatched.
-    for (let i = 0; i + 1 < students.length; i += 2) {
-      const A = students[i];
-      const B = students[i + 1];
-      A.pairedWith = B.name;
-      B.pairedWith = A.name;
+    // Round-robin: every student plays every other student in both roles.
+    // Student i proposes to student j; student j proposes to student i.
+    // Each pair is visited once (i < j), both directions resolved together.
+    for (let i = 0; i < n; i++) {
+      for (let j = i + 1; j < n; j++) {
+        const A = students[i];
+        const B = students[j];
 
-      // A proposes to B
-      if (A.offer >= B.reservation) {
-        A.earned += (10 - A.offer);
-        B.earned += A.offer;
-        A.details.push({ role: 'proposer', to: B.name, offer: A.offer, accepted: true, earned: 10 - A.offer });
-        B.details.push({ role: 'receiver', from: A.name, offer: A.offer, accepted: true, earned: A.offer });
-      } else {
-        A.details.push({ role: 'proposer', to: B.name, offer: A.offer, accepted: false, earned: 0 });
-        B.details.push({ role: 'receiver', from: A.name, offer: A.offer, accepted: false, earned: 0 });
-      }
+        // A proposes to B
+        if (A.offer >= B.reservation) {
+          A.earned += (10 - A.offer);
+          A.proposalsAccepted++;
+          B.earned += A.offer;
+          B.offersAccepted++;
+        }
 
-      // B proposes to A
-      if (B.offer >= A.reservation) {
-        B.earned += (10 - B.offer);
-        A.earned += B.offer;
-        B.details.push({ role: 'proposer', to: A.name, offer: B.offer, accepted: true, earned: 10 - B.offer });
-        A.details.push({ role: 'receiver', from: B.name, offer: B.offer, accepted: true, earned: B.offer });
-      } else {
-        B.details.push({ role: 'proposer', to: A.name, offer: B.offer, accepted: false, earned: 0 });
-        A.details.push({ role: 'receiver', from: B.name, offer: B.offer, accepted: false, earned: 0 });
+        // B proposes to A
+        if (B.offer >= A.reservation) {
+          B.earned += (10 - B.offer);
+          B.proposalsAccepted++;
+          A.earned += B.offer;
+          A.offersAccepted++;
+        }
       }
     }
 
-    // Handle unmatched last student
-    if (students.length % 2 === 1) {
-      const last = students[students.length - 1];
-      last.pairedWith = '(no partner)';
-    }
-
-    const avgOffer = S.offers.length
-      ? S.offers.reduce((s, o) => s + o.offer, 0) / S.offers.length
+    const offers = currentOffers();
+    const reservs = currentReservations();
+    const avgOffer = offers.length
+      ? offers.reduce((s, o) => s + o.offer, 0) / offers.length
       : 0;
-    const avgReserv = S.reservations.length
-      ? S.reservations.reduce((s, r) => s + r.reservation, 0) / S.reservations.length
+    const avgReserv = reservs.length
+      ? reservs.reduce((s, r) => s + r.reservation, 0) / reservs.length
       : 0;
 
     const winner = students.length
@@ -904,24 +897,30 @@
 
     document.getElementById('result-avg-offer').textContent = avgOffer.toFixed(2);
     document.getElementById('result-avg-res').textContent  = avgReserv.toFixed(2);
-    document.getElementById('result-count').textContent    = students.length;
+    document.getElementById('result-count').textContent = students.length;
+    const gamesNote = document.getElementById('result-games-note');
+    if (gamesNote && students.length > 1) {
+      gamesNote.textContent = `(each played ${students.length - 1} games as proposer and ${students.length - 1} as receiver)`;
+    }
 
+    const n = students.length;
     if (winner) {
       document.getElementById('result-winner').textContent =
-        `${escHtml(winner.name)} — $${winner.earned}`;
+        `${winner.name} — $${winner.earned}`;
     }
 
     const sorted = [...students].sort((a, b) => b.earned - a.earned);
     const tbody = document.getElementById('results-tbody');
-    tbody.innerHTML = sorted.map((s, i) => {
+    tbody.innerHTML = sorted.map(s => {
       const isWinner = winner && s.name === winner.name;
-      const pairedWith = s.pairedWith || '—';
+      const possible = n - 1;  // number of other players
       return `
         <tr class="${isWinner ? 'winner-row' : ''}">
           <td>${escHtml(s.name)}${isWinner ? ' 💰' : ''}</td>
           <td>$${s.offer}</td>
           <td>$${s.reservation}</td>
-          <td>${escHtml(pairedWith)}</td>
+          <td>${s.proposalsAccepted} / ${possible}</td>
+          <td>${s.offersAccepted} / ${possible}</td>
           <td><strong>$${s.earned}</strong></td>
         </tr>
       `;
@@ -942,10 +941,12 @@
     const tbody     = document.getElementById('teacher-tbody');
 
     // Stats line
+    const offers = currentOffers();
+    const reservs = currentReservations();
     if (S.phase === 'round1_open') {
-      statsEl.textContent = `Round 1 open — ${S.offers.length} offer${S.offers.length !== 1 ? 's' : ''} received`;
+      statsEl.textContent = `Round 1 open — ${offers.length} offer${offers.length !== 1 ? 's' : ''} received`;
     } else if (S.phase === 'round2_open') {
-      statsEl.textContent = `Round 2 open — ${S.reservations.length} of ${S.offers.length} reservation prices received`;
+      statsEl.textContent = `Round 2 open — ${reservs.length} of ${offers.length} reservation prices received`;
     } else if (S.phase === 'revealed') {
       statsEl.textContent = 'Results revealed';
     }
@@ -954,7 +955,7 @@
     actionsEl.innerHTML = '';
     if (S.phase === 'round1_open') {
       const btn = makeBtn('Start Round 2', 'btn-warning', async () => {
-        if (S.offers.length === 0) { alert('No offers submitted yet.'); return; }
+        if (currentOffers().length === 0) { alert('No offers submitted yet.'); return; }
         btn.disabled = true;
         await stateRef.set({ phase: 'round2_open', round: S.round });
       });
@@ -974,22 +975,23 @@
     });
     actionsEl.appendChild(resetBtn);
 
-    // Live table
+    // Live table — re-read current round's data
+    const tableOffers = currentOffers();
+    const tableReservs = currentReservations();
     let rows = [];
     let headers = ['Name', 'Offer'];
     if (S.phase === 'round2_open' || S.phase === 'revealed') {
       headers = ['Name', 'Offer', 'Reserve'];
-      // Merge offers + reservations by name
       const reservMap = {};
-      for (const r of S.reservations) reservMap[r.name.toLowerCase()] = r.reservation;
-      rows = [...S.offers]
+      for (const r of tableReservs) reservMap[r.name.toLowerCase()] = r.reservation;
+      rows = [...tableOffers]
         .sort((a, b) => a.name.localeCompare(b.name))
         .map(o => {
           const res = reservMap[o.name.toLowerCase()];
           return `<tr><td>${escHtml(o.name)}</td><td>$${o.offer}</td><td>${res !== undefined ? '$' + res : '—'}</td></tr>`;
         });
     } else {
-      rows = [...S.offers]
+      rows = [...tableOffers]
         .sort((a, b) => a.name.localeCompare(b.name))
         .map(o => `<tr><td>${escHtml(o.name)}</td><td>$${o.offer}</td></tr>`);
     }
