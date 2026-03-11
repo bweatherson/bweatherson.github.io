@@ -11,6 +11,249 @@ format:
                 \newcommand{\boxright}{\;\Box\!\!\!\rightarrow}
 ---
 
+# Midterm Answers
+
+---
+
+\ruleheader{Part 1: S5}
+
+### 1. $\Box(\Box p \rightarrow q) \vee \Box(\Box q \rightarrow p)$ in **S5**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (\Box p \rightarrow  q) \lor  \Box (\Box q \rightarrow  p)}, checked, just = \TAss
+        [\sFmla{\False}{1, \Box (\Box p \rightarrow  q)}, checked, just = {\TRule{\False}{\lor}[1]}
+            [\sFmla{\False}{1, \Box (\Box q \rightarrow  p)}, checked, just = {\TRule{\False}{\lor}[1]}
+                [\sFmla{\False}{2, \Box p \rightarrow  q}, checked, just = {\TRule{\False}{\Box}[2]}
+                    [\sFmla{\True}{2, \Box p}, just = {\TRule{\False}{\rightarrow}[4]}
+                        [\sFmla{\False}{2, q}, just = {\TRule{\False}{\neg}[4]}
+                            [\sFmla{\False}{3, \Box q\rightarrow p}, checked, just = {\TRule{\False}{\Box}[3]}
+                                [\sFmla{\True}{3, \Box q}, just = {\TRule{\False}{\rightarrow}[7]}
+                                    [\sFmla{\True}{2, q}, just = {\TRule{\True}{\Box}[8]}, close]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 01](../images/tableaux-15/tableau-15-01.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 2. $\Diamond \Box p \rightarrow \Box \Diamond p$ in **S5**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond \Box p \rightarrow  \Box \Diamond p}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{2, \Box p}, just = {\TRule{\True}{\Diamond}[2]}
+                    [\sFmla{\False}{3, \Diamond p}, checked, just = {\TRule{\False}{\Box}[3]}
+                        [\sFmla{\True}{1, p}, just = {\TRule{\True}{\Box}[4]}
+                            [\sFmla{\False}{1, p}, just = {\TRule{\False}{\Diamond}[5]}, close]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 02](../images/tableaux-15/tableau-15-02.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 3. $(\neg p \vee \neg \Box \Box p) \rightarrow \neg \Box p$ in **S5**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (\neg p \lor  \neg \Box \Box p) \rightarrow  \neg \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, (\neg p \lor  \neg \Box \Box p)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \neg \Box p}, checked, just = {\TRule{\False}{\rightarrow}[2]}
+                [\sFmla{\True}{1, \Box p}, just = {\TRule{\False}{\neg}[3]}
+                    [\sFmla{\True}{1, \neg p}, checked, just = {\TRule{\True}{\lor}[2]}
+                        [\sFmla{\False}{1, p}, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\True}{1, p}, just = {\TRule{\True}{\Box}[4]}, close]
+                        ]
+                    ]
+                    [\sFmla{\True}{1, \neg \Box \Box p}, checked, just = {\TRule{\True}{\lor}[2]}
+                        [\sFmla{\False}{1, \Box \Box p}, checked, just = {\TRule{\True}{\neg}[5]}, move by = 2
+                            [\sFmla{\False}{2, \Box p}, checked, just = {\TRule{\False}{\Box}[8]}
+                                [\sFmla{\False}{3, p}, just = {\TRule{\False}{\Box}[9]}
+                                    [\sFmla{\True}{3, p}, just = {\TRule{\True}{\Box}[4]}, close]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 3](../images/tableaux-15/tableau-15-03.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 4. $(\Diamond p \wedge \Diamond q) \rightarrow \Box(p \vee q)$ in **K**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (\Diamond p \wedge  \Diamond q) \rightarrow  \Box (p \lor  q)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Diamond p \wedge  \Diamond q}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box (p \lor  q)}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond p}, checked, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Diamond q}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\True}{1.1, p}, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{1.2, q}, just = {\TRule{\True}{\Diamond}[5]}
+                                [\sFmla{\False}{1.3, p \lor  q}, checked, just = {\TRule{\False}{\Box}[3]}
+                                    [\sFmla{\False}{1.3, p}, just = {\TRule{\False}{\wedge}[8]}
+                                        [\sFmla{\False}{1.3, q}, just = {\TRule{\False}{\lor}[8]}]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 4](../images/tableaux-15/tableau-15-04.tex.svg)
+:::
+
+**INVALID**
+
+---
+
+### 5. $\Diamond (p \rightarrow p) \vee \Diamond \neg (q \rightarrow q)$ in **K**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Diamond (p \rightarrow  p) \lor  \Diamond \neg (q \rightarrow  q)}, checked, just = \TAss
+        [\sFmla{\False}{1, \Diamond (p \rightarrow  p)}, just = {\TRule{\False}{\lor}[1]}
+            [\sFmla{\False}{1, \Diamond \neg (q \rightarrow  q)}, just = {\TRule{\False}{\lor}[1]}]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 5](../images/tableaux-15/tableau-15-05.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 6. $(p \wedge \neg \neg \Box q) \rightarrow (\neg \neg p \wedge \Box q)$ in **K**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (p \wedge  \neg \neg \Box q) \rightarrow  (\neg \neg p \wedge  \Box q)}, checked, just = \TAss
+        [\sFmla{\True}{1, p \wedge  \neg \neg \Box q}, checked, just = {\TRule{\False}{\neg}[1]}
+            [\sFmla{\False}{1, \neg \neg p \wedge  \Box q}, checked, just = {\TRule{\False}{\neg}[1]}
+                [\sFmla{\True}{1, p}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \neg \neg \Box q}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\False}{1, \neg \Box q}, checked, just = {\TRule{\True}{\neg}[5]}
+                            [\sFmla{\True}{1, \Box q}, just = {\TRule{\False}{\neg}[6]}
+                                [\sFmla{\False}{1, \neg \neg p}, checked, just = {\TRule{\False}{\wedge}[3]}
+                                    [\sFmla{\True}{1, \neg p}, checked, just = {\TRule{\True}{\neg}[8]}
+                                        [\sFmla{\False}{1, p}, just = {\TRule{\True}{\neg}[9]}, close]
+                                    ]
+                                ]
+                                [\sFmla{\False}{1, \Box q}, just = {\TRule{\False}{\wedge}[3]}, close]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 6](../images/tableaux-15/tableau-15-06.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 7. $\Box(p \rightarrow q) \rightarrow (\Diamond \Diamond p \rightarrow \Diamond q)$ in **S4**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, \Box (p \rightarrow  q) \rightarrow  (\Diamond \Diamond p \rightarrow  \Diamond q)}, checked, just = \TAss
+        [\sFmla{\True}{1, \Box (p \rightarrow  q)}, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Diamond \Diamond p \rightarrow  \Diamond q}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, \Diamond \Diamond p}, checked, just = {\TRule{\False}{\rightarrow}[3]}
+                    [\sFmla{\False}{1, \Diamond q}, just = {\TRule{\False}{\rightarrow}[3]}
+                        [\sFmla{\True}{1.1, \Diamond p}, checked, just = {\TRule{\True}{\Diamond}[4]}
+                            [\sFmla{\True}{1.1, \Box (p \rightarrow  q)}, just = {\TRule{\Box}{\text{4}}[2]}
+                                [\sFmla{\False}{1.1, \Diamond q}, just = {\TRule{\Diamond}{\text{4}}[5]}
+                                    [\sFmla{\True}{1.1.1, p}, just = {\TRule{\True}{\Diamond}[6]}
+                                        [\sFmla{\True}{1.1.1, p \rightarrow  q}, checked, just = {\TRule{\True}{\Box}[7]}
+                                            [\sFmla{\False}{1.1.1, q}, just = {\TRule{\False}{\Diamond}[8]}
+                                                [\sFmla{\False}{1.1.1, p}, just = {\TRule{\True}{\rightarrow}[10]}, close]
+                                                [\sFmla{\True}{1.1.1, q}, close]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 7](../images/tableaux-15/tableau-15-07.tex.svg)
+:::
+
+**VALID**
+
+---
+
+### 8. $(p \wedge \Diamond \Box p) \rightarrow \Box p$ in **S4**
+
+\begin{oltableau}
+    [\sFmla{\False}{1, (p \wedge  \Diamond \Box p) \rightarrow  \Box p}, checked, just = \TAss
+        [\sFmla{\True}{1, p \wedge  \Diamond \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+            [\sFmla{\False}{1, \Box p}, checked, just = {\TRule{\False}{\rightarrow}[1]}
+                [\sFmla{\True}{1, p}, just = {\TRule{\True}{\wedge}[2]}
+                    [\sFmla{\True}{1, \Diamond \Box p}, checked, just = {\TRule{\True}{\wedge}[2]}
+                        [\sFmla{\False}{1.1, p}, just = {\TRule{\False}{\Box}[3]}
+                            [\sFmla{\True}{1.2, \Box p}, just = {\TRule{\True}{\Diamond}[5]}
+                                [\sFmla{\True}{1.2, p}, just = {\TRule{\Box}{\text{T}}[7]}]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{oltableau}
+
+::: {.content-visible when-format="revealjs"}
+![Question 8](../images/tableaux-15/tableau-15-08.tex.svg)
+:::
+
+**INVALID**
+
 # Introduction
 
 ## Plan
