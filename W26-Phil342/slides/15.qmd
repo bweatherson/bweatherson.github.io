@@ -30,7 +30,113 @@ In a sequential game, the later mover can *see* what happened before deciding.
 
 . . .
 
-This might seem like it always helps the later mover (more information), but it turns out the **first mover** often has the advantage---because they can shape the situation the later mover faces.
+This might seem like it always helps the later mover (more information), but it turns out the **first mover** often has the advantage, because they can shape the situation the later mover faces.
+
+## Summary
+
+1. We could try to analyse all dynamic games as strategic games, e.g., analyse chess just as a battle between chess programs.
+2. Nobody does that though, because it doesn't work in practice or in theory.
+3. In practice it's too hard.
+4. In theory it leaves in strategies that don't make sense.
+5. But the theoretical reason doesn't work in practice, and that's itself interesting.
+
+## Strategic Form
+
+A **strategy** for a player in a dynamic game is a plan for what to do in every possible situation.
+
+One way to solve a strategic game would be to ask:
+
+> If the two players were just picking strategies, which strategies would make sense to pick?
+
+## Practical Problem
+
+Strategy sets are **really really big**.
+
+Even for something as simple as Connect Four, there are trillions of board states, and usually 7 available moves per board state, so there are in the order of $7^N$ possible strategies, where $N$ is the number of board states.
+
+It's impractical.
+
+## Theoretical Problem
+
+Some strategies don't make sense when you try to carry them out.
+
+Imagine a sequential version of **Battle of the Sexes**. I'm Column, and you're Row.
+
+You have 2 options, I have 4. (Why?)
+
+. . .
+
+Here's a Nash Equilibrium of the game:
+
+- You play B
+- I play B no matter what
+- You get 1, I get 2
+
+## Theoretical Problem
+
+Neither of us can do better by changing strategies.
+
+. . .
+
+But, this strategy requires me to do something self-defeating if you play A.
+
+. . .
+
+My strategy is known as a **non-credible** or **incredible** threat.
+
+## Two Problems with Reduction
+
+So can we treat all dynamic games as the interaction of strategies?
+
+No:
+
+1. The strategy tree is too big
+2. Some things that make sense as strategies don't make sense to carry out
+
+## Problem with the Problem
+
+People do carry out 'non-credible' threats!
+
+Most famously, this happens in the **ultimatum game**.
+
+## Ultimatum Game
+
+There are two players, and ten dollars.
+
+. . .
+
+Player 1, the proposer, proposes a split of the money.
+
+. . .
+
+Player 2, the receiver, hears the proposal, and has a choice to take it or leave it.
+
+. . .
+
+If they take it, each gets the money P1 proposes. If they leave it, both get nothing.
+
+. . .
+
+Question: what do **you** think will happen?
+
+## Ultimatum Game
+
+Answer: It's really culturally specific. But here's something we never see as a widespread phenomenon.
+
+- P1 proposes that they get all minus a sliver of the money, and P2 accepts.
+- P2 typically rejects small offers, and P1 usually is smart enough to not make it.
+
+## History
+
+A potted history of game theory:
+
+- Through the 1980s, people kept working out more and more complicated cases where a strategy in a dynamic game for one reason or another didn't make sense, and tried to come up with a theory to cover all the cases.
+- It never really worked, there were always more ways for strategies to not make sense in theory.
+- Around the same time, economists started taking seriously empirical research on things like the ultimatum game, and realised people did things that 'didn't make sense' even in simple games.
+- So the research project of trying to classify ways in which strategies 'didn't make sense' basically fizzled out, while the research program of studying reactions of people (or at least undergraduates) to simple games thrived, and still thrives.
+
+# Theory of Dynamic Games
+
 
 ## Game Trees
 
@@ -177,7 +283,7 @@ Knowing Player 2's choices, the tree simplifies to:
 
 . . .
 
-Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 exist in the tree. But Player 1 can't force those outcomes---Player 2 gets to respond.
+Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 exist in the tree. But Player 1 can't force those outcomes. Player 2 gets to respond.
 
 ## Back to the Sharing Game
 
@@ -227,7 +333,7 @@ People seem to care about **fairness**, not just the payoff numbers. This is a r
 
 ## Nash Equilibrium in Sequential Games
 
-We can still find Nash equilibria in sequential games---just convert the tree to a payoff matrix.
+We can still find Nash equilibria in sequential games. We just convert the tree to a payoff matrix.
 
 . . .
 
