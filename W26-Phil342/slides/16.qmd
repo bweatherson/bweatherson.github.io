@@ -92,7 +92,7 @@ Axelrod published *The Evolution of Cooperation* in 1984. It became one of the m
 - Total score = points accumulated across all matches
 :::
 
-. . .
+## How the Tournament Worked
 
 The payoff matrix Axelrod used:
 
@@ -123,13 +123,57 @@ You'll answer a short questionnaire:
 
 ::: {.nonincremental}
 1. Are you a **Reciprocator** (react to what your opponent does) or a **Pattern Hunter** (probe and exploit)?
-2. A follow-up question to narrow it down further
-3. Pick from the 2--3 strategies in your category
+2. Whatever answer you give, you'll get a question asking for more detail about the kind of view you have.
+3. Then you'll pick from the 2--3 strategies in your category
 :::
 
 . . .
 
 Then I'll run the round-robin tournament and we'll see what happens.
+
+## Reciprocators and Hunters
+
+::: {.nonincremental}
+**Reciprocators** react to what their opponent does:
+
+- **Tit for Tat**: Cooperate first, then copy whatever the opponent did last round.
+- **Generous TFT**: Like TFT, but randomly forgives about one in ten defections.
+- **Grim Trigger**: Cooperates until the first defection — then defects forever. No second chances.
+:::
+
+. . .
+
+::: {.nonincremental}
+**Pattern Hunters** probe and exploit:
+
+- **Cooperator Hunter**: Tests whether the opponent has ever defected. If not, exploits them forever.
+- **Prober**: Opens with D, C, C to test for exploitability. Defects forever if the probe succeeds.
+- **Cycle Hunter**: Watches for any repeating pattern in the opponent's moves, then defects once confirmed.
+:::
+
+## If You're a Reciprocator…
+
+You'll be asked: **How forgiving are you?**
+
+. . .
+
+::: {.nonincremental}
+- **Very forgiving**: Occasional defections don't bother you. → *Tit for Two Tats*, *Generous TFT*
+- **Standard**: Mirror what your opponent does — cooperate for cooperate, defect for defect. → *Tit for Tat*, *Omega TFT*
+- **Strict**: Punish defection firmly and take a while to let it go. → *Two Tits for Tat*, *Hard TFT*, *Soft Grudger*
+- **Unforgiving**: Once betrayed, you never cooperate again. → *Grim Trigger*, *Spiteful TFT*
+:::
+
+## If You're a Pattern Hunter…
+
+You'll be asked: **What are you hunting for?**
+
+. . .
+
+::: {.nonincremental}
+- **Exploitable cooperators**: Find opponents who won't fight back, and safely defect on them forever. → *Cooperator Hunter*, *Prober*, *Hard Prober*
+- **Predictable patterns**: Detect opponents playing a fixed, mechanical strategy and outmaneuver them. → *Alternator Hunter*, *Cycle Hunter*, *Defector Hunter*
+:::
 
 ## Play the Game
 

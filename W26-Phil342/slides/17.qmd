@@ -23,7 +23,7 @@ Axelrod identified four properties that successful strategies share:
 - **Clear**: be legible to your opponent
 :::
 
-. . .
+## Why TFT Wins (Usually)
 
 But the tournament just ranks strategies against a fixed field. 
 
@@ -116,11 +116,10 @@ For cooperation to be stable, the **shadow of the future** must be long enough.
 
 More precisely: let $w$ be the probability that two organisms will interact again. Cooperation is stable if $w$ is large enough that the future gains from mutual cooperation outweigh the short-term gains from defection.
 
-. . .
+
+## The Shadow of the Future
 
 $$w > \frac{T - R}{T - P}$$
-
-. . .
 
 Where $T$ = temptation payoff, $R$ = reward for mutual cooperation, $P$ = punishment for mutual defection. 
 
@@ -145,13 +144,13 @@ Start with a population of **All Defectors**. Can a small cluster of TFT players
 
 Answer: **yes, if there are enough TFT players and they tend to interact with each other**.
 
-. . .
+## Can TFT Invade?
 
 When TFT meets TFT: mutual cooperation earns $R$ per round for many rounds. When TFT meets All D: TFT defects back and both earn $P$.
 
 . . .
 
-If TFT players cluster together---geographically, socially, by kin---they can earn enough against each other to outperform the defectors, even accounting for losses at the boundary.
+If TFT players cluster together, geographically, socially, by kin, they can earn enough against each other to outperform the defectors, even accounting for losses at the boundary.
 
 ## Cluster Dynamics
 
@@ -245,7 +244,7 @@ Cleaner wrasse remove parasites from "client" fish, who could easily eat them.
 
 But they don't get eaten, and so clients return repeatedly to the same cleaner.
 
-. . .
+## Biology: Reciprocity in Nature
 
 This is iterated PD in the wild: each interaction is potentially exploitable, but repeated interaction makes cooperation stable.
 
@@ -261,7 +260,7 @@ Two superpowers in an arms race arguably face a PD structure: both would prefer 
 
 The iterated setting makes cooperation possible: arms *control* agreements work as TFT-like strategies: comply as long as the other side complies, retaliate (verifiably) if they cheat.
 
-. . .
+## International Relations: Arms Races and Treaties
 
 Axelrod used this to explain how **Live and Let Live** emerged on the Western Front in WWI. 
 
@@ -323,7 +322,7 @@ Suppose both players are playing TFT, and a noise event causes player A's cooper
 
 Now player B retaliates (correctly, from their perspective). A then retaliates B's retaliation. B retaliates again. . .
 
-. . .
+## The Death Spiral Problem
 
 A single noise event causes an **infinite defection spiral** even though neither player actually chose to defect.
 

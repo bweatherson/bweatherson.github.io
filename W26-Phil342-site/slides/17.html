@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2026-03-16">
-  <title>The Evolution of Cooperation</title>
+  <meta name="dcterms.date" content="2026-03-18">
+  <title>The Emergence of Cooperation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -129,295 +129,391 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">The Evolution of Cooperation</h1>
+  <h1 class="title">The Emergence of Cooperation</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-03-16</p>
+  <p class="date">2026-03-18</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>A Question from Last Time</h1>
+<h1>Recap</h1>
 
 </section>
 <section class="slide level2">
-<h2>The Backward Induction Argument</h2>
-<p>Last time we left with a puzzle.</p>
-<div class="fragment">
-<p>In a repeated Prisoner’s Dilemma with a <strong>known endpoint</strong>, backward induction says you should defect in the last round, because there’s no future to protect.</p>
-</div>
-<div class="fragment">
-<p>But if you’ll defect in the last round, your opponent knows that. So they’ll defect in the second-to-last round. And so on, all the way back to round one.</p>
-</div>
-<div class="fragment">
-<p>Does this mean rational players can <em>never</em> cooperate?</p>
-</div>
+<h2>TFT</h2>
+<p>In Axelrod’s round-robin tournaments, the winning strategy was <strong>Tit for Tat</strong> (TFT): cooperate on move one, then copy your opponent’s last move.</p>
 </section>
 <section class="slide level2">
-<h2>Why It Doesn’t (Quite) Work That Way</h2>
-<p>Technically, the argument is valid for a <strong>finite, known-length game</strong> between perfectly rational players who know each other are perfectly rational.</p>
-<div class="fragment">
-<p>But three things complicate this:</p>
+<h2>Why TFT Wins (Usually)</h2>
+<p>Axelrod identified four properties that successful strategies share:</p>
 <ul>
-<li class="fragment">Players don’t actually reason that way in practice</li>
-<li class="fragment">If an opponent cooperates early, you have good reason to cooperate back</li>
-<li class="fragment">If the <strong>endpoint is uncertain</strong>, the unraveling argument fails entirely</li>
+<li><strong>Nice</strong>: never be the first to defect</li>
+<li><strong>Retaliatory</strong>: respond to defection quickly</li>
+<li><strong>Forgiving</strong>: return to cooperation after punishing</li>
+<li><strong>Clear</strong>: be legible to your opponent</li>
 </ul>
-</div>
-<div class="fragment">
-<p>The more interesting question: can we explain <em>why</em> cooperation emerges, and what strategies actually work?</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Axelrod’s Experiment</h1>
-
 </section>
 <section class="slide level2">
-<h2>Robert Axelrod</h2>
-<p>In 1980, Robert Axelrod, a political scientist here at the University of Michigan, ran an unusual experiment.</p>
-<div class="fragment">
-<p>He <strong>invited researchers</strong> from economics, psychology, mathematics, sociology, and computer science to submit strategies for playing the iterated Prisoner’s Dilemma.</p>
-</div>
-<div class="fragment">
-<p>Each strategy was a computer program. Axelrod ran a <strong>round-robin tournament</strong>: every strategy against every other strategy, repeated many times. Whoever accumulated the most points overall won.</p>
-</div>
+<h2>Why TFT Wins (Usually)</h2>
+<p>But the tournament just ranks strategies against a fixed field.</p>
+<p>Here’s a question that might be more important in realistic situations: <strong>Which strategies <em>stay</em> successful over time?</strong></p>
 </section>
 <section class="slide level2">
-<h2>The First Tournament</h2>
-<p>The first tournament had <strong>14 entries</strong>. The strategies ranged from simple to highly sophisticated. Some tried to detect and exploit patterns, some started with defection, some tried complex conditional logic.</p>
+<h2>The Ecological Question</h2>
+<p>Imagine this variant of the tournament.</p>
+<p>Start not with 1 copy of each strategy but 100.</p>
+<p>After each round, strategies that did well get <strong>more copies</strong> in the next round, and strategies that did poorly get <strong>fewer copies</strong>.</p>
 <div class="fragment">
-<p>The winner was the <strong>simplest program submitted</strong>: four lines of code.</p>
+<p>This is an <em>ecological</em> simulation: the population of strategies changes based on fitness.</p>
 </div>
-<div class="fragment">
-<p>It was submitted by the game theorist Anatol Rapoport, and it was <strong>Tit for Tat</strong>: cooperate on the first move, then copy whatever your opponent did last round.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>The Second Tournament</h2>
-<p>Axelrod published the results and ran a <strong>second tournament</strong>. Now <strong>62 entries</strong> came in.</p>
-<div class="fragment">
-<p>People knew TFT had won. Some tried to beat it directly. Some submitted variants. Some entered highly sophisticated strategies designed to detect and outmaneuver it.</p>
-</div>
-<div class="fragment">
-<p><strong>TFT won again.</strong></p>
-</div>
-<div class="fragment">
-<p>Axelrod published <em>The Evolution of Cooperation</em> in 1984. It became one of the most widely cited books in the social sciences. It’s become very important in <strong>biology</strong>, as well as across PPE.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>How the Tournament Worked</h2>
-<ul>
-<li>Each pair of strategies played <strong>200 rounds</strong> of the Prisoner’s Dilemma</li>
-<li>Every strategy faced every other strategy (round-robin)</li>
-<li>Total score = points accumulated across all matches</li>
-</ul>
-<div class="fragment">
-<p>The payoff matrix Axelrod used:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Cooperate</th>
-<th style="text-align: center;">Defect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Cooperate</strong></td>
-<td style="text-align: center;">3, 3</td>
-<td style="text-align: center;">0, 5</td>
-</tr>
-<tr class="even">
-<td><strong>Defect</strong></td>
-<td style="text-align: center;">5, 0</td>
-<td style="text-align: center;">1, 1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="fragment">
-<p>Mutual cooperation earns 3 each. Mutual defection earns only 1 each. The temptation to defect is real, but exploitation backfires if the other player responds.</p>
-</div>
-<div class="fragment">
-<p>Note one key feature of this payoff structure. Alternating CD/DC does <strong>worse</strong> than continuous CC. Some people make this definitive of the game being a PD.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>Our Tournament</h1>
-
 </section>
 <section class="slide level2 scrollable">
-<h2>How Our Game Works</h2>
-<p>Basically the same setup as Axelrod’s.</p>
-<p>But instead of submitting code, you’ll choose from a menu of pre-built strategies.</p>
+<h2>What Difference Does it Make?</h2>
+<p>What distinctive factors do <strong>you</strong> have to consider when thinking about what will do well in this version of the game?</p>
 <div class="fragment">
-<p>You’ll answer a short questionnaire:</p>
+<p>Two things (at least) pop out:</p>
 <ol type="1">
-<li>Are you a <strong>Reciprocator</strong> (react to what your opponent does) or a <strong>Pattern Hunter</strong> (probe and exploit)?</li>
-<li>Whatever answer you give, you’ll get a question asking for more detail about the kind of view you have.</li>
-<li>Then you’ll pick from the 2–3 strategies in your category</li>
+<li class="fragment">Performance against conspecifics matters.</li>
+<li class="fragment">Scoring big against easybeats does not matter.</li>
 </ol>
 </div>
+</section>
+<section class="slide level2 scrollable">
+<h2>What Does This Suggest</h2>
+<p>How might <strong>you</strong> try to design a strategy to exploit this?</p>
 <div class="fragment">
-<p>Then I’ll run the round-robin tournament and we’ll see what happens.</p>
+<p>Two things jump out about the type of ‘hunter’/‘detector’ strategies that work around here.</p>
+<ol type="1">
+<li class="fragment">‘Handshake’ strategies that script a few moves then cooperate with conspecifics and defect against rivals might have advantages.</li>
+<li class="fragment">There is little benefit to detecting if someone is particularly vulnerable to exploitation; after a while they’ll have been exploited.</li>
+</ol>
 </div>
 </section>
 <section class="slide level2">
-<h2>Play the Game</h2>
-<p>Go to:</p>
-<p><strong>bweatherson.github.io/games/ipd-game.html</strong></p>
+<h2>Axelrod Again</h2>
+<p>Axelrod ran exactly this simulation.</p>
+<p>The question: does TFT dominate, or does the changing environment eventually undermine it?</p>
 <div class="fragment">
-<p>Answer the questionnaire, pick your strategy, and enter your name.</p>
+<p>Another question that’s come up separately: should we have each strategy interact with <strong>all</strong> other strategies or just with their <strong>neighbors</strong>?</p>
+<p>We’ll mostly talk about the ‘interact with everyone’ version here, but the ‘neighbors’ version might be more useful for modelling some situations.</p>
 </div>
-<div class="fragment">
-<p>Once everyone has joined, I’ll run the tournament and results will appear on your screen.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Results</h2>
-<p><em>(Tournament results here)</em></p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>What Makes Strategies Succeed</h1>
+<h1>The Evolutionary Setting</h1>
 
 </section>
 <section class="slide level2">
-<h2>Axelrod’s Analysis</h2>
-<p>After the tournaments, Axelrod analyzed what separated the successful strategies from the unsuccessful ones.</p>
+<h2>From Tournament to Evolution</h2>
+<p>Axelrod and Hamilton (1981) asked: can cooperation evolve by <strong>natural selection</strong>, with no central authority, no communication, and no altruism?</p>
 <div class="fragment">
-<p>He found that success didn’t come from being clever, aggressive, or unpredictable. It came from four surprisingly simple properties.</p>
+<p>The setup: think of strategies not as choices but as <strong>heritable traits</strong>. Organisms that do better reproduce more. Strategies that earn more points spread in the population.</p>
+</div>
+<div class="fragment">
+<p>The Prisoner’s Dilemma becomes a model of biological interaction: two organisms cooperate (e.g., by helping each other) or defect (by freeloading).</p>
+<p>Payoffs are in <strong>fitness</strong>, i.e., reproductive success, not dollars.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Property 1: Be Nice</h2>
-<p><strong>Never be the first to defect.</strong></p>
+<h2>The Core Puzzle</h2>
+<p>Why do <strong>you</strong> think would any organism ever cooperate?</p>
 <div class="fragment">
-<p>Of the top eight strategies in the second tournament, <em>all eight</em> were “nice”. They were never the first to defect.</p>
+<p>Classical evolutionary theory had two answers:</p>
+<ul>
+<li class="fragment"><strong>Kin selection</strong>: you help relatives because they share your genes (Hamilton’s rule: <span class="math inline">\(rb &gt; c\)</span>)</li>
+<li class="fragment"><strong>Group selection</strong>: groups with cooperators outcompete groups of defectors</li>
+</ul>
 </div>
 <div class="fragment">
-<p>None of the strategies that defected first finished in the top half.</p>
-</div>
-<div class="fragment">
-<p>This seems counterintuitive. Shouldn’t you gain an edge by defecting first?</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Why Nice Strategies Win</h2>
-<p>A nasty strategy can do well <strong>once</strong>, but it then plays <em>the rest of the game</em> in a damaged state.</p>
-<div class="fragment">
-<p>Once you’ve defected first, your opponent retaliates. Now you’re both locked into defecting, earning 1 per round instead of 3.</p>
-</div>
-<div class="fragment">
-<p>A nice strategy avoids this entirely. Against another nice strategy, it earns 3 per round for all 200 rounds. That adds up.</p>
+<p>Axelrod and Hamilton proposed a third mechanism: <strong>reciprocal altruism</strong> arising from repeated interaction, even among unrelated individuals.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Rules Matter</h2>
-<p>Let’s say we ran the same tournament, but didn’t add up points. Instead we treated everything like a basketball game, and asked who <em>won</em> each pairing.</p>
-<p>What’s the best strategy to play in that game?</p>
+<h2>The Key Condition</h2>
+<p>For cooperation to be stable, the <strong>shadow of the future</strong> must be long enough.</p>
 <div class="fragment">
-<p>It’s <strong>All D</strong>. It wins every time. But it’s often the <strong>worst</strong> strategy using the rules as we’ve defined them.</p>
-</div>
-<div class="fragment">
-<p>This matters for thinking about what real world situations can be modelled this way.</p>
+<p>More precisely: let <span class="math inline">\(w\)</span> be the probability that two organisms will interact again. Cooperation is stable if <span class="math inline">\(w\)</span> is large enough that the future gains from mutual cooperation outweigh the short-term gains from defection.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Property 2: Be Retaliatory</h2>
-<p><strong>Respond to defection quickly.</strong></p>
+<h2>The Shadow of the Future</h2>
+<p><span class="math display">\[w &gt; \frac{T - R}{T - P}\]</span></p>
+<p>Where <span class="math inline">\(T\)</span> = temptation payoff, <span class="math inline">\(R\)</span> = reward for mutual cooperation, <span class="math inline">\(P\)</span> = punishment for mutual defection.</p>
+<p>When interactions are likely to continue, cooperation can sustain itself.</p>
+</section>
+<section class="slide level2">
+<h2>Invasion</h2>
+<p>It’s impossible to work out what might work best against arrbitrary strategies; there are too many alternatives.</p>
+<p>So a lot of focus has been on the possibility of <strong>invasion</strong>.</p>
+<p>What happens if a community is homogenous, then a small number of a new strategy appears?</p>
+<p>Will this new strategy survive, or even take over?</p>
+</section>
+<section class="slide level2">
+<h2>Can TFT Invade?</h2>
+<p>Start with a population of <strong>All Defectors</strong>. Can a small cluster of TFT players invade?</p>
 <div class="fragment">
-<p>Being nice doesn’t mean being a pushover. Strategies that <em>never</em> defected (always cooperate) got exploited by anything that defected repeatedly, earning 0 per round instead of 3.</p>
-</div>
-<div class="fragment">
-<p>TFT retaliates <em>immediately</em>: defect on me this round, I defect back next round. No delay, no forgiveness yet.</p>
-</div>
-<div class="fragment">
-<p>This makes exploitation unprofitable from the start.</p>
+<p>Answer: <strong>yes, if there are enough TFT players and they tend to interact with each other</strong>.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Property 3: Be Forgiving</h2>
-<p><strong>Return to cooperation after you’ve punished.</strong></p>
+<h2>Can TFT Invade?</h2>
+<p>When TFT meets TFT: mutual cooperation earns <span class="math inline">\(R\)</span> per round for many rounds. When TFT meets All D: TFT defects back and both earn <span class="math inline">\(P\)</span>.</p>
 <div class="fragment">
-<p>Strategies that retaliated but never forgave got locked into <strong>mutual defection loops</strong>. They earn 1 per round for the rest of the match. That’s almost as bad as being exploited.</p>
-</div>
-<div class="fragment">
-<p><strong>TFT</strong> forgives immediately: as soon as the opponent cooperates, <strong>TFT</strong> cooperates on the next move.</p>
-</div>
-<div class="fragment">
-<p>Quick retaliation <em>plus</em> quick forgiveness keeps punishment short and gets both players back to earning 3 per round.</p>
+<p>If TFT players cluster together, geographically, socially, by kin, they can earn enough against each other to outperform the defectors, even accounting for losses at the boundary.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Property 4: Be Clear</h2>
-<p><strong>Make your strategy legible to your opponent.</strong></p>
-<div class="fragment">
-<p><strong>TFT</strong> is easy to understand: cooperate first, then mirror whatever your opponent just did. Any opponent can figure this out within a few rounds.</p>
-</div>
-<div class="fragment">
-<p>Many sophisticated strategies were essentially unreadable. Opponents couldn’t tell if they were dealing with something cooperative or exploitative.</p>
-</div>
-<div class="fragment">
-<p>When opponents can’t figure you out, they defect defensively, and you lose points you could have made through cooperation.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Don’t Be Envious</h2>
-<p>Axelrod noticed that many people framed the tournament wrong: they tried to <strong>beat</strong> their opponents. Taking that to an extreme, you might play <strong>All D</strong>.</p>
-<div class="fragment">
-<p>But <strong>TFT</strong> <em>never</em> beats any individual opponent. Against a defector it breaks even; against a cooperator it ties; it only “loses” when the opponent defects first.</p>
-</div>
-<div class="fragment">
-<p><strong>The goal isn’t to beat your opponent. It’s to do well across all your matches.</strong></p>
-</div>
-<div class="fragment">
-<p>A strategy that earns 3 per round against many opponents accumulates more points than one that “wins” against a few while earning 1 per round against everyone else.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>What Happened in Our Tournament?</h2>
-<p>Looking at our results:</p>
+<h2>Cluster Dynamics</h2>
+<p>This clustering is what Axelrod and Hamilton call the key to invasion.</p>
 <div class="fragment">
 <ul>
-<li class="fragment">Which strategies finished at the top? Were they nice?</li>
-<li class="fragment">Did any hunters outperform the reciprocators overall?</li>
-<li class="fragment">What happened when two hunters played <em>each other</em>?</li>
-<li class="fragment">Would the result change if the field had more of one type?</li>
+<li class="fragment">A <strong>single</strong> TFT mutant in an All D population does badly: it cooperates once, gets exploited, then defects—but there’s no one to cooperate with afterward.</li>
+<li class="fragment">A <strong>small cluster</strong> of TFT mutants does well <em>against each other</em>, and that advantage can outweigh the losses at the boundary with defectors.</li>
+<li class="fragment">As TFT spreads, the advantage grows: there are more TFT players to cooperate with.</li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>The Deeper Point</h2>
-<p>Cooperation can emerge from <strong>self-interest alone</strong>: without altruism, central authority, or communication.</p>
+<h2>Can TFT Resist Invasion?</h2>
+<p>Once TFT is established, can a mutant defector strategy invade the TFT population?</p>
 <div class="fragment">
-<p>All that’s required:</p>
-<ul>
-<li class="fragment">The interaction repeats (there’s a “shadow of the future”)</li>
-<li class="fragment">Players can recognize each other’s behavior and respond to it</li>
-<li class="fragment">A strategy that rewards cooperation and punishes defection is available</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Axelrod showed this works even in <strong>evolutionary</strong> settings: if successful strategies spread and unsuccessful ones die out, cooperative strategies dominate over time, even starting from a world of defectors.</p>
+<p><strong>No</strong>; well, at least not easily.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>For Next Time</h2>
-<p>Axelrod’s work raises as many questions as it answers:</p>
+<h2>Can TFT Resist Invasion?</h2>
+<p>A rare defector in a TFT population gets one round of exploitation, then faces retaliation for every subsequent round. The gains from that first defection are outweighed by the costs of the long punishment period.</p>
+<div class="fragment">
+<p>TFT is <strong>evolutionarily stable</strong> (in the informal sense): it resists invasion by defectors once it has taken hold.</p>
+</div>
+<div class="fragment">
+<p>That said, if there are enough invaders, and they behave differently towards in group and out group members, they may have a chance. But there need to be a <em>lot</em> of invaders.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Ecological Simulation</h2>
+<p>In the ecological version of Axelrod’s tournament:</p>
+<ul>
+<li class="fragment">Initially, all 63 strategies have equal representation.</li>
+<li class="fragment">Each “generation,” strategies are reweighted by their total score.</li>
+<li class="fragment">Nice strategies (which cooperated well with each other) <strong>grew in population share</strong>.</li>
+<li class="fragment">Nasty strategies (which exploited others early) <strong>shrank</strong>, because as nice strategies became rarer, there were fewer victims to exploit.</li>
+</ul>
+<div class="fragment">
+<p>The final population was dominated by nice strategies, with TFT among the most successful.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Cautionary Note</h2>
+<p>TFT is not universally dominant. Axelrod’s result depends on:</p>
+<ul>
+<li>The <em>composition</em> of the field (what other strategies are present);</li>
+<li>The payoff structure (how large <span class="math inline">\(T\)</span> and <span class="math inline">\(P\)</span> are relative to <span class="math inline">\(R\)</span>); and</li>
+<li>The length and continuity of interactions.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>A Cautionary Note</h2>
+<p>In some environments, more generous variants of TFT (e.g., <strong>Generous TFT</strong>) outperform standard TFT.</p>
+<div class="fragment">
+<p>The deeper lesson is not “TFT always wins”.</p>
+<p>It’s that <strong>niceness, retaliation, and forgiveness</strong> are the robust ingredients.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Applications</h1>
+
+</section>
+<section class="slide level2">
+<h2>Why This Matters Beyond Biology</h2>
+<p>Axelrod’s evolutionary framework has been applied across a remarkable range of fields:</p>
 <div class="fragment">
 <ul>
-<li>Does <strong>TFT</strong> always win, or does it depend on who else is in the field?</li>
-<li>What happens to cooperation in large populations over time?</li>
-<li>How does this apply beyond game theory, to arms races, trade, and everyday trust?</li>
+<li><strong>Biology</strong>: mutualism between species (cleaner fish, fig wasps, mycorrhizal fungi);</li>
+<li><strong>International relations</strong>: arms control treaties, trade agreements;</li>
+<li><strong>Business</strong>: repeated commercial dealings and reputation; and</li>
+<li><strong>Everyday social life</strong>: trust, reciprocity, and social norms.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Biology: Reciprocity in Nature</h2>
+<p>Axelrod and Hamilton pointed to <strong>cleaner fish</strong> as a real-world case.</p>
+<div class="fragment">
+<p>Cleaner wrasse remove parasites from “client” fish, who could easily eat them.</p>
+<p>But they don’t get eaten, and so clients return repeatedly to the same cleaner.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Biology: Reciprocity in Nature</h2>
+<p>This is iterated PD in the wild: each interaction is potentially exploitable, but repeated interaction makes cooperation stable.</p>
+<div class="fragment">
+<p>Similar patterns appear in fig trees and fig wasps, and in mycorrhizal fungi that trade nutrients with plant roots.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>International Relations: Arms Races and Treaties</h2>
+<p>Two superpowers in an arms race arguably face a PD structure: both would prefer mutual restraint, but each has an incentive to build while the other restrains.</p>
+<div class="fragment">
+<p>The iterated setting makes cooperation possible: arms <em>control</em> agreements work as TFT-like strategies: comply as long as the other side complies, retaliate (verifiably) if they cheat.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>International Relations: Arms Races and Treaties</h2>
+<p>Axelrod used this to explain how <strong>Live and Let Live</strong> emerged on the Western Front in WWI.</p>
+<p>Small units facing each other across the trenches cooperated locally, even without orders to do so.</p>
+</section>
+<section class="slide level2">
+<h2>Is This Iterated PD?</h2>
+<p>Here we have to be careful about making sure we are really dealing with PD games.</p>
+<p>Often, what people identify as PD is really a <strong>Stag Hunt</strong>.</p>
+<p>Think about the practice of walking on right in the halls (and especially staircases) around here. That’s cooperation, but not a PD.</p>
+</section>
+<section class="slide level2">
+<h2>Business and Reputation</h2>
+<p>Repeated commercial relationships support cooperation that one-shot interactions can’t.</p>
+<div class="fragment">
+<ul>
+<li class="fragment">A supplier who cheats once loses a long-term customer, so the shadow of the future disciplines behavior.</li>
+<li class="fragment">Online platforms (eBay, Airbnb) create iterated PD conditions artificially, through <strong>reputation systems</strong> that make interaction history visible. (See <em>The Oridinal Society</em> for the downstream effects of this.)</li>
+<li class="fragment">Professional networks and trade associations do something similar, though without the ordinal aspect.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Social Norms as Enforcement Mechanisms</h2>
+<p>The evolutionary story also illuminates how <strong>norms</strong> function.</p>
+<div class="fragment">
+<p>A norm against defecting (i.e., cheating) is a way of making retaliation credible. It also motivates <strong>altruistic punishment</strong>, which strongly enforces norms.</p>
+</div>
+<div class="fragment">
+<p>Axelrod’s framework suggests that norms didn’t need to be designed from the top down. They could have <strong>evolved</strong> from repeated local interactions, spreading as cooperating communities outperformed defecting ones.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Variations and Complications</h1>
+
+</section>
+<section class="slide level2">
+<h2>What If the Game Is Noisy?</h2>
+<p>Axelrod’s original setup assumed <strong>perfect implementation</strong>: if you choose to cooperate, your opponent definitely sees cooperation.</p>
+<div class="fragment">
+<p>But real interactions are often noisy. This is especially for interactions between groups.</p>
+<p><strong>Noisy IPD</strong>: players submit their moves, but each move is implemented incorrectly with some small probability <span class="math inline">\(\varepsilon\)</span> (e.g., <span class="math inline">\(\varepsilon = 0.01\)</span>).</p>
+</div>
+<div class="fragment">
+<p>This small change <strong>breaks TFT badly</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Death Spiral Problem</h2>
+<p>Suppose both players are playing TFT, and a noise event causes player A’s cooperation to be received as defection.</p>
+<div class="fragment">
+<p>Now player B retaliates (correctly, from their perspective). A then retaliates B’s retaliation. B retaliates again. . .</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Death Spiral Problem</h2>
+<p>A single noise event causes an <strong>infinite defection spiral</strong> even though neither player actually chose to defect.</p>
+<div class="fragment">
+<p>The very property that makes TFT robust in the clean game, immediate retaliation, becomes catastrophic when moves are sometimes garbled.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Generous TFT</h2>
+<p>One fix: <strong>Generous TFT</strong> (GTFT). Instead of always retaliating after a defection, GTFT occasionally forgives: after a defection, it cooperates with probability <span class="math inline">\(p &gt; 0\)</span>.</p>
+<div class="fragment">
+<p>This breaks the death spiral: a noise event triggers retaliation, but GTFT eventually cooperates again, and mutual cooperation is restored.</p>
+</div>
+<div class="fragment">
+<p>GTFT outperforms TFT in noisy environments, and remains stable against invasion by defectors as long as <span class="math inline">\(p\)</span> is not too large.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Contrite TFT</h2>
+<p>Another fix: <strong>Contrite TFT</strong>. After a noise event causes you to defect accidentally, you “apologize” by cooperating even if your opponent retaliates.</p>
+<p>The key thing here is that each player knows what each player <strong>played</strong>, and the players each know what they intended to play.</p>
+<p>So a player can react to their own ‘mistakes’.</p>
+</section>
+<section class="slide level2">
+<h2>Contrite TFT</h2>
+<p>If both players are Contrite TFT:</p>
+<ul>
+<li class="fragment">Noise event: A accidentally defects;</li>
+<li class="fragment">B retaliates (correctly);</li>
+<li class="fragment">A recognizes it was an accident, and cooperatesbeing <em>contrite</em>;</li>
+<li class="fragment">Finally, B sees A cooperate, resumes cooperation.</li>
+</ul>
+<div class="fragment">
+<p>The death spiral never starts, because one player backs down rather than escalating.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Win-Stay, Lose-Shift</h2>
+<p>Nowak and Sigmund (1993) proposed a different strategy that outperforms TFT in noisy settings: <strong>Pavlov</strong> (or Win-Stay, Lose-Shift).</p>
+<div class="fragment">
+<p>The rule: repeat your last move if you got a good payoff (i.e., 3 or more), switch if you got a bad payoff.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Win-Stay, Lose-Shift</h2>
+<ul>
+<li class="fragment">If you both cooperated (R): cooperate again, since you got 3.</li>
+<li class="fragment">If you defected and they cooperated (T): defect again, since you got 5.</li>
+<li class="fragment">If you both defected (P): cooperate; getting 1 leads to changes.</li>
+<li class="fragment">If you cooperated and they defected (S): defect, since getting 0 really leads to shifting.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Why Pavlov Works</h2>
+<p>Pavlov is <strong>not nice</strong>: it will exploit an Always Cooperate player (cooperate, randomly defect, defect, defect…).</p>
+<div class="fragment">
+<p>TFT can’t expel an Always Cooperating invader. So a community of TFT’s with random introductions will eventually include some All C’s, and Pavlov will successfully invade it.</p>
+</div>
+<div class="fragment">
+<p>Pavlov is also <strong>more robust to noise</strong> than TFT: after an accidental defection, Pavlov’s “lose-shift” rule brings it back to cooperation faster.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Bigger Picture</h2>
+<p>These variations point toward a general lesson:</p>
+<div class="fragment">
+<p>There is <strong>no single dominant strategy</strong> for the iterated PD across all environments. The best strategy depends on:</p>
+<ul>
+<li class="fragment">The noise level in the interaction;</li>
+<li class="fragment">The composition of the population (who else is playing?);</li>
+<li class="fragment">The discount factor (how much the future matters); and</li>
+<li class="fragment">The payoff structure</li>
+</ul>
+</div>
+<div class="fragment">
+<p>What <em>does</em> seem robust: some combination of cooperation, retaliation, and forgiveness. The exact balance shifts with context.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Open Questions</h2>
+<p>If time permits, consider:</p>
+<div class="fragment">
+<ul>
+<li><strong>Does TFT work in multi-player games?</strong> The two-player structure is crucial. With many players, identifying <em>who</em> defected—and retaliating against them specifically—becomes much harder.</li>
+<li><strong>What about different network structures?</strong> If players only interact with neighbors, spatial structure changes which strategies survive.</li>
+<li><strong>How does optional participation affect things?</strong> If players can exit the game, it disrupts stable exploitation—and may help cooperation get started.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>For Next Week</h2>
+<p>We’ll look at one of the famous use of game-theory to model real-world situations.</p>
+<ul>
+<li class="fragment">On Monday, we’ll look at George Akerlof’s use of signalling games to understand the used car market.</li>
+<li class="fragment">On Wednesday, we’ll look at Michael Spence’s similar use of signalling games to understand the college wage premium.</li>
 </ul>
 
 
-</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
