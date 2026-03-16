@@ -177,17 +177,26 @@ You'll be asked: **What are you hunting for?**
 
 ## Play the Game
 
-Go to:
+::: {.columns}
 
-**bweatherson.github.io/games/ipd-game.html**
+:::: {.column width=50%}
 
-. . .
+![QR code for IPD Game](images/ipd_qr.png){height=50%}
+
+::::
+
+:::: {.column width=50%}
+
+Go to: **bweatherson.github.io/games/ipd-game.html**
 
 Answer the questionnaire, pick your strategy, and enter your name.
 
-. . .
-
 Once everyone has joined, I'll run the tournament and results will appear on your screen.
+
+::::
+
+:::
+
 
 ## Results
 

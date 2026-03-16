@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="dcterms.date" content="2026-03-16">
   <title>The Evolution of Cooperation</title>
@@ -214,7 +214,9 @@
 <li>Every strategy faced every other strategy (round-robin)</li>
 <li>Total score = points accumulated across all matches</li>
 </ul>
-<div class="fragment">
+</section>
+<section class="slide level2">
+<h2>How the Tournament Worked</h2>
 <p>The payoff matrix Axelrod used:</p>
 <table class="caption-top">
 <thead>
@@ -237,7 +239,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <div class="fragment">
 <p>Mutual cooperation earns 3 each. Mutual defection earns only 1 each. The temptation to defect is real, but exploitation backfires if the other player responds.</p>
 </div>
@@ -267,15 +268,59 @@
 </div>
 </section>
 <section class="slide level2">
+<h2>Reciprocators and Hunters</h2>
+<p><strong>Reciprocators</strong> react to what their opponent does:</p>
+<ul>
+<li><strong>Tit for Tat</strong>: Cooperate first, then copy whatever the opponent did last round.</li>
+<li><strong>Generous TFT</strong>: Like TFT, but randomly forgives about one in ten defections.</li>
+<li><strong>Grim Trigger</strong>: Cooperates until the first defection — then defects forever. No second chances.</li>
+</ul>
+<div class="fragment">
+<p><strong>Pattern Hunters</strong> probe and exploit:</p>
+<ul>
+<li><strong>Cooperator Hunter</strong>: Tests whether the opponent has ever defected. If not, exploits them forever.</li>
+<li><strong>Prober</strong>: Opens with D, C, C to test for exploitability. Defects forever if the probe succeeds.</li>
+<li><strong>Cycle Hunter</strong>: Watches for any repeating pattern in the opponent’s moves, then defects once confirmed.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>If You’re a Reciprocator…</h2>
+<p>You’ll be asked: <strong>How forgiving are you?</strong></p>
+<div class="fragment">
+<ul>
+<li><strong>Very forgiving</strong>: Occasional defections don’t bother you. → <em>Tit for Two Tats</em>, <em>Generous TFT</em></li>
+<li><strong>Standard</strong>: Mirror what your opponent does — cooperate for cooperate, defect for defect. → <em>Tit for Tat</em>, <em>Omega TFT</em></li>
+<li><strong>Strict</strong>: Punish defection firmly and take a while to let it go. → <em>Two Tits for Tat</em>, <em>Hard TFT</em>, <em>Soft Grudger</em></li>
+<li><strong>Unforgiving</strong>: Once betrayed, you never cooperate again. → <em>Grim Trigger</em>, <em>Spiteful TFT</em></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>If You’re a Pattern Hunter…</h2>
+<p>You’ll be asked: <strong>What are you hunting for?</strong></p>
+<div class="fragment">
+<ul>
+<li><strong>Exploitable cooperators</strong>: Find opponents who won’t fight back, and safely defect on them forever. → <em>Cooperator Hunter</em>, <em>Prober</em>, <em>Hard Prober</em></li>
+<li><strong>Predictable patterns</strong>: Detect opponents playing a fixed, mechanical strategy and outmaneuver them. → <em>Alternator Hunter</em>, <em>Cycle Hunter</em>, <em>Defector Hunter</em></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
 <h2>Play the Game</h2>
-<p>Go to:</p>
-<p><strong>bweatherson.github.io/games/ipd-game.html</strong></p>
-<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ipd_qr.png" style="height:50.0%"></p>
+<figcaption>QR code for IPD Game</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Go to: <strong>bweatherson.github.io/games/ipd-game.html</strong></p>
 <p>Answer the questionnaire, pick your strategy, and enter your name.</p>
-</div>
-<div class="fragment">
 <p>Once everyone has joined, I’ll run the tournament and results will appear on your screen.</p>
-</div>
+</div></div>
 </section>
 <section class="slide level2">
 <h2>Results</h2>
