@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choosing Your Strategy — Phil 342 Tournament</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-light: #e8f0fe;
+      --success: #198754;
+      --success-light: #d1e7dd;
+      --warning: #ffc107;
+      --warning-light: #fff3cd;
+      --danger: #dc3545;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    p { line-height: 1.6; }
+
+    /* ── Section cards ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Questionnaire ── */
+    .questionnaire-intro {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .q-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .q-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .option-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .option-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.12s, background 0.12s;
+    }
+
+    .option-card:hover { border-color: var(--primary); }
+    .option-card.selected { border-color: var(--primary); background: var(--primary-light); }
+
+    .option-card .opt-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .option-card .opt-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+    /* ── Strategy recommendations ── */
+    .recs {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .recs.visible { display: block; }
+
+    .rec-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .rec-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .strategy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .strategy-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      padding: 0.7rem 0.9rem;
+    }
+
+    .strategy-item .s-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .strategy-item .s-class {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--primary);
+      margin-left: 0.4rem;
+    }
+
+    .strategy-item .s-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+      line-height: 1.45;
+    }
+
+    /* ── Reference table ── */
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+      margin-top: 0.5rem;
+    }
+
+    .ref-table th {
+      text-align: left;
+      padding: 0.45rem 0.65rem;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .ref-table td {
+      padding: 0.45rem 0.65rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .ref-table tr:last-child td { border-bottom: none; }
+
+    .ref-table .td-name { font-weight: 600; white-space: nowrap; }
+    .ref-table .td-class {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .ref-table .td-desc { color: var(--muted); line-height: 1.4; }
+
+    /* ── Category badges ── */
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-right: 0.3rem;
+    }
+
+    .badge-nice { background: #d1e7dd; color: #0f5132; }
+    .badge-nasty { background: #f8d7da; color: #842029; }
+    .badge-mixed { background: #fff3cd; color: #664d03; }
+    .badge-advanced { background: #e2e3e5; color: #41464b; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-left: 4px solid;
+      padding: 0.75rem 1rem;
+      border-radius: 0 0.35rem 0.35rem 0;
+      font-size: 0.875rem;
+      line-height: 1.55;
+      margin: 1rem 0;
+    }
+
+    .callout-info { border-color: var(--primary); background: var(--primary-light); }
+    .callout-tip  { border-color: var(--success); background: var(--success-light); }
+    .callout-note { border-color: var(--warning); background: var(--warning-light); }
+
+    .callout strong { display: block; margin-bottom: 0.25rem; }
+
+    /* ── Python code block ── */
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 0.4rem;
+      padding: 0.9rem 1.1rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.55;
+      overflow-x: auto;
+      margin: 0.75rem 0;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: #e9ecef;
+      padding: 0.1em 0.35em;
+      border-radius: 0.25rem;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 1em;
+    }
+
+    /* ── Collapsible sections ── */
+    details {
+      margin-bottom: 0.75rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::before {
+      content: "▶";
+      font-size: 0.65rem;
+      color: var(--muted);
+      transition: transform 0.15s;
+    }
+
+    details[open] summary::before { transform: rotate(90deg); }
+
+    details[open] summary {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .details-body {
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 0.4rem 0.4rem;
+      padding: 0.9rem;
+    }
+
+    /* ── Step nav ── */
+    .step-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .step-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* ── Reset button ── */
+    .btn-reset {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 0.35rem;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .btn-reset:hover { border-color: var(--primary); color: var(--primary); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Finding Your Strategy</h1>
+  <p class="subtitle">
+    A guide to the strategies in the Axelrod iterated prisoner's dilemma library —
+    organized by philosophical approach, to help you pick one that you can actually explain.
+  </p>
+
+  <!-- ── SECTION 1: QUESTIONNAIRE ── -->
+  <div class="section">
+    <h2>Strategy Finder</h2>
+    <p class="questionnaire-intro">
+      Answer the questions below to be directed to a shortlist of strategies that
+      match your approach. You can always browse the full reference table further down.
+    </p>
+
+    <!-- Q1 -->
+    <div class="q-block" id="q1-block">
+      <span class="q-label">1. When you enter this game, what matters most to you?</span>
+      <div class="option-grid">
+        <div class="option-card" onclick="pick('q1','coop')">
+          <div class="opt-title">Building mutual cooperation</div>
+          <div class="opt-desc">I want to find a way to cooperate with my opponent and get us both to the good outcome — but I'll react if they betray me.</div>
+        </div>
+        <div class="option-card" onclick="pick('q1','defect')">
+          <div class="opt-title">Rational self-interest</div>
+          <div class="opt-desc">I think the rational thing to do is maximize my own score. Cooperation is a means, not an end.</div>
+        </div>
+        <div class="option-card" onclick="pick('q1','rule')">
+          <div class="opt-title">Following a simple principle</div>
+          <div class="opt-desc">I want a clean, principled strategy I can commit to and explain — like always cooperate, or copy what's working.</div>
+        </div>
+        <div class="option-card" onclick="pick('q1','maj')">
+          <div class="opt-title">Going by the evidence</div>
+          <div class="opt-desc">I cooperate or defect based on what the opponent's actual track record shows, not assumptions about what they'll do.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2a: Cooperative -->
+    <div class="q-block" id="q2a-block" style="display:none;">
+      <span class="q-label">2. If your opponent defects on you, how do you respond?</span>
+      <div class="option-grid">
+        <div class="option-card" onclick="pick('q2','vforg')">
+          <div class="opt-title">Very forgiving</div>
+          <div class="opt-desc">One defection barely changes anything. I cooperate unless I see a sustained pattern of betrayal.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','mirror')">
+          <div class="opt-title">Exact mirror</div>
+          <div class="opt-desc">I copy what you did last round, every time. Cooperate with me and I cooperate; defect and I defect.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','punish')">
+          <div class="opt-title">Punish, then forgive</div>
+          <div class="opt-desc">I punish defection firmly — with several defections of my own — but I eventually reset and try again.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','grim')">
+          <div class="opt-title">Never forgive</div>
+          <div class="opt-desc">Once you've betrayed me, I'm done cooperating for good. I have a long memory and I don't give second chances.</div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="reset2()">← Back</button>
+    </div>
+
+    <!-- Q2b: Defect-leaning -->
+    <div class="q-block" id="q2b-block" style="display:none;">
+      <span class="q-label">2. What is your self-interest strategy?</span>
+      <div class="option-grid">
+        <div class="option-card" onclick="pick('q2','exploit')">
+          <div class="opt-title">Find and exploit cooperative players</div>
+          <div class="opt-desc">Probe opponents to see if they'll let me get away with defecting. If they will, I'll keep going.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','always')">
+          <div class="opt-title">Always defect — no exceptions</div>
+          <div class="opt-desc">The dominant strategy in a single-shot game is defect. I'm not going to complicate that.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','math')">
+          <div class="opt-title">Control the payoffs mathematically</div>
+          <div class="opt-desc">Use zero-determinant strategies to force a relationship between our scores — I guarantee I come out ahead.</div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="reset2()">← Back</button>
+    </div>
+
+    <!-- Q2c: Simple rules -->
+    <div class="q-block" id="q2c-block" style="display:none;">
+      <span class="q-label">2. Which principle appeals to you most?</span>
+      <div class="option-grid">
+        <div class="option-card" onclick="pick('q2','pavlov')">
+          <div class="opt-title">Repeat what worked; change what didn't</div>
+          <div class="opt-desc">Known as Pavlov or Win-Stay Lose-Shift. If the last round earned me a good score, repeat my move; otherwise switch.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','alwaysc')">
+          <div class="opt-title">Always cooperate, no matter what</div>
+          <div class="opt-desc">A principled commitment to cooperation, even at personal cost. Philosophically interesting, but risky.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','alwaysd')">
+          <div class="opt-title">Always defect, no matter what</div>
+          <div class="opt-desc">The strategy that dominates the single-shot game. Does it still make sense when the game repeats?</div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="reset2()">← Back</button>
+    </div>
+
+    <!-- Q2d: Evidence-based -->
+    <div class="q-block" id="q2d-block" style="display:none;">
+      <span class="q-label">2. How do you weigh the evidence?</span>
+      <div class="option-grid">
+        <div class="option-card" onclick="pick('q2','majority')">
+          <div class="opt-title">Overall majority</div>
+          <div class="opt-desc">Cooperate if the opponent has cooperated more than they've defected overall; otherwise defect.</div>
+        </div>
+        <div class="option-card" onclick="pick('q2','threshold')">
+          <div class="opt-title">Threshold: defect if defection rate exceeds X%</div>
+          <div class="opt-desc">Cooperate with mostly-cooperative opponents; switch to defection once their defection rate is too high.</div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="reset2()">← Back</button>
+    </div>
+
+    <!-- Results panels -->
+    <div class="recs" id="rec-vforg">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — very forgiving</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Tit for Two Tats</span>
+            <span class="s-class">axelrod.TitFor2Tats</span>
+            <div class="s-desc">Cooperates unless the opponent defected in <em>both</em> of the last two rounds. A single slip is ignored; sustained defection triggers a response.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Generous Tit for Tat</span>
+            <span class="s-class">axelrod.GTFT</span>
+            <div class="s-desc">Like Tit for Tat, but randomly forgives about one in ten defections. Avoids getting stuck in long punishment cycles.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Contrite Tit for Tat</span>
+            <span class="s-class">axelrod.ContriteTitForTat</span>
+            <div class="s-desc">Tracks whether its own defections were "accidental" (caused by noise). If it was the one to start a punishment cycle, it apologizes and cooperates until peace is restored.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Dynamic Two Tits for Tat</span>
+            <span class="s-class">axelrod.DynamicTwoTitsForTat</span>
+            <div class="s-desc">Punishes defections with two defections, but scales its forgiveness toward the opponent's overall cooperation rate — more cooperative opponents get more benefit of the doubt.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-mirror">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — exact reciprocity</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Tit for Tat</span>
+            <span class="s-class">axelrod.TitForTat</span>
+            <div class="s-desc">The famous winner of Axelrod's original tournament. Cooperates first, then copies the opponent's last move exactly. Simple, transparent, and hard to beat in a friendly field.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Omega Tit for Tat</span>
+            <span class="s-class">axelrod.OmegaTFT</span>
+            <div class="s-desc">A more sophisticated TFT that tracks whether the game has fallen into a deadlock cycle (alternating C and D) and cooperates to break it. Also measures the opponent's overall cooperativeness before retaliating.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Naive Prober</span>
+            <span class="s-class">axelrod.NaiveProber</span>
+            <div class="s-desc">Like Tit for Tat, but occasionally defects at random (about 5% of the time) to test whether the opponent will let it get away. If they retaliate, it returns to normal TFT.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-punish">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — punish then forgive</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Two Tits for Tat</span>
+            <span class="s-class">axelrod.TwoTitsForTat</span>
+            <div class="s-desc">Punishes each single defection with two defections in a row, then returns to cooperating. Stricter than TFT, but still recoverable.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Soft Grudger</span>
+            <span class="s-class">axelrod.SoftGrudger</span>
+            <div class="s-desc">Punishes each defection with exactly four defections, then cooperates again. A proportional and forgiving version of Grim Trigger.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Gradual</span>
+            <span class="s-class">axelrod.Gradual</span>
+            <div class="s-desc">An escalating punisher: responds to the 1st defection with 1 defection, the 2nd with 2, and so on. After each punishment it cooperates for two rounds to signal readiness to make peace.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Hard Tit for Tat</span>
+            <span class="s-class">axelrod.HardTitForTat</span>
+            <div class="s-desc">Defects if the opponent defected at any point in the last three rounds. Stricter than plain TFT but not permanent — it will eventually return to cooperating.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-grim">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — unforgiving</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Grudger (Grim Trigger)</span>
+            <span class="s-class">axelrod.Grudger</span>
+            <div class="s-desc">Cooperates until the first defection, then defects for the rest of the match with no possibility of forgiveness. The canonical grim trigger strategy from game theory.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Spiteful Tit for Tat</span>
+            <span class="s-class">axelrod.SpitefulTitForTat</span>
+            <div class="s-desc">Like Grudger, but requires <em>two consecutive</em> defections before locking into permanent retaliation. Harder to trigger accidentally.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Forgetful Grudger</span>
+            <span class="s-class">axelrod.ForgetfulGrudger</span>
+            <div class="s-desc">Grudger with a twist: after defecting for a while, it occasionally "forgets" the original betrayal and gives the opponent one more chance. Still very harsh.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-exploit">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — test and exploit</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Cooperator Hunter</span>
+            <span class="s-class">axelrod.CooperatorHunter</span>
+            <div class="s-desc">Cooperates for the first four rounds. If the opponent cooperated every single time, concludes they are a naive cooperator and defects for the rest of the match.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Prober</span>
+            <span class="s-class">axelrod.Prober</span>
+            <div class="s-desc">Opens with D, C, C. If the opponent cooperated in response (in rounds 2 and 3), classifies them as exploitable and defects forever. Otherwise, plays Tit for Tat.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Hard Prober</span>
+            <span class="s-class">axelrod.HardProber</span>
+            <div class="s-desc">A more aggressive version: opens with D, D, C, C. Same exploit-or-TFT logic. More likely to find victims, but more likely to provoke retaliation too.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Detective</span>
+            <span class="s-class">axelrod.Detective</span>
+            <div class="s-desc">Plays a fixed opener (C, D, C, C). If the opponent never retaliates, defects forever. Otherwise plays TFT. More elaborate probing sequence than Prober.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-always">
+      <div class="rec-group">
+        <div class="rec-group-title">Always defect</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Defector</span>
+            <span class="s-class">axelrod.Defector</span>
+            <div class="s-desc">Always defects, every round, against every opponent. The dominant strategy in a one-shot game. In a repeated game against a mixed field, it wins against cooperators but draws at mutual defection against everyone else.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Alternator</span>
+            <span class="s-class">axelrod.Alternator</span>
+            <div class="s-desc">Defects half the time by alternating C and D in a fixed pattern, regardless of the opponent. Not dominant, but interesting for what it does to pattern-detecting opponents.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-math">
+      <div class="rec-group">
+        <div class="rec-group-title">Zero-determinant strategies</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">ZD Extort-2</span>
+            <span class="s-class">axelrod.ZDExtort2</span>
+            <div class="s-desc">A zero-determinant extortion strategy. It uses a carefully chosen probability distribution over C and D to mathematically ensure that it earns twice as much as the opponent above the mutual defection baseline — no matter what the opponent does.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">ZD Extort-4</span>
+            <span class="s-class">axelrod.ZDExtort4</span>
+            <div class="s-desc">Like ZDExtort2 but more aggressive: earns four times as much above baseline. Pays less overall (since mutual cooperation is rare) but maintains a larger relative advantage.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">ZD Generous Tit for Tat-2</span>
+            <span class="s-class">axelrod.ZDGTFT2</span>
+            <div class="s-desc">A zero-determinant strategy tuned to be cooperative rather than exploitative. Forces both players toward mutual cooperation, but ensures the opponent earns slightly less than it does.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-note">
+        <strong>Note on ZD strategies</strong>
+        The mathematics behind zero-determinant strategies (from Press &amp; Dyson 2012) is beautiful but not trivial. You can use one without understanding all the math, but your explanation should engage with at least the basic idea: that certain mixed strategies can "control" the relationship between payoffs regardless of what the opponent does.
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-pavlov">
+      <div class="rec-group">
+        <div class="rec-group-title">Win-Stay Lose-Shift (Pavlov) strategies</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Win Stay Lose Shift</span>
+            <span class="s-class">axelrod.WinStayLoseShift</span>
+            <div class="s-desc">Also called Pavlov. Repeats the previous move if the round went well (mutual cooperation, or successfully exploiting a cooperator); switches if it went badly (was exploited, or mutual defection). Simple and often very effective.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Win Shift Lose Stay</span>
+            <span class="s-class">axelrod.WinShiftLoseStay</span>
+            <div class="s-desc">The exact opposite of Pavlov. Switches when things go well, stays when things go badly. An interesting philosophical contrast — what would justify this?</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-alwaysc">
+      <div class="rec-group">
+        <div class="rec-group-title">Always cooperate</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Cooperator</span>
+            <span class="s-class">axelrod.Cooperator</span>
+            <div class="s-desc">Always cooperates, every round, no matter what. Will score well against other cooperators and poorly against defectors. The clearest test of a principled commitment to cooperation regardless of consequences.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout callout-tip">
+        <strong>Good for the assignment</strong>
+        Cooperator is one of the easiest to explain philosophically — you can connect it to Kantian ethics, the Sermon on the Mount, or unconditional altruism. It will probably lose points in the tournament, which is itself philosophically interesting.
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-alwaysd">
+      <div class="rec-group">
+        <div class="rec-group-title">Always defect</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Defector</span>
+            <span class="s-class">axelrod.Defector</span>
+            <div class="s-desc">Always defects. Dominates in a single-shot game, and beats naive cooperators in repeated play. But in a field of retaliators, it collects a lot of mutual-defection scores.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-majority">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — cooperate with the mostly-cooperative</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Go By Majority</span>
+            <span class="s-class">axelrod.GoByMajority</span>
+            <div class="s-desc">Cooperates if the opponent has cooperated at least as often as they've defected over the whole match. Ties go to cooperation. Uses the full history.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Go By Majority (last 10)</span>
+            <span class="s-class">axelrod.GoByMajority10</span>
+            <div class="s-desc">Same logic, but only looks at the last 10 rounds. Allows opponents to "recover" from early defections.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Hard Go By Majority</span>
+            <span class="s-class">axelrod.HardGoByMajority</span>
+            <div class="s-desc">Same as GoByMajority, but ties go to defection. Slightly harsher — any equal history leads to defection rather than cooperation.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+    <div class="recs" id="rec-threshold">
+      <div class="rec-group">
+        <div class="rec-group-title">Suggested strategies — defect if defection rate is too high</div>
+        <div class="strategy-list">
+          <div class="strategy-item">
+            <span class="s-name">Level Punisher</span>
+            <span class="s-class">axelrod.LevelPunisher</span>
+            <div class="s-desc">Cooperates for the first 10 rounds, then defects if the opponent's defection rate ever exceeds 20%. A tolerant strategy with a clear threshold.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Forgiving Tit for Tat</span>
+            <span class="s-class">axelrod.ForgivingTitForTat</span>
+            <div class="s-desc">Defects when the opponent's defection rate exceeds 10% <em>and</em> their most recent move was a defection. Otherwise cooperates.</div>
+          </div>
+          <div class="strategy-item">
+            <span class="s-name">Retaliate</span>
+            <span class="s-class">axelrod.Retaliate</span>
+            <div class="s-desc">Defects once the opponent has "won" (i.e., exploited it) more than 10% of the time. Measures exploitation directly rather than defection rate.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" onclick="resetAll()">← Start over</button>
+    </div>
+
+  </div><!-- /.section (questionnaire) -->
+
+
+  <!-- ── SECTION 2: FULL REFERENCE ── -->
+  <div class="section">
+    <h2>Full Strategy Reference</h2>
+    <p style="font-size:0.875rem; color:var(--muted); margin-bottom:1rem; line-height:1.5;">
+      The library contains 230+ strategies. Below are the most comprehensible ones, grouped by family.
+      Strategies marked <span class="badge badge-advanced">advanced</span> work fine but are hard to explain without
+      engaging with the underlying mathematics or code.
+    </p>
+
+    <!-- TFT family -->
+    <details>
+      <summary><span class="badge badge-nice">nice</span> Tit-for-Tat family</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These strategies start by cooperating and respond to what the opponent does.
+          They differ mainly in how long and how harshly they punish a defection.
+          "Nice" strategies never defect first.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Tit for Tat</td>
+              <td class="td-class">axelrod.TitForTat</td>
+              <td class="td-desc">Cooperates first; then copies the opponent's last move.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Tit for Two Tats</td>
+              <td class="td-class">axelrod.TitFor2Tats</td>
+              <td class="td-desc">Only retaliates after two consecutive defections. Single slips are forgiven.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Two Tits for Tat</td>
+              <td class="td-class">axelrod.TwoTitsForTat</td>
+              <td class="td-desc">Punishes each defection with two defections in a row.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Generous TFT</td>
+              <td class="td-class">axelrod.GTFT</td>
+              <td class="td-desc">Like TFT but randomly forgives ~10% of defections.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Contrite TFT</td>
+              <td class="td-class">axelrod.ContriteTitForTat</td>
+              <td class="td-desc">If its own defection started a retaliation cycle, it "apologizes" by cooperating until peace is restored.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Omega TFT</td>
+              <td class="td-class">axelrod.OmegaTFT</td>
+              <td class="td-desc">Tracks both deadlock cycles and overall cooperativeness; adjusts tolerance accordingly.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Hard TFT</td>
+              <td class="td-class">axelrod.HardTitForTat</td>
+              <td class="td-desc">Defects if the opponent defected at any point in the last three rounds.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Slow TFT</td>
+              <td class="td-class">axelrod.SlowTitForTwoTats2</td>
+              <td class="td-desc">Cooperates twice, then copies the opponent only if they played the same move twice in a row.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Suspicious TFT</td>
+              <td class="td-class">axelrod.SuspiciousTitForTat</td>
+              <td class="td-desc">Like TFT but starts with a defection. "Nasty" — may defect first.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Naive Prober</td>
+              <td class="td-class">axelrod.NaiveProber</td>
+              <td class="td-desc">TFT but occasionally defects at random (≈5%) to test the opponent's reaction.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Grudger family -->
+    <details>
+      <summary><span class="badge badge-nice">nice</span> Grudger / escalating punisher family</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These strategies cooperate initially but punish defection harshly — sometimes permanently.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Grudger (Grim Trigger)</td>
+              <td class="td-class">axelrod.Grudger</td>
+              <td class="td-desc">Cooperates until first defection; then defects forever. No forgiveness.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Spiteful TFT</td>
+              <td class="td-class">axelrod.SpitefulTitForTat</td>
+              <td class="td-desc">Like Grudger but triggered by two consecutive defections, not one.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Soft Grudger</td>
+              <td class="td-class">axelrod.SoftGrudger</td>
+              <td class="td-desc">Punishes with four defections in a row, then cooperates again.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Gradual</td>
+              <td class="td-class">axelrod.Gradual</td>
+              <td class="td-desc">Escalating punisher: responds to the Nth defection with N defections, then two rounds of cooperation.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Forgetful Grudger</td>
+              <td class="td-class">axelrod.ForgetfulGrudger</td>
+              <td class="td-desc">Grudger that occasionally forgets the betrayal and tries cooperating again.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Forgiving TFT</td>
+              <td class="td-class">axelrod.ForgivingTitForTat</td>
+              <td class="td-desc">Defects only when defection rate exceeds 10% AND the opponent's last move was a defection.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Win-Stay Lose-Shift -->
+    <details>
+      <summary><span class="badge badge-mixed">mixed</span> Win-Stay Lose-Shift (Pavlov) family</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These strategies don't track what the opponent does directly. Instead they ask: did my last move pay off?
+          If yes, repeat it. If no, switch. Simple reinforcement learning applied to a binary choice.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Win Stay Lose Shift</td>
+              <td class="td-class">axelrod.WinStayLoseShift</td>
+              <td class="td-desc">The classic Pavlov strategy. "Good" outcomes: CC or DC (getting 3 or 5). "Bad" outcomes: CD or DD (getting 0 or 1).</td>
+            </tr>
+            <tr>
+              <td class="td-name">Win Shift Lose Stay</td>
+              <td class="td-class">axelrod.WinShiftLoseStay</td>
+              <td class="td-desc">The inverse of Pavlov. Philosophically puzzling — what reasoning would justify this?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Probers -->
+    <details>
+      <summary><span class="badge badge-nasty">nasty</span> Probers and hunters</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These strategies test opponents first, then decide how to treat them. They are "nasty" in the sense that they will exploit cooperative opponents if the test reveals they can get away with it.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Prober</td>
+              <td class="td-class">axelrod.Prober</td>
+              <td class="td-desc">Opens D, C, C. If opponent cooperated in rounds 2–3, defects forever. Otherwise plays TFT.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Hard Prober</td>
+              <td class="td-class">axelrod.HardProber</td>
+              <td class="td-desc">Opens D, D, C, C. Same exploit-or-TFT logic, more aggressive probe.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Prober 2</td>
+              <td class="td-class">axelrod.Prober2</td>
+              <td class="td-desc">Opens D, C, C. Cooperates forever if opponent played D then C; otherwise TFT. A different test condition.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Detective</td>
+              <td class="td-class">axelrod.Detective</td>
+              <td class="td-desc">Fixed opener C, D, C, C. If opponent never retaliates, defects forever. Otherwise TFT.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Cooperator Hunter</td>
+              <td class="td-class">axelrod.CooperatorHunter</td>
+              <td class="td-desc">Cooperates for 4 rounds. If opponent cooperated every time, exploits them forever.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Defector Hunter</td>
+              <td class="td-class">axelrod.DefectorHunter</td>
+              <td class="td-desc">Cooperates for 4 rounds. If opponent defected every time, matches them with all defection.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Cycle Hunter</td>
+              <td class="td-class">axelrod.CycleHunter</td>
+              <td class="td-desc">Watches for repeating patterns (cycles of length 2–5). Once a cycle is confirmed, defects.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Random Hunter</td>
+              <td class="td-class">axelrod.RandomHunter</td>
+              <td class="td-desc">Tries to detect opponents playing randomly. If they seem random, defects.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Majority-based -->
+    <details>
+      <summary><span class="badge badge-mixed">mixed</span> Majority and threshold strategies</summary>
+      <div class="details-body">
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Go By Majority</td>
+              <td class="td-class">axelrod.GoByMajority</td>
+              <td class="td-desc">Cooperates if opponent has cooperated ≥ as often as they've defected. Uses full history.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Go By Majority (10)</td>
+              <td class="td-class">axelrod.GoByMajority10</td>
+              <td class="td-desc">Same but looks only at the last 10 rounds.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Hard Go By Majority</td>
+              <td class="td-class">axelrod.HardGoByMajority</td>
+              <td class="td-desc">Like Go By Majority but ties go to defection.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Level Punisher</td>
+              <td class="td-class">axelrod.LevelPunisher</td>
+              <td class="td-desc">Defects if opponent's defection rate exceeds 20% (after round 10).</td>
+            </tr>
+            <tr>
+              <td class="td-name">Retaliate</td>
+              <td class="td-class">axelrod.Retaliate</td>
+              <td class="td-desc">Defects once the opponent has exploited it more than 10% of the time.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Unconditional -->
+    <details>
+      <summary><span class="badge badge-nice">nice</span> <span class="badge badge-nasty">nasty</span> Unconditional strategies</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These strategies ignore the opponent's history entirely and follow a fixed rule.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Cooperator</td>
+              <td class="td-class">axelrod.Cooperator</td>
+              <td class="td-desc">Always cooperates.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Defector</td>
+              <td class="td-class">axelrod.Defector</td>
+              <td class="td-desc">Always defects.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Alternator</td>
+              <td class="td-class">axelrod.Alternator</td>
+              <td class="td-desc">Alternates C, D, C, D, … regardless of opponent.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Grudger Alternator</td>
+              <td class="td-class">axelrod.GrudgerAlternator</td>
+              <td class="td-desc">Cooperates until first defection; then alternates D, C, D, C, … forever.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Historical -->
+    <details>
+      <summary><span class="badge badge-mixed">mixed</span> Historical tournament entries</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          These are reconstructions of strategies actually submitted to Axelrod's first (1980) and
+          second (1984) tournaments. They are mostly interesting for historical and comparative reasons.
+          The descriptions below are paraphrases from the Axelrod documentation.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Strategy</th><th>Class name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Anonymous (first tournament)</td>
+              <td class="td-class">axelrod.FirstByAnonymous</td>
+              <td class="td-desc">Submitted by a grad student who asked not to be named. A cooperative strategy with a complex set of conditions for defecting.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Davis (first tournament)</td>
+              <td class="td-class">axelrod.FirstByDavis</td>
+              <td class="td-desc">Cooperates for the first 10 rounds, then plays Grudger.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Joss (first tournament)</td>
+              <td class="td-class">axelrod.FirstByJoss</td>
+              <td class="td-desc">Like TFT but randomly defects ~10% of the time after an opponent cooperation. Gets stuck in punishment cycles.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Grofman (first tournament)</td>
+              <td class="td-class">axelrod.FirstByGrofman</td>
+              <td class="td-desc">Cooperates on first two moves; thereafter cooperates with probability 2/7 if there's been a disagreement, otherwise cooperates.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Shubik (first tournament)</td>
+              <td class="td-class">axelrod.FirstByShubik</td>
+              <td class="td-desc">A version of Grim Trigger with an escalating threshold for retaliation. Gets progressively harder to provoke.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Borufsen (2nd, came 3rd)</td>
+              <td class="td-class">axelrod.SecondByBorufsen</td>
+              <td class="td-desc">A sophisticated conditional strategy that distinguishes "cooperative" from "uncooperative" opponents and treats them differently. Placed 3rd in the second tournament.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Champion (2nd tournament)</td>
+              <td class="td-class">axelrod.SecondByChampion</td>
+              <td class="td-desc">Cooperates for the first few rounds; then bases decisions on the opponent's overall defection rate.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Eatherley (2nd tournament)</td>
+              <td class="td-class">axelrod.SecondByEatherley</td>
+              <td class="td-desc">Defects with a probability equal to the opponent's defection rate so far.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Tester (2nd tournament)</td>
+              <td class="td-class">axelrod.SecondByTester</td>
+              <td class="td-desc">Opens with a defection to "test" the opponent. If the opponent doesn't retaliate, exploits them. Otherwise plays TFT.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- Advanced -->
+    <details>
+      <summary><span class="badge badge-advanced">advanced</span> Advanced and machine-learning strategies</summary>
+      <div class="details-body">
+        <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.75rem; line-height:1.5;">
+          The library contains roughly 100 strategies in this category. They work, and you can use them,
+          but explaining <em>why</em> they make the choices they do requires engaging with the underlying
+          algorithms. These are suitable if you have a background in machine learning, evolutionary
+          game theory, or are prepared to learn about one of these methods for the assignment.
+        </p>
+        <table class="ref-table">
+          <thead><tr><th>Family</th><th>Examples</th><th>What they are</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="td-name">Zero-Determinant</td>
+              <td class="td-class">ZDExtort2, ZDExtort4, ZDGTFT2, ZDGen2, ZDSet2, ZDMischief</td>
+              <td class="td-desc">Strategies from Press &amp; Dyson (2012) that use stochastic mixed strategies to "control" the linear relationship between both players' scores. Can enforce extortion or generosity.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Evolved neural nets</td>
+              <td class="td-class">EvolvedANN, EvolvedANN5, EvolvedANNNoise05</td>
+              <td class="td-desc">Strategies trained with machine learning against the Axelrod library. The weights are pre-specified; the behavior is opaque.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Evolved FSMs</td>
+              <td class="td-class">EvolvedFSM4, EvolvedFSM6, EvolvedFSM16, EvolvedHMM5</td>
+              <td class="td-desc">Finite state machines trained by evolutionary algorithms. Can be visualized as state diagrams but the design is not humanly interpretable.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Q-learning</td>
+              <td class="td-class">CautiousQLearner, RiskyQLearner, HesitantQLearner</td>
+              <td class="td-desc">Strategies that learn during the tournament via reinforcement learning. Behavior depends on what they encounter.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Meta-strategies</td>
+              <td class="td-class">MetaWinner, MetaMajority, MetaMinority, MetaHunter</td>
+              <td class="td-desc">Strategies that run many sub-strategies in parallel and follow whichever is currently doing best (or the majority vote, etc.).</td>
+            </tr>
+            <tr>
+              <td class="td-name">PSO Gamblers &amp; Lookers</td>
+              <td class="td-class">PSOGambler2_2_2, EvolvedLookerUp2_2_2</td>
+              <td class="td-desc">Lookup-table strategies trained with particle swarm optimization. Conditioned on the last 2 moves of each player.</td>
+            </tr>
+            <tr>
+              <td class="td-name">Mathematical constants</td>
+              <td class="td-class">Golden, Pi, e</td>
+              <td class="td-desc">Target a specific C:D ratio matching a mathematical constant. A bit of a joke, but philosophically discussable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+  </div><!-- /.section (reference) -->
+
+
+  <!-- ── SECTION 3: WRITING YOUR OWN ── -->
+  <div class="section">
+    <h2>Writing Your Own Strategy in Python</h2>
+    <p style="font-size:0.875rem; line-height:1.6; margin-bottom:0.9rem;">
+      If you know some Python, you can write an original strategy. A strategy in Axelrod is a
+      Python class with a <code>strategy(opponent)</code> method that returns
+      <code>axelrod.Action.C</code> or <code>axelrod.Action.D</code>. You can inspect the
+      opponent's history (and your own) through the player objects.
+    </p>
+
+    <pre><code>import axelrod
+
+class MyStrategy(axelrod.Player):
+    """A brief description of what this strategy does."""
+
+    name = "My Strategy"
+    classifier = {
+        "memory_depth": 1,   # How many rounds back you look (float("inf") for unlimited)
+        "stochastic": False,  # True if you use random numbers
+        "long_run_time": False,
+        "inspects_source": False,
+        "manipulates_source": False,
+        "manipulates_state": False,
+    }
+
+    def strategy(self, opponent: axelrod.Player) -> axelrod.Action:
+        # opponent.history is a list of axelrod.Action.C and .D values
+        # self.history is the same for your own moves
+        if not opponent.history:
+            return axelrod.Action.C  # First move
+        if opponent.history[-1] == axelrod.Action.D:
+            return axelrod.Action.D  # Retaliate
+        return axelrod.Action.C      # Otherwise cooperate
+</code></pre>
+
+    <div class="callout callout-info">
+      <strong>For the assignment</strong>
+      Writing your own strategy is permitted but not required. If you do, your explanation
+      should describe the reasoning behind the design choices — not just what the code does.
+    </div>
+  </div>
+
+
+  <!-- ── SECTION 4: ASSIGNMENT TIPS ── -->
+  <div class="section">
+    <h2>What Makes a Good Explanation</h2>
+    <p style="font-size:0.875rem; line-height:1.6; margin-bottom:0.9rem;">
+      The grade is primarily based on your written explanation, not your tournament score.
+      Here are the kinds of questions a strong explanation should address:
+    </p>
+    <ul style="font-size:0.875rem; line-height:1.9; padding-left:1.4rem; color:var(--text);">
+      <li><strong>What is the core principle?</strong> What values or assumptions does the strategy embody? What are you trying to do with this strategy?</li>
+      <li><strong>Why is this rational?</strong> Why is this a sensible thing to try to do?</li>
+      <li><strong>What are its vulnerabilities?</strong> When would this do badly, either in absolute or comparative terms? Why are you happy to accept this weakness?</li>
+      <li><strong>What does it assume about the opponent?</strong> A natural way to design a strategy is to build something that does well agains some set of opponents. Who are the opponents you are thinking about when building your strategy?</li>
+      <li><strong>How does it relate to ideas from the course?</strong> Does it try to build on Axelrod's ideas that strategies should be nice, retaliatory, forgiving, and clear, or does it aim for a virtue other than the ones he identified?</li>
+    </ul>
+    <div class="callout callout-tip">
+      <strong>A note on tournament performance</strong>
+      Tournament results are philosophically interesting data, not just scores. If your strategy
+      does well, think about <em>why</em> — what features of the field favored it?
+      If it does poorly, that's also philosophically interesting — does a strategy's poor
+      performance mean it was wrong to choose it?
+    </div>
+  </div>
+  
+    <!-- ── SECTION 5: DISCLAIMER ── -->
+  <div class="section">
+    <h2>AI Disclaimers and Rules</h2>
+    <p style="font-size:0.875rem; line-height:1.6; margin-bottom:0.9rem;">
+      The full list of strategies is available at <a href="https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html">ReadTheDocs</a>.
+    </p>
+    <p style="font-size:0.875rem; line-height:1.6; margin-bottom:0.9rem;">
+      This guide was mostly built by asking an AI (Claude Sonnet 4.6) to summarise that page, and then edited. We are happy to talk through any of the strategies in class or office hours (or over email) in more detail. That said, we aren't machine learning experts, and we aren't going to do much better at explaining the 'Advanced' strategies. We also aren't at all proficient in Python, so we won't be much help on that score.
+    </p>
+    <p style="font-size:0.875rem; line-height:1.6; margin-bottom:0.9rem;">
+      For your assignment, the rules about AI use are as follows:
+    </p>
+
+    <ol style="font-size:0.875rem; line-height:1.9; padding-left:1.4rem; color:var(--text);">
+      <li><strong>Acknowledge everything</strong>: Any use of AI should be acknowledged.</li>
+      <li><strong>Write your own text</strong>: The words you turn in should be your own. Don't cut-and-paste from an AI. We will be asking people to explain in person difficult terms or concepts that they use.</li>
+      <li><strong>Coding assistance</strong>: It's fine to get AI help to either (a) better understand some Python code in the Axelrod library, or (b) write your own Python script. If you do this, remember points 1 (acknowledge everything) and 2 (write your own words).</li>
+    </ol>
+  </div>
+
+</div><!-- /.container -->
+
+<script>
+  const state = { q1: null, q2: null };
+
+  const q2Blocks = {
+    coop:   'q2a-block',
+    defect: 'q2b-block',
+    rule:   'q2c-block',
+    maj:    'q2d-block',
+  };
+
+  const recMap = {
+    vforg:    'rec-vforg',
+    mirror:   'rec-mirror',
+    punish:   'rec-punish',
+    grim:     'rec-grim',
+    exploit:  'rec-exploit',
+    always:   'rec-always',
+    math:     'rec-math',
+    pavlov:   'rec-pavlov',
+    alwaysc:  'rec-alwaysc',
+    alwaysd:  'rec-alwaysd',
+    majority: 'rec-majority',
+    threshold:'rec-threshold',
+  };
+
+  function pick(q, val) {
+    if (q === 'q1') {
+      state.q1 = val;
+      state.q2 = null;
+
+      // Hide all option cards' selected state for q1
+      document.querySelectorAll('#q1-block .option-card').forEach(el =>
+        el.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+
+      // Hide all recs
+      Object.values(recMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('visible');
+      });
+
+      // Hide q1, show correct q2
+      setTimeout(() => {
+        document.getElementById('q1-block').style.display = 'none';
+        Object.values(q2Blocks).forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.style.display = 'none';
+        });
+        const q2Id = q2Blocks[val];
+        if (q2Id) document.getElementById(q2Id).style.display = 'block';
+      }, 150);
+
+    } else if (q === 'q2') {
+      state.q2 = val;
+
+      document.querySelectorAll('#q2a-block .option-card, #q2b-block .option-card, #q2c-block .option-card, #q2d-block .option-card').forEach(el =>
+        el.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+
+      // Hide current q2 block; show recommendation
+      Object.values(q2Blocks).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      Object.values(recMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('visible');
+      });
+
+      const recId = recMap[val];
+      if (recId) {
+        const recEl = document.getElementById(recId);
+        if (recEl) {
+          recEl.classList.add('visible');
+          recEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+  }
+
+  function reset2() {
+    state.q2 = null;
+    Object.values(q2Blocks).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    Object.values(recMap).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('visible');
+    });
+    document.getElementById('q1-block').style.display = 'block';
+    document.querySelectorAll('#q1-block .option-card').forEach(el =>
+      el.classList.remove('selected'));
+    state.q1 = null;
+    state.q2 = null;
+  }
+
+  function resetAll() {
+    reset2();
+  }
+</script>
+</body>
+</html>

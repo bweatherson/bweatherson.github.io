@@ -265,7 +265,6 @@ No lecture, because I'm away at a conference. There will be a discussion section
 **Topic**:    Modern Approaches to IPD   
 **Reading**:    Alexander J. Stewart and Joshua B. Plotkin, [Extortion and cooperation in the Prisoner’s Dilemma](https://www.pnas.org/doi/10.1073/pnas.1208087109)    
 **Suggested Reading**:    William H. Press and Freeman J. Dyson, [Iterated Prisoner’s Dilemma contains strategies that dominate any evolutionary opponent](https://www.pnas.org/doi/abs/10.1073/pnas.1206569109)    
-**Assignment**:    Third short assignment due `r advdate(thu, 11)` at 5pm.
 
 ## Week 11: Signals
 
@@ -280,6 +279,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 **Reading**:    Michael Spence, [Signaling in Retrospect and the Informational Structure of Markets](https://www.nobelprize.org/uploads/2018/06/spence-lecture.pdf)   
 **Suggested Reading**:    Michael Spence, [Job Market Signaling](https://www.jstor.org/stable/1882010)
 
+**Assignment**:    Third short assignment due `r advdate(thu, 12)` at 5pm.
 
 ## Week 12: Social Networks and Scientific Knowledge 
 
@@ -293,9 +293,10 @@ No lecture, because I'm away at a conference. There will be a discussion section
 
 ### `r advdate(wed, 13)`
 
-**Topic**:    Evaluating models of evidence sharing    
-**Reading**:    _Modeling Scientific Communities_, rest of Chapter 4.     
-**Suggested Reading**:    Sarita Rosenstock, Justin Bruner, and Cailin O’Connor, [In Epistemic Networks, Is Less Really More?](https://cailinoconnor.com/wp-content/uploads/2015/03/In_Epistemic_Networks_Is_Less_Really_Mor-FINAL-VERSION.pdf).
+**Topic**:    Evaluating models of evidence sharing       
+**Reading**:    _Modeling Scientific Communities_, rest of Chapter 4.      
+**Suggested Reading**:    Sarita Rosenstock, Justin Bruner, and Cailin O’Connor, [In Epistemic Networks, Is Less Really More?](https://cailinoconnor.com/wp-content/uploads/2015/03/In_Epistemic_Networks_Is_Less_Really_Mor-FINAL-VERSION.pdf).    
+**Assignment**:  Second part of third short assignment due `r advdate(thu, 13)` at 5pm.
 
 ## Week 13: The Credit Economy
 
@@ -316,7 +317,7 @@ No lecture, because I'm away at a conference. There will be a discussion section
 - Remco Heesen, [Academic Superstars: Competent or Lucky?](https://link.springer.com/article/10.1007/s11229-016-1146-5) 
 
 **Suggested Reading**:    Hannah Rubin, [Structural causes of citation gaps](https://link.springer.com/article/10.1007/s11098-021-01765-3)    
-**Assignment**:    Fourth short assignment due `r advdate(thu, 14)` at 5pm.
+
 
 ## Week 14: Epistemic Landscapes
 
@@ -336,9 +337,11 @@ No lecture, because I'm away at a conference. There will be a discussion section
 - _Modeling Scientific Communities_, rest of chapter 5.
 - Johanna Thoma, [The Epistemic Division of Labor Revisited](https://eprints.lse.ac.uk/88129/1/Thoma_Division%20of%20Labour_Accepted.pdf)
 
+**Assignment**:    Fourth short assignment due `r advdate(thu, 15)` at 5pm.
+
 There will be a revision class on `r advdate(mon, 16)`, with no new material, to go over any questions people have about the final essay.
 
-**FINAL ESSAY**: Due `r advdate(tue, 16)` at 5pm.
+**FINAL ESSAY**: Due `r advdate(thu, 16)` at 5pm.
 
 \newpage
 
