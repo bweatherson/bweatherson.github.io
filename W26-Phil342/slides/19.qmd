@@ -10,7 +10,7 @@ format:
 
 ## A Striking Wage Gap
 
-Here is a robust empirical fact across almost every rich country: people who complete a college degree earn substantially more over their lifetimes than people who don't.
+Here is a well-documented empirical fact across almost every rich country: people who complete a college degree earn substantially more over their lifetimes than people who don't.
 
 . . .
 
@@ -22,7 +22,69 @@ The gap is large enough, and consistent enough across countries, that it demands
 
 ---
 
-![Relative wage by educational attainment (OECD)](../premium.png){width=75%}
+Earnings of Bachelor's degree holders as a percentage of upper-secondary earnings (full-time workers, 2023 OECD data):
+
+|  Country        |  Premium  |
+|:----------------|:---------:|
+|  Chile          |    228%   |
+|  United States  |    164%   |
+|  Hungary        |    148%   |
+|  Germany        |    142%   |
+|  **OECD average**   |    **140%**   |
+|  United Kingdom |    137%   |
+|  Korea          |    133%   |
+|  Australia      |    130%   |
+|  Denmark        |    112%   |
+|  Norway         |    106%   |
+
+## Data Source
+
+All these data are from the OECD. To see the original, search for "Earnings of workers relative to the earnings of workers with upper secondary educational attainment, by age group, gender and educational attainment level".
+
+That will get you a datafile with 150,000 data points across different countries over the last couple of decades. I'm pulling some highlights out of it.
+
+---
+
+The premium is not constant across **age**. In most countries, older workers show a **larger** gap between degree holders and non-degree holders.
+
+|  Country        |  25–34  |  35–44  |  45–54  |  55–64  |
+|:----------------|:-------:|:-------:|:-------:|:-------:|
+|  United States  |   157%  |   167%  |   168%  |   172%  |
+|  Germany        |   133%  |   148%  |   181%  |   133%  |
+|  Korea          |   116%  |   131%  |   148%  |   159%  |
+|  United Kingdom |   128%  |   138%  |   151%  |   144%  |
+|  OECD average   |   131%  |   140%  |   152%  |   149%  |
+
+. . .
+
+In Korea, the premium rises steadily from 116% to 159% across the working life. In the US, the rise is more modest but consistent.
+
+. . .
+
+Germany is an interesting case: the premium peaks at 181% for workers aged 45–54 but drops back for workers near retirement.
+
+---
+
+The age pattern turns out to be concentrated among **male** workers. For **women**, the Bachelor's premium is much flatter across age.
+
+|                 |  Men 25–34  |  Men 45–54  |  Women 25–34  |  Women 45–54  |
+|:----------------|:-----------:|:-----------:|:-------------:|:-------------:|
+|  United States  |     162%    |     180%    |      158%     |      159%     |
+|  Germany        |     137%    |     207%    |      127%     |      134%     |
+|  Korea          |     116%    |     141%    |      123%     |      142%     |
+|  United Kingdom |     130%    |     154%    |      141%     |      151%     |
+
+. . .
+
+In the US, male degree holders gain 18 percentage points between ages 25–34 and 45–54. Female degree holders gain almost nothing (158% to 159%).
+
+. . .
+
+In Germany the gap is even wider: men gain 70 points, women gain 7.
+
+## Gender Differences
+
+This is worth keeping in mind when we get to explanations. Whatever is causing the premium to rise with age, it seems to operate very differently for men and women.
 
 ## The Sheepskin Effect
 
@@ -30,7 +92,7 @@ Before discussing explanations: there is a striking feature of the wage data tha
 
 . . .
 
-Completing **two or three years** of college gives you very little of the wage premium. The premium kicks in when you **finish** — when you get the degree.
+Completing **two or three years** of college gives you very little of the wage premium. The premium kicks in when you **finish**, when you get the degree.
 
 . . .
 
@@ -38,7 +100,7 @@ This is sometimes called the **sheepskin effect** (after the old tradition of pr
 
 . . .
 
-It is hard to explain if college simply develops valuable skills — why would three years of skills suddenly be worth dramatically more the moment a fourth year is complete?
+It is hard to explain if college simply develops valuable skills, why would three years of skills suddenly be worth dramatically more the moment a fourth year is complete?
 
 ## The US "Some College" Anomaly
 
@@ -49,19 +111,15 @@ The sheepskin effect is especially stark in the US.
 ::: {.columns}
 
 :::: {.column width=35%}
-![Educational Attainment in the US](../ed_attain.png){width=90%}
+![Educational Attainment in the US](images/ed_attain.png){width=90%}
 ::::
 
 :::: {.column width=60%}
-The gap between "some college" and "associate degree" earners is **very large** in the US — much larger than in comparable countries.
+The US has an unusually large share of its population in the "some college, no degree" category. In most other countries, this group is too small to draw reliable conclusions from.
 
-. . .
+That makes the US a good place to test the sheepskin effect: there are millions of people who spent years in college but didn't finish, and their wage premium over high school graduates is small.
 
-Having started a degree but not finished is worth almost nothing in wage terms, even though it involves years of work.
-
-. . .
-
-Any explanation of the premium needs to explain why the **completion** of a degree matters so much more than the years spent acquiring it.
+Any explanation of the premium needs to explain why **completion** matters so much more than the years spent acquiring the degree.
 ::::
 
 :::
@@ -80,11 +138,11 @@ Among workers aged 45–54, the premium is **substantially larger**.
 
 . . .
 
-Whatever is causing the premium seems to grow more powerful — not less — as workers age and accumulate experience.
+Whatever is causing the premium seems to grow more powerful, not less, as workers age and accumulate experience.
 
 ## Your Turn: First Conjectures
 
-Before we go any further — **why do you think employers pay so much more for college graduates?**
+Before we go any further, **why do you think employers pay so much more for college graduates?**
 
 . . .
 
@@ -114,7 +172,7 @@ Economists and philosophers have identified three main families of explanation f
 
 . . .
 
-These aren't mutually exclusive — the truth may involve all three. But they have different implications, and the data can help us sort them out.
+These aren't mutually exclusive, the truth may involve all three. But they have different implications, and the data can help us sort them out.
 
 ## A Useful Test
 
@@ -122,11 +180,11 @@ Before accepting any explanation, it's worth asking: **what would the world look
 
 . . .
 
-If human capital is everything, we'd expect partial degrees to have partial returns — three years should give three-quarters of the premium. We don't see that.
+If human capital is everything, we'd expect partial degrees to have partial returns, three years should give three-quarters of the premium. We don't see that.
 
 . . .
 
-If selection is everything, we'd expect admission letters to be nearly as valuable as degrees — employers would pay for the signal of admission, not completion. We don't see that either.
+If selection is everything, we'd expect admission letters to be nearly as valuable as degrees, employers would pay for the signal of admission, not completion. We don't see that either.
 
 . . .
 
@@ -156,7 +214,7 @@ His 1973 paper "Job Market Signaling" showed how education could function as a *
 
 . . .
 
-We'll use a simplified binary version of his model — the continuous version has more realism in the details, but the core logic is the same.
+We'll use a simplified binary version of his model. He uses a continuous version that is perhaps more realistic, but the logic is the same.
 
 ## Structure of the Game
 
@@ -184,7 +242,7 @@ This doesn't mean Low workers pay higher tuition. It means the effort, stress, a
 
 . . .
 
-High workers find college demanding but manageable. Low workers find it genuinely painful — or can't finish it at all.
+High workers find college demanding but manageable. Low workers find it genuinely painful, or can't finish it at all.
 
 . . .
 
@@ -288,7 +346,7 @@ High workers: College + Good = 3. Could they get more by going to the Beach? Bea
 
 . . .
 
-Low workers: Beach + Poor = 0. Could they do better by going to College? College + Good = −1. No — and College + Poor = −5. Definitely no.
+Low workers: Beach + Poor = 0. Could they do better by going to College? College + Good = −1. No, and College + Poor = −5. Definitely no.
 
 ## Why Low Workers Don't Mimic
 
@@ -307,9 +365,10 @@ The signal is **credible precisely because it's too expensive for Low types to f
 The Spence model handles several things previous models struggled with:
 
 ::: {.incremental}
-- **The sheepskin effect**: finishing the degree is what sends the signal — partial completion doesn't clear the hurdle, so it earns no premium
-- **Content-independence**: the model doesn't require any skill acquisition — medieval epistemology counts just as much as accounting
-- **Gate-keeping**: there's no need to restrict attendance, only to award degrees to those who complete — which is all we actually do
+- **The sheepskin effect**: finishing the degree is what sends the signal. Partial completion doesn't clear the hurdle, so it earns no premium.
+- **Content-independence**: the model doesn't require any skill acquisition. Medieval epistemology counts just as much as accounting.
+- **Gate-keeping**: there's no need to restrict attendance, only to award degrees to those who complete, which is all we actually do.
+- **Scale**: because the signal has to be costly enough to deter Low types, the model predicts a large premium, not a token one.
 :::
 
 # Three Challenges
@@ -328,11 +387,11 @@ This is puzzling for the signaling model.
 
 ## Why It's Puzzling
 
-The Spence model works because employers can't directly observe worker type — they rely on the college signal.
+The Spence model works because employers can't directly observe worker type, they rely on the college signal.
 
 . . .
 
-But that assumption becomes increasingly implausible over time. After twenty years in the workforce, employers — and the market as a whole — should have *direct* evidence about a worker's productivity.
+But that assumption becomes increasingly implausible over time. After twenty years in the workforce, employers, and the market as a whole, should have *direct* evidence about a worker's productivity.
 
 . . .
 
@@ -347,9 +406,8 @@ Performance reviews, promotions, colleagues' assessments, track records: all of 
 There are some things the signaling theorist can say:
 
 ::: {.incremental}
-- Employers at **age 25–34** are taking a risk; by 45–54, those risks have resolved and the better workers have been promoted — so the premium reflects career sorting, not the signal itself
-- The information sets in the model may not be information sets anymore, but the **wage structure** has already been set through long-term contracts, union agreements, or internal pay scales established earlier
-- High types, by going to college, get access to **better networks and entry points** that compound over time — not a pure signal story, but compatible with it
+- Employers at **age 25–34** are taking a risk; by 45–54, those risks have resolved and the better workers have been promoted, so the premium reflects career sorting, not the signal itself.
+- The information sets in the model may not be information sets anymore, but the **wage structure** has already been set through long-term contracts, union agreements, or internal pay scales established earlier.
 :::
 
 . . .
@@ -366,7 +424,7 @@ But think about who actually *enjoys* college most.
 
 . . .
 
-In most people's experience, the students who thrived — who loved the reading, the dorm room debates, the seminars, the library — were not always the most productive future employees.
+In my experience, the students who thrived, who loved the reading, the dorm room debates, the seminars, the library, were not always the most productive future employees.
 
 . . .
 
@@ -378,7 +436,7 @@ Spence's model requires a tight correlation between **how much you dislike colle
 
 . . .
 
-But the traits that make someone a good employee — reliability, practical judgment, client management, execution under deadlines — are not obviously the same traits that make college feel easier.
+But the traits that make someone a good employee, reliability, practical judgment, client management, execution under deadlines, are not obviously the same traits that make college feel easier.
 
 . . .
 
@@ -398,7 +456,7 @@ One response: whatever the mechanism, *in practice* college completion does pred
 
 . . .
 
-Another response: maybe the model was never fully accurate, and we've been in a messy partial-pooling situation all along — college screens out some Low types but not all.
+Another response: maybe the model was never fully accurate, and we've been in a messy partial-pooling situation all along, college screens out some Low types but not all.
 
 . . .
 
@@ -426,11 +484,11 @@ Under **human capital**: a shorter degree produces less skill. The premium shoul
 
 . . .
 
-Under **signaling**: the hurdle is recalibrated — employers simply update so that completing a 3-year degree now signals the same thing as completing a 4-year degree used to. The premium should persist roughly unchanged.
+Under **signaling**: the hurdle is recalibrated, employers simply update so that completing a 3-year degree now signals the same thing as completing a 4-year degree used to. The premium should persist roughly unchanged.
 
 . . .
 
-Under **selection**: it doesn't much matter — what's selected for is the underlying ability, and degree length is just the filter.
+Under **selection**: it doesn't much matter, what's selected for is the underlying ability, and degree length is just the filter.
 
 ## What the Evidence Suggests
 
@@ -438,25 +496,52 @@ The evidence is somewhat mixed, but a few things stand out:
 
 ::: {.incremental}
 - The UK has 3-year undergraduate degrees; the US has 4-year degrees. The wage premium is **roughly comparable** in both countries. This is hard to explain if an extra year of human capital acquisition is driving the US premium.
-- In Germany, the shift from the 5-year Diplom to the 3-year Bologna Bachelor's did not eliminate the graduate premium — though the Master's degree has become increasingly expected, suggesting the hurdle shifted rather than disappeared.
-- Countries with very short degrees (2-year associate equivalents) often show **much smaller premiums**, consistent with a threshold effect rather than a linear skills story.
+- In Germany, the shift from the 5-year Diplom to the 3-year Bologna Bachelor's did not eliminate the graduate premium, though the Master's degree has become increasingly expected, suggesting the hurdle shifted rather than disappeared.
 :::
+
+## A Cleaner Experiment: Los Andes
+
+The cross-country comparisons are suggestive but messy. Carolina Arteaga (2018) found a much cleaner test.
+
+. . .
+
+In 2006, **Universidad de los Andes** in Colombia shortened its economics degree by about 20% and its business degree by about 14%. The entering class stayed the same size, with the same test scores and the same graduation rates.
+
+. . .
+
+The **signal** was unchanged: same university, same degree title, same diploma. If signaling were the whole story, wages should have been unaffected.
+
+. . .
+
+They were not. Graduates after the reform earned roughly **16% less** in economics and **13% less** in business.
+
+## What Does This Tell Us?
+
+The Los Andes result is hard to square with a pure signaling model. The diploma looked the same before and after the reform, so the signal didn't change. But the wages did.
+
+. . .
+
+That suggests the lost coursework was doing something: building skills, or developing capacities that showed up in job performance.
+
+. . .
+
+Arteaga found evidence for a specific mechanism: post-reform graduates performed worse during recruitment processes, and ended up placed at lower-quality firms.
 
 ## The Interpretation
 
-None of this evidence is clean enough to settle the debate. But it does suggest:
+The evidence from degree-length changes is genuinely mixed:
 
 . . .
 
-The premium is not simply proportional to time spent in college — which is bad news for a pure human capital story.
+The **Bologna reforms** and the **UK/US comparison** suggest the premium tracks degree completion more than degree length, which favours a signaling or selection story.
 
 . . .
 
-The premium tracks **degree completion** more than **degree length**, which is more consistent with signaling or selection.
+The **Los Andes experiment** suggests that cutting coursework does reduce wages, even when the signal is held fixed, which favours human capital.
 
 . . .
 
-And the premium recalibrates when degree norms change, which is exactly what a signaling model would predict: employers update their priors about what the standard signal means.
+A reasonable reading: both mechanisms are at work. The degree functions partly as a signal and partly as a site of genuine skill acquisition, and the balance between these varies across institutions and labour markets.
 
 ## The Deeper Question
 
@@ -464,7 +549,7 @@ Even if Spence's model is broadly right, there's a normative question lurking.
 
 . . .
 
-If the premium is mostly a signal, then vast resources — tuition, four years of forgone income, the effort of millions of students — are being spent **purely as a sorting device**.
+If the premium is mostly a signal, then vast resources, tuition, four years of forgone income, the effort of millions of students, are being spent **purely as a sorting device**.
 
 . . .
 
@@ -488,12 +573,6 @@ And: does the answer change how you think about **your own reasons for being at 
 
 ## For Next Time
 
-We've now covered two major applications of signaling games — used cars and college.
+We'll start our look at more recent models of scientific practice.
 
-. . .
-
-Both show the same underlying structure: an informed party moves first, an uninformed party observes and responds, and the equilibrium involves reading between the lines of what the informed party does.
-
-. . .
-
-Next time we'll move to a related set of questions about how information gets aggregated across many people — from individual beliefs to collective decisions.
+From now on we'll mostly be looking at **agent-based models**, where we don't use representative individuals like High and Low, but model each individual separately.
