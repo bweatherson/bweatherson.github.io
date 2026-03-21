@@ -1,0 +1,85 @@
+---
+title: "Weekly Quiz: Ordinal Games in Strategic Form"
+subtitle: "Chapters 2.1--2.2, 2.5--2.6"
+---
+
+## Question 1: Game Frames and Games
+
+Two roommates, Alice and Bob, must independently decide whether to **Clean** or **Not Clean** their shared apartment before a landlord inspection. The possible outcomes are:
+
+- $o_1$: Both clean. The apartment is spotless.
+- $o_2$: Alice cleans, Bob doesn't. The apartment is passable.
+- $o_3$: Bob cleans, Alice doesn't. The apartment is passable.
+- $o_4$: Neither cleans. The apartment fails inspection.
+
+Suppose both Alice and Bob are *lazy but responsible*: they most prefer the apartment being spotless without personal effort (if the other person cleans alone, they get a passable result without working), but they prefer a spotless apartment to a merely passable one, and they rank a failed inspection as worst. Specifically:
+
+- Alice's ranking: $o_3 \succ o_1 \succ o_2 \succ o_4$
+- Bob's ranking: $o_2 \succ o_1 \succ o_3 \succ o_4$
+
+**(a)** Write down ordinal utility functions for Alice and Bob that represent these rankings. Use the values 1, 2, 3, 4.
+
+**(b)** Using your utility functions, write the reduced game in strategic (normal) form.
+
+**(c)** Is this a Prisoner's Dilemma? Explain why or why not by comparing the structure to the defining features of the PD.
+
+
+## Question 2: Strict and Weak Dominance
+
+Consider the following two-player game (payoffs shown as (Player 1, Player 2)):
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **A** | (3, 2) | (1, 1) | (2, 3) |
+| **B** | (1, 0) | (2, 2) | (1, 1) |
+| **C** | (3, 1) | (1, 3) | (2, 2) |
+
+**(a)** Does any strategy strictly dominate another for Player 1? If so, identify the dominance relationship.
+
+**(b)** Does any strategy weakly dominate another for Player 1? If so, identify the dominance relationship.
+
+**(c)** For Player 2, does R strictly dominate L? Does R weakly dominate L? Explain.
+
+
+## Question 3: Iterated Deletion of Strictly Dominated Strategies
+
+Consider the following game:
+
+|       | **W**  | **X**  | **Y**  | **Z**  |
+|------:|:------:|:------:|:------:|:------:|
+| **A** | (4, 2) | (3, 3) | (1, 1) | (0, 4) |
+| **B** | (2, 3) | (2, 2) | (3, 4) | (1, 0) |
+| **C** | (1, 1) | (0, 0) | (2, 3) | (4, 2) |
+
+**(a)** Apply the Iterated Deletion of Strictly Dominated Strategies (IDSDS). Show each step clearly: which strategy is eliminated, by which other strategy, and for which player.
+
+**(b)** What strategy profiles survive the IDSDS procedure?
+
+**(c)** Does the order of deletion matter for the final result? Briefly explain why or why not.
+
+
+## Question 4: Nash Equilibrium
+
+Consider the following game:
+
+|               | **Left** | **Right** |
+|--------------:|:--------:|:---------:|
+| **Up**        | (3, 3)   | (1, 4)    |
+| **Down**      | (4, 1)   | (0, 0)    |
+
+**(a)** Find all pure-strategy Nash equilibria of this game.
+
+**(b)** Is there a dominant strategy for either player? Explain.
+
+**(c)** Is there an outcome that is strictly Pareto superior to the Nash equilibrium (or equilibria)? If so, identify it and explain why it is not a Nash equilibrium.
+
+
+## Question 5: Applying Nash Equilibrium
+
+Three food trucks are setting up at a festival. Each truck independently chooses one of two locations: the **North** end or the **South** end. A truck earns more when it has fewer competitors at its location. Specifically, suppose each truck's payoff equals $\frac{6}{k}$ where $k$ is the number of trucks at its chosen location.
+
+**(a)** How many pure strategy profiles are there in this game?
+
+**(b)** Consider the profile where Trucks 1 and 2 go North and Truck 3 goes South. Is this a Nash equilibrium? Show your reasoning by checking whether any truck wants to deviate.
+
+**(c)** Find a Nash equilibrium of this game. (There may be more than one; you only need to find one and verify it.)

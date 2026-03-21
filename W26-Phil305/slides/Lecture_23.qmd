@@ -1,35 +1,22 @@
 ---
-title: "Backward Induction"
+title: "Subgame Perfection and Win-Lose Games"
 date: "4/8/2026"
 ---
 
-# Solving Sequential Games
+# Subgame Perfect Equilibrium
 
 ## Plan
 
-- We now have the tools to **solve** sequential games with perfect information.
-- The method: **backward induction**. Work backwards from the end of the game tree.
-- This gives us a powerful and intuitive solution concept: the **subgame perfect equilibrium**.
+- Last time we solved sequential games using **backward induction**.
+- Today we refine Nash equilibrium using this idea: the **subgame perfect equilibrium**.
+- This lets us identify which threats are credible and which are empty.
+- We'll also look at **win-lose games**, where backward induction yields clean results.
 
 ### Associated Reading
 
-*Game Theory*, Sections 2.4 and 2.5
+*Game Theory*, Sections 3.4 and 3.5
 
-## The Idea of Backward Induction
-
-Start at the **terminal nodes** (where payoffs are assigned) and work backwards.
-
-::: {.incremental}
-- At each decision node, assume the player there will choose the action that **maximises their own payoff**.
-- Replace that node with the resulting payoff.
-- Repeat until the whole tree is solved.
-:::
-
-. . .
-
-This is essentially **forward-looking reasoning**: rational players anticipate how the game will end, and act accordingly now.
-
-## Revisiting the Entry Deterrence Game
+## Recap: The Entry Deterrence Game
 
 ```
 Entrant
@@ -42,31 +29,9 @@ Entrant
 
 Payoffs: (Entrant, Incumbent)
 
-## Applying Backward Induction
-
-**Step 1**: Look at the Incumbent's decision node.
-
 . . .
 
-Fight gives 1; Accommodate gives 2. A rational Incumbent will **Accommodate**.
-
-. . .
-
-**Step 2**: Replace the Incumbent's node with the Accommodate payoff (2, 2).
-
-```
-Entrant
-├── Stay Out → (0, 4)
-└── Enter    → (2, 2)
-```
-
-. . .
-
-**Step 3**: The Entrant now chooses between 0 and 2. They choose **Enter**.
-
-. . .
-
-**Backward induction outcome**: Enter → Accommodate, with payoffs (2, 2).
+By backward induction: the Incumbent would Accommodate (2 > 1), so the Entrant Enters (2 > 0). Outcome: (Enter, Accommodate) with payoffs (2, 2).
 
 ## Why the Incumbent's Threat Fails
 
@@ -195,17 +160,122 @@ In experiments, people rarely stop immediately. Cooperation often unfolds for ma
 
 Whether this shows backward induction is *wrong*, or merely that people are *not* perfectly rational, is a substantive debate.
 
-## Stackelberg Competition
+# Win-Lose Games
 
-Two firms choose how much to produce. But Firm 1 moves first; Firm 2 observes Firm 1's output, then chooses.
+## A Special Class of Games
 
-. . .
-
-Backward induction: Firm 2 chooses its best response to whatever Firm 1 produces. Firm 1 anticipates this and chooses the quantity that maximises *its* profit given Firm 2's best response function.
+Consider two-player perfect-information games where the only outcomes are "Player 1 wins" or "Player 2 wins." We assign payoffs (1, 0) and (0, 1) respectively.
 
 . . .
 
-**Stackelberg outcome**: Firm 1 produces *more* than in the simultaneous (Cournot) game, and earns higher profit. Being the **first mover is an advantage**.
+These **win-lose games** have a remarkably clean structure when analyzed by backward induction.
+
+## An Example: The Number Game
+
+Two players take turns choosing a number from {1, 2, ..., 10}. Player 1 goes first. The player whose choice brings the running total to 100 or more wins.
+
+. . .
+
+Player 1 has a winning strategy. By backward induction, the "losing positions" (where the player whose turn it is cannot win) are: 89, 78, 67, 56, 45, 34, 23, 12, 1.
+
+. . .
+
+Player 1 starts with 1. Then, whatever Player 2 picks (call it $n$), Player 1 picks $11 - n$. This brings the total to the next losing position for Player 2 each time.
+
+## Zermelo's Theorem
+
+**Theorem** (Zermelo, 1913): In every finite two-player win-lose game with perfect information, one of the two players has a **winning strategy**.
+
+. . .
+
+The proof uses backward induction. At the root, either some branch leads to a (1, 0) outcome (Player 1 can win), or all branches lead to (0, 1) outcomes (Player 2 wins regardless).
+
+## What About Draws?
+
+Games like chess and checkers allow three outcomes: Player 1 wins, Player 2 wins, or Draw.
+
+. . .
+
+An extension of Zermelo's theorem says exactly one of three cases holds:
+
+::: {.incremental}
+- Player 1 has a strategy guaranteeing a win.
+- Player 2 has a strategy guaranteeing a win.
+- Both players have strategies guaranteeing at least a draw, so with optimal play the outcome is a draw.
+:::
+
+. . .
+
+Checkers falls into the third category (proven by computer in 2007). For chess, we still do not know which category applies.
+
+# Worked Example
+
+## A Regulation Game
+
+A company (Player 1) decides whether to **Pollute** (cheaper production) or go **Clean**. If the company pollutes, a regulator (Player 2) can **Fine** the company or **Ignore** the violation.
+
+```
+Company
+├── Clean   → (2, 3)
+└── Pollute
+    └── Regulator
+        ├── Fine   → (0, 1)
+        └── Ignore → (4, 0)
+```
+
+Payoffs: (Company, Regulator)
+
+## Part 1: Backward Induction
+
+**Step 1**: At the Regulator's node, Fine gives 1 and Ignore gives 0. The Regulator chooses **Fine**.
+
+. . .
+
+**Step 2**: The Company anticipates this. Clean gives 2; Pollute gives 0 (since the Regulator will Fine). The Company chooses **Clean**.
+
+. . .
+
+**Backward induction outcome**: Clean, with payoffs **(2, 3)**.
+
+## Part 2: A Non-Credible Threat?
+
+Suppose the Regulator announces: "We will Ignore any pollution."
+
+. . .
+
+If the Company believed this, they would Pollute (payoff 4 vs. 2). The outcome would be (Pollute, Ignore) with payoffs (4, 0).
+
+. . .
+
+Is (Pollute, Ignore) a Nash equilibrium?
+
+. . .
+
+Check: Given Ignore, the Company prefers Pollute (4 > 2). Given Pollute, does the Regulator prefer Ignore? No, Fine gives 1 > 0. So this is **not** a Nash equilibrium. The Regulator's promise to ignore violations is not even self-consistent.
+
+## Part 3: What About (Clean; Fine)?
+
+Consider: Company plays Clean, Regulator plays Fine.
+
+. . .
+
+Given the Regulator will Fine, Company prefers Clean (2 > 0). Given the Company plays Clean, the Regulator's strategy doesn't affect the outcome (the Fine node is never reached). So the Regulator has no reason to deviate.
+
+. . .
+
+This **is** a Nash equilibrium, and it's also subgame perfect. In the subgame starting at the Regulator's node, Fine is the best response (1 > 0).
+
+## Part 4: Could (Clean; Ignore) Be a Nash Equilibrium?
+
+Given the Regulator plays Ignore, Company prefers Pollute (4 > 2). So Company would deviate.
+
+. . .
+
+This is **not** a Nash equilibrium. The Regulator's lax policy only works as a strategy if the Company never actually tests it, but the Company *would* test it.
+
+. . .
+
+This example shows why backward induction and subgame perfection matter: they force us to check what happens at decision nodes that are "off the equilibrium path."
 
 ## For Next Time
 

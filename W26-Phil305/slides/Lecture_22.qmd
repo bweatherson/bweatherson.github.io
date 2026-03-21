@@ -13,7 +13,7 @@ date: "4/6/2026"
 
 ### Associated Reading
 
-*Game Theory*, Sections 2.1–2.3
+*Game Theory*, Sections 3.1–3.3
 
 ## Why Sequential Order Matters
 
@@ -161,23 +161,133 @@ Player 1
         └── Exploit → (0, 20)
 ```
 
-## What Will Rational Players Do?
+# Backward Induction
 
-In the Trust Game:
+## Solving Games from the End
 
-. . .
-
-If Player 1 trusts, Player 2 gets 10 from Honor vs. 20 from Exploit. A rational Player 2 exploits.
+How should we analyze these sequential games? The method is **backward induction**: start at the final decision nodes and work towards the root.
 
 . . .
 
-But if Player 1 knows this, they should not trust. They get 5 rather than risking 0.
+At each step, assume the player at that node will choose the action that maximises their own payoff. Replace the node with the resulting payoff, and continue.
+
+## Backward Induction in the Entry Game
+
+```
+Entrant
+├── Stay Out → (0, 4)
+└── Enter
+    └── Incumbent
+        ├── Fight       → (−1, 1)
+        └── Accommodate → (2, 2)
+```
 
 . . .
 
-Yet (Trust, Honor) gives (10, 10), better for *both* than (Not Trust). This tension is central to many social and economic phenomena.
+**Step 1**: At the Incumbent's node, Fight gives 1 and Accommodate gives 2. Rational choice: **Accommodate**.
+
+. . .
+
+**Step 2**: Replace the Incumbent's node with (2, 2). The Entrant chooses between Stay Out (0) and Enter (2). Rational choice: **Enter**.
+
+. . .
+
+**Outcome**: Enter → Accommodate, with payoffs (2, 2).
+
+## Backward Induction in the Trust Game
+
+```
+Player 1
+├── Not Trust → (5, 5)
+└── Trust
+    └── Player 2
+        ├── Honor   → (10, 10)
+        └── Exploit → (0, 20)
+```
+
+. . .
+
+**Step 1**: Player 2 gets 10 from Honor vs. 20 from Exploit. A rational Player 2 chooses **Exploit**.
+
+. . .
+
+**Step 2**: Player 1 anticipates this. Trusting leads to 0; Not Trusting gives 5. Player 1 chooses **Not Trust**.
+
+. . .
+
+**Outcome**: (5, 5). Yet (Trust, Honor) would give (10, 10), better for both. This tension between individual rationality and mutual benefit echoes the Prisoner's Dilemma.
+
+# Worked Example
+
+## A Hiring Game
+
+A firm (Player 1) interviews a candidate and decides to **Offer** or **Pass**. If the firm offers, the candidate (Player 2) can **Accept** or **Negotiate**. If the candidate negotiates, the firm can **Raise** the offer or **Withdraw** it.
+
+```
+Firm
+├── Pass → (0, 2)
+└── Offer
+    └── Candidate
+        ├── Accept → (3, 3)
+        └── Negotiate
+            └── Firm
+                ├── Raise    → (1, 5)
+                └── Withdraw → (−1, 0)
+```
+
+Payoffs: (Firm, Candidate)
+
+## Part 1: Strategies
+
+How many strategies does the Firm have?
+
+. . .
+
+The Firm moves at two nodes: the root, and after a negotiation. So the Firm's strategies are complete plans for both nodes.
+
+. . .
+
+::: {.incremental}
+- (Pass; Raise)
+- (Pass; Withdraw)
+- (Offer; Raise)
+- (Offer; Withdraw)
+:::
+
+. . .
+
+That's **4 strategies** for the Firm. The Candidate has two nodes but only one is a decision node, so 2 strategies: Accept or Negotiate.
+
+## Part 2: Backward Induction
+
+**Step 1**: At the Firm's second node, Raise gives 1 and Withdraw gives −1. The Firm chooses **Raise**.
+
+. . .
+
+**Step 2**: Replace that node with (1, 5). The Candidate now faces Accept (payoff 3) vs. Negotiate (payoff 5). The Candidate chooses **Negotiate**.
+
+. . .
+
+**Step 3**: Replace the Candidate's node with (1, 5). The Firm faces Pass (payoff 0) vs. Offer (payoff 1). The Firm chooses **Offer**.
+
+. . .
+
+**Outcome**: Offer → Negotiate → Raise, with payoffs **(1, 5)**.
+
+## What Can We Learn?
+
+The Candidate gets their best outcome by negotiating, because they can anticipate the Firm will raise rather than withdraw.
+
+. . .
+
+The Firm would prefer (3, 3) from an immediate acceptance, but backward induction tells us the Candidate won't accept the initial offer.
+
+. . .
+
+This is a common pattern: the player who moves later can sometimes extract a better deal, because the earlier player's threat to withdraw is costly to carry out.
 
 ## For Next Time
 
-- We will analyze these games systematically using **backward induction**.
-- This is the key method for solving sequential games with perfect information.
+- Backward induction gives us a solution concept: **subgame perfect equilibrium**.
+- We'll see how it rules out Nash equilibria that rely on empty threats.
+- And we'll look at **win-lose games** where backward induction has clean results.

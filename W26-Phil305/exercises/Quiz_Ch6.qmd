@@ -1,0 +1,88 @@
+---
+title: "Weekly Quiz: Strategic-Form Games with Cardinal Payoffs"
+subtitle: "Chapters 6.1--6.3"
+---
+
+## Question 1: Cardinal Payoffs
+
+Two firms simultaneously decide whether to **Advertise** or **Not Advertise**. The game-frame has four basic outcomes:
+
+- $o_1$: Both advertise. Market share is split, but both pay advertising costs.
+- $o_2$: Firm 1 advertises, Firm 2 does not. Firm 1 gains market share.
+- $o_3$: Firm 2 advertises, Firm 1 does not. Firm 2 gains market share.
+- $o_4$: Neither advertises. Market share is split with no costs.
+
+Suppose Firm 1 has the following von Neumann-Morgenstern utility function over outcomes: $U_1(o_1) = 2$, $U_1(o_2) = 5$, $U_1(o_3) = 0$, $U_1(o_4) = 3$.
+
+Firm 2's utility function: $U_2(o_1) = 2$, $U_2(o_2) = 0$, $U_2(o_3) = 5$, $U_2(o_4) = 3$.
+
+**(a)** Write the reduced game in strategic form with cardinal payoffs.
+
+**(b)** Find all pure-strategy Nash equilibria of this game.
+
+**(c)** Explain why, unlike in the ordinal case, the specific numerical values of the payoffs (not just their ordering) will matter when we look for mixed-strategy equilibria.
+
+
+## Question 2: Mixed Strategies and Expected Payoffs
+
+Consider the following game with cardinal payoffs:
+
+|              | **L**     | **R**     |
+|-------------:|:---------:|:---------:|
+| **T**        | (6, 2)    | (2, 6)    |
+| **B**        | (3, 3)    | (5, 1)    |
+
+**(a)** Verify that this game has no pure-strategy Nash equilibrium.
+
+**(b)** Suppose Player 1 plays T with probability $p$ and B with probability $1-p$. Write Player 2's expected payoff from playing L and from playing R, each as a function of $p$.
+
+**(c)** Find the value of $p$ that makes Player 2 indifferent between L and R.
+
+
+## Question 3: Computing a Mixed-Strategy Nash Equilibrium
+
+Consider the following game:
+
+|              | **C**     | **D**     |
+|-------------:|:---------:|:---------:|
+| **A**        | (4, 1)    | (0, 3)    |
+| **B**        | (1, 0)    | (3, 2)    |
+
+**(a)** Verify that there is no pure-strategy Nash equilibrium.
+
+**(b)** Find the mixed-strategy Nash equilibrium. Let Player 1 play A with probability $p$ and Player 2 play C with probability $q$. Use the indifference principle to find $p$ and $q$.
+
+**(c)** Calculate the expected payoff for each player at this equilibrium.
+
+
+## Question 4: Mixed Equilibrium in a Familiar Game
+
+The Hawk-Dove game models conflict over a resource worth $V = 6$. If both play **Hawk**, they fight and each gets $\frac{V - C}{2}$ where $C = 10$ is the cost of fighting. If both play **Dove**, they share the resource equally. If one plays Hawk and the other Dove, the Hawk gets the full resource and the Dove gets 0.
+
+**(a)** Write the game in strategic form with cardinal payoffs.
+
+**(b)** Find all pure-strategy Nash equilibria.
+
+**(c)** Find the mixed-strategy Nash equilibrium. What is the probability each player assigns to Hawk?
+
+**(d)** What is each player's expected payoff in the mixed equilibrium? Compare this to the payoff when both play Dove.
+
+
+## Question 5: Applying the Indifference Principle
+
+Consider a penalty kick in soccer, simplified as follows. The Kicker chooses **Left** or **Right**. The Goalkeeper simultaneously dives **Left** or **Right**. If the Goalkeeper dives the correct direction, the Goalkeeper saves with payoffs (0, 1) (Kicker, Goalkeeper). If the Goalkeeper dives the wrong way, the Kicker scores with payoffs (1, 0).
+
+However, the Kicker is right-footed and kicks harder to the left. So if both choose Left (Goalkeeper dives to the Kicker's left), the save probability is lower. Adjust payoffs as:
+
+|                     | **GK: Left** | **GK: Right** |
+|--------------------:|:------------:|:-------------:|
+| **Kicker: Left**    | (2, −2)      | (4, −4)       |
+| **Kicker: Right**   | (4, −4)      | (1, −1)       |
+
+(Higher payoff for Kicker = better shot. This is a zero-sum game.)
+
+**(a)** Verify that there is no pure-strategy Nash equilibrium.
+
+**(b)** Find the mixed-strategy Nash equilibrium. With what probability does the Kicker kick left?
+
+**(c)** What is the Kicker's expected payoff at the equilibrium?

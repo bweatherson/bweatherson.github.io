@@ -13,7 +13,7 @@ date: "4/13/2026"
 
 ### Associated Reading
 
-*Game Theory*, Sections 5.1–5.3
+*Game Theory*, Sections 6.1–6.3
 
 ## Why Randomise?
 
@@ -200,7 +200,6 @@ Several interpretations:
 ::: {.incremental}
 - **Deliberate randomisation**: a player genuinely randomises to stay unpredictable (relevant in sports, military strategy).
 - **Population interpretation**: the equilibrium describes a *distribution* across a large population of players, not an individual's behaviour.
-- **Uncertainty interpretation**: a mixed strategy of the opponent represents *your uncertainty* about their deterministic choice.
 :::
 
 ## Mixed Strategies in Practice
@@ -208,12 +207,87 @@ Several interpretations:
 Mixed strategy equilibria are especially relevant when:
 
 ::: {.incremental}
-- **Unpredictability has strategic value**: penalty kicks in soccer, play-calling in American football.
-- **Players interact repeatedly**: random variation prevents being exploited.
+- **Unpredictability has strategic value**: penalty kicks in soccer, play-calling in American football, auditing and compliance.
 - **Coordination fails**: the mixed equilibrium is the "default" when no focal pure equilibrium exists.
 :::
 
+# Worked Example
+
+## A Technology Standards Game
+
+Two firms simultaneously choose whether to adopt **Standard A** or **Standard B** for a new product. Each prefers that the other adopts the same standard (compatibility is valuable), but Firm 1 has a slight preference for A and Firm 2 for B.
+
+|                | **Firm 2: A** | **Firm 2: B** |
+|---------------:|:-------------:|:-------------:|
+| **Firm 1: A**  | (3, 2)        | (0, 0)        |
+| **Firm 1: B**  | (0, 0)        | (2, 3)        |
+
+## Step 1: Find Pure-Strategy NE
+
+. . .
+
+**(A, A)**: Firm 1 gets 3, switch to B gives 0. No improvement. Firm 2 gets 2, switch to B gives 0. No improvement. **NE.**
+
+. . .
+
+**(B, B)**: Firm 1 gets 2, switch to A gives 0. No improvement. Firm 2 gets 3, switch to A gives 0. No improvement. **NE.**
+
+. . .
+
+**(A, B)** and **(B, A)**: both give (0, 0), and both firms can improve by switching. **Not NE.**
+
+. . .
+
+Two pure equilibria. Is there also a mixed one?
+
+## Step 2: Set Up the Indifference Conditions
+
+Let Firm 1 play A with probability $p$ and Firm 2 play A with probability $q$.
+
+. . .
+
+**Make Firm 1 indifferent** (Firm 1's payoff from A = payoff from B):
+
+$$3q + 0(1-q) = 0 \cdot q + 2(1-q)$$
+
+$$3q = 2 - 2q$$
+
+$$5q = 2 \implies q = \tfrac{2}{5}$$
+
+## Step 2 Continued
+
+**Make Firm 2 indifferent** (Firm 2's payoff from A = payoff from B):
+
+$$2p + 0(1-p) = 0 \cdot p + 3(1-p)$$
+
+$$2p = 3 - 3p$$
+
+$$5p = 3 \implies p = \tfrac{3}{5}$$
+
+. . .
+
+**Mixed equilibrium**: Firm 1 plays A with probability $\frac{3}{5}$; Firm 2 plays A with probability $\frac{2}{5}$.
+
+## Step 3: Expected Payoffs
+
+Firm 1's expected payoff (using either pure strategy, since indifferent):
+
+$$3 \cdot \tfrac{2}{5} + 0 \cdot \tfrac{3}{5} = \tfrac{6}{5} = 1.2$$
+
+. . .
+
+Firm 2's expected payoff:
+
+$$2 \cdot \tfrac{3}{5} + 0 \cdot \tfrac{2}{5} = \tfrac{6}{5} = 1.2$$
+
+. . .
+
+Both get 1.2 in the mixed equilibrium, worse than *either* pure equilibrium (where someone gets 2 and someone gets 3).
+
+. . .
+
+The mixed equilibrium represents the outcome when coordination fails. Each firm leans toward its preferred standard, and sometimes they end up mismatched.
+
 ## For Next Time
 
-- We close with **signaling games**: a richer class of games involving private information.
-- These combine sequential structure with **asymmetric information**, and produce some surprising equilibria.
+- We'll do some revision, and some more examples of mixed equilibria.

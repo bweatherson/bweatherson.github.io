@@ -1,0 +1,97 @@
+---
+title: "Weekly Quiz: Perfect-Information Games"
+subtitle: "Chapter 3"
+---
+
+## Question 1: Game Trees and Strategies
+
+A small tech company (Player 1) is deciding whether to **Launch** a new product or **Wait**. If they Launch, a larger rival (Player 2) can either **Copy** the product or **Ignore** it. If the rival Copies, the tech company can **Pivot** to a different market or **Compete** head-to-head.
+
+**(a)** Draw the extensive-form game tree for this situation. Label all decision nodes with the player who moves there, all branches with actions, and use letters ($o_1, o_2, \ldots$) for the terminal nodes.
+
+**(b)** How many strategies does Player 1 have? List them all. (Remember: a strategy specifies what to do at *every* decision node where a player might move.)
+
+**(c)** How many strategies does Player 2 have? List them.
+
+
+## Question 2: Backward Induction
+
+Consider the following game tree:
+
+```
+Player 1
+├── A
+│   └── Player 2
+│       ├── C → (4, 2)
+│       └── D → (1, 3)
+└── B
+    └── Player 2
+        ├── E → (3, 1)
+        └── F
+            └── Player 1
+                ├── G → (2, 4)
+                └── H → (5, 0)
+```
+
+Payoffs: (Player 1, Player 2)
+
+**(a)** Apply backward induction to solve this game. Show your reasoning at each step, starting from the final decision nodes.
+
+**(b)** What is the backward-induction outcome (the sequence of actions actually played and the resulting payoffs)?
+
+**(c)** Write down the full backward-induction strategy profile. Remember that a strategy must specify a choice at *every* decision node for that player, including nodes that are not reached.
+
+
+## Question 3: Subgame Perfect Equilibrium
+
+A manager (Player 1) decides whether to **Delegate** a task to an employee or **Do It Herself**. If she delegates, the employee (Player 2) can put in **High Effort** or **Low Effort**.
+
+```
+Manager
+├── Do It Herself → (3, 2)
+└── Delegate
+    └── Employee
+        ├── High Effort → (5, 3)
+        └── Low Effort  → (1, 4)
+```
+
+Payoffs: (Manager, Employee)
+
+**(a)** Find the backward-induction solution. What is the outcome?
+
+**(b)** Consider the strategy profile: Manager plays Delegate; Employee plays High Effort. Is this a Nash equilibrium of the corresponding strategic form? Explain.
+
+**(c)** Is the strategy profile from part (b) subgame perfect? Explain, with reference to the relevant subgame.
+
+
+## Question 4: Credible and Non-Credible Threats
+
+A country (Player 1) is considering imposing a **Tariff** on imports from a trading partner (Player 2). If the tariff is imposed, the trading partner can either **Retaliate** (leading to a trade war that hurts both) or **Concede** (accepting the tariff).
+
+```
+Country 1
+├── No Tariff → (4, 4)
+└── Tariff
+    └── Country 2
+        ├── Retaliate → (1, 1)
+        └── Concede   → (5, 2)
+```
+
+Payoffs: (Country 1, Country 2)
+
+**(a)** Find the backward-induction solution.
+
+**(b)** Suppose Country 2 announces before the game: "If you impose a tariff, we will Retaliate." Is this threat credible? Explain using the concept of subgame perfection.
+
+**(c)** Identify a Nash equilibrium of this game that is *not* subgame perfect. Explain why it qualifies as a Nash equilibrium but fails subgame perfection.
+
+
+## Question 5: Win-Lose Games
+
+Two players take turns placing coins on a $3 \times 3$ grid (like tic-tac-toe, but without trying to get three in a row). Player 1 places first. A player **wins** if, after placing their coin, the total number of coins in any single row equals exactly 2. (If multiple rows reach 2 simultaneously, it still counts as a win for the player who just moved.)
+
+**(a)** Consider Player 1's first move. Can Player 1 guarantee a win by placing in the centre square? Briefly explain.
+
+**(b)** Suppose Player 1 places in a corner. Player 2 then places in the same row (but a different square of that row). Who wins and why?
+
+**(c)** By Zermelo's theorem, one of the two players must have a winning strategy in this game. Which player has the winning strategy? Provide a brief argument (you do not need to specify the full strategy).
