@@ -22,7 +22,7 @@ We'll be using two tools in particular:
 
 Consider this game:
 
-|       | **L**  | **C**  | **R**  |
+|       | L  | C  | R  |
 |------:|:------:|:------:|:------:|
 | **T** | (3, 1) | (0, 2) | (1, 3) |
 | **M** | (1, 3) | (1, 1) | (2, 0) |
@@ -50,7 +50,7 @@ This is justified by **common knowledge of rationality**: if everyone is rationa
 
 ---
 
-|       | **L**  | **M**  | **R**  |
+|       | L  | M  | R  |
 |------:|:------:|:------:|:------:|
 | **T** | (4, 3) | (2, 1) | (3, 0) |
 | **B** | (2, 1) | (1, 2) | (1, 3) |
@@ -73,7 +73,7 @@ No strict dominance for Player 2 here. Let's check Player 1.
 
 ---
 
-|       | **L**  | **M**  | **R**  |
+|       | L  | M  | R  |
 |------:|:------:|:------:|:------:|
 | **T** | (4, 3) | (2, 1) | (3, 0) |
 | **B** | (2, 1) | (1, 2) | (1, 3) |
@@ -92,7 +92,7 @@ No strict dominance for Player 2 here. Let's check Player 1.
 
 The game shrinks to one row:
 
-|       | **L**  | **M**  | **R**  |
+|       | L  | M  | R  |
 |------:|:------:|:------:|:------:|
 | **T** | (4, 3) | (2, 1) | (3, 0) |
 
@@ -200,7 +200,7 @@ Again two equilibria. This time each favors a different player.
 
 Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).
 
-|               | **Hunt Stag** | **Hunt Rabbit** |
+|               | Hunt Stag | Hunt Rabbit |
 |--------------:|:-------------:|:---------------:|
 | **Hunt Stag** | (4, 4)        | (0, 3)          |
 | **Hunt Rabbit** | (3, 0)      | (3, 3)          |
@@ -213,7 +213,7 @@ Is (Stag, Stag) a Nash equilibrium?
 
 Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).
 
-|               | **Hunt Stag** | **Hunt Rabbit** |
+|               | Hunt Stag | Hunt Rabbit |
 |--------------:|:-------------:|:---------------:|
 | **Hunt Stag** | (4, 4)        | (0, 3)          |
 | **Hunt Rabbit** | (3, 0)      | (3, 3)          |
@@ -232,7 +232,7 @@ Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓
 
 ## Stag Hunt: Two Equilibria, Different Characters
 
-|               | **Hunt Stag** | **Hunt Rabbit** |
+|               | Hunt Stag | Hunt Rabbit |
 |--------------:|:-------------:|:---------------:|
 | **Hunt Stag** | (4, 4)        | (0, 3)          |
 | **Hunt Rabbit** | (3, 0)      | (3, 3)          |
@@ -323,6 +323,125 @@ Evolutionary simulations: populations can evolve toward cooperation even without
 . . .
 
 All three approaches study the same games but ask different questions and reach different conclusions.
+
+# Worked Examples
+
+## A Location Game
+
+A seafront promenade has seven numbered stalls (1 through 7, left to right). Two ice cream vendors choose a stall simultaneously. Beachgoers buy from the nearer vendor; ties split equally. There are 14 customers, 2 at each stall.
+
+. . .
+
+Where should a rational vendor locate?
+
+## Position 4 Beats Position 1
+
+Compare market share when you play **1** vs. **4**, for each possible opponent location:
+
+| Opponent at | Your share at 1 | Your share at 4 |
+|------------:|:---------------:|:---------------:|
+| 1           | 7               | 10              |
+| 2           | 2               | 9               |
+| 3           | 3               | 8               |
+| 4           | 4               | 7               |
+| 5           | 5               | 8               |
+| 6           | 6               | 9               |
+| 7           | 7               | 10              |
+
+. . .
+
+**Position 4 strictly dominates position 1.** By symmetry it also strictly dominates position 7.
+
+## Round 1: Delete 1 and 7
+
+No rational vendor will play 1 or 7. The effective game shrinks to positions $\{2, 3, 4, 5, 6\}$.
+
+. . .
+
+Now apply the same reasoning within the reduced game.
+
+## Position 4 Beats Position 2 (in the Reduced Game)
+
+| Opponent at | Your share at 2 | Your share at 4 |
+|------------:|:---------------:|:---------------:|
+| 2           | 7               | 9               |
+| 3           | 4               | 8               |
+| 4           | 5               | 7               |
+| 5           | 6               | 8               |
+| 6           | 7               | 9               |
+
+. . .
+
+**Position 4 strictly dominates position 2** in the reduced game, and by symmetry dominates position 6.
+
+## Round 2: Delete 2 and 6
+
+The game shrinks further to $\{3, 4, 5\}$. Apply the reasoning once more.
+
+## Position 4 Beats Position 3 (in the Reduced Game)
+
+| Opponent at | Your share at 3 | Your share at 4 |
+|------------:|:---------------:|:---------------:|
+| 3           | 7               | 8               |
+| 4           | 6               | 7               |
+| 5           | 7               | 8               |
+
+. . .
+
+**Position 4 strictly dominates position 3** in this reduced game, and by symmetry dominates position 5.
+
+## Round 3: Delete 3 and 5
+
+Only position 4 survives. Both vendors locate at the centre.
+
+. . .
+
+This generalises: on any symmetric distribution of customers, rational vendors converge on the **median** location. The same logic applies to political candidates, petrol stations, fast food chains, and any competitor serving a distributed market.
+
+. . .
+
+Position 4 is also the unique Nash equilibrium of this game. Neither vendor can do better by moving, given the other is at the centre.
+
+## Traveler's Dilemma
+
+An airline loses two passengers' identical antiques. It asks each to independently claim a value between \$200 and \$600. Both receive the *lower* claim, with adjustments:
+
+- The lower claimer gets a \$200 bonus.
+- The higher claimer gets a \$200 penalty.
+
+Equal claims pay that amount to both.
+
+## The Case Against Claiming \$600
+
+If your opponent claims \$600 and you claim \$500, you receive $500 + 200 = \$700$, beating the \$600 you'd get by matching them.
+
+. . .
+
+So against an opponent who claims \$600, claiming \$500 is better.
+
+. . .
+
+But if the opponent claims \$400 or less, both \$500 and \$600 yield the same payoff (you both get the opponent's amount minus \$200). So \$500 only *weakly* dominates \$600, not strictly.
+
+## Iterated Reasoning
+
+Suppose rational players won't claim \$600. The game reduces to $\{200, 300, 400, 500\}$. Now \$500 is weakly dominated by \$400 in the reduced game, by the same argument.
+
+. . .
+
+Each round knocks out the top claim. The only Nash equilibrium is for both to claim **\$200**.
+
+## The Problem with That Prediction
+
+In experiments, most participants claim close to \$600. Average claims typically sit around \$500. Almost nobody claims \$200.
+
+. . .
+
+The step-by-step argument is valid at each stage, yet the conclusion is both worse for everyone and empirically rare.
+
+. . .
+
+This is one reason game theorists take experimental evidence seriously. Common knowledge of rationality is doing a lot of work in the iterated argument, and real players seem to stop the iteration early, or factor in that their opponents will too.
 
 ## For Next Time
 

@@ -159,9 +159,9 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>L</strong></th>
-<th style="text-align: center;"><strong>C</strong></th>
-<th style="text-align: center;"><strong>R</strong></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
 </tr>
 </thead>
 <tbody>
@@ -210,9 +210,9 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>L</strong></th>
-<th style="text-align: center;"><strong>M</strong></th>
-<th style="text-align: center;"><strong>R</strong></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">M</th>
+<th style="text-align: center;">R</th>
 </tr>
 </thead>
 <tbody>
@@ -252,9 +252,9 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>L</strong></th>
-<th style="text-align: center;"><strong>M</strong></th>
-<th style="text-align: center;"><strong>R</strong></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">M</th>
+<th style="text-align: center;">R</th>
 </tr>
 </thead>
 <tbody>
@@ -289,9 +289,9 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>L</strong></th>
-<th style="text-align: center;"><strong>M</strong></th>
-<th style="text-align: center;"><strong>R</strong></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">M</th>
+<th style="text-align: center;">R</th>
 </tr>
 </thead>
 <tbody>
@@ -447,8 +447,8 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>Hunt Stag</strong></th>
-<th style="text-align: center;"><strong>Hunt Rabbit</strong></th>
+<th style="text-align: center;">Hunt Stag</th>
+<th style="text-align: center;">Hunt Rabbit</th>
 </tr>
 </thead>
 <tbody>
@@ -475,8 +475,8 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>Hunt Stag</strong></th>
-<th style="text-align: center;"><strong>Hunt Rabbit</strong></th>
+<th style="text-align: center;">Hunt Stag</th>
+<th style="text-align: center;">Hunt Rabbit</th>
 </tr>
 </thead>
 <tbody>
@@ -508,8 +508,8 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>Hunt Stag</strong></th>
-<th style="text-align: center;"><strong>Hunt Rabbit</strong></th>
+<th style="text-align: center;">Hunt Stag</th>
+<th style="text-align: center;">Hunt Rabbit</th>
 </tr>
 </thead>
 <tbody>
@@ -597,6 +597,202 @@
 </div>
 <div class="fragment">
 <p>All three approaches study the same games but ask different questions and reach different conclusions.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Worked Examples</h1>
+
+</section>
+<section class="slide level2">
+<h2>A Location Game</h2>
+<p>A seafront promenade has seven numbered stalls (1 through 7, left to right). Two ice cream vendors choose a stall simultaneously. Beachgoers buy from the nearer vendor; ties split equally. There are 14 customers, 2 at each stall.</p>
+<div class="fragment">
+<p>Where should a rational vendor locate?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Position 4 Beats Position 1</h2>
+<p>Compare market share when you play <strong>1</strong> vs.&nbsp;<strong>4</strong>, for each possible opponent location:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Opponent at</th>
+<th style="text-align: center;">Your share at 1</th>
+<th style="text-align: center;">Your share at 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Position 4 strictly dominates position 1.</strong> By symmetry it also strictly dominates position 7.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Round 1: Delete 1 and 7</h2>
+<p>No rational vendor will play 1 or 7. The effective game shrinks to positions <span class="math inline">\(\{2, 3, 4, 5, 6\}\)</span>.</p>
+<div class="fragment">
+<p>Now apply the same reasoning within the reduced game.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Position 4 Beats Position 2 (in the Reduced Game)</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Opponent at</th>
+<th style="text-align: center;">Your share at 2</th>
+<th style="text-align: center;">Your share at 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">9</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Position 4 strictly dominates position 2</strong> in the reduced game, and by symmetry dominates position 6.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Round 2: Delete 2 and 6</h2>
+<p>The game shrinks further to <span class="math inline">\(\{3, 4, 5\}\)</span>. Apply the reasoning once more.</p>
+</section>
+<section class="slide level2">
+<h2>Position 4 Beats Position 3 (in the Reduced Game)</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Opponent at</th>
+<th style="text-align: center;">Your share at 3</th>
+<th style="text-align: center;">Your share at 4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Position 4 strictly dominates position 3</strong> in this reduced game, and by symmetry dominates position 5.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Round 3: Delete 3 and 5</h2>
+<p>Only position 4 survives. Both vendors locate at the centre.</p>
+<div class="fragment">
+<p>This generalises: on any symmetric distribution of customers, rational vendors converge on the <strong>median</strong> location. The same logic applies to political candidates, petrol stations, fast food chains, and any competitor serving a distributed market.</p>
+</div>
+<div class="fragment">
+<p>Position 4 is also the unique Nash equilibrium of this game. Neither vendor can do better by moving, given the other is at the centre.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Traveler’s Dilemma</h2>
+<p>An airline loses two passengers’ identical antiques. It asks each to independently claim a value between $200 and $600. Both receive the <em>lower</em> claim, with adjustments:</p>
+<ul>
+<li>The lower claimer gets a $200 bonus.</li>
+<li>The higher claimer gets a $200 penalty.</li>
+</ul>
+<p>Equal claims pay that amount to both.</p>
+</section>
+<section class="slide level2">
+<h2>The Case Against Claiming $600</h2>
+<p>If your opponent claims $600 and you claim $500, you receive <span class="math inline">\(500 + 200 = \$700\)</span>, beating the $600 you’d get by matching them.</p>
+<div class="fragment">
+<p>So against an opponent who claims $600, claiming $500 is better.</p>
+</div>
+<div class="fragment">
+<p>But if the opponent claims $400 or less, both $500 and $600 yield the same payoff (you both get the opponent’s amount minus $200). So $500 only <em>weakly</em> dominates $600, not strictly.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Iterated Reasoning</h2>
+<p>Suppose rational players won’t claim $600. The game reduces to <span class="math inline">\(\{200, 300, 400, 500\}\)</span>. Now $500 is weakly dominated by $400 in the reduced game, by the same argument.</p>
+<div class="fragment">
+<p>Each round knocks out the top claim. The only Nash equilibrium is for both to claim <strong>$200</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Problem with That Prediction</h2>
+<p>In experiments, most participants claim close to $600. Average claims typically sit around $500. Almost nobody claims $200.</p>
+<div class="fragment">
+<p>The step-by-step argument is valid at each stage, yet the conclusion is both worse for everyone and empirically rare.</p>
+</div>
+<div class="fragment">
+<p>This is one reason game theorists take experimental evidence seriously. Common knowledge of rationality is doing a lot of work in the iterated argument, and real players seem to stop the iteration early, or factor in that their opponents will too.</p>
 </div>
 </section>
 <section class="slide level2">

@@ -216,7 +216,11 @@
 <h2>What Should Sarah Do?</h2>
 <p>Suppose both players are <strong>selfish and greedy</strong>: they only care about their own money, and prefer more to less.</p>
 <div class="fragment">
-<p>Sarah reasons: - If Steven picks <strong>Steal</strong>, it doesn’t matter what she does. She gets nothing either way. - If Steven picks <strong>Split</strong>, she gets $50k from Split or $100k from Steal.</p>
+<p>Sarah reasons:</p>
+<ul>
+<li>If Steven picks <strong>Steal</strong>, it doesn’t matter what she does. She gets nothing either way.</li>
+<li>If Steven picks <strong>Split</strong>, she gets $50k from Split or $100k from Steal.</li>
+</ul>
 </div>
 <div class="fragment">
 <p>So: if greedy, <strong>Steal weakly dominates Split</strong>.</p>
@@ -232,7 +236,11 @@
 <p>Her ranking is: (both $50k) <span class="math inline">\(\succ\)</span> (she gets $100k) <span class="math inline">\(\succ\)</span> (Steven gets $100k) <span class="math inline">\(\succ\)</span> (both get nothing).</p>
 </div>
 <div class="fragment">
-<p>Now: - If Steven Splits: Sarah prefers Split ($50k each) over Steal ($100k for her alone). - If Steven Steals: Sarah prefers Split (at least Steven gets something) over Steal (nothing for anyone).</p>
+<p>Now:</p>
+<ul>
+<li>If Steven Splits: Sarah prefers Split ($50k each) over Steal ($100k for her alone).</li>
+<li>If Steven Steals: Sarah prefers Split (at least Steven gets something) over Steal (nothing for anyone).</li>
+</ul>
 </div>
 <div class="fragment">
 <p><strong>Split now strictly dominates Steal</strong>.</p>
@@ -245,7 +253,23 @@
 <p>This is why game theory requires us to specify preferences carefully. The numbers in a payoff table aren’t money; they’re <strong>utilities</strong>, capturing everything a player values.</p>
 </div>
 <div class="fragment">
-<p>“Selfish and greedy” is a <em>model assumption</em>, not a universal truth. Research shows many people are strongly motivated by fairness.</p>
+<p>“Selfish and greedy” is a <em>model assumption</em>, not a universal truth.</p>
+</div>
+<div class="fragment">
+<p>Many people are strongly motivated by fairness, and practically everyone has declining marginal utility for money.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Terminology</h2>
+<p>I’ve used two bits of terminology there: <strong>strictly dominates</strong> and <strong>weakly dominates</strong>.</p>
+<div class="fragment">
+<p>Option A <strong>strictly dominates</strong> Option B if it does better no matter what the other player does (or what the other players do).</p>
+</div>
+<div class="fragment">
+<p>Option B <strong>weakly dominates</strong> Option B if might do better and can’t do worse.</p>
+</div>
+<div class="fragment">
+<p>The difference is that weak dominance allows for <strong>ties</strong>. We’ll say more about these notions later.</p>
 </div>
 </section></section>
 <section>
@@ -361,7 +385,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>The PD (Prisoner’s Dilemma) Tension</h2>
+<h2>The Prisoner’s Dilemma Tension</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -384,7 +408,7 @@
 </tbody>
 </table>
 <div class="fragment">
-<p>Regardless of what Ed does, Doug does better with Extra effort: <span class="math inline">\(3 &gt; 2\)</span> and <span class="math inline">\(1 &gt; 0\)</span>.</p>
+<p>Regardless of what Ed does, Doug does better with Extra effort: <span class="math inline">\(3 &gt; 2\)</span> and <span class="math inline">\(1 &gt; 0\)</span>. And the same reasoning applies to Ed.</p>
 </div>
 <div class="fragment">
 <p>But if both choose Extra, they both get 1. This is worse than both choosing Normal (both get 2).</p>
@@ -399,10 +423,15 @@
 <h2>Strict Dominance</h2>
 <p>Strategy <span class="math inline">\(a\)</span> <strong>strictly dominates</strong> strategy <span class="math inline">\(b\)</span> for Player <span class="math inline">\(i\)</span> if <span class="math inline">\(a\)</span> gives Player <span class="math inline">\(i\)</span> a strictly <em>higher</em> payoff than <span class="math inline">\(b\)</span> in <em>every possible situation</em>, no matter what the other players do.</p>
 <div class="fragment">
-<p><strong>Formal statement</strong>: For every strategy profile of the opponents, <span class="math inline">\(\pi_i(a, s_{-i}) &gt; \pi_i(b, s_{-i})\)</span>.</p>
+<dl>
+<dt><strong>Formal statement</strong></dt>
+<dd>
+For every strategy profile of the opponents, <span class="math inline">\(\pi_i(a, s_{-i}) &gt; \pi_i(b, s_{-i})\)</span>.
+</dd>
+</dl>
 </div>
 <div class="fragment">
-<p>A rational player will never play a strictly dominated strategy.</p>
+<p>It seems plausible to say that a rational player will never play a strictly dominated strategy, though we’ll have to be careful to think about what game they’re playing if we want to check whether that’s always true.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -497,8 +526,555 @@
 <li class="fragment">But each individual is better off defecting, regardless of what others do.</li>
 </ul>
 <div class="fragment">
-<p>Examples: arms races, price competition, environmental agreements, overexploiting shared resources, doping in sport.</p>
+<p>Possible examples: arms races, price competition, environmental agreements, overexploiting shared resources, doping in sport.</p>
 </div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Example</h1>
+
+</section>
+<section class="slide level2">
+<h2>Strict and Weak Dominance</h2>
+<p>Consider the following two-player game (payoffs shown as (Player 1, Player 2)):</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>What are the dominance relations between the strategies?</p>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>U</strong> dominate <strong>M</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Column plays <strong>L</strong>, then <strong>U</strong> gets 3, <strong>M</strong> gets 1. ✓</li>
+<li class="fragment">If Column plays <strong>C</strong>, then <strong>U</strong> gets 1, <strong>M</strong> gets 2. ✗</li>
+</ul>
+</div>
+<div class="fragment">
+<p>We don’t need to check the last column; there is no dominance relation here.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>M</strong> dominate <strong>U</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Column plays <strong>L</strong>, then <strong>M</strong> gets 1, <strong>U</strong> gets 3. ✗ <strong>No dominance</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>U</strong> dominate <strong>D</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Column plays <strong>L</strong>, then <strong>U</strong> gets 3, <strong>D</strong> gets 3. =</li>
+<li class="fragment">If Column plays <strong>C</strong>, then <strong>U</strong> gets 1, <strong>D</strong> gets 1. =</li>
+<li class="fragment">If Column plays <strong>R</strong>, then <strong>U</strong> gets 2, <strong>D</strong> gets 3. ✗</li>
+</ul>
+<p><strong>No dominance</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>D</strong> dominate <strong>U</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Column plays <strong>L</strong>, then <strong>D</strong> gets 3, <strong>D</strong> gets 3. =</li>
+<li>If Column plays <strong>C</strong>, then <strong>D</strong> gets 1, <strong>D</strong> gets 1. =</li>
+<li>If Column plays <strong>R</strong>, then <strong>D</strong> gets 3, <strong>D</strong> gets 2. ✓</li>
+</ul>
+</div>
+<div class="fragment">
+<p>It’s <strong>never worse</strong> and <strong>sometimes better</strong> so <strong>weak dominance</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>M</strong> dominate <strong>D</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Column plays <strong>L</strong>, then <strong>M</strong> gets 1, <strong>D</strong> gets 3. ✗</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>No dominance</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Row</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>D</strong> dominate <strong>M</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Column plays <strong>L</strong>, then <strong>D</strong> gets 3, <strong>M</strong> gets 1. ✓</li>
+<li class="fragment">If Column plays <strong>C</strong>, then <strong>D</strong> gets 1, <strong>M</strong> gets 2. ✗</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>No dominance</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>L</strong> dominate <strong>C</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Row plays <strong>U</strong>: L gets 2, C gets 1. ✓</li>
+<li class="fragment">If Row plays <strong>M</strong>: L gets 0, C gets 2. ✗</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>No dominance</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>C</strong> dominate <strong>L</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Row plays <strong>U</strong>: C gets 1, L gets 2. ✗ <strong>No dominance</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>L</strong> dominate <strong>R</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Row plays <strong>U</strong>: L gets 2, R gets 3. ✗ <strong>No dominance</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>R</strong> dominate <strong>L</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Row plays <strong>U</strong>: R gets 3, L gets 2. ✓</li>
+<li class="fragment">If Row plays <strong>M</strong>: R gets 1, L gets 0. ✓</li>
+<li class="fragment">If Row plays <strong>D</strong>: R gets 2, L gets 1. ✓</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>R strictly dominates L</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>C</strong> dominate <strong>R</strong>?</p>
+<div class="fragment">
+<ul>
+<li>If Row plays <strong>U</strong>: C gets 1, R gets 3. ✗ <strong>No dominance</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Column</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>U</strong></td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 0)</td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(1, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>D</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(3, 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Does <strong>R</strong> dominate <strong>C</strong>?</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Row plays <strong>U</strong>: R gets 3, C gets 1. ✓</li>
+<li class="fragment">If Row plays <strong>M</strong>: R gets 1, C gets 2. ✗</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>No dominance</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>For Row: <strong>D weakly dominates U</strong>. No other dominance relations.</li>
+<li>For Column: <strong>R strictly dominates L</strong>. No other dominance relations.</li>
+</ul>
 </section>
 <section class="slide level2 scrollable">
 <h2>For Next Time</h2>

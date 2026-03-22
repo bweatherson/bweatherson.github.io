@@ -1,0 +1,323 @@
+---
+title: "The Zollman Effect"
+date: 3/30/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Models of Scientific Communities
+
+## Shifting Gears
+
+For the last few weeks we've been looking at individual decision-making: game theory, utility maximisation, signaling.
+
+. . .
+
+Now we're going to start asking a different kind of question: **what happens when rational individuals interact in groups?**
+
+. . .
+
+Specifically: can a community of individually rational scientists end up doing worse, collectively, than we'd expect?
+
+## The Social Dimension
+
+Science is social. Scientists share evidence with one another, read each other's papers, update their beliefs based on what colleagues find.
+
+. . .
+
+This seems like it should be good. More information should help people converge on the truth faster.
+
+. . .
+
+Today we'll look at a model that challenges this assumption.
+
+## The Setup
+
+Imagine a community of medical researchers working on a disease. There's a **current treatment** that is well understood and a **new treatment** that might be better.
+
+. . .
+
+Each scientist has a credence (a probability between 0 and 1) that the new treatment is superior.
+
+. . .
+
+Scientists who think the new treatment is probably better will experiment on it. Those who think the old treatment is probably better will stick with the old one.
+
+## Why This Structure?
+
+Two features of this setup matter.
+
+. . .
+
+First, scientists are **active investigators**, not passive observers. They choose what to work on based on what they currently believe.
+
+. . .
+
+Second, the old treatment is well understood, so experimenting on it generates no new information. Only experiments on the new treatment are informative.
+
+. . .
+
+If everyone stops working on the new treatment, the community stops learning about it permanently.
+
+# A Toy Example
+
+## Four Researchers
+
+Suppose four researchers, A, B, C, and D, assign the following probabilities to the new treatment being better:
+
+. . .
+
+A: 0.33, B: 0.49, C: 0.51, D: 0.66
+
+. . .
+
+A and B think the old treatment is probably better, so they work on it. C and D think the new treatment is probably better, so they test it.
+
+. . .
+
+Now suppose the new treatment really is better, but C and D both get unlucky results. Their experiments happen to suggest the new treatment is worse.
+
+## After Sharing Results
+
+C and D share their (misleading) results with A and B. Everyone updates using Bayes's rule.
+
+. . .
+
+All four scientists now have lower credences in the new treatment. Even C and D, who were mildly optimistic, now think the old treatment is better.
+
+. . .
+
+So everyone switches to the old treatment. Nobody is testing the new one anymore. And since the old treatment generates no new information, nobody will ever switch back.
+
+. . .
+
+The community has lost a better treatment forever, because of a run of bad experimental luck.
+
+## What Went Wrong
+
+The misleading evidence was a statistical fluke. With enough further experimentation, C and D would have corrected the error.
+
+. . .
+
+But because all the evidence was pooled immediately, the fluke swept through the entire group at once. There was no one left still testing the new treatment who could have generated the corrective evidence.
+
+. . .
+
+Had D been unaware of C's results, she would have kept testing. Her credence would have stayed above 0.5, and eventually the truth would have come out.
+
+# The Formal Model
+
+## Bala and Goyal (1998)
+
+The model behind this comes from two economists, Venkatesh Bala and Sanjeev Goyal.
+
+. . .
+
+There are two states of the world (the new treatment is better, or it isn't) and two actions (work on the new treatment, or stick with the old one).
+
+. . .
+
+The old treatment has a known expected payoff in both states. The new treatment has a lower expected payoff in one state and higher in the other.
+
+## How Learning Works
+
+Each round, every scientist performs an experiment on whichever treatment she currently favours.
+
+. . .
+
+She gets a payoff drawn from a distribution that depends on which state the world is actually in. Higher payoffs are more likely when you're testing the better treatment.
+
+. . .
+
+She then observes her own result **and the results of some of her neighbours**, and updates her beliefs using Bayes's rule.
+
+. . .
+
+The word "some" is doing a lot of work there. Which neighbours she can see depends on the **network structure**.
+
+## Network Structure
+
+Place the scientists on a graph. Each scientist can observe the experimental results of scientists she is directly connected to, and only those scientists.
+
+. . .
+
+Zollman (2007) compares three network structures for communities of the same size:
+
+. . .
+
+**Cycle**: scientists arranged in a circle, each seeing only her two immediate neighbours.
+
+. . .
+
+**Wheel**: like a cycle, but one scientist (the "hub") is connected to everyone else.
+
+. . .
+
+**Complete graph**: every scientist sees every other scientist's results.
+
+## The Natural Expectation
+
+The complete graph gives every scientist access to all available evidence. The cycle gives each scientist access to very little.
+
+. . .
+
+You might expect that more information is always better, and that the complete graph would outperform the cycle.
+
+. . .
+
+The opposite turns out to be true.
+
+# The Simulation Results
+
+## Reliability
+
+Zollman runs 10,000 simulations for each network type, in a world where the new treatment really is better. He then checks how often the community converges on the correct answer.
+
+. . .
+
+The **cycle** reaches the correct consensus most often. The **wheel** does somewhat worse. The **complete graph** does worst of all.
+
+. . .
+
+Communities with less information flow are more reliable.
+
+## Speed
+
+There is a trade-off, though.
+
+. . .
+
+Among the communities that do reach the right answer, the **complete graph** gets there fastest. The cycle is slowest.
+
+. . .
+
+So the community with the most communication is fastest but least reliable. The one with the least communication is slowest but most reliable.
+
+## Why Less Communication Helps
+
+The mechanism is the one we saw in the toy example, but it generalises.
+
+. . .
+
+In the complete graph, a streak of bad luck from one scientist's experiments spreads immediately to everyone. If the unlucky results push enough scientists below 0.5, the whole community abandons the new treatment at once.
+
+. . .
+
+In the cycle, bad results stay local. They might convince a few nearby scientists to stop testing, but scientists on the other side of the cycle never see those results. They keep testing, and eventually their data corrects the error.
+
+## Inertia
+
+Sparsely connected networks have more "inertia" in two senses.
+
+. . .
+
+First, fewer scientists change their behaviour after any single round of results, because fewer scientists are exposed to any given piece of evidence.
+
+. . .
+
+Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there's only one scientist left testing the new approach, she's seeing negative results from everyone else. In a cycle, she's only seeing results from two neighbours.
+
+## Preserving Diversity
+
+The key insight is about **diversity of practice**. A well-functioning scientific community needs some scientists testing each option, at least until the evidence becomes overwhelming.
+
+. . .
+
+In less connected networks, misleading evidence stays contained in one part of the community while other parts continue exploring. This preserves the diversity of approaches long enough for the truth to emerge.
+
+. . .
+
+In highly connected networks, everyone reacts to the same evidence simultaneously, so the community can swing together in the wrong direction.
+
+# The Speed-Accuracy Trade-Off
+
+## A Robust Finding
+
+Zollman checks all 112 distinct networks of six scientists. Across all of them, the relationship holds: networks that are more accurate tend to be slower, and networks that are faster tend to be less accurate.
+
+. . .
+
+The five most accurate networks are all minimally connected (you can't remove an edge without splitting the graph in two). The five fastest are all close to complete graphs.
+
+## When Does This Matter?
+
+The trade-off isn't always a problem.
+
+. . .
+
+If you're confident the community is close to the truth already, more communication is fine. The risk of a misleading streak overwhelming everyone is low, and you benefit from the speed.
+
+. . .
+
+If the stakes of getting the wrong answer are high and you want to make sure the community gets it right, less communication is better. You sacrifice speed for reliability.
+
+. . .
+
+Whether speed or accuracy matters more depends on the specific case.
+
+# Implications
+
+## The Zollman Effect
+
+The finding that less communication can improve collective outcomes in epistemic communities has come to be called the **Zollman effect**.
+
+. . .
+
+It shows up beyond the Bala-Goyal model. Similar results appear in models where agents search for the best option among several possibilities: too much connectivity leads the group to settle on the first good option found, rather than exploring to find a better one.
+
+## For Scientific Practice
+
+Zollman connects this to the history of peptic ulcer disease. For decades, the medical community believed ulcers were caused by excess stomach acid. A competing theory held that they were caused by a bacterium.
+
+. . .
+
+One prominent paper finding no bacteria in human stomachs was enough to push the field away from the bacterial theory. The acid theory dominated for almost fifty years before the bacterial theory was vindicated.
+
+. . .
+
+If parts of the community had been less aware of that one paper, some researchers might have kept testing the bacterial hypothesis, and the field might have converged on the correct answer sooner.
+
+## What About Stubbornness?
+
+There's a related result from Zollman (2010) and others.
+
+. . .
+
+If scientists are somewhat stubborn, in the sense that they don't update their beliefs too quickly in response to new evidence, communities also tend to do better.
+
+. . .
+
+The mechanism is similar: stubbornness, like limited communication, preserves diversity of practice. It prevents the whole community from swinging together after a run of misleading data.
+
+## A Caveat
+
+Rosenstock et al. (2017) push back on this. They point out that decreasing communication only helps when the problem is hard, when the available data don't settle the question easily.
+
+. . .
+
+When the evidence is strong and clear, more communication is better. Scientists converge faster and nobody is misled.
+
+. . .
+
+The Zollman effect is at its strongest when the signal in the data is weak relative to the noise.
+
+## The Independence Thesis
+
+Mayo-Wilson, Zollman, and Danks (2011) draw a broader lesson. They argue that what's rational for an **individual** scientist and what's rational for a **community** of scientists can come apart.
+
+. . .
+
+A community might do better when its members have traits that look irrational at the individual level: stubbornness, limited information-seeking, confirmation bias.
+
+. . .
+
+This doesn't mean individual irrationality is good. It means that designing good scientific institutions requires thinking about group-level outcomes, not just individual epistemic virtues.
+
+## For Next Time
+
+We'll continue looking at models of scientific communities, including what happens when communication networks lead to polarisation rather than consensus.
+
+. . .
+
+Read O'Connor, Chapter 4, sections 4.2 and 4.3.

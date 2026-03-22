@@ -217,7 +217,7 @@ Mixed strategy equilibria are especially relevant when:
 
 Two firms simultaneously choose whether to adopt **Standard A** or **Standard B** for a new product. Each prefers that the other adopts the same standard (compatibility is valuable), but Firm 1 has a slight preference for A and Firm 2 for B.
 
-|                | **Firm 2: A** | **Firm 2: B** |
+|                | Firm 2: A | Firm 2: B |
 |---------------:|:-------------:|:-------------:|
 | **Firm 1: A**  | (3, 2)        | (0, 0)        |
 | **Firm 1: B**  | (0, 0)        | (2, 3)        |
