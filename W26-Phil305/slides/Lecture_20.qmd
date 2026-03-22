@@ -66,6 +66,7 @@ Suppose both players are **selfish and greedy**: they only care about their own 
 . . .
 
 Sarah reasons:
+
 - If Steven picks **Steal**, it doesn't matter what she does. She gets nothing either way.
 - If Steven picks **Split**, she gets \$50k from Split or \$100k from Steal.
 
@@ -88,6 +89,7 @@ Her ranking is: (both \$50k) $\succ$ (she gets \$100k) $\succ$ (Steven gets \$10
 . . .
 
 Now:
+
 - If Steven Splits: Sarah prefers Split (\$50k each) over Steal (\$100k for her alone).
 - If Steven Steals: Sarah prefers Split (at least Steven gets something) over Steal (nothing for anyone).
 
@@ -105,7 +107,28 @@ This is why game theory requires us to specify preferences carefully. The number
 
 . . .
 
-"Selfish and greedy" is a *model assumption*, not a universal truth. Research shows many people are strongly motivated by fairness.
+"Selfish and greedy" is a *model assumption*, not a universal truth. 
+
+. . .
+
+Many people are strongly motivated by fairness, and practically everyone has declining marginal utility for money.
+
+## Terminology
+
+I've used two bits of terminology there: **strictly dominates** and **weakly dominates**.
+
+. . .
+
+Option A **strictly dominates** Option B if it does better no matter what the other player does (or what the other players do).
+
+. . .
+
+Option B **weakly dominates** Option B if might do better and can't do worse.
+
+. . .
+
+The difference is that weak dominance allows for **ties**. We'll say more about these notions later.
+
 
 # Representing Games
 
@@ -174,7 +197,7 @@ Two co-workers, Doug and Ed, are competing for a prize. Each can put in Normal o
 
 Each would rather get the prize (at cost of family time) than have the other get it. Extra effort is the only way to secure it.
 
-## The PD (Prisoner's Dilemma) Tension
+## The Prisoner's Dilemma Tension
 
 |                     | Ed: Normal | Ed: Extra |
 |--------------------:|:----------:|:---------:|
@@ -183,7 +206,7 @@ Each would rather get the prize (at cost of family time) than have the other get
 
 . . .
 
-Regardless of what Ed does, Doug does better with Extra effort: $3 > 2$ and $1 > 0$.
+Regardless of what Ed does, Doug does better with Extra effort: $3 > 2$ and $1 > 0$. And the same reasoning applies to Ed.
 
 . . .
 
@@ -197,11 +220,12 @@ Strategy $a$ **strictly dominates** strategy $b$ for Player $i$ if $a$ gives Pla
 
 . . .
 
-**Formal statement**: For every strategy profile of the opponents, $\pi_i(a, s_{-i}) > \pi_i(b, s_{-i})$.
+**Formal statement**
+:    For every strategy profile of the opponents, $\pi_i(a, s_{-i}) > \pi_i(b, s_{-i})$.
 
 . . .
 
-A rational player will never play a strictly dominated strategy.
+It seems plausible to say that a rational player will never play a strictly dominated strategy, though we'll have to be careful to think about what game they're playing if we want to check whether that's always true.
 
 ## Strict Dominance in the PD
 
@@ -291,7 +315,140 @@ The PD structure models any situation where:
 
 . . .
 
-Examples: arms races, price competition, environmental agreements, overexploiting shared resources, doping in sport.
+Possible examples: arms races, price competition, environmental agreements, overexploiting shared resources, doping in sport.
+
+# Example
+
+## Strict and Weak Dominance
+
+Consider the following two-player game (payoffs shown as (Player 1, Player 2)):
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+What are the dominance relations between the strategies?
+
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **U** dominate **M**?
+
+. . .
+
+::: {.incremental}
+- If Column plays **L**, then **U** gets 3, **M** gets 1. ✓
+- If Column plays **C**, then **U** gets 1, **M** gets 2. ✗
+:::
+
+. . .
+
+We don't need to check the last column; there is no dominance relation here.
+
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **M** dominate **U**?
+
+. . .
+
+- If Column plays **L**, then **M** gets 1, **U** gets 3. ✗ **No dominance**
+  
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **U** dominate **D**?
+
+. . .
+
+::: {.incremental}
+- If Column plays **L**, then **U** gets 3, **D** gets 3. =
+- If Column plays **C**, then **U** gets 1, **D** gets 1. =
+- If Column plays **R**, then **U** gets 2, **D** gets 3. ✗
+:::
+
+**No dominance**
+
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **D** dominate **U**?
+
+. . .
+
+- If Column plays **L**, then **D** gets 3, **D** gets 3. =
+- If Column plays **C**, then **D** gets 1, **D** gets 1. =
+- If Column plays **R**, then **D** gets 3, **D** gets 2. ✓
+
+It's **never worse** and **sometimes better** so **weak dominance**.
+
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **M** dominate **D**?
+
+. . .
+
+- If Column plays **L**, then **M** gets 1, **D** gets 3. ✗
+
+. . .
+
+**No dominance**
+
+## Row
+
+|       | **L**  | **C**  | **R**  |
+|------:|:------:|:------:|:------:|
+| **U** | (3, 2) | (1, 1) | (2, 3) |
+| **M** | (1, 0) | (2, 2) | (1, 1) |
+| **D** | (3, 1) | (1, 3) | (3, 2) |
+
+Does **D** dominate **M**?
+
+. . .
+
+::: {.incremental}
+- If Column plays **L**, then **U** gets 3, **M** gets 1. ✓
+- If Column plays **C**, then **U** gets 1, **M** gets 2. ✗
+:::
+
+. . .
+
+**No dominance**
+
+## Summary
+
+- **D** weakly dominates **U**.
+- No other dominance relations
+
+
 
 ## For Next Time
 
