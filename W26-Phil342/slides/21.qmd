@@ -1,0 +1,255 @@
+---
+title: "Is Less Really More?"
+date: 4/1/2026
+format:
+    revealjs: default
+    beamer: default
+---
+
+# Recap
+
+## Where We Left Off
+
+Last time we introduced the Zollman effect: in network models of scientific communities, less connected networks reach the correct consensus more often than highly connected ones.
+
+. . .
+
+The trade-off is speed. Connected networks converge faster but are more likely to converge on the wrong answer.
+
+. . .
+
+Today we ask two questions. First, how robust is this result? Second, what happens when diversity of belief goes wrong?
+
+# How Robust Is the Zollman Effect?
+
+## The Worry
+
+The Zollman effect was demonstrated with specific parameter choices. Zollman set the success rate of the better action at 0.501 (barely better than the known action at 0.5), used networks of 3-10 agents, and had each agent run 1,000 trials per round.
+
+. . .
+
+If the result only holds for those specific settings, that limits what we can learn from it about real scientific communities.
+
+## Rosenstock, Bruner, and O'Connor (2017)
+
+Rosenstock et al. replicate Zollman's simulations across a much wider range of parameters. They vary the success rate of the better action, the number of trials per round, and the population size.
+
+. . .
+
+Their central finding: the Zollman effect occupies a small region of the parameter space. As soon as you make the better action even slightly more distinguishable from the worse one, the effect shrinks or disappears.
+
+## Success Rates
+
+In Zollman's original setup, the better action succeeds with probability 0.501 and the known action succeeds with probability 0.5. That gap of 0.001 is tiny.
+
+. . .
+
+When Rosenstock et al. widen this gap even a little, the difference between cycle and complete graph convergence rates drops below 2%. By the time the better action succeeds with probability 0.525, the effect is gone.
+
+. . .
+
+Both network types converge to the correct answer at very high rates once the signal is even moderately strong.
+
+## Trials Per Round
+
+Zollman uses *n* = 1,000 trials per round (each agent performs 1,000 experiments before updating). Rosenstock et al. also vary this.
+
+. . .
+
+Decreasing *n* makes each round's data noisier and **increases** the Zollman effect. With fewer trials, misleading streaks are more common, and network structure matters more.
+
+. . .
+
+Increasing *n* makes the data more reliable each round and reduces the effect. With enough data per round, agents can tell the actions apart quickly regardless of network structure.
+
+## Population Size
+
+The Zollman effect is strongest for small networks and weakens as networks grow.
+
+. . .
+
+For a population of 100, the convergence rate for the complete graph is 99.12%, versus 100% for the cycle. The difference is less than 1%.
+
+. . .
+
+But the speed difference is **enormous**: the complete graph converges in about 20 rounds on average, the cycle in about 1,977.
+
+## The Upshot
+
+The Zollman effect is real, but it lives in a corner of the parameter space where learning is hard: the two options are almost indistinguishable, populations are small, and data are sparse.
+
+. . .
+
+When learning is easy (clear signal, large populations, lots of data), network structure has little effect on accuracy. Decreased connectivity just slows things down.
+
+## What Does This Mean for Real Science?
+
+Rosenstock et al. argue this should make us cautious about drawing policy conclusions from the Zollman effect.
+
+. . .
+
+We don't know where real scientific communities sit in the parameter space. If most real cases involve problems where the evidence is reasonably clear, the Zollman effect won't apply. If real science often faces genuinely hard discrimination problems with sparse data, it might.
+
+. . .
+
+The models are best understood as "how-possibly" explanations: they show that a phenomenon *can* occur, not that it *does* occur in any specific case.
+
+## Models as How-Possibly Explanations
+
+This raises a methodological point about these network models in general.
+
+. . .
+
+A how-possibly explanation shows that some surprising outcome can arise under certain conditions. It directs our attention to something we might not have considered.
+
+. . .
+
+A how-possibly explanation gains credibility when the phenomenon it describes is robust across different model specifications. When it is sensitive to parameter choices, we should be more cautious about applying it.
+
+## Other Mechanisms
+
+Rosenstock et al. also point out that there are alternative ways to preserve diversity of practice that don't require restricting communication.
+
+. . .
+
+Agents who are somewhat stubborn (slow to update) avoid premature convergence on poor theories, even with full communication. Higher standards for the amount of data needed to confirm or reject a theory also help.
+
+. . .
+
+These alternatives may be easier to implement in practice than restructuring communication networks.
+
+# When Diversity Goes Wrong
+
+## Too Much Diversity
+
+So far we've focused on cases where diversity of belief is beneficial: it keeps the community exploring different options long enough to find the best one.
+
+. . .
+
+But diversity can persist too long. When a scientific community fails to converge on a correct theory even after enough evidence has accumulated, something has gone wrong.
+
+. . .
+
+This is the problem of **scientific polarization**.
+
+## What Is Scientific Polarization?
+
+Polarization occurs when a community splits into camps that hold opposing views on a factual question, and the disagreement persists despite both sides having access to relevant evidence.
+
+. . .
+
+You might think this shouldn't happen among rational agents who share evidence. If everyone is updating on the same data using Bayes's rule, they should converge.
+
+. . .
+
+Several network models show that it can happen anyway.
+
+## Conformity and Polarization
+
+Weatherall and O'Connor (2021) show that conformity can produce polarization. In their model, agents prefer to pick the action they think is best, but they also prefer to match what their neighbours are doing.
+
+. . .
+
+When this preference for conformity is strong enough, cliques form. Each clique settles on a different theory and its members reinforce each other's beliefs. The cliques stop updating on evidence from the other camp.
+
+. . .
+
+Once this happens, even good evidence can't bridge the gap.
+
+## Trust and Mistrust
+
+O'Connor and Weatherall (2018) explore a related mechanism. In their model, agents weight evidence differently depending on whether it comes from someone who agrees with them.
+
+. . .
+
+If you trust evidence from people who share your view more than evidence from people who disagree, subgroups can form that support different theories. Each group updates mainly on evidence from its own members. Over time, the groups drift apart rather than converging.
+
+. . .
+
+O'Connor and Weatherall point to chronic Lyme disease research as a case where this pattern may be at work. Two camps of researchers are polarized and highly distrustful of each other, despite shared interest in treating patients.
+
+## The Dark Side of Stubbornness
+
+Recall that moderate stubbornness (slow updating) can benefit a community by preserving transient diversity.
+
+. . .
+
+But Zollman (2010) and Gabriel and O'Connor (2023) show that high levels of stubbornness, or strong confirmation bias, can lead to permanent polarization. If agents are so resistant to changing their minds that they never converge, the community fragments.
+
+. . .
+
+The same trait that helps at moderate levels becomes harmful when taken too far. The boundary between beneficial diversity and harmful polarization is not always clear in advance.
+
+# Industry and Manipulation
+
+## Bad Actors in the Network
+
+The models so far assume all agents are epistemically motivated: they want to find the truth. Real scientific communities also interact with agents who have other goals.
+
+. . .
+
+Industry actors may want to promote a particular theory (or suppress one) for commercial reasons, regardless of the evidence.
+
+## The Holman and Bruner Model
+
+Holman and Bruner (2015) add an industry agent to a network model. This agent persistently shares data that push toward a favoured theory, which may be the worse one.
+
+. . .
+
+The industry agent doesn't need to corrupt individual scientists. And it doesn't need to **lie**. It just funds scientists who use methods that happen to produce results it likes, and shares those results widely.
+
+. . .
+
+The result is that the network can be pushed toward consensus on the wrong theory, even though every individual scientist is updating rationally on the evidence available to her.
+
+## Weatherall, O'Connor, and Bruner (2020)
+
+This model looks at the interaction between scientists, industry, and policymakers. An industry actor selectively shares evidence from the scientific community with policymakers.
+
+. . .
+
+Even if all the evidence is real and unbiased, cherry-picking which studies to highlight can confound policymakers. The studies chosen may be real but unrepresentative.
+
+. . .
+
+The authors argue this supports requiring large sample sizes and high evidential standards, since those make cherry-picking harder.
+
+## Proprietary Research
+
+Wu (2023) models a situation where industrial scientists can see all academic research, but don't share their own results.
+
+. . .
+
+This asymmetry benefits the industrial group. Academic researchers spend more time exploring suboptimal avenues (generating useful diversity), while industrial researchers exploit that knowledge without contributing back.
+
+. . .
+
+This is a case where the structure of information flow favours one group at the expense of another, and perhaps at the expense of the overall research community.
+
+# Big Picture
+
+## What These Models Show
+
+Network models of scientific communities reveal that group-level outcomes can diverge from what you'd expect by looking at individual rationality alone.
+
+. . .
+
+Communication structure, stubbornness, conformity, trust, and outside interference all shape how well a community learns. Some of these effects are counterintuitive, and some are sensitive to parameter choices.
+
+## Lessons for Scientific Policy
+
+A few themes run through this literature.
+
+. . .
+
+First, transient diversity of practice is valuable, and there are many mechanisms (limited communication, stubbornness, grants, demographic diversity) that can promote it. Second, that same diversity becomes harmful if it persists as permanent polarization. Third, external actors can manipulate networks of rational agents by controlling information flow.
+
+. . .
+
+The challenge for scientific institutions is to support enough diversity to avoid premature convergence, without so much that communities fragment or get manipulated.
+
+## For Next Time
+
+We'll go to an earlier part of O'Connor's book, chapter 2, to look at the distinctive role that **credit** plays in science as we find it.
+
+And the big organising question will be whether there is a good justification for giving credit such a central role.

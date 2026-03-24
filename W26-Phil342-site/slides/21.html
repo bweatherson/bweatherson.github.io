@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
-  <meta name="dcterms.date" content="2026-03-30">
-  <title>The Zollman Effect</title>
+  <meta name="dcterms.date" content="2026-04-01">
+  <title>Is Less Really More?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -129,383 +129,239 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">The Zollman Effect</h1>
+  <h1 class="title">Is Less Really More?</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-03-30</p>
+  <p class="date">2026-04-01</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Models of Scientific Communities</h1>
+<h1>Recap</h1>
 
 </section>
-<section class="slide level2 scrollable">
-<h2>Models of Scientific Communities</h2>
-<p>The plan for the rest of term is to look at formal models of scientific communities.</p>
-<div class="fragment">
-<p>Really our priority is looking at the spread of knowledge across any community. But looking at <strong>scientific</strong> communities in particular is useful for two reasons.</p>
-<ol type="1">
-<li class="fragment">It’s arguable that they are models for everyone. Maybe, as the psychologist Alison Gopnik argues, we’re all scientists from a very <em>very</em> young age.</li>
-<li class="fragment">For scientists, it’s conceptually easy to separate out the decisions of (a) what to study and (b) what to believe about different areas of study.</li>
-</ol>
-</div>
-</section>
 <section class="slide level2">
-<h2>The Social Dimension</h2>
-<p>Science is social. Scientists share evidence with one another, read each other’s papers, update their beliefs and practices based on what colleagues find.</p>
+<h2>Where We Left Off</h2>
+<p>Last time we introduced the Zollman effect: in network models of scientific communities, less connected networks reach the correct consensus more often than highly connected ones.</p>
 <div class="fragment">
-<p>This seems like it should be good. More information should help people converge on the truth faster.</p>
+<p>The trade-off is speed. Connected networks converge faster but are more likely to converge on the wrong answer.</p>
 </div>
 <div class="fragment">
-<p>Today we’ll look at a model that challenges this assumption.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Two Questions</h2>
-<p><strong>Question 1</strong>: Is it always better for the scientific enterprise to have information shared as widely as possible.</p>
-<div class="fragment">
-<p>We’ll look at a mathematical model that suggests the answer is <strong>no</strong>.</p>
-</div>
-<div class="fragment">
-<p><strong>Question 2</strong>: Is it good for scientists to be as rational as possible?</p>
-</div>
-<div class="fragment">
-<p>Again, in special circumstances, it seems the answer might be <strong>no</strong>. Having some <strong>irrationally stubborn</strong> people in the community might be good for the health of the community.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Setting up the Model</h2>
-<p>Imagine a community of medical researchers working on a disease. There’s a <strong>current treatment</strong> that is well understood and a <strong>new treatment</strong> that might be better.</p>
-<div class="fragment">
-<p>Each scientist has a credence (a probability between 0 and 1) that the new treatment is superior.</p>
-</div>
-<div class="fragment">
-<p>Scientists who think the new treatment is probably better will experiment on it. Those who think the old treatment is probably better will stick with the old one.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Why This Structure?</h2>
-<p>Two features of this setup matter.</p>
-<div class="fragment">
-<p>First, scientists are <strong>active investigators</strong>, not passive observers. They choose what to work on based on what they currently believe.</p>
-</div>
-<div class="fragment">
-<p>Second, the old treatment is well understood, so experimenting on it generates no new information. Only experiments on the new treatment are informative.</p>
-</div>
-<div class="fragment">
-<p>If everyone stops working on the new treatment, the community stops learning about it permanently.</p>
+<p>Today we ask two questions. First, how robust is this result? Second, what happens when diversity of belief goes wrong?</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>A Toy Example</h1>
+<h1>How Robust Is the Zollman Effect?</h1>
 
 </section>
 <section class="slide level2">
-<h2>Four Researchers</h2>
-<p>Suppose four researchers, A, B, C, and D, assign the following probabilities to the new treatment being better:</p>
+<h2>The Worry</h2>
+<p>The Zollman effect was demonstrated with specific parameter choices. Zollman set the success rate of the better action at 0.501 (barely better than the known action at 0.5), used networks of 3-10 agents, and had each agent run 1,000 trials per round.</p>
 <div class="fragment">
-<p>A: 0.33, B: 0.49, C: 0.51, D: 0.66</p>
-</div>
-<div class="fragment">
-<p>A and B think the old treatment is probably better, so they work on it. C and D think the new treatment is probably better, so they test it.</p>
-</div>
-<div class="fragment">
-<p>Now suppose the new treatment really is better, but C and D both get unlucky results. Their experiments happen to suggest the new treatment is worse.</p>
+<p>If the result only holds for those specific settings, that limits what we can learn from it about real scientific communities.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>After Sharing Results</h2>
-<p>C and D share their (misleading) results with A and B. Everyone updates using Bayes’s rule.</p>
+<h2>Rosenstock, Bruner, and O’Connor (2017)</h2>
+<p>Rosenstock et al.&nbsp;replicate Zollman’s simulations across a much wider range of parameters. They vary the success rate of the better action, the number of trials per round, and the population size.</p>
 <div class="fragment">
-<p>All four scientists now have lower credences in the new treatment. Even C and D, who were mildly optimistic, now think the old treatment is better.</p>
-</div>
-<div class="fragment">
-<p>So everyone switches to the old treatment. Nobody is testing the new one anymore. And since the old treatment generates no new information, nobody will ever switch back.</p>
-</div>
-<div class="fragment">
-<p>The community has lost a better treatment forever, because of a run of bad experimental luck.</p>
+<p>Their central finding: the Zollman effect occupies a small region of the parameter space. As soon as you make the better action even slightly more distinguishable from the worse one, the effect shrinks or disappears.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>What Went Wrong</h2>
-<p>The misleading evidence was a statistical fluke. With enough further experimentation, C and D would have corrected the error.</p>
+<h2>Success Rates</h2>
+<p>In Zollman’s original setup, the better action succeeds with probability 0.501 and the known action succeeds with probability 0.5. That gap of 0.001 is tiny.</p>
 <div class="fragment">
-<p>But because all the evidence was pooled immediately, the fluke swept through the entire group at once. There was no one left still testing the new treatment who could have generated the corrective evidence.</p>
+<p>When Rosenstock et al.&nbsp;widen this gap even a little, the difference between cycle and complete graph convergence rates drops below 2%. By the time the better action succeeds with probability 0.525, the effect is gone.</p>
 </div>
 <div class="fragment">
-<p>Had D been unaware of C’s results, she would have kept testing. Her credence would have stayed above 0.5, and eventually the truth would have come out.</p>
-</div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Two Questions for You</h2>
-<ol type="1">
-<li class="fragment">Is this at all realistic?</li>
-<li class="fragment">If so, can you think of real-life cases that might look like this?</li>
-</ol>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>The Formal Model</h1>
-
-</section>
-<section class="slide level2">
-<h2>Bala and Goyal (1998)</h2>
-<p>The model behind this comes from two economists, Venkatesh Bala and Sanjeev Goyal.</p>
-<div class="fragment">
-<p>There are two states of the world (the new treatment is better, or it isn’t) and two actions (work on the new treatment, or stick with the old one).</p>
-</div>
-<div class="fragment">
-<p>The old treatment has a known expected payoff in both states. The new treatment has a lower expected payoff in one state and higher in the other.</p>
+<p>Both network types converge to the correct answer at very high rates once the signal is even moderately strong.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Bandit Problems</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/slot.jpeg" style="height:60.0%"></p>
-<figcaption>Woman playing slot machine</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:60%;">
-<p>The structure here is similar to what have become known as <strong>multi-arm bandit</strong> problems.</p>
-<p>Imagine a slot-machine, like the one pictured, with a choice of arms, each with different payoff probabilities.</p>
-</div></div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Bandit Problems</h2>
-<p>These problems typically have the following characteristics.</p>
-<ol type="1">
-<li class="fragment">The payoffs are simple; often either just win or lose on each round.</li>
-<li class="fragment">Each arm has a different probability of winning.</li>
-<li class="fragment">The players have a rational prior probability of what each of those probabilities are.</li>
-<li class="fragment">Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but how any arm has drifted.</li>
-<li class="fragment">If the player chooses an option, they observe whether they win or lose, but not whether they would have won/lost if they’d chosen another option.</li>
-</ol>
-</section>
-<section class="slide level2 scrollable">
-<h2>Bandit Problems</h2>
-<p>Three somewhat interesting facts (or at least interesting to me) about these problems.</p>
-<ol type="1">
-<li class="fragment">They typically have no known <strong>solution</strong>, in the sense that a mathematician can look at the rules of the game and tell you what the optimal strategy is.</li>
-<li class="fragment">In practice, what we find by trial and error is that the best strategy is wide exploration at first, followed by settling on a favored option, but still occasionally exploring other options.</li>
-<li class="fragment">There are a lot of real life situations that feel like they have this structure - think about choosing a coffee shop or a route for walking home.</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Scientific Application</h2>
-<p>They are relevant to science is a straightforward way.</p>
-<ul>
-<li class="fragment">Experiments are difficult, and cost time and money.</li>
-<li class="fragment">You don’t know what you would have got from doing some other experiment.</li>
-<li class="fragment">It’s possible that always doing the experiment with the high expected value, like always choosing the arm with the highest win probability, is <strong>not</strong> the optimal long-run strategy.</li>
-</ul>
-</section>
-<section class="slide level2">
-<h2>Back to the Model</h2>
-<p>Each round, every scientist performs an experiment on whichever treatment she currently favours. In bandit terms, scientists always <strong>exploit</strong> rather than <strong>explore</strong>.</p>
+<h2>Trials Per Round</h2>
+<p>Zollman uses <em>n</em> = 1,000 trials per round (each agent performs 1,000 experiments before updating). Rosenstock et al.&nbsp;also vary this.</p>
 <div class="fragment">
-<p>She gets a payoff drawn from a distribution that depends on which state the world is actually in. Higher payoffs are more likely when you’re testing the better treatment.</p>
+<p>Decreasing <em>n</em> makes each round’s data noisier and <strong>increases</strong> the Zollman effect. With fewer trials, misleading streaks are more common, and network structure matters more.</p>
 </div>
 <div class="fragment">
-<p>She then observes her own result <strong>and the results of some of her neighbours</strong>, and updates her beliefs using Bayes’s rule.</p>
-</div>
-<div class="fragment">
-<p>The word “some” is doing a lot of work there. Which neighbours she can see depends on the <strong>network structure</strong>.</p>
+<p>Increasing <em>n</em> makes the data more reliable each round and reduces the effect. With enough data per round, agents can tell the actions apart quickly regardless of network structure.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Network Structure</h2>
-<p>Place the scientists on a graph. Each scientist can observe the experimental results of scientists she is directly connected to, and only those scientists.</p>
+<h2>Population Size</h2>
+<p>The Zollman effect is strongest for small networks and weakens as networks grow.</p>
 <div class="fragment">
-<p>Zollman (2007) compares three network structures for communities of the same size:</p>
+<p>For a population of 100, the convergence rate for the complete graph is 99.12%, versus 100% for the cycle. The difference is less than 1%.</p>
 </div>
 <div class="fragment">
-<p><strong>Cycle</strong>: scientists arranged in a circle, each seeing only her two immediate neighbours.</p>
-</div>
-<div class="fragment">
-<p><strong>Wheel</strong>: like a cycle, but one scientist (the “hub”) is connected to everyone else.</p>
-</div>
-<div class="fragment">
-<p><strong>Complete graph</strong>: every scientist sees every other scientist’s results.</p>
+<p>But the speed difference is <strong>enormous</strong>: the complete graph converges in about 20 rounds on average, the cycle in about 1,977.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>The Natural Expectation</h2>
-<p>The complete graph gives every scientist access to all available evidence. The cycle gives each scientist access to very little.</p>
+<h2>The Upshot</h2>
+<p>The Zollman effect is real, but it lives in a corner of the parameter space where learning is hard: the two options are almost indistinguishable, populations are small, and data are sparse.</p>
 <div class="fragment">
-<p>You might expect that more information is always better, and that the complete graph would outperform the cycle.</p>
+<p>When learning is easy (clear signal, large populations, lots of data), network structure has little effect on accuracy. Decreased connectivity just slows things down.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What Does This Mean for Real Science?</h2>
+<p>Rosenstock et al.&nbsp;argue this should make us cautious about drawing policy conclusions from the Zollman effect.</p>
+<div class="fragment">
+<p>We don’t know where real scientific communities sit in the parameter space. If most real cases involve problems where the evidence is reasonably clear, the Zollman effect won’t apply. If real science often faces genuinely hard discrimination problems with sparse data, it might.</p>
 </div>
 <div class="fragment">
-<p>The opposite turns out to be true.</p>
+<p>The models are best understood as “how-possibly” explanations: they show that a phenomenon <em>can</em> occur, not that it <em>does</em> occur in any specific case.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Models as How-Possibly Explanations</h2>
+<p>This raises a methodological point about these network models in general.</p>
+<div class="fragment">
+<p>A how-possibly explanation shows that some surprising outcome can arise under certain conditions. It directs our attention to something we might not have considered.</p>
+</div>
+<div class="fragment">
+<p>A how-possibly explanation gains credibility when the phenomenon it describes is robust across different model specifications. When it is sensitive to parameter choices, we should be more cautious about applying it.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Other Mechanisms</h2>
+<p>Rosenstock et al.&nbsp;also point out that there are alternative ways to preserve diversity of practice that don’t require restricting communication.</p>
+<div class="fragment">
+<p>Agents who are somewhat stubborn (slow to update) avoid premature convergence on poor theories, even with full communication. Higher standards for the amount of data needed to confirm or reject a theory also help.</p>
+</div>
+<div class="fragment">
+<p>These alternatives may be easier to implement in practice than restructuring communication networks.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The Simulation Results</h1>
+<h1>When Diversity Goes Wrong</h1>
 
 </section>
 <section class="slide level2">
-<h2>Reliability</h2>
-<p>Zollman runs 10,000 simulations for each network type, in a world where the new treatment really is better. He then checks how often the community converges on the correct answer.</p>
+<h2>Too Much Diversity</h2>
+<p>So far we’ve focused on cases where diversity of belief is beneficial: it keeps the community exploring different options long enough to find the best one.</p>
 <div class="fragment">
-<p>The <strong>cycle</strong> reaches the correct consensus most often. The <strong>wheel</strong> does somewhat worse. The <strong>complete graph</strong> does worst of all.</p>
+<p>But diversity can persist too long. When a scientific community fails to converge on a correct theory even after enough evidence has accumulated, something has gone wrong.</p>
 </div>
 <div class="fragment">
-<p>Communities with less information flow are more reliable.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Speed</h2>
-<p>There is a trade-off, though.</p>
-<div class="fragment">
-<p>Among the communities that do reach the right answer, the <strong>complete graph</strong> gets there fastest. The cycle is slowest.</p>
-</div>
-<div class="fragment">
-<p>So the community with the most communication is fastest but least reliable. The one with the least communication is slowest but most reliable.</p>
+<p>This is the problem of <strong>scientific polarization</strong>.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Why Less Communication Helps</h2>
-<p>The mechanism is the one we saw in the toy example with A, B, C and D, but it generalises.</p>
+<h2>What Is Scientific Polarization?</h2>
+<p>Polarization occurs when a community splits into camps that hold opposing views on a factual question, and the disagreement persists despite both sides having access to relevant evidence.</p>
 <div class="fragment">
-<p>In the complete graph, a streak of bad luck from one scientist’s experiments spreads immediately to everyone. If the unlucky results push enough scientists below 0.5, the whole community abandons the new treatment at once.</p>
+<p>You might think this shouldn’t happen among rational agents who share evidence. If everyone is updating on the same data using Bayes’s rule, they should converge.</p>
 </div>
 <div class="fragment">
-<p>In the cycle, bad results stay local. They might convince a few nearby scientists to stop testing, but scientists on the other side of the cycle never see those results. They keep testing, and eventually their data corrects the error.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Inertia</h2>
-<p>Sparsely connected networks have more “inertia” in two senses.</p>
-<div class="fragment">
-<p>First, fewer scientists change their behaviour after any single round of results, because fewer scientists are exposed to any given piece of evidence.</p>
-</div>
-<div class="fragment">
-<p>Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there’s only one scientist left testing the new approach, she’s seeing negative results from everyone else. In a cycle, she’s only seeing results from two neighbours.</p>
+<p>Several network models show that it can happen anyway.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Preserving Diversity</h2>
-<p>The key insight is about <strong>diversity of practice</strong>. A well-functioning scientific community needs some scientists testing each option, at least until the evidence becomes overwhelming.</p>
+<h2>Conformity and Polarization</h2>
+<p>Weatherall and O’Connor (2021) show that conformity can produce polarization. In their model, agents prefer to pick the action they think is best, but they also prefer to match what their neighbours are doing.</p>
 <div class="fragment">
-<p>In less connected networks, misleading evidence stays contained in one part of the community while other parts continue exploring. This preserves the diversity of approaches long enough for the truth to emerge.</p>
+<p>When this preference for conformity is strong enough, cliques form. Each clique settles on a different theory and its members reinforce each other’s beliefs. The cliques stop updating on evidence from the other camp.</p>
 </div>
 <div class="fragment">
-<p>In highly connected networks, everyone reacts to the same evidence simultaneously, so the community can swing together in the wrong direction.</p>
+<p>Once this happens, even good evidence can’t bridge the gap.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Trust and Mistrust</h2>
+<p>O’Connor and Weatherall (2018) explore a related mechanism. In their model, agents weight evidence differently depending on whether it comes from someone who agrees with them.</p>
+<div class="fragment">
+<p>If you trust evidence from people who share your view more than evidence from people who disagree, subgroups can form that support different theories. Each group updates mainly on evidence from its own members. Over time, the groups drift apart rather than converging.</p>
+</div>
+<div class="fragment">
+<p>O’Connor and Weatherall point to chronic Lyme disease research as a case where this pattern may be at work. Two camps of researchers are polarized and highly distrustful of each other, despite shared interest in treating patients.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Dark Side of Stubbornness</h2>
+<p>Recall that moderate stubbornness (slow updating) can benefit a community by preserving transient diversity.</p>
+<div class="fragment">
+<p>But Zollman (2010) and Gabriel and O’Connor (2023) show that high levels of stubbornness, or strong confirmation bias, can lead to permanent polarization. If agents are so resistant to changing their minds that they never converge, the community fragments.</p>
+</div>
+<div class="fragment">
+<p>The same trait that helps at moderate levels becomes harmful when taken too far. The boundary between beneficial diversity and harmful polarization is not always clear in advance.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The Speed-Accuracy Trade-Off</h1>
+<h1>Industry and Manipulation</h1>
 
 </section>
 <section class="slide level2">
-<h2>A Robust Finding</h2>
-<p>Zollman checks all 112 distinct networks of six scientists. Across all of them, the relationship holds: networks that are more accurate tend to be slower, and networks that are faster tend to be less accurate.</p>
+<h2>Bad Actors in the Network</h2>
+<p>The models so far assume all agents are epistemically motivated: they want to find the truth. Real scientific communities also interact with agents who have other goals.</p>
 <div class="fragment">
-<p>The five most accurate networks are all minimally connected (you can’t remove an edge without splitting the graph in two). The five fastest are all close to complete graphs.</p>
+<p>Industry actors may want to promote a particular theory (or suppress one) for commercial reasons, regardless of the evidence.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>When Does This Matter?</h2>
-<p>The trade-off isn’t always a problem.</p>
+<h2>The Holman and Bruner Model</h2>
+<p>Holman and Bruner (2015) add an industry agent to a network model. This agent persistently shares data that push toward a favoured theory, which may be the worse one.</p>
 <div class="fragment">
-<p>If you’re confident the community is close to the truth already, more communication is fine. The risk of a misleading streak overwhelming everyone is low, and you benefit from the speed.</p>
+<p>The industry agent doesn’t need to corrupt individual scientists. And it doesn’t need to <strong>lie</strong>. It just funds scientists who use methods that happen to produce results it likes, and shares those results widely.</p>
 </div>
 <div class="fragment">
-<p>If the stakes of getting the wrong answer are high and you want to make sure the community gets it right, less communication is better. You sacrifice speed for reliability.</p>
+<p>The result is that the network can be pushed toward consensus on the wrong theory, even though every individual scientist is updating rationally on the evidence available to her.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Weatherall, O’Connor, and Bruner (2020)</h2>
+<p>This model looks at the interaction between scientists, industry, and policymakers. An industry actor selectively shares evidence from the scientific community with policymakers.</p>
+<div class="fragment">
+<p>Even if all the evidence is real and unbiased, cherry-picking which studies to highlight can confound policymakers. The studies chosen may be real but unrepresentative.</p>
 </div>
 <div class="fragment">
-<p>Whether speed or accuracy matters more depends on the specific case.</p>
+<p>The authors argue this supports requiring large sample sizes and high evidential standards, since those make cherry-picking harder.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Proprietary Research</h2>
+<p>Wu (2023) models a situation where industrial scientists can see all academic research, but don’t share their own results.</p>
+<div class="fragment">
+<p>This asymmetry benefits the industrial group. Academic researchers spend more time exploring suboptimal avenues (generating useful diversity), while industrial researchers exploit that knowledge without contributing back.</p>
+</div>
+<div class="fragment">
+<p>This is a case where the structure of information flow favours one group at the expense of another, and perhaps at the expense of the overall research community.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Implications</h1>
+<h1>Big Picture</h1>
 
 </section>
 <section class="slide level2">
-<h2>The Zollman Effect</h2>
-<p>The finding that less communication can improve collective outcomes in epistemic communities has come to be called the <strong>Zollman effect</strong>.</p>
+<h2>What These Models Show</h2>
+<p>Network models of scientific communities reveal that group-level outcomes can diverge from what you’d expect by looking at individual rationality alone.</p>
 <div class="fragment">
-<p>It shows up beyond the Bala-Goyal model. Similar results appear in models where agents search for the best option among several possibilities: too much connectivity leads the group to settle on the first good option found, rather than exploring to find a better one.</p>
+<p>Communication structure, stubbornness, conformity, trust, and outside interference all shape how well a community learns. Some of these effects are counterintuitive, and some are sensitive to parameter choices.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>For Scientific Practice</h2>
-<p>Zollman connects this to the history of peptic ulcer disease. For decades, the medical community believed ulcers were caused by excess stomach acid. A competing theory held that they were caused by a bacterium.</p>
+<h2>Lessons for Scientific Policy</h2>
+<p>A few themes run through this literature.</p>
 <div class="fragment">
-<p>One prominent paper finding no bacteria in human stomachs was enough to push the field away from the bacterial theory. The acid theory dominated for almost fifty years before the bacterial theory was vindicated.</p>
+<p>First, transient diversity of practice is valuable, and there are many mechanisms (limited communication, stubbornness, grants, demographic diversity) that can promote it. Second, that same diversity becomes harmful if it persists as permanent polarization. Third, external actors can manipulate networks of rational agents by controlling information flow.</p>
 </div>
 <div class="fragment">
-<p>If parts of the community had been less aware of that one paper, some researchers might have kept testing the bacterial hypothesis, and the field might have converged on the correct answer sooner.</p>
-</div>
-</section></section>
-<section>
-<section class="title-slide slide level1 center">
-<h1>The Independence Thesis</h1>
-
-</section>
-<section class="slide level2">
-<h2>A Broader Lesson</h2>
-<p>Mayo-Wilson, Zollman, and Danks (2011) draw a broader conclusion from results like the Zollman effect.</p>
-<div class="fragment">
-<p>They argue for what they call the <strong>Independence Thesis</strong>: methodological prescriptions for individual scientists and methodological prescriptions for scientific communities are logically independent of each other.</p>
-</div>
-<div class="fragment">
-<p>A method that works well for an individual scientist working alone may fail when used by a group. And a collection of methods that works well for a group may include methods that would fail for an isolated individual.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Good for Individuals, Bad for Groups</h2>
-<p>Consider a “decreasing epsilon greedy” strategy. This is a pretty natural solution to bandit problems; you explore less and less as time goes on.</p>
-<div class="fragment">
-<p>The scientist mostly tests whichever theory has performed best so far, but occasionally tests alternatives. The rate of exploration decreases over time.</p>
-</div>
-<div class="fragment">
-<p>Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other’s behaviour too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Good for Groups, Bad for Individuals</h2>
-<p>Consider a group where each scientist has a “favourite theory.” She mostly tests her favourite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.</p>
-<div class="fragment">
-<p>But as a group, they guarantee that every theory gets tested persistently. The best theory eventually produces enough good results that it propagates through the network, and the whole community converges on it.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Why This Matters</h2>
-<p>The second result is the more surprising one. The group succeeds precisely because its members are not individually optimal.</p>
-<div class="fragment">
-<p>Each scientist’s stubbornness about her favourite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.</p>
-</div>
-<div class="fragment">
-<p>This echoes a theme from twentieth century philosophy of science: dogmatic commitment to a theory, which seems irrational for an individual, can benefit a scientific community by preserving the diversity of approaches.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Individual vs.&nbsp;Social Epistemology</h2>
-<p>The Independence Thesis means we can’t just “scale up” from individual epistemology to social epistemology.</p>
-<div class="fragment">
-<p>If you design a methodology by asking “what should an isolated rational scientist do?” and then tell every scientist in a community to follow that advice, you may get worse outcomes than if you had designed the methodology with the community in mind.</p>
-</div>
-<div class="fragment">
-<p>This has implications both for normative epistemology (what methods should we recommend?) and for the history of science (how should we evaluate scientific communities that tolerated seemingly irrational individuals?).</p>
+<p>The challenge for scientific institutions is to support enough diversity to avoid premature convergence, without so much that communities fragment or get manipulated.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>For Next Time</h2>
-<p>We’ll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarisation, and how outside actors can manipulate epistemic networks.</p>
-<div class="fragment">
-<p>Read O’Connor, Chapter 4, sections 4.2-4.4, and Rosenstock et al.&nbsp;(2017).</p>
+<p>We’ll go to an earlier part of O’Connor’s book, chapter 2, to look at the distinctive role that <strong>credit</strong> plays in science as we find it.</p>
+<p>And the big organising question will be whether there is a good justification for giving credit such a central role.</p>
 
 
-</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

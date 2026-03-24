@@ -8,21 +8,20 @@ format:
 
 # Models of Scientific Communities
 
-## Shifting Gears
+## Models of Scientific Communities
 
-For the last few weeks we've been looking at individual decision-making: game theory, utility maximisation, signaling.
-
-. . .
-
-Now we're going to start asking a different kind of question: **what happens when rational individuals interact in groups?**
+The plan for the rest of term is to look at formal models of scientific communities.
 
 . . .
 
-Specifically: can a community of individually rational scientists end up doing worse, collectively, than we'd expect?
+Really our priority is looking at the spread of knowledge across any community. But looking at **scientific** communities in particular is useful for two reasons.
+
+1. It's arguable that they are models for everyone. Maybe, as the psychologist Alison Gopnik argues, we're all scientists from a very *very* young age.
+2. For scientists, it's conceptually easy to separate out the decisions of (a) what to study and (b) what to believe about different areas of study.
 
 ## The Social Dimension
 
-Science is social. Scientists share evidence with one another, read each other's papers, update their beliefs based on what colleagues find.
+Science is social. Scientists share evidence with one another, read each other's papers, update their beliefs and practices based on what colleagues find.
 
 . . .
 
@@ -32,7 +31,23 @@ This seems like it should be good. More information should help people converge 
 
 Today we'll look at a model that challenges this assumption.
 
-## The Setup
+## Two Questions
+
+**Question 1**: Is it always better for the scientific enterprise to have information shared as widely as possible.
+
+. . .
+
+We'll look at a mathematical model that suggests the answer is **no**.
+
+. . .
+
+**Question 2**: Is it good for scientists to be as rational as possible?
+
+. . .
+
+Again, in special circumstances, it seems the answer might be **no**. Having some **irrationally stubborn** people in the community might be good for the health of the community.
+
+## Setting up the Model
 
 Imagine a community of medical researchers working on a disease. There's a **current treatment** that is well understood and a **new treatment** that might be better.
 
@@ -106,6 +121,11 @@ But because all the evidence was pooled immediately, the fluke swept through the
 
 Had D been unaware of C's results, she would have kept testing. Her credence would have stayed above 0.5, and eventually the truth would have come out.
 
+## Two Questions for You
+
+1. Is this at all realistic?
+2. If so, can you think of real-life cases that might look like this?
+
 # The Formal Model
 
 ## Bala and Goyal (1998)
@@ -120,9 +140,51 @@ There are two states of the world (the new treatment is better, or it isn't) and
 
 The old treatment has a known expected payoff in both states. The new treatment has a lower expected payoff in one state and higher in the other.
 
-## How Learning Works
+## Bandit Problems
 
-Each round, every scientist performs an experiment on whichever treatment she currently favours.
+::: {.columns}
+
+:::: {.column width=40%}
+![Woman playing slot machine](images/slot.jpeg){height=60%}
+::::
+
+:::: {.column width=60%}
+The structure here is similar to what have become known as **multi-arm bandit** problems. 
+
+Imagine a slot-machine, like the one pictured, with a choice of arms, each with different payoff probabilities.
+:::: 
+
+:::
+
+## Bandit Problems
+
+These problems typically have the following characteristics.
+
+1. The payoffs are simple; often either just win or lose on each round.
+2. Each arm has a different probability of winning.
+3. The players have a rational prior probability of what each of those probabilities are.
+4. Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but how any arm has drifted.
+5. If the player chooses an option, they observe whether they win or lose, but not whether they would have won/lost if they'd chosen another option.
+
+## Bandit Problems
+
+Three somewhat interesting facts (or at least interesting to me) about these problems.
+
+1. They typically have no known **solution**, in the sense that a mathematician can look at the rules of the game and tell you what the optimal strategy is.
+2. In practice, what we find by trial and error is that the best strategy is wide exploration at first, followed by settling on a favored option, but still occasionally exploring other options.
+3. There are a lot of real life situations that feel like they have this structure - think about choosing a coffee shop or a route for walking home.
+
+## Scientific Application
+
+They are relevant to science is a straightforward way.
+
+- Experiments are difficult, and cost time and money.
+- You don't know what you would have got from doing some other experiment.
+- It's possible that always doing the experiment with the high expected value, like always choosing the arm with the highest win probability, is **not** the optimal long-run strategy.
+
+## Back to the Model
+
+Each round, every scientist performs an experiment on whichever treatment she currently favours. In bandit terms, scientists always **exploit** rather than **explore**.
 
 . . .
 
@@ -196,7 +258,7 @@ So the community with the most communication is fastest but least reliable. The 
 
 ## Why Less Communication Helps
 
-The mechanism is the one we saw in the toy example, but it generalises.
+The mechanism is the one we saw in the toy example with A, B, C and D, but it generalises.
 
 . . .
 
@@ -278,46 +340,68 @@ One prominent paper finding no bacteria in human stomachs was enough to push the
 
 If parts of the community had been less aware of that one paper, some researchers might have kept testing the bacterial hypothesis, and the field might have converged on the correct answer sooner.
 
-## What About Stubbornness?
+# The Independence Thesis
 
-There's a related result from Zollman (2010) and others.
+## A Broader Lesson
 
-. . .
-
-If scientists are somewhat stubborn, in the sense that they don't update their beliefs too quickly in response to new evidence, communities also tend to do better.
+Mayo-Wilson, Zollman, and Danks (2011) draw a broader conclusion from results like the Zollman effect.
 
 . . .
 
-The mechanism is similar: stubbornness, like limited communication, preserves diversity of practice. It prevents the whole community from swinging together after a run of misleading data.
-
-## A Caveat
-
-Rosenstock et al. (2017) push back on this. They point out that decreasing communication only helps when the problem is hard, when the available data don't settle the question easily.
+They argue for what they call the **Independence Thesis**: methodological prescriptions for individual scientists and methodological prescriptions for scientific communities are logically independent of each other.
 
 . . .
 
-When the evidence is strong and clear, more communication is better. Scientists converge faster and nobody is misled.
+A method that works well for an individual scientist working alone may fail when used by a group. And a collection of methods that works well for a group may include methods that would fail for an isolated individual.
+
+## Good for Individuals, Bad for Groups
+
+Consider a "decreasing epsilon greedy" strategy. This is a pretty natural solution to bandit problems; you explore less and less as time goes on.
 
 . . .
 
-The Zollman effect is at its strongest when the signal in the data is weak relative to the noise.
-
-## The Independence Thesis
-
-Mayo-Wilson, Zollman, and Danks (2011) draw a broader lesson. They argue that what's rational for an **individual** scientist and what's rational for a **community** of scientists can come apart.
+The scientist mostly tests whichever theory has performed best so far, but occasionally tests alternatives. The rate of exploration decreases over time.
 
 . . .
 
-A community might do better when its members have traits that look irrational at the individual level: stubbornness, limited information-seeking, confirmation bias.
+Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other's behaviour too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.
+
+## Good for Groups, Bad for Individuals
+
+Consider a group where each scientist has a "favourite theory." She mostly tests her favourite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.
 
 . . .
 
-This doesn't mean individual irrationality is good. It means that designing good scientific institutions requires thinking about group-level outcomes, not just individual epistemic virtues.
+But as a group, they guarantee that every theory gets tested persistently. The best theory eventually produces enough good results that it propagates through the network, and the whole community converges on it.
+
+## Why This Matters
+
+The second result is the more surprising one. The group succeeds precisely because its members are not individually optimal.
+
+. . .
+
+Each scientist's stubbornness about her favourite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.
+
+. . .
+
+This echoes a theme from twentieth century philosophy of science: dogmatic commitment to a theory, which seems irrational for an individual, can benefit a scientific community by preserving the diversity of approaches.
+
+## Individual vs. Social Epistemology
+
+The Independence Thesis means we can't just "scale up" from individual epistemology to social epistemology.
+
+. . .
+
+If you design a methodology by asking "what should an isolated rational scientist do?" and then tell every scientist in a community to follow that advice, you may get worse outcomes than if you had designed the methodology with the community in mind.
+
+. . .
+
+This has implications both for normative epistemology (what methods should we recommend?) and for the history of science (how should we evaluate scientific communities that tolerated seemingly irrational individuals?).
 
 ## For Next Time
 
-We'll continue looking at models of scientific communities, including what happens when communication networks lead to polarisation rather than consensus.
+We'll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarisation, and how outside actors can manipulate epistemic networks.
 
 . . .
 
-Read O'Connor, Chapter 4, sections 4.2 and 4.3.
+Read O'Connor, Chapter 4, sections 4.2-4.4, and Rosenstock et al. (2017).
