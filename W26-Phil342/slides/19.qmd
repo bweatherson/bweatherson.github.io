@@ -29,9 +29,9 @@ Earnings of Bachelor's degree holders as a percentage of upper-secondary earning
 |  Chile          |    228%   |
 |  United States  |    164%   |
 |  Hungary        |    148%   |
-|  Germany        |    142%   |
 |  **OECD average**   |    **140%**   |
 |  United Kingdom |    137%   |
+|  Switzerland    |    134%   |
 |  Korea          |    133%   |
 |  Australia      |    130%   |
 |  Denmark        |    112%   |
@@ -50,7 +50,7 @@ The premium is not constant across **age**. In most countries, older workers sho
 |  Country        |  25–34  |  35–44  |  45–54  |  55–64  |
 |:----------------|:-------:|:-------:|:-------:|:-------:|
 |  United States  |   157%  |   167%  |   168%  |   172%  |
-|  Germany        |   133%  |   148%  |   181%  |   133%  |
+|  Switzerland    |   127%  |   136%  |   142%  |   137%  |
 |  Korea          |   116%  |   131%  |   148%  |   159%  |
 |  United Kingdom |   128%  |   138%  |   151%  |   144%  |
 |  OECD average   |   131%  |   140%  |   152%  |   149%  |
@@ -61,7 +61,7 @@ In Korea, the premium rises steadily from 116% to 159% across the working life. 
 
 . . .
 
-Germany is an interesting case: the premium peaks at 181% for workers aged 45–54 but drops back for workers near retirement.
+Switzerland shows the same gradient in compressed form: from 127% for the youngest cohort up to 142% at ages 45–54, with a modest pullback to 137% near retirement.
 
 ---
 
@@ -70,7 +70,6 @@ The age pattern turns out to be concentrated among **male** workers. For **women
 |                 |  Men 25–34  |  Men 45–54  |  Women 25–34  |  Women 45–54  |
 |:----------------|:-----------:|:-----------:|:-------------:|:-------------:|
 |  United States  |     162%    |     180%    |      158%     |      159%     |
-|  Germany        |     137%    |     207%    |      127%     |      134%     |
 |  Korea          |     116%    |     141%    |      123%     |      142%     |
 |  United Kingdom |     130%    |     154%    |      141%     |      151%     |
 
@@ -80,7 +79,7 @@ In the US, male degree holders gain 18 percentage points between ages 25–34 an
 
 . . .
 
-In Germany the gap is even wider: men gain 70 points, women gain 7.
+The UK shows the same pattern more modestly: men gain 24 points, women gain 10. Korea is the partial exception, where both men and women see substantial growth in the premium with age.
 
 ## Gender Differences
 
@@ -111,7 +110,7 @@ The sheepskin effect is especially stark in the US.
 ::: {.columns}
 
 :::: {.column width=35%}
-![Educational Attainment in the US](images/ed_attain.png){width=90%}
+![Educational Attainment in the US](images/ed_attain.png)
 ::::
 
 :::: {.column width=60%}
