@@ -29,7 +29,7 @@ class TitForTatEndgame(axelrod.Player):
 
         # 2. The Last Turn Defection
         # Check if the current round is the final round
-        if len(self.history) == self.tournament_length - 1:
+        if len(self.history) == self.match_attributes['length'] - 1:
             return axelrod.Action.D
 
         # 3. Standard Tit-for-Tat Logic

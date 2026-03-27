@@ -7,7 +7,7 @@ Notes on CSV corrections:
   - Williams listed "Adaptive Pavlov" (not a real Axelrod class); using axelrod.APavlov2011
   - "axelrod (2).py" (Anjan Aviram Singer) cannot be imported directly because it contains
     a Jupyter shell magic command (!pip install) and syntax errors in the Cooperated class.
-    The Anjan strategy class is reproduced inline below.
+    The Cooperated class is reproduced inline below (with syntax errors fixed).
 """
 
 import sys
@@ -24,19 +24,13 @@ from TitForTatEndgame import TitForTatEndgame   # TFT but defects on final round
 # ── Custom strategy 3: Anjan Aviram Singer (axelrod (2).py) ──────────────────
 # Inlined here because the original file has a Jupyter shell-magic command on
 # line 11 (!pip install axelrod) and syntax errors that prevent direct import.
-class Anjan(axelrod.Player):
-    """Probe the opponent for common strategies w/ 'DDCC'
-        if CDDC->TFT->TFT
-        if CCDC->GTFT->alternate
-        if CDDD->punishTFT->AllC
-        if DDDD->AllD->AllD
-        if CCCC->AllC->AllD
-        if DDCC->self->AllC
-        else->TFT"""
+# Anjan chose to use the Cooperated class: cooperate every round except the last.
+class Cooperated(axelrod.Player):
+    """Cooperates every round except the last, where it defects once."""
 
-    name = "Anjan (My Strategy)"
+    name = "Cooperated"
     classifier = {
-        "memory_depth": float("inf"),
+        "memory_depth": 1,
         "stochastic": False,
         "long_run_time": False,
         "inspects_source": False,
@@ -45,55 +39,9 @@ class Anjan(axelrod.Player):
     }
 
     def strategy(self, opponent: axelrod.Player) -> axelrod.Action:
-        # Preset probing first 4 moves: D, D, C, C
-        if not self.history:
+        if len(self.history) == self.match_attributes['length'] - 1:
             return axelrod.Action.D
-        if len(self.history) == 1:
-            return axelrod.Action.D
-        if len(self.history) == 2:
-            return axelrod.Action.C
-        if len(self.history) == 3:
-            return axelrod.Action.C
-
-        # Classify opponent based on their first 4 responses
-        opp4 = list(opponent.history[:4])
-        C, D = axelrod.Action.C, axelrod.Action.D
-        if opp4 == [C, D, D, C]:
-            opp_strategy = 'TFT'
-        elif opp4 == [C, C, D, C]:
-            opp_strategy = 'GTFT'
-        elif opp4 == [C, D, D, D]:
-            opp_strategy = 'punishTFT'
-        elif opp4 == [D, D, D, D]:
-            opp_strategy = 'AllD'
-        elif opp4 == [C, C, C, C]:
-            opp_strategy = 'AllC'
-        elif opp4 == [D, D, C, C]:
-            opp_strategy = 'self'
-        else:
-            opp_strategy = 'other'
-
-        if opp_strategy == 'TFT':
-            if opponent.history[-1] == D:
-                return D
-            return C
-        elif opp_strategy == 'GTFT':
-            # Alternate D/C based on round parity
-            if len(self.history) % 2 == 0:
-                return D
-            return C
-        elif opp_strategy == 'punishTFT':
-            return C
-        elif opp_strategy == 'AllD':
-            return D
-        elif opp_strategy == 'AllC':
-            return D
-        elif opp_strategy == 'self':
-            return C
-        else:  # 'other' -> TFT
-            if opponent.history[-1] == D:
-                return D
-            return C
+        return axelrod.Action.C
 
 
 # ── Build player list ─────────────────────────────────────────────────────────
@@ -139,7 +87,7 @@ students = [
     # Custom strategies (3 students)
     ("Dugan, Foster Riley",             MyStrategy()),
     ("Hong, Sungjing",                  TitForTatEndgame()),
-    ("Singer, Anjan Aviram",            Anjan()),
+    ("Singer, Anjan Aviram",            Cooperated()),
 ]
 
 # Give each player a name that includes the student's name for easy reading
@@ -153,8 +101,8 @@ print(f"Running tournament with {len(players)} players...")
 
 tournament = axelrod.Tournament(
     players,
-    turns=200,
-    repetitions=10,
+    turns=100,
+    repetitions=1,
     seed=42,
 )
 results = tournament.play(progress_bar=True)

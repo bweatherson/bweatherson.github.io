@@ -82,5 +82,12 @@
     "title": "Philosophy 342 - Winter 2026",
     "section": "Instructions for Slides",
     "text": "Instructions for Slides\nThe slides are built using revealjs. To move around them, the four key things to know are:\n\nLeft and right arrows move between sections.\nUp and down arrows move between slides within a section.\nIf you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.\nOr simply use space bar to advance one slide forward at any time."
+  },
+  {
+    "objectID": "Axelrod/results.html",
+    "href": "Axelrod/results.html",
+    "title": "Tournament Results",
+    "section": "",
+    "text": "Tournament Results\n100 turns, 1 repetition, seed 42.\n\n\n\nRank\nStrategy\nAvg score/turn\n\n\n\n\n1\nTit For Tat Endgame\n3.0158\n\n\n2\nThe Punisher\n3.0039\n\n\n3\nTit For Tat\n2.9958\n\n\n4\nTit For Tat\n2.9958\n\n\n5\nTit For Tat\n2.9958\n\n\n6\nTit For Tat\n2.9958\n\n\n7\nTit For Tat\n2.9958\n\n\n8\nTit For Tat\n2.9958\n\n\n9\nTit For Tat\n2.9958\n\n\n10\nTit For Tat\n2.9958\n\n\n11\nTit For Tat\n2.9958\n\n\n12\nTit For Tat\n2.9958\n\n\n13\nTit For Tat\n2.9958\n\n\n14\nTit For Tat\n2.9958\n\n\n15\nTit For Tat\n2.9958\n\n\n16\nTit For Tat\n2.9958\n\n\n17\nTit For Tat\n2.9958\n\n\n18\nGTFT\n2.9955\n\n\n19\nForgiving Tit For Tat\n2.9955\n\n\n20\nGradual\n2.9953\n\n\n21\nOriginal Gradual\n2.9953\n\n\n22\nWin-Stay Lose-Shift\n2.9453\n\n\n23\nWin-Stay Lose-Shift\n2.9453\n\n\n24\nZD-GTFT-2\n2.9395\n\n\n25\nTit For 2 Tats\n2.8916\n\n\n26\nTit For 2 Tats\n2.8916\n\n\n27\nGTFT\n2.8795\n\n\n28\nAdaptive Pavlov 2011\n2.8505\n\n\n29\nTwo Tits For Tat\n2.8476\n\n\n30\nTwo Tits For Tat\n2.8476\n\n\n31\nTwo Tits For Tat\n2.8476\n\n\n32\nTwo Tits For Tat\n2.8476\n\n\n33\nGrudger\n2.8453\n\n\n34\nLevel Punisher\n2.8366\n\n\n35\nLevel Punisher\n2.8366\n\n\n36\nCooperated\n2.7850\n\n\n37\nHard Prober\n2.5684\n\n\n38\nDetective\n2.4997\n\n\n39\nProber\n2.3905"
   }
 ]
