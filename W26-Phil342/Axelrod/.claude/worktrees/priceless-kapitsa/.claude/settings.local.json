@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/weath/Documents/github_site/bweatherson.github.io add W26-Phil342/Axelrod/.claude/worktrees/priceless-kapitsa)",
+      "Bash(git -C:*)"
+    ]
+  }
+}
