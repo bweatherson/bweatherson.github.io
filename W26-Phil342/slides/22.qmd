@@ -1,0 +1,282 @@
+---
+title: "The Matthew Effect"
+date: 4/2/2026
+format:
+    revealjs:
+        revealjs-a11y:
+          skip-navigation: true
+          high-contrast: false
+    beamer: default
+---
+
+# Credit in Science
+
+## The Credit Economy
+
+Science runs on credit. The desire for credit appears to shape what scientists study, where they publish, and what they put effort into.
+
+. . .
+
+Robert Merton was a sociologist who helped turn this kind of banal observation into a more rigorous theory about how credit incentives impact scientific practice.
+
+. . .
+
+Today we look at what O'Connor calls the "credit economy" of science, and look at some reasons to be happy or unhappy that it's so important.
+
+## Why Credit Might Be Good
+
+Optimists about credit say that credit incentivises behavior that, is collectively, useful for scientific progress.
+
+. . .
+
+One early optimistic account comes from the Columbia Univesity philosopher of science (and everything else) Philip Kitcher (in a 1990 paper). He argued that credit incentives might improve the **division of labour** in science.
+
+. . .
+
+A scientific community benefits when its members spread across different topics and approaches. If everyone works on the same problem, important discoveries elsewhere get missed.
+
+## Why Credit Might Be Good
+
+Kitcher didn't have anything like as detailed as modern model of science, but he did describe how a model like this might work.
+
+. . .
+
+His argument was that if everyone was aiming at the truth, there would be too much overlap in what people worked on.
+
+After all, if you and I are both rational, and both know the same things about the state of the literature and what research projects are most promising, we might end up working on the same thing.
+
+. . .
+
+Perhaps given credit incentives, one of us might be motivated to do something else, because while it not produce as many new results, might produce **distinctive** and hence **credit-earning** results.
+
+## Kitcher's Model
+
+In Kitcher's model, scientists choose between projects. They share an objective assessment of which projects are most promising.
+
+. . .
+
+If they choose based on epistemic merit alone, they all pick the same project. Division of labour fails.
+
+. . .
+
+When credit is allocated by the priority rule (credit goes to whoever makes a discovery first), scientists are attracted to projects where fewer peers are currently working. Their chances of being the one to make the discovery are higher there.
+
+. . .
+
+The result is that credit-seeking produces a distribution of effort across projects that serves the community better than pure truth-seeking would.
+
+## The Priority Rule
+
+The priority rule is a specific norm about how scientific credit gets allocated. Credit goes to the first scientist to make a discovery, even if another scientist is close behind, and even if the second scientist worked independently.
+
+. . .
+
+The NYU philosopher of science Michael Strevens (in a 2003 paper) argues that this rule, compared to alternatives like sharing credit among all contributors or allocating it based on marginal contribution, puts the strongest incentive on the most promising projects. On his model, it produces the best division of labour.
+
+## Is Credit Good for Division of Labour?
+
+The evidence from models is mixed.
+
+. . .
+
+Muldoon and Weisberg (2011) challenge the Kitcher/Strevens picture. They point out that the models assume scientists know how many others are working on each project. In practice, scientists often have limited information. When they can only observe a few colleagues, credit incentives don't direct them to less popular projects, because they can't tell which projects are less popular.
+
+. . .
+
+De Langhe (2014) raises a different concern: these models focus on dividing labour among known options, but science also involves exploring new possibilities. The priority rule may encourage studying existing theories rather than developing new ones.
+
+# Communism and Sharing
+
+## The Communist Norm
+
+The priority rule has a second benefit beyond division of labour: it promotes the free sharing of scientific findings.
+
+. . .
+
+Merton (1942) calls this the "communist norm." (Would he have called it that four years later?) What science produces is shared. The priority rule supports this because scientists are incentivised to share their findings quickly, before a competitor publishes first.
+
+. . .
+
+Without this incentive, scientists might keep their results proprietary, or sell them to the highest bidder. Given that scientific progress depends on the shared work of thousands of researchers, the communist norm matters a great deal.
+
+## Sharing Isn't Always So Simple
+
+But the priority rule can also *discourage* intermediate sharing.
+
+. . .
+
+Strevens (2017) argues that until a result becomes publishable, the priority rule gives scientists reason to hide interim findings. Publishing an intermediate step might help a competitor finish the project first.
+
+. . .
+
+This is especially relevant in priority races, where multiple labs are working toward the same goal. The TEA laser case (Collins, 1974) illustrates this: rival labs discouraged communication that might have helped everyone progress faster.
+
+## Collaboration
+
+Boyer-Kassem and Imbert (2015) model the growth of academic collaboration.
+
+. . .
+
+In their model, only the final stage of research receives credit. Even without assuming that collaboration produces better ideas, collaborative teams pass through stages faster, because each stage has more chances of being completed by some team member.
+
+. . .
+
+Collaboration can also increase local sharing. When researchers share a credit interest, their incentives to share information within the group align. Priority races push against sharing *between* groups but can promote it *within* them.
+
+# The Downsides of Credit
+
+## Replication
+
+A hallmark of scientific knowledge is that it should be replicable. Re-running a test should produce the same result.
+
+. . .
+
+The priority rule works against replication. Credit goes to new discoveries, not to confirmations of existing ones. So credit-motivated scientists have little reason to spend time replicating other people's work.
+
+. . .
+
+This is one of the factors behind the "replication crisis," where many published findings across multiple disciplines have turned out not to replicate (Begley and Ellis, 2012; Open Science et al., 2015; Baker, 2016).
+
+## Fraud and Corner Cutting
+
+Credit motives can push scientists toward fraud and sloppy research practices (Merton, 1973).
+
+. . .
+
+Scientists who want to publish quickly may fabricate data, cut corners on experimental design, or engage in **questionable research practices**. Estimates put the percentage of researchers who have committed fraud at 1--3 percent, with higher estimates for less serious questionable practices.
+
+. . .
+
+Zollman (2023) shows that fraud can pay even when it's punished. A lucky fraudster who avoids detection for long enough earns higher credit payoffs than an honest researcher. Heesen (2021) shows that early fraud can set a scientist on a more successful career track, creating a compounding advantage.
+
+## Fraud and Honesty
+
+Famously, there has been a scandal involving what sure looks like pretty bad research practices in research about **honesty**.
+
+If you want to see more about this, there's a useful Planet Money episode about it from a couple of years back:
+
+- <https://www.npr.org/transcripts/1190568472>
+
+## Credit and Productivity
+
+There is a positive side to the pressure credit creates.
+
+. . .
+
+Dasgupta and David (1994) argue that, beyond promoting sharing, the priority rule's main benefit is encouraging speed. Scientists in a priority race dedicate serious effort to finishing first.
+
+## Credit, Speed and Incentives
+
+Zollman (2018) extends this: credit motives get scientists to allocate more time to research and less to leisure. 
+
+Even purely truth-motivated scientists would under-invest in research from the community's perspective, because they're giving up a private good (their time) to produce a public good (knowledge). 
+
+Credit closes that gap.
+
+# The Matthew Effect
+
+## Merton's Observation
+
+Merton (1968) describes a pattern he calls "The Matthew Effect": eminent scientists receive more credit for their contributions than they deserve, while unknown scientists receive less than they deserve.
+
+. . .
+
+The name comes from the Gospel of Matthew: "to those who have, more shall be given." (A very strange passage; one I've never really understood.)
+
+. . .
+
+Merton explains this as a natural side effect of how scientists allocate attention. 
+
+It is reasonable to pay more attention to the work of well-known researchers, since past success is some evidence of quality. 
+
+But this creates a feedback loop.
+
+## Is the Matthew Effect Unfair?
+
+Strevens (2006) argues it may not be unfair at all. If credit reflects positive impact on society, and prominent scientists are in fact more influential (their findings reach more people), then they are proportionally more deserving of credit.
+
+. . .
+
+Strevens goes further: the Matthew effect might benefit the community by attracting the strongest scientists to the most important problems.
+
+. . .
+
+Kleinberg and Oren (2011), building on Kitcher's model, make a similar argument. When prominent scientists choose a project, their presence drives others away. 
+
+The Matthew effect acts as a symmetry breaker, helping to divide labour.
+
+## A Less Optimistic View
+
+Heesen (2017) offers a less positive analysis. He models a community where academics choose which papers to read based on the author's reputation.
+
+. . .
+
+If general competence correlates well with work quality, this attention pattern directs readers to the best work. But if findings are shaped by luck as much as skill, the stratified attention pattern has no benefit. It just amplifies the careers of the lucky.
+
+. . .
+
+Watts and Gilbert (2011) use an agent-based model to argue that a Matthew effect in citations does not help a group find good solutions to problems.
+
+## Network Effects and Credit
+
+Rubin and Schneider (2021) model how network structure affects credit allocation.
+
+. . .
+
+In their model, scientists are connected in a network of social and communicative ties. 
+
+When two scientists make a discovery at the same time, credit flows to whichever one is better connected (closer in the network to more peers, or more frequently cited).
+
+## Network Effects and Credit
+
+Scientific communication networks follow a power-law distribution: a few scientists have many connections, many have few. Older, more established scientists tend to be better connected. Under these conditions, credit allocation unfairly benefits those who are already prominent.
+
+## Rubin's Runaway Model
+
+Rubin (2022) demonstrates a more extreme version of this dynamic.
+
+. . .
+
+In her model, researchers hold weighted opinions of each other's reputations. 
+
+When someone's work is shared, the weights directed toward that researcher increase. 
+
+But higher weights also increase the chances that others share her work.
+
+. . .
+
+This creates a runaway process: prominence breeds more prominence, regardless of what caused the initial prominence. Pure luck at the start of a career can cascade into lasting advantage.
+
+## The Matilda Effect
+
+The Matthew effect intersects with demographic inequity. Women tend to be cited less than men across a number of disciplines.
+
+. . .
+
+Rossiter (1993) uses historical evidence to document what she calls the "Matilda effect": women receive less credit than men for equivalent work. 
+
+In fields where women and people of colour have historically been excluded, they will tend to be newer and less well-networked.
+
+. . .
+
+Rubin (2022) and Rubin and Schneider (2021) show that homophily (the tendency to connect with people like yourself) exacerbates this. Minority groups, who are smaller and less connected, face persistent credit disadvantage in network models.
+
+## The Big Picture on Credit
+
+The models surveyed here paint a mixed picture of the credit economy.
+
+. . .
+
+On the positive side, credit incentives can promote division of labour, sharing of results, and productive effort. On the negative side, they discourage replication, enable fraud, and produce unfair distributions of recognition through the Matthew effect.
+
+. . .
+
+Whether the credit economy is, on balance, good for science is an open question. The answer likely depends on which specific credit structures are in place, and whether they can be reformed to keep the benefits while reducing the harms.
+
+## For Next Time
+
+We move to section 2.7 and beyond, looking at how credit incentives shape peer review, journals, and funding, and at how gender identity interacts with the credit economy.
+
+. . .
+
+Read O'Connor, Chapter 2, sections 2.7-2.8.

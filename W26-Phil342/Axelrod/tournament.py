@@ -103,7 +103,7 @@ tournament = axelrod.Tournament(
     players,
     turns=100,
     repetitions=1,
-    seed=42,
+    seed=142,
 )
 results = tournament.play(progress_bar=True)
 

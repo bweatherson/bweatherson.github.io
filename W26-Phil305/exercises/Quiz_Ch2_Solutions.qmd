@@ -1,0 +1,193 @@
+---
+title: "Solutions: Ordinal Games in Strategic Form"
+subtitle: "Chapters 2.1--2.2, 2.5--2.6"
+---
+
+## Question 1: Game Frames and Games
+
+**(a)** We assign utilities 1--4 to reflect each player's ranking (higher = more preferred).
+
+Alice's ranking is $o_3 \succ o_1 \succ o_2 \succ o_4$, so:
+
+$$u_A(o_3) = 4, \quad u_A(o_1) = 3, \quad u_A(o_2) = 2, \quad u_A(o_4) = 1$$
+
+Bob's ranking is $o_2 \succ o_1 \succ o_3 \succ o_4$, so:
+
+$$u_B(o_2) = 4, \quad u_B(o_1) = 3, \quad u_B(o_3) = 2, \quad u_B(o_4) = 1$$
+
+**(b)** The strategies are Clean (C) and Not Clean (NC). The outcomes map as follows:
+
+- (C, C) $\to o_1$: Both clean
+- (C, NC) $\to o_2$: Alice cleans, Bob doesn't
+- (NC, C) $\to o_3$: Bob cleans, Alice doesn't
+- (NC, NC) $\to o_4$: Neither cleans
+
+The strategic form (Alice chooses row, Bob chooses column):
+
+|                  | **Clean** | **Not Clean** |
+|-----------------:|:---------:|:-------------:|
+| **Clean**        | (3, 3)    | (2, 4)        |
+| **Not Clean**    | (4, 2)    | (1, 1)        |
+
+**(c)** This is *not* a Prisoner's Dilemma. In a PD, each player has a strictly dominant strategy (Defect), and the dominant-strategy equilibrium is Pareto inferior to mutual cooperation. Here, neither player has a dominant strategy:
+
+- Alice: Not Clean gives 4 vs. 3 when Bob Cleans (NC better), but 1 vs. 2 when Bob doesn't clean (Clean better).
+- Bob: by symmetry of the payoff structure, the same reasoning applies.
+
+Since neither player has a dominant strategy, the defining feature of the PD is absent. This game has the structure of *Chicken* (or Hawk-Dove): each player wants to free-ride on the other, but mutual defection is the worst outcome for both, and each player's best response depends on what the other does.
+
+
+## Question 2: Strict and Weak Dominance
+
+Player 1's payoffs across columns:
+
+|       | L | C | R |
+|------:|:-:|:-:|:-:|
+| **A** | 3 | 1 | 2 |
+| **B** | 1 | 2 | 1 |
+| **C** | 3 | 1 | 2 |
+
+**(a)** No strategy strictly dominates another for Player 1. We need to check all pairs:
+
+- A vs. B: $3 > 1$ (L), $1 < 2$ (C), $2 > 1$ (R). A does not strictly dominate B because B does better at C.
+- A vs. C: $3 = 3$ (L), $1 = 1$ (C), $2 = 2$ (R). Payoffs are identical, so neither strictly dominates.
+- B vs. C: $1 < 3$ (L). B does not strictly dominate C.
+- C vs. B: $3 > 1$ (L), $1 < 2$ (C). C does not strictly dominate B.
+
+No strict dominance relationship exists.
+
+**(b)** No strategy weakly dominates another for Player 1 either. Weak dominance requires $\geq$ in all columns and $>$ in at least one.
+
+- A vs. B: fails because $1 < 2$ at C.
+- C vs. B: fails because $1 < 2$ at C.
+- A vs. C (and C vs. A): all payoffs are exactly equal. Weak dominance requires at least one strict inequality, so neither weakly dominates the other. (They are *payoff-equivalent* strategies.)
+- B vs. A (or B vs. C): fails because $1 < 3$ at L.
+
+**(c)** Player 2's payoffs across rows:
+
+|       | L | C | R |
+|------:|:-:|:-:|:-:|
+| vs. A | 2 | 1 | 3 |
+| vs. B | 0 | 2 | 1 |
+| vs. C | 1 | 3 | 2 |
+
+R vs. L: $3 > 2$ (vs. A), $1 > 0$ (vs. B), $2 > 1$ (vs. C). R is strictly greater in every row.
+
+So yes, R **strictly dominates** L for Player 2. Since strict dominance implies weak dominance, R also weakly dominates L.
+
+
+## Question 3: Iterated Deletion of Strictly Dominated Strategies
+
+Player 1's payoffs:
+
+|       | W | X | Y | Z |
+|------:|:-:|:-:|:-:|:-:|
+| **A** | 2 | 1 | 1 | 4 |
+| **B** | 3 | 2 | 3 | 1 |
+| **C** | 1 | 0 | 0 | 0 |
+
+Player 2's payoffs:
+
+|       | W | X | Y | Z |
+|------:|:-:|:-:|:-:|:-:|
+| vs. A | 2 | 3 | 1 | 0 |
+| vs. B | 3 | 2 | 4 | 1 |
+| vs. C | 1 | 0 | 3 | 4 |
+
+**(a)** IDSDS proceeds in four steps.
+
+**Step 1 (Player 1):** C is strictly dominated by B.
+
+$$B = (3, 2, 3, 1) \text{ vs. } C = (1, 0, 0, 0): \quad 3>1, \; 2>0, \; 3>0, \; 1>0.$$
+
+(A also dominates C, but we only need one dominating strategy.) Eliminate C. Remaining game:
+
+|       | W | X | Y | Z |
+|------:|:-:|:-:|:-:|:-:|
+| **A** | (2,2) | (1,3) | (1,1) | (4,0) |
+| **B** | (3,3) | (2,2) | (3,4) | (1,1) |
+
+**Step 2 (Player 2):** With C removed, Z is now strictly dominated by X.
+
+Player 2's payoffs over remaining rows: $X = (3, 2)$ vs. $Z = (0, 1)$: $3 > 0$ and $2 > 1$.
+
+(Before removing C, Z was not dominated because $Z_C = 4 > X_C = 0$. Removing C made this dominance possible.) Eliminate Z. Remaining game:
+
+|       | W | X | Y |
+|------:|:-:|:-:|:-:|
+| **A** | (2,2) | (1,3) | (1,1) |
+| **B** | (3,3) | (2,2) | (3,4) |
+
+**Step 3 (Player 1):** With Z removed, A is now strictly dominated by B.
+
+$B = (3, 2, 3)$ vs. $A = (2, 1, 1)$: $3>2, \; 2>1, \; 3>1$.
+
+(Before removing Z, A was not dominated because $A_Z = 4 > B_Z = 1$.) Eliminate A. Remaining game:
+
+|       | W | X | Y |
+|------:|:-:|:-:|:-:|
+| **B** | (3,3) | (2,2) | (3,4) |
+
+**Step 4 (Player 2):** With only row B remaining, Y strictly dominates both W and X.
+
+$Y = 4 > W = 3$ and $Y = 4 > X = 2$. Eliminate W and X.
+
+**(b)** The unique surviving strategy profile is **(B, Y)** with payoffs $(3, 4)$.
+
+**(c)** The order of deletion does not matter for strict dominance. This is a standard result: if a strategy is strictly dominated at some stage, it remains strictly dominated regardless of which other dominated strategies have been removed first. The set of strategies surviving IDSDS is unique. (This property fails for *weak* dominance, where different deletion orders can yield different results.)
+
+
+## Question 4: Nash Equilibrium
+
+|               | **Left** | **Right** |
+|--------------:|:--------:|:---------:|
+| **Up**        | (3, 3)   | (1, 4)    |
+| **Down**      | (4, 1)   | (0, 0)    |
+
+**(a)** Check each cell for profitable unilateral deviations:
+
+- **(Up, Left):** Player 1 can switch to Down, getting $4 > 3$. Profitable deviation. *Not a NE.*
+- **(Up, Right):** Player 1: Down gives $0 < 1$. No improvement. Player 2: Left gives $3 < 4$. No improvement. **NE.**
+- **(Down, Left):** Player 1: Up gives $3 < 4$. No improvement. Player 2: Right gives $0 < 1$. No improvement. **NE.**
+- **(Down, Right):** Player 1 can switch to Up, getting $1 > 0$. Profitable deviation. *Not a NE.*
+
+The pure-strategy Nash equilibria are **(Up, Right)** with payoffs $(1, 4)$ and **(Down, Left)** with payoffs $(4, 1)$.
+
+**(b)** Neither player has a dominant strategy.
+
+- Player 1: Down is better if Player 2 plays Left ($4 > 3$), but Up is better if Player 2 plays Right ($1 > 0$).
+- Player 2: Right is better if Player 1 plays Up ($4 > 3$), but Left is better if Player 1 plays Down ($1 > 0$).
+
+Each player's best response depends on what the other does.
+
+**(c)** No. The outcome (Up, Left) = $(3, 3)$ might look appealing because it gives a higher total payoff (6 vs. 5) and is more equitable. But it is not strictly Pareto superior to either NE:
+
+- $(3, 3)$ vs. $(4, 1)$: Player 1 is worse off ($3 < 4$).
+- $(3, 3)$ vs. $(1, 4)$: Player 2 is worse off ($3 < 4$).
+
+In each comparison, one player would have to accept a lower payoff. So neither NE is Pareto dominated.
+
+The reason (Up, Left) is not itself a Nash equilibrium is that both players have an incentive to deviate: Player 1 can get 4 by switching to Down, and Player 2 can get 4 by switching to Right.
+
+
+## Question 5: Applying Nash Equilibrium
+
+**(a)** Each of the 3 trucks independently chooses from 2 locations (North or South). The total number of pure strategy profiles is $2^3 = 8$.
+
+**(b)** Consider the profile (N, N, S): Trucks 1 and 2 go North, Truck 3 goes South.
+
+Payoffs: Trucks 1 and 2 each share North with one other truck, so $k = 2$ and payoff $= 6/2 = 3$. Truck 3 is alone at South, so $k = 1$ and payoff $= 6/1 = 6$.
+
+Check deviations:
+
+- **Truck 1** switches to South: now South has 2 trucks, payoff $= 6/2 = 3$. Same as current payoff (3). No strict improvement.
+- **Truck 2**: identical reasoning by symmetry. No strict improvement.
+- **Truck 3** switches to North: now North has 3 trucks, payoff $= 6/3 = 2 < 6$. Strictly worse.
+
+No truck can strictly improve by deviating. **This is a Nash equilibrium.**
+
+**(c)** The profile from part (b) is itself a Nash equilibrium: **Truck 1 North, Truck 2 North, Truck 3 South**, giving payoffs $(3, 3, 6)$.
+
+To verify (repeating from (b)): the two trucks sharing a location get 3, while the lone truck gets 6. A sharing truck that switches joins the lone truck, making that location have 2 trucks, so its payoff becomes $6/2 = 3$, which is no improvement. The lone truck switching makes the other location have 3 trucks, reducing its payoff to $6/3 = 2$, which is worse. So no truck profits from deviating.
+
+More generally, any profile that splits the trucks 2--1 across the locations is a NE, by the same logic. There are 6 such profiles (3 choices for which truck is alone $\times$ 2 choices for which location the lone truck goes to). The profiles where all 3 trucks choose the same location are *not* NE, since any truck could deviate to the empty location and jump from $6/3 = 2$ to $6/1 = 6$.

@@ -22,6 +22,9 @@ format:
       navigation-mode: vertical
       controls: false
       menu: true
+      revealjs-a11y:
+         skip-navigation: true
+         high-contrast: false
   beamer:
       theme: metropolis
       classoption: handout
