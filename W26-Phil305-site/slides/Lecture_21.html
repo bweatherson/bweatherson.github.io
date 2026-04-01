@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-04-01">
   <title>Dominant Strategies and Nash Equilibrium</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f9a82510d1650344fb670477c5215e5c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3f5091d315fe69d0b17aea925bd186b1.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -160,36 +163,30 @@
 <tr class="header">
 <th style="text-align: right;"></th>
 <th style="text-align: center;">L</th>
-<th style="text-align: center;">C</th>
+<th style="text-align: center;">M</th>
 <th style="text-align: center;">R</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;"><strong>T</strong></td>
-<td style="text-align: center;">(3, 1)</td>
-<td style="text-align: center;">(0, 2)</td>
-<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(4, 3)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(3, 0)</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><strong>M</strong></td>
-<td style="text-align: center;">(1, 3)</td>
-<td style="text-align: center;">(1, 1)</td>
-<td style="text-align: center;">(2, 0)</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;"><strong>B</strong></td>
-<td style="text-align: center;">(0, 2)</td>
-<td style="text-align: center;">(2, 0)</td>
-<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(1, 2)</td>
+<td style="text-align: center;">(1, 3)</td>
 </tr>
 </tbody>
 </table>
 <div class="fragment">
-<p>No row or column is strictly dominated by another single row or column.</p>
+<p>Player 2 (Column) has no dominated strategy. Each column does best against some row.</p>
 </div>
 <div class="fragment">
-<p>But we can still make progress by thinking carefully about what rational players will rule out.</p>
+<p>But we can still make progress by thinking about what rational players will rule out.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -205,7 +202,7 @@
 </div>
 </section>
 <section class="slide level2">
-
+<h2>Step 1: Check Player 1</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -230,49 +227,7 @@
 </tr>
 </tbody>
 </table>
-<div class="fragment">
-<p><strong>Step 1</strong>: Check Player 2’s columns. Is R dominated?</p>
-<ul>
-<li>Under T: M gives 1, R gives 0. So M is better than R when Row plays T.</li>
-<li>Under B: M gives 2, R gives 3. So R is better than M when Row plays B.</li>
-</ul>
-<p>R is not dominated. Let’s check whether M or L dominate each other… actually, check if R is dominated by L:</p>
-<ul>
-<li>Under T: L gives 3, R gives 0 → L better.</li>
-<li>Under B: L gives 1, R gives 3 → R better.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>No strict dominance for Player 2 here. Let’s check Player 1.</p>
-</div>
-</section>
-<section class="slide level2">
-
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;"></th>
-<th style="text-align: center;">L</th>
-<th style="text-align: center;">M</th>
-<th style="text-align: center;">R</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><strong>T</strong></td>
-<td style="text-align: center;">(4, 3)</td>
-<td style="text-align: center;">(2, 1)</td>
-<td style="text-align: center;">(3, 0)</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>B</strong></td>
-<td style="text-align: center;">(2, 1)</td>
-<td style="text-align: center;">(1, 2)</td>
-<td style="text-align: center;">(1, 3)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Check Player 1</strong>: Does T dominate B?</p>
+<p>Does T dominate B?</p>
 <ul>
 <li>Against L: T gives 4, B gives 2 → T better ✓</li>
 <li>Against M: T gives 2, B gives 1 → T better ✓</li>
@@ -315,9 +270,41 @@
 </section>
 <section class="slide level2">
 <h2>The Limits of Iterated Elimination</h2>
-<p>Iterated elimination works neatly when it resolves the game completely.</p>
+<p>Iterated elimination works neatly when it resolves the game completely. But often it doesn’t.</p>
 <div class="fragment">
-<p>Often it doesn’t. Many games survive iterated elimination with multiple strategy profiles remaining.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>T</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(0, 2)</td>
+<td style="text-align: center;">(1, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 0)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>B</strong></td>
+<td style="text-align: center;">(0, 2)</td>
+<td style="text-align: center;">(2, 0)</td>
+<td style="text-align: center;">(3, 1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>No row is dominated by another row, and no column is dominated by another column. Iterated elimination can’t even get started here.</p>
 </div>
 <div class="fragment">
 <p>We need a solution concept that applies to any game.</p>
@@ -329,17 +316,19 @@
 
 </section>
 <section class="slide level2">
-<h2>The Core Idea</h2>
-<p>A strategy profile is a <strong>Nash equilibrium</strong> if no player can improve their payoff by <em>unilaterally</em> changing their strategy (given that all other players keep theirs fixed).</p>
+<h2>Best Response</h2>
+<p>A strategy is a <strong>best response</strong> to an opponent’s strategy if it gives the highest payoff against that strategy.</p>
 <div class="fragment">
-<p><strong>Definition</strong>: A strategy profile <span class="math inline">\((s_1, s_2, \ldots, s_n)\)</span> is a Nash equilibrium if for every player <span class="math inline">\(i\)</span> and every alternative strategy <span class="math inline">\(s_i'\)</span>: <span class="math display">\[\pi_i(s_i, s_{-i}) \geq \pi_i(s_i', s_{-i})\]</span></p>
+<p>If Column plays L, and Row’s payoffs from T, M, B are 3, 1, 0, then T is Row’s best response to L.</p>
 </div>
 <div class="fragment">
-<p>Equivalently: each player is playing a <strong>best response</strong> to what the others are doing.</p>
+<p>A rational player always plays a best response to whatever they expect the other player to do.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Nash Equilibrium in the PD</h2>
+<h2>Finding Best Responses</h2>
+<p>Go through each column and bold Row’s highest payoff. Then go through each row and bold Column’s highest payoff.</p>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -361,17 +350,69 @@
 </tr>
 </tbody>
 </table>
-<div class="fragment">
-<p>Is (Normal, Normal) a Nash equilibrium?</p>
 </div>
 <div class="fragment">
-<p>No, since Doug can improve from 2 to 3 by switching to Extra (given Ed plays Normal).</p>
+<p>If Ed plays Normal: Doug gets 2 from Normal, 3 from Extra. Bold the 3.</p>
+<p>If Ed plays Extra: Doug gets 0 from Normal, 1 from Extra. Bold the 1.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>If Doug plays Normal: Ed gets 2 from Normal, 3 from Extra. Bold the 3.</p>
+<p>If Doug plays Extra: Ed gets 0 from Normal, 1 from Extra. Bold the 1.</p>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Ed: Normal</th>
+<th style="text-align: center;">Ed: Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Doug: Normal</strong></td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(0, <strong>3</strong>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Doug: Extra</strong></td>
+<td style="text-align: center;">(<strong>3</strong>, 0)</td>
+<td style="text-align: center;">(<strong>1</strong>, <strong>1</strong>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide level2">
+<h2>From Best Response to Nash Equilibrium</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Ed: Normal</th>
+<th style="text-align: center;">Ed: Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Doug: Normal</strong></td>
+<td style="text-align: center;">(2, 2)</td>
+<td style="text-align: center;">(0, <strong>3</strong>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Doug: Extra</strong></td>
+<td style="text-align: center;">(<strong>3</strong>, 0)</td>
+<td style="text-align: center;">(<strong>1</strong>, <strong>1</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>The cell where both payoffs are bolded is (Extra, Extra). Both players are playing a best response to each other. Neither would gain by switching.</p>
+<div class="fragment">
+<p>A strategy profile is a <strong>Nash equilibrium</strong> if every player is playing a best response to what the others are doing.</p>
 </div>
 <div class="fragment">
-<p>Is (Extra, Extra) a Nash equilibrium?</p>
-</div>
-<div class="fragment">
-<p>Yes, since given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No improvement. Same for Ed.</p>
+<p><strong>Definition</strong>: A strategy profile <span class="math inline">\((s_1, s_2, \ldots, s_n)\)</span> is a Nash equilibrium if for every player <span class="math inline">\(i\)</span> and every alternative strategy <span class="math inline">\(s_i'\)</span>: <span class="math display">\[\pi_i(s_i, s_{-i}) \geq \pi_i(s_i', s_{-i})\]</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -465,12 +506,16 @@
 </tbody>
 </table>
 <div class="fragment">
-<p>Is (Stag, Stag) a Nash equilibrium?</p>
+<p>Let’s find the Nash equilibria using the bolding method.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>The Stag Hunt</h2>
-<p>Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).</p>
+<h2>Stag Hunt: Best Responses</h2>
+<p>Row’s best responses: against Stag, Stag gives 4 vs Rabbit gives 3. Against Rabbit, Rabbit gives 3 vs Stag gives 0.</p>
+<div class="fragment">
+<p>Column’s best responses are identical (the game is symmetric).</p>
+</div>
+<div class="fragment">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -482,24 +527,19 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: right;"><strong>Hunt Stag</strong></td>
-<td style="text-align: center;">(4, 4)</td>
-<td style="text-align: center;">(0, 3)</td>
+<td style="text-align: center;">(<strong>4</strong>, <strong>4</strong>)</td>
+<td style="text-align: center;">(0, <strong>3</strong>)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><strong>Hunt Rabbit</strong></td>
-<td style="text-align: center;">(3, 0)</td>
-<td style="text-align: center;">(3, 3)</td>
+<td style="text-align: center;">(<strong>3</strong>, 0)</td>
+<td style="text-align: center;">(<strong>3</strong>, <strong>3</strong>)</td>
 </tr>
 </tbody>
 </table>
-<div class="fragment">
-<p>Given P2 hunts Stag, P1 gets 4 from Stag vs 3 from Rabbit. ✓</p>
 </div>
 <div class="fragment">
-<p>Is (Rabbit, Rabbit) a Nash equilibrium?</p>
-</div>
-<div class="fragment">
-<p>Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓</p>
+<p>Two cells with both payoffs bolded: (Stag, Stag) and (Rabbit, Rabbit).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -515,13 +555,13 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: right;"><strong>Hunt Stag</strong></td>
-<td style="text-align: center;">(4, 4)</td>
-<td style="text-align: center;">(0, 3)</td>
+<td style="text-align: center;">(<strong>4</strong>, <strong>4</strong>)</td>
+<td style="text-align: center;">(0, <strong>3</strong>)</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><strong>Hunt Rabbit</strong></td>
-<td style="text-align: center;">(3, 0)</td>
-<td style="text-align: center;">(3, 3)</td>
+<td style="text-align: center;">(<strong>3</strong>, 0)</td>
+<td style="text-align: center;">(<strong>3</strong>, <strong>3</strong>)</td>
 </tr>
 </tbody>
 </table>

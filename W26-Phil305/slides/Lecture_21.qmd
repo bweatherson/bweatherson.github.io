@@ -106,20 +106,27 @@ We need a solution concept that applies to any game.
 
 # Nash Equilibrium
 
-## The Core Idea
+## Best Response
 
-A strategy profile is a **Nash equilibrium** if no player can improve their payoff by *unilaterally* changing their strategy (given that all other players keep theirs fixed).
-
-. . .
-
-**Definition**: A strategy profile $(s_1, s_2, \ldots, s_n)$ is a Nash equilibrium if for every player $i$ and every alternative strategy $s_i'$:
-$$\pi_i(s_i, s_{-i}) \geq \pi_i(s_i', s_{-i})$$
+A strategy is a **best response** to an opponent's strategy if no other strategy gives a strictly higher payoff against it.
 
 . . .
 
-Equivalently: each player is playing a **best response** to what the others are doing.
+If Column plays L, and Row's payoffs from T, M, B are 3, 1, 0, then T is Row's best response to L.
 
-## Nash Equilibrium in the PD
+. . .
+
+If the payoffs were 3, 3, 0, then both T and M would be best responses. "Best" means "tied for highest," not "uniquely highest." When using the bolding method, bold all tied-highest payoffs.
+
+. . .
+
+A rational player always plays a best response to whatever they expect the other player to do.
+
+## Finding Best Responses
+
+Go through each column and bold Row's highest payoff. Then go through each row and bold Column's highest payoff.
+
+. . .
 
 |                  | Ed: Normal | Ed: Extra |
 |-----------------:|:----------:|:---------:|
@@ -128,19 +135,40 @@ Equivalently: each player is playing a **best response** to what the others are 
 
 . . .
 
-Is (Normal, Normal) a Nash equilibrium?
+If Ed plays Normal: Doug gets 2 from Normal, 3 from Extra. Bold the 3.
+
+If Ed plays Extra: Doug gets 0 from Normal, 1 from Extra. Bold the 1.
+
+---
+
+If Doug plays Normal: Ed gets 2 from Normal, 3 from Extra. Bold the 3.
+
+If Doug plays Extra: Ed gets 0 from Normal, 1 from Extra. Bold the 1.
 
 . . .
 
-No, since Doug can improve from 2 to 3 by switching to Extra (given Ed plays Normal).
+|                  | Ed: Normal   | Ed: Extra      |
+|-----------------:|:------------:|:--------------:|
+| **Doug: Normal** | (2, 2)       | (0, **3**)     |
+| **Doug: Extra**  | (**3**, 0)   | (**1**, **1**) |
+
+## From Best Response to Nash Equilibrium
+
+|                  | Ed: Normal   | Ed: Extra      |
+|-----------------:|:------------:|:--------------:|
+| **Doug: Normal** | (2, 2)       | (0, **3**)     |
+| **Doug: Extra**  | (**3**, 0)   | (**1**, **1**) |
+
+The cell where both payoffs are bolded is (Extra, Extra). Both players are playing a best response to each other. Neither would gain by switching.
 
 . . .
 
-Is (Extra, Extra) a Nash equilibrium?
+A strategy profile is a **Nash equilibrium** if every player is playing a best response to what the others are doing.
 
 . . .
 
-Yes, since given Ed plays Extra, Doug gets 1 from Extra vs 0 from Normal. No improvement. Same for Ed.
+**Definition**: A strategy profile $(s_1, s_2, \ldots, s_n)$ is a Nash equilibrium if for every player $i$ and every alternative strategy $s_i'$:
+$$\pi_i(s_i, s_{-i}) \geq \pi_i(s_i', s_{-i})$$
 
 ## Nash Equilibrium in the Coordination Game
 
@@ -191,35 +219,33 @@ Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individu
 
 . . .
 
-Is (Stag, Stag) a Nash equilibrium?
+Let's find the Nash equilibria using the bolding method.
 
-## The Stag Hunt
+## Stag Hunt: Best Responses
 
-Two hunters can cooperate to hunt a stag (high reward) or hunt a rabbit individually (safe reward).
-
-|               | Hunt Stag | Hunt Rabbit |
-|--------------:|:-------------:|:---------------:|
-| **Hunt Stag** | (4, 4)        | (0, 3)          |
-| **Hunt Rabbit** | (3, 0)      | (3, 3)          |
+Row's best responses: against Stag, Stag gives 4 vs Rabbit gives 3. Against Rabbit, Rabbit gives 3 vs Stag gives 0.
 
 . . .
 
-Given P2 hunts Stag, P1 gets 4 from Stag vs 3 from Rabbit. ✓
+Column's best responses are identical (the game is symmetric).
 
 . . .
 
-Is (Rabbit, Rabbit) a Nash equilibrium?
+|               | Hunt Stag          | Hunt Rabbit        |
+|--------------:|:------------------:|:------------------:|
+| **Hunt Stag** | (**4**, **4**)     | (0, **3**)         |
+| **Hunt Rabbit** | (**3**, 0)       | (**3**, **3**)     |
 
 . . .
 
-Given P2 hunts Rabbit, P1 gets 3 from Rabbit vs 0 from Stag. ✓
+Two cells with both payoffs bolded: (Stag, Stag) and (Rabbit, Rabbit).
 
 ## Stag Hunt: Two Equilibria, Different Characters
 
-|               | Hunt Stag | Hunt Rabbit |
-|--------------:|:-------------:|:---------------:|
-| **Hunt Stag** | (4, 4)        | (0, 3)          |
-| **Hunt Rabbit** | (3, 0)      | (3, 3)          |
+|               | Hunt Stag          | Hunt Rabbit        |
+|--------------:|:------------------:|:------------------:|
+| **Hunt Stag** | (**4**, **4**)     | (0, **3**)         |
+| **Hunt Rabbit** | (**3**, 0)       | (**3**, **3**)     |
 
 . . .
 
