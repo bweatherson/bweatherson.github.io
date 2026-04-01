@@ -233,8 +233,8 @@ Column's best responses are identical (the game is symmetric).
 
 |               | Hunt Stag          | Hunt Rabbit        |
 |--------------:|:------------------:|:------------------:|
-| **Hunt Stag** | (**4**, **4**)     | (0, **3**)         |
-| **Hunt Rabbit** | (**3**, 0)       | (**3**, **3**)     |
+| **Hunt Stag** | (**4**, **4**)     | (0, 3)             |
+| **Hunt Rabbit** | (3, 0)             | (**3**, **3**)     |
 
 . . .
 
@@ -244,8 +244,8 @@ Two cells with both payoffs bolded: (Stag, Stag) and (Rabbit, Rabbit).
 
 |               | Hunt Stag          | Hunt Rabbit        |
 |--------------:|:------------------:|:------------------:|
-| **Hunt Stag** | (**4**, **4**)     | (0, **3**)         |
-| **Hunt Rabbit** | (**3**, 0)       | (**3**, **3**)     |
+| **Hunt Stag** | (**4**, **4**)     | (0, 3)             |
+| **Hunt Rabbit** | (3, 0)             | (**3**, **3**)     |
 
 . . .
 
