@@ -1,0 +1,278 @@
+---
+title: "Citation Gaps and Peer Review"
+date: 4/8/2026
+format:
+    revealjs:
+        revealjs-a11y:
+          skip-navigation: true
+          high-contrast: false
+    beamer: default
+---
+
+# Structural Causes of Citation Gaps
+
+## Where We Left Off
+
+The Matthew effect can generate unfair distributions of credit, and that this interacts with demographic inequity.
+
+. . .
+
+Today we'll look at two things:
+
+1. Hannah Rubin's more detailed discussion of how citation gaps arise.
+2. How credit incentives and peer review interacct.
+
+## What Are Citation Gaps?
+
+Citation gaps are systematic differences in citation rates between social identity groups. In most fields, women are cited less than men, even when they publish comparable work.
+
+. . .
+
+The empirical evidence is widespread: citation gaps by gender have been found in economics, ecology, political science, library science, linguistics, sociology, health and natural sciences, social psychology, and neuroscience.
+
+. . .
+
+Citation gaps by race and ethnicity have also been documented, though fewer studies exist. In some fields the sample sizes here will be very small, possibly for reasons related to the citation gap.
+
+## The "Merit Defense"
+
+A common reaction to citation gap data is the claim that people just cite whatever is best, without attending to demographics.
+
+. . .
+
+Rubin wants to build a model where this might, in a sense, correct on an individual level. 
+
+She argues that even if every individual is unbiased in their citation practices, citation gaps can still emerge from the *structure* of the community.
+
+. . .
+
+The point is that you cite the best papers *you know about*. And what you know about depends on who you're connected to.
+
+## Homophily
+
+One factor shaping network structure is **homophily**, the tendency to form connections with people who share your social identity.
+
+. . .
+
+There is a lot of evidence that academic networks are homophilic. People of the same social identity cluster together in subdisciplines, collaborations, and personal friendships. This is *obviously* true for linguistic identities, but it's pretty clearly true for other identities.
+
+. . .
+
+This can happen for many reasons, some of them positive (e.g., seeking support from people who share your experiences) and some of them negative (e.g., unfair distribution of collaborative labour pushing minority members toward each other).
+
+## Rubin's Basic Model
+
+Rubin models a community of 100 academics as a network. Two authors, one from the majority group and one from the minority group, each publish a good, citation-worthy, paper making the same claim at the same time.
+
+. . .
+
+As new papers come out, their authors have some chance of citing each of the original two papers. That chance depends on whether they have heard about the paper through their network. You are more likely to hear about a paper written by someone close to you in the network.
+
+. . .
+
+A person cites their neighbour's paper with probability *p*, their neighbour's neighbour's paper with probability *p*², and so on.
+
+## Two Key Variables
+
+The model varies two things: the level of homophily in the network, and the relative size of the majority group.
+
+. . .
+
+As homophily increases, information flows more within groups and less between them. Majority group members hear about majority group papers more often, and minority group members hear about minority group papers more often.
+
+. . .
+
+But the majority group is bigger, so they produce more of the new papers, and their citation preferences dominate the overall count. The result: the majority group member's paper gets cited more.
+
+## Results of the Basic Model
+
+When there is no homophily, there is no citation gap. Both papers get cited equally.
+
+. . .
+
+As homophily increases, and especially as the minority group gets smaller, citation gaps grow. At high homophily with a 90% majority, the majority group member's paper gets cited about twice as often as the minority group member's.
+
+. . .
+
+This happens with zero bias. Nobody in the model thinks the minority group's work is worse. They just literally don't know it exists. The gap is a product of network structure alone.
+
+## Do Internet Searches Help?
+
+One might hope that search engines like Google Scholar could fix this, since they let people find work outside their immediate network.
+
+. . .
+
+Rubin tests this by adding a second pathway: with some probability, people find a paper through an internet search rather than through their network.
+
+. . .
+
+Searches help, but there is a reason the effect is mitigated. 
+
+Search engines have their own version of the Matthew effect: papers with more citations show up higher in search results. So the structural advantage of the majority group partly reproduces itself through the search algorithm.
+
+## Adding Publication Rates
+
+Men tend to publish more papers than women. Rubin adds this to the model: majority group members publish 1.5 times as often.
+
+. . .
+
+Since more new papers are authored by majority group members, and those authors are more likely to cite majority group work (through the network), citation gaps increase even without homophily.
+
+. . .
+
+When publication rate differences combine with homophily, the gaps are larger than either factor would produce alone.
+
+## Adding Bias
+
+Rubin also models what happens when you add a small amount of bias on top of the structural effects. If a majority group member finds a minority group paper, there is a 5% chance they just won't cite it.
+
+. . .
+
+Even this small bias produces a large additional effect, because it compounds with the structural disadvantages already in place.
+
+. . .
+
+The key takeaway: structural causes and individual biases are not competing explanations. They interact and amplify each other.
+
+# Peer Review, Journals, and Funding
+
+## Grant Funding
+
+Kevin Gross and Carl Bergstrom (2019) model inefficiencies in the grant review process. 
+
+Academics spend large amounts of time writing grant applications, often to the detriment of their actual research.
+
+. . .
+
+They draw on contest theory: when funding is competitive, academics invest heavily in applications, creating waste. They show that a partial lottery system (screen out bad proposals, then randomly fund from the rest) can reduce this waste without much drop in quality.
+
+## Abolishing Pre-Publication Peer Review
+
+Brian Nosek and Yoav Bar-Anan (2012) and Remco Heesen and Liam K. Bright (2020) argue that pre-publication peer review creates inefficiencies. 
+
+Peer review is time-consuming, often duplicated across journals, and may not improve paper quality.
+
+. . .
+
+They propose replacing it with post-publication review: authors post finished work to an archive, and the community reviews it after publication. The most important articles would receive the most engagement.
+
+. . .
+
+Marcus Arvan et al. (2020) support this using a Condorcet jury theorem argument: post-publication review draws on many scholars, not just two or three referees.
+
+## Rubin's Worry about Post-Publication Review
+
+Hannah Rubin raises a concern about this proposal. In a post-publication system, a paper has to be *seen* before it can be reviewed. And network structure affects what gets seen.
+
+. . .
+
+Under the current system, a paper published in a good journal has a stamp of quality that is relatively independent of the author's network position. 
+
+Indeed, when the journal system is working well, it's a way of overriding network effects. Everyone reads the top journal(s), even if they don't recognise the authors.
+
+Under post-publication review, visibility depends much more on social connections.
+
+. . .
+
+This could intensify the runaway Matthew effect for minority and marginalized scholars, whose work is less likely to spread through the network to begin with.
+
+## Submission Costs and Signaling
+
+Tiokhin et al. (2021) propose a different kind of reform. They argue that submission costs (time spent on review, limits on resubmission) can function as signals.
+
+. . .
+
+If authors must pay a cost to submit, they will only submit to top journals when they believe the paper has a realistic chance of acceptance. This should deter low-quality submissions and reduce the reviewing burden.
+
+## Good and Bad Friction
+
+Note this pulls in the opposite direction from what Gross and Bergstrom were discussing earlier.
+
+They wanted to make submissions easier, to avoid the dead weight loss of time spend crafting applications. The more you do that, the more nuisance submissions you get.
+
+. . .
+
+O'Connor suggests, perhaps optimistically, that there will be a balancing out here. On the Gross and Bergstrom model, submissions are shorter, so there is less reviewing time, even if some is wasted on nuisance submissions.
+
+## Ex-Ante vs. Ex-Post Review
+
+In a later paper, Gross and Bergstrom (2021) compare two kinds of review: ex-ante review of proposals (by funding agencies) and ex-post review of finished work (by journals).
+
+. . .
+
+They argue that ex-ante review incentivizes conservative research. A scientist with a risky idea may be confident it will work, but a grant committee may not share that confidence. So grant review pushes researchers toward safer projects.
+
+. . .
+
+This connects to broader concerns about whether the incentive structures of science discourage high-risk, high-reward research.
+
+## Ex-Ante vs. Ex-Post Review
+
+Note that this is a different distinction to what Heesen et al were discusing. There are three proposals for which stage of the research project big decisions should be made at.
+
+1. **Before the research is conducted** - This is how grant applications work.
+2. **After the research is conducted, but before it is public** - This is how current journals work.
+3. **After the work is public** - This is how preprint servers work, and what Heesen et al think should happen.
+
+## Publication Bias
+
+One journal practice with significant effects on incentives is publication bias: preferring novel, positive findings over null results or replications.
+
+. . .
+
+Publication bias incentivizes scientists to obtain positive results regardless of what their data actually show. In the context of standard statistical testing, this creates pressure to use questionable research practices.
+
+. . .
+
+O'Connor talks about these more in Chapter 6 on the replication crisis, and they are interesting, but I won't be covering them here.
+
+# Incentives and Gender Identity
+
+## The Gender Productivity Gap
+
+Women in academia tend to publish fewer papers per unit of time than men. Several explanations have been proposed: family responsibilities, discrimination in peer review, different career structures, or lower inherent productivity.
+
+. . .
+
+Liam Kofi Bright (2017) and Erin Hengel (2022) model a less obvious possibility: women may publish less *because* they expect to face higher standards.
+
+. . .
+
+This is similar to what happens in signaling models in game theory. Some people don't attempt to send the signal (sell their car, go to college) because they think it won't be worthwhile.
+
+## Bright's Model
+
+In Bright's model, academics prefer to publish as many papers as possible. But women have been socialized to expect more pushback on their work (like Firuzeh in O'Connor's opening example, whose mentors were extra critical because she was a Muslim woman).
+
+. . .
+
+On this assumption, women produce higher quality work per paper, but publish less often. Each paper represents a greater effort.
+
+. . .
+
+Hengel (2022) tests this with publication data from economics. She finds that women's writing quality does tend to be higher, and that this quality gap increases over time, consistent with women responding to the expectation of harsher evaluation.
+
+## Philosophy Anecdotes
+
+Hengel is an economist, and she's working with data from economics. But her model seems plausible within philosophy.
+
+Broadly speaking, there are two types of successful philosophers.
+
+1. Philosophers who publish lots of very good work.
+2. Philosophers who publish less work, but with a higher average quality.
+
+. . .
+
+Group 1 (which includes me), is much more male; Group 2 is more gender-balanced. This is what you'd expect if Hengel's model held in philosophy.
+
+. . .
+
+It's also easier to get a high citation count in Group 1. Citations are a lottery, and buying lots of (slightly lower quality) lottery tickets can maximise expected returns.
+
+## For Next Time
+
+We move to Chapter 5 of O'Connor, on epistemic landscapes. This looks at ways in which scientific communities can get stuck at a local maxima, a point where any small change to the theory will make the theory worse, but where a big change could produce a better theory.
+
+. . .
+
+Read O'Connor, Chapter 5, through the end of 5.1.
