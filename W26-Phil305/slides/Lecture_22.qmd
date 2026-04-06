@@ -49,6 +49,23 @@ If the Entrant enters, the Incumbent can either **Fight** (aggressive price war)
 
 ## The Tree
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["<b>Entrant</b>"] -->|Stay Out| T1["(0, 4)"]
+    E -->|Enter| I["<b>Incumbent</b>"]
+    I -->|Fight| T2["(−1, 1)"]
+    I -->|Accommodate| T3["(2, 2)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Entrant
 ├── Stay Out → (0, 4)   [Entrant gets 0; Incumbent keeps monopoly]
@@ -57,6 +74,8 @@ Entrant
         ├── Fight       → (−1, 1)   [Price war: both lose]
         └── Accommodate → (2, 2)    [Both share market]
 ```
+
+:::
 
 Payoffs: (Entrant, Incumbent)
 
@@ -114,6 +133,25 @@ Assume P1 offers either 9/1 (keeping \$9) or 5/5 (equal split).
 
 ## Ultimatum Tree
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|Offer 9/1| P2a["<b>Player 2</b>"]
+    P1 -->|Offer 5/5| P2b["<b>Player 2</b>"]
+    P2a -->|Accept| T1["(9, 1)"]
+    P2a -->|Reject| T2["(0, 0)"]
+    P2b -->|Accept| T3["(5, 5)"]
+    P2b -->|Reject| T4["(0, 0)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Player 1
 ├── Offer 9/1
@@ -125,6 +163,8 @@ Player 1
         ├── Accept → (5, 5)
         └── Reject → (0, 0)
 ```
+
+:::
 
 ## Ultimatum Strategies
 
@@ -152,6 +192,23 @@ Player 1 decides to **Trust** or **Not Trust** Player 2. If Player 1 trusts:
 
 . . .
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|Not Trust| T1["(5, 5)"]
+    P1 -->|Trust| P2["<b>Player 2</b>"]
+    P2 -->|Honor| T2["(10, 10)"]
+    P2 -->|Exploit| T3["(0, 20)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Player 1
 ├── Not Trust → (5, 5)
@@ -160,6 +217,8 @@ Player 1
         ├── Honor   → (10, 10)
         └── Exploit → (0, 20)
 ```
+
+:::
 
 # Backward Induction
 
@@ -173,6 +232,23 @@ At each step, assume the player at that node will choose the action that maximis
 
 ## Backward Induction in the Entry Game
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["<b>Entrant</b>"] -->|Stay Out| T1["(0, 4)"]
+    E -->|Enter| I["<b>Incumbent</b>"]
+    I -->|Fight| T2["(−1, 1)"]
+    I -->|Accommodate| T3["(2, 2)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Entrant
 ├── Stay Out → (0, 4)
@@ -181,6 +257,8 @@ Entrant
         ├── Fight       → (−1, 1)
         └── Accommodate → (2, 2)
 ```
+
+:::
 
 . . .
 
@@ -196,6 +274,23 @@ Entrant
 
 ## Backward Induction in the Trust Game
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|Not Trust| T1["(5, 5)"]
+    P1 -->|Trust| P2["<b>Player 2</b>"]
+    P2 -->|Honor| T2["(10, 10)"]
+    P2 -->|Exploit| T3["(0, 20)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Player 1
 ├── Not Trust → (5, 5)
@@ -204,6 +299,8 @@ Player 1
         ├── Honor   → (10, 10)
         └── Exploit → (0, 20)
 ```
+
+:::
 
 . . .
 
@@ -223,6 +320,25 @@ Player 1
 
 A firm (Player 1) interviews a candidate and decides to **Offer** or **Pass**. If the firm offers, the candidate (Player 2) can **Accept** or **Negotiate**. If the candidate negotiates, the firm can **Raise** the offer or **Withdraw** it.
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 6
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    F1["<b>Firm</b>"] -->|Pass| T1["(0, 2)"]
+    F1 -->|Offer| C["<b>Candidate</b>"]
+    C -->|Accept| T2["(3, 3)"]
+    C -->|Negotiate| F2["<b>Firm</b>"]
+    F2 -->|Raise| T3["(1, 5)"]
+    F2 -->|Withdraw| T4["(−1, 0)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Firm
 ├── Pass → (0, 2)
@@ -234,6 +350,8 @@ Firm
                 ├── Raise    → (1, 5)
                 └── Withdraw → (−1, 0)
 ```
+
+:::
 
 Payoffs: (Firm, Candidate)
 
@@ -256,7 +374,9 @@ The Firm moves at two nodes: the root, and after a negotiation. So the Firm's st
 
 . . .
 
-That's **4 strategies** for the Firm. The Candidate has two nodes but only one is a decision node, so 2 strategies: Accept or Negotiate.
+That's **4 strategies** for the Firm. Notice that (Pass; Raise) and (Pass; Withdraw) are different strategies, even though the second part never comes up if the Firm passes. A strategy is a complete plan that specifies what to do at every decision node, including nodes that the strategy itself makes unreachable.
+
+The Candidate has two nodes but only one is a decision node, so 2 strategies: Accept or Negotiate.
 
 ## Part 2: Backward Induction
 
@@ -285,6 +405,144 @@ The Firm would prefer (3, 3) from an immediate acceptance, but backward inductio
 . . .
 
 This is a common pattern: the player who moves later can sometimes extract a better deal, because the earlier player's threat to withdraw is costly to carry out.
+
+## Another Worked Example
+
+Consider the following game:
+
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 6
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|A| P2a["<b>Player 2</b>"]
+    P1 -->|B| P2b["<b>Player 2</b>"]
+    P2a -->|C| T1["(4, 2)"]
+    P2a -->|D| T2["(1, 3)"]
+    P2b -->|E| T3["(3, 1)"]
+    P2b -->|F| P1b["<b>Player 1</b>"]
+    P1b -->|G| T4["(2, 4)"]
+    P1b -->|H| T5["(5, 0)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```
+Player 1
+├── A
+│   └── Player 2
+│       ├── C → (4, 2)
+│       └── D → (1, 3)
+└── B
+    └── Player 2
+        ├── E → (3, 1)
+        └── F
+            └── Player 1
+                ├── G → (2, 4)
+                └── H → (5, 0)
+```
+
+:::
+
+Payoffs: (Player 1, Player 2)
+
+## Part (a): Step 1
+
+Start at the deepest node: Player 1's second decision (after B, F). G gives Player 1 a payoff of 2, H gives 5. Player 1 chooses **H**. Replace that node with (5, 0).
+
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|A| P2a["<b>Player 2</b>"]
+    P1 -->|B| P2b["<b>Player 2</b>"]
+    P2a -->|C| T1["(4, 2)"]
+    P2a -->|D| T2["(1, 3)"]
+    P2b -->|E| T3["(3, 1)"]
+    P2b -->|F| T4["(5, 0) ✓"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```
+Player 1
+├── A
+│   └── Player 2
+│       ├── C → (4, 2)
+│       └── D → (1, 3)
+└── B
+    └── Player 2
+        ├── E → (3, 1)
+        └── F → (5, 0)  ← Player 1 picks H
+```
+
+:::
+
+## Part (a): Steps 2 and 3
+
+Now solve both of Player 2's nodes. After A: C gives Player 2 a payoff of 2, D gives 3. Player 2 chooses **D**. After B: E gives 1, F gives 0. Player 2 chooses **E**.
+
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 7
+%%| fig-height: 4
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["<b>Player 1</b>"] -->|A| T1["(1, 3) ✓"]
+    P1 -->|B| T2["(3, 1) ✓"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```
+Player 1
+├── A → (1, 3)  ← Player 2 picks D
+└── B → (3, 1)  ← Player 2 picks E
+```
+
+:::
+
+## Part (a): Step 4
+
+Player 1 faces A → (1, 3) vs B → (3, 1). Player 1 gets 1 from A and 3 from B. Player 1 chooses **B**.
+
+. . .
+
+**Outcome**: B → E, with payoffs **(3, 1)**.
+
+## Part (b): The Outcome
+
+The backward-induction outcome is **B → E**, with payoffs **(3, 1)**.
+
+Player 2 chooses E because the alternative (F) leads to Player 1 choosing H, which gives Player 2 a payoff of 0. Player 2 would prefer D (payoff 3) if Player 1 played A, but Player 1 won't play A (payoff 1 vs 3).
+
+## Part (c): Strategy Profiles
+
+Player 1 moves at two nodes: the root, and after (B, F). So Player 1's strategies have two components.
+
+. . .
+
+The backward-induction strategy for Player 1 is **(B; H)**: play B at the root, and play H if the game ever reaches the second node.
+
+. . .
+
+Player 2 moves at two nodes: after A, and after B. The backward-induction strategy for Player 2 is **(D; E)**: play D after A, and play E after B.
+
+. . .
+
+The full strategy profile is **(B; H), (D; E)**. Note that Player 1's second node is never reached on the path of play, but the strategy still specifies H there. And Player 2's choice of D after A is never reached either. Both of these off-path choices matter for the analysis, because they are what make the equilibrium subgame perfect.
 
 ## For Next Time
 

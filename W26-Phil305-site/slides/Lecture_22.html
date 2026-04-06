@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-04-06">
   <title>Dynamic Games</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f9a82510d1650344fb670477c5215e5c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3f5091d315fe69d0b17aea925bd186b1.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -123,6 +126,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -186,12 +192,23 @@
 </section>
 <section class="slide level2">
 <h2>The Tree</h2>
-<pre><code>Entrant
-├── Stay Out → (0, 4)   [Entrant gets 0; Incumbent keeps monopoly]
-└── Enter
-    └── Incumbent
-        ├── Fight       → (−1, 1)   [Price war: both lose]
-        └── Accommodate → (2, 2)    [Both share market]</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["&lt;b&gt;Entrant&lt;/b&gt;"] --&gt;|Stay Out| T1["(0, 4)"]
+    E --&gt;|Enter| I["&lt;b&gt;Incumbent&lt;/b&gt;"]
+    I --&gt;|Fight| T2["(−1, 1)"]
+    I --&gt;|Accommodate| T3["(2, 2)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>Payoffs: (Entrant, Incumbent)</p>
 </section>
 <section class="slide level2">
@@ -270,15 +287,25 @@
 </section>
 <section class="slide level2">
 <h2>Ultimatum Tree</h2>
-<pre><code>Player 1
-├── Offer 9/1
-│   └── Player 2
-│       ├── Accept → (9, 1)
-│       └── Reject → (0, 0)
-└── Offer 5/5
-    └── Player 2
-        ├── Accept → (5, 5)
-        └── Reject → (0, 0)</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|Offer 9/1| P2a["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P1 --&gt;|Offer 5/5| P2b["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P2a --&gt;|Accept| T1["(9, 1)"]
+    P2a --&gt;|Reject| T2["(0, 0)"]
+    P2b --&gt;|Accept| T3["(5, 5)"]
+    P2b --&gt;|Reject| T4["(0, 0)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Ultimatum Strategies</h2>
@@ -302,12 +329,23 @@
 <li>Player 2 decides to <strong>Honor</strong> (split evenly) or <strong>Exploit</strong> (keep all).</li>
 </ul>
 <div class="fragment">
-<pre><code>Player 1
-├── Not Trust → (5, 5)
-└── Trust
-    └── Player 2
-        ├── Honor   → (10, 10)
-        └── Exploit → (0, 20)</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|Not Trust| T1["(5, 5)"]
+    P1 --&gt;|Trust| P2["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P2 --&gt;|Honor| T2["(10, 10)"]
+    P2 --&gt;|Exploit| T3["(0, 20)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </div>
 </section></section>
 <section>
@@ -324,12 +362,23 @@
 </section>
 <section class="slide level2">
 <h2>Backward Induction in the Entry Game</h2>
-<pre><code>Entrant
-├── Stay Out → (0, 4)
-└── Enter
-    └── Incumbent
-        ├── Fight       → (−1, 1)
-        └── Accommodate → (2, 2)</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["&lt;b&gt;Entrant&lt;/b&gt;"] --&gt;|Stay Out| T1["(0, 4)"]
+    E --&gt;|Enter| I["&lt;b&gt;Incumbent&lt;/b&gt;"]
+    I --&gt;|Fight| T2["(−1, 1)"]
+    I --&gt;|Accommodate| T3["(2, 2)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <div class="fragment">
 <p><strong>Step 1</strong>: At the Incumbent’s node, Fight gives 1 and Accommodate gives 2. Rational choice: <strong>Accommodate</strong>.</p>
 </div>
@@ -342,12 +391,23 @@
 </section>
 <section class="slide level2">
 <h2>Backward Induction in the Trust Game</h2>
-<pre><code>Player 1
-├── Not Trust → (5, 5)
-└── Trust
-    └── Player 2
-        ├── Honor   → (10, 10)
-        └── Exploit → (0, 20)</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|Not Trust| T1["(5, 5)"]
+    P1 --&gt;|Trust| P2["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P2 --&gt;|Honor| T2["(10, 10)"]
+    P2 --&gt;|Exploit| T3["(0, 20)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <div class="fragment">
 <p><strong>Step 1</strong>: Player 2 gets 10 from Honor vs.&nbsp;20 from Exploit. A rational Player 2 chooses <strong>Exploit</strong>.</p>
 </div>
@@ -366,15 +426,25 @@
 <section class="slide level2">
 <h2>A Hiring Game</h2>
 <p>A firm (Player 1) interviews a candidate and decides to <strong>Offer</strong> or <strong>Pass</strong>. If the firm offers, the candidate (Player 2) can <strong>Accept</strong> or <strong>Negotiate</strong>. If the candidate negotiates, the firm can <strong>Raise</strong> the offer or <strong>Withdraw</strong> it.</p>
-<pre><code>Firm
-├── Pass → (0, 2)
-└── Offer
-    └── Candidate
-        ├── Accept → (3, 3)
-        └── Negotiate
-            └── Firm
-                ├── Raise    → (1, 5)
-                └── Withdraw → (−1, 0)</code></pre>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    F1["&lt;b&gt;Firm&lt;/b&gt;"] --&gt;|Pass| T1["(0, 2)"]
+    F1 --&gt;|Offer| C["&lt;b&gt;Candidate&lt;/b&gt;"]
+    C --&gt;|Accept| T2["(3, 3)"]
+    C --&gt;|Negotiate| F2["&lt;b&gt;Firm&lt;/b&gt;"]
+    F2 --&gt;|Raise| T3["(1, 5)"]
+    F2 --&gt;|Withdraw| T4["(−1, 0)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>Payoffs: (Firm, Candidate)</p>
 </section>
 <section class="slide level2">
@@ -392,7 +462,8 @@
 </ul>
 </div>
 <div class="fragment">
-<p>That’s <strong>4 strategies</strong> for the Firm. The Candidate has two nodes but only one is a decision node, so 2 strategies: Accept or Negotiate.</p>
+<p>That’s <strong>4 strategies</strong> for the Firm. Notice that (Pass; Raise) and (Pass; Withdraw) are different strategies, even though the second part never comes up if the Firm passes. A strategy is a complete plan that specifies what to do at every decision node, including nodes that the strategy itself makes unreachable.</p>
+<p>The Candidate has two nodes but only one is a decision node, so 2 strategies: Accept or Negotiate.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -416,6 +487,99 @@
 </div>
 <div class="fragment">
 <p>This is a common pattern: the player who moves later can sometimes extract a better deal, because the earlier player’s threat to withdraw is costly to carry out.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Another Worked Example</h2>
+<p>Consider the following game:</p>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|A| P2a["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P1 --&gt;|B| P2b["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P2a --&gt;|C| T1["(4, 2)"]
+    P2a --&gt;|D| T2["(1, 3)"]
+    P2b --&gt;|E| T3["(3, 1)"]
+    P2b --&gt;|F| P1b["&lt;b&gt;Player 1&lt;/b&gt;"]
+    P1b --&gt;|G| T4["(2, 4)"]
+    P1b --&gt;|H| T5["(5, 0)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Payoffs: (Player 1, Player 2)</p>
+</section>
+<section class="slide level2">
+<h2>Part (a): Step 1</h2>
+<p>Start at the deepest node: Player 1’s second decision (after B, F). G gives Player 1 a payoff of 2, H gives 5. Player 1 chooses <strong>H</strong>. Replace that node with (5, 0).</p>
+<div class="cell" data-reveal="true" data-fig-width="9" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|A| P2a["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P1 --&gt;|B| P2b["&lt;b&gt;Player 2&lt;/b&gt;"]
+    P2a --&gt;|C| T1["(4, 2)"]
+    P2a --&gt;|D| T2["(1, 3)"]
+    P2b --&gt;|E| T3["(3, 1)"]
+    P2b --&gt;|F| T4["(5, 0) ✓"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (a): Steps 2 and 3</h2>
+<p>Now solve both of Player 2’s nodes. After A: C gives Player 2 a payoff of 2, D gives 3. Player 2 chooses <strong>D</strong>. After B: E gives 1, F gives 0. Player 2 chooses <strong>E</strong>.</p>
+<div class="cell" data-reveal="true" data-fig-width="7" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '40px'}} }%%
+graph TD
+    P1["&lt;b&gt;Player 1&lt;/b&gt;"] --&gt;|A| T1["(1, 3) ✓"]
+    P1 --&gt;|B| T2["(3, 1) ✓"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (a): Step 4</h2>
+<p>Player 1 faces A → (1, 3) vs B → (3, 1). Player 1 gets 1 from A and 3 from B. Player 1 chooses <strong>B</strong>.</p>
+<div class="fragment">
+<p><strong>Outcome</strong>: B → E, with payoffs <strong>(3, 1)</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): The Outcome</h2>
+<p>The backward-induction outcome is <strong>B → E</strong>, with payoffs <strong>(3, 1)</strong>.</p>
+<p>Player 2 chooses E because the alternative (F) leads to Player 1 choosing H, which gives Player 2 a payoff of 0. Player 2 would prefer D (payoff 3) if Player 1 played A, but Player 1 won’t play A (payoff 1 vs 3).</p>
+</section>
+<section class="slide level2">
+<h2>Part (c): Strategy Profiles</h2>
+<p>Player 1 moves at two nodes: the root, and after (B, F). So Player 1’s strategies have two components.</p>
+<div class="fragment">
+<p>The backward-induction strategy for Player 1 is <strong>(B; H)</strong>: play B at the root, and play H if the game ever reaches the second node.</p>
+</div>
+<div class="fragment">
+<p>Player 2 moves at two nodes: after A, and after B. The backward-induction strategy for Player 2 is <strong>(D; E)</strong>: play D after A, and play E after B.</p>
+</div>
+<div class="fragment">
+<p>The full strategy profile is <strong>(B; H), (D; E)</strong>. Note that Player 1’s second node is never reached on the path of play, but the strategy still specifies H there. And Player 2’s choice of D after A is never reached either. Both of these off-path choices matter for the analysis, because they are what make the equilibrium subgame perfect.</p>
 </div>
 </section>
 <section class="slide level2">
