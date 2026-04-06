@@ -1,6 +1,6 @@
 ---
 title: "The Matthew Effect"
-date: 4/2/2026
+date: 4/6/2026
 format:
     revealjs:
         revealjs-a11y:
@@ -25,7 +25,7 @@ Today we look at what O'Connor calls the "credit economy" of science, and look a
 
 ## Why Credit Might Be Good
 
-Optimists about credit say that credit incentivises behavior that, is collectively, useful for scientific progress.
+Optimists about credit say that credit incentivises behavior that, on the whole, useful for scientific progress.
 
 . . .
 
@@ -37,7 +37,7 @@ A scientific community benefits when its members spread across different topics 
 
 ## Why Credit Might Be Good
 
-Kitcher didn't have anything like as detailed as modern model of science, but he did describe how a model like this might work.
+Kitcher didn't have anything like as detailed as the Bayesian models that Zollman and his successors build, but he did describe how a model like this might work.
 
 . . .
 
@@ -51,15 +51,15 @@ Perhaps given credit incentives, one of us might be motivated to do something el
 
 ## Kitcher's Model
 
-In Kitcher's model, scientists choose between projects. They share an objective assessment of which projects are most promising.
+In Kitcher's model, scientists choose between projects. They share a correct assessment of which projects are most promising.
 
 . . .
 
-If they choose based on epistemic merit alone, they all pick the same project. Division of labour fails.
+If they choose based on epistemic merit alone, they all pick the same project. That's a waste, and we don't get a good division of labor.
 
 . . .
 
-When credit is allocated by the priority rule (credit goes to whoever makes a discovery first), scientists are attracted to projects where fewer peers are currently working. Their chances of being the one to make the discovery are higher there.
+When credit is allocated by the priority rule (credit goes to whoever makes a discovery first), scientists are attracted to projects where fewer peers are currently working. They go to projects not that look the most promising, but where they have the highest probability of getting a credit reward.
 
 . . .
 
@@ -79,11 +79,11 @@ The evidence from models is mixed.
 
 . . .
 
-Muldoon and Weisberg (2011) challenge the Kitcher/Strevens picture. They point out that the models assume scientists know how many others are working on each project. In practice, scientists often have limited information. When they can only observe a few colleagues, credit incentives don't direct them to less popular projects, because they can't tell which projects are less popular.
+Ryan Muldoon and Michael Weisberg (2011) challenge the Kitcher/Strevens picture. They point out that the models assume scientists know how many others are working on each project. In practice, scientists often have limited information. When they can only observe a few colleagues, credit incentives don't direct them to less popular projects, because they can't tell which projects are less popular.
 
 . . .
 
-De Langhe (2014) raises a different concern: these models focus on dividing labour among known options, but science also involves exploring new possibilities. The priority rule may encourage studying existing theories rather than developing new ones.
+Rogier De Langhe (2014) raises a different concern: these models focus on dividing labour among known options, but science also involves exploring new possibilities. The priority rule may encourage studying existing theories rather than developing new ones.
 
 # Communism and Sharing
 
@@ -93,7 +93,7 @@ The priority rule has a second benefit beyond division of labour: it promotes th
 
 . . .
 
-Merton (1942) calls this the "communist norm." (Would he have called it that four years later?) What science produces is shared. The priority rule supports this because scientists are incentivised to share their findings quickly, before a competitor publishes first.
+Robert Merton (1942) calls this the "communist norm." (Would he have called it that four years later?) What science produces is shared. The priority rule supports this because scientists are incentivised to share their findings quickly, before a competitor publishes first.
 
 . . .
 
@@ -105,7 +105,7 @@ But the priority rule can also *discourage* intermediate sharing.
 
 . . .
 
-Strevens (2017) argues that until a result becomes publishable, the priority rule gives scientists reason to hide interim findings. Publishing an intermediate step might help a competitor finish the project first.
+Michael Strevens (2017) argues that until a result becomes publishable, the priority rule gives scientists reason to hide interim findings. Publishing an intermediate step might help a competitor finish the project first.
 
 . . .
 
@@ -113,7 +113,7 @@ This is especially relevant in priority races, where multiple labs are working t
 
 ## Collaboration
 
-Boyer-Kassem and Imbert (2015) model the growth of academic collaboration.
+Thomas Boyer-Kassem and Cyrille Imbert (2015) model the growth of academic collaboration.
 
 . . .
 
@@ -147,7 +147,7 @@ Scientists who want to publish quickly may fabricate data, cut corners on experi
 
 . . .
 
-Zollman (2023) shows that fraud can pay even when it's punished. A lucky fraudster who avoids detection for long enough earns higher credit payoffs than an honest researcher. Heesen (2021) shows that early fraud can set a scientist on a more successful career track, creating a compounding advantage.
+Zollman (2023) shows that fraud can pay even when it's punished. A lucky fraudster who avoids detection for long enough earns higher credit payoffs than an honest researcher. Remco Heesen (2021), who we'll be coming back to a bit, shows that early fraud can set a scientist on a more successful career track, creating a compounding advantage.
 
 ## Fraud and Honesty
 
@@ -163,11 +163,11 @@ There is a positive side to the pressure credit creates.
 
 . . .
 
-Dasgupta and David (1994) argue that, beyond promoting sharing, the priority rule's main benefit is encouraging speed. Scientists in a priority race dedicate serious effort to finishing first.
+Sir Partha Dasgupta and Paul David (1994) argue that, beyond promoting sharing, the priority rule's main benefit is encouraging speed. Scientists in a priority race dedicate serious effort to finishing first.
 
 ## Credit, Speed and Incentives
 
-Zollman (2018) extends this: credit motives get scientists to allocate more time to research and less to leisure. 
+Kevin Zollman (2018) extends this: credit motives get scientists to allocate more time to research and less to leisure. 
 
 Even purely truth-motivated scientists would under-invest in research from the community's perspective, because they're giving up a private good (their time) to produce a public good (knowledge). 
 
@@ -177,7 +177,7 @@ Credit closes that gap.
 
 ## Merton's Observation
 
-Merton (1968) describes a pattern he calls "The Matthew Effect": eminent scientists receive more credit for their contributions than they deserve, while unknown scientists receive less than they deserve.
+Robert Merton (1968) describes a pattern he calls "The Matthew Effect": eminent scientists receive more credit for their contributions than they deserve, while unknown scientists receive less than they deserve.
 
 . . .
 
@@ -193,7 +193,7 @@ But this creates a feedback loop.
 
 ## Is the Matthew Effect Unfair?
 
-Strevens (2006) argues it may not be unfair at all. If credit reflects positive impact on society, and prominent scientists are in fact more influential (their findings reach more people), then they are proportionally more deserving of credit.
+Michael Strevens (2006) argues it may not be unfair at all. If credit reflects positive impact on society, and prominent scientists are in fact more influential (their findings reach more people), then they are proportionally more deserving of credit.
 
 . . .
 
@@ -201,13 +201,13 @@ Strevens goes further: the Matthew effect might benefit the community by attract
 
 . . .
 
-Kleinberg and Oren (2011), building on Kitcher's model, make a similar argument. When prominent scientists choose a project, their presence drives others away. 
+Jon Kleinberg and Sigal Oren (2011), building on Kitcher's model, make a similar argument. When prominent scientists choose a project, their presence drives others away. 
 
 The Matthew effect acts as a symmetry breaker, helping to divide labour.
 
 ## A Less Optimistic View
 
-Heesen (2017) offers a less positive analysis. He models a community where academics choose which papers to read based on the author's reputation.
+Remco Heesen (2017) offers a less positive analysis. He models a community where academics choose which papers to read based on the author's reputation.
 
 . . .
 
@@ -215,11 +215,11 @@ If general competence correlates well with work quality, this attention pattern 
 
 . . .
 
-Watts and Gilbert (2011) use an agent-based model to argue that a Matthew effect in citations does not help a group find good solutions to problems.
+Christopher Watts and Nigel Gilbert (2011) use an agent-based model to argue that a Matthew effect in citations does not help a group find good solutions to problems.
 
 ## Network Effects and Credit
 
-Rubin and Schneider (2021) model how network structure affects credit allocation.
+Hannah Rubin and Mike Schneider (2021) model how network structure affects credit allocation.
 
 . . .
 
@@ -233,7 +233,7 @@ Scientific communication networks follow a power-law distribution: a few scienti
 
 ## Rubin's Runaway Model
 
-Rubin (2022) demonstrates a more extreme version of this dynamic.
+Hannah Rubin (2022) demonstrates a more extreme version of this dynamic. We'll do more on this on Wednesday, but I wanted to flag it here.
 
 . . .
 
@@ -253,13 +253,13 @@ The Matthew effect intersects with demographic inequity. Women tend to be cited 
 
 . . .
 
-Rossiter (1993) uses historical evidence to document what she calls the "Matilda effect": women receive less credit than men for equivalent work. 
+Margaret Rossiter (1993) uses historical evidence to document what she calls the "Matilda effect": women receive less credit than men for equivalent work. 
 
 In fields where women and people of colour have historically been excluded, they will tend to be newer and less well-networked.
 
 . . .
 
-Rubin (2022) and Rubin and Schneider (2021) show that homophily (the tendency to connect with people like yourself) exacerbates this. Minority groups, who are smaller and less connected, face persistent credit disadvantage in network models.
+Much more on this to come on Wednesday.
 
 ## The Big Picture on Credit
 
