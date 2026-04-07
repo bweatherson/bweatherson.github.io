@@ -1,0 +1,267 @@
+---
+title: "Epistemic Landscapes"
+date: 4/13/2026
+format:
+    revealjs:
+        revealjs-a11y:
+          skip-navigation: true
+          high-contrast: false
+    beamer: default
+---
+
+# The Landscape Metaphor
+
+## A New Kind of Model
+
+The models we've looked at so far treat scientists as a fairly uniform group in their incentives. They maximize credit, respond to selective pressures, or communicate similarly. 
+
+The difference between one scientist and another is mostly what they happen to work on, and what networks they happen to be in.
+
+Even in Rubin's models, they have a similar desire for homophily, although of course how this impacts people in majority/minority groups can be different.
+
+## Landscapes
+
+Epistemic landscape models are different. 
+
+They focus on how individual cognitive styles, different personalities and preferences, might shape research choices and, through that, the progress of the whole community.
+
+Here we really are picking up on things that you can only model with agent-based models; representative agent models where we just talk about typical scientists will just blur over all the important details here.
+
+## What Is an Epistemic Landscape?
+
+Think of a hilly terrain. Each location represents a research approach.
+
+One of the big findings in history and philosophy of science is that schools in science aren't just built on what answers the scientists give, though that's an important part of being a school.
+
+People in a common school tend to also have distinctive about the right questions to ask, about the right methods to answer them, and possibly even about the meaning of key terms.
+
+. . .
+
+Thomas Kuhn called these schools _paradigms_, and thought that communication across them was always somewhat compromised.
+
+Imré Lakatos called them _research programs_, and thought a key feature of them was whether they were _progressing_ or not. I guess in this format, this means whether we are climbing the mountain.
+
+## What Is an Epistemic Landscape?
+
+The height of the terrain at each location represents the epistemic significance of that approach, roughly how much we can learn by pursuing it.
+
+. . .
+
+Scientists are agents who move around this landscape, searching for high ground. Division of labour is represented by how agents spread across the terrain.
+
+. . .
+
+Here's the key point about mountain ranges. If you want to get to the highest possible point, just heading up from where you are won't always work. Still, if you can't see very far, there might not be a better option.
+
+## Weisberg and Muldoon's Setup
+
+Michael Weisberg and Ryan Muldoon (2009) build an agent-based model using this metaphor. Their landscape is a 101 by 101 grid, wrapped into a torus so there are no edges.
+
+. . .
+
+The landscape has two hills on it, with otherwise a flat plain (i.e., strategies with zero significance).
+
+. . .
+
+Scientists start at random positions in the plain. They can only see their immediate surroundings, not the whole landscape. 
+
+This is a major departure from the Kitcher/Strevens models, where scientists know the full layout of available projects.
+
+Then they set out, i.e., investigate the nearby terrain.
+
+## Mapping the Patches?
+
+When an agent visits a 'patch', i.e., a cell in this grid, we should think of them as checking whether that approach can yield significant truths. 
+
+This could involve reading the literature, running an experiment, or doing a calculation.
+
+. . .
+
+The model leaves out some real-world features. There is no research cost, no depletion of a patch's value after it has been explored, and no difference in how long different approaches take to investigate. To me, the last is the biggest idealisation, though you might think representing scientists as explorers on a bumpy donut is already a big idealisation.
+
+# Three Search Strategies
+
+## Hill Climbers
+
+The first type of agent follows the **Hill climbing with Experimentation** rule (We'll abbreviate this to HE). 
+
+HE's make decisions on their own, without paying attention to other scientists.
+
+. . .
+
+The basic model is that at each time, it goes forward one step. If it finds that it has gained elevation it keeps going. Otherwise, it goes back a step, and tries a random new direction. It also occasionally moves randomly to stop getting stuck.
+
+. . .
+
+There is a classical, asocial, model of philosophy of science where this kind of individualistic exploration is basically the ideal.
+
+## How do HE's do?
+
+They tend to find both peaks, but *really* slowly.
+
+. . .
+
+They tend to be really slow and steady. Steady in that how quickly they get somewhere scales linearly with community size. Slow in that it takes forever even with a lot of them.
+
+. . .
+
+They are slow because they are asocial. They don't learn from each other, so they keep exploring the same ground over and over again, wasting time. They are the opposite of Merton's communist norm. (This was a common complaint from early socialists; capitalism leads to wasteful duplication that socialism would avoid. Whatever the merits of that complaint when it comes to producing consumer goods, this might have merit in science.)
+
+## Followers
+
+Weisberg and Muldoon's second strategy is the **Follow rule**. 
+
+Followers check the patches around them for signs that another scientist has already been there (think of these signs as published papers). 
+
+If a nearby patch has been explored and is more significant than where they are now, they move toward it.
+
+. . .
+
+Followers are attracted to prior success. They emulate what has worked before.
+
+## How Followers Perform
+
+Followers do **badly**. 
+
+With 10 followers, not a single simulation found both peaks, and only 3% found even one. Even with 200 followers, both peaks are found only 12% of the time.
+
+. . .
+
+The problem is herding. Followers who start near a peak chase each other up the hill, but then get stuck following each other around on suboptimal parts of the slope. Followers who start far from any peak just follow their own trails in circles, or follow each other into dead ends.
+
+. . .
+
+Populations of followers make less epistemic progress than the same number of controls, despite (or because of) their attention to what others have done.
+
+## Why Do Followers Fail?
+
+The follower strategy uses social information, but in the wrong way. Followers are biased toward what has already been explored. They pile onto existing paths.
+
+. . .
+
+If a follower finds the edge of a hill, it does not necessarily make it to the top, because other followers get in the way, creating a traffic jam of agents following each other around in circles on the slope.
+
+. . .
+
+Is this realistic, or is it an artifact of the model? I'm not sure.
+
+## Mavericks
+
+The third strategy is the **Maverick rule**. Like followers, mavericks can see which nearby patches have been explored. But mavericks do the opposite: they seek out *unexplored* territory.
+
+. . .
+
+If things are going well (current patch is at least as significant as the previous one), a maverick moves to a nearby unvisited patch. If all nearby patches are visited and none are better, it backs up and tries a new direction.
+
+## How Mavericks Perform
+
+Surprisingly well!
+
+Mavericks are excellent at finding peaks. Ten mavericks found both peaks 99% of the time, and 20 mavericks always found them. They also do it fast: 10 mavericks take an average of 80 cycles, compared to the controls' average of 6,075.
+
+. . .
+
+They are also fast. With 100 mavericks, after 200 cycles, 55% of significant approaches have been explored. With 400 mavericks, 90% have been explored.
+
+. . .
+
+This isn't like Zollman's result; we don't have a speed/success trade off. The all maverick community is both faster and more likely to succeed than the all climber or all follower communities.
+
+# Mixed Populations
+
+## The Key Result
+
+The most interesting finding comes from mixed populations of mavericks and followers.
+
+. . .
+
+Adding even a single maverick to a population of 400 followers produces a statistically significant improvement in epistemic progress. 
+
+. . .
+
+When 10 mavericks are added to 100 followers, epistemic progress more than triples (from 0.07 to 0.15). With 400 followers and 10 mavericks, progress jumps from 0.17 to 0.28.
+
+## Why Mavericks Help Followers
+
+The improvement is not just because the mavericks explore on their own. If it were, adding mavericks would always add the same flat amount of progress regardless of how many followers there are.
+
+. . .
+
+Instead, the benefit grows with the number of followers. Mavericks blaze trails through unexplored regions. Followers then discover these trails and follow them toward significant areas they never would have found alone.
+
+. . .
+
+Mavericks and followers have a complementary relationship. Mavericks open up new territory, and followers fill it in.
+
+## Optimal Mixtures
+
+When the total population is fixed at 400 and the ratio of mavericks to followers is varied, the community's total progress rises steeply as mavericks are added. Going from 0% to 10% mavericks roughly triples the number of approaches explored.
+
+. . .
+
+Past about 40% mavericks, the gains from further increases level off. The optimal community has some of both types, though the exact ratio depends on features of the landscape and the time horizon.
+
+# Interpreting the Results
+
+## Connection to Kuhn
+
+Weisberg and Muldoon draw a connection to Thomas Kuhn's description of normal science as "puzzle solving." 
+
+Followers are natural puzzle solvers: they work in established areas, filling in details and extending known results. Mavericks chart new territory.
+
+. . .
+
+They say that the model shows that Kuhn's characterization is too coarse, and not all normal science is the same. I'm not sure this is a fair criticism of Kuhn; of course some paradigms are less productive than others.
+
+(This isn't a philosophy of science class, maybe this is a fair criticism of Kuhn; on some readings he says that you can't say one paradigm is better than another. This always struck me as implausible though.)
+
+## The Cost of Being a Maverick
+
+They also note that being a maverick is probably more costly than being a follower in real academic life. Followers can borrow techniques, equipment, and background theory from predecessors. Mavericks, by definition, avoid established approaches and have to build more from scratch.
+
+. . .
+
+If being a maverick is costlier, the optimal community will have many followers and a small number of well-supported mavericks. The community benefits from cognitive diversity, but the costs are not evenly shared.
+
+## Criticisms
+
+The Weisberg and Muldoon model has been criticized on several fronts. Most importantly, it has been argued that their result comes about from assigning a really implausible algorithm to the followers.
+
+. . .
+
+But there are ways of adopting the models that make the types more plausible which still get the result that mixed populations are optimal. Johanna Thoma's 2015 paper, for example, has a more plausible model that does this.
+
+## Interpreting Epistemic Landscapes
+
+O'Connor raises a worry about how to interpret these models. Different researchers use epistemic landscapes in different ways, and they disagree on basic questions.
+
+. . .
+
+- Is it possible for multiple scientists to be in the same patch? What does it mean for the realism of the model to answer this one way or the other?
+- Is the only goal to get as high as possible, or is exploration of some slightly elevated patch an end in itself?
+- Does everyone agree on how valuable each patch is?
+- How much can scientists jump? Can teams from different parts of the grid ever collaborate on exploring some space 'between' them?
+
+## Interpreting Landscapes
+
+These choices affect the results, and not all authors are explicit about which interpretation they intend. 
+
+O'Connor suggests treating findings from this literature with care, attending to what each particular model actually represents.
+
+## Lotteries and Funding
+
+Shahar Avin (2015, 2019) uses epistemic landscape models to study funding. In his model, agents receive grants to research a patch. Agents without funding enter a pool where they look for new grants in their local area.
+
+. . .
+
+He finds that introducing randomness into funding improves exploration. 
+
+A strategy that funds some of the most promising projects and some random ones does well. Random funding promotes exploration in much the same way that mavericks do: it pushes people into parts of the landscape that pure merit-based selection would miss.
+
+## For Next Time
+
+We continue with the second half of Chapter 5, on the "Diversity Trumps Ability" model and further applications of landscape models.
+
+. . .
+
+Read O'Connor, the rest of Chapter 5.
