@@ -18,6 +18,23 @@ date: "4/8/2026"
 
 ## Recap: The Entry Deterrence Game
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["<b>Entrant</b>"] -->|Stay Out| T1["(0, 4)"]
+    E -->|Enter| I["<b>Incumbent</b>"]
+    I -->|Fight| T2["(−1, 1)"]
+    I -->|Accommodate| T3["(2, 2)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
 ```
 Entrant
 ├── Stay Out → (0, 4)
@@ -26,6 +43,8 @@ Entrant
         ├── Fight       → (−1, 1)
         └── Accommodate → (2, 2)
 ```
+
+:::
 
 Payoffs: (Entrant, Incumbent)
 
@@ -118,11 +137,33 @@ This makes it the dominant solution concept for perfect information sequential g
 
 Two players alternate between *continuing* (C) or *stopping* (S) the game. Each stage, the pot grows, but the player who stops takes more.
 
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 11
+%%| fig-height: 4
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '26px'}} }%%
+graph LR
+    P1["<b>P1</b>"] -->|Stop| S1["(2, 0)"]
+    P1 -->|Continue| P2["<b>P2</b>"]
+    P2 -->|Stop| S2["(1, 4)"]
+    P2 -->|Continue| P1b["<b>P1</b>"]
+    P1b -->|Stop| S3["(4, 2)"]
+    P1b -->|Continue| P2b["<b>P2</b>"]
+    P2b -->|Stop| S4["(3, 8)"]
+    P2b -->|Continue| S5["(8, 4)"]
+```
+
+:::
+
+::: {.content-visible when-format="PDF"}
+
 ```
 P1          P2          P1
 C → C → C → C → C → S
         (or stop at any point)
 ```
+:::
 
 . . .
 
@@ -159,6 +200,185 @@ In experiments, people rarely stop immediately. Cooperation often unfolds for ma
 . . .
 
 Whether this shows backward induction is *wrong*, or merely that people are *not* perfectly rational, is a substantive debate.
+
+# The Chain Store Game
+
+## Setup
+
+A chain store operates in **10 towns**. In each town, a local firm decides whether to **Enter** or **Stay Out**.
+
+. . .
+
+If a local firm enters, the chain store can **Fight** (price war) or **Accommodate** (share the market).
+
+. . .
+
+Payoffs in each town are the same as the entry deterrence game:
+
+| Outcome | Entrant | Chain Store |
+|:--------|:-------:|:-----------:|
+| Stay Out | 0 | 4 |
+| Enter + Fight | −1 | 1 |
+| Enter + Accommodate | 2 | 2 |
+
+. . .
+
+The chain store's **total** payoff is the sum across all 10 towns.
+
+## The Chain Store's Temptation
+
+The chain store would prefer every local firm to Stay Out (payoff 4 per town, total 40).
+
+. . .
+
+Could it **threaten** to Fight any entrant, to deter the others?
+
+. . .
+
+This seems plausible. Fighting in Town 1 might convince Towns 2–10 that entry is costly.
+
+. . .
+
+But backward induction says this threat is never credible. Let's see why.
+
+## Backward Induction: Town 10
+
+Start at the **last town**. There are no future towns to deter.
+
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    E["<b>Entrant 10</b>"] -->|Stay Out| T1["(0, 4)"]
+    E -->|Enter| CS["<b>Chain Store</b>"]
+    CS -->|Fight| T2["(−1, 1)"]
+    CS -->|Accommodate| T3["(2, 2)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```
+Entrant 10
+├── Stay Out → (0, 4)
+└── Enter
+    └── Chain Store
+        ├── Fight       → (−1, 1)
+        └── Accommodate → (2, 2)
+```
+
+:::
+
+. . .
+
+This is just the entry deterrence game. The chain store prefers Accommodate (2 > 1). **Entrant 10 enters.**
+
+## Backward Induction: Town 9
+
+Now consider Town 9. The chain store knows that **whatever happens in Town 9**, Entrant 10 will enter and the chain store will accommodate in Town 10.
+
+. . .
+
+So fighting in Town 9 yields no future benefit — it cannot change Town 10's outcome.
+
+. . .
+
+The chain store again prefers to Accommodate in Town 9 (2 > 1). **Entrant 9 enters.**
+
+## The Unraveling
+
+The same logic applies to every town, working backwards:
+
+::: {.incremental}
+- Town 10: Fighting yields no future deterrence. Chain store accommodates.
+- Town 9: Fighting cannot affect Town 10's outcome. Chain store accommodates.
+- Town 8: Same reasoning. Chain store accommodates.
+- $\vdots$
+- Town 1: Same reasoning. Chain store accommodates.
+:::
+
+. . .
+
+**Every** local firm enters. **Every** entry is accommodated. The chain store earns 2 per town — total 20, not 40.
+
+## Why a Known Endpoint Matters
+
+The unraveling argument depends on one critical assumption: **the number of towns is common knowledge**.
+
+. . .
+
+Backward induction starts at Town 10 *because everyone knows Town 10 is last*. Without a known endpoint, there is no base case for the induction.
+
+. . .
+
+If the chain store faces an **infinite** sequence of potential entrants — or even just an **unknown** number — the argument fails. There is no "last town" to start from, so the backward induction never gets going.
+
+. . .
+
+In that setting, fighting early entrants *can* be part of an equilibrium, because the threat of future fighting is never undermined by a known terminal node.
+
+## Why the Threat Unravels
+
+The chain store's threat, "I will Fight any entrant", is **not credible in any town**, because:
+
+. . .
+
+- Credibility in Town $k$ requires that fighting there deters future entrants.
+- But deterrence only works if the chain store will fight in Towns $k+1, \ldots, 10$.
+- Backward induction shows it won't fight in those towns either.
+
+. . .
+
+Each link in the chain of deterrence breaks, so the whole chain breaks.
+
+## The Subgame Perfect Equilibrium
+
+The unique subgame perfect equilibrium is:
+
+. . .
+
+- **Every entrant**: Enter.
+- **Chain store**: Accommodate in every town.
+
+. . .
+
+The chain store's threat to Fight is a Nash equilibrium strategy (if entrants stay out, the fight node is never reached), but it is **not subgame perfect**, just like in  the single-town entry game.
+
+## The Paradox
+
+This result is striking because the intuition for fighting seems strong:
+
+. . .
+
+> "If I fight in the early towns, later entrants will be deterred. And the cost of fighting is small compared to the benefit of 10 towns of monopoly profits."
+
+. . .
+
+Yet backward induction rules this out entirely. The game-theoretic prediction is stark.
+
+. . .
+
+In experiments, chain stores **do** fight early entrants, and deterrence **does** seem to work, at least for a while. 
+
+Whether this means players are irrational, or that backward induction is too demanding a standard, or that this isn't the right model, is an open question.
+
+## Selten's Insight
+
+The Chain Store Game was introduced by Reinhard Selten (1978), who called the conflict between intuition and backward induction the **Chain Store Paradox**.
+
+. . .
+
+Selten himself found the backward induction result hard to accept as a description of real behavior, despite having proven it.
+
+. . .
+
+One resolution: if there is even a **small probability** that the chain store is the type that always fights (perhaps for non-monetary reasons), the equilibrium changes dramatically. Even a small probability can be enough to get to the deterrence equilibrium. The first working out of this was the **reputation model** built by David Kreps and Robert Wilson in 1982. (If you do this stuff enough, every interesting game theory question has either a contribution by Selten or by Kreps; this one has both.)
+
+
 
 # Win-Lose Games
 
@@ -208,11 +428,62 @@ An extension of Zermelo's theorem says exactly one of three cases holds:
 
 Checkers falls into the third category (proven by computer in 2007). For chess, we still do not know which category applies.
 
+## Three Types of Solution
+
+This page is taken from the useful Wikipedia page on [solved games](https://en.wikipedia.org/wiki/Solved_game).
+
+### Ultra-weak solution
+
+Prove whether the first player will win, lose or draw from the initial position, given perfect play on both sides.
+
+### Weak solution
+
+Provide one algorithm for each of the two players, such that the player using it can achieve at least the optimal outcome, regardless of the opponent's moves, from the start of the game.
+
+### Strong solution
+
+Provide an algorithm that finds optimal plays for both players from all legal positions.
+
+## Strategy Stealing
+
+In symmetric games that allow *passing*, it is often simple to provide an ultra-weak proof that player two can't win.
+
+If there is a winning strategy for Player 1, they can play it.
+
+If there is no winning strategy for Player 1, they can pass, and now Player 2 can't win.
+
+## Connect Four
+
+The first player can win.
+
+This was first shown back in 1988.
+
+The first full working out of the game tree, and of optimal moves in all situations, was last year, in 2025. These strong solutions are really hard to build.
+
+A side effect of this was showing who (if anyone) can force a win from an arbitrary board position.
+
 # Worked Example
 
 ## A Regulation Game
 
 A company (Player 1) decides whether to **Pollute** (cheaper production) or go **Clean**. If the company pollutes, a regulator (Player 2) can **Fine** the company or **Ignore** the violation.
+
+::: {.content-visible when-format="revealjs"}
+
+```{mermaid}
+%%| fig-width: 9
+%%| fig-height: 5
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '30px'}} }%%
+graph TD
+    C["<b>Company</b>"] -->|Clean| T1["(2, 3)"]
+    C -->|Pollute| R["<b>Regulator</b>"]
+    R -->|Fine| T2["(0, 1)"]
+    R -->|Ignore| T3["(4, 0)"]
+```
+
+:::
+
+::: {.content-visible when-format="pdf"}
 
 ```
 Company
@@ -222,6 +493,8 @@ Company
         ├── Fine   → (0, 1)
         └── Ignore → (4, 0)
 ```
+
+:::
 
 Payoffs: (Company, Regulator)
 
