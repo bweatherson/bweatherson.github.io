@@ -1,0 +1,226 @@
+---
+title: "Final Exam — Solutions"
+author: "Philosophy 305: Introduction to Formal Methods"
+date: "April 20, 2026"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    include-in-header:
+      - text: |
+          \usepackage{enumitem}
+          \usepackage{booktabs}
+          \setlength{\parskip}{6pt}
+          \setlength{\parindent}{0pt}
+---
+
+## Question 1: Probability and Conditional Probability
+
+Let $V$ = carries virus, $T$ = tests positive.
+
+Given: $\Pr(V) = 0.08$, $\Pr(T \mid V) = 0.95$, $\Pr(T \mid \neg V) = 0.10$.
+
+**(a)** By the law of total probability:
+
+$$\Pr(T) = \Pr(T \mid V)\Pr(V) + \Pr(T \mid \neg V)\Pr(\neg V) = (0.95)(0.08) + (0.10)(0.92)$$
+
+$$= 0.076 + 0.092 = 0.168$$
+
+**Answer: 0.168** (or 16.8%).
+
+**(b)** Build the table:
+
+|              | Positive               | Negative              |
+|:-------------|:----------------------:|:---------------------:|
+| Virus        | $0.08 \times 0.95 = 0.076$ | $0.08 \times 0.05 = 0.004$ |
+| No Virus     | $0.92 \times 0.10 = 0.092$ | $0.92 \times 0.90 = 0.828$ |
+
+$$\Pr(V \mid T) = \frac{\Pr(V \wedge T)}{\Pr(T)} = \frac{0.076}{0.076 + 0.092} = \frac{0.076}{0.168} \approx 0.452$$
+
+**Answer:** approximately **0.452** (or about 45.2%).
+
+*Grading note: full credit for setting up the table correctly and computing the ratio, even with minor arithmetic slips. Also accept the use of Bayes' theorem directly without a table.*
+
+---
+
+## Question 2: Probability Trees and Independence
+
+Let $W_1$ = win game 1, $W_2$ = win game 2.
+
+Given: $\Pr(W_1) = 0.6$, $\Pr(W_2 \mid W_1) = 0.7$, $\Pr(W_2 \mid \neg W_1) = 0.4$.
+
+**(a)** $\Pr(W_1 \wedge W_2) = \Pr(W_1) \times \Pr(W_2 \mid W_1) = 0.6 \times 0.7 = 0.42$.
+
+**Answer: 0.42.**
+
+**(b)** Exactly one win can happen two ways:
+
+- Win game 1, lose game 2: $0.6 \times 0.3 = 0.18$
+- Lose game 1, win game 2: $0.4 \times 0.4 = 0.16$
+
+Total: $0.18 + 0.16 = 0.34$.
+
+**Answer: 0.34.**
+
+---
+
+## Question 3: Expected Utility
+
+**(a)** Expected monetary value:
+
+$$\text{EMV}(A) = 0.3(20) + 0.5(60) + 0.2(50) = 6 + 30 + 10 = 46$$
+
+$$\text{EMV}(B) = 0.3(50) + 0.5(40) + 0.2(10) = 15 + 20 + 2 = 37$$
+
+**Answer: Crop A has higher expected monetary value (\$46,000 vs. \$37,000).**
+
+**(b)** Compare cell by cell:
+
+- Dry: A gives 20, B gives 50. B is better.
+- Moderate: A gives 60, B gives 40. A is better.
+- Wet: A gives 50, B gives 10. A is better.
+
+Each crop beats the other in at least one state, so **neither crop dominates the other** (not strictly, not weakly).
+
+**(c)** Total wealth (in thousands) = 100 + profit. Utility = $\sqrt{\text{wealth in thousands}}$.
+
+Crop A:
+
+- Dry: $\sqrt{120} \approx 10.954$
+- Moderate: $\sqrt{160} \approx 12.649$
+- Wet: $\sqrt{150} \approx 12.247$
+
+$$EU(A) = 0.3(10.954) + 0.5(12.649) + 0.2(12.247) = 3.286 + 6.325 + 2.449 = 12.060$$
+
+Crop B:
+
+- Dry: $\sqrt{150} \approx 12.247$
+- Moderate: $\sqrt{140} \approx 11.832$
+- Wet: $\sqrt{110} \approx 10.488$
+
+$$EU(B) = 0.3(12.247) + 0.5(11.832) + 0.2(10.488) = 3.674 + 5.916 + 2.098 = 11.688$$
+
+**Answer: The farmer should plant Crop A.** It has higher expected utility (approximately 12.06 vs. 11.69). Crop A was also better in expected monetary terms, and the concave utility function doesn't reverse the ordering here, though it does narrow the gap.
+
+---
+
+## Question 4: Strategic-Form Games
+
+|       | L      | C      | R      |
+|------:|:------:|:------:|:------:|
+| **T** | (3, 1) | (0, 4) | (2, 2) |
+| **M** | (1, 3) | (3, 1) | (2, 3) |
+| **B** | (2, 2) | (2, 2) | (1, 3) |
+
+**(a)** Row's strategies pairwise:
+
+- T vs. M: against L, T gives 3 > 1; against C, T gives 0 < 3. No dominance.
+- T vs. B: against L, T gives 3 > 2; against C, T gives 0 < 2. No dominance.
+- M vs. B: against L, M gives 1 < 2. No dominance of M over B. Against C, B gives 2 < 3. No dominance of B over M.
+
+**No strategy dominates another for Row.**
+
+Column's strategies pairwise:
+
+- R vs. L: against T, R gives 2 > 1; against M, R gives 3 = 3; against B, R gives 3 > 2. R is at least as good as L everywhere, and strictly better in two cases. **R weakly dominates L.**
+- All other pairs: in each case, one strategy beats the other against some row but loses against another. No other dominance relations.
+
+**For Column, R weakly dominates L.** No other dominance relations.
+
+**(b)** Best responses:
+
+Row's best responses:
+
+- Against L: T gives 3, M gives 1, B gives 2. Best: **T**.
+- Against C: T gives 0, M gives 3, B gives 2. Best: **M**.
+- Against R: T gives 2, M gives 2, B gives 1. Best: **T and M** (tied).
+
+Column's best responses:
+
+- Against T: L gives 1, C gives 4, R gives 2. Best: **C**.
+- Against M: L gives 3, C gives 1, R gives 3. Best: **L and R** (tied).
+- Against B: L gives 2, C gives 2, R gives 3. Best: **R**.
+
+Check each cell where both entries are best responses:
+
+- (M, R): M is a best response to R (tied with T). R is a best response to M (tied with L). **Both payoffs are best responses.** This is a Nash equilibrium.
+
+No other cell has both entries bolded. For completeness: (T, C) fails because T is not Row's BR to C; (M, L) fails because M is not Row's BR to L; (T, R) has T as Row's BR but C (not R) is Column's BR to T.
+
+**The unique pure-strategy Nash equilibrium is (M, R) with payoffs (2, 3).**
+
+*Grading note: full credit for correctly applying the bolding method and identifying (M, R). Accept any clear presentation that shows best responses for both players.*
+
+---
+
+## Question 5: Dynamic Games and Backward Induction
+
+**(a)** Player 1 moves at two nodes: the root (choose A or B) and after the sequence B → F (choose G or H). A strategy must specify a choice at each node.
+
+The strategies are:
+
+1. (A; G) — play A at root, play G if the game reaches the second node.
+2. (A; H) — play A at root, play H if the game reaches the second node.
+3. (B; G) — play B at root, play G if the game reaches the second node.
+4. (B; H) — play B at root, play H if the game reaches the second node.
+
+**Answer: Player 1 has 4 strategies.**
+
+**(b)** Work backwards:
+
+**Step 1** — Player 1's second node (after B, F): G gives Player 1 a payoff of 6, H gives 2. Player 1 chooses **G**. Replace this node with (6, 1).
+
+**Step 2** — Player 2's node after B: E gives Player 2 a payoff of 4, F leads to (6, 1) so Player 2 gets 1. Player 2 chooses **E**. Replace with (3, 4).
+
+**Step 3** — Player 2's node after A: C gives Player 2 a payoff of 3, D gives 2. Player 2 chooses **C**. Replace with (4, 3).
+
+**Step 4** — Player 1's root node: A leads to payoff 4 for Player 1, B leads to payoff 3. Player 1 chooses **A**.
+
+**Outcome: A → C, with payoffs (4, 3).**
+
+**(c)** Player 2 might threaten: "If you play A, I'll play D (giving you only 1) rather than C." If P1 believed this, P1 would get 1 from A and 3 from B (since backward induction on the B branch gives E), so P1 would switch to B.
+
+But the threat is **not credible**. At P2's decision node after A, C gives P2 a payoff of 3 and D gives P2 a payoff of 2. If the game actually reaches that node, P2 does better by playing C. Since P1 can anticipate this, P1 knows that P2 will play C after A regardless of any prior threat. So the threat doesn't change P1's reasoning, and the backward-induction outcome (A, then C, payoffs (4, 3)) stands.
+
+---
+
+## Question 6: Mixed Strategies
+
+|              | Left   | Right  |
+|-------------:|:------:|:------:|
+| **Up**       | (2, 1) | (0, 3) |
+| **Down**     | (0, 2) | (3, 0) |
+
+Let Row play Up with probability $p$ and Down with probability $1-p$.
+
+**Set Column indifferent** between Left and Right:
+
+Column's expected payoff from Left: $1 \cdot p + 2 \cdot (1-p) = 2 - p$
+
+Column's expected payoff from Right: $3 \cdot p + 0 \cdot (1-p) = 3p$
+
+Set equal: $2 - p = 3p$, so $4p = 2$, giving $p = 1/2$.
+
+Let Column play Left with probability $q$ and Right with probability $1-q$.
+
+**Set Row indifferent** between Up and Down:
+
+Row's expected payoff from Up: $2q + 0(1-q) = 2q$
+
+Row's expected payoff from Down: $0 \cdot q + 3(1-q) = 3 - 3q$
+
+Set equal: $2q = 3 - 3q$, so $5q = 3$, giving $q = 3/5$.
+
+**Mixed-strategy Nash equilibrium: Row plays Up with probability $\frac{1}{2}$ and Down with probability $\frac{1}{2}$. Column plays Left with probability $\frac{3}{5}$ and Right with probability $\frac{2}{5}$.**
+
+Each player's expected payoff: Row gets $2 \times \frac{3}{5} = \frac{6}{5} = 1.2$. Column gets $2 - \frac{1}{2} = \frac{3}{2} = 1.5$.
+
+*Grading note: full credit for finding both mixing probabilities correctly. The expected payoff calculation is a bonus; not required for full marks. Accept either the "set the opponent indifferent" method or any correct algebraic approach.*
+
+---
+
+\begin{center}
+\textbf{END OF SOLUTIONS}
+\end{center}
