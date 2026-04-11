@@ -1,0 +1,273 @@
+---
+title: "Practice Exam — Solutions"
+author: "Philosophy 305: Introduction to Formal Methods"
+date: "April 2026"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    include-in-header:
+      - text: |
+          \usepackage{enumitem}
+          \usepackage{booktabs}
+          \setlength{\parskip}{6pt}
+          \setlength{\parindent}{0pt}
+---
+
+## Question 1: Probability and Conditional Probability
+
+Let $F$ = fraudulent, $G$ = flagged.
+
+Given: $\Pr(F) = 0.02$, $\Pr(G \mid F) = 0.90$, $\Pr(G \mid \neg F) = 0.05$.
+
+**(a)** By the law of total probability:
+
+$$\Pr(G) = \Pr(G \mid F)\Pr(F) + \Pr(G \mid \neg F)\Pr(\neg F) = (0.90)(0.02) + (0.05)(0.98)$$
+
+$$= 0.018 + 0.049 = 0.067$$
+
+**Answer: 0.067** (or 6.7%).
+
+**(b)** By Bayes' theorem:
+
+$$\Pr(F \mid G) = \frac{\Pr(G \mid F)\Pr(F)}{\Pr(G)} = \frac{0.018}{0.067} \approx 0.269$$
+
+Equivalently, build the table:
+
+|              | Flagged                     | Not Flagged                  |
+|:-------------|:---------------------------:|:----------------------------:|
+| Fraud        | $0.02 \times 0.90 = 0.018$ | $0.02 \times 0.10 = 0.002$  |
+| Legitimate   | $0.98 \times 0.05 = 0.049$ | $0.98 \times 0.95 = 0.931$  |
+
+$$\Pr(F \mid G) = \frac{0.018}{0.018 + 0.049} = \frac{0.018}{0.067} \approx 0.269$$
+
+**Answer:** approximately **0.269** (about 26.9%).
+
+**(c)** Two events are independent if and only if $\Pr(A \cap B) = \Pr(A) \cdot \Pr(B)$, or equivalently, $\Pr(A \mid B) = \Pr(A)$.
+
+We have $\Pr(G \mid F) = 0.90$ but $\Pr(G) = 0.067$. Since $0.90 \neq 0.067$, the events are **not independent**. The probability of being flagged is much higher for fraudulent transactions, which is exactly why the system is useful.
+
+*Grading note: accept any correct application of the definition. Either the conditional probability version or the multiplication version is fine.*
+
+---
+
+## Question 2: Probability Trees and Independence
+
+Let $P_1$ = pass Part 1, $P_2$ = pass Part 2.
+
+Given: $\Pr(P_1) = 0.7$, $\Pr(P_2 \mid P_1) = 0.8$, $\Pr(P_2 \mid \neg P_1) = 0.3$.
+
+**(a)** $\Pr(P_1 \wedge P_2) = \Pr(P_1) \times \Pr(P_2 \mid P_1) = 0.7 \times 0.8 = 0.56$.
+
+**Answer: 0.56.**
+
+**(b)** Exactly one pass happens two ways:
+
+- Pass Part 1, fail Part 2: $0.7 \times 0.2 = 0.14$
+- Fail Part 1, pass Part 2: $0.3 \times 0.3 = 0.09$
+
+Total: $0.14 + 0.09 = 0.23$.
+
+**Answer: 0.23.**
+
+---
+
+## Question 3: Expected Utility
+
+**(a)** Expected monetary value (profits in thousands):
+
+$$\text{EMV}(X) = 0.3(-90) + 0.4(80) + 0.3(100) = -27 + 32 + 30 = 35$$
+
+$$\text{EMV}(Y) = 0.3(10) + 0.4(30) + 0.3(50) = 3 + 12 + 15 = 30$$
+
+**Answer: Plan X has higher expected monetary value (\$35,000 vs. \$30,000).**
+
+**(b)** Compare cell by cell:
+
+- Downturn: X gives $-90$, Y gives $10$. Y is better.
+- Stable: X gives $80$, Y gives $30$. X is better.
+
+Each plan beats the other in at least one state, so **neither plan dominates the other** (not strictly, not weakly).
+
+**(c)** Total wealth (in thousands) = 100 + profit. Utility = $\sqrt{\text{wealth in thousands}}$.
+
+Plan X:
+
+- Downturn: wealth = 10, utility = $\sqrt{10} \approx 3.162$
+- Stable: wealth = 180, utility = $\sqrt{180} \approx 13.416$
+- Growth: wealth = 200, utility = $\sqrt{200} \approx 14.142$
+
+$$EU(X) = 0.3(3.162) + 0.4(13.416) + 0.3(14.142) = 0.949 + 5.367 + 4.243 = 10.558$$
+
+Plan Y:
+
+- Downturn: wealth = 110, utility = $\sqrt{110} \approx 10.488$
+- Stable: wealth = 130, utility = $\sqrt{130} \approx 11.402$
+- Growth: wealth = 150, utility = $\sqrt{150} \approx 12.247$
+
+$$EU(Y) = 0.3(10.488) + 0.4(11.402) + 0.3(12.247) = 3.146 + 4.561 + 3.674 = 11.381$$
+
+**Answer: The owner should choose Plan Y according to expected utility** (approximately 11.38 vs. 10.56). This is the opposite of part (a). Plan X has higher expected monetary value, but the concave (square root) utility function penalises the catastrophic Downturn scenario for X, where wealth drops to just \$10,000. The declining marginal utility of money makes the safer plan preferable.
+
+---
+
+## Question 4: Strategic-Form Games
+
+|       | A      | B      | C      | D      |
+|------:|:------:|:------:|:------:|:------:|
+| **T** | (4, 2) | (2, 1) | (3, 3) | (1, 0) |
+| **M** | (2, 3) | (4, 0) | (1, 2) | (3, 1) |
+| **B** | (1, 1) | (3, 2) | (2, 4) | (0, 0) |
+
+**(a)** Check Row's strategies pairwise:
+
+- T vs. M: against A, T gives 4 > 2; against B, T gives 2 < 4. No dominance.
+- T vs. B: against A, T gives 4 > 1; against B, T gives 2 < 3. No dominance.
+- M vs. B: against A, M gives 2 > 1; against C, M gives 1 < 2. No dominance.
+
+**No strategy dominates another for Row.**
+
+Check Column's strategies pairwise (Column's payoffs):
+
+- A vs. D: against T, A gives 2 > 0; against M, A gives 3 > 1; against B, A gives 1 > 0. **A strictly dominates D.**
+- C vs. D: against T, C gives 3 > 0; against M, C gives 2 > 1; against B, C gives 4 > 0. **C strictly dominates D.**
+- No other strict dominance relations hold. (For instance, B vs. D: against M, B gives 0 < 1, so B does not dominate D.)
+
+**For Column, both A and C strictly dominate D.** No other dominance relations in the original game.
+
+**(b)** Iterated elimination of strictly dominated strategies:
+
+**Round 1**: D is strictly dominated (by A, or by C) for Column. Eliminate D.
+
+|       | A      | B      | C      |
+|------:|:------:|:------:|:------:|
+| **T** | (4, 2) | (2, 1) | (3, 3) |
+| **M** | (2, 3) | (4, 0) | (1, 2) |
+| **B** | (1, 1) | (3, 2) | (2, 4) |
+
+**Round 2**: In the reduced game, check Column again. C vs. B: against T, C gives 3 > 1; against M, C gives 2 > 0; against B, C gives 4 > 2. **C strictly dominates B.** Eliminate B.
+
+|       | A      | C      |
+|------:|:------:|:------:|
+| **T** | (4, 2) | (3, 3) |
+| **M** | (2, 3) | (1, 2) |
+| **B** | (1, 1) | (2, 4) |
+
+**Round 3**: Now check Row. T vs. M: T gives 4 > 2 against A and 3 > 1 against C. **T strictly dominates M.** T vs. B: T gives 4 > 1 against A and 3 > 2 against C. **T strictly dominates B.** Eliminate M and B.
+
+|       | A      | C      |
+|------:|:------:|:------:|
+| **T** | (4, 2) | (3, 3) |
+
+**Round 4**: Column chooses between A (payoff 2) and C (payoff 3). Column picks C.
+
+**Iterated elimination yields (T, C) with payoffs (3, 3).**
+
+**(c)** Best responses:
+
+Row's best responses:
+
+- Against A: T gives 4, M gives 2, B gives 1. Best: **T**.
+- Against B: T gives 2, M gives 4, B gives 3. Best: **M**.
+- Against C: T gives 3, M gives 1, B gives 2. Best: **T**.
+- Against D: T gives 1, M gives 3, B gives 0. Best: **M**.
+
+Column's best responses:
+
+- Against T: A gives 2, B gives 1, C gives 3, D gives 0. Best: **C**.
+- Against M: A gives 3, B gives 0, C gives 2, D gives 1. Best: **A**.
+- Against B: A gives 1, B gives 2, C gives 4, D gives 0. Best: **C**.
+
+Check each cell: the only cell where both are best responses is (T, C), since T is Row's best response to C and C is Column's best response to T.
+
+**The unique pure-strategy Nash equilibrium is (T, C) with payoffs (3, 3).** This is consistent with the iterated elimination result.
+
+---
+
+## Question 5: Dynamic Games and Backward Induction
+
+**(a)** Player 1 moves at two nodes: the root (A or B) and after B $\to$ F (G or H). So Player 1 has $2 \times 2 = 4$ strategies:
+
+1. (A; G) — play A at root, play G if the game reaches the second node.
+2. (A; H) — play A at root, play H if the game reaches the second node.
+3. (B; G) — play B at root, play G if the game reaches the second node.
+4. (B; H) — play B at root, play H if the game reaches the second node.
+
+Player 2 moves at two nodes: after A (C or D) and after B (E or F). So Player 2 has $2 \times 2 = 4$ strategies:
+
+1. (C; E) — play C after A, play E after B.
+2. (C; F) — play C after A, play F after B.
+3. (D; E) — play D after A, play E after B.
+4. (D; F) — play D after A, play F after B.
+
+**Player 1 has 4 strategies. Player 2 has 4 strategies.**
+
+**(b)** Work backwards:
+
+**Step 1** — Player 1's second node (after B, F): G gives Player 1 a payoff of 6, H gives 1. Player 1 chooses **G**. Replace this node with (6, 0).
+
+**Step 2** — Player 2's node after B: E gives Player 2 a payoff of 4, F leads to (6, 0) so Player 2 gets 0. Player 2 chooses **E**. Replace with (3, 4).
+
+**Step 3** — Player 2's node after A: C gives Player 2 a payoff of 3, D gives 1. Player 2 chooses **C**. Replace with (5, 3).
+
+**Step 4** — Player 1's root node: A leads to payoff 5, B leads to payoff 3. Player 1 chooses **A**.
+
+**Outcome: A $\to$ C, with payoffs (5, 3).**
+
+**(c)** Player 2 prefers (3, 4) from B $\to$ E. To get Player 1 to choose B, Player 2 could threaten: "If you play A, I will play D, giving you only 2."
+
+If Player 1 believed this, they would compare A $\to$ D (payoff 2) with B $\to$ E (payoff 3) and choose B.
+
+But the threat is **not credible**. At Player 2's decision node after A, C gives Player 2 a payoff of 3 and D gives Player 2 a payoff of 1. A rational Player 2 will play C. Player 1 can anticipate this, so the threat doesn't change Player 1's reasoning.
+
+**(d)** The strategic form table (using the strategies listed in part (a)):
+
+|            | (C; E) | (C; F) | (D; E) | (D; F) |
+|-----------:|:------:|:------:|:------:|:------:|
+| **(A; G)** | (5, 3) | (5, 3) | (2, 1) | (2, 1) |
+| **(A; H)** | (5, 3) | (5, 3) | (2, 1) | (2, 1) |
+| **(B; G)** | (3, 4) | (6, 0) | (3, 4) | (6, 0) |
+| **(B; H)** | (3, 4) | (1, 5) | (3, 4) | (1, 5) |
+
+Notice that the rows for (A; G) and (A; H) are identical. When Player 1 chooses A, the G/H choice is never reached, so it doesn't affect the outcome. The difference between these strategies only matters in the context of backward induction and subgame perfection.
+
+---
+
+## Question 6: Mixed Strategies
+
+|              | Left   | Right  |
+|-------------:|:------:|:------:|
+| **Up**       | (3, 1) | (1, 2) |
+| **Down**     | (1, 3) | (2, 0) |
+
+Let Row play Up with probability $p$ and Down with probability $1-p$.
+
+**Set Column indifferent** between Left and Right:
+
+Column's expected payoff from Left: $1 \cdot p + 3 \cdot (1-p) = 3 - 2p$
+
+Column's expected payoff from Right: $2 \cdot p + 0 \cdot (1-p) = 2p$
+
+Set equal: $3 - 2p = 2p$, so $4p = 3$, giving $p = 3/4$.
+
+Let Column play Left with probability $q$ and Right with probability $1-q$.
+
+**Set Row indifferent** between Up and Down:
+
+Row's expected payoff from Up: $3q + 1(1-q) = 2q + 1$
+
+Row's expected payoff from Down: $1 \cdot q + 2(1-q) = 2 - q$
+
+Set equal: $2q + 1 = 2 - q$, so $3q = 1$, giving $q = 1/3$.
+
+**Mixed-strategy Nash equilibrium: Row plays Up with probability $\frac{3}{4}$ and Down with probability $\frac{1}{4}$. Column plays Left with probability $\frac{1}{3}$ and Right with probability $\frac{2}{3}$.**
+
+**Expected payoffs**: Row's expected payoff is $2 \times \frac{1}{3} + 1 = \frac{5}{3} \approx 1.67$. Column's expected payoff is $3 - 2 \times \frac{3}{4} = \frac{3}{2} = 1.5$.
+
+---
+
+\begin{center}
+\textbf{END OF SOLUTIONS}
+\end{center}
