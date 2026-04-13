@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-04-13">
   <title>Mixed Strategies and Nash Equilibria</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f9a82510d1650344fb670477c5215e5c.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3f5091d315fe69d0b17aea925bd186b1.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -365,8 +368,8 @@
 <thead>
 <tr class="header">
 <th style="text-align: right;"></th>
-<th style="text-align: center;"><strong>Firm 2: A</strong></th>
-<th style="text-align: center;"><strong>Firm 2: B</strong></th>
+<th style="text-align: center;">Firm 2: A</th>
+<th style="text-align: center;">Firm 2: B</th>
 </tr>
 </thead>
 <tbody>
@@ -431,6 +434,154 @@
 </div>
 <div class="fragment">
 <p>The mixed equilibrium represents the outcome when coordination fails. Each firm leans toward its preferred standard, and sometimes they end up mismatched.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Worked Example: Penalty Kicks</h1>
+
+</section>
+<section class="slide level2">
+<h2>Penalty Kicks as a Zero-Sum Game</h2>
+<p>Research on penalty kicks in soccer confirms that kickers and goalies mix their strategies in ways that match equilibrium predictions (See, for instance, Palacios-Huerta 2003, “Professionals Play Minimax”, Review of Economic Studies).</p>
+<div class="fragment">
+<p>We can model a penalty kick as a zero-sum game. The kicker and the goalie each choose Left, Centre, or Right (directions from the goalie’s perspective). Choices are simultaneous: the goalie commits before seeing where the ball goes.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Key Assumptions</h2>
+<p>For a right-footed kicker:</p>
+<div class="fragment">
+<ul>
+<li class="fragment">Kicking across the body (to goalie’s right) generates more power and accuracy than kicking to the natural side (goalie’s left).</li>
+<li class="fragment">When the goalie guesses the correct side, the save is more likely, but across-body kicks are still harder to stop.</li>
+<li class="fragment">A kick down the middle is saved with certainty if the goalie stays put.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Payoff Matrix</h2>
+<p>Payoffs are the kicker’s scoring probability. The goalie’s payoff is the negative of each entry, since this is a zero-sum game.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">Goalie L</th>
+<th style="text-align: center;">Goalie C</th>
+<th style="text-align: center;">Goalie R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Kick L</strong></td>
+<td style="text-align: center;">.4</td>
+<td style="text-align: center;">.8</td>
+<td style="text-align: center;">.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Kick C</strong></td>
+<td style="text-align: center;">.8</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Kick R</strong></td>
+<td style="text-align: center;">.9</td>
+<td style="text-align: center;">.9</td>
+<td style="text-align: center;">.5</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Kick R (across body) scores at a higher rate than Kick L (natural side) whether goalie guesses correctly or incorrectly. But the kicker can’t just always kick right, or the goalie adjusts.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>No Pure Strategy Equilibrium</h2>
+<p>Whatever the kicker picks, the goalie can improve by adjusting. Whatever the goalie picks, the kicker can improve by adjusting.</p>
+<div class="fragment">
+<p>For example: if the kicker always goes right, the goalie goes right and holds scoring to .5. Then the kicker switches to left, scoring .8. Then the goalie follows, and so on.</p>
+</div>
+<div class="fragment">
+<p>We need a mixed strategy equilibrium.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Finding the Goalie’s Equilibrium Mix</h2>
+<p>Let the goalie play L, C, R with probabilities <span class="math inline">\(q\)</span>, <span class="math inline">\(s\)</span>, and <span class="math inline">\(1-q-s\)</span>.</p>
+<div class="fragment">
+<p>The indifference principle says the kicker must get the same expected payoff from each option. (We won’t expect you to solve these kinds of equations on the test, but it’s the kind of thing you can do.)</p>
+<p><span class="math display">\[\text{Kick L: } 0.4q + 0.8s + 0.8(1-q-s) = 0.8 - 0.4q\]</span> <span class="math display">\[\text{Kick C: } 0.8q + 0 \cdot s + 0.8(1-q-s) = 0.8 - 0.8s\]</span> <span class="math display">\[\text{Kick R: } 0.9q + 0.9s + 0.5(1-q-s) = 0.5 + 0.4q + 0.4s\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Solving for the Goalie’s Mix</h2>
+<p>Setting Kick L = Kick C:</p>
+<p><span class="math display">\[0.8 - 0.4q = 0.8 - 0.8s\]</span> <span class="math display">\[0.4q = 0.8s \implies q = 2s\]</span></p>
+<div class="fragment">
+<p>Setting Kick L = Kick R:</p>
+<p><span class="math display">\[0.8 - 0.4q = 0.5 + 0.4q + 0.4s\]</span> <span class="math display">\[0.3 = 0.8q + 0.4s\]</span></p>
+</div>
+<div class="fragment">
+<p>Substituting <span class="math inline">\(q = 2s\)</span>: we get <span class="math inline">\(0.3 = 2s\)</span>, so <span class="math inline">\(s = 0.15\)</span> and <span class="math inline">\(q = 0.30\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>Goalie’s equilibrium mix</strong>: L = 30%, C = 15%, R = 55%.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Finding the Kicker’s Equilibrium Mix</h2>
+<p>Let the kicker play L, C, R with probabilities <span class="math inline">\(p\)</span>, <span class="math inline">\(r\)</span>, and <span class="math inline">\(1-p-r\)</span>.</p>
+<div class="fragment">
+<p>Now the goalie must be indifferent. The expected scoring rate must be the same regardless of what the goalie does.</p>
+</div>
+<div class="fragment">
+<p>Setting the scoring rate against Goalie L equal to Goalie C:</p>
+<p><span class="math display">\[0.4p + 0.8r + 0.9(1-p-r) = 0.8p + 0 \cdot r + 0.9(1-p-r)\]</span> <span class="math display">\[0.8r = 0.4p \implies p = 2r\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Solving for the Kicker’s Mix</h2>
+<p>Setting the scoring rate against Goalie L equal to Goalie R:</p>
+<p><span class="math display">\[0.4p + 0.8r + 0.9(1-p-r) = 0.8p + 0.8r + 0.5(1-p-r)\]</span> <span class="math display">\[0.4 = 0.8p + 0.4r\]</span></p>
+<div class="fragment">
+<p>Substituting <span class="math inline">\(p = 2r\)</span>: we get <span class="math inline">\(0.4 = 2r\)</span>, so <span class="math inline">\(r = 0.2\)</span> and <span class="math inline">\(p = 0.4\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>Kicker’s equilibrium mix</strong>: L = 40%, C = 20%, R = 40%.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Equilibrium</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Player</th>
+<th style="text-align: center;">Left</th>
+<th style="text-align: center;">Centre</th>
+<th style="text-align: center;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Kicker</td>
+<td style="text-align: center;">40%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">40%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Goalie</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">15%</td>
+<td style="text-align: center;">55%</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>The equilibrium scoring rate is <strong>68%</strong>, regardless of what either player does (given the other plays the equilibrium mix). Actual penalties are scored at more like 80%, but I’ve picked these numbers to make the math easier. For real numbers, see the actual research papers!</p>
+</div>
+<div class="fragment">
+<p>Two things to notice about this. The kicker kicks left and right equally often, even though across-body kicks are better, because the goalie compensates by going right 55% of the time. And the kicker goes down the middle one time in five, even though it’s a guaranteed save if the goalie reads it, because it keeps the goalie from committing to the sides.</p>
 </div>
 </section>
 <section class="slide level2">

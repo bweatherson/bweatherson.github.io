@@ -41,6 +41,26 @@ Thomas Kuhn called these schools _paradigms_, and thought that communication acr
 
 Imré Lakatos called them _research programs_, and thought a key feature of them was whether they were _progressing_ or not. I guess in this format, this means whether we are climbing the mountain.
 
+## Kuhn and the Landscape
+
+Kuhn's picture maps onto the landscape metaphor fairly directly. A paradigm is a region of the landscape, a cluster of related approaches. Normal science means exploring within that region, working out the details of nearby patches.
+
+A Kuhnian revolution is what happens when scientists abandon one region for another. On the landscape, that means jumping from one hill to a different, higher one. Kuhn thought this kind of jump was rare and disorienting, because you don't just change theories, you change methods and standards as well.
+
+. . .
+
+The model we're about to look at doesn't include revolutionary jumps. Scientists move one step at a time. That's a limitation worth keeping in mind.
+
+## Lakatos and Progress
+
+Lakatos's framework adds something Kuhn's doesn't: a criterion for when staying on your hill is reasonable.
+
+A research programme is _progressive_ if modifications to its protective belt keep generating new results, if (in landscape terms) you keep finding higher ground nearby. It is _degenerating_ if you're just patching over failures without gaining elevation.
+
+. . .
+
+In the model we're about to discuss, we can think of this as the difference between agents who are still climbing and agents who are stuck circling a local maximum. The model gives us a way to measure what Lakatos was describing qualitatively.
+
 ## What Is an Epistemic Landscape?
 
 The height of the terrain at each location represents the epistemic significance of that approach, roughly how much we can learn by pursuing it.
@@ -256,7 +276,25 @@ Shahar Avin (2015, 2019) uses epistemic landscape models to study funding. In hi
 
 He finds that introducing randomness into funding improves exploration. 
 
-A strategy that funds some of the most promising projects and some random ones does well. Random funding promotes exploration in much the same way that mavericks do: it pushes people into parts of the landscape that pure merit-based selection would miss.
+A strategy that funds some of the most promising projects and some random ones does well. Random funding promotes exploration in much the same way that mavericks do. It pushes people into parts of the landscape that pure merit-based selection would miss.
+
+## Connection to Division of Labour Models
+
+In the Kitcher and Strevens models, scientists choose between known projects with known payoff structures. The question was how to get the right distribution of effort across those projects.
+
+Landscape models change the question. Scientists don't know the full menu of options. They have to discover what's available by exploring, and what they find depends on how they search. The division of labour isn't just about allocating people to known tasks. It's about generating the tasks in the first place.
+
+This is why strategy diversity matters here in a way it didn't in Kitcher's framework. Kitcher needed scientists to spread out across known options. Weisberg and Muldoon need some scientists to look for options that nobody knows about yet.
+
+## The Fixed Landscape Assumption
+
+This model assumes that the landscape is fixed. The hills are where they are, and exploring a patch doesn't change the terrain around it. Nor is the value of the patch relevant to what tools you have, or what standards you are using.
+
+Real science isn't always like this. Working on one approach can make nearby approaches more or less promising. A breakthrough in one area can open up new peaks that weren't there before, and a dead end can close off a region for everyone. On a Kuhnian picture, even the 'height' of the patch will be sensitive to the standards that are internal to a paradigm.
+
+. . .
+
+Whether this matters for the model's conclusions is an open question. It's possible that the basic insight about strategy diversity holds even on shifting terrain, but no one has shown that yet.
 
 ## For Next Time
 
