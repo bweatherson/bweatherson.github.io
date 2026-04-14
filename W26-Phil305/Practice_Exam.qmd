@@ -1,10 +1,12 @@
 ---
+lang: en
 title: "Practice Exam"
 author: "Philosophy 305: Introduction to Formal Methods"
 date: "April 2026"
 format:
   pdf:
     documentclass: article
+    pdf-standard: ua-2
     geometry:
       - margin=1in
     fontsize: 11pt
@@ -17,11 +19,11 @@ format:
           \setlength{\parindent}{0pt}
 ---
 
-**Time**: This practice exam is designed to be somewhat harder than the actual exam. Don't worry about timing yourself; focus on understanding the methods.
+**Time**: This practice exam is designed to be similar too, or maybe somewhat harder than, the final.
 
 **Calculators**: permitted.
 
-**Notes**: On the actual exam, notes will not be permitted. But feel free to use your notes while working through this for practice.
+**Notes**: Will not be permitted on the final, but obviously consult your notes in reviewing.
 
 \bigskip
 \hrule
@@ -29,7 +31,7 @@ format:
 
 \newpage
 
-## Question 1: Probability and Conditional Probability
+# Question 1: Probability and Conditional Probability
 
 A payment processing company uses an automated system to flag potentially fraudulent transactions. From historical data, 2% of all transactions are fraudulent. The system correctly flags 90% of fraudulent transactions. However, it also incorrectly flags 5% of legitimate transactions.
 
@@ -46,7 +48,7 @@ A payment processing company uses an automated system to flag potentially fraudu
 \newpage
 
 
-## Question 2: Probability Trees and Independence
+# Question 2: Probability Trees and Independence
 
 A student takes a two-part qualifying exam. The probability of passing Part 1 is 0.7. If they pass Part 1, the probability of passing Part 2 is 0.8 (a confidence boost). If they fail Part 1, the probability of passing Part 2 drops to 0.3.
 
@@ -59,7 +61,7 @@ A student takes a two-part qualifying exam. The probability of passing Part 1 is
 \newpage
 
 
-## Question 3: Expected Utility
+# Question 3: Expected Utility
 
 A small business owner must choose between two expansion plans before learning the economic conditions for the coming year. There are three possible scenarios:
 
@@ -82,7 +84,7 @@ Profits are in thousands of dollars.
 
 \newpage
 
-## Question 4: Strategic-Form Games
+# Question 4: Strategic-Form Games
 
 Consider the following two-player game, where payoffs are listed as (Row, Column):
 
@@ -104,7 +106,7 @@ Consider the following two-player game, where payoffs are listed as (Row, Column
 
 \newpage
 
-## Question 5: Dynamic Games and Backward Induction
+# Question 5: Dynamic Games and Backward Induction
 
 Consider the following game in extensive form. Player 1 moves first, choosing **A** or **B**. Player 2 observes Player 1's choice and responds. If Player 1 chose A, Player 2 chooses **C** or **D**. If Player 1 chose B, Player 2 chooses **E** or **F**. If Player 2 chooses F, then Player 1 gets a second move, choosing **G** or **H**. Payoffs are (Player 1, Player 2):
 
@@ -160,7 +162,7 @@ Consider the following game in extensive form. Player 1 moves first, choosing **
 
 \newpage
 
-## Question 6: Mixed Strategies
+# Question 6: Mixed Strategies
 
 Consider the following game:
 
