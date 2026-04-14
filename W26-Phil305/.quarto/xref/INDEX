@@ -482,7 +482,8 @@
     "Lecture_24.tex": "9eaf3636"
   },
   "slides/Lecture_25.qmd": {
-    "Lecture_25.html": "85803069"
+    "Lecture_25.html": "85803069",
+    "Lecture_25.tex": "0cb0ce23"
   },
   "Final_Exam.qmd": {
     "Final_Exam.tex": "77e8a1ba"
@@ -493,5 +494,8 @@
   "slides/Practice_Exam_Review.qmd": {
     "Practice_Exam_Review.html": "ee39269f",
     "Practice_Exam_Review.tex": "d83b04a0"
+  },
+  "practice_exam_short.qmd": {
+    "practice_exam_short.tex": "75dd2cb1"
   }
 }

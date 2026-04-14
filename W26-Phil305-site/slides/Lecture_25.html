@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-04-15">
-  <title>Signaling Games</title>
+  <title>Revision</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -132,7 +132,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Signaling Games</h1>
+  <h1 class="title">Revision</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -141,210 +141,706 @@
 </section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Games with Private Information</h1>
+<h1>Overview</h1>
 
 </section>
 <section class="slide level2">
-<h2>Plan</h2>
-<ul>
-<li>So far, all players have known the full structure of the game: <strong>complete information</strong>.</li>
-<li>Today we introduce <strong>signaling games</strong>: one player has private information; the other must infer it from observable actions.</li>
-<li>This blends sequential game structure with asymmetric information.</li>
-</ul>
-<h3>Associated Reading</h3>
-<p>No new reading. Brings together game theory and probability.</p>
+<h2>Plan for Day</h2>
+<p>We’re going to do a couple more mixed strategy cases, then look over the sample exam.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Warm-Up Example 1: Penalty Kicks</h1>
+
 </section>
 <section class="slide level2">
-<h2>Asymmetric Information</h2>
-<p>In many real situations, players differ in what they know:</p>
-<ul>
-<li class="fragment">A job applicant knows their own ability; the employer doesn’t.</li>
-<li class="fragment">A seller knows the quality of a used car; the buyer doesn’t.</li>
-<li class="fragment">A firm knows its own costs; rival firms don’t.</li>
-</ul>
+<h2>The Game</h2>
+<p>A kicker and a goalie. The kicker wants to score, the goalie wants to save. The payoffs show goals scored (kicker’s gain, goalie’s loss), so this game is zero-sum.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Goalie L</th>
+<th style="text-align: center;">Goalie R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Kicker L</strong></td>
+<td style="text-align: center;">(0, 0)</td>
+<td style="text-align: center;">(2, -2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Kicker R</strong></td>
+<td style="text-align: center;">(2, -2)</td>
+<td style="text-align: center;">(1, -1)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>No Pure Nash Equilibrium</h2>
+<p>Row’s best responses: vs.&nbsp;L, play R (2 &gt; 0); vs.&nbsp;R, play L (2 &gt; 1).</p>
+<p>Column’s best responses: vs.&nbsp;Kicker L, play L (0 &gt; -2); vs.&nbsp;Kicker R, play R (<span class="math inline">\(-1 &gt; -2\)</span>).</p>
 <div class="fragment">
-<p>These are <strong>games of incomplete information</strong> or <strong>asymmetric information</strong>.</p>
+<p>The best responses cycle, so there is no pure-strategy NE.</p>
 </div>
 </section>
-<section class="slide level2 scrollable">
-<h2>The Structure of a Signaling Game</h2>
-<p>A signaling game has:</p>
-<ol type="1">
-<li class="fragment">A <strong>Sender</strong> who has private information (their <strong>type</strong>).</li>
-<li class="fragment">A <strong>Receiver</strong> who observes only the Sender’s <strong>message</strong> (signal), not their type.</li>
-<li class="fragment">The Receiver takes an <strong>action</strong> based on what they observe.</li>
-<li class="fragment">Both players receive payoffs that depend on type, message, and action.</li>
-</ol>
+<section class="slide level2">
+<h2>Kicker’s Mixing Probability</h2>
+<p>Let the kicker play L with probability <span class="math inline">\(p\)</span>. Set the goalie indifferent.</p>
 <div class="fragment">
-<p>The Receiver must use the message as <strong>evidence</strong> to infer the Sender’s type. This is where probability re-enters.</p>
+<p><span class="math display">\[\text{Goalie L: } 0 \cdot p + (-2)(1-p) = 2p - 2\]</span></p>
+<p><span class="math display">\[\text{Goalie R: } (-2)p + (-1)(1-p) = -p - 1\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[2p - 2 = -p - 1 \implies p = \frac{1}{3}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Goalie’s Mixing Probability</h2>
+<p>Let the goalie play L with probability <span class="math inline">\(q\)</span>. Set the kicker indifferent.</p>
+<div class="fragment">
+<p><span class="math display">\[\text{Kicker L: } 0 \cdot q + 2(1 - q) = 2 - 2q\]</span></p>
+<p><span class="math display">\[\text{Kicker R: } 2q + 1(1 - q) = 1 + q\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[2 - 2q = 1 + q \implies q = \frac{1}{3}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Equilibrium</h2>
+<p>Kicker plays L with probability <span class="math inline">\(\frac{1}{3}\)</span>. Goalie plays L with probability <span class="math inline">\(\frac{1}{3}\)</span>.</p>
+<div class="fragment">
+<p>Kicker’s expected payoff: <span class="math inline">\(2 - 2 \cdot \frac{1}{3} = \frac{4}{3}\)</span>.</p>
+<p>Goalie’s expected payoff: <span class="math inline">\(-\frac{4}{3}\)</span>. The two payoffs sum to zero, as they must in a zero-sum game.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>The Classic Example: Job Market Signaling</h1>
+<h1>Warm-Up Example 2: Worker and Inspector</h1>
 
 </section>
 <section class="slide level2">
-<h2>Spence’s Model (1973)</h2>
-<p>Workers are either <strong>high ability</strong> (H) or <strong>low ability</strong> (L). Employers can’t observe ability directly.</p>
+<h2>The Game</h2>
+<p>A worker chooses to shirk or work. An inspector chooses to inspect or rest. Everyone gets a non-negative payoff, but incentives are opposed.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Inspect</th>
+<th style="text-align: center;">Rest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Shirk</strong></td>
+<td style="text-align: center;">(0, 2)</td>
+<td style="text-align: center;">(4, 0)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Work</strong></td>
+<td style="text-align: center;">(2, 3)</td>
+<td style="text-align: center;">(3, 4)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>No Pure Nash Equilibrium</h2>
+<p>Row’s best responses: vs.&nbsp;Inspect, play Work (2 &gt; 0); vs.&nbsp;Rest, play Shirk (4 &gt; 3).</p>
+<p>Column’s best responses: vs.&nbsp;Shirk, play Inspect (2 &gt; 0); vs.&nbsp;Work, play Rest (4 &gt; 3).</p>
 <div class="fragment">
-<p>Workers can choose to get <strong>education</strong> (E) or <strong>not</strong> (N). Education is costly, but more costly for low-ability workers.</p>
-</div>
-<div class="fragment">
-<p>Employers observe the education choice and offer a <strong>wage</strong> based on what they infer.</p>
+<p>Again the best responses cycle, so there is no pure-strategy NE.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>The Signaling Game Tree</h2>
-<pre><code>Nature
-├── High (prob p)
-│   └── Worker H
-│       ├── E → Employer observes E → {High Wage, Low Wage}
-│       └── N → Employer observes N → {High Wage, Low Wage}
-└── Low (prob 1−p)
-    └── Worker L
-        ├── E → Employer observes E → {High Wage, Low Wage}
-        └── N → Employer observes N → {High Wage, Low Wage}</code></pre>
+<h2>Worker’s Mixing Probability</h2>
+<p>Let the worker play Shirk with probability <span class="math inline">\(p\)</span>. Set the inspector indifferent.</p>
 <div class="fragment">
-<p>The Employer sees E or N, but doesn’t see which branch of Nature they’re on.</p>
+<p><span class="math display">\[\text{Inspect: } 2p + 3(1 - p) = 3 - p\]</span></p>
+<p><span class="math display">\[\text{Rest: } 0 \cdot p + 4(1 - p) = 4 - 4p\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[3 - p = 4 - 4p \implies p = \frac{1}{3}\]</span></p>
 </div>
 </section>
 <section class="slide level2">
-<h2>The Key Insight</h2>
-<p>Suppose education is:</p>
-<ul>
-<li><strong>Costly for L</strong> workers (painful, time-consuming, expensive)</li>
-<li><strong>Less costly for H</strong> workers (comes naturally)</li>
-</ul>
+<h2>Inspector’s Mixing Probability</h2>
+<p>Let the inspector play Inspect with probability <span class="math inline">\(q\)</span>. Set the worker indifferent.</p>
 <div class="fragment">
-<p>Then education can serve as a <strong>credible signal</strong>: not because it makes workers more productive, but because only high-ability workers find it worth the cost.</p>
+<p><span class="math display">\[\text{Shirk: } 0 \cdot q + 4(1 - q) = 4 - 4q\]</span></p>
+<p><span class="math display">\[\text{Work: } 2q + 3(1 - q) = 3 - q\]</span></p>
 </div>
 <div class="fragment">
-<p>This is the logic of <strong>costly signaling</strong>: a signal is informative precisely because it’s <em>too expensive</em> for the low type to mimic.</p>
+<p><span class="math display">\[4 - 4q = 3 - q \implies q = \frac{1}{3}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Equilibrium</h2>
+<p>Worker shirks with probability <span class="math inline">\(\frac{1}{3}\)</span>. Inspector inspects with probability <span class="math inline">\(\frac{1}{3}\)</span>.</p>
+<div class="fragment">
+<p>Both players earn an expected payoff of <span class="math inline">\(\frac{8}{3} \approx 2.67\)</span>.</p>
+</div>
+<div class="fragment">
+<p>The expected total is about 5.3. Since the game is positive-sum, the payoffs don’t have to cancel, unlike the penalty-kick case.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Equilibria in Signaling Games</h1>
+<h1>The General 2x2 Case</h1>
 
 </section>
 <section class="slide level2">
-<h2>Separating Equilibrium</h2>
-<p>A <strong>separating equilibrium</strong> is one where different types send different messages.</p>
+<h2>The Setup</h2>
+<p>Any 2x2 game can be written in this general form:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Left</th>
+<th style="text-align: center;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Up</strong></td>
+<td style="text-align: center;">(a, e)</td>
+<td style="text-align: center;">(b, f)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Down</strong></td>
+<td style="text-align: center;">(c, g)</td>
+<td style="text-align: center;">(d, h)</td>
+</tr>
+</tbody>
+</table>
+<p>Suppose there is no pure-strategy NE. The same method works: each player mixes to make the other indifferent.</p>
+</section>
+<section class="slide level2">
+<h2>Finding <span class="math inline">\(p\)</span></h2>
+<p>Row plays Up with probability <span class="math inline">\(p\)</span>. Column’s expected payoffs:</p>
+<p><span class="math display">\[\text{Left: } e \cdot p + g(1 - p)\]</span></p>
+<p><span class="math display">\[\text{Right: } f \cdot p + h(1 - p)\]</span></p>
 <div class="fragment">
-<p>In the education game:</p>
-<ul>
-<li class="fragment">H workers get education; L workers don’t.</li>
-<li class="fragment">Employers infer: E → High Wage, N → Low Wage.</li>
-<li class="fragment">H workers get education because the wage gain exceeds the cost.</li>
-<li class="fragment">L workers don’t get education because the cost exceeds the wage gain.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Everyone’s beliefs and actions are mutually consistent.</p>
+<p>Setting these equal and collecting terms in <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[p \cdot [(e + h) - (f + g)] = h - g\]</span></p>
+<p><span class="math display">\[p = \frac{h - g}{(e + h) - (f + g)}\]</span></p>
 </div>
 </section>
 <section class="slide level2">
-<h2>When is the Separating Equilibrium Stable?</h2>
-<p>For the separating equilibrium to hold:</p>
-<ul>
-<li class="fragment">H workers must prefer (E, High Wage) to (N, Low Wage): <span class="math inline">\(\text{High Wage} - c_H &gt; \text{Low Wage}\)</span></li>
-<li class="fragment">L workers must prefer (N, Low Wage) to (E, High Wage): <span class="math inline">\(\text{High Wage} - c_L &lt; \text{Low Wage}\)</span></li>
-</ul>
+<h2>Finding <span class="math inline">\(q\)</span></h2>
+<p>Column plays Left with probability <span class="math inline">\(q\)</span>. Row’s expected payoffs:</p>
+<p><span class="math display">\[\text{Up: } a \cdot q + b(1 - q)\]</span></p>
+<p><span class="math display">\[\text{Down: } c \cdot q + d(1 - q)\]</span></p>
 <div class="fragment">
-<p>This holds when <span class="math inline">\(c_H &lt; c_L\)</span> by enough. That is, when the cost difference is large enough that the signal can’t be profitably mimicked.</p>
+<p>By the same algebra:</p>
+<p><span class="math display">\[q = \frac{d - b}{(a + d) - (b + c)}\]</span></p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Pooling Equilibrium</h2>
-<p>A <strong>pooling equilibrium</strong> is one where all types send the <em>same</em> message.</p>
+<h2>Reading the Formulas</h2>
+<p>The denominator for <span class="math inline">\(q\)</span> is the sum of Row’s main-diagonal payoffs minus the sum of Row’s anti-diagonal payoffs. The denominator for <span class="math inline">\(p\)</span> is the analogous quantity for Column.</p>
 <div class="fragment">
-<p>In the education game:</p>
-<ul>
-<li>Both H and L workers get education (or neither does).</li>
-<li>Employers can’t learn anything from the signal. They pay a wage based on the <em>prior</em> probability of being high type.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>In a pooling equilibrium, the signal carries <strong>no information</strong>.</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Which Equilibrium Obtains?</h2>
-<p>Signaling games often have <strong>multiple equilibria</strong>. Both separating and pooling equilibria may exist simultaneously.</p>
-<div class="fragment">
-<p>Which one we end up in depends on:</p>
-<ul>
-<li class="fragment">The cost structure (how different are <span class="math inline">\(c_H\)</span> and <span class="math inline">\(c_L\)</span>?).</li>
-<li class="fragment">Beliefs off the equilibrium path (what does the Receiver infer from unexpected messages?).</li>
-<li class="fragment">Refinements: additional criteria that rule out “unreasonable” equilibria.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>A Troubling Implication</h2>
-<p>In Spence’s model, education may be:</p>
-<div class="fragment">
-<ul>
-<li class="fragment">A <strong>pure signal</strong>: costly, but adding no productivity.</li>
-<li class="fragment">Yet individually rational: workers get education to distinguish themselves.</li>
-<li class="fragment">And socially wasteful: resources spent on education that teaches nothing useful.</li>
-</ul>
-</div>
-<div class="fragment">
-<p>This is a striking application of game theory to economics and sociology. Whether it accurately describes real education markets is genuinely debated.</p>
+<p>If a denominator is zero, or if the solution for <span class="math inline">\(p\)</span> or <span class="math inline">\(q\)</span> lies outside <span class="math inline">\([0, 1]\)</span>, there is a pure-strategy NE and the mixed formula doesn’t apply. This is rare in the textbook cases we’ll see.</p>
 </div>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
-<h1>Cheap Talk</h1>
+<h1>Question 1: Probability</h1>
 
 </section>
 <section class="slide level2">
-<h2>What If Signals Are Costless?</h2>
-<p>Suppose messages are <strong>free</strong>: words, not actions. Can communication convey information?</p>
+<h2>The Setup</h2>
+<p>A payment processor flags potentially fraudulent transactions.</p>
+<ul>
+<li>2% of transactions are fraudulent.</li>
+<li>The system correctly flags 90% of fraudulent transactions.</li>
+<li>It incorrectly flags 5% of legitimate transactions.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Part (a): P(flagged)</h2>
+<p>We need the law of total probability.</p>
 <div class="fragment">
-<p><strong>Crawford and Sobel (1982)</strong>: Even when messages are costless, some information can be transmitted, but not all of it.</p>
+<p><span class="math display">\[\Pr(G) = \Pr(G \mid F)\Pr(F) + \Pr(G \mid \neg F)\Pr(\neg F)\]</span></p>
 </div>
 <div class="fragment">
-<p>If the Sender and Receiver have <strong>perfectly aligned interests</strong>: full information transmission is possible.</p>
+<p><span class="math display">\[= (0.90)(0.02) + (0.05)(0.98)\]</span></p>
 </div>
 <div class="fragment">
-<p>If interests are <strong>partially opposed</strong>: only <strong>coarse</strong> information is credibly transmitted (“the value is in the upper half” but not the exact value).</p>
+<p><span class="math display">\[= 0.018 + 0.049 = 0.067\]</span></p>
+<p>About 6.7% of all transactions get flagged.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Cheap Talk in Practice</h2>
-<ul>
-<li class="fragment">A doctor advises a patient. Interests mostly aligned → credible communication.</li>
-<li class="fragment">A salesperson recommends a product. Interests diverge → be sceptical.</li>
-<li class="fragment">A politician makes a campaign promise. Interests may diverge → cheap talk: credible only if there are costs to breaking promises.</li>
-</ul>
+<h2>Part (b): P(fraud | flagged)</h2>
+<p>This is a Bayes’ theorem question. We want <span class="math inline">\(\Pr(F \mid G)\)</span>.</p>
 <div class="fragment">
-<p>The analysis of cheap talk uses exactly the same equilibrium concepts but applied to costless messages.</p>
+<p><span class="math display">\[\Pr(F \mid G) = \frac{\Pr(G \mid F)\Pr(F)}{\Pr(G)} = \frac{0.018}{0.067} \approx 0.269\]</span></p>
+</div>
+<div class="fragment">
+<p>Only about 27% of flagged transactions are actually fraudulent. The base rate of fraud is so low that most flags are false positives, even with a pretty good detection rate.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>Signaling Everywhere</h2>
-<p>Signaling games model:</p>
+<h2>Part (c): Independence</h2>
+<p>The question asks whether “flagged” and “fraudulent” are independent events.</p>
+<div class="fragment">
+<p>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent when <span class="math inline">\(\Pr(A \mid B) = \Pr(A)\)</span>.</p>
+</div>
+<div class="fragment">
+<p>We have <span class="math inline">\(\Pr(G \mid F) = 0.90\)</span> and <span class="math inline">\(\Pr(G) = 0.067\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Since <span class="math inline">\(0.90 \neq 0.067\)</span>, the events are not independent. Knowing a transaction is fraudulent changes the probability of it being flagged, which is the whole point of the system.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Question 2: Probability Trees</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Setup</h2>
+<p>A student takes a two-part qualifying exam.</p>
 <ul>
-<li class="fragment"><strong>Animal displays</strong>: peacock feathers, deer antlers (costly signals of genetic quality).</li>
-<li class="fragment"><strong>Warranties</strong>: a high-quality producer offers a long warranty (costly to low-quality imitators).</li>
-<li class="fragment"><strong>Conspicuous consumption</strong>: expensive purchases as signals of wealth.</li>
-<li class="fragment"><strong>Legal pleading</strong>: a strong case going to trial as a signal that the plaintiff won’t settle cheap.</li>
+<li><span class="math inline">\(\Pr(\text{pass Part 1}) = 0.7\)</span></li>
+<li>If pass Part 1: <span class="math inline">\(\Pr(\text{pass Part 2}) = 0.8\)</span></li>
+<li>If fail Part 1: <span class="math inline">\(\Pr(\text{pass Part 2}) = 0.3\)</span></li>
 </ul>
 </section>
-<section class="slide level2 scrollable">
-<h2>Looking Back at the Course</h2>
-<p>We’ve now covered four major formal tools:</p>
-<ol type="1">
-<li class="fragment"><strong>Propositional Logic</strong>: valid inference, truth tables, proof systems.</li>
-<li class="fragment"><strong>Modal and Conditional Logic</strong>: necessity, possibility, conditionals and counterfactuals.</li>
-<li class="fragment"><strong>Probability and Decision</strong>: updating beliefs, expected utility, rational choice under uncertainty.</li>
-<li class="fragment"><strong>Game Theory</strong>: strategic interaction, equilibrium, dynamics, signaling.</li>
-</ol>
+<section class="slide level2">
+<h2>Part (a): Both Pass</h2>
+<p><span class="math display">\[\Pr(P_1 \wedge P_2) = 0.7 \times 0.8 = 0.56\]</span></p>
 <div class="fragment">
-<p>These tools appear throughout philosophy, economics, linguistics, and computer science. You now have the foundations to follow and critically assess their applications.</p>
+<p>This is a direct application of the multiplication rule. The tree branches right to left.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Exactly One</h2>
+<p>Two ways to pass exactly one part:</p>
+<div class="fragment">
+<ul>
+<li>Pass Part 1, fail Part 2: <span class="math inline">\(0.7 \times 0.2 = 0.14\)</span></li>
+<li>Fail Part 1, pass Part 2: <span class="math inline">\(0.3 \times 0.3 = 0.09\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Total: <span class="math inline">\(0.14 + 0.09 = 0.23\)</span>.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Question 3: Expected Utility</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Setup</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Downturn (0.3)</th>
+<th style="text-align: center;">Stable (0.4)</th>
+<th style="text-align: center;">Growth (0.3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Plan X</td>
+<td style="text-align: center;">$-$90</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Plan Y</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">50</td>
+</tr>
+</tbody>
+</table>
+<p>Profits in thousands. The owner has $100k in savings and utility <span class="math inline">\(U = \sqrt{\text{wealth in thousands}}\)</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Part (a): Expected Monetary Value</h2>
+<p><span class="math display">\[\text{EMV}(X) = 0.3(-90) + 0.4(80) + 0.3(100) = -27 + 32 + 30 = 35\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\text{EMV}(Y) = 0.3(10) + 0.4(30) + 0.3(50) = 3 + 12 + 15 = 30\]</span></p>
+</div>
+<div class="fragment">
+<p>Plan X has higher expected monetary value: $35k vs.&nbsp;$30k.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Dominance</h2>
+<ul>
+<li>Downturn: X gives <span class="math inline">\(-90\)</span>, Y gives <span class="math inline">\(10\)</span>. Y is better.</li>
+<li>Stable: X gives <span class="math inline">\(80\)</span>, Y gives <span class="math inline">\(30\)</span>. X is better.</li>
+</ul>
+<div class="fragment">
+<p>Each plan beats the other in at least one state. Neither dominates.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): Expected Utility — Setup</h2>
+<p>Total wealth = 100 + profit. Utility = <span class="math inline">\(\sqrt{\text{wealth}}\)</span>.</p>
+<p>Plan X wealth: 10, 180, 200.</p>
+<p>Plan Y wealth: 110, 130, 150.</p>
+<div class="fragment">
+<p>Notice the range: X’s wealth goes from 10 to 200. Y’s goes from 110 to 150. The square root function penalises low values, and X has a very low value in the Downturn scenario.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): The Calculation</h2>
+<p><span class="math display">\[EU(X) = 0.3\sqrt{10} + 0.4\sqrt{180} + 0.3\sqrt{200}\]</span></p>
+<p><span class="math display">\[= 0.3(3.162) + 0.4(13.416) + 0.3(14.142) = 0.949 + 5.367 + 4.243 = 10.56\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[EU(Y) = 0.3\sqrt{110} + 0.4\sqrt{130} + 0.3\sqrt{150}\]</span></p>
+<p><span class="math display">\[= 0.3(10.488) + 0.4(11.402) + 0.3(12.247) = 3.146 + 4.561 + 3.674 = 11.38\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): The Reversal</h2>
+<p>Plan X has higher EMV ($35k vs.&nbsp;$30k) but Plan Y has higher expected utility (11.38 vs.&nbsp;10.56).</p>
+<div class="fragment">
+<p>The concave utility function captures declining marginal utility of money. The owner cares proportionally more about avoiding the catastrophic Downturn outcome (wealth dropping to $10k) than about the upside in Growth.</p>
+</div>
+<div class="fragment">
+<p>This is the kind of case where EMV and EU come apart. The whole point of expected utility theory is that rational agents with curved utility functions should sometimes reject higher-EMV gambles.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Question 4: Strategic Form</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Game</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>T</strong></td>
+<td style="text-align: center;">(4, 2)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(3, 3)</td>
+<td style="text-align: center;">(1, 0)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(2, 3)</td>
+<td style="text-align: center;">(4, 0)</td>
+<td style="text-align: center;">(1, 2)</td>
+<td style="text-align: center;">(3, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>B</strong></td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(2, 4)</td>
+<td style="text-align: center;">(0, 0)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Part (a): Dominance in the Original Game</h2>
+<p>For Row, no strategy dominates another. Each pair has at least one reversal. For example, T beats M against A (4 vs.&nbsp;2) but M beats T against B (4 vs.&nbsp;2).</p>
+<div class="fragment">
+<p>For Column, look at D’s payoffs: 0, 1, 0.</p>
+</div>
+<div class="fragment">
+<p>Compare with A’s payoffs: 2, 3, 1. Every entry is strictly higher. <strong>A strictly dominates D.</strong></p>
+<p>Compare with C’s payoffs: 3, 2, 4. Every entry is strictly higher. <strong>C strictly dominates D.</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Iterated Elimination — Round 1</h2>
+<p>Eliminate D (strictly dominated). The reduced game:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>T</strong></td>
+<td style="text-align: center;">(4, 2)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(3, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(2, 3)</td>
+<td style="text-align: center;">(4, 0)</td>
+<td style="text-align: center;">(1, 2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>B</strong></td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(3, 2)</td>
+<td style="text-align: center;">(2, 4)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Part (b): Round 2</h2>
+<p>Now look at Column’s payoffs for B: 1, 0, 2. Compare with C: 3, 2, 4.</p>
+<div class="fragment">
+<p>C beats B in every row (3 &gt; 1, 2 &gt; 0, 4 &gt; 2). <strong>C strictly dominates B.</strong> Eliminate B.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>T</strong></td>
+<td style="text-align: center;">(4, 2)</td>
+<td style="text-align: center;">(3, 3)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>M</strong></td>
+<td style="text-align: center;">(2, 3)</td>
+<td style="text-align: center;">(1, 2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>B</strong></td>
+<td style="text-align: center;">(1, 1)</td>
+<td style="text-align: center;">(2, 4)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Round 3</h2>
+<p>Now Row. Compare T with M: 4 &gt; 2 against A, 3 &gt; 1 against C. <strong>T strictly dominates M.</strong></p>
+<div class="fragment">
+<p>Compare T with B: 4 &gt; 1 against A, 3 &gt; 2 against C. <strong>T strictly dominates B.</strong></p>
+</div>
+<div class="fragment">
+<p>Eliminate M and B. Column faces A (payoff 2) vs.&nbsp;C (payoff 3). Column picks C.</p>
+<p><strong>Solution: (T, C) with payoffs (3, 3).</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): Nash Equilibria</h2>
+<p>Row’s best responses (looking at Row’s payoffs):</p>
+<ul>
+<li>vs.&nbsp;A: T gives 4. Best: <strong>T</strong>.</li>
+<li>vs.&nbsp;B: M gives 4. Best: <strong>M</strong>.</li>
+<li>vs.&nbsp;C: T gives 3. Best: <strong>T</strong>.</li>
+<li>vs.&nbsp;D: M gives 3. Best: <strong>M</strong>.</li>
+</ul>
+<div class="fragment">
+<p>Column’s best responses (looking at Column’s payoffs):</p>
+<ul>
+<li>vs.&nbsp;T: C gives 3. Best: <strong>C</strong>.</li>
+<li>vs.&nbsp;M: A gives 3. Best: <strong>A</strong>.</li>
+<li>vs.&nbsp;B: C gives 4. Best: <strong>C</strong>.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): The Nash Equilibrium</h2>
+<p>The only cell where both players are playing best responses is <strong>(T, C)</strong>.</p>
+<div class="fragment">
+<p>T is Row’s best response to C, and C is Column’s best response to T.</p>
+<p><strong>Unique pure-strategy NE: (T, C) with payoffs (3, 3).</strong> This matches the iterated elimination result.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Question 5: Dynamic Games</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Game Tree</h2>
+<p>Player 1: A or B. Player 2 observes and responds.</p>
+<ul>
+<li>A <span class="math inline">\(\to\)</span> P2 picks C or D. C gives (5, 3); D gives (2, 1).</li>
+<li>B <span class="math inline">\(\to\)</span> P2 picks E or F. E gives (3, 4); F <span class="math inline">\(\to\)</span> P1 picks G or H. G gives (6, 0); H gives (1, 5).</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Part (a): Strategies</h2>
+<p>Player 1 moves at two nodes (root and after B <span class="math inline">\(\to\)</span> F), so has 4 strategies: (A; G), (A; H), (B; G), (B; H).</p>
+<div class="fragment">
+<p>Player 2 moves at two nodes (after A and after B), so has 4 strategies: (C; E), (C; F), (D; E), (D; F).</p>
+</div>
+<div class="fragment">
+<p>A strategy specifies what to do at every decision node, including ones that may never be reached. (A; G) and (A; H) are different strategies even though the G/H choice is moot when Player 1 plays A.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Backward Induction — Step 1</h2>
+<p>Start at the deepest node: Player 1 after B <span class="math inline">\(\to\)</span> F.</p>
+<p>G gives Player 1 a payoff of 6. H gives 1. Player 1 chooses <strong>G</strong>.</p>
+<div class="fragment">
+<p>Replace the node with (6, 0).</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Steps 2 and 3</h2>
+<p>Player 2’s node after B: E gives P2 a payoff of 4; F leads to (6, 0), giving P2 payoff 0. Player 2 chooses <strong>E</strong>.</p>
+<div class="fragment">
+<p>Player 2’s node after A: C gives P2 payoff 3; D gives 1. Player 2 chooses <strong>C</strong>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (b): Step 4</h2>
+<p>Player 1 at the root: A leads to (5, 3), giving P1 payoff 5. B leads to (3, 4), giving P1 payoff 3.</p>
+<div class="fragment">
+<p>Player 1 chooses <strong>A</strong>.</p>
+</div>
+<div class="fragment">
+<p><strong>Outcome: A <span class="math inline">\(\to\)</span> C, with payoffs (5, 3).</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (c): The Non-Credible Threat</h2>
+<p>Player 2 prefers (3, 4) from B <span class="math inline">\(\to\)</span> E. Player 2 might threaten: “If you play A, I’ll play D, giving you only 2.”</p>
+<div class="fragment">
+<p>If believed, Player 1 would compare A <span class="math inline">\(\to\)</span> D (payoff 2) with B <span class="math inline">\(\to\)</span> E (payoff 3) and pick B.</p>
+</div>
+<div class="fragment">
+<p>But at P2’s node after A: C gives P2 payoff 3, D gives 1. Player 2 won’t follow through. The threat is not credible, and Player 1 knows it.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Part (d): The Strategic Form</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">(C; E)</th>
+<th style="text-align: center;">(C; F)</th>
+<th style="text-align: center;">(D; E)</th>
+<th style="text-align: center;">(D; F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>(A; G)</strong></td>
+<td style="text-align: center;">(5, 3)</td>
+<td style="text-align: center;">(5, 3)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(2, 1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>(A; H)</strong></td>
+<td style="text-align: center;">(5, 3)</td>
+<td style="text-align: center;">(5, 3)</td>
+<td style="text-align: center;">(2, 1)</td>
+<td style="text-align: center;">(2, 1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>(B; G)</strong></td>
+<td style="text-align: center;">(3, 4)</td>
+<td style="text-align: center;">(6, 0)</td>
+<td style="text-align: center;">(3, 4)</td>
+<td style="text-align: center;">(6, 0)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>(B; H)</strong></td>
+<td style="text-align: center;">(3, 4)</td>
+<td style="text-align: center;">(1, 5)</td>
+<td style="text-align: center;">(3, 4)</td>
+<td style="text-align: center;">(1, 5)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Reading the Strategic Form</h2>
+<p>Notice that the (A; G) and (A; H) rows are identical. When P1 chooses A, the G/H decision is never reached.</p>
+<div class="fragment">
+<p>Also, the (C; E) and (D; E) columns differ only in the A-rows. When P2 chooses E after B, nothing else matters on that branch.</p>
+</div>
+<div class="fragment">
+<p>The backward-induction strategy profile is (A; G) for P1 and (C; E) for P2, yielding (5, 3). This is the subgame perfect equilibrium.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Question 6: Mixed Strategies</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Game</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Left</th>
+<th style="text-align: center;">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Up</strong></td>
+<td style="text-align: center;">(3, 1)</td>
+<td style="text-align: center;">(1, 2)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Down</strong></td>
+<td style="text-align: center;">(1, 3)</td>
+<td style="text-align: center;">(2, 0)</td>
+</tr>
+</tbody>
+</table>
+<p>No pure-strategy NE. (Check: Row’s BR to Left is Up; Column’s BR to Up is Right; Row’s BR to Right is Down; Column’s BR to Down is Left. The cycle means no cell has both players playing best responses.)</p>
+</section>
+<section class="slide level2">
+<h2>Finding Row’s Mixing Probability</h2>
+<p>Let Row play Up with probability <span class="math inline">\(p\)</span>. Set Column indifferent:</p>
+<div class="fragment">
+<p><span class="math display">\[\text{Left: } 1 \cdot p + 3(1-p) = 3 - 2p\]</span></p>
+<p><span class="math display">\[\text{Right: } 2p + 0(1-p) = 2p\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[3 - 2p = 2p \implies p = \frac{3}{4}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Finding Column’s Mixing Probability</h2>
+<p>Let Column play Left with probability <span class="math inline">\(q\)</span>. Set Row indifferent:</p>
+<div class="fragment">
+<p><span class="math display">\[\text{Up: } 3q + 1(1-q) = 2q + 1\]</span></p>
+<p><span class="math display">\[\text{Down: } q + 2(1-q) = 2 - q\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[2q + 1 = 2 - q \implies q = \frac{1}{3}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Equilibrium</h2>
+<p>Row plays Up with probability <span class="math inline">\(\frac{3}{4}\)</span>, Down with probability <span class="math inline">\(\frac{1}{4}\)</span>.</p>
+<p>Column plays Left with probability <span class="math inline">\(\frac{1}{3}\)</span>, Right with probability <span class="math inline">\(\frac{2}{3}\)</span>.</p>
+<div class="fragment">
+<p>Expected payoffs: Row gets <span class="math inline">\(2 \times \frac{1}{3} + 1 = \frac{5}{3} \approx 1.67\)</span>. Column gets <span class="math inline">\(3 - 2 \times \frac{3}{4} = \frac{3}{2} = 1.5\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Both players earn less than their best pure-strategy payoff. Mixed equilibria are about making the opponent indifferent, not about maximising your own payoff.</p>
 
 
 </div>

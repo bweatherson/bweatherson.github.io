@@ -1,227 +1,562 @@
 ---
-title: "Signaling Games"
+title: "Revision"
 date: "4/15/2026"
 ---
 
-# Games with Private Information
+# Overview
 
-## Plan
+## Plan for Day
 
-- So far, all players have known the full structure of the game: **complete information**.
-- Today we introduce **signaling games**: one player has private information; the other must infer it from observable actions.
-- This blends sequential game structure with asymmetric information.
+We're going to do a couple more mixed strategy cases, then look over the sample exam.
 
-### Associated Reading
+# Warm-Up Example 1: Penalty Kicks
 
-No new reading. Brings together game theory and probability.
+## The Game
 
-## Asymmetric Information
+A kicker and a goalie. The kicker wants to score, the goalie wants to save. The payoffs show goals scored (kicker's gain, goalie's loss), so this game is zero-sum.
 
-In many real situations, players differ in what they know:
+|              | Goalie L | Goalie R |
+|-------------:|:--------:|:--------:|
+| **Kicker L** | (0, 0)   | (2, -2)  |
+| **Kicker R** | (2, -2)  | (1, -1)  |
 
-::: {.incremental}
-- A job applicant knows their own ability; the employer doesn't.
-- A seller knows the quality of a used car; the buyer doesn't.
-- A firm knows its own costs; rival firms don't.
-:::
+## No Pure Nash Equilibrium
 
-. . .
+Row's best responses: vs. L, play R (2 > 0); vs. R, play L (2 > 1).
 
-These are **games of incomplete information** or **asymmetric information**.
-
-## The Structure of a Signaling Game
-
-A signaling game has:
-
-::: {.incremental}
-1. A **Sender** who has private information (their **type**).
-2. A **Receiver** who observes only the Sender's **message** (signal), not their type.
-3. The Receiver takes an **action** based on what they observe.
-4. Both players receive payoffs that depend on type, message, and action.
-:::
+Column's best responses: vs. Kicker L, play L (0 > -2); vs. Kicker R, play R ($-1 > -2$).
 
 . . .
 
-The Receiver must use the message as **evidence** to infer the Sender's type. This is where probability re-enters.
+The best responses cycle, so there is no pure-strategy NE.
 
-# The Classic Example: Job Market Signaling
+## Kicker's Mixing Probability
 
-## Spence's Model (1973)
-
-Workers are either **high ability** (H) or **low ability** (L). Employers can't observe ability directly.
+Let the kicker play L with probability $p$. Set the goalie indifferent.
 
 . . .
 
-Workers can choose to get **education** (E) or **not** (N). Education is costly, but more costly for low-ability workers.
+$$\text{Goalie L: } 0 \cdot p + (-2)(1-p) = 2p - 2$$
+
+$$\text{Goalie R: } (-2)p + (-1)(1-p) = -p - 1$$
 
 . . .
 
-Employers observe the education choice and offer a **wage** based on what they infer.
+$$2p - 2 = -p - 1 \implies p = \frac{1}{3}$$
 
-## The Signaling Game Tree
+## Goalie's Mixing Probability
 
-```
-Nature
-├── High (prob p)
-│   └── Worker H
-│       ├── E → Employer observes E → {High Wage, Low Wage}
-│       └── N → Employer observes N → {High Wage, Low Wage}
-└── Low (prob 1−p)
-    └── Worker L
-        ├── E → Employer observes E → {High Wage, Low Wage}
-        └── N → Employer observes N → {High Wage, Low Wage}
-```
+Let the goalie play L with probability $q$. Set the kicker indifferent.
 
 . . .
 
-The Employer sees E or N, but doesn't see which branch of Nature they're on.
+$$\text{Kicker L: } 0 \cdot q + 2(1 - q) = 2 - 2q$$
 
-## The Key Insight
-
-Suppose education is:
-
-- **Costly for L** workers (painful, time-consuming, expensive)
-- **Less costly for H** workers (comes naturally)
+$$\text{Kicker R: } 2q + 1(1 - q) = 1 + q$$
 
 . . .
 
-Then education can serve as a **credible signal**: not because it makes workers more productive, but because only high-ability workers find it worth the cost.
+$$2 - 2q = 1 + q \implies q = \frac{1}{3}$$
+
+## The Equilibrium
+
+Kicker plays L with probability $\frac{1}{3}$. Goalie plays L with probability $\frac{1}{3}$.
 
 . . .
 
-This is the logic of **costly signaling**: a signal is informative precisely because it's *too expensive* for the low type to mimic.
+Kicker's expected payoff: $2 - 2 \cdot \frac{1}{3} = \frac{4}{3}$.
 
-# Equilibria in Signaling Games
+Goalie's expected payoff: $-\frac{4}{3}$. The two payoffs sum to zero, as they must in a zero-sum game.
 
-## Separating Equilibrium
+# Warm-Up Example 2: Worker and Inspector
 
-A **separating equilibrium** is one where different types send different messages.
+## The Game
 
-. . .
+A worker chooses to shirk or work. An inspector chooses to inspect or rest. Everyone gets a non-negative payoff, but incentives are opposed.
 
-In the education game:
+|            | Inspect | Rest   |
+|-----------:|:-------:|:------:|
+| **Shirk**  | (0, 2)  | (4, 0) |
+| **Work**   | (2, 3)  | (3, 4) |
 
-::: {.incremental}
-- H workers get education; L workers don't.
-- Employers infer: E → High Wage, N → Low Wage.
-- H workers get education because the wage gain exceeds the cost.
-- L workers don't get education because the cost exceeds the wage gain.
-:::
+## No Pure Nash Equilibrium
 
-. . .
+Row's best responses: vs. Inspect, play Work (2 > 0); vs. Rest, play Shirk (4 > 3).
 
-Everyone's beliefs and actions are mutually consistent.
-
-## When is the Separating Equilibrium Stable?
-
-For the separating equilibrium to hold:
-
-::: {.incremental}
-- H workers must prefer (E, High Wage) to (N, Low Wage): $\text{High Wage} - c_H > \text{Low Wage}$
-- L workers must prefer (N, Low Wage) to (E, High Wage): $\text{High Wage} - c_L < \text{Low Wage}$
-:::
+Column's best responses: vs. Shirk, play Inspect (2 > 0); vs. Work, play Rest (4 > 3).
 
 . . .
 
-This holds when $c_H < c_L$ by enough. That is, when the cost difference is large enough that the signal can't be profitably mimicked.
+Again the best responses cycle, so there is no pure-strategy NE.
 
-## Pooling Equilibrium
+## Worker's Mixing Probability
 
-A **pooling equilibrium** is one where all types send the *same* message.
-
-. . .
-
-In the education game:
-
-- Both H and L workers get education (or neither does).
-- Employers can't learn anything from the signal. They pay a wage based on the *prior* probability of being high type.
+Let the worker play Shirk with probability $p$. Set the inspector indifferent.
 
 . . .
 
-In a pooling equilibrium, the signal carries **no information**.
+$$\text{Inspect: } 2p + 3(1 - p) = 3 - p$$
 
-## Which Equilibrium Obtains?
-
-Signaling games often have **multiple equilibria**. Both separating and pooling equilibria may exist simultaneously.
+$$\text{Rest: } 0 \cdot p + 4(1 - p) = 4 - 4p$$
 
 . . .
 
-Which one we end up in depends on:
+$$3 - p = 4 - 4p \implies p = \frac{1}{3}$$
 
-::: {.incremental}
-- The cost structure (how different are $c_H$ and $c_L$?).
-- Beliefs off the equilibrium path (what does the Receiver infer from unexpected messages?).
-- Refinements: additional criteria that rule out "unreasonable" equilibria.
-:::
+## Inspector's Mixing Probability
 
-## A Troubling Implication
-
-In Spence's model, education may be:
+Let the inspector play Inspect with probability $q$. Set the worker indifferent.
 
 . . .
 
-::: {.incremental}
-- A **pure signal**: costly, but adding no productivity.
-- Yet individually rational: workers get education to distinguish themselves.
-- And socially wasteful: resources spent on education that teaches nothing useful.
-:::
+$$\text{Shirk: } 0 \cdot q + 4(1 - q) = 4 - 4q$$
+
+$$\text{Work: } 2q + 3(1 - q) = 3 - q$$
 
 . . .
 
-This is a striking application of game theory to economics and sociology. Whether it accurately describes real education markets is genuinely debated.
+$$4 - 4q = 3 - q \implies q = \frac{1}{3}$$
 
-# Cheap Talk
+## The Equilibrium
 
-## What If Signals Are Costless?
-
-Suppose messages are **free**: words, not actions. Can communication convey information?
+Worker shirks with probability $\frac{1}{3}$. Inspector inspects with probability $\frac{1}{3}$.
 
 . . .
 
-**Crawford and Sobel (1982)**: Even when messages are costless, some information can be transmitted, but not all of it.
+Both players earn an expected payoff of $\frac{8}{3} \approx 2.67$.
 
 . . .
 
-If the Sender and Receiver have **perfectly aligned interests**: full information transmission is possible.
+The expected total is about 5.3. Since the game is positive-sum, the payoffs don't have to cancel, unlike the penalty-kick case.
+
+# The General 2x2 Case
+
+## The Setup
+
+Any 2x2 game can be written in this general form:
+
+|          | Left   | Right  |
+|---------:|:------:|:------:|
+| **Up**   | (a, e) | (b, f) |
+| **Down** | (c, g) | (d, h) |
+
+Suppose there is no pure-strategy NE. The same method works: each player mixes to make the other indifferent.
+
+## Finding $p$
+
+Row plays Up with probability $p$. Column's expected payoffs:
+
+$$\text{Left: } e \cdot p + g(1 - p)$$
+
+$$\text{Right: } f \cdot p + h(1 - p)$$
 
 . . .
 
-If interests are **partially opposed**: only **coarse** information is credibly transmitted ("the value is in the upper half" but not the exact value).
+Setting these equal and collecting terms in $p$:
 
-## Cheap Talk in Practice
+$$p \cdot [(e + h) - (f + g)] = h - g$$
 
-::: {.incremental}
-- A doctor advises a patient. Interests mostly aligned → credible communication.
-- A salesperson recommends a product. Interests diverge → be sceptical.
-- A politician makes a campaign promise. Interests may diverge → cheap talk: credible only if there are costs to breaking promises.
-:::
+$$p = \frac{h - g}{(e + h) - (f + g)}$$
 
-. . .
+## Finding $q$
 
-The analysis of cheap talk uses exactly the same equilibrium concepts but applied to costless messages.
+Column plays Left with probability $q$. Row's expected payoffs:
 
-## Signaling Everywhere
+$$\text{Up: } a \cdot q + b(1 - q)$$
 
-Signaling games model:
-
-::: {.incremental}
-- **Animal displays**: peacock feathers, deer antlers (costly signals of genetic quality).
-- **Warranties**: a high-quality producer offers a long warranty (costly to low-quality imitators).
-- **Conspicuous consumption**: expensive purchases as signals of wealth.
-- **Legal pleading**: a strong case going to trial as a signal that the plaintiff won't settle cheap.
-:::
-
-## Looking Back at the Course
-
-We've now covered four major formal tools:
-
-::: {.incremental}
-1. **Propositional Logic**: valid inference, truth tables, proof systems.
-2. **Modal and Conditional Logic**: necessity, possibility, conditionals and counterfactuals.
-3. **Probability and Decision**: updating beliefs, expected utility, rational choice under uncertainty.
-4. **Game Theory**: strategic interaction, equilibrium, dynamics, signaling.
-:::
+$$\text{Down: } c \cdot q + d(1 - q)$$
 
 . . .
 
-These tools appear throughout philosophy, economics, linguistics, and computer science. You now have the foundations to follow and critically assess their applications.
+By the same algebra:
+
+$$q = \frac{d - b}{(a + d) - (b + c)}$$
+
+## Reading the Formulas
+
+The denominator for $q$ is the sum of Row's main-diagonal payoffs minus the sum of Row's anti-diagonal payoffs. The denominator for $p$ is the analogous quantity for Column.
+
+. . .
+
+If a denominator is zero, or if the solution for $p$ or $q$ lies outside $[0, 1]$, there is a pure-strategy NE and the mixed formula doesn't apply. This is rare in the textbook cases we'll see.
+
+# Question 1: Probability
+
+## The Setup
+
+A payment processor flags potentially fraudulent transactions.
+
+- 2% of transactions are fraudulent.
+- The system correctly flags 90% of fraudulent transactions.
+- It incorrectly flags 5% of legitimate transactions.
+
+## Part (a): P(flagged)
+
+We need the law of total probability.
+
+. . .
+
+$$\Pr(G) = \Pr(G \mid F)\Pr(F) + \Pr(G \mid \neg F)\Pr(\neg F)$$
+
+. . .
+
+$$= (0.90)(0.02) + (0.05)(0.98)$$
+
+. . .
+
+$$= 0.018 + 0.049 = 0.067$$
+
+About 6.7% of all transactions get flagged.
+
+## Part (b): P(fraud | flagged)
+
+This is a Bayes' theorem question. We want $\Pr(F \mid G)$.
+
+. . .
+
+$$\Pr(F \mid G) = \frac{\Pr(G \mid F)\Pr(F)}{\Pr(G)} = \frac{0.018}{0.067} \approx 0.269$$
+
+. . .
+
+Only about 27% of flagged transactions are actually fraudulent. The base rate of fraud is so low that most flags are false positives, even with a pretty good detection rate.
+
+## Part (c): Independence
+
+The question asks whether "flagged" and "fraudulent" are independent events.
+
+. . .
+
+Two events $A$ and $B$ are independent when $\Pr(A \mid B) = \Pr(A)$.
+
+. . .
+
+We have $\Pr(G \mid F) = 0.90$ and $\Pr(G) = 0.067$.
+
+. . .
+
+Since $0.90 \neq 0.067$, the events are not independent. Knowing a transaction is fraudulent changes the probability of it being flagged, which is the whole point of the system.
+
+# Question 2: Probability Trees
+
+## The Setup
+
+A student takes a two-part qualifying exam.
+
+- $\Pr(\text{pass Part 1}) = 0.7$
+- If pass Part 1: $\Pr(\text{pass Part 2}) = 0.8$
+- If fail Part 1: $\Pr(\text{pass Part 2}) = 0.3$
+
+## Part (a): Both Pass
+
+$$\Pr(P_1 \wedge P_2) = 0.7 \times 0.8 = 0.56$$
+
+. . .
+
+This is a direct application of the multiplication rule. The tree branches right to left.
+
+## Part (b): Exactly One
+
+Two ways to pass exactly one part:
+
+. . .
+
+- Pass Part 1, fail Part 2: $0.7 \times 0.2 = 0.14$
+- Fail Part 1, pass Part 2: $0.3 \times 0.3 = 0.09$
+
+. . .
+
+Total: $0.14 + 0.09 = 0.23$.
+
+# Question 3: Expected Utility
+
+## The Setup
+
+|          | Downturn (0.3) | Stable (0.4) | Growth (0.3) |
+|---------:|:--------------:|:------------:|:------------:|
+| Plan X   | $-$90          | 80           | 100          |
+| Plan Y   | 10             | 30           | 50           |
+
+Profits in thousands. The owner has \$100k in savings and utility $U = \sqrt{\text{wealth in thousands}}$.
+
+## Part (a): Expected Monetary Value
+
+$$\text{EMV}(X) = 0.3(-90) + 0.4(80) + 0.3(100) = -27 + 32 + 30 = 35$$
+
+. . .
+
+$$\text{EMV}(Y) = 0.3(10) + 0.4(30) + 0.3(50) = 3 + 12 + 15 = 30$$
+
+. . .
+
+Plan X has higher expected monetary value: \$35k vs. \$30k.
+
+## Part (b): Dominance
+
+- Downturn: X gives $-90$, Y gives $10$. Y is better.
+- Stable: X gives $80$, Y gives $30$. X is better.
+
+. . .
+
+Each plan beats the other in at least one state. Neither dominates.
+
+## Part (c): Expected Utility — Setup
+
+Total wealth = 100 + profit. Utility = $\sqrt{\text{wealth}}$.
+
+Plan X wealth: 10, 180, 200.
+
+Plan Y wealth: 110, 130, 150.
+
+. . .
+
+Notice the range: X's wealth goes from 10 to 200. Y's goes from 110 to 150. The square root function penalises low values, and X has a very low value in the Downturn scenario.
+
+## Part (c): The Calculation
+
+$$EU(X) = 0.3\sqrt{10} + 0.4\sqrt{180} + 0.3\sqrt{200}$$
+
+$$= 0.3(3.162) + 0.4(13.416) + 0.3(14.142) = 0.949 + 5.367 + 4.243 = 10.56$$
+
+. . .
+
+$$EU(Y) = 0.3\sqrt{110} + 0.4\sqrt{130} + 0.3\sqrt{150}$$
+
+$$= 0.3(10.488) + 0.4(11.402) + 0.3(12.247) = 3.146 + 4.561 + 3.674 = 11.38$$
+
+## Part (c): The Reversal
+
+Plan X has higher EMV (\$35k vs. \$30k) but Plan Y has higher expected utility (11.38 vs. 10.56).
+
+. . .
+
+The concave utility function captures declining marginal utility of money. The owner cares proportionally more about avoiding the catastrophic Downturn outcome (wealth dropping to \$10k) than about the upside in Growth.
+
+. . .
+
+This is the kind of case where EMV and EU come apart. The whole point of expected utility theory is that rational agents with curved utility functions should sometimes reject higher-EMV gambles.
+
+# Question 4: Strategic Form
+
+## The Game
+
+|       | A      | B      | C      | D      |
+|------:|:------:|:------:|:------:|:------:|
+| **T** | (4, 2) | (2, 1) | (3, 3) | (1, 0) |
+| **M** | (2, 3) | (4, 0) | (1, 2) | (3, 1) |
+| **B** | (1, 1) | (3, 2) | (2, 4) | (0, 0) |
+
+## Part (a): Dominance in the Original Game
+
+For Row, no strategy dominates another. Each pair has at least one reversal. For example, T beats M against A (4 vs. 2) but M beats T against B (4 vs. 2).
+
+. . .
+
+For Column, look at D's payoffs: 0, 1, 0.
+
+. . .
+
+Compare with A's payoffs: 2, 3, 1. Every entry is strictly higher. **A strictly dominates D.**
+
+Compare with C's payoffs: 3, 2, 4. Every entry is strictly higher. **C strictly dominates D.**
+
+## Part (b): Iterated Elimination — Round 1
+
+Eliminate D (strictly dominated). The reduced game:
+
+|       | A      | B      | C      |
+|------:|:------:|:------:|:------:|
+| **T** | (4, 2) | (2, 1) | (3, 3) |
+| **M** | (2, 3) | (4, 0) | (1, 2) |
+| **B** | (1, 1) | (3, 2) | (2, 4) |
+
+## Part (b): Round 2
+
+Now look at Column's payoffs for B: 1, 0, 2. Compare with C: 3, 2, 4.
+
+. . .
+
+C beats B in every row (3 > 1, 2 > 0, 4 > 2). **C strictly dominates B.** Eliminate B.
+
+|       | A      | C      |
+|------:|:------:|:------:|
+| **T** | (4, 2) | (3, 3) |
+| **M** | (2, 3) | (1, 2) |
+| **B** | (1, 1) | (2, 4) |
+
+## Part (b): Round 3
+
+Now Row. Compare T with M: 4 > 2 against A, 3 > 1 against C. **T strictly dominates M.**
+
+. . .
+
+Compare T with B: 4 > 1 against A, 3 > 2 against C. **T strictly dominates B.**
+
+. . .
+
+Eliminate M and B. Column faces A (payoff 2) vs. C (payoff 3). Column picks C.
+
+**Solution: (T, C) with payoffs (3, 3).**
+
+## Part (c): Nash Equilibria
+
+Row's best responses (looking at Row's payoffs):
+
+- vs. A: T gives 4. Best: **T**.
+- vs. B: M gives 4. Best: **M**.
+- vs. C: T gives 3. Best: **T**.
+- vs. D: M gives 3. Best: **M**.
+
+. . .
+
+Column's best responses (looking at Column's payoffs):
+
+- vs. T: C gives 3. Best: **C**.
+- vs. M: A gives 3. Best: **A**.
+- vs. B: C gives 4. Best: **C**.
+
+## Part (c): The Nash Equilibrium
+
+The only cell where both players are playing best responses is **(T, C)**.
+
+. . .
+
+T is Row's best response to C, and C is Column's best response to T.
+
+**Unique pure-strategy NE: (T, C) with payoffs (3, 3).** This matches the iterated elimination result.
+
+# Question 5: Dynamic Games
+
+## The Game Tree
+
+Player 1: A or B. Player 2 observes and responds.
+
+- A $\to$ P2 picks C or D. C gives (5, 3); D gives (2, 1).
+- B $\to$ P2 picks E or F. E gives (3, 4); F $\to$ P1 picks G or H. G gives (6, 0); H gives (1, 5).
+
+## Part (a): Strategies
+
+Player 1 moves at two nodes (root and after B $\to$ F), so has 4 strategies: (A; G), (A; H), (B; G), (B; H).
+
+. . .
+
+Player 2 moves at two nodes (after A and after B), so has 4 strategies: (C; E), (C; F), (D; E), (D; F).
+
+. . .
+
+A strategy specifies what to do at every decision node, including ones that may never be reached. (A; G) and (A; H) are different strategies even though the G/H choice is moot when Player 1 plays A.
+
+## Part (b): Backward Induction — Step 1
+
+Start at the deepest node: Player 1 after B $\to$ F.
+
+G gives Player 1 a payoff of 6. H gives 1. Player 1 chooses **G**.
+
+. . .
+
+Replace the node with (6, 0).
+
+## Part (b): Steps 2 and 3
+
+Player 2's node after B: E gives P2 a payoff of 4; F leads to (6, 0), giving P2 payoff 0. Player 2 chooses **E**.
+
+. . .
+
+Player 2's node after A: C gives P2 payoff 3; D gives 1. Player 2 chooses **C**.
+
+## Part (b): Step 4
+
+Player 1 at the root: A leads to (5, 3), giving P1 payoff 5. B leads to (3, 4), giving P1 payoff 3.
+
+. . .
+
+Player 1 chooses **A**.
+
+. . .
+
+**Outcome: A $\to$ C, with payoffs (5, 3).**
+
+## Part (c): The Non-Credible Threat
+
+Player 2 prefers (3, 4) from B $\to$ E. Player 2 might threaten: "If you play A, I'll play D, giving you only 2."
+
+. . .
+
+If believed, Player 1 would compare A $\to$ D (payoff 2) with B $\to$ E (payoff 3) and pick B.
+
+. . .
+
+But at P2's node after A: C gives P2 payoff 3, D gives 1. Player 2 won't follow through. The threat is not credible, and Player 1 knows it.
+
+## Part (d): The Strategic Form
+
+|            | (C; E) | (C; F) | (D; E) | (D; F) |
+|-----------:|:------:|:------:|:------:|:------:|
+| **(A; G)** | (5, 3) | (5, 3) | (2, 1) | (2, 1) |
+| **(A; H)** | (5, 3) | (5, 3) | (2, 1) | (2, 1) |
+| **(B; G)** | (3, 4) | (6, 0) | (3, 4) | (6, 0) |
+| **(B; H)** | (3, 4) | (1, 5) | (3, 4) | (1, 5) |
+
+## Reading the Strategic Form
+
+Notice that the (A; G) and (A; H) rows are identical. When P1 chooses A, the G/H decision is never reached.
+
+. . .
+
+Also, the (C; E) and (D; E) columns differ only in the A-rows. When P2 chooses E after B, nothing else matters on that branch.
+
+. . .
+
+The backward-induction strategy profile is (A; G) for P1 and (C; E) for P2, yielding (5, 3). This is the subgame perfect equilibrium.
+
+# Question 6: Mixed Strategies
+
+## The Game
+
+|              | Left   | Right  |
+|-------------:|:------:|:------:|
+| **Up**       | (3, 1) | (1, 2) |
+| **Down**     | (1, 3) | (2, 0) |
+
+No pure-strategy NE. (Check: Row's BR to Left is Up; Column's BR to Up is Right; Row's BR to Right is Down; Column's BR to Down is Left. The cycle means no cell has both players playing best responses.)
+
+## Finding Row's Mixing Probability
+
+Let Row play Up with probability $p$. Set Column indifferent:
+
+. . .
+
+$$\text{Left: } 1 \cdot p + 3(1-p) = 3 - 2p$$
+
+$$\text{Right: } 2p + 0(1-p) = 2p$$
+
+. . .
+
+$$3 - 2p = 2p \implies p = \frac{3}{4}$$
+
+## Finding Column's Mixing Probability
+
+Let Column play Left with probability $q$. Set Row indifferent:
+
+. . .
+
+$$\text{Up: } 3q + 1(1-q) = 2q + 1$$
+
+$$\text{Down: } q + 2(1-q) = 2 - q$$
+
+. . .
+
+$$2q + 1 = 2 - q \implies q = \frac{1}{3}$$
+
+## The Equilibrium
+
+Row plays Up with probability $\frac{3}{4}$, Down with probability $\frac{1}{4}$.
+
+Column plays Left with probability $\frac{1}{3}$, Right with probability $\frac{2}{3}$.
+
+. . .
+
+Expected payoffs: Row gets $2 \times \frac{1}{3} + 1 = \frac{5}{3} \approx 1.67$. Column gets $3 - 2 \times \frac{3}{4} = \frac{3}{2} = 1.5$.
+
+. . .
+
+Both players earn less than their best pure-strategy payoff. Mixed equilibria are about making the opponent indifferent, not about maximising your own payoff.

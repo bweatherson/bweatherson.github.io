@@ -17,7 +17,7 @@ Last time we saw that in Weisberg and Muldoon's model, mavericks outperform foll
 
 . . .
 
-Weisberg and Muldoon concluded that mixed populations, with both explorer-type and extractor-type scientists, are ideal for many research domains.
+Weisberg and Muldoon concluded that mixed populations, with both followers and mavericks, are ideal for many research domains.
 
 . . .
 
@@ -25,7 +25,7 @@ But Johanna Thoma (2015) argues that their model doesn't actually show this. She
 
 ## What Did Weisberg and Muldoon Actually Show?
 
-Thoma points out that in the total progress measure (Figure 11 of their paper), homogeneous populations of mavericks outperform all mixed populations. More mavericks always means more total progress.
+Thoma points out that in the total progress measure (Figure 11 of their paper), homogeneous populations of mavericks **outperform** all mixed populations. More mavericks always means more total progress.
 
 . . .
 
@@ -37,27 +37,34 @@ Weisberg and Muldoon's argument for mixed populations rests on the claim that be
 
 ## Two Kinds of Division of Labour
 
-Thoma makes a useful distinction. There is division of labour in *research approach* (what topic you work on) and division of labour in *research strategy* (how you go about choosing what to work on).
+Thoma makes a useful distinction between two ways of dividing up labor in a scientific project.
+
+- Division of *research approach* (what topic you work on, method you use, etc.)
+- Division of *research strategy* (how you choose your topic, method, etc.)
 
 . . .
 
-Kitcher and Strevens were interested in the first kind: how do we get scientists to spread across different projects? Weisberg and Muldoon are interested in the second: does a community benefit from having some scientists who explore and others who follow?
+Kitcher and Strevens were interested in the first kind: how do we get scientists to spread across different projects? 
 
 . . .
 
-These are different questions, and they call for different models.
+Weisberg and Muldoon are interested in the second: does a community benefit from having some scientists who explore and others who follow?
+
+These are different questions, and it would be a bit surprising if they were modelled the same way..
 
 ## Problem 1: The Follower Rule
 
-Thoma's first criticism targets the follower strategy. In Weisberg and Muldoon's model, followers move to the most significant previously visited patch in their neighbourhood. This means they often end up on patches that have already been explored by someone else.
+Thoma's first criticism is that the follower strategy is kind of dumb.
+
+In Weisberg and Muldoon's model, followers move to the most significant previously visited patch in their neighbourhood. 
+
+This means they often, almost always, end up on patches that have already been explored by someone else.
 
 . . .
 
 In the model, visiting a patch someone else has already visited contributes nothing to epistemic progress. So followers spend much of their time doing what amounts to pointless duplication.
 
-. . .
-
-This is unrealistic. Research results are mostly freely available. After Hicks read Keynes's *General Theory*, he didn't write it over again. He built on it.
+This is unrealistic.
 
 ## Problem 2: Local Movement
 
@@ -65,11 +72,13 @@ The second criticism is that agents can only move one patch per round. Thoma arg
 
 . . .
 
-Given the fine-grained interpretation of the landscape (one patch per round, 101 by 101 grid), local movement means scientists can't become aware of research happening more than a few months away from their own. If each round is about 2 months, a scientist with range 1 can only see what's happening within 2 months of their current work.
+Given the fine-grained interpretation of the landscape (one patch per round, 101 by 101 grid), local movement means scientists can't become aware of research happening more than a few months away from their own. 
+
+If each round is about 2 months, a scientist with range 1 can only see what's happening within 2 months of their current work.
 
 . . .
 
-In practice, scientists read journals, attend conferences, and are aware of a much wider range of work. Medium-range or global movement is more realistic.
+There is an important general point here. The model is a giant metaphor. But sometimes what something in the model is a metaphor for changes when we look at different applications or aspects. This can cause problems.
 
 # Thoma's Alternative Model
 
@@ -79,15 +88,15 @@ Thoma builds an alternative model keeping the same landscape but changing the ag
 
 . . .
 
-Both Explorers and Extractors avoid mere duplication: they never visit a patch that someone else has already visited. This is the key difference from Weisberg and Muldoon's followers, who often duplicate others' work.
+Both Explorers and Extractors avoid mere duplication: they never visit a patch that someone else has already visited. This is probably the single biggest change between the original model and hers.
 
 . . .
 
-The difference between the two types is in how they respond to prior discoveries in their neighbourhood.
+The difference between Explorers and Extractors is in how they respond to prior discoveries in their neighbourhood.
 
 ## The Explorer Rule
 
-When an Explorer sees previously visited patches nearby, it moves to the *unvisited* patch that is farthest from those visited patches. It heads away from where others have been.
+When an Explorer sees previously visited patches nearby, it moves to the unvisited patch that is **farthest** from those visited patches. It heads away from where others have been.
 
 . . .
 
@@ -97,9 +106,15 @@ When in uncharted territory (no previously visited patches nearby), Explorers be
 
 Explorers seek out new ground. They want to be doing something that nobody else is doing.
 
+## Explorers and Climbers
+
+Remember that the climbers, the controls in Weisberg and Muldoon's model, did fine. They were painfully slow, at least without supplementation, but they got there.
+
+Feels like a sensible thing to check whether climbing in sparsely explored territory is a good way to contribute to the collective knowledge gain.
+
 ## The Extractor Rule
 
-When an Extractor sees previously visited patches nearby, it moves to the *unvisited* patch that is closest to the best previous discovery. It gravitates toward areas that look promising based on prior work, but doesn't duplicate what's already been done.
+When an Extractor sees previously visited patches nearby, it moves to the unvisited patch that is **closest** to the best previous discovery. It gravitates toward areas that look promising based on prior work, but doesn't duplicate what's already been done.
 
 . . .
 
@@ -107,11 +122,11 @@ In uncharted territory, Extractors also behave like hill climbers.
 
 . . .
 
-Extractors are like Hicks after reading Keynes. They don't repeat the *General Theory*. They move to nearby unexplored territory, building on and extending the ideas.
+Extractors are like what most normal scientists are like. They learn their field, find out what questions look like they can be attacked with the skills they learned, and attack them. This is good; this is what we want most people to be doing.
 
 ## Variable Range of Movement
 
-Thoma also allows agents to have different ranges of movement. Instead of being restricted to adjacent patches (range 1), agents can perceive and move to patches within radius *r*.
+Thoma also models what happens when we change the range that agents can move. Instead of being restricted to adjacent patches (range 1), agents can perceive and move to patches within radius *r*, where this is a free parameter in the model.
 
 . . .
 
@@ -120,6 +135,10 @@ This controls how flexible and informed scientists are. At range 1, scientists a
 . . .
 
 The range parameter turns out to matter a great deal for whether diversity of strategy is beneficial.
+
+. . .
+
+It would be useful to think about what it would mean to have diversity of ranges *within* a single model.
 
 # Results
 
@@ -145,7 +164,9 @@ At range 10, the advantage of mixed groups is substantial and statistically sign
 
 . . .
 
-A secondary benefit of mixing: the standard deviation of outcomes drops sharply. Homogeneous Extractor groups have a standard deviation of 12.5 percentage points after 150 rounds; mixed groups with 40% Explorers have a standard deviation of only 3.1 percentage points. Mixed communities are not just better on average, they are more reliable.
+A secondary benefit of mixing: the standard deviation of outcomes drops sharply. Homogeneous Extractor groups have a standard deviation of 12.5 percentage points of coverage after 150 rounds; mixed groups with 40% Explorers have a standard deviation of only 3.1 percentage points. 
+
+Mixed communities are not just better on average, they are more reliable.
 
 ## Why Does Range Matter?
 
@@ -161,17 +182,23 @@ Thoma's interpretation: diversity of research strategy is beneficial when scient
 
 ## Global Movement
 
-At global range, diversity is still beneficial, but overall progress is slower than in the medium range case. When Extractors can see the entire landscape, the less significant peak gets neglected as soon as the more significant one is found.
+At global range, diversity is still beneficial, but overall progress is **slower** than in the medium range case. Here we get back to a Zollman-type result.
+
+When Extractors can see the entire landscape, the less significant peak gets neglected as soon as the more significant one is found.
 
 . . .
 
-This is a nice result: a certain degree of ignorance can be epistemically productive. If scientists had perfect information, they would all flock to the highest peak. Limited information keeps some of them working on the second-best peak, which is still worth exploring.
+In these models, certain degree of ignorance can be epistemically productive. If scientists had perfect information, they would all flock to the highest peak. Limited information keeps some of them working on the second-best peak, which is still worth exploring.
 
 ## Who Would Choose to Be an Explorer?
 
-There is a residual problem. In the mixed-population simulations, Extractors are about four times as productive as Explorers at medium range. If scientists care about their own productivity (as credit economy models suggest), few would choose the Explorer strategy.
+There is a residual problem. In the mixed-population simulations, Extractors are about four times as productive as Explorers at medium range. 
 
-. . .
+If scientists care about their own productivity (as credit economy models suggest), few would choose the Explorer strategy.
+
+In the model, it's good to **have** Explorers, but it's not so good to **be** an Explorer. Most exploration fails; but the ones that succeed encourage a flood of followers.
+
+## Who Would Choose to Be an Explorer?
 
 Thoma's response draws on the credit economy literature. Social and financial rewards tend to go disproportionately to novel work. Grant agencies prize novelty. Fame accrues to those who open new areas. The ERC in the EU has made high-risk "frontier research" its core mission.
 
@@ -183,16 +210,12 @@ So non-epistemic rewards might sustain a population of Explorers even though the
 
 ## What the Landscape Models Show
 
-Thoma's model gives a more convincing case for diversity of research strategy than Weisberg and Muldoon's. Division of labour between explorers and extractors is beneficial, but only when scientists have enough flexibility and awareness to actually respond to each other's work.
+Thoma's model gives a more convincing case for diversity of research strategy than Weisberg and Muldoon's. 
+
+Division of labour between explorers and extractors is beneficial, but only when scientists have enough flexibility and awareness to actually respond to each other's work.
 
 . . .
 
 The overall lesson from this literature: cognitive diversity in scientific communities can promote progress, but the specific mechanisms matter. Agent-based models help us see when and why diversity helps, and also when modelling choices might be driving the results rather than genuine features of scientific communities.
 
-## For Next Time
 
-We move to Chapter 6, on the replication crisis and methodological reform.
-
-. . .
-
-Read O'Connor, Chapter 6, sections 6.1-6.3.
