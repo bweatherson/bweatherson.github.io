@@ -273,7 +273,7 @@ Total: $0.14 + 0.09 = 0.23$.
 
 |          | Downturn (0.3) | Stable (0.4) | Growth (0.3) |
 |---------:|:--------------:|:------------:|:------------:|
-| Plan X   | $-$90          | 80           | 100          |
+| Plan X   | -90            | 80           | 100          |
 | Plan Y   | 10             | 30           | 50           |
 
 Profits in thousands. The owner has \$100k in savings and utility $U = \sqrt{\text{wealth in thousands}}$.
@@ -299,7 +299,9 @@ Plan X has higher expected monetary value: \$35k vs. \$30k.
 
 Each plan beats the other in at least one state. Neither dominates.
 
-## Part (c): Expected Utility — Setup
+## Part (c): Expected Utility
+
+### Setup
 
 Total wealth = 100 + profit. Utility = $\sqrt{\text{wealth}}$.
 
@@ -359,7 +361,9 @@ Compare with A's payoffs: 2, 3, 1. Every entry is strictly higher. **A strictly 
 
 Compare with C's payoffs: 3, 2, 4. Every entry is strictly higher. **C strictly dominates D.**
 
-## Part (b): Iterated Elimination — Round 1
+## Part (b): Iterated Elimination
+
+### Round 1
 
 Eliminate D (strictly dominated). The reduced game:
 
@@ -445,7 +449,9 @@ Player 2 moves at two nodes (after A and after B), so has 4 strategies: (C; E), 
 
 A strategy specifies what to do at every decision node, including ones that may never be reached. (A; G) and (A; H) are different strategies even though the G/H choice is moot when Player 1 plays A.
 
-## Part (b): Backward Induction — Step 1
+## Part (b): Backward Induction
+
+### Step 1
 
 Start at the deepest node: Player 1 after B $\to$ F.
 
