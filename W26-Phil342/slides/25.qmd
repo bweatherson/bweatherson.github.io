@@ -210,12 +210,125 @@ So non-epistemic rewards might sustain a population of Explorers even though the
 
 ## What the Landscape Models Show
 
-Thoma's model gives a more convincing case for diversity of research strategy than Weisberg and Muldoon's. 
+Thoma's model gives a more convincing case for diversity of research strategy than Weisberg and Muldoon's.
 
 Division of labour between explorers and extractors is beneficial, but only when scientists have enough flexibility and awareness to actually respond to each other's work.
 
 . . .
 
 The overall lesson from this literature: cognitive diversity in scientific communities can promote progress, but the specific mechanisms matter. Agent-based models help us see when and why diversity helps, and also when modelling choices might be driving the results rather than genuine features of scientific communities.
+
+# Stepping Back
+
+## Themes From the Last Few Weeks
+
+We've now spent several weeks on formal models of scientific communities: 
+
+- Zollman on networks, 
+- Weatherall/O'Connor on polarization models, 
+- The Matthew effect and citation gap models, 
+- And now the Weisberg-Muldoon and Thoma landscape models.
+
+. . .
+
+These are very different models, but a few common themes are worth pulling out, both for thinking about the essay questions and for thinking about agent-based modelling more generally.
+
+## Theme 1: Models as Intuition Arbiters
+
+In almost every case we've looked at, we start from a situation where we already know there are forces pulling in opposite directions.
+
+. . .
+
+It is good for scientists to share evidence; but it is also good for some scientists to keep working on a theory even when the current evidence looks bad. Which force dominates?
+
+. . .
+
+It is good to have people piling onto the most promising approach; but bad for everyone to work on the same thing. Which force dominates?
+
+. . .
+
+It is good to reward success; but that same reward structure can lead to runaway reputation effects and unequal credit. Which force dominates?
+
+## Toy Models Can Clarify the Trade-Off
+
+Often, the interesting work the model does is telling us *when* one force wins and when the other does.
+
+. . .
+
+The Zollman effect says: when the signal is weak and populations are small, the information-preservation force beats the information-sharing force. 
+
+Rosenstock et al. then tell us that when the signal is moderately strong, it's the other way around.
+
+## Theme 2: Say What's in the Model
+
+Thoma's paper is a nice example of something we've seen repeatedly: modelling arguments often trade on slippage between two things that look the same but aren't.
+
+. . .
+
+In Thoma's case, "diversity of research" is ambiguous between diversity of *approach* (what you work on) and diversity of *strategy* (how you decide what to work on). 
+
+Kitcher and Strevens are modelling the first; Weisberg and Muldoon claim to show something about the second. The conclusions don't transfer automatically.
+
+## Theme 2: Say What's in the Model
+
+We saw a similar ambiguity in the network models. 
+
+"Connectedness" in Zollman's model means whether you see another scientist's experimental results. 
+
+"Connectedness" in the landscape models means whether you can perceive what another scientist is working on. 
+
+A small-world network is not necessarily a small-world geography.
+
+## Why This Matters
+
+When we translate model results into claims about real science, the translation step is doing a lot of work.
+
+. . .
+
+Is a densely connected Zollman network more like a field with open preprint servers, or more like a field where everyone goes to the same conference? 
+
+These give very different real-world predictions, and the model alone doesn't tell us which translation is right.
+
+. . .
+
+Part of the discipline of reading this literature is keeping track of what each piece of the model is supposed to represent, and whether the argument still goes through when we swap in a different interpretation.
+
+## Theme 3: When Is Unrealism a Fair Complaint?
+
+Every model we've looked at is unrealistic in many ways. The hard question is which kinds of unrealism matter.
+
+. . .
+
+Thoma's complaint that Weisberg and Muldoon's followers do something no real scientist would do — wander onto already-visited patches to no purpose — seems like a fair complaint. 
+
+The unrealism here is driving the result that followers are unproductive.
+
+. . .
+
+By contrast, complaining that Weisberg and Muldoon's scientists are ants on a lumpy donut seems like a bad complaint.
+
+## A Rough Heuristic
+
+A useful question to ask about any modelling assumption: *if I changed this, would the headline result change?*
+
+. . .
+
+If yes, then the assumption is doing argumentative work and needs defending. That's what Rosenstock et al did on Zollman's model, and what Thoma does on Weisberg and Muldoon's model.
+
+. . .
+
+If no, then the assumption is a simplification and the unrealism is probably fine.
+
+. . .
+
+In practice, we use **robustness** checks as a test for whether the result is sufficiently realistic.
+
+## Looking Ahead
+
+Next week we'll talk about the essay questions. 
+
+They all pick up some of these themes, about what the model shows, what the assumptions do, and how robust the results are.
+
+Think about which of these questions most appeals to you, and come with questions.
 
 
