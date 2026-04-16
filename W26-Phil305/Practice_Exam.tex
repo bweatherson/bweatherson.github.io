@@ -1,0 +1,444 @@
+\DocumentMetadata{
+  pdfstandard={ua-2},
+  tagging=on,
+  lang=en,
+  xmp=true}
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  english,
+  11pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Practice Exam},
+  pdfauthor={Philosophy 305: Introduction to Formal Methods},
+  pdflang={en},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Practice Exam}
+\author{Philosophy 305: Introduction to Formal Methods}
+\date{2026-04-01}
+\begin{document}
+\maketitle
+
+
+\textbf{Time}: This practice exam is designed to be similar too, or
+maybe somewhat harder than, the final.
+
+\textbf{Calculators}: permitted.
+
+\textbf{Notes}: Will not be permitted on the final, but obviously
+consult your notes in reviewing.
+
+\bigskip
+\hrule
+\bigskip
+
+\newpage
+
+\section{Question 1: Probability and Conditional
+Probability}\label{question-1-probability-and-conditional-probability}
+
+A payment processing company uses an automated system to flag
+potentially fraudulent transactions. From historical data, 2\% of all
+transactions are fraudulent. The system correctly flags 90\% of
+fraudulent transactions. However, it also incorrectly flags 5\% of
+legitimate transactions.
+
+\textbf{(a)}: What is the probability that a randomly selected
+transaction gets flagged by the system?
+
+\vspace{5cm}
+
+\textbf{(b)}: A transaction has been flagged. What is the probability
+that it is actually fraudulent?
+
+\vspace{5cm}
+
+\textbf{(c)}: Is the event ``the transaction is flagged'' independent of
+the event ``the transaction is fraudulent''? Justify your answer using
+the definition of independence.
+
+\newpage
+
+\section{Question 2: Probability Trees and
+Independence}\label{question-2-probability-trees-and-independence}
+
+A student takes a two-part qualifying exam. The probability of passing
+Part 1 is 0.7. If they pass Part 1, the probability of passing Part 2 is
+0.8 (a confidence boost). If they fail Part 1, the probability of
+passing Part 2 drops to 0.3.
+
+\textbf{(a)}: What is the probability that the student passes both
+parts?
+
+\vspace{5cm}
+
+\textbf{(b)}: What is the probability that the student passes exactly
+one of the two parts?
+
+\newpage
+
+\section{Question 3: Expected
+Utility}\label{question-3-expected-utility}
+
+A small business owner must choose between two expansion plans before
+learning the economic conditions for the coming year. There are three
+possible scenarios:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1449}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3043}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2754}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2754}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Downturn (Pr = 0.3)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Stable (Pr = 0.4)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Growth (Pr = 0.3)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Plan X & -90 & 80 & 100 \\
+Plan Y & 10 & 30 & 50 \\
+\end{longtable}
+}
+
+Profits are in thousands of dollars.
+
+\textbf{(a)}: Which plan has higher expected monetary value? Show the
+calculation for each.
+
+\vspace{4cm}
+
+\textbf{(b)}: Does either plan dominate the other (strictly or weakly)?
+Explain briefly.
+
+\vspace{4cm}
+
+\textbf{(c)}: The owner currently has \$100,000 in savings and has a
+utility function
+\(U(\text{total wealth}) = \sqrt{\text{total wealth in thousands}}\).
+So, for example, if the owner chooses Plan X and a Downturn occurs,
+total wealth is \$10,000 and utility is \(\sqrt{10}\). Which plan should
+the owner choose according to expected utility? Does this differ from
+your answer in part (a)?
+
+\newpage
+
+\section{Question 4: Strategic-Form
+Games}\label{question-4-strategic-form-games}
+
+Consider the following two-player game, where payoffs are listed as
+(Row, Column):
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}rcccc@{}}
+\toprule\noalign{}
+& A & B & C & D \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{T} & (4, 2) & (2, 1) & (3, 3) & (1, 0) \\
+\textbf{M} & (2, 3) & (4, 0) & (1, 2) & (3, 1) \\
+\textbf{B} & (1, 1) & (3, 2) & (2, 4) & (0, 0) \\
+\end{longtable}
+}
+
+\textbf{(a)}: In the original game, does any strategy strictly dominate
+another for either player? State all dominance relations you find.
+
+\vspace{4cm}
+
+\textbf{(b)}: Use iterated elimination of strictly dominated strategies
+to simplify the game. Show each round of elimination clearly, stating
+which strategy is eliminated and why.
+
+\vspace{6cm}
+
+\textbf{(c)}: Find all pure-strategy Nash equilibria of the original
+game. Use the best-response method and show your work.
+
+\newpage
+
+\section{Question 5: Dynamic Games and Backward
+Induction}\label{question-5-dynamic-games-and-backward-induction}
+
+Consider the following game in extensive form. Player 1 moves first,
+choosing \textbf{A} or \textbf{B}. Player 2 observes Player 1's choice
+and responds. If Player 1 chose A, Player 2 chooses \textbf{C} or
+\textbf{D}. If Player 1 chose B, Player 2 chooses \textbf{E} or
+\textbf{F}. If Player 2 chooses F, then Player 1 gets a second move,
+choosing \textbf{G} or \textbf{H}. Payoffs are (Player 1, Player 2):
+
+\begin{center}
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  dot/.style={circle, fill=black, inner sep=1.5pt},
+  payoff/.style={font=\small}
+]
+% Player 1 root (open circle)
+\node[circle, draw, inner sep=1.5pt, label=left:{\textbf{P1}}] (root) at (0,0) {};
+
+% A branch
+\node[dot, label=above left:{\textbf{P2}}] (p2a) at (3, 2) {};
+\draw (root) -- node[above left] {$A$} (p2a);
+
+\node[payoff] (ac) at (6, 3) {$(5,\, 3)$};
+\node[payoff] (ad) at (6, 1) {$(2,\, 1)$};
+\draw (p2a) -- node[above] {$C$} (ac);
+\draw (p2a) -- node[below] {$D$} (ad);
+
+% B branch
+\node[dot, label=below left:{\textbf{P2}}] (p2b) at (3, -2) {};
+\draw (root) -- node[below left] {$B$} (p2b);
+
+\node[payoff] (be) at (6, -1) {$(3,\, 4)$};
+\draw (p2b) -- node[above] {$E$} (be);
+
+% F sub-branch
+\node[dot, label=below left:{\textbf{P1}}] (p1b) at (6, -3) {};
+\draw (p2b) -- node[below] {$F$} (p1b);
+
+\node[payoff] (bg) at (9, -2) {$(6,\, 0)$};
+\node[payoff] (bh) at (9, -4) {$(1,\, 5)$};
+\draw (p1b) -- node[above] {$G$} (bg);
+\draw (p1b) -- node[below] {$H$} (bh);
+\end{tikzpicture}
+\end{center}
+
+\textbf{(a)}: How many strategies does each player have? List them all.
+(Remember: a strategy specifies a choice at every decision node where
+that player moves, including nodes that may not be reached.)
+
+\vspace{5cm}
+
+\textbf{(b)}: Solve this game using backward induction. State clearly
+what happens at each step and what the final outcome is.
+
+\vspace{5cm}
+
+\textbf{(c)}: Player 2 would prefer the outcome (3, 4) to the
+backward-induction outcome. Suppose Player 2 threatens to play D (rather
+than C) after A, hoping to push Player 1 toward B. Is this threat
+credible? Explain.
+
+\vspace{4cm}
+
+\textbf{(d)}: Write out the strategic (normal) form of this game. That
+is, construct the payoff table with Player 1's strategies as rows and
+Player 2's strategies as columns.
+
+\newpage
+
+\section{Question 6: Mixed
+Strategies}\label{question-6-mixed-strategies}
+
+Consider the following game:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}rcc@{}}
+\toprule\noalign{}
+& Left & Right \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Up} & (3, 1) & (1, 2) \\
+\textbf{Down} & (1, 3) & (2, 0) \\
+\end{longtable}
+}
+
+This game has no pure-strategy Nash equilibrium. Find the mixed-strategy
+Nash equilibrium. That is, find the probability with which Row plays Up
+and the probability with which Column plays Left such that neither
+player can improve their expected payoff. Also calculate each player's
+expected payoff in the equilibrium.
+
+\vspace{10cm}
+
+\bigskip
+\hrule
+\bigskip
+\begin{center}
+\textbf{END OF PRACTICE EXAM}
+\end{center}
+
+
+
+
+\end{document}

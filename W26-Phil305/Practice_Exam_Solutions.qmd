@@ -1,10 +1,12 @@
 ---
+lang: en
 title: "Practice Exam — Solutions"
 author: "Philosophy 305: Introduction to Formal Methods"
-date: "April 2026"
+date: "April 16, 2026"
 format:
   pdf:
     documentclass: article
+    pdf-standard: ua-2
     geometry:
       - margin=1in
     fontsize: 11pt
@@ -48,8 +50,6 @@ $$\Pr(F \mid G) = \frac{0.018}{0.018 + 0.049} = \frac{0.018}{0.067} \approx 0.26
 **(c)** Two events are independent if and only if $\Pr(A \cap B) = \Pr(A) \cdot \Pr(B)$, or equivalently, $\Pr(A \mid B) = \Pr(A)$.
 
 We have $\Pr(G \mid F) = 0.90$ but $\Pr(G) = 0.067$. Since $0.90 \neq 0.067$, the events are **not independent**. The probability of being flagged is much higher for fraudulent transactions, which is exactly why the system is useful.
-
-*Grading note: accept any correct application of the definition. Either the conditional probability version or the multiplication version is fine.*
 
 ---
 
@@ -147,6 +147,8 @@ Check Column's strategies pairwise (Column's payoffs):
 | **M** | (2, 3) | (4, 0) | (1, 2) |
 | **B** | (1, 1) | (3, 2) | (2, 4) |
 
+\newpage
+
 **Round 2**: In the reduced game, check Column again. C vs. B: against T, C gives 3 > 1; against M, C gives 2 > 0; against B, C gives 4 > 2. **C strictly dominates B.** Eliminate B.
 
 |       | A      | C      |
@@ -234,6 +236,8 @@ But the threat is **not credible**. At Player 2's decision node after A, C gives
 Notice that the rows for (A; G) and (A; H) are identical. When Player 1 chooses A, the G/H choice is never reached, so it doesn't affect the outcome. The difference between these strategies only matters in the context of backward induction and subgame perfection.
 
 ---
+
+\newpage
 
 ## Question 6: Mixed Strategies
 

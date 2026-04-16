@@ -1,0 +1,101 @@
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.3.8)  16 APR 2026 09:24
+ restricted system commands enabled.
+**Practice_Exam.tex
+(./Practice_Exam.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended 
+collection.
+luaotfload | conf : Root cache directory is "/Users/weath/Library/texlive/2025/t
+exmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/local/texlive/2025/texmf-dist/tex/luatex/luaotfload/fontloader-
+2023-12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/Users/weath/Library/texlive/2025/t
+exmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/latex-lab/documentmetadata-suppor
+t.ltx
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfmanagement-testphase/pdfmanage
+ment-testphase.sty
+Package: pdfmanagement-testphase 2025-02-15 v0.96p LaTeX PDF management testpha
+se bundle
+(/usr/local/texlive/2025/texmf-dist/tex/latex/tagpdf/tagpdf-base.sty
+Package: tagpdf-base 2025-03-05 v0.99o part of tagpdf - provide base, no-op ver
+sions of the user commands 
+\c@g__tag_MCID_abs_int=\count194
+\c@g__tag_struct_abs_int=\count195
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfmanagement-testphase/pdfmanage
+ment-testphase.ltx
+File: pdfmanagement-testphase.ltx 2025-02-15 v0.96p PDF management code (testph
+ase)
+\g__pdfmanagement_EmbeddedFiles_int=\count196
+\l__pdfmeta_xmp_indent_int=\count197
+\g_pdffile_embed_pdfa_int=\count198
+\g_pdffile_embed_nonpdfa_int=\count199
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luatex.de
+f
+File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count266
+Inserting `l3color' in `luaotfload.parse_color'.
+Inserting `l3opacity' in `luaotfload.parse_transparent'.
+\l__pdf_internal_box=\box52
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/pdfmanagement-testphase/l3backend
+-testphase-luatex.def
+File: l3backend-testphase-luatex.def 2025-02-15 LaTeX PDF management testphase 
+bundle backend support:PDFoutput(LuaTeX)
+\l__pdf_backend_tmpa_box=\box53
+\l__pdf_backend_tmpb_box=\box54
+\g__pdf_backend_resourceid_int=\count267
+\g__pdf_backend_name_int=\count268
+\g__pdf_backend_page_int=\count269
+)
+
+! LaTeX Error: The key 'document/metadata/tagging' is unknown and is being
+(LaTeX)        ignored.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.5   xmp=true}
+             
+
+Here is how much of LuaTeX's memory you used:
+ 1172 strings out of 475506
+ 100000,552014 words of node,token memory allocated
+ 301 words of node memory still in use:
+   1 hlist, 1 dir, 3 kern, 1 glyph, 1 attribute, 39 glue_spec, 1 attribute_list 
+nodes
+   avail lists: 2:10,3:3,4:1
+ 24267 multiletter control sequences out of 65536+600000
+ 14 fonts using 591679 bytes
+ 59i,0n,58p,339b,42s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
