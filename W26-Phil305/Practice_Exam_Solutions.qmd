@@ -2,7 +2,7 @@
 lang: en
 title: "Practice Exam — Solutions"
 author: "Philosophy 305: Introduction to Formal Methods"
-date: "April 16, 2026"
+date: "April 18, 2026"
 format:
   pdf:
     documentclass: article
@@ -133,23 +133,16 @@ Check Column's strategies pairwise (Column's payoffs):
 
 - A vs. D: against T, A gives 2 > 0; against M, A gives 3 > 1; against B, A gives 1 > 0. **A strictly dominates D.**
 - C vs. D: against T, C gives 3 > 0; against M, C gives 2 > 1; against B, C gives 4 > 0. **C strictly dominates D.**
-- No other strict dominance relations hold. (For instance, B vs. D: against M, B gives 0 < 1, so B does not dominate D.)
+- C vs. B: against T, C gives 3 > 1; against M, C gives 2 > 0; against B, C gives 4 > 2. **C strictly dominates B.**
+- No other strict dominance relations hold. (For instance, A vs. B: against B, A gives 1 < 2, so A does not dominate B.)
 
-**For Column, both A and C strictly dominate D.** No other dominance relations in the original game.
+**For Column, A and C both strictly dominate D, and C strictly dominates B.** No dominance relations for Row.
 
 **(b)** Iterated elimination of strictly dominated strategies:
 
-**Round 1**: D is strictly dominated (by A, or by C) for Column. Eliminate D.
+**Round 1**: D is strictly dominated (by A, and by C) for Column, and B is strictly dominated by C. Eliminate both D and B.
 
-|       | A      | B      | C      |
-|------:|:------:|:------:|:------:|
-| **T** | (4, 2) | (2, 1) | (3, 3) |
-| **M** | (2, 3) | (4, 0) | (1, 2) |
-| **B** | (1, 1) | (3, 2) | (2, 4) |
-
-\newpage
-
-**Round 2**: In the reduced game, check Column again. C vs. B: against T, C gives 3 > 1; against M, C gives 2 > 0; against B, C gives 4 > 2. **C strictly dominates B.** Eliminate B.
+(Alternatively, eliminate them one at a time in two rounds; the order doesn't matter.)
 
 |       | A      | C      |
 |------:|:------:|:------:|
@@ -157,13 +150,13 @@ Check Column's strategies pairwise (Column's payoffs):
 | **M** | (2, 3) | (1, 2) |
 | **B** | (1, 1) | (2, 4) |
 
-**Round 3**: Now check Row. T vs. M: T gives 4 > 2 against A and 3 > 1 against C. **T strictly dominates M.** T vs. B: T gives 4 > 1 against A and 3 > 2 against C. **T strictly dominates B.** Eliminate M and B.
+**Round 2**: Now check Row. T vs. M: T gives 4 > 2 against A and 3 > 1 against C. **T strictly dominates M.** T vs. B: T gives 4 > 1 against A and 3 > 2 against C. **T strictly dominates B.** Eliminate M and B.
 
 |       | A      | C      |
 |------:|:------:|:------:|
 | **T** | (4, 2) | (3, 3) |
 
-**Round 4**: Column chooses between A (payoff 2) and C (payoff 3). Column picks C.
+**Round 3**: Column chooses between A (payoff 2) and C (payoff 3). Column picks C.
 
 **Iterated elimination yields (T, C) with payoffs (3, 3).**
 

@@ -182,23 +182,13 @@ Compare with A's payoffs: 2, 3, 1. Every entry is strictly higher. **A strictly 
 
 Compare with C's payoffs: 3, 2, 4. Every entry is strictly higher. **C strictly dominates D.**
 
-## Part (b): Iterated Elimination — Round 1
-
-Eliminate D (strictly dominated). The reduced game:
-
-|       | A      | B      | C      |
-|------:|:------:|:------:|:------:|
-| **T** | (4, 2) | (2, 1) | (3, 3) |
-| **M** | (2, 3) | (4, 0) | (1, 2) |
-| **B** | (1, 1) | (3, 2) | (2, 4) |
-
-## Part (b): Round 2
-
-Now look at Column's payoffs for B: 1, 0, 2. Compare with C: 3, 2, 4.
-
 . . .
 
-C beats B in every row (3 > 1, 2 > 0, 4 > 2). **C strictly dominates B.** Eliminate B.
+Now check B's payoffs: 1, 0, 2. Compare with C's: 3, 2, 4. C beats B in every row. **C strictly dominates B.**
+
+## Part (b): Iterated Elimination — Round 1
+
+Eliminate D and B (both strictly dominated by C). The reduced game:
 
 |       | A      | C      |
 |------:|:------:|:------:|
@@ -206,7 +196,7 @@ C beats B in every row (3 > 1, 2 > 0, 4 > 2). **C strictly dominates B.** Elimin
 | **M** | (2, 3) | (1, 2) |
 | **B** | (1, 1) | (2, 4) |
 
-## Part (b): Round 3
+## Part (b): Round 2
 
 Now Row. Compare T with M: 4 > 2 against A, 3 > 1 against C. **T strictly dominates M.**
 
