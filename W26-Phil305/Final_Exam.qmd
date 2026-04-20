@@ -55,7 +55,7 @@ A university health clinic screens students for a respiratory virus at the start
 
 ## Question 2: Probability Trees and Independence
 
-A basketball team plays a two-game series against a rival. In each game, the team either wins or loses (no draws). The probability that they win the first game is 0.6. If they win the first game, the probability that they win the second game rises to 0.7 (confidence boost). If they lose the first game, the probability that they win the second game drops to 0.4.
+A basketball team plays a two-game series against a rival. In each game, the team either wins or loses, i.e., the game does not end in a draw. The probability that they win the first game is 0.6. If they win the first game, the probability that they win the second game rises to 0.7. If they lose the first game, the probability that they win the second game drops to 0.4.
 
 **(a)**: What is the probability that the team wins both games?
 
@@ -70,10 +70,15 @@ A basketball team plays a two-game series against a rival. In each game, the tea
 
 A farmer must decide whether to plant Crop A or Crop B before knowing the weather. There are three possible weather outcomes with the following probabilities and profits (in thousands of dollars):
 
-|          | Dry (Pr = 0.3) | Moderate (Pr = 0.5) | Wet (Pr = 0.2) |
-|---------:|:--------------:|:-------------------:|:--------------:|
-| Crop A   | 20             | 60                  | 50             |
-| Crop B   | 50             | 40                  | 10             |
++------------+----------------+----------------+----------------+
+|            | **Dry**        | **Moderate**   | **Wet**        |
+|            |                |                |                |
+|            | Pr = 0.3       | Pr = 0.5       | Pr = 0.2       |
++===========:+:==============:+:==============:+:==============:+
+| **Crop A** | 20             | 60             | 50             |
++------------+----------------+----------------+----------------+
+| **Crop B** | 50             | 40             | 10             |
++------------+----------------+----------------+----------------+
 
 **(a)**: Which crop has higher expected monetary value? Show the calculation for each.
 
@@ -83,7 +88,7 @@ A farmer must decide whether to plant Crop A or Crop B before knowing the weathe
 
 \vspace{4cm}
 
-**(c)**: Now suppose the farmer currently has \$100,000 in savings and has a utility function $U(\text{total wealth}) = \sqrt{\text{total wealth in thousands}}$. So, for example, if the farmer plants Crop A and the weather is Dry, total wealth is \$120,000 and utility is $\sqrt{120}$. Which crop should the farmer plant according to expected utility?
+**(c)**: Now suppose the farmer currently has \$100,000 in savings and has a utility function $U(\text{total wealth}) = \sqrt{\text{total wealth in thousands}}$. So, for example, if the farmer plants Crop A and the weather is Dry, total wealth is \$120,000 and utility is $\sqrt{120}$. Which crop should the farmer plant if they are trying to maximise expected utility?
 
 \newpage
 
@@ -91,7 +96,7 @@ A farmer must decide whether to plant Crop A or Crop B before knowing the weathe
 
 Consider the following two-player game, where payoffs are listed as (Row, Column):
 
-|       | L      | C      | R      |
+|       | **L**      | **C**      | **R**      |
 |------:|:------:|:------:|:------:|
 | **T** | (3, 1) | (0, 4) | (2, 2) |
 | **M** | (1, 3) | (3, 1) | (2, 3) |
@@ -107,7 +112,7 @@ Consider the following two-player game, where payoffs are listed as (Row, Column
 
 ## Question 5: Dynamic Games and Backward Induction
 
-Consider the following game in extensive form. Player 1 moves first, choosing **A** or **B**. Then Player 2 observes Player 1's choice and responds. If Player 1 chose A, Player 2 chooses **C** or **D**. If Player 1 chose B, Player 2 chooses **E** or **F**. If Player 2 chooses F, then Player 1 gets a second move, choosing **G** or **H**. Payoffs are (Player 1, Player 2):
+Consider the following game in extensive form. Player 1 moves first, choosing **A** or **B**. Then Player 2 observes Player 1's choice and responds. If Player 1 chose **A**, Player 2 chooses **C** or **D**. If Player 1 chose **B**, Player 2 chooses **E** or **F**. If Player 2 chooses **F**, then Player 1 gets a second move, choosing **G** or **H**. Payoffs are (Player 1, Player 2):
 
 \begin{center}
 \begin{tikzpicture}[
@@ -122,8 +127,8 @@ Consider the following game in extensive form. Player 1 moves first, choosing **
 \node[dot, label=above left:{\textbf{P2}}] (p2a) at (3, 2) {};
 \draw (root) -- node[above left] {$A$} (p2a);
 
-\node[payoff] (ac) at (6, 3) {$(4,\, 3)$};
-\node[payoff] (ad) at (6, 1) {$(1,\, 2)$};
+\node[payoff] (ac) at (6, 3) {$(1,\, 2)$};
+\node[payoff] (ad) at (6, 1) {$(4,\, 3)$};
 \draw (p2a) -- node[above] {$C$} (ac);
 \draw (p2a) -- node[below] {$D$} (ad);
 
@@ -151,9 +156,9 @@ Consider the following game in extensive form. Player 1 moves first, choosing **
 
 **(b)**: Solve this game using backward induction. State clearly what happens at each step and what the final outcome is.
 
-\vspace{6cm}
+\vspace{8cm}
 
-**(c)**: Suppose Player 2 threatens to play D (rather than C) after A, hoping to pressure Player 1 into choosing B instead. Is this threat credible? Explain, using backward induction.
+**(c)**: Suppose Player 2 threatens to play **C** (rather than **D**) after **A**, hoping to pressure Player 1 into choosing **B** instead. Is this threat credible? Explain, using backward induction.
 
 \newpage
 
@@ -161,14 +166,14 @@ Consider the following game in extensive form. Player 1 moves first, choosing **
 
 Consider the following game:
 
-|              | Left   | Right  |
+|              | **Left**   | **Right**  |
 |-------------:|:------:|:------:|
 | **Up**       | (2, 1) | (0, 3) |
 | **Down**     | (0, 2) | (3, 0) |
 
 This game has no pure-strategy Nash equilibrium. Find the mixed-strategy Nash equilibrium. That is, find the probability with which Row plays Up and the probability with which Column plays Left such that neither player can improve their expected payoff.
 
-\vspace{10cm}
+\vspace{13cm}
 
 \bigskip
 \hrule

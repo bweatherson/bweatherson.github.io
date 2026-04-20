@@ -1,3 +1,7 @@
+---
+format: pdf
+---
+
 Answer one of the following questions in an essay about 2500 words long. Make sure to engage with the relevant readings, and acknowledge any help you receive.
 
 Axelrod
