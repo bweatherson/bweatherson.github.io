@@ -1,0 +1,210 @@
+\makeatletter
+\let\Title\@title
+\let\Author\@author
+\makeatother
+
+%\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mdwlist}
+\usepackage[compact,sc]{titlesec}
+\usepackage{graphicx}
+\usepackage[geometry,weather,misc,clock]{ifsym}
+\usepackage{array}
+\usepackage{hanging}
+\usepackage{hyphenat}
+%\usepackage{epsfig}
+%\usepackage{egame}
+\usepackage{booktabs}
+\usepackage{nicefrac}
+%\usepackage{bm}
+
+\usepackage[pagebackref]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\BR@backref}{\newblock}{\newblock(Page~}{}{}
+\patchcmd{\BR@backref}{\par}{)\par}{}{}
+\makeatother
+
+
+\usepackage{needspace}
+\usepackage{textcomp}
+%\usepackage{substr}
+\usepackage{natbib}
+\usepackage{nicefrac}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\usepackage{multirow}
+\usepackage{hyphenat}
+\usepackage{tabulary}
+%\usepackage{booktabs}
+
+\usepackage[overload]{textcase}
+
+\renewcommand{\phi}{$\varphi$}
+\newcommand{\SP}{$S ^\prime$}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand{\eqm}{equilibrium}
+\newcommand{\Eqm}{Equilibrium}
+\newcommand{\NE}{Nash Equilibrium}
+\newcommand{\NEs}{Nash Equilibria}
+\newcommand{\sth}{$^{\text{th}}$}
+\newcommand{\snd}{$^{\text{nd}}$}
+\newcommand{\sst}{$^{\text{st}}$}
+\newcommand{\ol}[1]{$\langle #1 \rangle$}
+\usepackage{pict2e}
+\usepackage{color}
+\usepackage{cclicenses}
+
+
+%\usepackage[log-declarations=false]{xparse}
+
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+
+\renewcommand{\labelitemi}{$\bullet$}
+
+%\usepackage[garamond]{mathdesign}
+\usepackage[no-math]{fontspec}
+%\setmainfont[Ligatures=TeX, BoldFont = Minion Pro Semibold]{Minion Pro}
+%\setmainfont[Ligatures=TeX, BoldFont = Gill Sans SemiBold]{Gill Sans}
+%\setmainfont{Perpetua}
+%\setmainfont[Ligatures=TeX, Mapping=tex-text]{Constantia}
+%\setmainfont{Adobe Garamond Pro}
+%\setmainfont[Ligatures=TeX, Mapping=tex-text, BoldFont = Adobe Caslon Pro Semibold]{Adobe Caslon Pro}
+\setmainfont[Mapping=tex-text, BoldFont = Baskerville SemiBold]{Baskerville}
+%\setmainfont{Old Standard TT}
+\usepackage[defaultmathsizes,italic]{mathastext}
+
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+\titleformat{\subsection}{\normalfont \normalsize \itshape}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+\titleformat{\section}{\normalfont \large \itshape}{\thesection}{1em}{}
+\titlespacing*{\chapter} {0pt}{30pt}{20pt} 
+\titleformat{\chapter}[display]{\huge \centering}{
+%\chaptertitlename\ 
+\thechapter}{1em}{}
+
+\widowpenalty=150
+\clubpenalty=150
+
+\setlength{\parskip}{0ex plus 2ex minus 0ex}
+\setlength{\headsep}{16pt}
+\setlength{\headheight}{14pt}
+%\setlength{\textheight}{540pt}
+%\setlength{\textwidth}{360pt}
+\setlength{\textheight}{517pt}
+\setlength{\textwidth}{320pt}
+
+\setlength{\marginparwidth}{151pt}
+\setlength{\oddsidemargin}{75.5pt}
+\setlength{\evensidemargin}{75.5pt}
+
+%\setlength{\marginparwidth}{111pt}
+%\setlength{\oddsidemargin}{55.5pt}
+%\setlength{\evensidemargin}{55.5pt}
+
+\raggedbottom
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1 }{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhf{}
+\fancyfoot{}
+%\fancyfoot[C]{\thepage}
+\fancyhead[OR]{\thepage}
+\fancyhead[EL]{\thepage}
+\fancyhead[EC]{\small \MakeUppercase{\leftmark}}
+\fancyhead[OC]{\small \MakeUppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{10.5pt}
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\def\thesection{\arabic{chapter}.\arabic{section}}
+
+%\newcommand{\PPI}{Reprinted in \textit{Philosophical Papers}, Volume I, pp. \hbox{}}   
+%\newcommand{\PPII}{Reprinted in \textit{Philosophical Papers}, Volume II, pp. \hbox{}}    
+%\newcommand{\PPL}{Reprinted in \textit{Papers in Philosophical Logic}, pp. \hbox{}}    
+%\newcommand{\PME}{Reprinted in \textit{Papers in Metaphysics and Epistemology}, pp. \hbox{}}    
+%\newcommand{\PESP}{Reprinted in \textit{Papers in Ethics and Social Philosophy}, pp. \hbox{}}
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+%\newcommand{\numbex}[2]{
+%\begin{enumerate*}
+%\setcounter{enumi}{#1}
+%\renewcommand{\labelenumi}{(\arabic{enumi})}
+%#2
+%\end{enumerate*}
+%}
+
+%\newcommand{\starttab}{\begin{center}
+%\vspace{6pt}
+%\begin{tabular}}
+%
+%\newcommand{\fintab}{
+%\end{tabular}
+%\end{center}
+%}
+%
+%\newcommand{\stoptab}{\end{tabular}
+%\vspace{6pt}
+%\end{center}
+%\noindent}
+%
+%\newcommand{\gamelab}[1]{\newcounter{#1}\setcounter{#1}{\value{games}}\textbf{Game \arabic{games}}\addtocounter{games}{1}}
+%
+%\newcommand{\regame}[1]{
+%\textbf{Game \arabic{#1}}}
+%
+%\newcommand{\citegame}[1]{Game \arabic{#1}}
+%
+%\newcommand{\stratcomp}[2]{
+%\needspace{10pt}
+%\smallskip
+%\noindent \textbf{#1}
+%\vspace{-6pt}
+%\begin{quote}
+%#2
+%\end{quote}}
+%
+%\newcommand{\pictext}[3]{
+%\put(#1, #2){\makebox(0, 0)[b]{#3}}}
+%
+%\newcommand{\drawsquare}[5]{
+%\put(#1, #2){\line(0, 1){#5}}
+%\put(#1, #2){\line(1, 0){#5}}
+%\put(#3, #2){\line(0, 1){#5}}
+%\put(#1, #4){\line(1, 0){#5}}
+%}
+%
+%\newcommand{\tol}[1]{$\langle #1 \rangle$}
+%
+%\newcounter{games}
+%\setcounter{games}{1}
+
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\boxright}{\mathrel}{symbolsC}{128}
+
+\hyphenation{Bayes-ian-ism de-prag-mat-ised prag-mat-ised Schlen-ker rath-er Gil-bert cele-bri-ties thou-gh O-phe-lia grok-king-ness Gend-ler Al-iens non-fund-a-men-tal grok-king Dog-gett phe-nom-e-non e-pi-stem-olog-ist Will-iam-son Witt-gen-stein meta-ethics Key-nes third-er loc-ation-al third-er sp-ell-ings Des-cartes con-glom-er-able}
+
+
+
+
+
+
+
+
+
+
+
+
+

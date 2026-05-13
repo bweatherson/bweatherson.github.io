@@ -1,0 +1,5 @@
+/.quarto/
+**/*.quarto_ipynb
+/textbooks
+.DS_Store
+wage_premium.csv

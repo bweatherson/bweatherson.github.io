@@ -1,0 +1,335 @@
+---
+title: 'PHIL 444: Game Theory and Social Choice'
+author: "Brian Weatherson"
+date: "Fall 2026"
+format:
+  pdf:
+    keep-tex: true
+    pdf-engine: xelatex
+    fig-cap-location: bottom
+    geometry: margin=1in
+    mainfont: Atkinson Hyperlegible
+    mathfont: STIX Two Math
+    date-format: "[Fall] YYYY"
+    include-in-header:
+      text: |
+        \linespread{1.05}
+        \RedeclareSectionCommand[
+          afterskip=0.3ex,
+          beforeskip=0.8ex
+          ]{subsection}
+        \RedeclareSectionCommand[
+          afterskip=0.1ex,
+          beforeskip=0.5ex
+          ]{subsubsection}
+  html:
+    theme: cosmo
+    code-tools: false
+    axe: true
+    toc: true
+    shift-heading-level-by: 1
+    date-format: "[Fall] YYYY"
+  docx: default
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| cache: false
+#| message: false
+#| warning: false
+
+knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(fig.path = 'figs/')
+knitr::opts_chunk$set(cache.path = '_cache/')
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+```{r}
+#| label: dates_bib
+#| include: false
+#| cache: false
+
+mon <- as.Date("2026-08-31") # Monday of the First Week (per Fall 2026 academic calendar)
+tue <- mon + 1
+wed <- tue + 1
+thu <- wed + 1
+fri <- thu + 1
+
+advdate <- function(obj, adv) {
+ theday <- obj + 7*(adv-1)
+ ttheday <- format(theday, format="%A, %B %d")
+ return(ttheday)
+}
+```
+
+| **Lead Instructor**: Brian Weatherson
+| **Email**: weath@umich.edu
+| **Web**: canvas.umich.edu
+| **Office Hours**: TBD
+| **Discussion Section Leader**: TBD
+| **Email**: TBD
+| **Office Hours**: TBD
+
+&nbsp;
+
+# Key Points
+
+- This course examines two philosophical questions about choice in social settings.
+- The first half is on game theory: what is rational choice when the unknowns are the actions of other rational agents?
+- The second half works through Amartya Sen's *Collective Choice and Social Welfare* (2017 expanded edition): what does it mean for a group to choose, and how can individual judgments be combined into collective ones?
+- The mathematics is more demanding than a typical philosophy course but does not require calculus. The level is roughly that of formal work in a philosophy journal.
+- Assessment consists of four short assignments (10% each), two essays (25% each), and discussion section participation (10%).
+
+# Course Description
+
+This course examines two philosophical questions about choice in social settings.
+
+The first half asks what rational choice looks like when the unknowns are not natural events (the weather, the bus arrival time) but the actions of other rational agents who are reasoning about you. Standard expected-utility theory does not pin down behavior in such settings. We work through the central solution concepts of game theory (Nash equilibrium, rationalizability, subgame perfection, perfect Bayesian equilibrium) and ask what philosophical claims each one rests on. The thread builds toward signaling games and equilibrium refinements, the beer-quiche example and the Cho-Kreps intuitive criterion, with applications to lemons markets and job-market signaling.
+
+The second half asks what it means for a group to choose. Individually rational preferences do not always combine into a coherent group preference: this is the lesson of Arrow's theorem, of Sen's Paretian liberal, and of related impossibility results. Working from Sen's *Collective Choice and Social Welfare* (2017 expanded edition), we study the formalism behind these results and the philosophical responses Sen develops, including his work on interpersonal comparison, justice, rights, and the limits of welfarism.
+
+The unifying theme is that individual rationality does not extend cleanly to social settings. Game theory and social choice theory are two interestingly different ways of seeing how, and what philosophers have made of it.
+
+# Required Materials
+
+The required text is:
+
+- Amartya Sen, *Collective Choice and Social Welfare: An Expanded Edition* (Harvard University Press, 2017). Available electronically through the University of Michigan library.
+
+Game theory readings will be a mix of lecture notes, classic papers (Akerlof on lemons, Spence on job-market signaling, Cho and Kreps on the intuitive criterion), and selected chapters from a textbook to be confirmed before the semester begins. All readings will be made available through Canvas or the course website.
+
+# Course Requirements
+
+- There will be 4 short assignments, each worth 10% of the grade
+- There will be 2 essays, each worth 25% of the grade.
+- Lecture participation will not be graded, and we won't take attendance here. But 10% of the grade is for discussion section participation (and any other assignments the discussion section leader chooses to include).
+
+# Summary of Grading System
+
+1. Short assignments - 4 assignments, 10% each: 40%
+2. Essays - 2 essays, 25% each: 50%
+3. Discussion section participation. (10%)
+
+# Canvas
+
+There is a Canvas site for this course, which can be accessed from <https://canvas.umich.edu>. Course documents will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.
+
+There is also a github site for the course which contains more documents, and it is at <https://bweatherson.github.io/F26-Phil444_site/>.
+
+\pagebreak
+
+# Class Schedule
+
+Readings should be done before the scheduled class. Lectures 1-14 cover game theory; Lectures 15-28 cover social choice theory, working through Sen's *Collective Choice and Social Welfare* (cited below as CCSW). Game-theory readings are placeholders pending final selection of supporting materials.
+
+## Week 1: Decision and Strategic Settings
+
+### `r advdate(tue, 1)` (Lecture 1)
+
+**Topic**:    Course overview; the puzzle of strategic rationality. When the unknowns are the actions of other rational agents, decision theory under uncertainty needs help.
+**Reading**:    None.
+
+**NOTE**: No discussion section this week.
+
+### `r advdate(thu, 1)` (Lecture 2)
+
+**Topic**:    Decision theory recap; expected utility under parametric uncertainty versus strategic uncertainty.
+**Reading**:    TBD.
+
+## Week 2: Strategic Form Games
+
+### `r advdate(tue, 2)` (Lecture 3)
+
+**Topic**:    Strategic form games; dominance and iterated elimination of dominated strategies.
+**Reading**:    TBD.
+
+### `r advdate(thu, 2)` (Lecture 4)
+
+**Topic**:    Nash equilibrium.
+**Reading**:    TBD.
+
+## Week 3: Mixed Strategies and Rationalizability
+
+### `r advdate(tue, 3)` (Lecture 5)
+
+**Topic**:    Mixed strategies and the interpretation problem (Aumann; Harsanyi purification).
+**Reading**:    TBD.
+
+### `r advdate(thu, 3)` (Lecture 6)
+
+**Topic**:    Rationalizability; common knowledge of rationality.
+**Reading**:    TBD.
+
+## Week 4: Dynamic Games
+
+### `r advdate(tue, 4)` (Lecture 7)
+
+**Topic**:    Extensive form games; subgame perfection.
+**Reading**:    TBD.
+
+### `r advdate(thu, 4)` (Lecture 8)
+
+**Topic**:    Backward induction; the centipede paradox.
+**Reading**:    TBD.
+
+**Assignment**:    First short assignment due `r advdate(fri, 4)` at 5pm.
+
+## Week 5: Bayesian Games
+
+### `r advdate(tue, 5)` (Lecture 9)
+
+**Topic**:    Bayesian games; types and incomplete information.
+**Reading**:    TBD.
+
+### `r advdate(thu, 5)` (Lecture 10)
+
+**Topic**:    Bayesian Nash equilibrium.
+**Reading**:    TBD.
+
+## Week 6: Signaling Games
+
+### `r advdate(tue, 6)` (Lecture 11)
+
+**Topic**:    Signaling games; perfect Bayesian equilibrium.
+**Reading**:    TBD.
+
+### `r advdate(thu, 6)` (Lecture 12)
+
+**Topic**:    The beer-quiche game; the intuitive criterion.
+**Reading**:    In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria" (1987).
+
+## Week 7: Asymmetric Information
+
+### `r advdate(tue, 7)` (Lecture 13)
+
+**Topic**:    Spence on job-market signaling.
+**Reading**:    Michael Spence, "Job Market Signaling" (1973).
+
+### `r advdate(thu, 7)` (Lecture 14)
+
+**Topic**:    Akerlof on lemons (rigorous treatment).
+**Reading**:    George Akerlof, "The Market for Lemons" (1970).
+
+**Assignment**:    Second short assignment due `r advdate(fri, 7)` at 5pm.
+
+## Week 8: Transition
+
+### `r advdate(tue, 8)`
+
+No class -- Fall Study Break (October 19-20).
+
+### `r advdate(thu, 8)` (Lecture 15)
+
+**Topic**:    Transition from strategic rationality to collective choice. Sen's framing of the social choice problem.
+**Reading**:    CCSW: New Introduction (2017); Ch 1 (Introduction); Ch A1 (Enlightenment and Impossibility).
+
+## Week 9: Foundations
+
+### `r advdate(tue, 9)` (Lecture 16)
+
+**Topic**:    Preference relations; unanimity; collective choice rules and Pareto comparisons.
+**Reading**:    CCSW: Ch 1* (Preference Relations); Ch 2 (Unanimity); Ch 2* (Collective Choice Rules and Pareto Comparisons).
+
+### `r advdate(thu, 9)` (Lecture 17)
+
+**Topic**:    Collective rationality; social welfare functions.
+**Reading**:    CCSW: Ch 3 (Collective Rationality); Ch 3* (Social Welfare Functions).
+
+**Essay**:    First essay due `r advdate(fri, 9)` at 5pm.
+
+## Week 10: Arrow and Sen's Response
+
+### `r advdate(tue, 10)` (Lecture 18)
+
+**Topic**:    Arrow's theorem and proof.
+**Reading**:    CCSW: Ch 3* (continued); Ch A1* (Social Preference).
+
+### `r advdate(thu, 10)` (Lecture 19)
+
+**Topic**:    Choice versus orderings; social decision functions.
+**Reading**:    CCSW: Ch 4 (Choice Versus Orderings); Ch 4* (Social Decision Functions).
+
+## Week 11: Conditions and the Liberal Paradox
+
+### `r advdate(tue, 11)` (Lecture 20)
+
+**Topic**:    Values and choice; anonymity, neutrality, responsiveness.
+**Reading**:    CCSW: Ch 5 (Values and Choice); Ch 5* (Anonymity, Neutrality and Responsiveness).
+
+### `r advdate(thu, 11)` (Lecture 21)
+
+**Topic**:    Conflicts and dilemmas; the Paretian liberal.
+**Reading**:    CCSW: Ch 6 (Conflicts and Dilemmas); Ch 6* (The Liberal Paradox).
+
+**Assignment**:    Third short assignment due `r advdate(fri, 11)` at 5pm.
+
+## Week 12: Interpersonal Comparison
+
+### `r advdate(tue, 12)` (Lecture 22)
+
+**Topic**:    Interpersonal aggregation and comparability.
+**Reading**:    CCSW: Ch 7 (Interpersonal Aggregation and Comparability); Ch 7* (Aggregation Quasi-Orderings).
+
+### `r advdate(thu, 12)` (Lecture 23)
+
+**Topic**:    Cardinality with or without comparability.
+**Reading**:    CCSW: Ch 8 (Cardinality With or Without Comparability); Ch 8* (Bargains and Social Welfare Functions).
+
+## Week 13: Equity and Justice
+
+### `r advdate(tue, 13)` (Lecture 24)
+
+**Topic**:    Equity and justice; impersonality.
+**Reading**:    CCSW: Ch 9 (Equity and Justice); Ch 9* (Impersonality and Collective Quasi-Orderings).
+
+### `r advdate(thu, 13)`
+
+No class -- Thanksgiving recess (November 25-27).
+
+## Week 14: Domain Restrictions and Modern Revisitations
+
+### `r advdate(tue, 14)` (Lecture 25)
+
+**Topic**:    Majority choice; restricted preferences and rational choice.
+**Reading**:    CCSW: Ch 10 (Majority Choice and Related Systems); Ch 10* (Restricted Preferences and Rational Choice).
+
+### `r advdate(thu, 14)` (Lecture 26)
+
+**Topic**:    Justice and equity in the expanded edition; social welfare evaluation.
+**Reading**:    CCSW: Ch A3 (Justice and Equity); Ch A3* (Social Welfare Evaluation).
+
+**Assignment**:    Fourth short assignment due `r advdate(fri, 14)` at 5pm.
+
+## Week 15: Democracy, Rights, Reasoning
+
+### `r advdate(tue, 15)` (Lecture 27)
+
+**Topic**:    Democracy and public engagement; the idea of rights and social choice.
+**Reading**:    CCSW: Ch A4 (Democracy and Public Engagement); Ch A4* (Votes and Majorities); Ch A5 (The Idea of Rights); Ch A5* (Rights and Social Choice).
+
+### `r advdate(thu, 15)` (Lecture 28)
+
+**Topic**:    Reasoning and social decisions; course wrap.
+**Reading**:    CCSW: Ch A6 (Reasoning and Social Decisions); Ch 11 (Theory and Practice).
+
+**FINAL ESSAY**: Due `r advdate(fri, 16)` at 5pm.
+
+\newpage
+
+# Plagiarism
+
+Although team-work, and even co-authorship, is encouraged, plagiarism is strictly prohibited. You are responsible for making sure that none of your work is plagiarized. Be sure to cite work that you use, both direct quotations and paraphrased ideas. Any citation method that is tolerably clear is permitted, but if you'd like a good description of a citation scheme that works well in philosophy, look at <http://bit.ly/VDhRJ4>.
+
+You are encouraged to discuss the course material, including assignments, with your classmates, but all written work that you hand in under your own name must be your own. If work is handed is as the work of two people, you are affirming that each person did a fair share of the work. (Note that when you're submitting work on Canvas, you have to each submit the paper, even if it is co-authored. That way Canvas knows that everyone has turned in work.)
+
+You should also be familiar with the academic integrity policies of the College of Literature, Science & the Arts at the University of Michigan, which are available here: <http://www.lsa.umich.edu/academicintegrity/>. Violations of these policies will be reported to the Office of the Assistant Dean for Student Academic Affairs, and sanctioned with a course grade of F.
+
+# Disability
+
+The University of Michigan abides by the Americans with Disabilities Act of 1990, Section 504 of the Rehabilitation Act of 1973, and other applicable federal and state laws that prohibit discrimination on the basis of disability, which mandate that reasonable accommodations be provided for qualified students with disabilities.
+
+If you have a disability, and may require some type of instructional and/or examination accommodation, please contact me early in the semester. If you have not already done so, you will also need to register with the Office of Services for Students with Disabilities. The office is located at G664 Haven Hall.
+
+For more information on disability services at the University of Michigan, go to <http://ssd.umich.edu>.

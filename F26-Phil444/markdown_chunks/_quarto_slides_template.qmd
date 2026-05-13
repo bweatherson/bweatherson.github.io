@@ -1,0 +1,205 @@
+---
+title: "Your Lecture Title"
+subtitle: "Course Name - Week X"
+author: "Your Name"
+date: "September 10, 2025"
+format:
+  revealjs:
+    theme: [default, custom-theme.scss]
+    slide-number: true
+    show-slide-number: all
+    hash-type: number
+    preview-links: auto
+    chalkboard: true
+    multiplex: false
+    footer: "Course Name | Your University"
+    logo: "logo.png"
+    css: custom-styles.css
+    incremental: false
+    code-line-numbers: true
+    highlight-style: github
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: false
+    navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
+  beamer:
+    theme: metropolis
+    colortheme: default
+    fonttheme: structurebold
+    slide-level: 2
+    section-titles: false
+    toc: false
+    number-sections: false
+    highlight-style: github
+    code-line-numbers: true
+    pdf-engine: xelatex
+    keep-tex: false
+    header-includes: |
+      \usepackage{fontspec}
+      \setmainfont{Arial}
+      \setmonofont[Scale=0.8]{Fira Mono}
+      \definecolor{primary}{RGB}{0, 102, 153}
+      \definecolor{secondary}{RGB}{102, 153, 204}
+      \setbeamercolor{frametitle}{fg=primary}
+      \setbeamercolor{title}{fg=primary}
+      \setbeamertemplate{footline}[frame number]
+      \setbeamertemplate{navigation symbols}{}
+---
+
+# Course Overview
+
+## Learning Objectives
+
+::: {.incremental}
+- Understand key concepts in [subject area]
+- Apply theoretical knowledge to practical problems
+- Develop critical thinking skills
+- Engage with current research and debates
+:::
+
+::: {.notes}
+Speaker notes: Remember to emphasize the practical applications and encourage questions throughout the lecture.
+:::
+
+## Today's Agenda
+
+1. **Introduction** - Core concepts and definitions
+2. **Theory** - Fundamental principles
+3. **Applications** - Real-world examples
+4. **Discussion** - Questions and implications
+
+# Main Content
+
+## Key Concept 1
+
+- **Definition**: Clear, concise explanation of the concept
+- **Context**: Why this matters in the field
+- **Example**: Concrete illustration
+
+::: {.callout-note}
+## Important Note
+This is a highlighted box that works in both HTML and PDF formats. Use these for key takeaways or important warnings.
+:::
+
+## Code Example
+
+Here's how to include code that renders well in both formats:
+
+```python
+# Example Python code with syntax highlighting
+def analyze_data(dataset):
+    """
+    Process and analyze the dataset
+    """
+    results = dataset.groupby('category').mean()
+    return results.round(2)
+
+# Usage
+processed_data = analyze_data(my_dataset)
+print(processed_data)
+```
+
+::: {.fragment}
+Code explanations can be revealed incrementally in HTML presentations.
+:::
+
+## Visual Elements
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Left Column Content**
+
+- Point one with explanation
+- Point two with details
+- Point three with context
+
+This two-column layout works in both formats.
+:::
+
+::: {.column width="50%"}
+**Right Column Content**
+
+![Sample diagram or image](logo.png)
+
+*Caption: Always include descriptive captions*
+:::
+
+::::
+
+## Interactive Elements (HTML Only)
+
+::: {.panel-tabset}
+
+### Tab 1: Theory
+Theoretical background and foundational concepts that students need to understand.
+
+### Tab 2: Practice
+Hands-on examples and exercises that reinforce the theoretical material.
+
+### Tab 3: Resources
+Additional readings, websites, and materials for further exploration.
+
+:::
+
+::: {.notes}
+Note: Tabbed content will display as separate sections in PDF format.
+:::
+
+## Mathematical Expressions
+
+Mathematical notation renders consistently across formats:
+
+$$E = mc^2$$
+
+Inline math also works: $\alpha + \beta = \gamma$
+
+For more complex equations:
+
+$$\frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+
+## Discussion Questions
+
+::: {.callout-tip}
+## Think About This
+- How does this concept relate to previous topics we've covered?
+- What real-world applications can you think of?
+- What questions do you have about the implementation?
+:::
+
+**Turn to your neighbor and discuss for 2 minutes, then we'll hear from a few groups.**
+
+# Conclusion
+
+## Summary
+
+::: {.incremental}
+1. **Key Point 1**: Brief summary of main concept
+2. **Key Point 2**: Important takeaway message  
+3. **Key Point 3**: Connection to broader course themes
+:::
+
+## Next Steps
+
+- **Reading**: Chapter X in course textbook
+- **Assignment**: Due date and brief description
+- **Next Lecture**: Preview of upcoming topics
+
+::: {.callout-important}
+## Reminder
+Don't forget about the upcoming assignment deadline and office hours schedule.
+:::
+
+## Questions?
+
+**Contact Information:**
+- Email: your.email@university.edu
+- Office Hours: Day/Time in Room XXX
+- Course Website: [link to course site]
+
+::: {.notes}
+Leave plenty of time for questions and encourage students to reach out during office hours.
+:::
