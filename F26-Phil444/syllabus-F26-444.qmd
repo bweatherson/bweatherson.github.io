@@ -128,14 +128,14 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 
 ### `r advdate(tue, 1)` (Lecture 1)
 
-**Topic**:    Course overview; the puzzle of strategic rationality. When the unknowns are the actions of other rational agents, decision theory under uncertainty needs help.
+**Topic**:    Course overview and the two organizing questions. A first pass at expected value, and the puzzle that arises when the "states" are other rational agents. Motivating examples: a coordination problem and the Prisoner's Dilemma.
 **Reading**:    None.
 
 **NOTE**: No discussion section this week.
 
 ### `r advdate(thu, 1)` (Lecture 2)
 
-**Topic**:    Decision theory recap; expected utility under parametric uncertainty versus strategic uncertainty.
+**Topic**:    Decision theory under risk and uncertainty: expected utility, Allais and Ellsberg. The formal contrast with strategic settings.
 **Reading**:    TBD.
 
 ## Week 2: Strategic Form Games
@@ -176,16 +176,16 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 
 **Assignment**:    First short assignment due `r advdate(fri, 4)` at 5pm.
 
-## Week 5: Bayesian Games
+## Week 5: Forward Induction and Bayesian Games
 
 ### `r advdate(tue, 5)` (Lecture 9)
 
-**Topic**:    Bayesian games; types and incomplete information.
+**Topic**:    Forward induction. Van Damme's burning-money game; reasoning about what kind of player would have made an off-path move.
 **Reading**:    TBD.
 
 ### `r advdate(thu, 5)` (Lecture 10)
 
-**Topic**:    Bayesian Nash equilibrium.
+**Topic**:    Bayesian games and Bayesian Nash equilibrium. Types, incomplete information, and Nash equilibrium applied to type-conditional strategies.
 **Reading**:    TBD.
 
 ## Week 6: Signaling Games

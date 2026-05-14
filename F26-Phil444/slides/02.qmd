@@ -1,0 +1,42 @@
+---
+title: "Decision Theory Revision"
+subtitle: "Lecture 2: Decision Theory and Game Theory"
+author: "Brian Weatherson"
+date: "September 6, 2026"
+---
+
+<!--
+Basic picture, EU maximisation
+1. What are probabilities - additive normalised measures; explain both parts - motivate with accuracy dominance
+2. What are utilities - we're just going to take them to be preferences; very big picture questions about whether that's right
+3. State action links
+    - Henry V puzzle
+    - Solution 1: Insist that states are causally independent of actions; usually enforced temporally with no backwards causation assumption
+    - Solution 2: Use conditional probabilities rather than absolute probabilities
+    - These come apart in Newcomb
+    - Also come apart in my signaling game, but in other direction, we need to say more about signaling to make that work
+    - We're going to assume solution 1 here; but note this will come up from time to time
+4. Puzzles
+    - No upper bound, e.g., days in heaven; assume finiteness
+    - St Pete, also assume finiteness
+    - Non-linear preferences; puzzles about sweetening; go over Harvey's example
+    - Risk and Allais; maybe mention sure-thing
+    - Uncertainty and Ellsberg; maybe mention imprecise credences
+    - Computational difficulties; maybe mention traveling salesman
+5. Dynamics
+    - Two prominent solutions: resolute and sophisticated
+    - Resolute says that you pick something and stick with it
+    - Sophisticated says that you treat each decision as a wholly new thing
+    - Kavka's puzzle as a way of teasing these two apart
+    - We're going to see an intermediate option
+
+Onto strategic choice
+Say what a 2*2*2 game is
+Explain the notation
+Note the lack of probabilities
+Instead we assume common knowledge of rationality - that is, the iterative conception of common knowledge as in Lewis
+    - Will come back to this briefly later
+In decision theory, there is no way to solve this problem, because there are no probabilities
+    - But in game theory there is a solution
+    - Assume that the other player is rational, so they will choose dominating option, and that settles what Row should do
+-->

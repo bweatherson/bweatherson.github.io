@@ -29,3 +29,26 @@ Spend roughly five minutes near the end of L14 noting:
 - Mention level-k thinking (Stahl and Wilson; Nagel) and quantal response equilibrium (McKelvey and Palfrey) as the other two canonical modern behavioral GT concepts, in case students want to pursue this line further.
 
 The upshot for the course: this is the natural place to acknowledge that the rational-choice modeling we have been doing is one program among several, and that there is a sophisticated modern literature on systematic departures from it. The point is not to undermine the course's rational-choice spine but to be honest about where it does and doesn't track behavior.
+
+## Forward induction and the intuitive criterion: thread from L9 to L12
+
+L9 introduces forward induction via van Damme's burning-money game in Battle of the Sexes. The reasoning principle: if a player has made a move that's only rational if they're committed to a particular continuation, the opponent should infer that and update their beliefs accordingly. Backward induction by itself doesn't capture this; you have to reason about what kind of player would have made the prior move.
+
+L12 (Cho–Kreps intuitive criterion) applies the same reasoning principle to signaling games. When player 1 sends an off-equilibrium signal, player 2 should ask: which types of player 1 could rationally have sent it? Types for whom the signal is strictly dominated by the equilibrium signal are ruled out, so player 2's beliefs after the off-equilibrium signal should put zero weight on those types.
+
+Both are answers to the same philosophical question: how should you reason about another rational agent's seemingly unexpected move? Forward induction says the move tells you something about what the player must be planning. The intuitive criterion says the move tells you something about what type of player you are facing.
+
+When teaching L12, explicitly point back to L9. The burning-money example and the beer-quiche example are the same reasoning principle in different formal clothes. Making the connection visible is what stops the intuitive criterion from feeling arbitrary; the criterion is forward induction applied to signaling games.
+
+Pedagogical bonus: this is the moment in the course where the unifying theme pays off in a non-trivial way. Two seemingly different problems (refining equilibrium in dynamic games and refining equilibrium in Bayesian signaling games) turn out to be variations on the same philosophical question about how one rational agent should interpret another's actions.
+
+## Distinguishing forward and backward induction at L9
+
+Students have been confused about this in past iterations. The cleanest way to put the difference:
+
+- **Backward induction** rests on the assumption that *future* actions will be rational. You reason from the end of the game backwards, ruling out choices that wouldn't be rational at later nodes.
+- **Forward induction** draws conclusions from the assumption that *past* actions were rational. An unexpected move has been made; it was made by a rational player; update your beliefs about that player accordingly.
+
+Both rely on the rationality of the other player. They just point the inference in opposite directions through the game tree.
+
+Spend two or three minutes at the start of L9 making this contrast explicit before going into the burning-money example. A single slide with both definitions side by side would help. The burning-money illustration only lands if students have the distinction firmly in hand first; otherwise they tend to read forward induction as a strange version of backward induction and miss the philosophical point.
