@@ -7,64 +7,119 @@ date: "September 1, 2026"
 
 ## Two Questions
 
-This course presses on two questions.
+This course is organised around two questions.
 
-1. What is rational choice when the unknowns are the actions of other rational agents?
+1. What is rational choice when the results of your choice also depend on the choices of other rational agents?
 2. What does it mean for a group to choose?
+
+. . .
 
 We will spend roughly half the semester on each.
 
+# Game Theory
+
 ## Question One
 
-What is rational choice when the unknowns are the actions of other rational agents?
+What is rational choice when the results of your choice also depend on the choices of other rational agents?
 
-In standard decision theory, the things you are uncertain about are passive. The weather, the bus schedule, whether a coin will land heads. They do not react to what you are doing.
+In standard decision theory, the things you are uncertain about are passive. So here's the basic kind of choice you discuss
 
-But many of the choices we care about involve other people, who are themselves trying to choose well, and whose choices depend on what they think you will do.
+| Choice | Rain | Dry |
+|---:|:----:|:---:|
+| **Take Umbrella** |  1   |   0   |
+| **Don't Take Umbrella** |  2   |   3   |
+
+: A decision that rests on 'passive' facts {#tbl-umbrella}
+
+. . .
+
+The states of the world, the things represented on the columns, do not react to, or anticipate, your choices.
+
+But many of the choices we care about involve other people, who are themselves trying to choose well, and whose choices depend on what they think you will do. In cases of repeated choice, they may **react** to our earlier choice.
 
 ## A Coordination Problem
 
-Two friends agree to meet at a café in Ann Arbor but did not say which. Both prefer Lab Cafe to Espresso Royale, and both prefer meeting somewhere to not meeting.
+Two friends agree to meet at a café in Ann Arbor but did not say which. Both prefer Comet to Lab, and both prefer meeting somewhere to not meeting.
 
-|       | Lab  | ER   |
+|       | Comet  | Lab   |
 |-------|------|------|
-| Lab   | 3, 3 | 0, 0 |
-| ER    | 0, 0 | 2, 2 |
+| **Comet**   | 4, 4 | 0, 0 |
+| **Lab**    | 0, 0 | 3, 3 |
+
+: A simple coordination game {#tbl-coffee}
+
+. . .
 
 What should each friend do?
 
 ## What Makes It Hard
 
-Lab looks like the right answer: higher payoff if they coordinate there.
+Comet looks like the right answer. They get a higher payoff if they coordinate there.
 
-But that reasoning only works if each friend believes the other will reason the same way. And believes that the other believes that. And so on.
+But if each were certain that the other would choose Lab, then it would make sense to choose Lab.
 
-Rational choice in strategic settings has this iterated belief structure built in.
+In general, what choices we make depends on what we think other people, who are facing a similar choice, will do.
 
-## The Prisoner's Dilemma
+## An Even Harder Case
 
-A different sort of puzzle.
+Maybe you think that case is easy; they'll surely coordinate on the better option. But there are harder variants of the case.
+
+. . .
+
+Imagine that while they want to coordinate, they want to get some work done if they don't coordinate, and they find Lab better for working in alone. Then the payoffs might look like this.
+
+|       | Comet  | Lab   |
+|-------|------|------|
+| **Comet**   | 4, 4 | 0, 2 |
+| **Lab**    | 2, 0 | 3, 3 |
+
+: A not so simple coordination game {#tbl-coffee-hard}
+
+. . .
+
+As we'll see when we get further into the course, there is no scholarly consensus on what choice is rational in this case, or even if there is a uniquely right answer.
+
+## The Prisoners' Dilemma
+
+These strategic choices can lead to distinctive puzzles; this might be the most famous one.
 
 |           | Cooperate | Defect |
-|-----------|-----------|--------|
-| Cooperate | 3, 3      | 0, 5   |
-| Defect    | 5, 0      | 1, 1   |
+|-----------:|:-----------:|:--------:|
+| **Cooperate** | 3, 3      | 0, 5   |
+| **Defect**    | 5, 0      | 1, 1   |
 
-Each player has a dominant strategy: defect, regardless of what the other does. So two rational players both defect. Both get 1, when both could have gotten 3.
+: A canonical Prisoners' Dilemma {#tbl-basic-pd}
 
-## Why It Stings
+. . .
 
-There is a sense in which the players have done what each had reason to do. There is also a sense in which they have collectively failed.
+Each player has a dominant strategy: defect, regardless of what the other does. 
 
-We will see versions of this puzzle in many forms throughout the course. The point for now is just that "what does rationality recommend?" can be hard to answer even in very simple games.
+So two rational players both defect. Both get 1, when both could have gotten 3.
+
+## Why It Is a Dilemma
+
+There is a sense in which the players have done what each had reason to do. 
+
+There is also a sense in which they have collectively failed.
+
+There are two important takeaways from this.
+
+1. The simple question "What is it rational to do?" is hard even in really simple cases.
+2. It's really important to keep distinct, at least conceptually, what's good for the group, and what's good for each member of the group.
 
 ## What the Game-Theory Half Will Do
 
-Different proposed constraints on rational belief about other rational agents give different solution concepts.
+In regular decision theory there is one canonical solution concept: Maximise Expected Utility.
 
-The ones we will work through: Nash equilibrium, rationalizability, subgame perfection, sequential and perfect Bayesian equilibrium, and refinements like the Cho-Kreps intuitive criterion.
+In game theory, we work through several distinct solution concepts, and (a) what relations hold between them, and (b) which of them is best suited to different problems.
 
-We finish with signaling games and applications to lemons markets (Akerlof) and labor markets (Spence).
+Some of this profusion arises in games like the ones we've seen so far: games where the players move once, simultaneously.
+
+But once we add time into our games, there are even more options.
+
+The most complicated notions we'll look at are designed primarily to deal with *signalling* games, and include things that we often slide over in formal models in philosophy, like how to update on probability 0 events.
+
+# Social Welfare
 
 ## Question Two
 
@@ -72,11 +127,15 @@ What does it mean for a group to choose?
 
 Different individuals have different preferences. Can we combine those preferences into a single group preference? When can we say what the group has decided?
 
-This is a different question from Question One. The puzzle is aggregation rather than strategy.
+The primary puzzle here concerns aggregation rather than strategy, though strategic considerations will never quite go away.
+
+As you might already be familiar with from thinking about elections, or about everyday interactions, the choice of an aggregation procedure needs to be sensitive to the strategic behavior of group members.
 
 ## Condorcet's Paradox
 
-Three voters, three options. Each column is a voter's ranking, top to bottom.
+Here's a simple case that will already be enough to get some problems going. This clean formulation comes from the 18th century theorist and radical politician, the Marquis de Condorcet.
+
+There are three (numbered) voters, and three (lettered) options. Each column is a voter's ranking, top to bottom.
 
 | Voter 1 | Voter 2 | Voter 3 |
 |---------|---------|---------|
@@ -84,55 +143,77 @@ Three voters, three options. Each column is a voter's ranking, top to bottom.
 | B       | C       | A       |
 | C       | A       | B       |
 
-Pairwise majority:
+: Condorcet's Paradox {#tbl-condorcet}
 
-- A vs B: A wins, 2–1
-- B vs C: B wins, 2–1
-- C vs A: C wins, 2–1
+## Condorcet's Paradox
 
-The group "prefers" A to B to C to A. The group's preference is intransitive even though each individual's preferences are transitive.
+| Voter 1 | Voter 2 | Voter 3 |
+|---------|---------|---------|
+| A       | B       | C       |
+| B       | C       | A       |
+| C       | A       | B       |
+
+: @tbl-condorcet: Condorcet's Paradox
+
+Let's say we adopt the rule that the group prefers $X$ to $Y$ when a majority of its members do. Then we get that the group prefers A to B, and prefers B to C, and prefers C to A. Oops!
 
 ## Generalizations
 
-Condorcet noticed this in the 1780s. Arrow's theorem (1951) shows that no method of aggregating preferences can satisfy a small set of attractive conditions. Sen (1970) showed that you cannot combine a minimal commitment to individual liberty with even the weakest Pareto principle.
+Condorcet noticed this in the 1780s. 
 
-The puzzle: individually rational preferences do not always combine into a coherent group preference, and we want to understand why, and what to do about it.
+Kenneth Arrow (1951) generalised this to show that no method of aggregating preferences can satisfy a small set of attractive conditions. 
+
+Amartya Sen (1970) showed that you cannot combine a minimal commitment to individual liberty with even some principles about preference aggregation that looked beyond serious dispute.
+
+The main plotline here is that we'll keep seeing **impossibility theorems**, results that say some things which we really wanted our aggregation procedures to have can't all obtain. So what do we do?
 
 ## What the Social-Choice Half Will Do
 
-We work through Amartya Sen's *Collective Choice and Social Welfare* (2017 expanded edition), the canonical philosophical treatment of aggregation.
+We work through Amartya Sen's *Collective Choice and Social Welfare* (originally published in 1970, with an expanded edition in 2017 that we'll work through).
 
-Topics include Arrow's theorem with proof, Sen's Paretian liberal, interpersonal comparison and welfarism, equity and justice, the rights literature, and the capability approach.
+Obviously there are lots of great economists around, and lots of great philosophers, but you'd be hard pressed to find someone who is better than Sen at *both*. He's also an excellent writer, though this doesn't *always* come through in CC&SW.
+
+Some of the topics we'll cover include:
+
+- Arrow's Theorem (including Sen's preferred proof of it)
+- The Paretian liberal paradox that Sen made famous
+- Issues about comparing interpersonal welfare
+- Issues about the relationship between welfare, equity, and justice
+- Sen's preferred theory of welfare: the **capability** approach.
+
+# Overview
 
 ## The Unifying Theme
 
-The two questions look different. But the puzzle in each case has the same shape:
+The two questions look different. But there is a common theme.
 
-> Individual rationality does not extend cleanly to social settings.
+::: {.callout-note appearance="minimal"}
+Individual rationality does not extend cleanly to social settings.
+:::
 
 Game theory and social choice theory are two different ways of seeing how, and what philosophers have made of it.
 
 ## Course Shape
 
-Lectures 1–14 (through October 15): game theory.
+Through the midterm break, we'll primarily be doing game theory.
 
-Lectures 15–28 (October 22 through December 10): social choice, working through Sen.
-
-Lecture 15, the first meeting after Fall Break, doubles as a transition lecture.
+After that, we'll focus on social choice theory, primarily working through Sen's book.
 
 ## Mathematical Level
 
 Philosophy courses sometimes shy away from formal material. This one will not.
 
-The mathematics will be at roughly the level of formal work in a philosophy journal. You should expect sets, functions, probabilities, expected utilities, and some algebra. Calculus will not be needed.
+The mathematics will be at roughly the level of formal work in a philosophy journal. You should expect sets, functions, probabilities, expected utilities, and some algebra. **Calculus** will not be needed.
 
-If you have taken Phil 305 or a similar course in formal methods, you should be comfortable. If you have not, ask questions; the formalism is there to make the structure visible.
+If you have taken a philosophy course in formal methods, you'll be fine. Similarly, if you've done any stats or econ courses, you'll be fine. 
+
+If you have not, **ask questions**; the formalism is there to make the structure visible.
 
 ## Required Reading
 
 One required book: Amartya Sen, *Collective Choice and Social Welfare: An Expanded Edition* (Harvard University Press, 2017). Available electronically through the U-M library.
 
-Game theory readings will be a mix of lecture notes, classic papers (Akerlof on lemons, Spence on signaling, Cho and Kreps on the intuitive criterion), and selected textbook chapters. Specific assignments will appear on Canvas.
+Game theory readings will be a mix of lecture notes and papers/chapters available through Canvas
 
 ## Assessment
 
@@ -142,7 +223,7 @@ Game theory readings will be a mix of lecture notes, classic papers (Akerlof on 
 | Two essays (25% each)                | 50%    |
 | Discussion section participation     | 10%    |
 
-The short assignments lean technical; the essays lean philosophical.
+The short assignments lean technical; the essays will be more discurive.
 
 ## Practicalities
 
@@ -156,6 +237,4 @@ No discussion section this week.
 
 ## Next Lecture
 
-Thursday: a recap of decision theory under uncertainty, and what changes when the "states" are other rational agents.
-
-## Questions?
+On Thursday we'll do a flying recap of decision theory under uncertainty, along with a tour of some of the famous problems.
