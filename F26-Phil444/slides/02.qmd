@@ -218,15 +218,53 @@ We're *not* going to resolve this problem here. I just want you to note three th
 
 # Dynamic Choice
 
+## Dynamic Choice
+
 *Maximise expected utility* is a claim about what you should do in a one-shot choice.
 
 How does it extend to choices over time?
 
-. . .
+## Two Theories
 
 It turns out there are two prominent answers:
 
-1. The **resolute** theory says that if you are going to face a series of choices, 
+1. The **resolute** theory says that if you are going to face a series of choices, all that matters is that you pick a plausible strategy, and stick to it.
+2. The **sophisticated** theory says that you should pick a rational choice at each node, and you should predict you will make rational choices at future nodes, and make choices that maximise expected utility given those constraints.
+
+## A Third Approach
+
+There is a much less popular third approach, called **conservative** choice. It has two components.
+
+- Like the resolute theory, is says that one should pick a strategy at the start which makes sense and stick with it.
+- Like the sophisticated theory, it says that this theory should continue to make sense at each subsequent node. It does not say this choice has to be **best**, just that it has to be **permissible**.
+- Equivalently, it adds to the sophisticated theory the view that one must know what one will do at later nodes, not just that one will be rational.
+
+## The Toxin Puzzle
+
+We won't be covering this in detail here, but one way to possibly tease these apart is via a puzzle from a former Michigan philosopher, Gregory Kavka.
+
+- There is some substance which is deeply unpleasant to drink; it will make you sick for several days, but has no long-term consequences
+- If you were offered a million dollars to drink it, you totally would. It's not *that* unpleasant.
+- But that's not what you are offered.
+
+## The Toxin Puzzle
+
+Instead, you are offered the following deal.
+
+- You'll get a million dollars if, at midday tomorrow, you intend to drink the toxin at 6pm that night.
+- If you do, you'll get the money straight away.
+
+## Puzzle
+
+On the one hand, it seems like this is a good deal.
+
+On the other hand, how can you get the money? If you have the money already, you won't be motivated to drink.
+
+So you won't really intend to drink, so in fact you won't get it after all.
+
+## For Next Time
+
+We'll start working on simple games.
 
 <!--
 Basic picture, EU maximisation
