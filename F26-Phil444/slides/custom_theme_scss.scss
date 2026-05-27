@@ -209,25 +209,49 @@ $font-size-root: 40px;
   max-height: 70vh;
 }
 
-// Tables
+// Tables — spacious by default; add `.compact` for tight layout
 .reveal table {
-  font-size: 0.8em;
-  border: 1px solid #ddd;  // Add this line
-  border-collapse: collapse;  // Add this line to ensure borders merge properly
-  
+  font-size: 0.85em;
+  line-height: 1.4;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  margin: 0.5em auto;
+
   th {
     background-color: $primary-color;
     color: white;
     font-weight: bold;
   }
-  
+
   td, th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 0.5em 1em;
   }
-  
+
   tr:nth-child(even) {
     background-color: #f8f9fa;
+  }
+
+  // Compact variant — apply with `{.compact}` on the caption line
+  &.compact {
+    font-size: 0.7em;
+    line-height: 1.2;
+    margin: 0.25em auto;
+
+    td, th {
+      padding: 0.2em 0.5em;
+    }
+  }
+}
+
+// Backup selector in case Quarto puts the class on a wrapper div
+.reveal .compact table {
+  font-size: 0.7em;
+  line-height: 1.2;
+  margin: 0.25em auto;
+
+  td, th {
+    padding: 0.2em 0.5em;
   }
 }
 

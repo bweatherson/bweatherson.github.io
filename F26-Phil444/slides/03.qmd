@@ -1,0 +1,378 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 3: Static Games"
+author: "Brian Weatherson"
+date: "September 8, 2026"
+---
+
+# Normal-Form Games
+
+## Simultaneous Move
+
+We're going to start with games that have a distinctive structure.
+
+- Each player only moves once.
+- These moves are made **simultaneously**.
+
+. . .
+
+Examples of this kind of game:
+
+. . .
+
+- Rock, Paper, Scissors
+- Chess between computer programs
+
+## Simplifying Assumptions
+
+Those two examples have two things in common that we'll want to eventually drop.
+
+- They are **two-player games**.
+- They are **zero-sum**.
+- Each player has (more or less) **the same options**
+
+. . .
+
+The games we're looking at need not have any of these features.
+
+. . .
+
+That said, we will spend a fair bit of time with symmetric two player games.
+
+## Payoff Matrix
+
+The simplest way to represent a game is with a **payoff matrix**.
+
+This is sometimes called the **normal form** of the game, and sometimes called the **strategic form**.
+
+. . .
+
+|  | C | D |
+|--|---|---|
+| **C** | 3, 3 | 0, 5 |
+| **D** | 5, 0 | 1, 1 |
+
+: The Prisoner's Dilemma {#tbl-pd}
+
+. . .
+
+- The rows tell us which options player 1 has.
+- The columns tell us which options player 2 has.
+- We'll often call these players **Row** (or just **R**) and **Column** (or just **C**).
+- Each cell has two numbers: First **Player 1's payoff**, then **Player 2's payoff**
+
+## Reading the Matrix
+
+|  | C | D |
+|--:|:---:|:---:|
+| **C** | 3, 3 | 0, 5 |
+| **D** | 5, 0 | 1, 1 |
+
+If Player 1 picks C and Player 2 picks D:
+
+- Player 1 gets **0**
+- Player 2 gets **5**
+
+. . .
+
+Higher numbers are better, by the lights of that player. 
+
+. . .
+
+These could be something material (e.g., money, years of freedom), or anything the player values (loyalty, equality, etc.)
+
+## Payoff Matrix
+
+If we have three players, the usual approach is to have a set of tables, one for each move player 3 could have.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+|       | C       | D       |
+|------:|:-------:|:-------:|
+| **C** | 6, 6, 6 | 3, 7, 3 |
+| **D** | 7, 3, 3 | 4, 4, 0 |
+
+: P3 does C {#tbl-3p-c}
+
+:::
+
+::: {.column width="50%"}
+
+|       | C       | D       |
+|------:|:-------:|:-------:|
+| **C** | 3, 3, 7 | 0, 4, 4 |
+| **D** | 4, 0, 4 | 1, 1, 1 |
+
+: P3 does D {#tbl-3p-d}
+
+:::
+
+::::
+
+We can't do three dimensions on slides, so we have one table for if P3 plays **C**, and another table for if they play **D**.
+
+## Formal Elements of a Game
+
+Formally, we define a game by setting three parameters.
+
+1. The number of **Players**.
+2. Which **Actions** are available for each player, remembering that this may be different for different players.
+3. The **Payoffs** to each player, for each possible combination of actions.
+
+. . .
+
+The payoff matrix captures all three at once.
+
+# Classic Games
+
+## The Prisoner's Dilemma
+
+Two suspects are arrested and interrogated separately.
+
+- If both **cooperate** (stay silent): light sentence for each.
+- If both **defect** (confess): moderate sentence for each.
+- If one defects and the other cooperates: the defector goes free, the cooperator gets a harsh sentence.
+
+. . .
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | 5, 0 | 1, 1 |
+
+## What Should You Do?
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 3, 3 | 0, 5 |
+| **Defect** | 5, 0 | 1, 1 |
+
+Consider the game from Player 1's perspective.
+
+. . .
+
+- If Player 2 cooperates: I get 3 by cooperating, **5 by defecting**.
+- If Player 2 defects: I get 0 by cooperating, **1 by defecting**.
+
+. . .
+
+No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect, even though both cooperating would be better for everyone.
+
+## The Dilemma
+
+This is why it's called a *dilemma*:
+
+- Individual rationality leads to (Defect, Defect) with payoffs (1, 1).
+- But (Cooperate, Cooperate) with payoffs (3, 3) is better for *both* players.
+
+. . .
+
+This tension between individual and collective rationality is one of the deepest problems in social philosophy.
+
+
+## Coordination Games
+
+Not all games involve conflict. Sometimes the challenge is just to **coordinate**.
+
+. . .
+
+|  | Left | Right |
+|--|---|---|
+| **Left** | 1, 1 | 0, 0 |
+| **Right** | 0, 0 | 1, 1 |
+
+: Which side of the road? {#tbl-road}
+
+. . .
+
+Neither player wants to mismatch. They just need to pick the same side. This is a **pure coordination game**: both players always get the same payoff.
+
+## Bach-Stravinsky
+
+What if you want to coordinate, but you *disagree about where*?
+
+. . .
+
+|  | Bach | Stravinsky |
+|--|---|---|
+| **Bach** | 2, 1 | 0, 0 |
+| **Stravinsky** | 0, 0 | 1, 2 |
+
+: Bach-Stravinsky {#tbl-bs} 
+
+. . .
+
+- Both prefer going to the same concert to going to different concerts.
+- But Player 1 prefers Bach, and Player 2 prefers Stravinsky.
+- This has elements of both **coordination** and **competition**
+
+## Bach-Stravinsky
+
+The older versions of this game have the players be a heterosexual couple with cliched interests.
+
+- Option **B** is the stereotypical male option, pro wrestling or something.
+- Option **S** is the stereotypical female option; I'll let you guess one.
+- Under this description it was called **Battle of the Sexes**.
+- This more modern name keeps the initials, and the payoff table, but changes the backstory.
+
+## The Stag Hunt
+
+There's a game that *looks* like the Prisoner's Dilemma but works very differently.
+
+. . .
+
+|  | Cooperate | Defect |
+|--|---|---|
+| **Cooperate** | 5, 5 | 0, 3 |
+| **Defect** | 3, 0 | 3, 3 |
+
+: Stag Hunt {#tbl-stag}
+
+. . .
+
+Two hunters can hunt a stag together (big payoff) or each hunt a hare alone (small but guaranteed payoff). Hunting stag only works if *both* commit to it.
+
+## What's Different?
+
+In **Prisoner's Dilemma**, defecting is always better for you, regardless of what the other player does.
+
+In **Stag Hunt**, we have ultimately a coordination game; it's best to do what the other person does.
+
+. . .
+
+So why is it hard? Don't we just coordinate on the higher payoff option?
+
+. . .
+
+What makes Stag Hunt interesting is that doing the pro-social act is **risky**; if it's 50/50 what the other person will do, it's best to take the individualist option.
+
+# Dominant Strategies
+
+## What's a Dominated Strategy?
+
+A strategy is **strictly dominated** if there's another strategy that is *always* better than it.
+
+. . .
+
+A strategy is **weakly dominated** if there's another strategy that is *always* at least as good as it, and *sometimes* better.
+
+## Strategy Rules
+
+Here are two plausible rules (the first, as we'll see, is arguably more plausible):
+
+1. Don't play strictly dominated strategies!
+2. Don't play weakly dominated strategies!
+
+. . .
+
+We'll focus for now on strict dominance, and come back to weak dominance in a bit, because it's confusing in various ways.
+
+## Iterated Elimination of Strictly Dominated Strategies
+
+Consider this game:
+
+|  | L | R |
+|--:|:---:|:---:|
+| **U** | 1, 1 | 0, 0 |
+| **D** | 0, 3 | 1, 2 |
+
+: Iterated dominance example {#tbl-itdom}
+
+. . .
+
+- No option is dominated for Row.
+- But for Column, they get more playing **L** than **R** no matter what; **L** strictly dominates **R**.
+- And if we know that Column will not play **R**, then on all *remaining* strategies for Column, it's best for Row to choose **U**.
+
+## Iterated Elimation
+
+The thought here is that we can sometimes get to a solution of a game by going through and eliminating dominated strategies.
+
+- Because dominance is defined in terms of quantification over remaining strategies, this elimination can make more strategies dominated.
+- Repeating (or *iterating*) this process sometimes leads to a unique solution.
+
+## Iterated Elimination Example: Ice Cream Trucks
+
+Two trucks each choose a spot (1–5) on a beach with 10 customers at each spot.
+
+- Customers go to the nearest truck; ties split evenly
+
+|   | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| **1** | 25, 25 | 10, 40 | 15, 35 | 20, 30 | 25, 25 |
+| **2** | 40, 10 | 25, 25 | 20, 30 | 25, 25 | 30, 20 |
+| **3** | 35, 15 | 30, 20 | 25, 25 | 30, 20 | 35, 15 |
+| **4** | 30, 20 | 25, 25 | 20, 30 | 25, 25 | 40, 10 |
+| **5** | 25, 25 | 20, 30 | 15, 35 | 10, 40 | 25, 25 |
+
+---
+
+**Step 1**: Is spot 1 ever a good choice?
+
+Compare spot 1 vs. spot 2 for Truck 1: no matter where the other truck parks, spot 2 always gets more customers.
+
+. . .
+
+Spot 1 is **dominated** by spot 2. By symmetry, spot 5 is dominated by spot 4. Eliminate both spots, for both players.
+
+---
+
+After removing spots 1 and 5:
+
+| | 2 | 3 | 4 |
+|---|---|---|---|
+| **2** | 25, 25 | 20, 30 | 25, 25 |
+| **3** | 30, 20 | 25, 25 | 30, 20 |
+| **4** | 25, 25 | 20, 30 | 25, 25 |
+
+. . .
+
+**Step 2**: Now spot 2 is dominated by spot 3 (and spot 4 by spot 3). Again, eliminate both spots for both players.
+
+---
+
+This game has a unique solution. Both trucks park at **spot 3**.
+
+|   | 3 |
+|---|---|
+| **3** | 25, 25 |
+
+## A Three Player Version
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+|       | L       | R       |
+|------:|:-------:|:-------:|
+| **U** | 2, 3, 3 | 3, 2, 2 |
+| **D** | 5, 1, 4 | 0, 0, 1 |
+
+: P3 plays F {#tbl-iesds-f}
+
+:::
+
+::: {.column width="50%"}
+
+|       | L       | R       |
+|------:|:-------:|:-------:|
+| **U** | 1, 0, 1 | 4, 3, 1 |
+| **D** | 4, 0, 2 | 1, 3, 0 |
+
+: P3 plays B {#tbl-iesds-b}
+
+:::
+
+::::
+
+. . .
+
+This can be solved by first deleting **B** (for back) for P3, then deleting **R** for P2, then deleting **U** for P1. (It's worth verifying all these steps!)
+
+## For Next Time
+
+We'll introduce the main solution concept for games that can't be solved by this iterated deletion: **Nash Equilibrium**.
+
+Then we'll come back to the concept of weak domination, and how it introduces various complications.

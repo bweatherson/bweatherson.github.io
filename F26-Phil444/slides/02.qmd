@@ -1,6 +1,6 @@
 ---
-title: "Decision Theory Revision"
-subtitle: "Lecture 2: Decision Theory and Game Theory"
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 2: Decision Theory Revision"
 author: "Brian Weatherson"
 date: "September 6, 2026"
 ---
@@ -60,9 +60,11 @@ When you set up a decision problem, you have to say what the probabilities are o
 I imagine that everyone here knows at least roughly what probabilities are. But just to have everything on the record, a probability function (as we're using the notion) is a function $\Pr$ from propositions to real numbers in $[0, 1]$ satisfying:
 
 $$
-\Pr(\top) = 1 \\
-\Pr(\bottom) = 0 \\
-\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = Pr(A) + Pr(B)
+\begin{align*}
+&\Pr(\top) = 1 \\
+&\Pr(\bot) = 0 \\
+&\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = Pr(A) + Pr(B)
+\end{align*}
 $$
 
 ## Conditional Probability
@@ -159,8 +161,10 @@ The premises say, somewhat plausibly, that $a_1 > a_3$, and $a_2 > a_4$.
 Then plugging in the formula for expected value, we get
 
 $$
-E(B) = wa_1 + (1-w)a_2 \\
-E(R) = wa_3 + (1-w)a_4
+\begin{align*}
+E(B) &= wa_1 + (1-w)a_2 \\
+E(R) &= wa_3 + (1-w)a_4
+\end{align*}
 $$
 
 And given that both $w$ and $1-w$ are non-negative, with at least one positive, and $a_1 > a_3$, and $a_2 > a_4$, it follows that $E(B) > E(R)$.
