@@ -5,6 +5,229 @@ author: "Brian Weatherson"
 date: "September 6, 2026"
 ---
 
+# Expected Utility
+
+## Basic Decision Theory
+
+The basic structure of a decision problem has three parts:
+
+1. Acts
+2. States
+3. Payoffs
+
+. . .
+
+The aim is identify which acts are worth choosing.
+
+## Payoffs
+
+We assume that the chooser has a **utility function**, usually written $u$.
+
+This is a function from **outcomes**, i.e., act-state pairs, to **real numbers**.
+
+Some people take these to measure **how good** the outcome is for the chooser; others take them to measure how much the chooser **desires** the outcome.
+
+The simplest approach is to presuppose the view on which these are the same thing, the so-called **preference-satisfaction theory** of welfare.
+
+This theory is controversial (to put it mildly) but we'll simply assume it.
+
+## Payoffs
+
+Even still, it's not obvious why payoffs should be real numbers.
+
+Saying that utilities are real numbers has two implications for their structure.
+
+First, any two utilities are comparable. Either the first is greater, or the second is greater, or the two are equal.
+
+Second, this ratio has to be finite, as long as $u(a) > u(b) > u(c)$.
+
+$$
+\frac{u(a) - u(b)}{u(b) - u(c)}
+$$
+
+## Utility
+
+One slight oddity of this way of thinking about utilities is that utility level **zero** is not of any particular significance.
+
+All that's going to matter are differences between utilities, and ratios of these differences.
+
+By default, we'll set 0 as the utility of the status quo, but that's just a convention with no  content.
+
+## Probability
+
+When you set up a decision problem, you have to say what the probabilities are of every state.
+
+I imagine that everyone here knows at least roughly what probabilities are. But just to have everything on the record, a probability function (as we're using the notion) is a function $\Pr$ from propositions to real numbers in $[0, 1]$ satisfying:
+
+$$
+\Pr(\top) = 1 \\
+\Pr(\bottom) = 0 \\
+\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = Pr(A) + Pr(B)
+$$
+
+## Conditional Probability
+
+We also define a notion of conditional probability.
+
+Read $\Pr(A | B)$ as the probability of $A$ *given* $B$. We take this to satisfy:
+
+$$
+\Pr(A | B)\Pr(B) = \Pr(A \wedge B)
+$$
+
+. . .
+
+Sometimes this is taken to be a **definition** of $\Pr(A | B)$ after dividing both sides by $\Pr(B)$. But this leads to division by 0 complications; we won't take this to be definitive.
+
+## Conditionalisation
+
+Probabilities change with evidence. The usual rule for how they change is called **conditionalisation**. It says that probabilities should update as follows.
+
+$$
+\Pr_E(H) = Pr(H | E)
+$$
+
+In words, the probability of hypothesis $H$ after getting evidence $E$ is the old conditional probability of $H$ given $E$.
+
+. . .
+
+Note that this is a philosophical claim, not a mathematical theorem. And we'll also be quibbling with it a bit around the edges.
+
+## Expected Value
+
+Assuming that $\Pr$ measures the probability of the states, then the **expected value** of each action is given by this formula:
+
+$$
+E(A) = \sum_{S \in \mathcal{S}} \Pr(S)u(A \wedge S)
+$$
+
+That is, we sum across the states, in each case multiplying the probability of the state by the utility of performing that action in that state.
+
+. . .
+
+Then the one and only rule is **Maximise expected utility**!
+
+## Example
+
+|   |   Rain (Pr = 0.6)  |  Dry (Pr = 0.4) |
+|---:|:---:|:---:|
+| Take Umbrella  |   6    |   8   |
+| Leave Umbrella |   0    |   10  |
+
+: The umbrella problem again {#tbl-umbrella-again}
+
+. . .
+
+The expected utility of taking the umbrella is $6 \times 0.6 + 8 \times 0.4 = 6.8$.
+
+The expected utility of leaving the umbrella is $0 \times 0.6 + 10 \times 0.4 = 4$.
+
+Take the umbrella!
+
+
+# What Are States
+
+## A Puzzle about Causation
+
+In _Henry V_, Shakespeare has King Henry give the following argument to his staff before Agincourt. The background is that the staff want to wait for reinforcements, but Henry wants to charge into battle. Here is his argument (slightly formalised, but only a little).
+
+1. If we're going to win, it's better to win with fewer men, because we'll get more praise.
+2. If we're going to lose, it's better to lose with fewer men, because it will involve a smaller loss.
+3. So, either way, we should battle rather than wait for reinforcements.
+
+. . .
+
+I'm no military planner, but that strikes me as the worst argument in the entire history of military planning, and frankly I think it's slanderous that Shakespeare attributed it to Henry.
+
+## A Puzzle about Causation
+
+But you might think it looks like a good argument once you formalise it using these tables.
+
+|     |    Win (Pr = $w$)   |   Lose (Pr = $1-w$)  |
+|---:|:---:|:----:|
+| Battle |  $a_1$   |  $a_2$   |
+| Reinforce   |  $a_3$   |   $a_4$  |
+
+: King Henry's decision {#tbl-agincourt}
+
+. . .
+
+The premises say, somewhat plausibly, that $a_1 > a_3$, and $a_2 > a_4$.
+
+## A Puzzle about Causation
+
+Then plugging in the formula for expected value, we get
+
+$$
+E(B) = wa_1 + (1-w)a_2 \\
+E(R) = wa_3 + (1-w)a_4
+$$
+
+And given that both $w$ and $1-w$ are non-negative, with at least one positive, and $a_1 > a_3$, and $a_2 > a_4$, it follows that $E(B) > E(R)$.
+
+. . .
+
+This is an absurd result; what's gone wrong?
+
+## A Puzzle about Causation
+
+The problem is that there is no such thing as *the* probability of winning or losing.
+
+. . .
+
+There is the probability of winning with reinforcements, and the probability of winning without reinforcements, and they are, crucially, different.
+
+## A Puzzle about Causation
+
+In philosophy, the main way people react to this is by **changing the formula** for expected value.
+
+One approach, called **Evidential Decision Theory**, says that instead of $\Pr(S)$, you should use $\Pr(S | A)$.
+
+Another approach, sometimes called **Causal Decision Theory** (though that name is used for many different theories), says that you should use $\Pr(A \rightarrow S)$, for some understanding of $\rightarrow$.
+
+## A Puzzle about Causation
+
+In game theory, the standard way to handle this problem is to put a **constraint on what counts as a state**.
+
+In particular, it's only a properly formed problem if the acts and the states are causally independent.
+
+This basically ends up being a version of Causal Decision Theory, though perhaps not exactly the same version.
+
+## Newcomb's Problem
+
+Famously, these two views about how to handle the Henry V problem come apart in the case called **Newcomb's Problem** (named after the physicist who introduced it to philosophers).
+
+:::{.callout-note appearance="minimal"}
+Human will be presented with two boxes, and will be told they can either take one box, the left one, or two boxes (i.e., both of them). The right hand box has \$1,000 in it. The left hand box won't be opened until a decision is made. A demon, who is very good at predictions, has predicted human's choice. If Demon predicted human would take 1 box, \$1,000,000 was put in the left box. If Demon predicted human would take 2 boxes, nothing was put in the left box.
+:::
+
+## Newcomb's Problem
+
+The puzzle here is that there seem to be good arguments for each option.
+
+1. People who take one box tend to get a million dollars; people who take two boxes tend to get a thousand dollars. It's better to get a million!
+2. Whatever demon did, human will get \$1,000 more if they take both boxes. Anyone who knew what was in the left box would tell human to take both boxes, whatever is there, and human knows this.
+
+## Newcomb's Problem
+
+We're *not* going to resolve this problem here. I just want you to note three things.
+
+1. If you calculate expected utilities with conditional probabilities, you get the 1 box, Evidential, theory. If you use probabilities of (subjunctive) conditionals, you get the 2 box, Causal, theory.
+2. Insisting on acts and states being causally separate and then using the simple theory for expected utility also leads to the 2 box answer.
+3. This is all going to be related to what we say about Prisoners' Dilemma.  
+
+# Dynamic Choice
+
+*Maximise expected utility* is a claim about what you should do in a one-shot choice.
+
+How does it extend to choices over time?
+
+. . .
+
+It turns out there are two prominent answers:
+
+1. The **resolute** theory says that if you are going to face a series of choices, 
+
 <!--
 Basic picture, EU maximisation
 1. What are probabilities - additive normalised measures; explain both parts - motivate with accuracy dominance
