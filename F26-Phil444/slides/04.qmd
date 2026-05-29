@@ -1,0 +1,465 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 4: Nash Equilibrium and the Limits of Dominance"
+author: "Brian Weatherson"
+date: "September 10, 2026"
+---
+
+# Common Knowledge
+
+## Recap
+
+Last time we worked through **iterated elimination of strictly dominated strategies** (IESDS).
+
+. . .
+
+This procedure says to delete any strategy that's strictly dominated for some player. Because of the way dominance is defined, some strategies might *become* dominated in the simpler game. So in the remaining game, cross out any strategy that's now strictly dominated. Keep going until no more deletions are possible.
+
+. . .
+
+For some games, this leaves exactly one strategy per player. For most games, it does not.
+
+## A Quiet Assumption
+
+Suppose we run IESDS on a game and it takes three rounds before we stop.
+
+. . .
+
+Round 1 assumes each player is rational, in the minimal sense of not playing a strictly dominated strategy.
+
+. . .
+
+Round 2 assumes each player **knows** the others are rational, so they can rule out the strategies eliminated in round 1. If they don't know this, they wouldn't feel confident assuming that the dominated strategies won't be played.
+
+. . .
+
+Round 3 assumes each player **knows** that each player **knows** the others are rational, so they can rule out what was eliminated in round 2. If they don't know this, round three deletions won't be justified.
+
+. . .
+
+A long chain of deletions uses many layers of "I know that you know that I know..." about rationality.
+
+## Iterated Knowledge
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+![A vintage steam train](steam_train.jpg)
+
+:::
+
+::: {.column width="55%"}
+
+The dirty faces puzzle is a famous way to illustrate just how strong iterated mutual knowledge of rationality is.
+
+Three logicians are on an old steam train. Each could have a smudge on their face from the soot.
+
+In fact, they all have smudges, though they can only see the others.
+
+:::
+
+::::
+
+## Dirty Faces
+
+The conductor announces:
+
+::: {.callout-note appearance="minimal"}
+At least one of you has a smudge on your face.
+:::
+
+Each logician can see the others' faces, but not their own, so this doesn't look like an interesting *announcement*. 
+
+. . .
+
+The conductor periodically asks:
+
+::: {.callout-note appearance="minimal"}
+Does anyone now know whether they have a smudge?
+:::
+
+Suppose, in fact, all three of them have smudges.
+
+## Round One
+
+Each logician sees two smudged faces but not their own.
+
+. . .
+
+So each thinks: "I see two smudges. At least one of us has a smudge, which I already knew, since I can see two. But I don't yet know whether I have a smudge myself."
+
+. . .
+
+No one says yes.
+
+## Round Two
+
+Now each logician reasons:
+
+. . .
+
+"If only one of us had been smudged, that person would have seen two clean faces and concluded it must be them, since the conductor said at least one. So they would have said yes in round one. No one said yes, so at least two of us are smudged."
+
+. . .
+
+"I see two smudges. So either both of them are smudged and I'm not, or all three of us are smudged. I still don't know which."
+
+. . .
+
+No one says yes.
+
+## Round Three
+
+Now each logician reasons further:
+
+. . .
+
+"If exactly two of us were smudged, then each of those two would see one smudge and one clean face. Knowing from round two that at least two are smudged, they would conclude that the second smudge must be on them. So they would have said yes in round two. But no one said yes."
+
+. . .
+
+"Therefore all three of us are smudged. I have a smudge."
+
+. . .
+
+All three say yes.
+
+## What the Puzzle Shows
+
+Each successive round of "no one says yes" gives the logicians a new piece of information.
+
+. . .
+
+But it only does so if each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on, to a depth that grows with the number of rounds.
+
+## What the Puzzle Shows
+
+There are two things to take away from the puzzle.
+
+1. These long reasoning chains start to look implausible as they get long enough.
+2. The standard assumption of **common knowledge** of rationality is really strong. In the puzzle, it isn't common knowledge that even one person has a smudge, even though they can both see two smudges. That's why the announcement makes a difference.
+
+This is exactly the structure that IESDS leans on. Each round of deletion uses one more layer of "I know that you know that..." about rationality. Long IESDS arguments make very strong assumptions.
+
+## Paradoxes of Common Knowledge
+
+There are also genuine paradoxes about common knowledge of rationality, especially in dynamic games. We will come back to those.
+
+# Best Responses
+
+## Best Response
+
+A **best response** for player $i$ to what the other players do is a strategy that gets player $i$ the highest possible payoff, holding fixed what the other players do.
+
+. . .
+
+If two or more strategies tie for the highest payoff, both count as best responses. 
+
+This is terrrible terminology, but we're stuck with it; it should really be **at least tied for best response**, but I guess that's not so snappy.
+
+## Notation: Bold the Best
+
+We will mark best responses by bolding the relevant payoff.
+
+. . .
+
+|       | L          | R          |
+|------:|:----------:|:----------:|
+| **U** | **3**, **3** | 0, 0       |
+| **D** | 0, 0       | **2**, **2** |
+
+: A coordination game with best responses marked {#tbl-br-coord}
+
+. . .
+
+Look at Row's payoff in the (U, L) cell. I've bolded it because **U** is Row's best response to Column playing **L**.
+
+. . .
+
+I've *also* bolded Column's response in that cell, because **L** is the best response to **U**. 
+
+The two facts marked by these two boldings are *different*, and they can come apart.
+
+## A Best-Response Walk-Through
+
+|         | L     | R     |
+|--------:|:-----:|:-----:|
+| **U**   | 3, 0  | 0, 1  |
+| **D**   | 1, 2  | 2, 1  |
+
+. . .
+
+What's Row's best response to L? Row's payoffs in column L are 3 and 1. So U.
+
+. . .
+
+What's Row's best response to R? Payoffs are 0 and 2. So D.
+
+. . .
+
+What's Column's best response to U? Column's payoffs in row U are 0 and 1. So R.
+
+. . .
+
+What's Column's best response to D? Payoffs are 2 and 1. So L.
+
+## Same Game, Marked Up
+
+|         | L         | R         |
+|--------:|:---------:|:---------:|
+| **U**   | **3**, 0  | 0, **1**  |
+| **D**   | 1, **2**  | **2**, 1  |
+
+: Best responses marked. {#tbl-no-pure-ne}
+
+Note in this game, **no** cell has both responses marked. There is no outcome (on the table) that is a best response for both players.
+
+# Nash Equilibrium
+
+## Definition
+
+A **Nash equilibrium** is a strategy profile in which every player is playing a best response to what the others are doing.
+
+. . .
+
+In our bolded-payoff notation: a Nash equilibrium is a cell in which every payoff is bold.
+
+## Back to the Coordination Game
+
+|       | L          | R          |
+|------:|:----------:|:----------:|
+| **U** | **3**, **3** | 0, 0       |
+| **D** | 0, 0       | **2**, **2** |
+
+. . .
+
+There are two Nash equilibria: (U, L) and (D, R). Both cells have every payoff bolded.
+
+## Nash and Game Play
+
+Here's another rule for play in games:
+
+::: {.callout-important appearance="minimal"}
+Only play strategies that are part of a Nash equilibrium.
+:::
+
+. . .
+
+This raises two natural questions:
+
+1. What should you do in games like this where there are two equilibria?
+2. What should you do in games like the one we saw earlier where there are **no** cells with both values bolded, and no (pure strategy) Nash equilibria.
+
+. . .
+
+We'll come back to Q2 next time.
+
+# Strict and Weak Dominance
+
+## Strict Dominance, Reminder
+
+Strategy $s$ **strictly dominates** strategy $s'$ for player $i$ when $s$ gives a strictly higher payoff than $s'$ for every choice the other players might make.
+
+. . .
+
+If $s$ strictly dominates $s'$, then $s'$ is never a best response, and a rational player should not play it.
+
+## Weak Dominance
+
+Strategy $s$ **weakly dominates** strategy $s'$ for player $i$ when $s$ gives **at least as high** a payoff as $s'$ for every choice the other players might make, and a **strictly higher** payoff for at least one such choice.
+
+. . .
+
+If $s$ weakly dominates $s'$, then $s'$ is sometimes tied with $s$ and sometimes worse, but never better.
+
+. . .
+
+This sounds like a similar concept to strict dominance, but it behaves very differently when we try to use it to solve games.
+
+# Three Puzzles About Weak Dominance
+
+## A Three-Player Coordination Game
+
+Consider a three-player game where players get 1 each at (U, L, F), and 0 each everywhere else.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+|       | L         | R         |
+|------:|:---------:|:---------:|
+| **U** | 1, 1, 1   | 0, 0, 0   |
+| **D** | 0, 0, 0   | 0, 0, 0   |
+
+: P3 plays F {#tbl-puz1-f}
+
+:::
+
+::: {.column width="50%"}
+
+|       | L         | R         |
+|------:|:---------:|:---------:|
+| **U** | 0, 0, 0   | 0, 0, 0   |
+| **D** | 0, 0, 0   | 0, 0, 0   |
+
+: P3 plays B {#tbl-puz1-b}
+
+:::
+
+::::
+
+## Puzzle One: Equilibria Eliminated
+
+Notice that U weakly dominates D for P1. (U is strictly better at (L, F); tied elsewhere.) Similarly L weakly dominates R for P2 and F weakly dominates B for P3.
+
+. . .
+
+Iterated weak dominance therefore picks out (U, L, F).
+
+. . .
+
+But (D, R, B) is also a Nash equilibrium. At that cell, no player can do better by deviating: every payoff is 0, and switching alone keeps you at 0. There are several such Nash equilibria in this game.
+
+. . .
+
+So iterated weak dominance **eliminates Nash equilibria**. Should it?
+
+## A Different Three-Player Game
+
+Now consider the dual: players get 1 each everywhere except (D, R, B), where they get 0.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+|       | L         | R         |
+|------:|:---------:|:---------:|
+| **U** | 1, 1, 1   | 1, 1, 1   |
+| **D** | 1, 1, 1   | 1, 1, 1   |
+
+: P3 plays F {#tbl-puz2-f}
+
+:::
+
+::: {.column width="50%"}
+
+|       | L         | R         |
+|------:|:---------:|:---------:|
+| **U** | 1, 1, 1   | 1, 1, 1   |
+| **D** | 1, 1, 1   | 0, 0, 0   |
+
+: P3 plays B {#tbl-puz2-b}
+
+:::
+
+::::
+
+## Puzzle Two: Why Bother?
+
+Once again U weakly dominates D, L weakly dominates R, and F weakly dominates B.
+
+. . .
+
+So weak dominance reasoning says: end up at (U, L, F).
+
+. . .
+
+But look at the game. Almost every cell pays 1. If the players have ended up at, say, (U, R, B), they are all getting 1 already. None of them has an incentive to switch, because switching alone keeps you at 1.
+
+. . .
+
+Why should anyone bother to follow weak dominance reasoning here? It tells them to move when there is no payoff reason to move. The only "reason" is to avoid (D, R, B) — but if everyone is reasoning that way, no one would have gone there in the first place.
+
+## A Different Order Question
+
+Consider this two-player game.
+
+|       | L      | R      |
+|------:|:------:|:------:|
+| **A** | 4, 0   | 0, 0   |
+| **T** | 3, 2   | 2, 2   |
+| **M** | 1, 1   | 0, 0   |
+| **B** | 0, 0   | 1, 1   |
+
+: A game where order will turn out to matter {#tbl-order-game}
+
+. . .
+
+For Row: M is weakly dominated by A (tied at R, A is strictly better at L). And B is strictly dominated by T (T is strictly better at both columns).
+
+. . .
+
+For Column: neither L nor R is weakly dominated at the start. L is strictly better when Row plays M; R is strictly better when Row plays B.
+
+. . .
+
+So we have two natural ways to begin the iterated deletion: delete M first, or delete B first.
+
+## Path One: Delete M First
+
+Delete M, which is weakly dominated by A. The remaining game has rows A, T, B.
+
+. . .
+
+Now look at Column. The payoffs at A and T are tied. But at B, L gives 0 and R gives 1. So R weakly dominates L. Delete L.
+
+. . .
+
+Now Row faces R only. Row's payoffs are A = 0, T = 2, B = 1. T strictly dominates both A and B. Delete them.
+
+. . .
+
+End of path one: **(T, R), payoffs (2, 2)**.
+
+## Path Two: Delete B First
+
+Delete B, which is strictly dominated by T. The remaining game has rows A, T, M.
+
+. . .
+
+Now look at Column. The payoffs at A and T are tied. But at M, L gives 1 and R gives 0. So L weakly dominates R. Delete R.
+
+. . .
+
+Now Row faces L only. Row's payoffs are A = 4, T = 3, M = 1. A strictly dominates both T and M. Delete them.
+
+. . .
+
+End of path two: **(A, L), payoffs (4, 0)**.
+
+## Puzzle Three: Order Matters
+
+The two paths give different cells, and different payoffs:
+
+::: {.nonincremental}
+- Path one: (T, R), payoffs (2, 2).
+- Path two: (A, L), payoffs (4, 0).
+:::
+
+. . .
+
+Worse, the two paths favor different players. Row prefers path two and would argue we should delete strictly dominated B first. Column prefers path one and would argue we should delete weakly dominated M first.
+
+. . .
+
+Iterated weak dominance is **path-dependent** in a way iterated strict dominance is not.
+
+# Where This Leaves Us
+
+## Summary of Where We've Got To
+
+::: {.nonincremental}
+- Best response and Nash equilibrium give us a much cleaner way to talk about what rational play might look like in a game.
+- Some games have one Nash equilibrium, some have many, some have none.
+- Strict dominance is well-behaved as a solution method: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.
+- Weak dominance is messier. It eliminates strategies that are part of Nash equilibria, it recommends moves with no payoff reason behind them, and it depends on deletion order.
+:::
+
+## Next Time
+
+For the game we saw earlier with no pure Nash equilibrium, we need something new: **mixed strategies**.
+
+. . .
+
+We'll introduce them, work out how to compute mixed-strategy equilibria, and then raise a famous puzzle about what mixed strategies even mean. That puzzle will come back later in the course, when we have more tools to address it.
