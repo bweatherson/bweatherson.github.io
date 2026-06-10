@@ -23,26 +23,14 @@ format:
       navigation-mode: vertical
       controls: false
       menu: true
-  beamer:
-      theme: metropolis
-      colortheme: default
-      classoption: handout
-      fonttheme: structurebold
-      slide-level: 2
-      section-titles: false
-      toc: false
-      number-sections: false
+  clean-typst:
+      aspect-ratio: "16-9"
+      handout: true
+      accent: "006699"
+      accent2: "6699CC"
       highlight-style: github
       code-line-numbers: true
-      pdf-engine: xelatex
-      keep-tex: false
-      header-includes: |
-        \usepackage{fontspec}
-        \setmainfont{Arial}
-        \setmonofont[Scale=0.8]{Fira Mono}
-        \definecolor{primary}{RGB}{0, 102, 153}
-        \definecolor{secondary}{RGB}{102, 153, 204}
-        \setbeamercolor{frametitle}{fg=primary}
-        \setbeamercolor{title}{fg=primary}
-        \setbeamertemplate{footline}[frame number]
-        \setbeamertemplate{navigation symbols}{}
+      fontsize: "19pt"
+      pdf-standard: ["ua-1"]
+      lang: en
+      include-in-header: "custom.typ"

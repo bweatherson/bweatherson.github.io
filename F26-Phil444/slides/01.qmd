@@ -5,6 +5,8 @@ author: "Brian Weatherson"
 date: "September 1, 2026"
 ---
 
+# Introduction
+
 ## Two Questions
 
 This course is organised around two questions.
@@ -155,7 +157,7 @@ There are three (numbered) voters, and three (lettered) options. Each column is 
 
 : @tbl-condorcet: Condorcet's Paradox
 
-Let's say we adopt the rule that the group prefers $X$ to $Y$ when a majority of its members do. Then we get that the group prefers A to B, and prefers B to C, and prefers C to A. Oops!
+Let's say we adopt the rule that the group prefers X to Y when a majority of its members do. Then we get that the group prefers A to B, and prefers B to C, and prefers C to A. Oops!
 
 ## Generalizations
 
