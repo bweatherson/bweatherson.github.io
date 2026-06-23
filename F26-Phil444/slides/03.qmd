@@ -25,7 +25,7 @@ Examples of this kind of game:
 
 ## Simplifying Assumptions
 
-Those two examples have two things in common that we'll want to eventually drop.
+Those two examples have three things in common that we'll want to eventually drop.
 
 - They are **two-player games**.
 - They are **zero-sum**.
@@ -286,7 +286,7 @@ Consider this game:
 - But for Column, they get more playing **L** than **R** no matter what; **L** strictly dominates **R**.
 - And if we know that Column will not play **R**, then on all *remaining* strategies for Column, it's best for Row to choose **U**.
 
-## Iterated Elimation
+## Iterated Elimination
 
 The thought here is that we can sometimes get to a solution of a game by going through and eliminating dominated strategies.
 

@@ -68,9 +68,6 @@ advdate <- function(obj, adv) {
 | **Email**: weath@umich.edu
 | **Web**: canvas.umich.edu
 | **Office Hours**: TBD
-| **Discussion Section Leader**: TBD
-| **Email**: TBD
-| **Office Hours**: TBD
 
 &nbsp;
 
@@ -80,7 +77,7 @@ advdate <- function(obj, adv) {
 - The first half is on game theory: what is rational choice when the unknowns are the actions of other rational agents?
 - The second half works through Amartya Sen's *Collective Choice and Social Welfare* (2017 expanded edition): what does it mean for a group to choose, and how can individual judgments be combined into collective ones?
 - The mathematics is more demanding than a typical philosophy course but does not require calculus. The level is roughly that of formal work in a philosophy journal.
-- Assessment consists of four short assignments (10% each), two essays (25% each), and discussion section participation (10%).
+- Assessment consists of two essays (25% each), eight quizzes with the best six counting for 40% in total, and class participation (10%).
 
 # Course Description
 
@@ -102,21 +99,21 @@ Game theory readings will be a mix of lecture notes, classic papers (Akerlof on 
 
 # Course Requirements
 
-- There will be 4 short assignments, each worth 10% of the grade
-- There will be 2 essays, each worth 25% of the grade.
-- Lecture participation will not be graded, and we won't take attendance here. But 10% of the grade is for discussion section participation (and any other assignments the discussion section leader chooses to include).
+- There will be 2 essays, each worth 25% of the grade, one for each half of the course.
+- There will be 8 quizzes over the semester. Your best 6 results count, and together they are worth 40% of the grade.
+- 10% of the grade is for participation in class.
 
 # Summary of Grading System
 
-1. Short assignments - 4 assignments, 10% each: 40%
-2. Essays - 2 essays, 25% each: 50%
-3. Discussion section participation. (10%)
+1. Essays - 2 essays, 25% each: 50%
+2. Quizzes - best 6 of 8: 40%
+3. Class participation: 10%
 
 # Canvas
 
 There is a Canvas site for this course, which can be accessed from <https://canvas.umich.edu>. Course documents will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.
 
-There is also a github site for the course which contains more documents, and it is at <https://bweatherson.github.io/F26-Phil444_site/>.
+There is also a github site for the course which contains more documents, and it is at <https://bweatherson.github.io/F26-Phil444-site/>.
 
 \pagebreak
 
@@ -130,8 +127,6 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 
 **Topic**:    Course overview and the two organizing questions. A first pass at expected value, and the puzzle that arises when the "states" are other rational agents. Motivating examples: a coordination problem and the Prisoner's Dilemma.
 **Reading**:    None.
-
-**NOTE**: No discussion section this week.
 
 ### `r advdate(thu, 1)` (Lecture 2)
 
@@ -150,6 +145,8 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 **Topic**:    Nash equilibrium.
 **Reading**:    TBD.
 
+**Quiz**:    Quiz 1, in class.
+
 ## Week 3: Mixed Strategies and Rationalizability
 
 ### `r advdate(tue, 3)` (Lecture 5)
@@ -161,6 +158,8 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 
 **Topic**:    Rationalizability; common knowledge of rationality.
 **Reading**:    TBD.
+
+**Quiz**:    Quiz 2, in class.
 
 ## Week 4: Dynamic Games
 
@@ -174,7 +173,7 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 **Topic**:    Backward induction; the centipede paradox.
 **Reading**:    TBD.
 
-**Assignment**:    First short assignment due `r advdate(fri, 4)` at 5pm.
+**Quiz**:    Quiz 3, in class.
 
 ## Week 5: Forward Induction and Bayesian Games
 
@@ -200,6 +199,8 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 **Topic**:    The beer-quiche game; the intuitive criterion.
 **Reading**:    In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria" (1987).
 
+**Quiz**:    Quiz 4, in class.
+
 ## Week 7: Asymmetric Information
 
 ### `r advdate(tue, 7)` (Lecture 13)
@@ -211,8 +212,6 @@ Readings should be done before the scheduled class. Lectures 1-14 cover game the
 
 **Topic**:    Akerlof on lemons (rigorous treatment).
 **Reading**:    George Akerlof, "The Market for Lemons" (1970).
-
-**Assignment**:    Second short assignment due `r advdate(fri, 7)` at 5pm.
 
 ## Week 8: Transition
 
@@ -251,6 +250,8 @@ No class -- Fall Study Break (October 19-20).
 **Topic**:    Choice versus orderings; social decision functions.
 **Reading**:    CCSW: Ch 4 (Choice Versus Orderings); Ch 4* (Social Decision Functions).
 
+**Quiz**:    Quiz 5, in class.
+
 ## Week 11: Conditions and the Liberal Paradox
 
 ### `r advdate(tue, 11)` (Lecture 20)
@@ -263,7 +264,7 @@ No class -- Fall Study Break (October 19-20).
 **Topic**:    Conflicts and dilemmas; the Paretian liberal.
 **Reading**:    CCSW: Ch 6 (Conflicts and Dilemmas); Ch 6* (The Liberal Paradox).
 
-**Assignment**:    Third short assignment due `r advdate(fri, 11)` at 5pm.
+**Quiz**:    Quiz 6, in class.
 
 ## Week 12: Interpersonal Comparison
 
@@ -277,12 +278,16 @@ No class -- Fall Study Break (October 19-20).
 **Topic**:    Cardinality with or without comparability.
 **Reading**:    CCSW: Ch 8 (Cardinality With or Without Comparability); Ch 8* (Bargains and Social Welfare Functions).
 
+**Quiz**:    Quiz 7, in class.
+
 ## Week 13: Equity and Justice
 
 ### `r advdate(tue, 13)` (Lecture 24)
 
 **Topic**:    Equity and justice; impersonality.
 **Reading**:    CCSW: Ch 9 (Equity and Justice); Ch 9* (Impersonality and Collective Quasi-Orderings).
+
+**Quiz**:    Quiz 8, in class. (Thursday is Thanksgiving recess, so this week's quiz is on Tuesday.)
 
 ### `r advdate(thu, 13)`
 
@@ -299,8 +304,6 @@ No class -- Thanksgiving recess (November 25-27).
 
 **Topic**:    Justice and equity in the expanded edition; social welfare evaluation.
 **Reading**:    CCSW: Ch A3 (Justice and Equity); Ch A3* (Social Welfare Evaluation).
-
-**Assignment**:    Fourth short assignment due `r advdate(fri, 14)` at 5pm.
 
 ## Week 15: Democracy, Rights, Reasoning
 

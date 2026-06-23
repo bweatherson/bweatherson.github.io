@@ -1,6 +1,6 @@
 ---
 title: "Schelling's Segregation Model"
-date: 2/23/2026
+date: 2/25/2026
 format:
     revealjs: default
     beamer: default
@@ -17,8 +17,8 @@ Did anyone find any surprising results from playing with the model?
 Imagine a checkerboard populated by two groups (e.g., blue and red).
 
 - Each cell is occupied by one agent or is empty.
-- Each agent has **neighbours** (the eight surrounding cells).
-- Each agent has a **tolerance threshold**: the minimum fraction of neighbours that must be "like me" for the agent to stay put.
+- Each agent has **neighbors** (the eight surrounding cells).
+- Each agent has a **tolerance threshold**: the minimum fraction of neighbors that must be "like me" for the agent to stay put.
 - If the threshold is not met, the agent moves to a random empty cell.
 
 . . .
@@ -32,15 +32,15 @@ You can study lots of questions with this, but the one that gets most discussed 
 | Grid size | $n \times n$ board |
 | Vacancy rate | Fraction of cells left empty |
 | Group ratio | Relative size of the two groups |
-| **Threshold** | Minimum same-type neighbour fraction to stay |
+| **Threshold** | Minimum same-type neighbor fraction to stay |
 
 The threshold is the crucial variable. What Schelling noticed was that we get lots of segregation even when it is set **well below 50%**.
 
 ## The Algorithm
 
 1. Place agents randomly on the grid.
-2. For each agent, count same-type and different-type neighbours. (Remember that they will typically have fewer than 8 neighbours.)
-3. If the fraction of same-type neighbours is below threshold, mark the agent as **unhappy**.
+2. For each agent, count same-type and different-type neighbors. (Remember that they will typically have fewer than 8 neighbors.)
+3. If the fraction of same-type neighbors is below threshold, mark the agent as **unhappy**.
 4. Move all unhappy agents to random empty cells.
 5. Repeat until equilibrium (no unhappy agents) or a step limit is reached.
 
@@ -60,7 +60,7 @@ This is one of the earliest and simplest **agent-based models** (ABMs).
 ### Threshold ≈ 35%
 
 - Set the tolerance threshold to be around 35%.
-- Each agent is happy as long as roughly **1 in 3** neighbours are like them.
+- Each agent is happy as long as roughly **1 in 3** neighbors are like them.
 - That does not sound wildly intolerant.
 :::
 
@@ -83,7 +83,7 @@ This is one of the earliest and simplest **agent-based models** (ABMs).
 The mechanism is a **tipping cascade**:
 
 1. A few agents on the boundary are *just barely* unhappy.
-2. They move, which changes the neighbourhood composition for those left behind.
+2. They move, which changes the neighborhood composition for those left behind.
 3. Previously happy agents now fall below their threshold.
 4. They move in turn, triggering further departures.
 
@@ -193,14 +193,14 @@ What happened in real-life cases where the A's had those preferences?
 - They used some mix of laws, practices, and outright violence, to get rid of the B's.
 - This is not something the model represents.
 
-## What is Being Modelled?
+## What is Being Modeled?
 
 In Schelling's original discussion, he mentions a particular story that motivated the case.
 
 - At a particular summer camp, the kids didn't seem particularly racist when they had to interact in activities.
 - But when they sat wherever they wanted for lunch, they ended up at racially homogenous tables.
 
-## What is Being Modelled?
+## What is Being Modeled?
 
 That kind of informal grouping looks much more like the model than housing. It's useful to look around you and see what kinds of homogenous and heterogenous groups there are, and long which dimensions they are homogenous and heterogenous.
 
@@ -215,7 +215,7 @@ Think of all the ways in which housing is not like what we see in the model.
 
 The point is not just that the model is unrealistic in these respects. Of course it's unrealistic; it's a bunch of points on a board.
 
-The point is that the behaviour in the model is being driven by the ways in which it is unrealistic.
+The point is that the behavior in the model is being driven by the ways in which it is unrealistic.
 
 # Models
 

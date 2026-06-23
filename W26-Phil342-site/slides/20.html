@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-03-30">
   <title>The Zollman Effect</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-48377cb64f814fd5afecd050e3f13ab9.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7a9dee3f40ff4b0766c8634b129d08e8.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -283,7 +286,7 @@
 <li class="fragment">The payoffs are simple; often either just win or lose on each round.</li>
 <li class="fragment">Each arm has a different probability of winning.</li>
 <li class="fragment">The players have a rational prior probability of what each of those probabilities are.</li>
-<li class="fragment">Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but how any arm has drifted.</li>
+<li class="fragment">Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but not how any arm has drifted.</li>
 <li class="fragment">If the player chooses an option, they observe whether they win or lose, but not whether they would have won/lost if they’d chosen another option.</li>
 </ol>
 </section>
@@ -298,7 +301,7 @@
 </section>
 <section class="slide level2">
 <h2>Scientific Application</h2>
-<p>They are relevant to science is a straightforward way.</p>
+<p>They are relevant to science in a straightforward way.</p>
 <ul>
 <li class="fragment">Experiments are difficult, and cost time and money.</li>
 <li class="fragment">You don’t know what you would have got from doing some other experiment.</li>
@@ -307,15 +310,15 @@
 </section>
 <section class="slide level2">
 <h2>Back to the Model</h2>
-<p>Each round, every scientist performs an experiment on whichever treatment she currently favours. In bandit terms, scientists always <strong>exploit</strong> rather than <strong>explore</strong>.</p>
+<p>Each round, every scientist performs an experiment on whichever treatment she currently favors. In bandit terms, scientists always <strong>exploit</strong> rather than <strong>explore</strong>.</p>
 <div class="fragment">
 <p>She gets a payoff drawn from a distribution that depends on which state the world is actually in. Higher payoffs are more likely when you’re testing the better treatment.</p>
 </div>
 <div class="fragment">
-<p>She then observes her own result <strong>and the results of some of her neighbours</strong>, and updates her beliefs using Bayes’s rule.</p>
+<p>She then observes her own result <strong>and the results of some of her neighbors</strong>, and updates her beliefs using Bayes’s rule.</p>
 </div>
 <div class="fragment">
-<p>The word “some” is doing a lot of work there. Which neighbours she can see depends on the <strong>network structure</strong>.</p>
+<p>The word “some” is doing a lot of work there. Which neighbors she can see depends on the <strong>network structure</strong>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -325,7 +328,7 @@
 <p>Zollman (2007) compares three network structures for communities of the same size:</p>
 </div>
 <div class="fragment">
-<p><strong>Cycle</strong>: scientists arranged in a circle, each seeing only her two immediate neighbours.</p>
+<p><strong>Cycle</strong>: scientists arranged in a circle, each seeing only her two immediate neighbors.</p>
 </div>
 <div class="fragment">
 <p><strong>Wheel</strong>: like a cycle, but one scientist (the “hub”) is connected to everyone else.</p>
@@ -371,7 +374,7 @@
 </section>
 <section class="slide level2">
 <h2>Why Less Communication Helps</h2>
-<p>The mechanism is the one we saw in the toy example with A, B, C and D, but it generalises.</p>
+<p>The mechanism is the one we saw in the toy example with A, B, C and D, but it generalizes.</p>
 <div class="fragment">
 <p>In the complete graph, a streak of bad luck from one scientist’s experiments spreads immediately to everyone. If the unlucky results push enough scientists below 0.5, the whole community abandons the new treatment at once.</p>
 </div>
@@ -383,10 +386,10 @@
 <h2>Inertia</h2>
 <p>Sparsely connected networks have more “inertia” in two senses.</p>
 <div class="fragment">
-<p>First, fewer scientists change their behaviour after any single round of results, because fewer scientists are exposed to any given piece of evidence.</p>
+<p>First, fewer scientists change their behavior after any single round of results, because fewer scientists are exposed to any given piece of evidence.</p>
 </div>
 <div class="fragment">
-<p>Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there’s only one scientist left testing the new approach, she’s seeing negative results from everyone else. In a cycle, she’s only seeing results from two neighbours.</p>
+<p>Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there’s only one scientist left testing the new approach, she’s seeing negative results from everyone else. In a cycle, she’s only seeing results from two neighbors.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -468,12 +471,12 @@
 <p>The scientist mostly tests whichever theory has performed best so far, but occasionally tests alternatives. The rate of exploration decreases over time.</p>
 </div>
 <div class="fragment">
-<p>Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other’s behaviour too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.</p>
+<p>Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other’s behavior too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Good for Groups, Bad for Individuals</h2>
-<p>Consider a group where each scientist has a “favourite theory.” She mostly tests her favourite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.</p>
+<p>Consider a group where each scientist has a “favorite theory.” She mostly tests her favorite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.</p>
 <div class="fragment">
 <p>But as a group, they guarantee that every theory gets tested persistently. The best theory eventually produces enough good results that it propagates through the network, and the whole community converges on it.</p>
 </div>
@@ -482,7 +485,7 @@
 <h2>Why This Matters</h2>
 <p>The second result is the more surprising one. The group succeeds precisely because its members are not individually optimal.</p>
 <div class="fragment">
-<p>Each scientist’s stubbornness about her favourite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.</p>
+<p>Each scientist’s stubbornness about her favorite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.</p>
 </div>
 <div class="fragment">
 <p>This echoes a theme from twentieth century philosophy of science: dogmatic commitment to a theory, which seems irrational for an individual, can benefit a scientific community by preserving the diversity of approaches.</p>
@@ -500,7 +503,7 @@
 </section>
 <section class="slide level2">
 <h2>For Next Time</h2>
-<p>We’ll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarisation, and how outside actors can manipulate epistemic networks.</p>
+<p>We’ll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarization, and how outside actors can manipulate epistemic networks.</p>
 <div class="fragment">
 <p>Read O’Connor, Chapter 4, sections 4.2-4.4, and Rosenstock et al.&nbsp;(2017).</p>
 

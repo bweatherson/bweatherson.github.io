@@ -1,5 +1,5 @@
 ---
-title: "Revisiting Division of Labour"
+title: "Revisiting Division of Labor"
 date: 4/15/2026
 format:
     revealjs:
@@ -35,7 +35,7 @@ So if you hold population size fixed at 400 and vary the ratio of mavericks to f
 
 Weisberg and Muldoon's argument for mixed populations rests on the claim that being a maverick is costlier. But they don't model those costs. The case for diversity ends up relying on an assumption external to the model.
 
-## Two Kinds of Division of Labour
+## Two Kinds of Division of Labor
 
 Thoma makes a useful distinction between two ways of dividing up labor in a scientific project.
 
@@ -50,13 +50,13 @@ Kitcher and Strevens were interested in the first kind: how do we get scientists
 
 Weisberg and Muldoon are interested in the second: does a community benefit from having some scientists who explore and others who follow?
 
-These are different questions, and it would be a bit surprising if they were modelled the same way..
+These are different questions, and it would be a bit surprising if they were modeled the same way..
 
 ## Problem 1: The Follower Rule
 
 Thoma's first criticism is that the follower strategy is kind of dumb.
 
-In Weisberg and Muldoon's model, followers move to the most significant previously visited patch in their neighbourhood. 
+In Weisberg and Muldoon's model, followers move to the most significant previously visited patch in their neighborhood. 
 
 This means they often, almost always, end up on patches that have already been explored by someone else.
 
@@ -92,7 +92,7 @@ Both Explorers and Extractors avoid mere duplication: they never visit a patch t
 
 . . .
 
-The difference between Explorers and Extractors is in how they respond to prior discoveries in their neighbourhood.
+The difference between Explorers and Extractors is in how they respond to prior discoveries in their neighborhood.
 
 ## The Explorer Rule
 
@@ -204,7 +204,7 @@ Thoma's response draws on the credit economy literature. Social and financial re
 
 . . .
 
-So non-epistemic rewards might sustain a population of Explorers even though the strategy is less epistemically productive for the individual. This connects back to the Kitcher/Strevens point that credit incentives can maintain a socially beneficial division of labour.
+So non-epistemic rewards might sustain a population of Explorers even though the strategy is less epistemically productive for the individual. This connects back to the Kitcher/Strevens point that credit incentives can maintain a socially beneficial division of labor.
 
 # Summing Up
 
@@ -212,11 +212,11 @@ So non-epistemic rewards might sustain a population of Explorers even though the
 
 Thoma's model gives a more convincing case for diversity of research strategy than Weisberg and Muldoon's.
 
-Division of labour between explorers and extractors is beneficial, but only when scientists have enough flexibility and awareness to actually respond to each other's work.
+Division of labor between explorers and extractors is beneficial, but only when scientists have enough flexibility and awareness to actually respond to each other's work.
 
 . . .
 
-The overall lesson from this literature: cognitive diversity in scientific communities can promote progress, but the specific mechanisms matter. Agent-based models help us see when and why diversity helps, and also when modelling choices might be driving the results rather than genuine features of scientific communities.
+The overall lesson from this literature: cognitive diversity in scientific communities can promote progress, but the specific mechanisms matter. Agent-based models help us see when and why diversity helps, and also when modeling choices might be driving the results rather than genuine features of scientific communities.
 
 # Stepping Back
 
@@ -231,7 +231,7 @@ We've now spent several weeks on formal models of scientific communities:
 
 . . .
 
-These are very different models, but a few common themes are worth pulling out, both for thinking about the essay questions and for thinking about agent-based modelling more generally.
+These are very different models, but a few common themes are worth pulling out, both for thinking about the essay questions and for thinking about agent-based modeling more generally.
 
 ## Theme 1: Models as Intuition Arbiters
 
@@ -261,13 +261,13 @@ Rosenstock et al. then tell us that when the signal is moderately strong, it's t
 
 ## Theme 2: Say What's in the Model
 
-Thoma's paper is a nice example of something we've seen repeatedly: modelling arguments often trade on slippage between two things that look the same but aren't.
+Thoma's paper is a nice example of something we've seen repeatedly: modeling arguments often trade on slippage between two things that look the same but aren't.
 
 . . .
 
 In Thoma's case, "diversity of research" is ambiguous between diversity of *approach* (what you work on) and diversity of *strategy* (how you decide what to work on). 
 
-Kitcher and Strevens are modelling the first; Weisberg and Muldoon claim to show something about the second. The conclusions don't transfer automatically.
+Kitcher and Strevens are modeling the first; Weisberg and Muldoon claim to show something about the second. The conclusions don't transfer automatically.
 
 ## Theme 2: Say What's in the Model
 
@@ -309,7 +309,7 @@ By contrast, complaining that Weisberg and Muldoon's scientists are ants on a lu
 
 ## A Rough Heuristic
 
-A useful question to ask about any modelling assumption: *if I changed this, would the headline result change?*
+A useful question to ask about any modeling assumption: *if I changed this, would the headline result change?*
 
 . . .
 

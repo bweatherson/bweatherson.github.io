@@ -93,7 +93,7 @@ Formally: If $Pr_i(A) = x$ for all individuals $i$, then $Pr_G(A) = x$.
 . . .
 
 ::: {.incremental}
-- This seems really—if everyone agrees, that should be the group view.
+- This seems really obvious—if everyone agrees, that should be the group view.
 - Violation would mean the group disagrees with all its members.
 - Sometimes called **Pareto principle** in social choice theory.
 :::
@@ -386,7 +386,7 @@ Classical impossibility results:
 
 ::: {.incremental}
 - No linear rule satisfies External Bayesianity plus Non-Dictatorship.
-- Only linear rules satisfy Eventwise Independence and Local Unanamity Preservation.
+- Only linear rules satisfy Eventwise Independence and Local Unanimity Preservation.
 - Putting these together: nothing satisfies External Bayesianity, Non-Dictatorship, Eventwise Independence, and Local Unanimity Preservation.
 - There are *many* results like this.
 :::
@@ -431,12 +431,11 @@ Having surveyed the axioms, we can now:
 
 ## For Next Time
 
-Next lecture: We'll examine specific pooling strategies:
+Over the next couple of lectures we'll examine specific pooling strategies:
 
 ::: {.incremental}
 - **Linear pooling**: Taking weighted averages.
 - **Geometric pooling**: Multiplicative aggregation.
-- **Imprecise pooling**: Representing group opinion as a set of credences.
 :::
 
 . . .

@@ -1,0 +1,36 @@
+
+format:
+  revealjs:
+      self-contained: false
+      revealjs-url: slides/revealjs-libs/revealjs
+      theme: [default, custom_theme_scss.scss]
+      slide-number: "c/t"
+      show-slide-number: all
+      hash-type: number
+      preview-links: auto
+      chalkboard: false
+      multiplex: false
+      footer: "PHIL 101 | University of Michigan"
+      logo: "logo.png"
+      css: custom_styles_css.css
+      incremental: true
+      code-line-numbers: true
+      highlight-style: github
+      transition: slide
+      background-transition: fade
+      smaller: false
+      scrollable: true
+      navigation-mode: vertical
+      controls: false
+      menu: true
+  clean-typst:
+      aspect-ratio: "16-9"
+      handout: true
+      accent: "006699"
+      accent2: "6699CC"
+      highlight-style: github
+      code-line-numbers: true
+      fontsize: "19pt"
+      pdf-standard: ["ua-1"]
+      lang: en
+      include-in-header: "custom.typ"

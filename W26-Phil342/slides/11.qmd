@@ -105,7 +105,7 @@ is **not** one of them.
 
 . . .
 
-If you say that whenever you are off by $x$, you get penalised $x^2$ accuracy points, you do get a measure that works, and indeed the most widely used measure there is. (It's called the Breir score, after a meteorologist who proposed it in the 1950s.)
+If you say that whenever you are off by $x$, you get penalised $x^2$ accuracy points, you do get a measure that works, and indeed the most widely used measure there is. (It's called the Brier score, after a meteorologist who proposed it in the 1950s.)
 
 ## A Key Result
 

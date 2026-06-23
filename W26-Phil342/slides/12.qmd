@@ -51,11 +51,11 @@ I'm writing these before seeing the results, but I can make two predictions abou
 
 ## Theory
 
-This game is tricky to analyse because the theoretically correct answer is zero.
+This game is tricky to analyze because the theoretically correct answer is zero.
 
 The only *equilibrium* is that everyone says zero.
 
-And we often analyse games in terms of what the equiilibria are.
+And we often analyze games in terms of what the equilibria are.
 
 But (I'm guessing) the people who wrote 0 in their guesses **lost**.
 
@@ -100,7 +100,7 @@ Here's one model of the two-thirds game.
 
 . . .
 
-But it's not the only model. And to investigate a bit more whgether it's a plausible model, we'll turn to one of Schelling's most famous games.
+But it's not the only model. And to investigate a bit more whether it's a plausible model, we'll turn to one of Schelling's most famous games.
 
 # Coordination Game
 
@@ -149,7 +149,7 @@ First, let's talk about the winning answers.
 
 . . .
 
-My trusted coding assistant wanted to put a little ferris wheel icon for London; I half think I should have left that in to see .
+My trusted coding assistant wanted to put a little ferris wheel icon for London; I half think I should have left that in to see what effect it would have had.
 
 ## Chicago
 
@@ -356,5 +356,5 @@ Before next time it would be good to play around with it and think about
 2. What changes would you like to see made to the model?
 :::
 
-If there you have ideas for 2, leave them in the comments on the announcement for this class, and I'll see which can be implemented.
+If you have ideas for 2, leave them in the comments on the announcement for this class, and I'll see which can be implemented.
 

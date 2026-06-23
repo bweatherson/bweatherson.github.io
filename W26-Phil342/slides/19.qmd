@@ -255,16 +255,16 @@ For the **employer**: they get 1 if they match correctly (Good to High, Poor to 
 
 For the **worker**: a Poor job pays 0; a Good job pays 4. Going to the beach costs nothing. Going to college costs **1 if you're High**, **5 if you're Low**.
 
----
+## Payoffs
 
 |  Type  |  Choice  |  Offer  |  Worker  |  Employer  |
 |:------:|:--------:|:-------:|:--------:|:----------:|
 |  High  |  College |  Good   |    3     |    1       |
-|  High  |  College |  Poor   |   −1     |    0       |
+|  High  |  College |  Poor   |   -1     |    0       |
 |  High  |  Beach   |  Good   |    4     |    1       |
 |  High  |  Beach   |  Poor   |    0     |    0       |
-|  Low   |  College |  Good   |   −1     |    0       |
-|  Low   |  College |  Poor   |   −5     |    1       |
+|  Low   |  College |  Good   |   -1     |    0       |
+|  Low   |  College |  Poor   |   -5     |    1       |
 |  Low   |  Beach   |  Good   |    4     |    0       |
 |  Low   |  Beach   |  Poor   |    0     |    1       |
 
@@ -345,7 +345,7 @@ High workers: College + Good = 3. Could they get more by going to the Beach? Bea
 
 . . .
 
-Low workers: Beach + Poor = 0. Could they do better by going to College? College + Good = −1. No, and College + Poor = −5. Definitely no.
+Low workers: Beach + Poor = 0. Could they do better by going to College? College + Good = -1. No, and College + Poor = -5. Definitely no.
 
 ## Why Low Workers Don't Mimic
 
@@ -532,15 +532,15 @@ The evidence from degree-length changes is genuinely mixed:
 
 . . .
 
-The **Bologna reforms** and the **UK/US comparison** suggest the premium tracks degree completion more than degree length, which favours a signaling or selection story.
+The **Bologna reforms** and the **UK/US comparison** suggest the premium tracks degree completion more than degree length, which favors a signaling or selection story.
 
 . . .
 
-The **Los Andes experiment** suggests that cutting coursework does reduce wages, even when the signal is held fixed, which favours human capital.
+The **Los Andes experiment** suggests that cutting coursework does reduce wages, even when the signal is held fixed, which favors human capital.
 
 . . .
 
-A reasonable reading: both mechanisms are at work. The degree functions partly as a signal and partly as a site of genuine skill acquisition, and the balance between these varies across institutions and labour markets.
+A reasonable reading: both mechanisms are at work. The degree functions partly as a signal and partly as a site of genuine skill acquisition, and the balance between these varies across institutions and labor markets.
 
 ## The Deeper Question
 

@@ -120,7 +120,7 @@ To get around this, we do something called **normalization**.
 
 ## Geometric Pool: Normalized
 
-All this means is that we divide each value by the sum so that they'll now sum to 1.^[This is something you do in a lot of settings, not always to do with probability, or even to set some designated value to 1, and it's always called normaliszation.]
+All this means is that we divide each value by the sum so that they'll now sum to 1.^[This is something you do in a lot of settings, not always to do with probability, or even to set some designated value to 1, and it's always called normalization.]
 
 Normalization factor: $\frac{1}{0.438 + 0.458} \approx 1.118$
 

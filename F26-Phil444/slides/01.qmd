@@ -28,8 +28,8 @@ In standard decision theory, the things you are uncertain about are passive. So 
 
 | Choice | Rain | Dry |
 |---:|:----:|:---:|
-| **Take Umbrella** |  1   |   0   |
-| **Don't Take Umbrella** |  2   |   3   |
+| **Take Umbrella** |  1   |   2   |
+| **Don't Take Umbrella** |  0   |   3   |
 
 : A decision that rests on 'passive' facts {#tbl-umbrella}
 
@@ -81,7 +81,7 @@ Imagine that while they want to coordinate, they want to get some work done if t
 
 As we'll see when we get further into the course, there is no scholarly consensus on what choice is rational in this case, or even if there is a uniquely right answer.
 
-## The Prisoners' Dilemma
+## The Prisoner's Dilemma
 
 These strategic choices can lead to distinctive puzzles; this might be the most famous one.
 
@@ -90,7 +90,7 @@ These strategic choices can lead to distinctive puzzles; this might be the most 
 | **Cooperate** | 3, 3      | 0, 5   |
 | **Defect**    | 5, 0      | 1, 1   |
 
-: A canonical Prisoners' Dilemma {#tbl-basic-pd}
+: A canonical Prisoner's Dilemma {#tbl-basic-pd}
 
 . . .
 
@@ -131,7 +131,7 @@ Different individuals have different preferences. Can we combine those preferenc
 
 The primary puzzle here concerns aggregation rather than strategy, though strategic considerations will never quite go away.
 
-As you might already be familiar with from thinking about elections, or about everyday interactions, the choice of an aggregation procedure needs to be sensitive to the strategic behavior of group members.
+As you might already be familiar with from thinking about elections, or about everyday interactions, the choice of an aggregation procedure needs to be sensitive to the strategic behaviour of group members.
 
 ## Condorcet's Paradox
 
@@ -221,21 +221,18 @@ Game theory readings will be a mix of lecture notes and papers/chapters availabl
 
 | Component                            | Weight |
 |--------------------------------------|--------|
-| Four short assignments (10% each)    | 40%    |
 | Two essays (25% each)                | 50%    |
-| Discussion section participation     | 10%    |
+| Eight quizzes (best six count)       | 40%    |
+| Class participation                  | 10%    |
 
-The short assignments lean technical; the essays will be more discurive.
+The quizzes lean technical; the essays will be more discursive.
 
 ## Practicalities
 
 - Lectures: Tuesday and Thursday, [time and room]
-- Discussion section: Thursday or Friday (check Canvas for your section)
 - Office hours: to be announced
-- Course website: bweatherson.github.io/F26-Phil444_site
+- Course website: bweatherson.github.io/F26-Phil444-site
 - Canvas: readings, assignments, announcements
-
-No discussion section this week.
 
 ## Next Lecture
 

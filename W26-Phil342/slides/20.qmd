@@ -163,7 +163,7 @@ These problems typically have the following characteristics.
 1. The payoffs are simple; often either just win or lose on each round.
 2. Each arm has a different probability of winning.
 3. The players have a rational prior probability of what each of those probabilities are.
-4. Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but how any arm has drifted.
+4. Also, these probabilities can drift over time, in a random way. The player knows the rule for the random drift, but not how any arm has drifted.
 5. If the player chooses an option, they observe whether they win or lose, but not whether they would have won/lost if they'd chosen another option.
 
 ## Bandit Problems
@@ -176,7 +176,7 @@ Three somewhat interesting facts (or at least interesting to me) about these pro
 
 ## Scientific Application
 
-They are relevant to science is a straightforward way.
+They are relevant to science in a straightforward way.
 
 - Experiments are difficult, and cost time and money.
 - You don't know what you would have got from doing some other experiment.
@@ -184,7 +184,7 @@ They are relevant to science is a straightforward way.
 
 ## Back to the Model
 
-Each round, every scientist performs an experiment on whichever treatment she currently favours. In bandit terms, scientists always **exploit** rather than **explore**.
+Each round, every scientist performs an experiment on whichever treatment she currently favors. In bandit terms, scientists always **exploit** rather than **explore**.
 
 . . .
 
@@ -192,11 +192,11 @@ She gets a payoff drawn from a distribution that depends on which state the worl
 
 . . .
 
-She then observes her own result **and the results of some of her neighbours**, and updates her beliefs using Bayes's rule.
+She then observes her own result **and the results of some of her neighbors**, and updates her beliefs using Bayes's rule.
 
 . . .
 
-The word "some" is doing a lot of work there. Which neighbours she can see depends on the **network structure**.
+The word "some" is doing a lot of work there. Which neighbors she can see depends on the **network structure**.
 
 ## Network Structure
 
@@ -208,7 +208,7 @@ Zollman (2007) compares three network structures for communities of the same siz
 
 . . .
 
-**Cycle**: scientists arranged in a circle, each seeing only her two immediate neighbours.
+**Cycle**: scientists arranged in a circle, each seeing only her two immediate neighbors.
 
 . . .
 
@@ -258,7 +258,7 @@ So the community with the most communication is fastest but least reliable. The 
 
 ## Why Less Communication Helps
 
-The mechanism is the one we saw in the toy example with A, B, C and D, but it generalises.
+The mechanism is the one we saw in the toy example with A, B, C and D, but it generalizes.
 
 . . .
 
@@ -274,11 +274,11 @@ Sparsely connected networks have more "inertia" in two senses.
 
 . . .
 
-First, fewer scientists change their behaviour after any single round of results, because fewer scientists are exposed to any given piece of evidence.
+First, fewer scientists change their behavior after any single round of results, because fewer scientists are exposed to any given piece of evidence.
 
 . . .
 
-Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there's only one scientist left testing the new approach, she's seeing negative results from everyone else. In a cycle, she's only seeing results from two neighbours.
+Second, the last remaining scientist testing the new treatment is harder to dislodge in a sparse network. In a complete graph, if there's only one scientist left testing the new approach, she's seeing negative results from everyone else. In a cycle, she's only seeing results from two neighbors.
 
 ## Preserving Diversity
 
@@ -364,11 +364,11 @@ The scientist mostly tests whichever theory has performed best so far, but occas
 
 . . .
 
-Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other's behaviour too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.
+Alone, this converges on the right answer. But in a group, it can fail: the agents converge on each other's behavior too quickly, and everyone locks in on a suboptimal theory before gathering enough evidence.
 
 ## Good for Groups, Bad for Individuals
 
-Consider a group where each scientist has a "favourite theory." She mostly tests her favourite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.
+Consider a group where each scientist has a "favorite theory." She mostly tests her favorite, but occasionally tests others. Individually, any one of these scientists might get stuck on the wrong theory forever.
 
 . . .
 
@@ -380,7 +380,7 @@ The second result is the more surprising one. The group succeeds precisely becau
 
 . . .
 
-Each scientist's stubbornness about her favourite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.
+Each scientist's stubbornness about her favorite theory looks like a bias. But that bias is what keeps the community exploring all the options. If every scientist had instead used the individually optimal strategy, they might all have converged prematurely on the same (possibly wrong) answer.
 
 . . .
 
@@ -400,7 +400,7 @@ This has implications both for normative epistemology (what methods should we re
 
 ## For Next Time
 
-We'll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarisation, and how outside actors can manipulate epistemic networks.
+We'll look at how robust the Zollman effect is, what happens when diversity of belief leads to polarization, and how outside actors can manipulate epistemic networks.
 
 . . .
 

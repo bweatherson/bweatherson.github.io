@@ -73,7 +73,7 @@ The question: does TFT dominate, or does the changing environment eventually und
 
 Another question that's come up separately: should we have each strategy interact with **all** other strategies or just with their **neighbors**? 
 
-We'll mostly talk about the 'interact with everyone' version here, but the 'neighbors' version might be more useful for modelling some situations.
+We'll mostly talk about the 'interact with everyone' version here, but the 'neighbors' version might be more useful for modeling some situations.
 
 # The Evolutionary Setting
 
@@ -127,7 +127,7 @@ When interactions are likely to continue, cooperation can sustain itself.
 
 ## Invasion
 
-It's impossible to work out what might work best against arrbitrary strategies; there are too many alternatives.
+It's impossible to work out what might work best against arbitrary strategies; there are too many alternatives.
 
 So a lot of focus has been on the possibility of **invasion**.
 
@@ -282,7 +282,7 @@ Repeated commercial relationships support cooperation that one-shot interactions
 
 ::: {.incremental}
 - A supplier who cheats once loses a long-term customer, so the shadow of the future disciplines behavior.
-- Online platforms (eBay, Airbnb) create iterated PD conditions artificially, through **reputation systems** that make interaction history visible. (See *The Oridinal Society* for the downstream effects of this.)
+- Online platforms (eBay, Airbnb) create iterated PD conditions artificially, through **reputation systems** that make interaction history visible. (See *The Ordinal Society* for the downstream effects of this.)
 - Professional networks and trade associations do something similar, though without the ordinal aspect.
 :::
 
@@ -306,7 +306,7 @@ Axelrod's original setup assumed **perfect implementation**: if you choose to co
 
 . . .
 
-But real interactions are often noisy. This is especially for interactions between groups.
+But real interactions are often noisy. This is especially true for interactions between groups.
 
 **Noisy IPD**: players submit their moves, but each move is implemented incorrectly with some small probability $\varepsilon$ (e.g., $\varepsilon = 0.01$).
 
@@ -357,7 +357,7 @@ If both players are Contrite TFT:
 ::: {.incremental}
 - Noise event: A accidentally defects;
 - B retaliates (correctly);
-- A recognizes it was an accident, and cooperatesbeing *contrite*;
+- A recognizes it was an accident, and cooperates, being *contrite*;
 - Finally, B sees A cooperate, resumes cooperation.
 :::
 
@@ -427,7 +427,7 @@ If time permits, consider:
 
 ## For Next Week
 
-We'll look at one of the famous use of game-theory to model real-world situations.
+We'll look at one of the famous uses of game theory to model real-world situations.
 
 - On Monday, we'll look at George Akerlof's use of signalling games to understand the used car market.
 - On Wednesday, we'll look at Michael Spence's similar use of signalling games to understand the college wage premium.

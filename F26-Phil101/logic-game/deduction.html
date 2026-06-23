@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Who Did It? — a deduction game</title>
+<style>
+  :root{
+    --bg:#f7f5ef; --ink:#1d1d1f; --line:#d8d2c4; --panel:#ffffff;
+    --innocent:#1f6f8b; --innocent-bg:#e3f0f4;
+    --criminal:#a4303f; --criminal-bg:#f6e3e5;
+    --accent:#2d2a26; --hi:#fff3c4; --hi-line:#e3c200;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.45;padding:24px;}
+  .wrap{max-width:980px;margin:0 auto;}
+  h1{font-size:1.7rem;margin:0 0 2px;}
+  .sub{color:#6b6457;margin:0 0 18px;font-size:1rem;}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+  .tab{padding:9px 16px;border:1px solid var(--line);background:var(--panel);border-radius:999px;
+    cursor:pointer;font-size:.95rem;color:var(--accent);}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .layout{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+  .left{flex:1 1 360px;min-width:320px;}
+  .right{flex:1 1 360px;min-width:300px;}
+  .board{display:grid;gap:10px;margin-bottom:14px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 8px 9px;
+    text-align:center;transition:transform .06s;}
+  .card .nm{font-weight:700;font-size:1.05rem;}
+  .card .pr{font-size:.72rem;color:#8a8275;margin-bottom:7px;letter-spacing:.02em;}
+  .verdicts{display:flex;gap:5px;justify-content:center;}
+  .vb{flex:1;border:1px solid var(--line);background:#fbfaf6;border-radius:7px;padding:5px 0;
+    font-size:.74rem;cursor:pointer;color:#555;user-select:none;}
+  .vb:hover{border-color:#b7ae9c;}
+  .card.inn{border-color:var(--innocent);background:var(--innocent-bg);}
+  .card.cri{border-color:var(--criminal);background:var(--criminal-bg);}
+  .card.inn .vb.i,.card.cri .vb.c{font-weight:700;}
+  .card.inn .vb.i{background:var(--innocent);color:#fff;border-color:var(--innocent);}
+  .card.cri .vb.c{background:var(--criminal);color:#fff;border-color:var(--criminal);}
+  .card.shake{animation:sh .3s;}
+  @keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .clues{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 4px;}
+  .clues h3{margin:8px 12px 6px;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:#8a8275;}
+  .clue{padding:8px 12px;border-top:1px solid #efece3;font-size:.95rem;display:flex;gap:9px;}
+  .clue:first-of-type{border-top:none;}
+  .clue .n{color:#b0a892;font-variant-numeric:tabular-nums;font-weight:700;flex:0 0 18px;}
+  .clue.hi{background:var(--hi);border-radius:6px;}
+  .controls{display:flex;gap:8px;margin:14px 0 8px;flex-wrap:wrap;}
+  button.act{padding:8px 15px;border:1px solid var(--accent);background:var(--panel);color:var(--accent);
+    border-radius:8px;cursor:pointer;font-size:.9rem;}
+  button.act:hover{background:var(--accent);color:#fff;}
+  button.act.primary{background:var(--accent);color:#fff;}
+  button.act:disabled{opacity:.4;cursor:default;}
+  .status{min-height:1.5em;font-size:.95rem;margin-top:4px;}
+  .status.good{color:var(--innocent);} .status.bad{color:var(--criminal);}
+  .narr{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px;}
+  .narr p{margin:0 0 9px;} .narr p:last-child{margin-bottom:0;}
+  .note{background:#fbf6e6;border:1px solid #e8d9a8;border-radius:10px;padding:11px 14px;font-size:.92rem;margin-top:10px;}
+  table.tt{border-collapse:collapse;margin:6px 0 2px;font-variant-numeric:tabular-nums;}
+  table.tt th,table.tt td{border:1px solid var(--line);padding:4px 10px;text-align:center;font-size:.85rem;}
+  table.tt th{background:#f0ece1;}
+  table.tt tr.dead td{color:#bbb;text-decoration:line-through;}
+  table.tt tr.live td{background:var(--innocent-bg);font-weight:700;}
+  .legend{font-size:.82rem;color:#8a8275;margin:2px 0 14px;}
+  .win{font-weight:700;color:var(--innocent);}
+  code{background:#eee7d6;padding:1px 5px;border-radius:4px;font-size:.85em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Who Did It?</h1>
+  <p class="sub">A small deduction game. Everyone on the board is either <b>guilty</b> or <b>innocent</b>, every clue is true, and you can always reach the answer without guessing.</p>
+
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-k="warmup">1 · Warm-up</div>
+    <div class="tab" data-k="worked">2 · Worked example</div>
+    <div class="tab" data-k="challenge">3 · Challenge</div>
+    <div class="tab" data-k="challenge2">4 · Challenge II</div>
+  </div>
+
+  <!-- PLAY PANELS -->
+  <div class="panel active" id="panel-warmup"></div>
+  <div class="panel" id="panel-challenge"></div>
+  <div class="panel" id="panel-challenge2"></div>
+
+  <!-- WORKED -->
+  <div class="panel" id="panel-worked"></div>
+</div>
+
+<script>
+/* ============================ ENGINE ============================ */
+function evalClue(c,a){
+  const sum=s=>s.reduce((t,i)=>t+a[i],0);
+  switch(c.t){
+    case 'count':return sum(c.s)===c.k;
+    case 'atmost':return sum(c.s)<=c.k;
+    case 'atleast':return sum(c.s)>=c.k;
+    case 'same':return a[c.a]===a[c.b];
+    case 'diff':return a[c.a]!==a[c.b];
+  }
+}
+function* assignments(n,known){
+  const idx=[...Array(n).keys()].filter(i=>!(i in known));
+  const m=idx.length;
+  for(let mask=0;mask<(1<<m);mask++){
+    const a=new Array(n);
+    for(const k in known)a[k]=known[k];
+    for(let b=0;b<m;b++)a[idx[b]]=(mask>>b)&1;
+    yield a;
+  }
+}
+function modelsConsistent(n,clues,known){
+  // does at least one assignment satisfy all clues with known fixed?
+  for(const a of assignments(n,known)){
+    let ok=true;for(const c of clues)if(!evalClue(c,a)){ok=false;break;}
+    if(ok)return true;
+  }
+  return false;
+}
+function forcedValue(n,clues,known,c){
+  let v=null;
+  for(const a of assignments(n,known)){
+    let ok=true;for(const cl of clues)if(!evalClue(cl,a)){ok=false;break;}
+    if(!ok)continue;
+    if(v===null)v=a[c];else if(v!==a[c])return null;
+  }
+  return v;
+}
+function kcombos(arr,k){const res=[];(function go(s,cur){if(cur.length===k){res.push(cur.slice());return;}for(let i=s;i<arr.length;i++){cur.push(arr[i]);go(i+1,cur);cur.pop();}})(0,[]);return res;}
+function minSupport(n,clues,known,c,cap){
+  const full=forcedValue(n,clues,known,c);
+  if(full===null)return null;
+  const idx=[...clues.keys()];
+  for(let k=1;k<=cap;k++)for(const combo of kcombos(idx,k)){
+    if(forcedValue(n,combo.map(i=>clues[i]),known,c)===full)return {size:k,clues:combo,val:full};
+  }
+  return {size:cap+1,clues:idx,val:full};
+}
+
+/* ============================ DATA ============================ */
+const NAMES=['Amir','Bea','Cory','Dana','Evan','Fay','Gil','Hana','Ira','Jo','Kit','Lou'];
+const PROF=['baker','clerk','nurse','driver','tailor','grocer','barber','welder','farmer','florist','glazier','butcher'];
+
+const PUZZLES={
+  warmup:{w:3,h:3,sol:[0,0,0,0,1,0,1,0,1],
+    clues:[
+      {t:"atmost",s:[0,2,3,4,5],k:1,text:"At most 1 of Bea's neighbours (including diagonals) is guilty"},
+      {t:"atmost",s:[0,1,2,3,5,6,7,8],k:2,text:"At most 2 people on the edges are guilty"},
+      {t:"count",s:[3,4,5,6,8],k:3}]},
+  challenge:{w:4,h:3,sol:[0,0,1,0,0,0,0,1,0,1,0,0],
+    clues:[
+      {t:"atleast",s:[0,1,5,8,9],k:1,text:"At least 1 of Evan's neighbours (including diagonals) is guilty"},
+      {t:"diff",a:9,b:10},
+      {t:"count",s:[0,1,2,3,4,5,6,7,8,9,10,11],k:3,text:"Exactly 3 people on the board are guilty"},
+      {t:"atleast",s:[2,6,7],k:2,text:"At least 2 of Dana's neighbours (including diagonals) are guilty"},
+      {t:"same",a:6,b:10}]},
+  challenge2:{w:4,h:3,sol:[0,1,0,1,0,1,0,0,0,0,0,1],
+    clues:[
+      {t:"diff",a:3,b:7},
+      {t:"count",s:[0,3,8,11],k:2,text:"Exactly 2 of the four corners are guilty"},
+      {t:"count",s:[1,3,5,6,7],k:3,text:"Exactly 3 of Cory's neighbours (including diagonals) are guilty"},
+      {t:"diff",a:5,b:6},
+      {t:"count",s:[0,1,2,4,6,8,9,10],k:1,text:"Exactly 1 of Fay's neighbours (including diagonals) is guilty"}]},
+  worked:{w:3,h:3,sol:[0,1,0,0,0,1,0,1,0],
+    clues:[
+      {t:"atmost",s:[3,4,7],k:1,text:"At most 1 of Gil's neighbours (including diagonals) is guilty"},
+      {t:"count",s:[6,7,8],k:1,text:"Exactly 1 person in the bottom row is guilty"},
+      {t:"atmost",s:[0,2,3,4,5],k:1,text:"At most 1 of Bea's neighbours (including diagonals) is guilty"},
+      {t:"atleast",s:[3,4,7],k:1,text:"At least 1 of Gil's neighbours (including diagonals) is guilty"},
+      {t:"count",s:[3,4,5,6,8],k:1,text:"Exactly 1 of Hana's neighbours (including diagonals) is guilty"},
+      {t:"diff",a:1,b:4}]}
+};
+
+/* ============================ TEXT ============================ */
+function nmList(s,names){const a=s.map(i=>names[i]);if(a.length<=2)return a.join(' and ');return a.slice(0,-1).join(', ')+', and '+a[a.length-1];}
+function clueText(c,names){
+  if(c.text)return c.text;
+  const plural=k=>k===1?' is guilty':' are guilty';
+  switch(c.t){
+    case 'count':
+      if(c.k===0)return 'None of '+nmList(c.s,names)+' is guilty';
+      if(c.k===c.s.length)return 'All of '+nmList(c.s,names)+' are guilty';
+      return 'Exactly '+c.k+' of '+nmList(c.s,names)+plural(c.k);
+    case 'atmost':return 'At most '+c.k+' of '+nmList(c.s,names)+plural(c.k);
+    case 'atleast':return 'At least '+c.k+' of '+nmList(c.s,names)+plural(c.k);
+    case 'same':return names[c.a]+' and '+names[c.b]+' share a verdict (both guilty or both innocent)';
+    case 'diff':return names[c.a]+' and '+names[c.b]+' have opposite verdicts (exactly one is guilty)';
+  }
+}
+
+/* ============================ PLAY PANELS ============================ */
+const STATE={};
+function buildPlay(key){
+  const p=PUZZLES[key], n=p.w*p.h, names=NAMES.slice(0,n);
+  STATE[key]={state:Array(n).fill(null)};
+  const panel=document.getElementById('panel-'+key);
+  panel.innerHTML='';
+  const intro=document.createElement('p');intro.className='legend';
+  intro.innerHTML='Tap <b>Innocent</b> or <b>Guilty</b> under a suspect. A verdict only sticks if the clues already force it. Tap again to clear. Stuck? Use <b>Show a forced move</b>.';
+  panel.appendChild(intro);
+
+  const layout=document.createElement('div');layout.className='layout';
+  const left=document.createElement('div');left.className='left';
+  const right=document.createElement('div');right.className='right';
+
+  const board=document.createElement('div');board.className='board';
+  board.style.gridTemplateColumns='repeat('+p.w+',1fr)';
+  for(let i=0;i<n;i++){
+    const card=document.createElement('div');card.className='card';card.id=key+'-c'+i;
+    card.innerHTML='<div class="nm">'+names[i]+'</div><div class="pr">'+PROF[i]+'</div>'+
+      '<div class="verdicts"><span class="vb i" data-i="'+i+'" data-v="0">Innocent</span>'+
+      '<span class="vb c" data-i="'+i+'" data-v="1">Guilty</span></div>';
+    board.appendChild(card);
+  }
+  left.appendChild(board);
+
+  const controls=document.createElement('div');controls.className='controls';
+  controls.innerHTML='<button class="act" data-act="hint">Show a forced move</button>'+
+    '<button class="act" data-act="reset">Reset</button>';
+  left.appendChild(controls);
+  const status=document.createElement('div');status.className='status';status.id=key+'-status';
+  left.appendChild(status);
+
+  const clues=document.createElement('div');clues.className='clues';
+  clues.innerHTML='<h3>The clues (all true)</h3>'+p.clues.map((c,i)=>
+    '<div class="clue" id="'+key+'-clue'+i+'"><span class="n">'+(i+1)+'</span><span>'+clueText(c,names)+'.</span></div>').join('');
+  right.appendChild(clues);
+
+  layout.appendChild(left);layout.appendChild(right);panel.appendChild(layout);
+
+  board.querySelectorAll('.vb').forEach(b=>b.addEventListener('click',()=>tryset(key,+b.dataset.i,+b.dataset.v)));
+  controls.querySelector('[data-act="hint"]').addEventListener('click',()=>hint(key));
+  controls.querySelector('[data-act="reset"]').addEventListener('click',()=>buildPlay(key));
+}
+function clearHi(key){PUZZLES[key].clues.forEach((_,i)=>{const el=document.getElementById(key+'-clue'+i);if(el)el.classList.remove('hi');});}
+function setStatus(key,msg,cls){const s=document.getElementById(key+'-status');s.textContent=msg;s.className='status'+(cls?' '+cls:'');}
+function paint(key,i){
+  const p=PUZZLES[key],st=STATE[key].state,card=document.getElementById(key+'-c'+i);
+  card.classList.remove('inn','cri');
+  if(st[i]===0)card.classList.add('inn');else if(st[i]===1)card.classList.add('cri');
+}
+function shake(key,i){const card=document.getElementById(key+'-c'+i);card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),300);}
+function tryset(key,i,v){
+  const p=PUZZLES[key],n=p.w*p.h,names=NAMES.slice(0,n),st=STATE[key].state;
+  clearHi(key);
+  if(st[i]===v){st[i]=null;paint(key,i);setStatus(key,'Cleared '+names[i]+'.');return;}
+  const known={};st.forEach((x,j)=>{if(x!==null&&j!==i)known[j]=x;});
+  const sup=minSupport(n,p.clues,known,i,3); // sup.val is the true verdict; sup.size is the shortest chain from here
+  if(!sup||sup.size>3){
+    // determinable eventually, but not within a short chain from the current progress
+    shake(key,i);
+    setStatus(key,'You can get there, but not yet in three clues. Lock in an easier suspect first, then '+names[i]+' will open up.','bad');
+    return;
+  }
+  if(v!==sup.val){
+    // the short chain forces the opposite verdict
+    shake(key,i);
+    sup.clues.forEach(ci=>document.getElementById(key+'-clue'+ci).classList.add('hi'));
+    setStatus(key,'Not quite. Clue'+(sup.clues.length>1?'s ':' ')+sup.clues.map(c=>c+1).join(', ')+' already force '+names[i]+' to be '+(sup.val?'guilty':'innocent')+'.','bad');
+    return;
+  }
+  st[i]=v;paint(key,i);
+  sup.clues.forEach(ci=>document.getElementById(key+'-clue'+ci).classList.add('hi'));
+  if(st.every((x,j)=>x===p.sol[j]))setStatus(key,'Solved — and every verdict was forced. You never had to guess.','good');
+  else setStatus(key,names[i]+' is '+(v?'guilty':'innocent')+', forced by clue'+(sup.clues.length>1?'s ':' ')+sup.clues.map(c=>c+1).join(', ')+'.','good');
+}
+function hint(key){
+  const p=PUZZLES[key],n=p.w*p.h,names=NAMES.slice(0,n),st=STATE[key].state;
+  clearHi(key);
+  const known={};st.forEach((x,j)=>{if(x!==null)known[j]=x;});
+  let best=null;
+  for(let c=0;c<n;c++){if(c in known)continue;const s=minSupport(n,p.clues,known,c,3);if(s&&s.size<=3&&(!best||s.size<best.s.size))best={c,s};}
+  if(!best){setStatus(key,st.every((x,j)=>x===p.sol[j])?'Already solved.':'No short move found.');return;}
+  best.s.clues.forEach(ci=>document.getElementById(key+'-clue'+ci).classList.add('hi'));
+  setStatus(key,'Look at clue'+(best.s.clues.length>1?'s ':' ')+best.s.clues.map(c=>c+1).join(', ')+': together they force '+names[best.c]+' to be '+(best.s.val?'guilty':'innocent')+'.');
+}
+
+/* ============================ WORKED EXAMPLE ============================ */
+const WK='worked';
+function ttRows(){ // truth table for clue 2: exactly one of Gil(6),Hana(7),Ira(8)
+  const rows=[];
+  for(let g=0;g<2;g++)for(let h=0;h<2;h++)for(let i=0;i<2;i++){
+    const guilty=g+h+i;
+    rows.push({g,h,i,live:(guilty===1)});
+  }
+  return rows;
+}
+const STEPS=[
+  {html:'<p>Nine suspects. Every clue on the right is true, and exactly the guilty ones are guilty. We’ll crack it with one <b>reductio</b> — assume something, reach a contradiction — and then the rest falls out a clue at a time.</p><p>Start with <b>Hana</b>. Nothing pins her down at a glance: that would be a guess. So suppose the opposite of what we want and see if it breaks.</p>',
+    set:[],hi:[]},
+  {html:'<p><b>Suppose Hana is innocent.</b></p>'+
+        '<p>Clue 4 — at least one of <b>Gil’s neighbours</b> is guilty. Gil’s neighbours are Dana, Evan, and Hana, so with Hana innocent the guilt lands on <b>Dana or Evan</b>.</p>'+
+        '<p>Clue 2 — exactly one in the <b>bottom row</b> (Gil, Hana, Ira) is guilty. With Hana innocent, that one is <b>Gil or Ira</b>.</p>'+
+        '<p>Clue 5 — exactly one of <b>Hana’s neighbours</b> (Dana, Evan, Fay, Gil, Ira) is guilty. We just put a guilty suspect at Gil or Ira, both inside that set, so the single slot is used up: Dana, Evan, and Fay are all innocent.</p>'+
+        '<p>That contradicts the first line, which needed Dana or Evan guilty. The assumption breaks, so <b>Hana is guilty.</b></p>',
+    set:[[7,1]],hi:[1,3,4]},
+  {html:'<p>That one move chained three clues. Here it is as a survey of the <b>bottom row</b> (clue 2: exactly one of Gil, Hana, Ira). Cross off the rows without exactly one guilty, then the rows where Hana is innocent (just ruled out). One row is left.</p>',
+    set:[[6,0],[8,0]],hi:[1],table:true},
+  {html:'<p>Now the dominoes. Clue 1 — at most one of <b>Gil’s neighbours</b> (Dana, Evan, Hana) is guilty. Hana is that one, so <b>Dana and Evan are innocent.</b></p>',
+    set:[[3,0],[4,0]],hi:[0]},
+  {html:'<p>Clue 6 — Bea and Evan have opposite verdicts. Evan is innocent, so <b>Bea is guilty.</b></p>',
+    set:[[1,1]],hi:[5]},
+  {html:'<p>Clue 5 — exactly one of <b>Hana’s neighbours</b> (Dana, Evan, Fay, Gil, Ira) is guilty. Dana, Evan, Gil, and Ira are all innocent, so it is <b>Fay.</b></p>',
+    set:[[5,1]],hi:[4]},
+  {html:'<p>Clue 3 — at most one of <b>Bea’s neighbours</b> (Amir, Cory, Dana, Evan, Fay) is guilty. Fay is that one, so <b>Amir and Cory are innocent.</b></p><p>Done: the guilty are <b>Bea, Fay, and Hana.</b></p>',
+    set:[[0,0],[2,0]],hi:[2]}
+];
+function buildWorked(){
+  const p=PUZZLES[WK],n=9,names=NAMES.slice(0,n);
+  STATE[WK]={step:-1,state:Array(n).fill(null)};
+  const panel=document.getElementById('panel-'+WK);panel.innerHTML='';
+  const intro=document.createElement('p');intro.className='legend';
+  intro.innerHTML='A puzzle to drive from the front. Step through to model one 3-clue reductio, then watch single-clue steps finish it. <b>Reset</b> to run it live with the class.';
+  panel.appendChild(intro);
+  const layout=document.createElement('div');layout.className='layout';
+  const left=document.createElement('div');left.className='left';
+  const right=document.createElement('div');right.className='right';
+  const board=document.createElement('div');board.className='board';board.style.gridTemplateColumns='repeat(3,1fr)';
+  for(let i=0;i<n;i++){const card=document.createElement('div');card.className='card';card.id=WK+'-c'+i;
+    card.innerHTML='<div class="nm">'+names[i]+'</div><div class="pr">'+PROF[i]+'</div><div class="verdicts" style="visibility:hidden"><span class="vb i">Innocent</span><span class="vb c">Guilty</span></div>';
+    board.appendChild(card);}
+  left.appendChild(board);
+  const controls=document.createElement('div');controls.className='controls';
+  controls.innerHTML='<button class="act" data-a="prev">‹ Back</button><button class="act primary" data-a="next">Next step ›</button><button class="act" data-a="reset">Reset</button>';
+  left.appendChild(controls);
+  const narr=document.createElement('div');narr.className='narr';narr.id=WK+'-narr';
+  narr.innerHTML='<p>Press <b>Next step</b> to begin.</p>';
+  left.appendChild(narr);
+  const guessbox=document.createElement('div');guessbox.className='note';
+  guessbox.innerHTML='<b>Deduction vs. a good guess.</b> At the start, Hana could read either way — picking one would be a hunch. The three-clue reductio is what turns the hunch into a proof. That is the whole difference between guessing and deducing.';
+  left.appendChild(guessbox);
+  const clues=document.createElement('div');clues.className='clues';
+  clues.innerHTML='<h3>The clues (all true)</h3>'+p.clues.map((c,i)=>
+    '<div class="clue" id="'+WK+'-clue'+i+'"><span class="n">'+(i+1)+'</span><span>'+clueText(c,names)+'.</span></div>').join('');
+  right.appendChild(clues);
+  const ttc=document.createElement('div');ttc.id=WK+'-tt';ttc.style.marginTop='12px';right.appendChild(ttc);
+  layout.appendChild(left);layout.appendChild(right);panel.appendChild(layout);
+  controls.querySelector('[data-a="next"]').addEventListener('click',()=>stepWorked(1));
+  controls.querySelector('[data-a="prev"]').addEventListener('click',()=>stepWorked(-1));
+  controls.querySelector('[data-a="reset"]').addEventListener('click',buildWorked);
+}
+function renderTT(show){
+  const el=document.getElementById(WK+'-tt');
+  if(!show){el.innerHTML='';return;}
+  let h='<table class="tt"><tr><th>Gil</th><th>Hana</th><th>Ira</th><th># guilty</th></tr>';
+  for(const r of ttRows()){
+    const violatesCount=!r.live;
+    const hanaInnocent=(r.h===0);
+    const cls=(violatesCount||hanaInnocent)?'dead':'live';
+    const f=x=>x?'guilty':'innocent';
+    h+='<tr class="'+cls+'"><td>'+f(r.g)+'</td><td>'+f(r.h)+'</td><td>'+f(r.i)+'</td><td>'+(r.g+r.h+r.i)+'</td></tr>';
+  }
+  h+='</table><div class="legend">Rows without exactly one guilty break clue 2; rows with Hana innocent were just ruled out. One row remains: Gil innocent, Hana guilty, Ira innocent.</div>';
+  el.innerHTML=h;
+}
+function stepWorked(dir){
+  const S=STATE[WK];
+  const target=S.step+dir;
+  if(target<-1||target>=STEPS.length)return;
+  S.step=target;
+  // rebuild cumulative state
+  S.state=Array(9).fill(null);
+  let tableOn=false;
+  for(let k=0;k<=S.step;k++){STEPS[k].set.forEach(([i,v])=>S.state[i]=v);if(STEPS[k].table)tableOn=true;}
+  for(let i=0;i<9;i++)paint(WK,i);
+  PUZZLES[WK].clues.forEach((_,i)=>document.getElementById(WK+'-clue'+i).classList.remove('hi'));
+  const narr=document.getElementById(WK+'-narr');
+  if(S.step<0){narr.innerHTML='<p>Press <b>Next step</b> to begin.</p>';renderTT(false);}
+  else{narr.innerHTML=STEPS[S.step].html;STEPS[S.step].hi.forEach(i=>document.getElementById(WK+'-clue'+i).classList.add('hi'));renderTT(tableOn);}
+  document.querySelector('#panel-'+WK+' [data-a="prev"]').disabled=(S.step<0);
+  document.querySelector('#panel-'+WK+' [data-a="next"]').disabled=(S.step>=STEPS.length-1);
+}
+
+/* ============================ TABS ============================ */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById('panel-'+t.dataset.k).classList.add('active');
+}));
+
+buildPlay('warmup');
+buildPlay('challenge');
+buildPlay('challenge2');
+buildWorked();
+</script>
+</body>
+</html>

@@ -34,7 +34,7 @@ This might seem like it always helps the later mover (more information), but it 
 
 ## Summary
 
-1. We could try to analyse all dynamic games as strategic games, e.g., analyse chess just as a battle between chess programs.
+1. We could try to analyze all dynamic games as strategic games, e.g., analyze chess just as a battle between chess programs.
 2. Nobody does that though, because it doesn't work in practice or in theory.
 3. In practice it's too hard.
 4. In theory it leaves in strategies that don't make sense.
@@ -165,7 +165,7 @@ A potted history of game theory:
 
 - Through the 1980s, people kept working out more and more complicated cases where a strategy in a dynamic game for one reason or another didn't make sense, and tried to come up with a theory to cover all the cases.
 - It never really worked, there were always more ways for strategies to not make sense in theory.
-- Around the same time, economists started taking seriously empirical research on things like the ultimatum game, and realised people did things that 'didn't make sense' even in simple games.
+- Around the same time, economists started taking seriously empirical research on things like the ultimatum game, and realized people did things that 'didn't make sense' even in simple games.
 - So the research project of trying to classify ways in which strategies 'didn't make sense' basically fizzled out, while the research program of studying reactions of people (or at least undergraduates) to simple games thrived, and still thrives.
 
 # Theory of Dynamic Games
@@ -334,7 +334,7 @@ Notice: Player 1 gets only 3 even though outcomes giving Player 1 as much as 8 e
 
 . . .
 
-**Backward induction**: Sister accepts 2-0 (2-0: 0 > 0, so she's actually *indifferent*... but she accepts 1-1 and 0-2 for sure).
+**Backward induction**: Sister accepts 2-0 (2-0: 0 = 0, so she's actually *indifferent*... but she accepts 1-1 and 0-2 for sure).
 
 . . .
 

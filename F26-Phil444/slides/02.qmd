@@ -17,7 +17,7 @@ The basic structure of a decision problem has three parts:
 
 . . .
 
-The aim is identify which acts are worth choosing.
+The aim is to identify which acts are worth choosing.
 
 ## Payoffs
 
@@ -51,7 +51,7 @@ One slight oddity of this way of thinking about utilities is that utility level 
 
 All that's going to matter are differences between utilities, and ratios of these differences.
 
-By default, we'll set 0 as the utility of the status quo, but that's just a convention with no  content.
+By default, we'll set 0 as the utility of the status quo, but that's just a convention with no content.
 
 ## Probability
 
@@ -63,7 +63,7 @@ $$
 \begin{align*}
 &\Pr(\top) = 1 \\
 &\Pr(\bot) = 0 \\
-&\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = Pr(A) + Pr(B)
+&\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = \Pr(A) + \Pr(B)
 \end{align*}
 $$
 
@@ -86,7 +86,7 @@ Sometimes this is taken to be a **definition** of $\Pr(A | B)$ after dividing bo
 Probabilities change with evidence. The usual rule for how they change is called **conditionalisation**. It says that probabilities should update as follows.
 
 $$
-\Pr_E(H) = Pr(H | E)
+\Pr_E(H) = \Pr(H | E)
 $$
 
 In words, the probability of hypothesis $H$ after getting evidence $E$ is the old conditional probability of $H$ given $E$.
@@ -218,7 +218,7 @@ We're *not* going to resolve this problem here. I just want you to note three th
 
 1. If you calculate expected utilities with conditional probabilities, you get the 1 box, Evidential, theory. If you use probabilities of (subjunctive) conditionals, you get the 2 box, Causal, theory.
 2. Insisting on acts and states being causally separate and then using the simple theory for expected utility also leads to the 2 box answer.
-3. This is all going to be related to what we say about Prisoners' Dilemma.  
+3. This is all going to be related to what we say about Prisoner's Dilemma.  
 
 # Dynamic Choice
 
@@ -239,7 +239,7 @@ It turns out there are two prominent answers:
 
 There is a much less popular third approach, called **conservative** choice. It has two components.
 
-- Like the resolute theory, is says that one should pick a strategy at the start which makes sense and stick with it.
+- Like the resolute theory, it says that one should pick a strategy at the start which makes sense and stick with it.
 - Like the sophisticated theory, it says that this theory should continue to make sense at each subsequent node. It does not say this choice has to be **best**, just that it has to be **permissible**.
 - Equivalently, it adds to the sophisticated theory the view that one must know what one will do at later nodes, not just that one will be rational.
 

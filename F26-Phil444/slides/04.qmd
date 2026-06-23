@@ -156,7 +156,7 @@ A **best response** for player $i$ to what the other players do is a strategy th
 
 If two or more strategies tie for the highest payoff, both count as best responses. 
 
-This is terrrible terminology, but we're stuck with it; it should really be **at least tied for best response**, but I guess that's not so snappy.
+This is terrible terminology, but we're stuck with it; it should really be **at least tied for best response**, but I guess that's not so snappy.
 
 ## Notation: Bold the Best
 

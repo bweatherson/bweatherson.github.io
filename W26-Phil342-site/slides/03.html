@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="dcterms.date" content="2026-01-14">
   <title>Arrow’s Impossibility Theorem</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-165de8befc938d0b26d7578d5b40959b.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7a9dee3f40ff4b0766c8634b129d08e8.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -453,7 +456,7 @@ If two people switch their preferences, so on Tuesday X has the views that Y had
 <ol type="1">
 <li class="fragment">Plurality. Every candidate gets 1 point for each voter who has them ranked first, and 1/<span class="math inline">\(n\)</span> points if the voter has <span class="math inline">\(n\)</span> candidates tied for first. The social ranking orders candidates by the number of points they have.</li>
 <li class="fragment">Range. Each voter gives each candidate a 1-5 score (like the star rankings.) The candidates are ranked by their average rating.</li>
-<li class="fragment">Borda. Each voter ranks the candidates. The top candidate for each voter gets 10 points, the second gets 9 points, and so on through the 10th getting 1 point. The social ranking orders candidates by the number of points they have.</li>
+<li class="fragment">Approval. Each voter votes for as many candidates as they like, i.e., for every candidate they approve of. The candidates are ranked by how many votes they receive.</li>
 </ol>
 <p><strong>Group activity: Which Arrow condition is violated in each case.</strong> (We’ll discuss this in small groups in available time.)</p>
 </section>

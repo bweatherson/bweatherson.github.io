@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
-  <meta name="dcterms.date" content="2026-02-23">
+  <meta name="dcterms.date" content="2026-02-25">
   <title>Schelling’s Segregation Model</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-48377cb64f814fd5afecd050e3f13ab9.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7a9dee3f40ff4b0766c8634b129d08e8.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -134,7 +137,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2026-02-23</p>
+  <p class="date">2026-02-25</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
@@ -150,8 +153,8 @@
 <p>Imagine a checkerboard populated by two groups (e.g., blue and red).</p>
 <ul>
 <li class="fragment">Each cell is occupied by one agent or is empty.</li>
-<li class="fragment">Each agent has <strong>neighbours</strong> (the eight surrounding cells).</li>
-<li class="fragment">Each agent has a <strong>tolerance threshold</strong>: the minimum fraction of neighbours that must be “like me” for the agent to stay put.</li>
+<li class="fragment">Each agent has <strong>neighbors</strong> (the eight surrounding cells).</li>
+<li class="fragment">Each agent has a <strong>tolerance threshold</strong>: the minimum fraction of neighbors that must be “like me” for the agent to stay put.</li>
 <li class="fragment">If the threshold is not met, the agent moves to a random empty cell.</li>
 </ul>
 <div class="fragment">
@@ -182,7 +185,7 @@
 </tr>
 <tr class="even">
 <td><strong>Threshold</strong></td>
-<td>Minimum same-type neighbour fraction to stay</td>
+<td>Minimum same-type neighbor fraction to stay</td>
 </tr>
 </tbody>
 </table>
@@ -192,8 +195,8 @@
 <h2>The Algorithm</h2>
 <ol type="1">
 <li class="fragment">Place agents randomly on the grid.</li>
-<li class="fragment">For each agent, count same-type and different-type neighbours. (Remember that they will typically have fewer than 8 neighbours.)</li>
-<li class="fragment">If the fraction of same-type neighbours is below threshold, mark the agent as <strong>unhappy</strong>.</li>
+<li class="fragment">For each agent, count same-type and different-type neighbors. (Remember that they will typically have fewer than 8 neighbors.)</li>
+<li class="fragment">If the fraction of same-type neighbors is below threshold, mark the agent as <strong>unhappy</strong>.</li>
 <li class="fragment">Move all unhappy agents to random empty cells.</li>
 <li class="fragment">Repeat until equilibrium (no unhappy agents) or a step limit is reached.</li>
 </ol>
@@ -214,7 +217,7 @@
 <h3>Threshold ≈ 35%</h3>
 <ul>
 <li class="fragment">Set the tolerance threshold to be around 35%.</li>
-<li class="fragment">Each agent is happy as long as roughly <strong>1 in 3</strong> neighbours are like them.</li>
+<li class="fragment">Each agent is happy as long as roughly <strong>1 in 3</strong> neighbors are like them.</li>
 <li class="fragment">That does not sound wildly intolerant.</li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -235,7 +238,7 @@
 <p>The mechanism is a <strong>tipping cascade</strong>:</p>
 <ol type="1">
 <li class="fragment">A few agents on the boundary are <em>just barely</em> unhappy.</li>
-<li class="fragment">They move, which changes the neighbourhood composition for those left behind.</li>
+<li class="fragment">They move, which changes the neighborhood composition for those left behind.</li>
 <li class="fragment">Previously happy agents now fall below their threshold.</li>
 <li class="fragment">They move in turn, triggering further departures.</li>
 </ol>
@@ -345,7 +348,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>What is Being Modelled?</h2>
+<h2>What is Being Modeled?</h2>
 <p>In Schelling’s original discussion, he mentions a particular story that motivated the case.</p>
 <ul>
 <li class="fragment">At a particular summer camp, the kids didn’t seem particularly racist when they had to interact in activities.</li>
@@ -353,7 +356,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>What is Being Modelled?</h2>
+<h2>What is Being Modeled?</h2>
 <p>That kind of informal grouping looks much more like the model than housing. It’s useful to look around you and see what kinds of homogenous and heterogenous groups there are, and long which dimensions they are homogenous and heterogenous.</p>
 <div class="fragment">
 <p>Think of all the ways in which housing is not like what we see in the model.</p>
@@ -366,7 +369,7 @@
 <section class="slide level2">
 <h2>Housing</h2>
 <p>The point is not just that the model is unrealistic in these respects. Of course it’s unrealistic; it’s a bunch of points on a board.</p>
-<p>The point is that the behaviour in the model is being driven by the ways in which it is unrealistic.</p>
+<p>The point is that the behavior in the model is being driven by the ways in which it is unrealistic.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">

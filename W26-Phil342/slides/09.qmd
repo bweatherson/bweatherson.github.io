@@ -275,11 +275,11 @@ Both $A$ and $B$ are really likely.
 
 ## Person 2
 
-Both $A$ and $B$ are really likely.
+Both $A$ and $B$ are really unlikely.
 
 - $Pr_2(A) = Pr_2(B) = 0.1$, so by the independence assumption
 - $Pr_2(A \wedge B) = 0.01$, and by the rules for negation
-- $Pr_2(\neg A) = Pr_1(\neg B) = 0.9$, then applying independence a few times,
+- $Pr_2(\neg A) = Pr_2(\neg B) = 0.9$, then applying independence a few times,
 - $Pr_2(A \wedge \neg B) = Pr_2(\neg A \wedge B) = 0.09$
 - $Pr_2(\neg A \wedge \neg B) = 0.81$
 
@@ -333,7 +333,7 @@ So post-update we have:
 
 And then post-update $Pr_G(A) = 0.5$. Which is a very different number to 0.82.
 
-## Generalisaing
+## Generalizing
 
 That is a very unrealistic example, but the general pattern obtains.
 
@@ -438,7 +438,7 @@ The problem is that the group's pre-experiment conditional price for $A$ given $
 
 The fundamental problem is the mismatch between Bets 1 and 3, but combined with Bet 2 that leads to sure loss.
 
-## Generalising
+## Generalizing
 
 The example here is silly; if group members diverge this much, they should talk about it not just pool.
 

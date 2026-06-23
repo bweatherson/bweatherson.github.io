@@ -13,14 +13,14 @@ format:
 
 ## Where We Left Off
 
-The Matthew effect can generate unfair distributions of credit, and that this interacts with demographic inequity.
+The Matthew effect can generate unfair distributions of credit, and this interacts with demographic inequity.
 
 . . .
 
 Today we'll look at two things:
 
 1. Hannah Rubin's more detailed discussion of how citation gaps arise.
-2. How credit incentives and peer review interacct.
+2. How credit incentives and peer review interact.
 
 ## What Are Citation Gaps?
 
@@ -58,7 +58,7 @@ There is a lot of evidence that academic networks are homophilic. People of the 
 
 . . .
 
-This can happen for many reasons, some of them positive (e.g., seeking support from people who share your experiences) and some of them negative (e.g., unfair distribution of collaborative labour pushing minority members toward each other).
+This can happen for many reasons, some of them positive (e.g., seeking support from people who share your experiences) and some of them negative (e.g., unfair distribution of collaborative labor pushing minority members toward each other).
 
 ## Rubin's Basic Model
 
@@ -70,7 +70,7 @@ As new papers come out, their authors have some chance of citing each of the ori
 
 . . .
 
-A person cites their neighbour's paper with probability *p*, their neighbour's neighbour's paper with probability *p*², and so on.
+A person cites their neighbor's paper with probability *p*, their neighbor's neighbor's paper with probability *p*², and so on.
 
 ## Two Key Variables
 
@@ -168,7 +168,7 @@ Hannah Rubin raises a concern about this proposal. In a post-publication system,
 
 Under the current system, a paper published in a good journal has a stamp of quality that is relatively independent of the author's network position. 
 
-Indeed, when the journal system is working well, it's a way of overriding network effects. Everyone reads the top journal(s), even if they don't recognise the authors.
+Indeed, when the journal system is working well, it's a way of overriding network effects. Everyone reads the top journal(s), even if they don't recognize the authors.
 
 Under post-publication review, visibility depends much more on social connections.
 
@@ -208,7 +208,7 @@ This connects to broader concerns about whether the incentive structures of scie
 
 ## Ex-Ante vs. Ex-Post Review
 
-Note that this is a different distinction to what Heesen et al were discusing. There are three proposals for which stage of the research project big decisions should be made at.
+Note that this is a different distinction to what Heesen et al were discussing. There are three proposals for which stage of the research project big decisions should be made at.
 
 1. **Before the research is conducted** - This is how grant applications work.
 2. **After the research is conducted, but before it is public** - This is how current journals work.
@@ -267,7 +267,7 @@ Group 1 (which includes me), is much more male; Group 2 is more gender-balanced.
 
 . . .
 
-It's also easier to get a high citation count in Group 1. Citations are a lottery, and buying lots of (slightly lower quality) lottery tickets can maximise expected returns.
+It's also easier to get a high citation count in Group 1. Citations are a lottery, and buying lots of (slightly lower quality) lottery tickets can maximize expected returns.
 
 ## For Next Time
 

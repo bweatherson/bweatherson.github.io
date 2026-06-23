@@ -265,7 +265,7 @@ Here are three systems for pooling preferences.
 
 1. Plurality. Every candidate gets 1 point for each voter who has them ranked first, and 1/$n$ points if the voter has $n$ candidates tied for first. The social ranking orders candidates by the number of points they have.
 2. Range. Each voter gives each candidate a 1-5 score (like the star rankings.) The candidates are ranked by their average rating.
-3. Borda. Each voter ranks the candidates. The top candidate for each voter gets 10 points, the second gets 9 points, and so on through the 10th getting 1 point. The social ranking orders candidates by the number of points they have.
+3. Approval. Each voter votes for as many candidates as they like, i.e., for every candidate they approve of. The candidates are ranked by how many votes they receive.
 
 **Group activity: Which Arrow condition is violated in each case.** (We'll discuss this in small groups in available time.)
 

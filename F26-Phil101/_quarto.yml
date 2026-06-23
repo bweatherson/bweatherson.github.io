@@ -1,0 +1,6 @@
+project:
+  type: website
+  output-dir: ../F26-Phil101-site
+
+website:
+  site-url: https://bweatherson.github.io/F26-Phil101-site
