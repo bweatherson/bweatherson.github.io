@@ -31,7 +31,7 @@ Game theory turns up everywhere:
 
 . . .
 
-And it gives us precise tools for thinking about problems we've already been discussing---like Schelling's focal points.
+And it gives us precise tools for thinking about problems we've already been discussing, like Schelling's focal points.
 
 # Normal-Form Games
 
@@ -115,7 +115,7 @@ Think about it from Player 1's perspective:
 
 . . .
 
-No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect---even though both cooperating would be better for everyone.
+No matter what Player 2 does, defecting is better for me. The same logic applies to Player 2. So both defect even though both cooperating would be better for everyone.
 
 ## The Dilemma
 
@@ -189,7 +189,7 @@ Whatever one player gains, the other loses.
 
 . . .
 
-Player 1 wins if the coins match; Player 2 wins if they differ. This is pure competition---no room for cooperation.
+Player 1 wins if the coins match; Player 2 wins if they differ. This is a zero-sum game, so there's no room for cooperation.
 
 ## The Spectrum
 
@@ -237,7 +237,7 @@ The story: Two hunters can hunt a stag together (big payoff) or each hunt a hare
 
 . . .
 
-In the Stag Hunt, the problem isn't that rationality *forces* you to defect. The problem is **trust**---will the other person hold up their end?
+In the Stag Hunt, the problem isn't that rationality *forces* you to defect. The problem is **trust**. Do you trust the other person will hold up their end?
 
 ## Why This Matters
 
@@ -277,7 +277,7 @@ An outcome is **Pareto optimal** if there's no other outcome that makes *someone
 . . .
 
 - In the Prisoner's Dilemma, (Cooperate, Cooperate) is Pareto optimal
-- (Defect, Defect) is **not** Pareto optimal---both players could do better
+- (Defect, Defect) is **not** Pareto optimal since both players could do better
 
 . . .
 
@@ -311,7 +311,7 @@ Now add Player 2's best responses too:
 
 . . .
 
-Cells where *both* numbers are bold are Nash equilibria. Only (Defect, Defect) qualifies. Defect is the best response no matter what---that's what makes it a **dominant strategy**.
+Cells where *both* numbers are bold are Nash equilibria. Only (Defect, Defect) qualifies. Defect is the best response no matter what. That's what makes it a **dominant strategy**.
 
 ## Nash Equilibrium
 
@@ -344,7 +344,7 @@ Here's a quick method for 2-player games. For each cell:
 | **Cooperate** | 3, 3 | 0, **5** |
 | **Defect** | **5**, 0 | **1**, **1** |
 
-The bold numbers are best responses. Both are bold in (Defect, Defect)---that's the Nash equilibrium.
+The bold numbers are best responses. Both are bold in (Defect, Defect). That tells you it is the Nash equilibrium.
 
 ## Practice
 

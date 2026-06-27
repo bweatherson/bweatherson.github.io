@@ -259,7 +259,7 @@ Right side: Pool first, then update.
 
 Let's check with a simple example.
 
-There are two people, called them 1 and 2. And there are two propositions, $A$ and $B$.
+There are two people, call them 1 and 2. And there are two propositions, $A$ and $B$.
 
 Both of them agree that $A$ and $B$ are independent.
 
@@ -289,13 +289,13 @@ So pre-update for the group we get
 
 - $Pr_G(A \wedge B) = 0.41$, because that's (0.81 + 0.01)/2,
 - $Pr_G(\neg A \wedge \neg B) = 0.41$, because that's (0.01 + 0.81)/2,
-- $Pr_G(A \wedge \neg B) = Pr_G(\neg B \wedge A) = 0.09$, because they agree on this.
+- $Pr_G(A \wedge \neg B) = Pr_G(\neg A \wedge B) = 0.09$, because they agree on this.
 
 . . .
 
 Putting this into the rules for conditional probability, we get:
 
-- $Pr_G(A | B) = 0.82, because $Pr_G(A \wedge B) = 0.41$, and $Pr_G(B) = 0.5$.
+- $Pr_G(A | B) = 0.82$, because $Pr_G(A \wedge B) = 0.41$, and $Pr_G(B) = 0.5$.
 
 ## Updating
 
@@ -392,7 +392,7 @@ Let's see how this works with our example. The key fact is the gap between the t
 
 Three bets, all fair by the group's own lights at the time they're offered.
 
-**Bet 1 (before learning whether $B$):** The group buys a conditional bet from the bookie, "if $B$ turns out true, pays \$1 if $A$", at the group's pooled-prior conditional price of \$0.82. This is a bet that pays $1 if $A \wedge B$, pays nothing if if $A$, and the bettor gets their money back (in this case 82 cents) if $\neg A$.
+**Bet 1 (before learning whether $B$):** The group buys a conditional bet from the bookie, "if $B$ turns out true, pays \$1 if $A$", at the group's pooled-prior conditional price of \$0.82. This is a bet that pays \$1 if $A \wedge B$, pays nothing if $\neg A \wedge B$, and the bettor gets their money back (in this case 82 cents) if $\neg B$.
 
 . . .
 

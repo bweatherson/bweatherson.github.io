@@ -357,7 +357,7 @@
 <section class="slide level2">
 <h2>Testing Linear Pooling</h2>
 <p>Let’s check with a simple example.</p>
-<p>There are two people, called them 1 and 2. And there are two propositions, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<p>There are two people, call them 1 and 2. And there are two propositions, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
 <p>Both of them agree that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
 </section>
 <section class="slide level2">
@@ -388,12 +388,12 @@
 <ul>
 <li class="fragment"><span class="math inline">\(Pr_G(A \wedge B) = 0.41\)</span>, because that’s (0.81 + 0.01)/2,</li>
 <li class="fragment"><span class="math inline">\(Pr_G(\neg A \wedge \neg B) = 0.41\)</span>, because that’s (0.01 + 0.81)/2,</li>
-<li class="fragment"><span class="math inline">\(Pr_G(A \wedge \neg B) = Pr_G(\neg B \wedge A) = 0.09\)</span>, because they agree on this.</li>
+<li class="fragment"><span class="math inline">\(Pr_G(A \wedge \neg B) = Pr_G(\neg A \wedge B) = 0.09\)</span>, because they agree on this.</li>
 </ul>
 <div class="fragment">
 <p>Putting this into the rules for conditional probability, we get:</p>
 <ul>
-<li class="fragment">$Pr_G(A | B) = 0.82, because <span class="math inline">\(Pr_G(A \wedge B) = 0.41\)</span>, and <span class="math inline">\(Pr_G(B) = 0.5\)</span>.</li>
+<li class="fragment"><span class="math inline">\(Pr_G(A | B) = 0.82\)</span>, because <span class="math inline">\(Pr_G(A \wedge B) = 0.41\)</span>, and <span class="math inline">\(Pr_G(B) = 0.5\)</span>.</li>
 </ul>
 </div>
 </section>
@@ -480,7 +480,7 @@
 <section class="slide level2">
 <h2>Constructing the Bets</h2>
 <p>Three bets, all fair by the group’s own lights at the time they’re offered.</p>
-<p><strong>Bet 1 (before learning whether <span class="math inline">\(B\)</span>):</strong> The group buys a conditional bet from the bookie, “if <span class="math inline">\(B\)</span> turns out true, pays $1 if <span class="math inline">\(A\)</span>”, at the group’s pooled-prior conditional price of $0.82. This is a bet that pays $1 if <span class="math inline">\(A \wedge B\)</span>, pays nothing if if <span class="math inline">\(A\)</span>, and the bettor gets their money back (in this case 82 cents) if <span class="math inline">\(\neg A\)</span>.</p>
+<p><strong>Bet 1 (before learning whether <span class="math inline">\(B\)</span>):</strong> The group buys a conditional bet from the bookie, “if <span class="math inline">\(B\)</span> turns out true, pays $1 if <span class="math inline">\(A\)</span>”, at the group’s pooled-prior conditional price of $0.82. This is a bet that pays $1 if <span class="math inline">\(A \wedge B\)</span>, pays nothing if <span class="math inline">\(A \wedge \neg B\)</span>, and the bettor gets their money back (in this case 82 cents) if <span class="math inline">\(\neg B\)</span>.</p>
 <div class="fragment">
 <p><strong>Bet 2 (before learning whether <span class="math inline">\(B\)</span>):</strong> The group sells the bookie a small side bet paying $0.20 if <span class="math inline">\(\neg B\)</span>, receiving the fair price of $0.10.</p>
 </div>

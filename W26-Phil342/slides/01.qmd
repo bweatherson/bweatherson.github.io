@@ -142,7 +142,7 @@ If a player (a) catches a pass and (b) runs into the end zone without going out 
 
 (That's the biggest scoring play.)
 
-There are bells and whistles, of course—what exactly counts as a pass and so on—but we just need to know that much.
+There are bells and whistles, of course, what exactly counts as a pass and so on, but we just need to know that much.
 
 ## Two Questions
 
@@ -197,7 +197,7 @@ OK, so what's the overall verdict?
 
 ## Majority Rules on Verdict
 
-Here's a simple rule—ask what the majority thinks the verdict should be.
+Here's a simple rule: ask what the majority thinks the verdict should be.
 
 |  Judge |  Catch  |  In Bounds |  Touchdown |
 |:------:|:-------:|:----------:|:----------:|
@@ -208,7 +208,7 @@ Here's a simple rule—ask what the majority thinks the verdict should be.
 
 : Majority rule applied to final verdict only {#tbl-majority-verdict}
 
-That's how most US courts work—the receiver doesn't get a touchdown.
+That's how most US courts work; the receiver doesn't get a touchdown.
 
 ## Majority Rules on Components
 
@@ -409,4 +409,4 @@ And most of the models can run, and be modified, on any computer you're likely t
 
 ## For Next Time
 
-We'll go back to versions of the football example and look at ways out of the problems with simple aggregation rules.
+We'll look at other examples with the structure of the football example and look at ways out of the problem with simple aggregation rules.

@@ -97,7 +97,7 @@ There are some very widely accepted constraints on how you do this measurement, 
 Annoyingly, the measurement that says:
 
 ::: {.nonincremental}
-- For every proposition, you get $x$ inaccuracy points when $x$ is the difference between your inaccuracy and the ideal;
+- For every proposition, you get $x$ inaccuracy points when $x$ is the difference between your credence and the ideal;
 - You add up all the inaccuracy points across all propositions, and the lower the better;
 :::
 
@@ -221,7 +221,7 @@ More precisely: if $Q$ is not a linear pool, there exists an alternative that ev
 Accuracy Consensus is important when individuals must "get behind" the group credence, e.g., in
 
 ::: {.incremental}
-- Representing group opinion to outsiders (the Shakespeare authorship debate, or the climate change example from last lecture); or
+- Representing group opinion to outsiders (the Shakespeare authorship debate, or official bodies putting out statemens on climate change); or
 - Assessing group liability for collective actions (corporate responsibility cases).
 :::
 
@@ -393,7 +393,7 @@ There is a very big picture question here about what the nature of testimonial k
 
 . . .
 
-Most philosophers like either option 1 or option 2. I kind of like option 3, and Elkin and Pettigrew here seem to like it too, but it's worth nothing this is a *very* unorthodox view in philosophy, compared to 1 or 2.
+Most philosophers like either option 1 or option 2. I kind of like option 3, and Elkin and Pettigrew here seem to like it too, but it's worth noting this is a *very* unorthodox view in philosophy, compared to 1 or 2.
 
 # Summing Up
 

@@ -1,136 +1,112 @@
 ---
-title: "Does Testimony Stand on Its Own?"
+title: "Evidence and the Senses II: What Memory Keeps"
 subtitle: "Phil 101 · Day 6"
 author: "Brian Weatherson"
 date: "Fall 2026"
 ---
 
-# The question, again
+# What the senses leave behind
 
 ## Last time
 
-We set perception and inference on one side and asked where testimony goes. Is it a third source, or does it fold into the other two?
+We set up the evidentialist picture. Your beliefs answer to your evidence, and perception is the clearest case of first-hand evidence, the kind you check for yourself.
 
 . . .
 
-Today we take the reducing view seriously, lean on it, and see what is left standing.
+But perception is gone in a moment. What you actually carry around, and act on, is the residue: what you remember.
 
-# Reductionism
+## Memory keeps less than you'd think
 
-## It is just perception and inference
+A fact about memory, from the lab and from a second's introspection alike: it stores contents, not sources.
 
-The reductionist says testimony is not basic. Someone tells you the bridge is out. You hear the words, which is perception, and you conclude they are true, which is inference, because people of that sort, on roads of that sort, have been right before.
-
-Your belief rests on perception and an inference from the speaker's reliability. Testimony adds no new way of knowing.
-
-## Why hold it
-
-The view is tidy. It keeps the list of sources short, and it makes trust earn its place. You believe a speaker because you have evidence that speakers like this are reliable, and not otherwise.
-
-Hume reasons this way about reports of miracles, setting the testimony against everything the rest of experience tells us.
-
-# Two criticisms
-
-## The plan
-
-Two objections do most of the damage. The first says the reductionist can never get started. The second says the standard it sets is too harsh, and would sink perception along with testimony.
-
-# First: you cannot get started
-
-## We do not actually infer
-
-Watch yourself take in what people say. You believe it straight off, unless something trips an alarm. You do not stop to build an argument from the speaker's track record.
-
-Datta quotes Montague on the point:
-
-> Man is a suggestible animal and tends to believe what is said to him unless he has some positive reason for doubting the honesty or competence of his informant.
-
-## The well runs dry
-
-Suppose belief did wait on an inference from past reliability. Where would the evidence come from?
-
-You would need a stock of cases checked for yourself, with no one's word taken. But almost everything you know about speakers, roads, and bridges arrived by testimony in the first place. The inference has nothing of its own to stand on.
-
-# Second: the standard is too harsh
-
-## Two questions, kept apart
-
-Datta's key move is to pull apart two things the reductionist runs together:
-
-- where the content of a belief comes from
-- how its truth gets checked
-
-Testimony can be the source of the content even when the checking is done by some other route.
-
-## In his words
-
-> The attempt to reduce testimony to inference is based on a confusion between the source of a knowledge and the source of the knowledge of its validity.
-
-You learn from a friend that he is glad. His words are the source of that fact. An inference might confirm that he is truthful, but it says nothing about his being glad. That came from him.
-
-## Turn it on perception
-
-The reductionist demands that real knowledge be checkable by some other method. Datta turns the demand around.
-
-> If testimony ceases to be a source of knowledge because the truth of it has to be ascertained through inference, why should not even perception cease to be a source of knowledge?
-
-Perceptions mislead too, and we check them against further perceptions. By the reductionist's own rule, perception would reduce as well. The rule proves too much.
-
-# Where that leaves the debate
-
-## Anti-reductionism
-
-Put the two criticisms together. We trust without inferring, and the demand that would disqualify testimony would disqualify the rest. So testimony looks like a source in its own right, level with perception and inference.
-
-This is the Nyāya view Datta defends, and roughly the one much later writers worked their way back to.
-
-# But are we just dupes?
-
-## The gullibility worry
-
-If we trust by default, we look like easy marks. A great deal of testimony is mistaken, and some of it is built to fool us. A theory that has us swallowing whatever we are told cannot be right either.
-
-# Epistemic vigilance
-
-## Trust, but filtered
-
-Sperber, Mercier, and their colleagues in Paris offer a way through. We are neither blank trusters nor blanket doubters. We run a set of quiet checks as we listen:
-
-- on the source: is this person competent, and do they mean me well?
-- on the content: does this sit with what I already have good reason to believe?
-
-Default trust is where we start, but it passes through a filter.
-
-## What the filter buys
-
-This keeps both halves of the picture. We can learn from each other, which is the whole point of testimony, without lying at the mercy of every liar.
-
-The trust is real, and so is the guard. That is how testimony can be basic without making us fools.
-
-# The machine version
-
-## A job we cannot yet hand off
-
-Vigilance is so ordinary that we hardly notice doing it. Building it is another matter.
-
-A system that takes in testimony at scale, trained on whatever it is fed, has no steady grip on whether a source can be trusted or whether a claim hangs together. The check a child runs without trying is something we do not know how to engineer.
+You remember that the heart has four chambers. You do not remember where you learned it, from whom, or whether the source was any good.
 
 . . .
 
-It is the shape from the grue week once more. The hard part was never the storing. It is the prior judgment about what to trust.
+It keeps even less than the content, but set that aside for today.
 
-# Reading
+## So you are carrying a lot of orphans
 
-## For next time
+The result is a head full of beliefs whose origins you have lost. You know a great many things and could not say, for almost any of them, how you came to know them.
 
-> Dhirendra Mohan Datta, "Testimony as a Method of Knowledge," *Mind* 36 (1927): 354–358.
+Most of the time that is fine. Sometimes it is the whole problem.
 
-Five pages, and decades ahead of its field.
+# The forgotten source
 
-If you want the vigilance idea first-hand: Sperber et al., "Epistemic Vigilance," *Mind & Language* 25 (2010).
+## A case you will recognize
 
-## Where we land
+Years ago you picked some claim up from a poor source: a half-read headline, a confident friend who turned out to be wrong, a guess you made under pressure.
 
-Testimony stands on its own feet, but vigilant feet. You trust, and you watch.
+You long ago forgot where it came from. Now you simply believe it, and it feels like something you know.
 
-Next we follow that out: whom to trust when you cannot check, and how to weigh experts who disagree.
+. . .
+
+This is not a thought experiment. It is most of what sits in anyone's head.
+
+## The puzzle
+
+Put it as cleanly as we can. Almost all of your belief-forming methods are reliable; one of them is not. You formed the belief that p by the unreliable one, and then forgot that you had.
+
+Today you have a memory that p, and nothing else.
+
+Are you justified in believing p?
+
+## It pulls two ways
+
+No. The belief came from a bad method and never picked up any new support along the way. Bad in, bad out.
+
+Yes. Your memories are mostly of reliable things, so any given remembered belief is a fair bet, and the bad origin is gone. Forgetting laundered it.
+
+## The fork, without the jargon
+
+The two answers grade the belief by different things. One looks back at where it came from. The other looks at how trustworthy your memory is in general.
+
+Both have a real pull, and that is the puzzle. You do not need a theory of justification to feel it.
+
+# Why this one earns its place
+
+## It is how being wrong sticks
+
+This is no curiosity. It is the mechanism behind a good deal of what we get wrong.
+
+You meet a shaky claim, you discount it, you forget the source, you keep the claim. Months later it has shed its doubts and feels like plain fact. Psychologists call the rising pull of a discounted message, once its source falls away, the sleeper effect.
+
+. . .
+
+There is a blunter cousin. Sheer repetition alone makes a claim feel true, even one you know better than to believe. That is the illusory truth effect, and Lisa Fazio's work on it is in the optional reading; we will come back to it.
+
+. . .
+
+A scrolling feed runs both at once: content in, source gone, and the same lines again tomorrow.
+
+# Memory and testimony are one puzzle
+
+## Where do the orphans come from?
+
+Ask where forgotten-source beliefs actually start. Almost every one is forgotten testimony. Someone told you, or wrote it down; you kept the claim and lost the speaker.
+
+. . .
+
+So "may I trust a memory whose source I have lost" and "is testimony a way of knowing" are not two questions. Memory is where testimony goes to lose its source.
+
+## Which sets up next time
+
+You trust your forgotten-source memories constantly, and you have no choice about it. But once you do, it is hard to turn to a living speaker and demand they prove their reliability before you will believe a word.
+
+That is the pressure point for next time, when we ask whether testimony stands on its own.
+
+## Reading
+
+Required:
+
+> "Epistemological Problems of Memory," *Stanford Encyclopedia of Philosophy*, §2.4 (Preservationism and Generativism).
+
+Recommended:
+
+> Lisa K. Fazio et al., "Knowledge Does Not Protect Against Illusory Truth."
+
+## Loose end (optional)
+
+Even deduction leans on this. Once a proof runs longer than you can hold in mind at once, you accept the conclusion because you remember checking each step, not because you are surveying the whole thing now.
+
+Even the safest knowledge is not free of memory.

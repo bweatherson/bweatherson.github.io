@@ -22,12 +22,12 @@ Line numbers are from the `.qmd` source. Items handled so far are marked **✅ D
 - ✅ US/UK spelling — whole course converted to US (77 changes; two direct quotations deliberately left in UK spelling).
 - ✅ Grammar / missing-word batch: 07 (`justfied`, `lookng`, `responsibile`, "a few", "lead"); 08:389 `Unanamity`→`Unanimity`; 12 (`equiilibria`, `whgether`, the "If there you have" line, and 152 now ends "…to see what effect it would have had"); 15:337 "0 > 0"→"0 = 0"; 17 (`arrbitrary`, `Oridinal`→`Ordinal`, `cooperatesbeing`, "especially **true** for", "famous **uses** of game theory"); 20:166 (added "not"), 20:179 ("**in** a straightforward way"); 22 (`Univesity`, 28 added "is", 50 added "might"); 23 (`interacct`, `discusing`, dropped the stray "that" at 16); 24:36 (added "views").
 
-**Still open:**
-- One more trailing-off sentence needing your wording: **15:623** ("…challenges for what to do about ").
-- Smaller obvious typos not yet swept: `betwen` (10:537), "worth nothing"→"worth noting" (11:396), "they are just have"→"they just have" (13:99), "long which"→"along which" (13:205), "local maxima"→"local maximum" (23:274), stray double period (25:53).
-- Judgment calls: deck 05 "Four Questions" heading (retitle vs restore a fourth); 09:292/09:298/09:395 (symmetric pair, math-delimiter render bug, garbled Bet 1 prose); 10:59 "Two-Stage" heading; 12:270 "Two-and-a-Half Models" (intentional?).
-- Style decision: em-dash clusters (decks 14, 17, and spaced ones in 15/16/25).
-- Reconcile/verify (not edits): "62 vs 63" (16/17); 05's "Liberty and Individual Welfare" title; 24:202 "more than triples" figure; 11:224 "climate change example from last lecture" back-reference.
+**Still open** (decks 1–9 are now essentially clear; the only leftover in that range is deck 02's minor "Disadvantages" list. Remaining items are deck 10+ plus style/verify):
+- One trailing-off sentence needing your wording: **15:623** ("…challenges for what to do about ").
+- Smaller obvious typos not yet swept: `betwen` (10:537), "worth nothing"→"worth noting" (11:396), "long which"→"along which" (13:205), "local maxima"→"local maximum" (23:274), stray double period (25:53).
+- Judgment calls: 10:59 "Two-Stage" heading; 12:270 "Two-and-a-Half Models" (intentional?).
+- Style decision: em-dash clusters in the game-theory decks (14, 17, and spaced ones in 15/16/25).
+- Reconcile/verify (not edits): "62 vs 63" (16/17); 24:202 "more than triples" figure; 11:224 "climate change example from last lecture" back-reference.
 
 ---
 
@@ -55,31 +55,31 @@ Line numbers are from the `.qmd` source. Items handled so far are marked **✅ D
 ## Deck-by-deck
 
 ### 01 — Introduction
-- Item 5 (minor): "For Next Time" (line 412) promises going "back to versions of the football example" next time, but deck 02 is Voting Systems and never returns to the football/judgment-aggregation case. Either soften the promise or point it further ahead.
-- Em-dashes (unspaced, your own style): lines 145, 200, 211, 324. Tables verified.
+- ✅ **Done — Item 5 (412):** reworded to "other examples with the structure of the football example…", softening the promise.
+- ✅ **Done — em-dashes** (145, 200, 211, 324) removed. Tables verified.
 
 ### 02 — Voting Systems
-- Item 2 (minor): "Disadvantages" list (lines 82–83) — the "Disproportional / Disordered" bullets describe multi-winner/seat outcomes inside a deck framed around single-winner elections. Reads as slightly garbled out of context.
-- Condorcet example table (lines 364–372) verified.
+- **Open — Item 2 (minor):** "Disadvantages" list (lines 82–83) — the "Disproportional / Disordered" bullets describe multi-winner/seat outcomes inside a deck framed around single-winner elections. Reads as slightly garbled out of context. (Still unchanged — defensible to leave.)
+- ✅ **Done — em-dashes** (278, 372) removed. Condorcet example table (364–372) verified.
 
 ### 03 — Arrow's Theorem
 - ✅ **Done:** closing activity item 3 changed from Borda to Approval (see highest-priority).
 
 ### 04 — Consequences of Arrow
 - ✅ **Done:** "Last Time" recap reconciled via the deck-03 edit.
-- **Open — Item 2, table/text contradiction (04.qmd:370).** "both Alex and Charlie prefer blickets to widgets on both days." Per the tables, Charlie prefers **widgets** both days. The point still holds; the sentence should read e.g. "Alex prefers blickets and Charlie prefers widgets, on both days."
-- Em-dashes (unspaced): lines 38, 370.
+- ✅ **Done — Item 2 (370):** now reads "Alex prefers blickets and Charlie prefers widgets, on both days."
+- ✅ **Done — em-dashes** (38, 370) removed.
 
 ### 05 — Paretian Liberal
 - ✅ **Done:** "rantgs" → "wants" (372).
-- **Open — Item 4, heading count (05.qmd:310).** Slide titled "Four Questions" but text says "we'll focus on **three**" and lists three. Retitle "Three Questions" or restore the fourth.
-- **Open — verify (05.qmd:412):** cites a Sen work "Liberty and Individual Welfare"; line 268 cites "Liberty and Social Choice" (1983). Worth checking the first title is right.
+- ✅ **Done — Item 4 (310):** slide retitled "Three Questions" (matches "focus on three").
+- ✅ **Done (412):** the stray "Liberty and Individual Welfare" is now "Liberty and Social Choice," matching the reference at 268.
 
 ### 06 — Peer Disagreement
 - ✅ **Done:** "disasterous"/"Columbia" (68).
-- **Open — Item 2 (06.qmd:305):** "one of the motivations equal weight fails" → "one of the motivations **for** equal weight fails."
-- **Open — Item 2 (06.qmd:333):** "just is way to say" → "just is **a** way to say."
-- Minor: line 124 "the five puzzles we already mentioned" — the nearest list of five is the "Why Pool Opinions?" reasons (94–104), which are reasons, not puzzles.
+- ✅ **Done — Item 2 (305):** "one of the motivations **for** equal weight fails."
+- ✅ **Done — Item 2 (333):** "just is **a** way to say."
+- ✅ **Done (124):** "five" dropped — now "the puzzles we already mentioned."
 
 ### 07 — Group Responsibility
 - ✅ **Done — spelling:** `justfied`→justified (110), `lookng`→looking (242), `responsibile`→responsible (316).
@@ -89,13 +89,13 @@ Line numbers are from the `.qmd` source. Items handled so far are marked **✅ D
 - ✅ **Done:** broken sentence (96); "For Next Time" imprecise-pooling over-promise removed and "Next lecture" → "Over the next couple of lectures."
 - ✅ **Done — spelling (08.qmd:389):** "Local Unanimity Preservation."
 
-### 09 — Linear Pooling
-- ✅ **Done:** Person 2 errors (278, 282); slide title "Generalisaing" → "Generalizing" (now US-spelled).
-- **Open — Item 2 (09.qmd:292):** `Pr_G(A ∧ ¬B) = Pr_G(¬B ∧ A)` — same event on both sides; the intended symmetric pair is `Pr_G(A ∧ ¬B) = Pr_G(¬A ∧ B) = 0.09`.
-- **Open — Item 2 (09.qmd:298) — rendering bug:** `$Pr_G(A | B) = 0.82, because $Pr_G…` has mismatched math delimiters, so "= 0.82, because" renders in math mode. Value 0.82 is correct.
-- **Open — Item 2 (09.qmd:395):** the Bet 1 prose ("pays nothing if if A… money back if ¬A") is garbled and doesn't match the (correct) payoff table; note the "if if" double word.
-- Minor: line 262 "called them 1 and 2" → "call them." Dutch-book table verified.
-- Em-dashes (unspaced): 20, 78, 505.
+### 09 — Linear Pooling — ✅ fully resolved
+- ✅ **Done:** Person 2 errors (278, 282); both "Generalizing" headings (336, 441).
+- ✅ **Done — Item 2 (292):** correct symmetric pair `Pr_G(A ∧ ¬B) = Pr_G(¬A ∧ B) = 0.09`.
+- ✅ **Done — Item 2 (298):** math delimiters closed; renders correctly (0.82).
+- ✅ **Done — Item 2 (395):** Bet 1 prose rewritten; "pays nothing if $\neg A \wedge B$" now matches the payoff table.
+- ✅ **Done (262):** "call them 1 and 2." Dutch-book table verified.
+- ✅ **Done — em-dashes** (20, 78, 505) removed.
 
 ### 10 — Geometric Pooling
 - ✅ **Done:** "normaliszation" → "normalization" (123).

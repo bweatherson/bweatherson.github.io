@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup 2026 Knockout Simulator</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --primary: #0d6efd;
+      --primary-hover: #0b5ed7;
+      --win: #198754;
+      --win-bg: #d1e7dd;
+      --tbd: #adb5bd;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+      line-height: 1.5;
+    }
+
+    header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 1.75rem;
+    }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.4rem; }
+    header p { color: var(--muted); font-size: 0.95rem; }
+    header a { color: var(--primary); }
+
+    .toolbar {
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      align-items: center;
+    }
+    button.btn {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    button.btn:hover { border-color: var(--primary); }
+    button.btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    button.btn.primary:hover { background: var(--primary-hover); }
+
+    /* ── Bracket ─────────────────────────────────────────── */
+    .bracket-wrap {
+      max-width: 1280px;
+      margin: 0 auto 2.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .bracket {
+      display: flex;
+      gap: 1.25rem;
+      min-width: max-content;
+      align-items: stretch;
+    }
+    .round-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-width: 178px;
+    }
+    .round-head {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .round-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex: 1;
+      gap: 0.5rem;
+    }
+    .match {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .match.ready { border-color: var(--primary); }
+    .slot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+      padding: 0.3rem 0.55rem;
+      font-size: 0.82rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .slot:last-child { border-bottom: none; }
+    .slot .name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .slot .pct { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+    .slot.tbd .name { color: var(--tbd); font-style: italic; }
+    .slot.clickable { cursor: pointer; }
+    .slot.clickable:hover { background: #eef4ff; }
+    .slot.winner { background: var(--win-bg); }
+    .slot.winner .name { font-weight: 700; color: var(--win); }
+    .slot.winner .pct { color: var(--win); }
+    .match-foot {
+      text-align: center;
+      font-size: 0.66rem;
+      color: var(--muted);
+      padding: 0.15rem;
+      background: #fafbfc;
+    }
+    .champion-box {
+      align-self: center;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--win);
+      border-radius: 10px;
+      background: var(--win-bg);
+      font-weight: 700;
+      color: var(--win);
+      min-width: 150px;
+    }
+    .champion-box .lbl { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display:block; margin-bottom: 0.2rem;}
+
+    /* ── Panels ──────────────────────────────────────────── */
+    .panels { max-width: 1100px; margin: 0 auto; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+    }
+    .panel > summary {
+      cursor: pointer;
+      padding: 0.85rem 1.1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+    }
+    .panel > summary::-webkit-details-marker { display: none; }
+    .panel > summary::before { content: "▸ "; color: var(--muted); }
+    .panel[open] > summary::before { content: "▾ "; }
+    .panel-body { padding: 0 1.1rem 1.1rem; }
+
+    table.results { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    table.results th, table.results td { padding: 0.35rem 0.5rem; text-align: right; border-bottom: 1px solid var(--border); }
+    table.results th { cursor: pointer; user-select: none; color: var(--muted); font-weight: 600; white-space: nowrap; }
+    table.results th:first-child, table.results td:first-child { text-align: left; }
+    table.results td.team { font-weight: 600; }
+    table.results td.num { font-family: var(--mono); }
+    table.results tr.gone td { color: var(--tbd); }
+    .bar {
+      display: inline-block; height: 0.7em; background: var(--primary);
+      border-radius: 2px; vertical-align: middle; margin-left: 4px; opacity: 0.55;
+    }
+
+    textarea {
+      width: 100%; font-family: var(--mono); font-size: 0.8rem;
+      border: 1px solid var(--border); border-radius: 7px; padding: 0.6rem;
+      resize: vertical; line-height: 1.45;
+    }
+    .field-row { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .field-row > div { flex: 1; min-width: 260px; }
+    label.fld { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .hint { font-size: 0.78rem; color: var(--muted); margin: 0.4rem 0 0.6rem; }
+    .slider-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.75rem 0; font-size: 0.85rem; }
+    .slider-row input[type=range] { flex: 1; }
+    .warn { color: #b02a37; font-size: 0.8rem; margin-top: 0.5rem; white-space: pre-wrap; }
+    code { background: #eef0f2; padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>⚽ World Cup 2026 — Knockout Simulator</h1>
+    <p>Click any known team to advance it — even before its opponent is decided.
+       Probabilities for every unresolved match update instantly. Edit the draw
+       and the rating model below.</p>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn" id="btn-clear">↺ Clear all results</button>
+    <button class="btn" id="btn-favorites">▶ Auto-pick favorites</button>
+  </div>
+
+  <div class="bracket-wrap">
+    <div class="bracket" id="bracket"></div>
+  </div>
+
+  <div class="panels">
+
+    <details class="panel" open>
+      <summary>Probability of reaching each stage</summary>
+      <div class="panel-body">
+        <p class="hint">Exact probabilities under the current model and any results you've set.
+           Click a column header to sort. Eliminated teams are greyed.</p>
+        <table class="results" id="results"></table>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>The draw (Round-of-32 order)</summary>
+      <div class="panel-body">
+        <p class="hint">One team per line, <strong>32 lines</strong>, top to bottom of the bracket.
+           Lines 1–2 are the first match, 3–4 the second, and so on. A blank line or
+           <code>—</code> is allowed as a placeholder. Paste tonight's real draw here.</p>
+        <textarea id="ta-bracket" rows="18" spellcheck="false"></textarea>
+        <div class="warn" id="bracket-warn"></div>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>The model (team ratings)</summary>
+      <div class="panel-body">
+        <p class="hint">One team per line as <code>Team: rating</code>. Higher = stronger
+           (Elo scale). Any team in the draw without a rating uses the baseline below.</p>
+        <div class="field-row">
+          <div>
+            <label class="fld">Ratings</label>
+            <textarea id="ta-ratings" rows="16" spellcheck="false"></textarea>
+          </div>
+          <div>
+            <label class="fld">How matches are scored</label>
+            <p class="hint">P(A beats B) = 1 / (1 + 10<sup>(R<sub>B</sub>−R<sub>A</sub>)/scale</sup>).
+               No draws (knockout). Lower scale ⇒ favorites win more often.</p>
+            <div class="slider-row">
+              <span>Scale</span>
+              <input type="range" id="scale" min="80" max="800" step="10">
+              <span class="num" id="scale-val" style="font-family:var(--mono);width:3em;text-align:right;"></span>
+            </div>
+            <div class="slider-row">
+              <span>Baseline rating</span>
+              <input type="range" id="baseline" min="1000" max="2000" step="10">
+              <span class="num" id="baseline-val" style="font-family:var(--mono);width:3.5em;text-align:right;"></span>
+            </div>
+            <p class="hint">To plug in a completely different model, replace the
+               <code>winProb(a, b)</code> function in the page source — everything
+               else reads from it.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </div>
+
+<script>
+"use strict";
+
+/* ======================================================================
+   DATA — defaults. Everything here is also editable live in the UI and
+   saved to localStorage. Edit the draw tonight via the panel (no code
+   change needed).
+   ====================================================================== */
+
+// 32 slots, top-to-bottom of the bracket, using FIFA's official position
+// labels for the 2026 knockout draw. The ordering below makes adjacent pairs
+// reproduce FIFA's exact Round-of-16 → Final pairings (match nos. 73–104).
+// Winner/Runner-up slots are fixed; "3rd …/…" slots list the eligible groups
+// for that best-third-placed spot. Replace any label with a team name as
+// results come in (manual — nothing auto-resolves).
+// Known teams (group stage results) are filled in; still-undecided slots keep
+// their FIFA placeholder label. As of the last update: Groups K & L, the
+// Group J runner-up, and the five remaining best-third slots are not yet set.
+const DEFAULT_BRACKET = [
+  "Germany",             "Paraguay",        // M74  (W E / 3rd A/B/C/D/F)
+  "France",              "Sweden",          // M77  (W I / 3rd C/D/F/G/H)
+  "South Africa",        "Canada",          // M73  (RU A / RU B)
+  "Netherlands",         "Morocco",         // M75  (W F / RU C)
+  "Runner-up K",         "Runner-up L",     // M83
+  "Spain",               "Runner-up J",     // M84  (W H / RU J)
+  "USA",                 "Bosnia and Herzegovina", // M81 (W D / 3rd B/E/F/I/J)
+  "Belgium",             "3rd A/E/H/I/J",   // M82  (W G / 3rd …)
+  "Brazil",              "Japan",           // M76  (W C / RU F)
+  "Côte d'Ivoire",       "Norway",          // M78  (RU E / RU I)
+  "Mexico",              "3rd C/E/F/H/I",   // M79  (W A / 3rd …)
+  "Winner L",            "3rd E/H/I/J/K",   // M80
+  "Argentina",           "Cabo Verde",      // M86  (W J / RU H)
+  "Australia",           "Egypt",           // M88  (RU D / RU G)
+  "Switzerland",         "3rd E/F/G/I/J",   // M85  (W B / 3rd …)
+  "Winner K",            "3rd D/E/I/J/L"    // M87
+];
+
+// FIFA match numbers, in tree order, per level (0 = Round of 32 ... 4 = Final).
+const MATCH_NUMBERS = [
+  [74, 77, 73, 75, 83, 84, 81, 82, 76, 78, 79, 80, 86, 88, 85, 87],
+  [89, 90, 93, 94, 91, 92, 95, 96],
+  [97, 98, 99, 100],
+  [101, 102],
+  [104]
+];
+function matchNumber(node) {
+  const arr = MATCH_NUMBERS[node.level];
+  const idx = nodesByLevel[node.level].indexOf(node);
+  return arr && idx >= 0 ? arr[idx] : null;
+}
+
+// Starter ratings (approximate World Football Elo, mid-2026-ish). Edit freely.
+const DEFAULT_RATINGS = {
+  "South Africa": 1660, "Bosnia and Herzegovina": 1690, "Cabo Verde": 1610,
+  "Argentina": 2120, "France": 2080, "Spain": 2070, "England": 2010,
+  "Brazil": 2020, "Portugal": 2000, "Netherlands": 2030, "Belgium": 1940,
+  "Germany": 1965, "Italy": 1935, "Croatia": 1900, "Uruguay": 1900,
+  "Colombia": 1925, "Morocco": 1860, "USA": 1810, "Mexico": 1800,
+  "Japan": 1850, "South Korea": 1780, "Senegal": 1820, "Switzerland": 1850,
+  "Denmark": 1845, "Austria": 1820, "Ecuador": 1820, "Ukraine": 1800,
+  "Australia": 1740, "Canada": 1760, "Nigeria": 1780, "Serbia": 1790,
+  "Poland": 1770, "Egypt": 1760, "Norway": 1810, "Sweden": 1790,
+  "Iran": 1760, "Algeria": 1760, "Côte d'Ivoire": 1760, "Peru": 1740,
+  "Saudi Arabia": 1700, "Qatar": 1680, "Tunisia": 1700, "Ghana": 1720,
+  "Cameroon": 1730, "Costa Rica": 1700, "Paraguay": 1740, "Chile": 1760,
+  "New Zealand": 1620, "Jordan": 1620, "Uzbekistan": 1640, "Panama": 1680
+};
+
+const DEFAULTS = { scale: 400, baseline: 1500 };
+
+/* ======================================================================
+   THE MODEL.  Swap this out to use a different probability model.
+   Returns P(team `a` beats team `b`) given current ratings.
+   ====================================================================== */
+function winProb(a, b) {
+  const ra = ratingOf(a), rb = ratingOf(b);
+  return 1 / (1 + Math.pow(10, (rb - ra) / state.scale));
+}
+
+/* ======================================================================
+   STATE
+   ====================================================================== */
+const ROUND_NAMES = ["Round of 32", "Round of 16", "Quarterfinals",
+                     "Semifinals", "Final"];
+// Stage a team REACHES by winning the match at each level:
+const REACH_NAMES = ["Round of 16", "Quarterfinals", "Semifinals",
+                     "Final", "Champion"];
+
+const state = {
+  bracketText: "",
+  ratings: {},
+  scale: DEFAULTS.scale,
+  baseline: DEFAULTS.baseline,
+  forced: {},          // node.id -> winning team name
+  sortKey: 4,          // results table sort column (default: Champion)
+  sortDir: -1
+};
+
+function ratingOf(team) {
+  if (team in state.ratings) return state.ratings[team];
+  return state.baseline;
+}
+
+/* ── Persistence ─────────────────────────────────────────── */
+const LS_KEY = "wc2026-knockout-v4";
+function save() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({
+      bracketText: state.bracketText,
+      ratingsText: document.getElementById("ta-ratings").value,
+      scale: state.scale, baseline: state.baseline, forced: state.forced
+    }));
+  } catch (e) {}
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (e) { return null; }
+}
+
+/* ── Parsing ─────────────────────────────────────────────── */
+function parseBracket(text) {
+  // Return exactly 32 slot names (pad / truncate).
+  let lines = text.replace(/\r/g, "").split("\n").map(s => s.trim());
+  // Keep all lines (blank lines are meaningful placeholders) but trim trailing.
+  while (lines.length && lines[lines.length - 1] === "") lines.pop();
+  const slots = [];
+  for (let i = 0; i < 32; i++) {
+    let v = (lines[i] || "").trim();
+    if (v === "" || v === "—" || v === "-") v = `Seed ${i + 1}`;
+    slots.push(v);
+  }
+  return slots;
+}
+
+function parseRatings(text) {
+  const out = {};
+  text.replace(/\r/g, "").split("\n").forEach(line => {
+    const m = line.match(/^\s*(.+?)\s*[:,]\s*(-?\d+(?:\.\d+)?)\s*$/);
+    if (m) out[m[1].trim()] = parseFloat(m[2]);
+  });
+  return out;
+}
+
+/* ======================================================================
+   BRACKET TREE + EXACT PROBABILITY COMPUTATION
+   ====================================================================== */
+let tree = null;        // root node
+let nodesByLevel = [];  // nodesByLevel[L] = nodes whose match is at level L
+let leafNodes = [];     // 32 leaves, in bracket order
+
+// Node: { id, level, team?, left?, right?, parent }
+//   level 0 = Round-of-32 matches (leaves are the 32 teams, "below" level 0)
+function buildTree(slots) {
+  let idc = 0;
+  leafNodes = [];
+  // leaves
+  let layer = slots.map(name => {
+    const n = { id: idc++, leaf: true, team: name, level: -1 };
+    leafNodes.push(n);
+    return n;
+  });
+  let level = 0;
+  const levels = [];
+  while (layer.length > 1) {
+    const next = [];
+    const here = [];
+    for (let i = 0; i < layer.length; i += 2) {
+      const n = { id: idc++, level, left: layer[i], right: layer[i + 1] };
+      layer[i].parent = n; layer[i + 1].parent = n;
+      here.push(n); next.push(n);
+    }
+    levels[level] = here;
+    layer = next; level++;
+  }
+  nodesByLevel = levels;
+  return layer[0];
+}
+
+// dist(node): Map team -> probability that team advances OUT of this node.
+function computeDist(node, cache) {
+  if (node.leaf) return new Map([[node.team, 1]]);
+  if (cache.has(node.id)) return cache.get(node.id);
+  // Always compute both children first, so EVERY node's distribution gets
+  // cached — even when this node's result is forced. (Rendering and the
+  // results table read the cache for every match.)
+  const dl = computeDist(node.left, cache);
+  const dr = computeDist(node.right, cache);
+  let res;
+  const forcedTeam = state.forced[node.id];
+  if (forcedTeam !== undefined) {
+    res = new Map([[forcedTeam, 1]]);
+  } else {
+    res = new Map();
+    for (const [a, pa] of dl) {
+      for (const [b, pb] of dr) {
+        const w = winProb(a, b);
+        res.set(a, (res.get(a) || 0) + pa * pb * w);
+        res.set(b, (res.get(b) || 0) + pa * pb * (1 - w));
+      }
+    }
+  }
+  cache.set(node.id, res);
+  return res;
+}
+
+// A node's two participants are decided (so the match can be "played").
+function isResolved(node) {
+  return node.leaf || (state.forced[node.id] !== undefined);
+}
+function isReady(node) {
+  return !node.leaf && isResolved(node.left) && isResolved(node.right);
+}
+function resolvedTeam(node) {
+  if (node.leaf) return node.team;
+  if (state.forced[node.id] !== undefined) return state.forced[node.id];
+  return null;
+}
+
+// Clear a node's forced result and ALL ancestors (their determinacy may break).
+function clearFromHere(node) {
+  delete state.forced[node.id];
+  let p = node.parent;
+  while (p) { delete state.forced[p.id]; p = p.parent; }
+}
+
+/* ======================================================================
+   RENDERING
+   ====================================================================== */
+function rebuild() {
+  state.ratings = parseRatings(document.getElementById("ta-ratings").value);
+  const slots = parseBracket(state.bracketText);
+  tree = buildTree(slots);
+  render();
+  save();
+}
+
+function fmtPct(p) {
+  if (p >= 0.9995) return "100%";
+  if (p > 0 && p < 0.001) return "<0.1%";
+  if (p === 0) return "0%";
+  return (p * 100).toFixed(1) + "%";
+}
+
+function render() {
+  const cache = new Map();
+  computeDist(tree, cache);
+  renderBracket(cache);
+  renderResults(cache);
+  validateBracket(slotsFromTree());
+}
+
+function slotsFromTree() { return leafNodes.map(n => n.team); }
+
+function renderBracket(cache) {
+  const wrap = document.getElementById("bracket");
+  wrap.innerHTML = "";
+  const nLevels = nodesByLevel.length;
+
+  for (let L = 0; L < nLevels; L++) {
+    const col = document.createElement("div");
+    col.className = "round-col";
+    const head = document.createElement("div");
+    head.className = "round-head";
+    head.textContent = ROUND_NAMES[L] || `Round ${L}`;
+    col.appendChild(head);
+    const body = document.createElement("div");
+    body.className = "round-body";
+
+    for (const node of nodesByLevel[L]) {
+      body.appendChild(renderMatch(node, cache));
+    }
+    col.appendChild(body);
+    wrap.appendChild(col);
+  }
+
+  // Champion box
+  const champCol = document.createElement("div");
+  champCol.className = "round-col";
+  const champHead = document.createElement("div");
+  champHead.className = "round-head";
+  champHead.textContent = "Champion";
+  champCol.appendChild(champHead);
+  const cbWrap = document.createElement("div");
+  cbWrap.className = "round-body";
+  cbWrap.style.justifyContent = "center";
+  const cb = document.createElement("div");
+  cb.className = "champion-box";
+  const champDist = cache.get(tree.id);
+  const champ = topEntry(champDist);
+  cb.innerHTML = `<span class="lbl">Most likely winner</span>` +
+    (champ ? `${esc(champ[0])}<br><span style="font-weight:400;font-size:0.8rem">${fmtPct(champ[1])}</span>` : "—");
+  cbWrap.appendChild(cb);
+  champCol.appendChild(cbWrap);
+  wrap.appendChild(champCol);
+}
+
+function topEntry(dist) {
+  let best = null;
+  for (const e of dist) if (!best || e[1] > best[1]) best = e;
+  return best;
+}
+
+// Build a match box. Each match shows its two participants (known or TBD)
+// with their probability of WINNING this match (i.e. advancing).
+function renderMatch(node, cache) {
+  const box = document.createElement("div");
+  box.className = "match";
+  const forcedTeam = state.forced[node.id];
+  // A side is pickable as soon as THAT team is known — you can advance a team
+  // before its opponent is decided ("they win regardless of who they face").
+  const pickable = isResolved(node.left) || isResolved(node.right);
+  if (pickable && forcedTeam === undefined) box.classList.add("ready");
+
+  // What we display in each of the two slots: the participant arriving from
+  // each child, with prob of reaching here AND prob of winning this match.
+  const sides = [node.left, node.right];
+  const childDists = sides.map(c => cache.get ? distFor(c, cache) : null);
+  const thisDist = cache.get(node.id);
+
+  for (let s = 0; s < 2; s++) {
+    const child = sides[s];
+    const slot = document.createElement("div");
+    slot.className = "slot";
+
+    const resolved = isResolved(child);
+    if (resolved) {
+      const team = resolvedTeam(child);
+      const isWinner = (forcedTeam !== undefined && forcedTeam === team);
+      // probability this team wins THIS match (advances from node)
+      const pAdvance = thisDist.get(team) || 0;
+      slot.innerHTML = `<span class="name">${esc(team)}</span>` +
+                       `<span class="pct">${fmtPct(pAdvance)}</span>`;
+      if (isWinner) slot.classList.add("winner");
+      slot.classList.add("clickable");
+      slot.title = forcedTeam === team
+        ? "Click to clear this result"
+        : `Advance ${team}`;
+      slot.addEventListener("click", () => onPick(node, team));
+    } else {
+      // Not yet determined: show the favourite arriving from this side.
+      const cd = childDists[s];
+      const fav = topEntry(cd);
+      slot.classList.add("tbd");
+      slot.innerHTML = `<span class="name">${fav ? esc(fav[0]) + " …" : "TBD"}</span>` +
+                       `<span class="pct">${fav ? fmtPct(cd ? (thisDist.get(fav[0])||0) : 0) : ""}</span>`;
+      slot.title = "This side isn't decided yet";
+    }
+    box.appendChild(slot);
+  }
+
+  const foot = document.createElement("div");
+  foot.className = "match-foot";
+  const mn = matchNumber(node);
+  const tag = mn ? `Match ${mn} · ` : "";
+  if (forcedTeam !== undefined) foot.textContent = tag + "result set ✓";
+  else if (pickable) foot.textContent = tag + "click a team";
+  else foot.textContent = tag + "in progress";
+  box.appendChild(foot);
+  return box;
+}
+
+// distribution of who ARRIVES at `node` from a child = the child's output dist
+function distFor(child, cache) {
+  if (child.leaf) return new Map([[child.team, 1]]);
+  return cache.get(child.id) || computeDist(child, cache);
+}
+
+function onPick(node, team) {
+  if (state.forced[node.id] === team) {
+    clearFromHere(node);      // toggle off (and clear dependents)
+  } else {
+    // Setting a new winner here invalidates ancestor results.
+    let p = node.parent;
+    while (p) { delete state.forced[p.id]; p = p.parent; }
+    state.forced[node.id] = team;
+  }
+  render();
+  save();
+}
+
+/* ── Results table ───────────────────────────────────────── */
+function renderResults(cache) {
+  // For each team (leaf), probability of reaching each stage =
+  // dist at the node on its path at each level.
+  const rows = [];
+  for (const leaf of leafNodes) {
+    const probs = [];
+    let node = leaf.parent;
+    for (let L = 0; L < nodesByLevel.length; L++) {
+      const d = cache.get(node.id) || computeDist(node, cache);
+      probs.push(d.get(leaf.team) || 0);
+      node = node.parent;
+    }
+    rows.push({ team: leaf.team, probs }); // probs[0]=reach R16 ... probs[4]=champion
+  }
+
+  // Merge duplicate placeholder names? Keep distinct; sum not needed.
+  const k = state.sortKey;
+  rows.sort((a, b) => {
+    const av = a.probs[k], bv = b.probs[k];
+    if (av !== bv) return state.sortDir * (av - bv);
+    return a.team.localeCompare(b.team);
+  });
+
+  const tbl = document.getElementById("results");
+  const heads = ["Team", ...REACH_NAMES];
+  let html = "<thead><tr>";
+  heads.forEach((h, i) => {
+    const col = i - 1; // data column index (-1 for team)
+    let arrow = "";
+    if (col === state.sortKey) arrow = state.sortDir < 0 ? " ↓" : " ↑";
+    html += `<th data-col="${col}">${h}${arrow}</th>`;
+  });
+  html += "</tr></thead><tbody>";
+
+  for (const r of rows) {
+    const eliminated = r.probs[r.probs.length - 1] === 0 && r.probs[0] === 0;
+    html += `<tr class="${eliminated ? "gone" : ""}">`;
+    html += `<td class="team">${esc(r.team)}</td>`;
+    for (let c = 0; c < r.probs.length; c++) {
+      const p = r.probs[c];
+      const w = Math.round(p * 42);
+      html += `<td class="num">${fmtPct(p)}` +
+              (w > 0 ? `<span class="bar" style="width:${w}px"></span>` : "") +
+              `</td>`;
+    }
+    html += "</tr>";
+  }
+  html += "</tbody>";
+  tbl.innerHTML = html;
+
+  tbl.querySelectorAll("th").forEach(th => {
+    th.addEventListener("click", () => {
+      const col = parseInt(th.dataset.col, 10);
+      if (col < 0) return;
+      if (state.sortKey === col) state.sortDir *= -1;
+      else { state.sortKey = col; state.sortDir = -1; }
+      render();
+    });
+  });
+}
+
+/* ── Validation ──────────────────────────────────────────── */
+// FIFA position labels (and bare seeds) are placeholders, not real teams.
+function isPlaceholder(s) {
+  return /^Seed \d+$/.test(s) ||
+         /^(Winner|Runner-up) [A-L]$/.test(s) ||
+         /^3rd /.test(s);
+}
+
+function validateBracket(slots) {
+  const warn = document.getElementById("bracket-warn");
+  const real = slots.filter(s => !isPlaceholder(s));
+  const missing = [];
+  const seen = new Set();
+  const dupes = new Set();
+  for (const s of real) {
+    if (seen.has(s)) dupes.add(s); else seen.add(s);
+    if (!(s in state.ratings)) missing.push(s);
+  }
+  const msgs = [];
+  if (dupes.size) msgs.push("Duplicate teams in draw: " + [...dupes].join(", "));
+  const uniqMissing = [...new Set(missing)];
+  if (uniqMissing.length)
+    msgs.push("No rating (using baseline " + state.baseline + ") for: " +
+              uniqMissing.join(", "));
+  warn.textContent = msgs.join("\n");
+}
+
+/* ── Utils ───────────────────────────────────────────────── */
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+/* ======================================================================
+   INIT
+   ====================================================================== */
+function ratingsToText(obj) {
+  return Object.entries(obj).map(([k, v]) => `${k}: ${v}`).join("\n");
+}
+
+function init() {
+  const saved = load();
+  const taB = document.getElementById("ta-bracket");
+  const taR = document.getElementById("ta-ratings");
+
+  state.bracketText = (saved && saved.bracketText) || DEFAULT_BRACKET.join("\n");
+  taB.value = state.bracketText;
+  taR.value = (saved && saved.ratingsText) || ratingsToText(DEFAULT_RATINGS);
+  state.scale = (saved && saved.scale) || DEFAULTS.scale;
+  state.baseline = (saved && saved.baseline) || DEFAULTS.baseline;
+  state.forced = (saved && saved.forced) || {};
+
+  const scale = document.getElementById("scale");
+  const baseline = document.getElementById("baseline");
+  scale.value = state.scale; baseline.value = state.baseline;
+  document.getElementById("scale-val").textContent = state.scale;
+  document.getElementById("baseline-val").textContent = state.baseline;
+
+  // Events
+  taB.addEventListener("input", () => {
+    state.bracketText = taB.value;
+    state.forced = {};        // draw changed -> results no longer valid
+    rebuild();
+  });
+  taR.addEventListener("input", () => rebuild());
+  scale.addEventListener("input", () => {
+    state.scale = +scale.value;
+    document.getElementById("scale-val").textContent = state.scale;
+    rebuild();
+  });
+  baseline.addEventListener("input", () => {
+    state.baseline = +baseline.value;
+    document.getElementById("baseline-val").textContent = state.baseline;
+    rebuild();
+  });
+
+  document.getElementById("btn-clear").addEventListener("click", () => {
+    state.forced = {}; render(); save();
+  });
+  document.getElementById("btn-favorites").addEventListener("click", autoFavorites);
+
+  rebuild();
+}
+
+// Walk the tree bottom-up, forcing the higher-rated participant to win each match.
+function autoFavorites() {
+  state.forced = {};
+  for (let L = 0; L < nodesByLevel.length; L++) {
+    for (const node of nodesByLevel[L]) {
+      const a = resolvedTeam(node.left), b = resolvedTeam(node.right);
+      if (a == null || b == null) continue;
+      state.forced[node.id] = winProb(a, b) >= 0.5 ? a : b;
+    }
+  }
+  render(); save();
+}
+
+init();
+</script>
+
+</body>
+</html>

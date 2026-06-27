@@ -56,7 +56,7 @@ Both geometric pooling and odds pooling will say that the combined probability i
 
 We'll come back to this.
 
-## The Two-Stage Process
+## The Multi-Stage Process
 
 Geometric pooling works differently from linear pooling:
 
@@ -534,7 +534,7 @@ This will imply that people with low credence get to really influence the overal
 
 ## Next Steps in the Course
 
-Moving forward, we'll explore how we might go about choosing betwen these in particular contexts, how they relate to the motivations for pooling, and (perhaps) whether there are any further options we left out.
+Moving forward, we'll explore how we might go about choosing between these in particular contexts, how they relate to the motivations for pooling, and (perhaps) whether there are any further options we left out.
 
 ## Practical Takeaway
 

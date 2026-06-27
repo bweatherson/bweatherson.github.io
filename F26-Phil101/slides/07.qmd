@@ -1,86 +1,136 @@
 ---
-title: "Whom Do You Trust?"
+title: "Does Testimony Stand on Its Own?"
 subtitle: "Phil 101 · Day 7"
 author: "Brian Weatherson"
 date: "Fall 2026"
 ---
 
-# From watching to depending
+# The question, again
 
 ## Last time
 
-Testimony turned out to be a source in its own right, though a guarded one. You trust by default, and you keep a quiet watch on the source and the content.
+We set perception and inference on one side and asked where testimony goes. Is it a third source, or does it fold into the other two?
 
 . . .
 
-That watch works while you can size a person up. It runs out fast.
+Today we take the reducing view seriously, lean on it, and see what is left standing.
 
-## The strangers you rely on
+# Reductionism
 
-Almost nothing you believe about the world came from someone you could vet. The size of an atom, the age of the universe, the safety of a drug: you hold it on the word of experts you will never meet.
+## It is just perception and inference
 
-So the real question is not whether to trust testimony. It is how to judge the people you have no choice but to depend on.
+The reductionist says testimony is not basic. Someone tells you the bridge is out. You hear the words, which is perception, and you conclude they are true, which is inference, because people of that sort, on roads of that sort, have been right before.
 
-# Depending on what you can't check
+Your belief rests on perception and an inference from the speaker's reliability. Testimony adds no new way of knowing.
 
-## You cannot redo the work
+## Why hold it
 
-To check the climate science yourself you would need years of training you do not have. The same goes for the vaccine, the bridge, the diagnosis.
+The view is tidy. It keeps the list of sources short, and it makes trust earn its place. You believe a speaker because you have evidence that speakers like this are reliable, and not otherwise.
 
-This is not a personal failing. No one has the hours to become expert in everything, so all of us lean on others for nearly all of what we know.
+Hume reasons this way about reports of miracles, setting the testimony against everything the rest of experience tells us.
 
-## Testimony all the way in
+# Two criticisms
 
-Spencer Case makes the plain point in a single page. Testimony is social through and through. It runs on trust in the one who listens and honesty in the one who speaks.
+## The plan
 
-So you are back to trust, only now the speaker is a stranger with a doctorate.
+Two objections do most of the damage. The first says the reductionist can never get started. The second says the standard it sets is too harsh, and would sink perception along with testimony.
 
-## The bind
+# First: you cannot get started
 
-You cannot assess the science. You still have to decide what to believe, and sometimes what to do about it.
+## We do not actually infer
 
-If you cannot judge the work, what can you judge?
+Watch yourself take in what people say. You believe it straight off, unless something trips an alarm. You do not stop to build an argument from the speaker's track record.
 
-# Judge the scientists, not the science
+Datta quotes Montague on the point:
 
-## A Michigan answer
+> Man is a suggestible animal and tends to believe what is said to him unless he has some positive reason for doubting the honesty or competence of his informant.
 
-Elizabeth Anderson, who teaches philosophy here, has the cleanest reply. You stop trying to grade the research, and you assess the researchers instead.
+## The well runs dry
 
-That is a second-order judgment, about people and institutions rather than about the science itself, and it is one you are equipped to make.
+Suppose belief did wait on an inference from past reliability. Where would the evidence come from?
 
-## What to look for
+You would need a stock of cases checked for yourself, with no one's word taken. But almost everything you know about speakers, roads, and bridges arrived by testimony in the first place. The inference has nothing of its own to stand on.
 
-Anderson points to three things an ordinary person can check with no more than schooling and a search engine:
+# Second: the standard is too harsh
 
-- expertise: are they trained and credentialed in the field they are speaking on?
-- honesty: is there a record of fraud, hidden funding, or past deception?
-- responsibility: do they answer their critics and put their work up for scrutiny?
+## Two questions, kept apart
 
-## The point of the list
+Datta's key move is to pull apart two things the reductionist runs together:
 
-None of this asks you to follow the science. It asks you to read a record, trace who paid for what, and see whether someone hides from challenge or invites it.
+- where the content of a belief comes from
+- how its truth gets checked
 
-The judgment shifts from the claim to the claimant, where a layperson can actually stand.
+Testimony can be the source of the content even when the checking is done by some other route.
 
-## You are doing it now
+## In his words
 
-This is your own position in this room. You are taking a course largely on my say-so.
+> The attempt to reduce testimony to inference is based on a confusion between the source of a knowledge and the source of the knowledge of its validity.
+
+You learn from a friend that he is glad. His words are the source of that fact. An inference might confirm that he is truthful, but it says nothing about his being glad. That came from him.
+
+## Turn it on perception
+
+The reductionist demands that real knowledge be checkable by some other method. Datta turns the demand around.
+
+> If testimony ceases to be a source of knowledge because the truth of it has to be ascertained through inference, why should not even perception cease to be a source of knowledge?
+
+Perceptions mislead too, and we check them against further perceptions. By the reductionist's own rule, perception would reduce as well. The rule proves too much.
+
+# Where that leaves the debate
+
+## Anti-reductionism
+
+Put the two criticisms together. We trust without inferring, and the demand that would disqualify testimony would disqualify the rest. So testimony looks like a source in its own right, level with perception and inference.
+
+This is the Nyāya view Datta defends, and roughly the one much later writers worked their way back to.
+
+# But are we just dupes?
+
+## The gullibility worry
+
+If we trust by default, we look like easy marks. A great deal of testimony is mistaken, and some of it is built to fool us. A theory that has us swallowing whatever we are told cannot be right either.
+
+# Epistemic vigilance
+
+## Trust, but filtered
+
+Sperber, Mercier, and their colleagues in Paris offer a way through. We are neither blank trusters nor blanket doubters. We run a set of quiet checks as we listen:
+
+- on the source: is this person competent, and do they mean me well?
+- on the content: does this sit with what I already have good reason to believe?
+
+Default trust is where we start, but it passes through a filter.
+
+## What the filter buys
+
+This keeps both halves of the picture. We can learn from each other, which is the whole point of testimony, without lying at the mercy of every liar.
+
+The trust is real, and so is the guard. That is how testimony can be basic without making us fools.
+
+# The machine version
+
+## A job we cannot yet hand off
+
+Vigilance is so ordinary that we hardly notice doing it. Building it is another matter.
+
+A system that takes in testimony at scale, trained on whatever it is fed, has no steady grip on whether a source can be trusted or whether a claim hangs together. The check a child runs without trying is something we do not know how to engineer.
 
 . . .
 
-So run Anderson's checks on me, and on her. Her office is a short walk from this one. The criteria point straight back at the people teaching them to you.
+It is the shape from the grue week once more. The hard part was never the storing. It is the prior judgment about what to trust.
 
-# When the experts split
+# Reading
 
-## A harder case
+## For next time
 
-The checks work best when the trustworthy experts agree. When credentialed, honest, careful people land on opposite sides, second-order judgment gets harder.
+> Dhirendra Mohan Datta, "Testimony as a Method of Knowledge," *Mind* 36 (1927): 354–358.
 
-That is where we go next: what a consensus is worth, and how one can be faked.
+Five pages, and decades ahead of its field.
 
-## Reading
+If you want the vigilance idea first-hand: Sperber et al., "Epistemic Vigilance," *Mind & Language* 25 (2010).
 
-> Spencer Case, "Take My Word for It: On Testimony," *1000-Word Philosophy*.
+## Where we land
 
-> Elizabeth Anderson, "Democracy, Public Policy, and Lay Assessments of Scientific Testimony," *Episteme* (2011). Read the section on second-order assessment.
+Testimony stands on its own feet, but vigilant feet. You trust, and you watch.
+
+Next we follow that out: whom to trust when you cannot check, and how to weigh experts who disagree.

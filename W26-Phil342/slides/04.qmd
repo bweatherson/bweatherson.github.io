@@ -35,7 +35,7 @@ We wanted to go over which of Arrow's conditions each failed.
 
 **Answer**: Both I and P
 
-We already covered one way plurality violates I last time—the example where people changing their minds about B vs C affected the ranking of A vs B.
+We already covered one way plurality violates I last time. Recall the example where people changing their minds about B vs C affected the ranking of A vs B.
 
 ## Plurality and Pareto
 
@@ -367,7 +367,7 @@ In the two tables below, Alex and Charlie are 'voters', and the numbers show how
 
 - On Monday, blickets have a higher average score than widgets.
 - On Tuesday, it's the other way around.
-- But no one's preferences changed—both Alex and Charlie prefer blickets to widgets on both days.
+- But no one's preferences changed. Alex prefers blickets and Charlie prefers widgets, on both days.
 
 ## Preferences and Numbers
 
