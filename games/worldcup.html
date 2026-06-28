@@ -39,6 +39,17 @@
     header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.4rem; }
     header p { color: var(--muted); font-size: 0.95rem; }
     header a { color: var(--primary); }
+    .credit {
+      margin: 0.7rem auto 0;
+      font-size: 0.85rem;
+      background: #e7f1ff;
+      color: #084298;
+      border: 1px solid #b6d4fe;
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      display: inline-block;
+    }
+    .credit a { color: #084298; font-weight: 600; }
 
     .toolbar {
       max-width: 1200px;
@@ -199,6 +210,9 @@
     <p>Click any known team to advance it — even before its opponent is decided.
        Probabilities for every unresolved match update instantly. Edit the draw
        and the rating model below.</p>
+    <p class="credit">Default team ratings: the <strong>xElo</strong> figures from
+       Michael Caley's <a href="https://www.expectinggoals.com/p/paddlin-team-ratings"
+       target="_blank" rel="noopener">PADDLIN' model</a> (Expecting Goals).</p>
   </header>
 
   <div class="toolbar">
@@ -236,7 +250,10 @@
       <summary>The model (team ratings)</summary>
       <div class="panel-body">
         <p class="hint">One team per line as <code>Team: rating</code>. Higher = stronger
-           (Elo scale). Any team in the draw without a rating uses the baseline below.</p>
+           (Elo scale). Any team in the draw without a rating uses the baseline below.
+           Defaults are the <strong>xElo</strong> ratings from Michael Caley's
+           <a href="https://www.expectinggoals.com/p/paddlin-team-ratings" target="_blank"
+           rel="noopener">PADDLIN' model</a>, updated 28 June 2026.</p>
         <div class="field-row">
           <div>
             <label class="fld">Ratings</label>
@@ -281,26 +298,24 @@
 // Winner/Runner-up slots are fixed; "3rd …/…" slots list the eligible groups
 // for that best-third-placed spot. Replace any label with a team name as
 // results come in (manual — nothing auto-resolves).
-// Known teams (group stage results) are filled in; still-undecided slots keep
-// their FIFA placeholder label. As of the last update: Groups K & L, the
-// Group J runner-up, and the five remaining best-third slots are not yet set.
+// Full Round-of-32 draw, set after the group stage completed.
 const DEFAULT_BRACKET = [
-  "Germany",             "Paraguay",        // M74  (W E / 3rd A/B/C/D/F)
-  "France",              "Sweden",          // M77  (W I / 3rd C/D/F/G/H)
-  "South Africa",        "Canada",          // M73  (RU A / RU B)
-  "Netherlands",         "Morocco",         // M75  (W F / RU C)
-  "Runner-up K",         "Runner-up L",     // M83
-  "Spain",               "Runner-up J",     // M84  (W H / RU J)
-  "USA",                 "Bosnia and Herzegovina", // M81 (W D / 3rd B/E/F/I/J)
-  "Belgium",             "3rd A/E/H/I/J",   // M82  (W G / 3rd …)
-  "Brazil",              "Japan",           // M76  (W C / RU F)
-  "Côte d'Ivoire",       "Norway",          // M78  (RU E / RU I)
-  "Mexico",              "3rd C/E/F/H/I",   // M79  (W A / 3rd …)
-  "Winner L",            "3rd E/H/I/J/K",   // M80
-  "Argentina",           "Cabo Verde",      // M86  (W J / RU H)
-  "Australia",           "Egypt",           // M88  (RU D / RU G)
-  "Switzerland",         "3rd E/F/G/I/J",   // M85  (W B / 3rd …)
-  "Winner K",            "3rd D/E/I/J/L"    // M87
+  "Germany",             "Paraguay",        // M74
+  "France",              "Sweden",          // M77
+  "South Africa",        "Canada",          // M73
+  "Netherlands",         "Morocco",         // M75
+  "Portugal",            "Croatia",         // M83
+  "Spain",               "Austria",         // M84
+  "USA",                 "Bosnia and Herzegovina", // M81
+  "Belgium",             "Senegal",         // M82
+  "Brazil",              "Japan",           // M76
+  "Côte d'Ivoire",       "Norway",          // M78
+  "Mexico",              "Ecuador",         // M79
+  "England",             "DR Congo",        // M80
+  "Argentina",           "Cabo Verde",      // M86
+  "Australia",           "Egypt",           // M88
+  "Switzerland",         "Algeria",         // M85
+  "Colombia",            "Ghana"            // M87
 ];
 
 // FIFA match numbers, in tree order, per level (0 = Round of 32 ... 4 = Final).
@@ -317,21 +332,21 @@ function matchNumber(node) {
   return arr && idx >= 0 ? arr[idx] : null;
 }
 
-// Starter ratings (approximate World Football Elo, mid-2026-ish). Edit freely.
+// Default ratings: the "Now" xElo column from Michael Caley's PADDLIN' model
+// (expectinggoals.com), as of 28 June 2026. All 48 World Cup teams. Edit freely.
 const DEFAULT_RATINGS = {
-  "South Africa": 1660, "Bosnia and Herzegovina": 1690, "Cabo Verde": 1610,
-  "Argentina": 2120, "France": 2080, "Spain": 2070, "England": 2010,
-  "Brazil": 2020, "Portugal": 2000, "Netherlands": 2030, "Belgium": 1940,
-  "Germany": 1965, "Italy": 1935, "Croatia": 1900, "Uruguay": 1900,
-  "Colombia": 1925, "Morocco": 1860, "USA": 1810, "Mexico": 1800,
-  "Japan": 1850, "South Korea": 1780, "Senegal": 1820, "Switzerland": 1850,
-  "Denmark": 1845, "Austria": 1820, "Ecuador": 1820, "Ukraine": 1800,
-  "Australia": 1740, "Canada": 1760, "Nigeria": 1780, "Serbia": 1790,
-  "Poland": 1770, "Egypt": 1760, "Norway": 1810, "Sweden": 1790,
-  "Iran": 1760, "Algeria": 1760, "Côte d'Ivoire": 1760, "Peru": 1740,
-  "Saudi Arabia": 1700, "Qatar": 1680, "Tunisia": 1700, "Ghana": 1720,
-  "Cameroon": 1730, "Costa Rica": 1700, "Paraguay": 1740, "Chile": 1760,
-  "New Zealand": 1620, "Jordan": 1620, "Uzbekistan": 1640, "Panama": 1680
+  "Spain": 2280, "Argentina": 2212, "France": 2202, "England": 2126,
+  "Brazil": 2106, "Germany": 2090, "Portugal": 2083, "Colombia": 2077,
+  "Netherlands": 2053, "Belgium": 2018, "Morocco": 2014, "Japan": 1999,
+  "Switzerland": 1982, "Norway": 1968, "Uruguay": 1959, "Mexico": 1956,
+  "Senegal": 1954, "Ecuador": 1946, "Croatia": 1943, "Türkiye": 1913,
+  "Austria": 1896, "Canada": 1885, "Australia": 1882, "USA": 1879,
+  "Algeria": 1878, "Côte d'Ivoire": 1872, "Iran": 1870, "Sweden": 1865,
+  "South Korea": 1849, "Paraguay": 1831, "Czechia": 1814, "Egypt": 1812,
+  "DR Congo": 1792, "Panama": 1786, "Scotland": 1775, "Uzbekistan": 1719,
+  "Jordan": 1716, "New Zealand": 1689, "Cabo Verde": 1686, "South Africa": 1671,
+  "Tunisia": 1664, "Iraq": 1662, "Ghana": 1661, "Saudi Arabia": 1654,
+  "Haiti": 1652, "Bosnia and Herzegovina": 1648, "Qatar": 1515, "Curaçao": 1513
 };
 
 const DEFAULTS = { scale: 400, baseline: 1500 };
@@ -370,7 +385,7 @@ function ratingOf(team) {
 }
 
 /* ── Persistence ─────────────────────────────────────────── */
-const LS_KEY = "wc2026-knockout-v4";
+const LS_KEY = "wc2026-knockout";
 function save() {
   try {
     localStorage.setItem(LS_KEY, JSON.stringify({

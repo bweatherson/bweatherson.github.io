@@ -159,7 +159,7 @@ This clustering is what Axelrod and Hamilton call the key to invasion.
 . . .
 
 ::: {.incremental}
-- A **single** TFT mutant in an All D population does badly: it cooperates once, gets exploited, then defects---but there's no one to cooperate with afterward.
+- A **single** TFT mutant in an All D population does badly: it cooperates once, gets exploited, then defects. But now the problem is there's no one to cooperate with afterward.
 - A **small cluster** of TFT mutants does well *against each other*, and that advantage can outweigh the losses at the boundary with defectors.
 - As TFT spreads, the advantage grows: there are more TFT players to cooperate with.
 :::
@@ -189,7 +189,7 @@ That said, if there are enough invaders, and they behave differently towards in 
 In the ecological version of Axelrod's tournament:
 
 ::: {.incremental}
-- Initially, all 63 strategies have equal representation.
+- Initially, all 62 strategies have equal representation.
 - Each "generation," strategies are reweighted by their total score.
 - Nice strategies (which cooperated well with each other) **grew in population share**.
 - Nasty strategies (which exploited others early) **shrank**, because as nice strategies became rarer, there were fewer victims to exploit.
@@ -420,9 +420,9 @@ If time permits, consider:
 . . .
 
 ::: {.nonincremental}
-- **Does TFT work in multi-player games?** The two-player structure is crucial. With many players, identifying *who* defected---and retaliating against them specifically---becomes much harder.
+- **Does TFT work in multi-player games?** The two-player structure really matters here. With many players, deciding how much defection you will put up with before retaliating is a tricky problem..
 - **What about different network structures?** If players only interact with neighbors, spatial structure changes which strategies survive.
-- **How does optional participation affect things?** If players can exit the game, it disrupts stable exploitation---and may help cooperation get started.
+- **How does optional participation affect things?** If players can exit the game, it disrupts stable exploitation, but might help cooperation get started.
 :::
 
 ## For Next Week

@@ -134,20 +134,20 @@ Then I'll run the round-robin tournament and we'll see what happens.
 ## Reciprocators and Hunters
 
 ::: {.nonincremental}
-**Reciprocators** react to what their opponent does:
+**Reciprocators** react to what their opponent does. Here are some prominent examples:
 
 - **Tit for Tat**: Cooperate first, then copy whatever the opponent did last round.
 - **Generous TFT**: Like TFT, but randomly forgives about one in ten defections.
-- **Grim Trigger**: Cooperates until the first defection — then defects forever. No second chances.
+- **Grim Trigger**: Cooperates until the first defection, then defects forever.
 :::
 
 . . .
 
 ::: {.nonincremental}
-**Pattern Hunters** probe and exploit:
+**Pattern Hunters** probe and exploit. For example: 
 
-- **Cooperator Hunter**: Tests whether the opponent has ever defected. If not, exploits them forever.
-- **Prober**: Opens with D, C, C to test for exploitability. Defects forever if the probe succeeds.
+- **Cooperator Hunter**: Tests whether the opponent has ever defected and if not, exploits them forever.
+- **Prober**: Opens with D, C, C to test for exploitability, then defects forever if the probe succeeds.
 - **Cycle Hunter**: Watches for any repeating pattern in the opponent's moves, then defects once confirmed.
 :::
 
@@ -159,7 +159,7 @@ You'll be asked: **How forgiving are you?**
 
 ::: {.nonincremental}
 - **Very forgiving**: Occasional defections don't bother you. → *Tit for Two Tats*, *Generous TFT*
-- **Standard**: Mirror what your opponent does — cooperate for cooperate, defect for defect. → *Tit for Tat*, *Omega TFT*
+- **Standard**: Mirror what your opponent does. → *Tit for Tat*, *Omega TFT*
 - **Strict**: Punish defection firmly and take a while to let it go. → *Two Tits for Tat*, *Hard TFT*, *Soft Grudger*
 - **Unforgiving**: Once betrayed, you never cooperate again. → *Grim Trigger*, *Spiteful TFT*
 :::
