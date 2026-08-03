@@ -52,3 +52,61 @@ Students have been confused about this in past iterations. The cleanest way to p
 Both rely on the rationality of the other player. They just point the inference in opposite directions through the game tree.
 
 Spend two or three minutes at the start of L9 making this contrast explicit before going into the burning-money example. A single slide with both definitions side by side would help. The burning-money illustration only lands if students have the distinction firmly in hand first; otherwise they tend to read forward induction as a strange version of backward induction and miss the philosophical point.
+
+## Second half: the reading policy, and what it demands of the slides
+
+CCSW alternates unstarred chapters (the argument, in prose) with starred chapters (the proofs). Sen says in the 1970 preface that the unstarred chapters can be read on their own. The syllabus takes him at his word: unstarred chapters are required reading, starred chapters are recommended, with three exceptions where the starred chapter is the lecture (Ch 3\*, Ch 6\*, Ch A1\*).
+
+This was forced by arithmetic. The book is 426 pages of text across fourteen lectures, twice a week. Assigning everything works out to 30 pages a lecture of dense formal material, and several individual lectures were far worse: 61 pages for the original L25, 55 for L20, 36 for L16. Under the policy the required load is about 19 pages a lecture.
+
+**The consequence for slide-writing is the important part. The proofs now live in the slides, not the reading.** Students are not being asked to work through the starred chapters, so if a result is not proved at the board it is not in the course at all. The second-half slides therefore have to carry more formal weight than the first-half slides did, where students had textbook-equivalent material to fall back on.
+
+Proofs the slides need to carry, by lecture:
+
+- L17: May's theorem, from Ch 5\*. Anonymity, neutrality and positive responsiveness characterise majority rule over two alternatives.
+- L18: Arrow's theorem, Sen's decisive-set proof from Ch 3\*. Field expansion, then contraction of decisive sets. Ch 3\* is required, but the slides should still be self-contained.
+- L19: value restriction and single-peakedness, from Ch 10\*. This is the whole content of the lecture and Ch 10\* is only recommended.
+- L20: quasi-transitivity and acyclicity results from Ch 4\*, and Gibbard's oligarchy theorem. The oligarchy result is the point of the lecture; without it, weakening collective rationality looks free.
+- L21: the comparability framework and aggregation quasi-orderings from Ch 7\*.
+- L22: Gibbard-Satterthwaite, and the Muller-Satterthwaite equivalence with Arrow. No Sen chapter behind this one at all.
+- L23: the liberal paradox proof from Ch 6\*, which is three pages and required, so this one is easy.
+- L25: the weak equity axiom, and the impersonality material from Ch 9\*.
+- L27: Ch A4\* on votes and majorities.
+
+Nine of the fourteen second-half lectures have a proof obligation. Budget accordingly when drafting: these are not lectures that can be built out of prose slides.
+
+The risk to watch is that the second half becomes more technical than the first while appearing lighter, because the required page count dropped. If the quizzes track the proofs (they should, since that is where the formal content now lives) students who read only the unstarred chapters will be caught out. Say this explicitly in L15, and again in L17 before Arrow.
+
+## Second half: why the order is not Sen's order
+
+The lectures do not follow the book. The arc is: setup, the impossibility, three escapes from it, strategy, a second impossibility, then what positive theory survives.
+
+The reason is that Sen's order scatters the material that answers a single question. Following the book puts Arrow at L18 and the two classic escapes at L22-23 and L25, so the second escape arrives ten lectures and five weeks after the problem it solves. The three escapes now run consecutively at L19 (restrict the domain), L20 (weaken collective rationality), and L21 (enrich the informational base), which is also the order of increasing philosophical interest.
+
+Two consequences to keep in mind while writing:
+
+Ch 4 and 4\* are apparatus as well as escape route. The definitions of social decision functions and choice functions are needed from L16 onward, but the philosophical use of them belongs at L20. Introduce the vocabulary at the board in L16 and flag that the argument about it comes later.
+
+Ch 3 (Collective Rationality) moved from L16 to L20. It is the informal chapter asking whether social preference must be an ordering, which is exactly what L20 is about. Teaching it at L16 meant raising the question and then re-raising it four lectures later.
+
+## Second half: what is not covered, and why
+
+**Judgment aggregation is out.** Some students will have seen List and Pettit in an earlier course. The puzzle takes ten minutes to state, and the solutions that get most attention in philosophy (premise-based, conclusion-based, sequential priority) are close relatives of one another. Two families are not variants of "fix an order, majority-vote, propagate": distance-based rules, which minimise Hamming distance to the individual judgment sets and are path-independent by construction (Nehring and Pivato; Dietrich and List), and unidimensional alignment, which is a domain restriction rather than a procedure (List) and is the direct analogue of single-peakedness. Neither earns a lecture here.
+
+What is worth five minutes, somewhere in the L19-21 block: the escapes from judgment aggregation impossibility map one-to-one onto the escapes from Arrow. Restrict the domain, weaken the rationality requirement, enrich the informational base. The same three. This makes the Arrow structure look like a general pattern rather than a fact about preference aggregation, and it costs almost no time. The linear and geometric pooling impossibilities in credal aggregation sit in the same family, which is a second free remark for students who have seen that material.
+
+**Gibbard-Satterthwaite is in**, as L22, and it is the one non-Sen lecture in the formal part of the half. It delivers on the promise made in the L1 slides that aggregation procedures have to be sensitive to strategic behaviour, and it is where the two halves of the course meet: a voting rule is a game form, and the Muller-Satterthwaite equivalence shows the theorem is Arrow's in different clothes. Reading is Sen's 1999 Nobel lecture rather than Gibbard 1973, which is rough going for this audience.
+
+**Capability gets its own lecture** (L26), on the grounds that graduate students in philosophy are more likely to meet the capability approach than any other part of Sen's work. Primary reading is "Equality of What?" rather than the CCSW chapters, with Nussbaum's 2003 piece for the contrast: she wants a determinate list, Sen refuses to give one. Make the connection to L27 explicit, since Sen's refusal is itself a social-choice position. He thinks the weights should come out of public reasoning rather than from a theorist, which is why the capability lecture sits next to the public-reasoning lecture.
+
+**Ch 8\* (Bargains and Social Welfare Functions) is dropped entirely**, and Ch 8 is recommended only. **Ch A3 and A3\* dropped to recommended**, which is the most debatable cut in the plan: A3 is Sen's own 2017 revision of the equity material, and it is now optional. The alternative is to make A3 required at L25 and demote Ch 9, which has something to be said for it, since A3 is written knowing where the argument ended up.
+
+## Second half: remaining pressure points
+
+Two places where the load and the calendar still collide.
+
+L22 rests entirely on the Nobel lecture, 30 pages, the heaviest single required item in the half. It is discursive rather than technical, so this is probably fine, but it is the one to watch.
+
+L24 has 27 pages of Ch A5 over a weekend with Quiz 8 attached. Quiz 8 has to be on the Tuesday because Thursday is Thanksgiving, so there is no easy fix short of moving material out of A5.
+
+Also worth noting: quizzes 5 through 8 fall at L19, L21, L23 and L24, so lectures 25 through 28 carry no quiz. The second essay covers that ground, and the last four lectures are the least formal in the half, so this is defensible rather than accidental.

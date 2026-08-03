@@ -140,11 +140,7 @@ There are two things to take away from the puzzle.
 1. These long reasoning chains start to look implausible as they get long enough.
 2. The standard assumption of **common knowledge** of rationality is really strong. In the puzzle, it isn't common knowledge that even one person has a smudge, even though they can both see two smudges. That's why the announcement makes a difference.
 
-This is exactly the structure that IESDS leans on. Each round of deletion uses one more layer of "I know that you know that..." about rationality. Long IESDS arguments make very strong assumptions.
-
-## Paradoxes of Common Knowledge
-
-There are also genuine paradoxes about common knowledge of rationality, especially in dynamic games. We will come back to those.
+This is the structure that IESDS uses. Each round of deletion uses one more layer of "I know that you know that..." about rationality. Long IESDS arguments make very strong assumptions.
 
 # Best Responses
 
@@ -369,7 +365,7 @@ But look at the game. Almost every cell pays 1. If the players have ended up at,
 
 . . .
 
-Why should anyone bother to follow weak dominance reasoning here? It tells them to move when there is no payoff reason to move. The only "reason" is to avoid (D, R, B) — but if everyone is reasoning that way, no one would have gone there in the first place.
+Why should anyone bother to follow weak dominance reasoning here? It tells them to move when there is no payoff reason to move. The only "reason" is to avoid (D, R, B). But if everyone is reasoning that way, no one would have gone there in the first place.
 
 ## A Different Order Question
 

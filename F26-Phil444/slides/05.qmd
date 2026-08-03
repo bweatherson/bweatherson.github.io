@@ -1,0 +1,468 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 5: Mixed Strategies"
+author: "Brian Weatherson"
+date: "September 15, 2026"
+---
+
+# Mixing
+
+## Where We Left Off
+
+Last time we found a game with no Nash equilibrium.
+
+|         | L         | R         |
+|--------:|:---------:|:---------:|
+| **U**   | **3**, 0  | 0, **1**  |
+| **D**   | 1, **2**  | **2**, 1  |
+
+: No cell has both payoffs bolded {#tbl-recap-no-ne}
+
+. . .
+
+Row wants to match Column; Column wants to avoid Row. Whatever cell you point at, someone wants to move.
+
+## A Familiar Structure
+
+The same thing happens in a game everyone has played.
+
+|              | Rock   | Paper  | Scissors |
+|-------------:|:------:|:------:|:--------:|
+| **Rock**     | 0, 0   | -1, 1  | 1, -1    |
+| **Paper**    | 1, -1  | 0, 0   | -1, 1    |
+| **Scissors** | -1, 1  | 1, -1  | 0, 0     |
+
+: Rock, Paper, Scissors {#tbl-rps}
+
+. . .
+
+Nine cells, and in every one of them somebody wants to move. If there's a loser, they would much rather have played the winning move. And if it's a draw, both players wish they'd played the winning move.
+
+. . .
+
+So there is no pure strategy Nash equilibrium.
+
+## What Players Actually Do
+
+If you have played this, you know the answer. You do not pick rock, or pick paper. You pick unpredictably.
+
+. . .
+
+That is not one of the options we have allowed. Our games so far give each player a list of actions, and a strategy is a choice from the list.
+
+. . .
+
+The way we capture what real players do here is by enlarging the strategy space.
+
+## Mixed Strategies
+
+A **mixed strategy** for a player is a probability distribution over that player's actions.
+
+. . .
+
+In Rock, Paper, Scissors, one mixed strategy is "each option with probability $\frac{1}{3}$". (That's the good one; play that!)
+
+Another is "rock with probability $0.8$, paper with probability $0.2$, scissors never".
+
+. . .
+
+The old strategies, what we call **pure strategies** emerge as special cases. Playing rock for sure just is playing the 'mixed' strategy of playing rock with probability 1.
+
+## Payoffs From Mixtures
+
+Take a two-by-two game, and suppose Column plays $L$ with probability $q$, so $R$ with probability $1-q$.
+
+. . .
+
+What does Row get, on average (or in expectation if you prefer), from playing $U$ for sure?
+
+$$
+E_R(U) = q \cdot u_R(U,L) + (1-q) \cdot u_R(U,R)
+$$
+
+. . .
+
+This is just an application of the expected utility formula we've already seen, with Column's mixture supplying the probabilities.
+
+## And The Other Row
+
+The same calculation works for $D$.
+
+$$
+E_R(D) = q \cdot u_R(D,L) + (1-q) \cdot u_R(D,R)
+$$
+
+. . .
+
+So if we take Column's mixture is given, Row can compute these two numbers: $E_R(U)$ and $E_R(D)$. They don't depend on Row's actions, just on Column. Of course, if Row knows Column's choice, and these numbers are different, Row should pick the larger one. We'll come back to this.
+
+## Mixing The Two
+
+Assume both players are mixing, so Row plays $U$ with probability $p$, and $D$ with probability $1-p$. The expected payoff of this mixture is:
+
+$$
+E_R = p \cdot E_R(U) + (1-p) \cdot E_R(D)
+$$
+
+. . .
+
+Row's payoff is a weighted average of those two numbers, with Row's choice of probability $p$ setting the weights.
+
+## Equilibrium Again
+
+Nash equilibrium still means that Each player is playing a best response to what the others are doing.
+
+. . .
+
+The only change is that "what the others are doing" can now be a mixture, and a best response can be a mixture.
+
+::: {.callout-note appearance="minimal"}
+**Nash's Theorem (1950).** Every finite game has at least one Nash equilibrium in mixed strategies.
+:::
+
+. . .
+
+The proof uses a fixed point theorem, and isn't too hard if you know the relevant algebra, but we're not going to cover it.
+
+# Computing Equilibria
+
+## The Key Observation
+
+Let's think again about the payoff to Row of playing some mixed strategy. This payoff was a weighted average of $E_R(U)$ and $E_R(D)$, with the weights given by how often they played $U$ and $D$.
+
+If $E_R(U)$ and $E_R(D)$ are different, then the best thing to do will be to not mix at all; any mixture of the smaller one is worse.
+
+. . .
+
+Mixing can never gain over the maximum of $E_R(U)$ and $E_R(D)$. But if, _and only if_, they are equal, then it doesn't lose anything either.
+
+. . .
+
+So if Row mixes between some strategies in equilibrium, then must be **indifferent** between all of them. And if Row is indifferent, it is possible that they will mix in equilibrium.
+
+## The Indifference Method
+
+That gives us a recipe for finding a mixed strategy equilibria. Find the values of $p$ and $q$ such that:
+
+- The value of $q$, i.e., Column's mix, makes every action Row mixes over have the same expected payoff.
+- The value of $p$, i.e., Row's mix, makes every action Column mixes over have the same expected payoff.
+
+. . .
+
+When there are 4 or more strategies, solving for this requires some matrix algebra that we are not going to get into here. When there are 3 it's do-able, but not always easy. But when it's a 2 by 2 game, it is pretty simple algebra to solve for $p$ and $q$, and we will work through some of those examples.
+
+## Back to The First Game
+
+So let's leave rock-paper-scissors, and go back to the game from last time.
+
+|         | L         | R         |
+|--------:|:---------:|:---------:|
+| **U**   | 3, 0      | 0, 1      |
+| **D**   | 1, 2      | 2, 1      |
+
+: The game from Lecture 4 {#tbl-mixed-work}
+
+. . .
+
+Row is indifferent when $3q = 1 \cdot q + 2(1-q)$, that is $3q = 2 - q$, so $q = \frac{1}{2}$.
+
+. . .
+
+Column is indifferent when $2(1-p) = 1$, so $p = \frac{1}{2}$.
+
+## The Equilibrium
+
+Both players play 50/50 mixes. Row's expected payoff is $\frac{3}{2}$, and Column's is $1$. Every cell is played a quarter of the time.
+
+. . .
+
+This is the only Nash equilibrium of the game.
+
+## Rock, Paper, Scissors
+
+Let's look at one case of a 3 by 3 game, the one you all know.
+
+Suppose Column plays rock, paper and scissors with probabilities $q_1$, $q_2$ and $q_3$.
+
+. . .
+
+$$
+\begin{align*}
+E_R(\text{Rock}) &= q_3 - q_2 \\
+E_R(\text{Paper}) &= q_1 - q_3 \\
+E_R(\text{Scissors}) &= q_2 - q_1
+\end{align*}
+$$
+
+. . .
+
+Each line is "how often I win minus how often I lose". And the trick is that these have to all be equal.
+
+## Solving It
+
+Note that these sum to 0, so if they are all equal, and sum to 0, they must all be 0. 
+
+. . .
+
+So we get $q_1 = q_2 = q_3$, and since they sum to 1, they must all equal $\frac{1}{3}$.
+
+. . .
+
+The game is symmetric, so Row's mixture comes out the same way. Everyone plays each option a third of the time, and the expected payoff is 0.
+
+# A Strange Feature
+
+## Whose Payoffs Set Whose Mixture
+
+Look again at which numbers went into which equation.
+
+- Row's mixture $p$ was pinned down by **Column's** payoffs.
+- Column's mixture $q$ was pinned down by **Row's** payoffs.
+
+. . .
+
+Your equilibrium behaviour is a function of the other player's incentives. Your own payoffs do not appear in it, apart from determining that you don't have a pure strategy equilibrium.
+
+## What That Predicts
+
+Go back to @tbl-mixed-work and suppose Row's payoff at $(U, L)$ improves from 3 to 5, with nothing else changing.
+
+|         | L         | R         |
+|--------:|:---------:|:---------:|
+| **U**   | 5, 0      | 0, 1      |
+| **D**   | 1, 2      | 2, 1      |
+
+: Row's payoff at (U, L) improved {#tbl-mixed-shift}
+
+. . .
+
+Row's mixture is unchanged at $p = \frac{1}{2}$, because Column's payoffs are unchanged.
+
+. . .
+
+Column's mixture moves. Now $5q = 2 - q$, so $q = \frac{1}{3}$.
+
+## Reading the Result
+
+Row got better news about one outcome. The prediction is that, in the long run, Row's behaviour won't change, but Column's will.
+
+. . .
+
+This generalises. Imagine that we're playing Rock-Paper-Scissors and Big Paper has provided some reward for playing Paper which is less than the value of winning the game. So we're now playing this game.
+
+|              | Rock   | Paper  | Scissors |
+|-------------:|:------:|:------:|:--------:|
+| **Rock**     | 0, 0   | -1, 1.5  | 1, -1    |
+| **Paper**    | 1.5, -1  | 0.5, 0.5   | -0.5, 1    |
+| **Scissors** | -1, 1  | 1, -0.5  | 0, 0     |
+
+: Rock, Paper, Scissors {#tbl-rps-mod}
+
+## A Prediction
+
+In the long run, in this game, people will *not* play Paper more. Rather, they will play Scissors more, and Rock less, and it will all balance out.
+
+. . .
+
+Whether that is true is left as a question for empirical research. I think the answer is roughly yes, but I don't have great evidence for that.
+
+## The Indifference Puzzle
+ 
+Let's go to a different puzzle, which we can illustrate with Rock, Paper, Scissors. Remember that the equilibrium of it has everyone mixing evenly.
+ 
+. . .
+ 
+Suppose Column is playing each option a third of the time. What does Row get by playing rock, every single time?
+ 
+. . .
+ 
+Zero. 
+
+. . .
+
+And that's **exactly the same as in equilibrium**.
+ 
+## No Reason To Mix
+ 
+At the equilibrium, Row is indifferent between rock, paper, scissors, and every mixture of the three. All of them have expected value 0.
+ 
+. . .
+ 
+So the good strategy and the obviously terrible strategy of just playing rock every time do equally well, given what Column is doing. 
+
+. . .
+
+It sure looks like Row has no reason to play the even mixture rather than anything else.
+ 
+## Why This is a Hard Puzzle
+ 
+This typically isn't a problem for pure strategy equilibrium. There, deviating makes you strictly worse off, and that is why you stay.
+ 
+. . .
+ 
+In a mixed equilibrium nothing pushes you to the equilibrium mixture. The only thing your mixture accomplishes is keeping your **opponent** indifferent.
+ 
+. . .
+ 
+So the standard story about equilibrium, that each player is doing the best they can for themselves, does not explain why anyone would mix in the particular proportions the equilibrium specifies.
+ 
+## The Obvious Objection
+ 
+Always-rock is only as good as mixing while Column keeps mixing evenly. 
+
+Against an opponent who does anything else, always-rock can lose. The even mixture cannot. The *worst case scenario* for the even mixture is an average return of 0, and every alternative has a lower worst-case scenario.
+ 
+. . .
+ 
+If we only cared about Rock, Paper, Scissors that would be a pretty good reason to mix evenly. And this generalises. In any two-person zero-sum game the equilibrium mixture is also the strategy that maximises the worst case scenario. (John von Neumann proved this; it's known as the minimax theorem.)
+ 
+. . .
+ 
+The trouble is that this defence does not generalise.
+ 
+## Where The Objection Fails
+ 
+Go back to our two-by-two game from last lecture, in the version before we improved Row's payoff. It is not zero-sum.
+ 
+|         | L         | R         |
+|--------:|:---------:|:---------:|
+| **U**   | 3, 0      | 0, 1      |
+| **D**   | 1, 2      | 2, 1      |
+ 
+: The original game again {#tbl-security}
+ 
+. . .
+ 
+Row's equilibrium mixture is $p = \frac{1}{2}$, and it yields $\frac{3}{2}$ against Column's equilibrium mixture. But it only *guarantees* Row 1, since Column could play $R$ for sure.
+ 
+. . .
+ 
+Playing $p = \frac{1}{4}$ guarantees $\frac{3}{2}$ whatever Column does. The equilibrium mixture does not have the highest worst-case scenario. Its *security level* is not maximal.
+
+## Any Answers
+
+This is a hard puzzle, and there isn't an obvious answer.
+
+It seems tied up with a famous question that I've slid over a bit: _What is a Mixed Strategy_?
+
+. . .
+
+That deserves its own section, so let's give it one.
+
+# What Is a Mixed Strategy?
+
+## Five Answers
+
+The literature contains at least five accounts of what a mixed equilibrium describes. We will go over each of these in turn.
+
+::: {.nonincremental}
+1. Literal randomisation
+2. Long-run frequency
+3. Population proportions
+4. Purification
+5. Belief
+:::
+
+## Literal Randomisation
+
+Players use a randomising device and know that they are using one.
+
+. . .
+
+This is the original reading. Von Neumann and Morgenstern^[In the 1944 book _Theory of Games and Economic Behavior_ that kickstarted the whole field]  introduced mixtures so that an opponent could not find out what you were going to do.
+
+. . .
+
+This makes sense for repeated games like poker or tax audits, where you do not want to be predictable. Professional athletes do come close to the predicted mixtures; there is a small empirical literature on tennis serves and penalty kicks.
+
+## Randomisation Without a Device
+
+Here's a weaker version of this idea. What matters is not that I use a randomiser. (Maybe the world is deterministic and there are no *genuine* randomisers.) It is that you cannot tell the difference between what I am doing and genuine randomisation.
+
+. . .
+
+On this reading I might be running some perfectly deterministic process. If you cannot model it, then as far as the game is concerned it is a mixture.
+
+. . .
+
+In practice, this is pretty similar to real randomisation. But theoretically, it's rather different. The unpredictability is now a fact about your position rather than about my machinery. So actually it's almost like the _last_ position on our list.
+
+. . .
+
+For all this, it doesn't solve the indifference puzzle. Why set the randomiser (or the as-if randomiser) to one setting rather than another?
+
+## Long-Run Frequency
+
+The mixture is not something in anyone's head. It is a limiting frequency in a long series of plays.
+
+. . .
+
+This is a version of the _frequentist_ interpretation of probability associated with Hans Reichenbach.^[In particular his 1935 book _Wahrscheinlichkeitslehre_, translated into English and published in 1949 as _The Theory of Probability: An Inquiry into the Logical and Mathematical Foundations of the Calculus of Probability_.]
+
+. . .
+
+Now if you are playing repeatedly, either with the same person, or with different people who can see your previous play, you definitely should have long-run frequencies that match the equilibrium probabilities.
+
+But that's not what is being claimed here. It's that even in one-shot games, or repeated games without memory or tracking, your play frequencies should match the equilibrium probabilities. And it's still unclear why that should be.
+
+## Population Proportions
+
+The mixture describes a population. Some fraction of players are $U$-types who always play $U$; the rest are $D$-types.
+
+. . .
+
+On this model, no individual randomises. The equilibrium is a property of how the population is composed. There is also a link to ignorance, since typically in these models others can tell which population they are engaging with, but not which type within the population.
+
+. . .
+
+This is the entry point to evolutionary game theory, which we are not doing. Brian Skyrms's *Evolution of the Social Contract* is where to go if you want to follow it.
+
+## Purification
+
+John Harsanyi's proposal is that a mixed equilibrium is a limit.^[Harsanyi was an economist/philosopher/everything who will come up a bit in these topics. He won the 1994 economics Nobel.]
+
+. . .
+
+Take the game and perturb it slightly, so each player has a small amount of private information about their own payoffs. In the perturbed game, each player has a strictly best pure strategy given their private information.
+
+. . .
+
+As the perturbation shrinks to nothing, the distribution over actions converges to the mixed equilibrium of the original game. The randomness now lives in the other player's ignorance of your exact payoffs.
+
+## Purification, Deferred
+
+We'll come back to this point in lecture 10; we need some theory to explain it. So this is a promissory note for that later discussion.
+
+## Belief
+
+The last reading gives up on the idea that anyone randomises at all. This is the project of _epistemic game theory_, most associated with Robert Aumann and Adam Brandenburger.^[It's also the version of game theory that Robert Stalnaker contributed the most to, so it's got deep connections to philosophy.]
+
+. . .
+
+On this model, no one randomises. The "mixture" attributed to a player, say Row, is **Column's belief** about what Row will do.
+
+. . .
+
+Then Row's indifference is not a puzzle about Row's motivation. It is a fact about Column's uncertainty. The equilibrium condition becomes a condition on beliefs rather than on behaviour.
+
+## Where This Leaves Us
+
+There are five (and a half) theories here, and they agree on the formalism, i.e., in equilibrium Row does this with such-and-such probability, etc., but disagree markedly on the interpretation of that formalism.
+
+In particular, they disagree about where the probability **lives**: in a device, in a sequence, in a population, in someone's ignorance, or in someone's beliefs.
+
+. . .
+
+They also disagree about what the equilibrium is a claim about. Two of them make it a claim about individuals, one about populations, and two about states of information.
+
+. . .
+
+We're not going to pick on of these (though we will be steering away from the third; that's the path of evolutionary game theory). For the next bit we'll be doing some more of the formalism that has a common interpretation, but note that it's philosophically messy just what that formalism picks out.
+
+## Next Time
+
+Nash equilibrium assumes players get each other's strategies right. That is a strong assumption, and we have not said where it comes from.
+
+. . .
+
+Next lecture we ask what follows from common knowledge of rationality alone, without assuming that beliefs are correct. The answer is **rationalisability**.
