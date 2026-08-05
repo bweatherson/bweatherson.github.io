@@ -1,0 +1,122 @@
+---
+title: "Who Did It? Deduction and What Follows"
+subtitle: "Phil 101 · Day 2"
+author: "Brian Weatherson"
+date: "Fall 2026"
+---
+
+# Playing first
+
+## Today is mostly you
+
+We are going to spend most of this class playing a game. It is on the course site, it runs in a browser, and it takes no setting up.
+
+Play it, then we will talk about what you were doing while you played.
+
+## Who Did It?
+
+A board of people. Every one of them is either guilty or innocent, and there is no third option.
+
+You get a list of clues. Every clue on the list is true.
+
+. . .
+
+Your job is to say, for each person, which they are.
+
+# The rules
+
+## The clues
+
+The clues come in a few shapes:
+
+- exactly two of these five are guilty
+- at most one of Bea's neighbours is guilty
+- at least one of Dana's neighbours is guilty
+- Gil and Kit have the same verdict
+- Cory and Fay have different verdicts
+
+Neighbours include the diagonal ones.
+
+## The one rule that matters
+
+You may only mark someone when the clues force it.
+
+Looking likely is not enough, and neither is looking likely by a lot. The standard is that there is no consistent way to fill in the board that has them the other way.
+
+. . .
+
+Every puzzle here can be finished under that rule. You never have to guess.
+
+## Four puzzles
+
+There is a warm-up, a worked example that will step you through its own solution, and two harder ones.
+
+Start with the warm-up. Use the worked example when you want to see the reasoning laid out. The challenges are there if you finish early.
+
+## Go
+
+Fifteen minutes. Work with the person next to you if you like; saying your reasoning out loud to someone is the fastest way to find out whether it holds.
+
+# What you were doing
+
+## Forced
+
+When you marked someone guilty, you were not reporting a hunch. You had established that every way of filling in the rest of the board consistent with the clues has them guilty.
+
+That is a strong thing to have shown, and it is what "forced" means here.
+
+## Suppose the opposite
+
+Most of you found the same trick without being taught it. To settle whether Amir is guilty, suppose he is innocent, follow that supposition until it contradicts a clue, and conclude he is not innocent after all.
+
+Philosophers call this *reductio ad absurdum*, reduction to absurdity. It is one of the oldest moves in the subject and you reinvented it in about four minutes.
+
+## Chains
+
+The hard puzzles are hard because no single clue settles anything. You need two or three of them together before the first verdict falls out, and that verdict is what makes the next one available.
+
+A long argument is a chain of short ones. That is all a proof ever is.
+
+# Validity
+
+## The word for it
+
+An argument is **valid** when the truth of the premises guarantees the truth of the conclusion. There is no consistent way for the premises to be true and the conclusion false.
+
+Every verdict you were entitled to today came at the end of a valid argument from the clues.
+
+## Two things worth separating
+
+Validity is about the connection between premises and conclusion. It says nothing about whether the premises are true.
+
+"All cats are reptiles; Ira is a cat; so Ira is a reptile" is valid and its conclusion is false. The game handed you true premises, which is why validity was enough to get you the truth.
+
+. . .
+
+Outside the game nobody hands you clues and certifies them. Hold that thought; we come back to it in about a fortnight.
+
+## The good news
+
+A valid argument from true premises cannot let you down. Deduction is the safest thing we have.
+
+# The catch
+
+## Safety has a price
+
+Look at what you proved today. Every verdict was already settled by the clues before you started. You worked out what you had; you did not learn anything the clues did not contain.
+
+. . .
+
+That is the deal deduction offers. Total reliability, and nothing new.
+
+## Which is a problem
+
+Almost everything you want to know is not sitting inside what you already have. Whether the bridge is out. Whether the drug works. Who left the footprints.
+
+To get any of that you have to reason in a way that could go wrong.
+
+## For Tuesday
+
+Read the two pages of Conan Doyle listed on the syllabus, from "Sherlock Holmes was transformed" to "these may be enough to aid us in our search."
+
+Watch what Holmes does with the ground, and then what he does with what he found there. Those are two different jobs, and Tuesday is about the second one.

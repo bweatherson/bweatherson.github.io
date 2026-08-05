@@ -1,0 +1,138 @@
+---
+title: "Grue: The New Riddle of Induction"
+subtitle: "Phil 101 · Day 4"
+author: "Brian Weatherson"
+date: "Fall 2026"
+---
+
+# Where we are
+
+## Last time
+
+We looked at three ways of reasoning past the evidence, and found a case that they are all versions of one: you take the hypothesis that best explains what you have seen, and you back it.
+
+The ravens were the simple case. Every raven on record has been black, so the next one will be black.
+
+## An old worry
+
+Hume asked why that move is any good at all. What entitles you to think the unobserved will resemble the observed? Any argument for it seems to help itself to the very thing in question.
+
+That is a real problem, and it is not today's.
+
+## Today's is worse
+
+Nelson Goodman granted Hume's move for the sake of argument. Suppose projecting a pattern from the seen onto the unseen is fine.
+
+. . .
+
+His question: which pattern?
+
+# Grue
+
+## A new word
+
+Take a predicate we do not have a word for, and give it one.
+
+Something is **grue** when it is examined before 10 December 2026 and is green, or is not examined before then and is blue.
+
+That is the whole definition. It is odd, but it is perfectly precise.
+
+## Every emerald you have ever heard of
+
+Every emerald anyone has examined has been green. That is your evidence.
+
+. . .
+
+Notice that every one of those emeralds is also grue. They were examined before December, and they were green, which is exactly what being grue requires of them.
+
+The evidence for "all emeralds are green" and the evidence for "all emeralds are grue" is the same evidence. Not similar. The same.
+
+## Two hypotheses, one body of evidence
+
+So take an emerald still in the ground, to be dug up next year.
+
+If all emeralds are green, it will be green.
+
+If all emeralds are grue, it will be blue, because it was not examined before December.
+
+. . .
+
+Your evidence supports both hypotheses equally well, and they disagree about what you will find.
+
+## The riddle, stated
+
+Evidence confirms hypotheses. But every body of evidence confirms hypotheses that contradict each other about the next case.
+
+So evidence alone cannot be what tells you what to expect. Something else is doing that work, and Goodman's question is what.
+
+# Two ways out that do not work
+
+## "Grue is about time, and green isn't"
+
+The natural complaint is that grue smuggles a date into its definition, and respectable predicates do not do that.
+
+Goodman's reply is to define one more word. Something is **bleen** when it is examined before December and is blue, or is not examined before then and is green.
+
+. . .
+
+Now describe green using only grue and bleen. Something is green when it is examined before December and grue, or is not examined before then and bleen.
+
+From inside the grue vocabulary, it is green that carries the date.
+
+## "Nobody actually thinks that way"
+
+True, and that is the point rather than an answer to it.
+
+We do project green and we do not project grue, and the question was never whether we do. It is what makes us right to.
+
+# What Goodman says
+
+## Entrenchment
+
+Goodman's own answer is that "green" has a history. It has been projected successfully by a great many people over a long time, and "grue" has not. He calls this entrenchment.
+
+. . .
+
+Note what this is and is not. It describes which predicates we have in fact come to trust. Whether that track record makes them the right ones to trust is a further question, and Goodman is not especially reassuring about it.
+
+## The shape of the result
+
+Whatever the answer turns out to be, the shape is fixed. A run of evidence, however long and however clean, does not on its own fix what comes next.
+
+You bring something to the evidence. A prior sense of which patterns are the real ones and which are gerrymandered. Without it, the evidence is silent.
+
+# The machine version
+
+## The same hole, at scale
+
+A system that learns from examples faces this exactly. Show it a million green emeralds and it still has to settle which generalisation it is making, because the examples are equally consistent with generalisations that diverge afterwards.
+
+Nothing in the data picks one out. The choice comes from how the system was built, in what it was already disposed to notice.
+
+. . .
+
+Practitioners call that inductive bias, and treat it as a design decision rather than a discovery. Goodman's riddle is the reason it has to be one.
+
+## Where this leaves us
+
+The hard part of learning from evidence was never gathering the evidence. It is the judgment about which patterns in it to trust, and that judgment cannot itself come from the evidence.
+
+Keep that. It comes back when we ask which people to trust, and why.
+
+# Reading
+
+## For today
+
+Required:
+
+> Jonathan Weisberg, "The Grue Paradox," in *Odds & Ends*, ch. C.
+
+Recommended:
+
+> Sven Neth, "Goodman's New Riddle of Induction Explained in Words of One Syllable."
+
+## Next week
+
+We move from how to reason to when a belief is rational, starting with the case that looks easiest. You saw something yourself.
+
+Whether that is as solid as it sounds is Tuesday's question.

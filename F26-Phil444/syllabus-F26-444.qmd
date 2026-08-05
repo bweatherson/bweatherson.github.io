@@ -8,8 +8,15 @@ format:
     pdf-engine: xelatex
     fig-cap-location: bottom
     geometry: margin=1in
-    mainfont: Atkinson Hyperlegible
-    mathfont: STIX Two Math
+    # EB Garamond Math is a custom build with the maths characters added,
+    # used for both text and maths. It has no bold or italic, so those come
+    # from the stock EB Garamond faces. Same setup as notes/_quarto.yml.
+    mainfont: "EB Garamond Math"
+    mainfontoptions:
+      - BoldFont=EB Garamond SemiBold
+      - ItalicFont=EB Garamond Italic
+      - BoldItalicFont=EB Garamond SemiBold Italic
+    mathfont: "EB Garamond Math"
     date-format: "[Fall] YYYY"
     include-in-header:
       text: |

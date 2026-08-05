@@ -110,3 +110,19 @@ L22 rests entirely on the Nobel lecture, 30 pages, the heaviest single required 
 L24 has 27 pages of Ch A5 over a weekend with Quiz 8 attached. Quiz 8 has to be on the Tuesday because Thursday is Thanksgiving, so there is no easy fix short of moving material out of A5.
 
 Also worth noting: quizzes 5 through 8 fall at L19, L21, L23 and L24, so lectures 25 through 28 carry no quiz. The second essay covers that ground, and the last four lectures are the least formal in the half, so this is defensible rather than accidental.
+
+## Chapter 6: the Bayesian games foundation (written)
+
+The audit found no coverage of Bayesian games, types, or Bayesian Nash equilibrium anywhere in the notes, which left L10 with nothing behind it. The gap was worse than a missing lecture. Chapter 6 was titled "Bayesian Games" and opened at perfect Bayesian equilibrium, and the signalling figures already used a Nature node drawing types with probability p and 1-p. The machinery was in use two sections before it was introduced.
+
+Five sections now sit at the head of chapter 6, ahead of the existing perfect Bayesian equilibrium material.
+
+- **Two Kinds of Ignorance.** Imperfect against incomplete information, which students conflate. Ends on the regress worry: modelling ignorance about payoffs looks like it needs an infinite hierarchy of beliefs about beliefs.
+- **Types.** Harsanyi's transformation as the answer to that regress. Nature, types, the definition of a Bayesian game, and the common prior assumption flagged as philosophically loaded rather than passed over. Points forward to the Nature nodes in the signalling figures, which is the payoff of putting this material first.
+- **Bayesian Nash Equilibrium.** Strategies as functions from types to actions, with the two-types-means-four-strategies point made heavily, since that is where students go wrong. BNE defined twice, once directly and once as Nash equilibrium of the transformed game.
+- **An Example.** Battle of the Sexes from chapter 1 with Col's type unknown: sociable half the time, elusive half the time. Worked to the equilibrium where Row plays X, sociable Col matches and elusive Col mismatches. Includes the comparative static, that Row prefers X just when the probability of a sociable Col is above one third. All the arithmetic was checked numerically.
+- **Purification.** Discharges the debt the L5 slides incur. Harsanyi's response to the indifference puzzle, then two objections: that the result is a limit claim while the game we care about sits at the limit, and that the perturbed game is not the game we started with.
+
+Conventions followed: grid tables in the chapter 1 style, `\nicefrac` inline and `\frac` in displayed maths, which is what the rest of the book does.
+
+Still open on the game theory side. No centipede for L8. Nothing on Spence or Akerlof for L13 and L14, though the papers are assigned so this may be fine. And the five interpretations of mixed strategies exist only in `slides/05.qmd`, so a student reading the notes gets the mechanics of mixing and none of the philosophy. That is the same species of gap as the one just closed.

@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Games and Time – Game Theory and Social Choice</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06-bayesian-games.html" rel="next">
+<link href="./04-other-equilibria.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3f0f04337e27912b3c80d34ada9a29ec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+  window.MathJax = {
+    tex: { macros: { nicefrac: ["{}^{#1}\\!/\\!_{#2}", 2] } }
+  };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./05-games-and-time.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Game Theory and Social Choice</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Game-Theory-and-Social-Choice.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Game Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-decision-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-nash-equilibrium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-other-equilibria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-games-and-time.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-bayesian-games.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Voting Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-group-decisions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#normal-form-and-extensive-form" id="toc-normal-form-and-extensive-form" class="nav-link active" data-scroll-target="#normal-form-and-extensive-form"><span class="header-section-number">5.1</span> Normal Form and Extensive Form</a></li>
+  <li><a href="#backwards-induction" id="toc-backwards-induction" class="nav-link" data-scroll-target="#backwards-induction"><span class="header-section-number">5.2</span> Backwards Induction</a></li>
+  <li><a href="#value-of-games" id="toc-value-of-games" class="nav-link" data-scroll-target="#value-of-games"><span class="header-section-number">5.3</span> Value of Games</a></li>
+  <li><a href="#subgame-perfect-equilibrium" id="toc-subgame-perfect-equilibrium" class="nav-link" data-scroll-target="#subgame-perfect-equilibrium"><span class="header-section-number">5.4</span> Subgame Perfect Equilibrium</a></li>
+  <li><a href="#problems-with-backwards-induction" id="toc-problems-with-backwards-induction" class="nav-link" data-scroll-target="#problems-with-backwards-induction"><span class="header-section-number">5.5</span> Problems with Backwards Induction</a></li>
+  <li><a href="#money-burning-game" id="toc-money-burning-game" class="nav-link" data-scroll-target="#money-burning-game"><span class="header-section-number">5.6</span> Money Burning Game</a></li>
+  <li><a href="#iterated-prisoners-dilemma" id="toc-iterated-prisoners-dilemma" class="nav-link" data-scroll-target="#iterated-prisoners-dilemma"><span class="header-section-number">5.7</span> Iterated Prisoners’ Dilemma</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./05-games-and-time.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>So far we’ve looked just at games where each player makes just one move, and they make it simultaneously. That might not feel like most games that you know about. It isn’t how we play, for instance, chess. Instead, most games involve players making multiple moves, and these moves taking place in time. Here is one simple such game. It’s not very interesting; you won’t have fun games nights playing it. But it is useful to study.</p>
+<blockquote class="blockquote">
+<p><strong>Five</strong><br>
+There are two players, who we’ll call <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. First <span class="math inline">\(A\)</span> moves, then <span class="math inline">\(B\)</span>, then finally <span class="math inline">\(A\)</span> moves again. Each move involves announcing a number, 1 or 2. <span class="math inline">\(A\)</span> wins if after the three moves, the numbers announced sum to 5. <span class="math inline">\(B\)</span> wins otherwise.</p>
+</blockquote>
+<p>This is a simple zero-sum game. The payoff is either 1 to <span class="math inline">\(A\)</span> and 0 to <span class="math inline">\(B\)</span>, or 1 to <span class="math inline">\(B\)</span> and 0 to <span class="math inline">\(A\)</span>. For simplicity, we’ll describe this as <span class="math inline">\(A\)</span> winning or <span class="math inline">\(B\)</span> winning. We’ll soon be interested in games with draws, which are a payoff of to each player. But for now we’re looking at games that someone wins.</p>
+<p>Before we go on, it’s worth thinking about how you would play this game from each player’s perspective. The formal approach we’ll eventually take is pretty similar, I think, to the way one thinks about the game.</p>
+<section id="normal-form-and-extensive-form" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="normal-form-and-extensive-form"><span class="header-section-number">5.1</span> Normal Form and Extensive Form</h2>
+<p><a href="#fig-five" class="quarto-xref">Figure&nbsp;<span>5.1</span></a> is the <strong>extensive form</strong> representation of <strong>Five</strong>. We will use <span class="math inline">\(W\)</span> to denote that <span class="math inline">\(A\)</span> wins, and <span class="math inline">\(L\)</span> to denote that <span class="math inline">\(B\)</span> wins.</p>
+<div id="fig-five" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Extensive form of the game Five">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/five.svg" class="img-fluid figure-img" alt="Extensive form of the game Five">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Five
+</figcaption>
+</figure>
+</div>
+<p>To read what’s going on here, start at the node that isn’t filled in, which in this case is the node at the bottom of the tree. The first move is made by <span class="math inline">\(A\)</span>. She chooses to play either 1 or 2. If she plays 1, we go to the left of the chart, and now <span class="math inline">\(B\)</span> has a choice. She plays either 1 or 2, and now again <span class="math inline">\(A\)</span> has a choice. As it turns out, <span class="math inline">\(A\)</span> has the same choice to make whatever <span class="math inline">\(B\)</span> does, though there is nothing essential to this. This is just a two-player game, though there is also nothing essential to this. We could easily have let it be the case that a third player moved at this point. Or we could have made it that who moved at this point depended on which move <span class="math inline">\(B\)</span> had made. The extensive form representation allows for a lot of flexibility in this respect.</p>
+<p>At the top of the diagram is a record of who won. In the more general form, we would put the payoffs to each player here. But when we have a simple zero-sum game, it is easier to just record the payoffs to one player. You should check that the description of who wins and loses in each situation is right. In each case, <span class="math inline">\(A\)</span> wins if 2 is played twice, and 1 once.</p>
+<p>The extensive form representation form is very convenient for turn taking games. But you might think that it is much less convenient for games where players move simultaneously, as in Prisoners’ Dilemma. But it turns out that we can represent that as well, through a small notational innovation. <a href="#fig-pd-tree" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> is the game tree for Prisoners’ Dilemma.</p>
+<div id="fig-pd-tree" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Prisoners Dilemma in extensive form, with an information set">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pd-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/pd-tree.svg" class="img-fluid figure-img" alt="Prisoners Dilemma in extensive form, with an information set">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pd-tree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Prisoners’ Dilemma
+</figcaption>
+</figure>
+</div>
+<p>The crucial thing here is the dashed line between the two nodes where P2 (short for Player 2) moves. What this means is that P2 doesn’t know which of these nodes she is at when she moves. We normally assume that a player knows what moves are available to her. So we normally only put this kind of dashed line in when it connects two nodes at which the same player moves, and the available moves are the same. When we put in notation like this, we say that the nodes that are connected form an <strong>information set</strong>. If we don’t mark anything, we assume that a node is in a degenerate information set, one that only contains itself.</p>
+<p>Strictly speaking, you could regard this tree as a representation of a game where Player 1 goes first, then Player 2 moves, but Player 2 does not know Player 1’s move when she moves. But that would be reading, I think, too much into the symbolic representation. What’s crucial is that we can represent simultaneous move games in extensive form.</p>
+<p>There is a philosophical assumption in this notational convention that I just want to mention. We won’t have time to cover it further here, though it is worth thinking about. It is usual to use dashed lines, like I’ve done, or circles or ovals to represent that for all Player 2 knows, she is at one of the connected nodes. But drawing circles around a set of possibilities is only a good way to represent Player 2’s uncertainty if we assume quite a lot about knowledge. In particular, it is only good if we assume that which nodes are epistemically open for Player 2 is independent of which node, within that group, she is at. In formal terms, it amounts to assuming that each player knows exactly what they know, and what they don’t know. This is not, in general, a true assumption. Normal people have some false beliefs. Those false beliefs are not pieces of knowledge, but the holders of the false belief do not in general know that they do not amount to knowledge. A more philosophically defensible game theory would not assume that everyone knows what it is that they know. But for now we’ll follow orthodoxy and assume we can use representations like these dashed lines to represent uncertainty, even though that requires a lot more self-knowledge than most people have.</p>
+<p>These representations using graphs are knows as <strong>extensive form</strong> representations of games. The representations using tables that we’ve used previously are known as <strong>normal form</strong> or <strong>strategic form</strong> representations. The idea is that any game really can be represented as game of one simultaneous move. The ‘moves’ the players make are the selections of <strong>strategies</strong>. A strategy in this sense is a plan for what to do in any circumstance whatsoever.</p>
+<p>Let’s do this for the <strong>Five</strong>. A strategy for <span class="math inline">\(A\)</span> has three variables. It must specify what she does at the first move, what she does at the second move if <span class="math inline">\(B\)</span> plays 1, and what she does at the second move if <span class="math inline">\(B\)</span> plays 2. (We’re assuming here that <span class="math inline">\(A\)</span> will play what she decides to play at the first move. It’s possible to drop that assumption, but it results in much more complexity.) So we’ll describe <span class="math inline">\(A\)</span>’s strategy as <span class="math inline">\(\alpha \beta \gamma\)</span>, where <span class="math inline">\(\alpha\)</span> is her move to begin with, <span class="math inline">\(\beta\)</span> is what she does if <span class="math inline">\(B\)</span> plays 1, and <span class="math inline">\(\gamma\)</span> is what she does if <span class="math inline">\(B\)</span> plays 2. A strategy for <span class="math inline">\(B\)</span> needs to only have two variables: what to do if <span class="math inline">\(A\)</span> plays 1, and what to do if <span class="math inline">\(A\)</span> plays 2. So we’ll notate her strategy as <span class="math inline">\(\delta \epsilon\)</span>, where <span class="math inline">\(\delta\)</span> is what she does if <span class="math inline">\(A\)</span> plays 1, and <span class="math inline">\(\epsilon\)</span> is what she does if <span class="math inline">\(A\)</span> plays 2. So <span class="math inline">\(A\)</span> has 8 possible strategies, and <span class="math inline">\(B\)</span> has 4 possible strategies. Let’s record the giant table listing the outcomes if they play each of those strategies.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="4" style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" style="text-align: left;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: right;">111</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">112</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">121</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">122</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">211</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">212</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">221</td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">222</td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>There is something quite dramatic about this representation. We can see what <span class="math inline">\(A\)</span> should play. If her strategy is 221, then whatever strategy <span class="math inline">\(B\)</span> plays, <span class="math inline">\(A\)</span> wins. So she should play that; it is a (weakly) dominant strategy. This isn’t completely obvious from the extended form graph.</p>
+<p>Here’s a related fact. Note that there are only 8 outcomes of the extended form game, but 32 cells in the table. Each outcome on the tree is represented by multiple cells of the table. Let’s say we changed the game so that it finishes in a draw, represented by <span class="math inline">\(D\)</span>, if the numbers picked sum to 3. That just requires changing one thing on the graph; the <span class="math inline">\(L\)</span> in the top-left corner has to be changed to a <span class="math inline">\(D\)</span>. But it requires making many changes to the table.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="4" style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" style="text-align: left;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: right;">111</td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">112</td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">121</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">122</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">211</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">212</td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">221</td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">222</td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(W\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(L\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In part because of this fact, i.e., because every change to the value assignment in the extensive form requires making many changes in the values on the normal form, it isn’t a coincidence that there’s a row containing nothing but <span class="math inline">\(W\)</span>. The following claim about our game can be proved.</p>
+<blockquote class="blockquote">
+<p>Assign <span class="math inline">\(W\)</span> and <span class="math inline">\(L\)</span> in any way you like to the eight outcomes of the extended form game. Then draw table that is the normal form representation of the game. It will either have a row containing nothing but <span class="math inline">\(W\)</span>, i.e., a winning strategy for <span class="math inline">\(A\)</span>, or a column containing nothing but <span class="math inline">\(L\)</span>, i.e., a winning strategy for <span class="math inline">\(B\)</span>.</p>
+</blockquote>
+<p>We will prove this in a little bit, but first we will look at how to ‘solve’ games like <strong>Five</strong>.</p>
+</section>
+<section id="backwards-induction" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="backwards-induction"><span class="header-section-number">5.2</span> Backwards Induction</h2>
+<p>The way to think through games like <strong>Five</strong> is by working from top to bottom. <span class="math inline">\(A\)</span> moves last. Once we get to the point of the last move, there is no tactical decision making needed. <span class="math inline">\(A\)</span> knows what payoff she gets from each move, and she simply will take the highest payoff (assuming rationality).</p>
+<p>So let’s assume she does that. Let’s assume, that is, that <span class="math inline">\(A\)</span> does play her best strategy. Then we know three things about what will happen in the game.</p>
+<ul>
+<li><p>If <span class="math inline">\(A\)</span> plays 1, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 2.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 1, <span class="math inline">\(A\)</span> will follow with 2.</p></li>
+<li><p>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 1.</p></li>
+</ul>
+<p>Moreover, once we make this assumption there is, in effect, one fewer step in the game. Once <span class="math inline">\(B\)</span> moves, the outcome is determined. So let’s redraw the game using that assumption, and just listing payoffs after the second move. This will be <a href="#fig-five-2" class="quarto-xref">Figure&nbsp;<span>5.3</span></a></p>
+<div id="fig-five-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five, with the last move assumed">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/five-2.svg" class="img-fluid figure-img" alt="Five, with the last move assumed">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: Five with last move assumed
+</figcaption>
+</figure>
+</div>
+<p>Now we can make the same assumption about <span class="math inline">\(B\)</span>. Assume that <span class="math inline">\(B\)</span> will simply make her best move in this (reduced) game. Since <span class="math inline">\(B\)</span> wins if <span class="math inline">\(A\)</span> loses, <span class="math inline">\(B\)</span>’s best move is to get to <span class="math inline">\(L\)</span>. This assumption then, gives us just one extra constraint.</p>
+<ul>
+<li>If <span class="math inline">\(A\)</span> plays 1, <span class="math inline">\(B\)</span> will follow with 1.</li>
+</ul>
+<p>And, once again, we can replace <span class="math inline">\(B\)</span>’s actual movement with a payoff of the game under the assumption that <span class="math inline">\(B\)</span> makes the rational move. This gives us an even simpler representation of the game that we see in <a href="#fig-five-3" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>.</p>
+<div id="fig-five-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five, with the last two moves assumed">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/five-3.svg" class="img-fluid figure-img" alt="Five, with the last two moves assumed">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: Five with last two moves assumed
+</figcaption>
+</figure>
+</div>
+<p>And from this version of the game, we can draw two more conclusions, assuming <span class="math inline">\(A\)</span> is rational.</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> will play 2 at the first move.</p></li>
+<li><p><span class="math inline">\(A\)</span> will win.</p></li>
+</ul>
+<p>Let’s put all of that together. We know <span class="math inline">\(A\)</span> will start with 2, so her strategy will be of the form <span class="math inline">\(2 \beta \gamma\)</span>. We also know that <span class="math inline">\(B\)</span> doesn’t care which strategy she chooses at that point, so we can’t make any further reductions. But we do know that if <span class="math inline">\(A\)</span> plays 2 and <span class="math inline">\(B\)</span> plays 1, <span class="math inline">\(A\)</span> will follow with 2. So <span class="math inline">\(A\)</span>’s strategy will be of the form <span class="math inline">\(2 2 \gamma\)</span>. And we know that if <span class="math inline">\(A\)</span> plays 2 and <span class="math inline">\(B\)</span> plays 2, then <span class="math inline">\(A\)</span> will play 1. So <span class="math inline">\(A\)</span>’s strategy will be 221, as we saw on the table.</p>
+<p>Note that the use of backwards induction here hides a multitude of assumptions. We have to assume each player is rational, and each player knows that, and each player knows that, and so on for at least as many iterations as there are steps in the game. If we didn’t have those assumptions, it wouldn’t be right to simply replace a huge tree with a single outcome. Moreover, we have to make those assumptions be very modally robust.</p>
+<p>We can see this with a slight variant of the game. Let’s say this time that the left two outcomes are <span class="math inline">\(D\)</span>. So the graph looks like <a href="#fig-five-rev" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>.</p>
+<div id="fig-five-rev" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The revised game Five-double-prime">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-rev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/five-rev.svg" class="img-fluid figure-img" alt="The revised game Five-double-prime">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-rev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Five’’
+</figcaption>
+</figure>
+</div>
+<p>Now we assume that <span class="math inline">\(A\)</span> makes the optimal move at the last step, so we can replace the top row of outcomes with the outcome that would happen if <span class="math inline">\(A\)</span> moves optimally. This gets us <a href="#fig-five-rev-2" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>.</p>
+<div id="fig-five-rev-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five-double-prime, with the last move assumed">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-five-rev-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/five-rev-2.svg" class="img-fluid figure-img" alt="Five-double-prime, with the last move assumed">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-five-rev-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: Five’’ with last move assumed
+</figcaption>
+</figure>
+</div>
+<p>Now assume that <span class="math inline">\(A\)</span> plays 1 on the first round, then <span class="math inline">\(B\)</span> has to move. From <a href="#fig-five-rev-2" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> it looks like <span class="math inline">\(B\)</span> has an easy choice to make. If she plays 1, she gets a draw, if she plays 2, then <span class="math inline">\(A\)</span> wins, i.e., she loses. Since drawing is better than losing, she should play 1 and take the draw.</p>
+<p>But why think that playing 2 will lead to <span class="math inline">\(A\)</span> winning? The argument that it did depending on assuming <span class="math inline">\(A\)</span> is perfectly rational. And assuming <span class="math inline">\(B\)</span> is in a position to make this choice, that seems like an unlikely assumption. After all, if <span class="math inline">\(A\)</span> were perfectly rational, she’d have chosen 2, and given herself a chance to force a win.</p>
+<p>Now you might think that even if <span class="math inline">\(A\)</span> isn’t perfectly rational, it still is crazy to leave her with an easy winning move. And that’s probably a sufficient reason for <span class="math inline">\(B\)</span> to accept the draw, i.e., play 1. But the argument that <span class="math inline">\(B\)</span> should regard playing 2 as equivalent to choosing defeat seems mistaken. <span class="math inline">\(B\)</span> knows that <span class="math inline">\(A\)</span> isn’t perfectly rational, and she shouldn’t assume perfect rationality from here on out.</p>
+<p>We will come back to this point, a lot, in subsequent discussions of backwards induction. Note that it is a point that doesn’t really arise in the context of normal form games. There we might wonder about whether common knowledge of rationality is a legitimate assumption at the <em>start</em> of the game. But once we’ve settled that, we don’t have a further issue to decide about whether it is still a legitimate assumption at later stages of the game.</p>
+</section>
+<section id="value-of-games" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="value-of-games"><span class="header-section-number">5.3</span> Value of Games</h2>
+<p>Consider games with the following characteristics.</p>
+<ul>
+<li><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> take turns making moves. We will call each point at which they make a move, or at which the game ends, a <strong>node</strong> of the game.</li>
+<li>At each move, each player knows what moves have been previously made.</li>
+<li>At each move, the players have only finitely many possible moves open.</li>
+<li>The players’ preferences over the outcomes are opposite to one another. So if <span class="math inline">\(A\)</span> prefers outcome <span class="math inline">\(o_1\)</span> to <span class="math inline">\(o_2\)</span>, then <span class="math inline">\(B\)</span> prefers <span class="math inline">\(o_2\)</span> to <span class="math inline">\(o_1\)</span>, and if <span class="math inline">\(A\)</span> is indifferent between <span class="math inline">\(o_1\)</span> and <span class="math inline">\(o_2\)</span>, then <span class="math inline">\(B\)</span> is indifferent between them as well.</li>
+<li><span class="math inline">\(A\)</span>’s preferences over the outcomes are complete; for any two outcomes, she either prefers the first, or prefers the second, or is indifferent between them.</li>
+<li>There is a finite limit to the total number of possible moves in the game.</li>
+</ul>
+<p>The finiteness assumptions entail that there are only finitely many possible outcomes. So we can order the outcomes by <span class="math inline">\(A\)</span>’s preferences. (Strictly speaking, we want to order sets of outcomes that are equivalence classes with respect to the relation that <span class="math inline">\(A\)</span> is indifferent between them.) Assign the outcome <span class="math inline">\(A\)</span> least prefers the value 0, the next outcome the value 1, and so on.</p>
+<p>Now we recursively define the <strong>value</strong> of a node as follows.</p>
+<ul>
+<li>The value of a <strong>terminal node</strong>, i.e., a node at which the game ends, is the payoff at that node.</li>
+<li>The value of any node at which <span class="math inline">\(A\)</span> makes a choice is the greatest value of the nodes between which <span class="math inline">\(A\)</span> is choosing to move to.</li>
+<li>The value of any node at which <span class="math inline">\(B\)</span> makes a choice is the least value of the nodes between which <span class="math inline">\(B\)</span> is choosing to move to.</li>
+</ul>
+<p>Finally, we say that the value of the game is the value of the initial node, i.e., the node at which the first choice is made. We can prove a number of things about the value of games. The proof will make crucial use of the notion of a <strong>subgame</strong>. In any extensive form game, a <strong>subgame</strong> of a game is the game we get by treating any perfect information node as the initial node of a game, and including the rest of the game ‘downstream’ from there.</p>
+<p>By a perfect information node, I mean a node such that when it is reached, it is common knowledge that it is reached. That’s true of all the nodes in most of the games we’re looking at, but it isn’t true in, for instance, the extensive form version of Prisoners’ Dilemma we looked at. Nodes that are in non-degenerate information sets, i.e., information sets that contain other nodes, can’t trigger subgames. That’s because we typically assume that to play a game, players have to know what game they are playing.</p>
+<p>Note that a subgame is really a game, just like a subset is a set. Once we’re in the subgame, it doesn’t matter a lot how we got there. Indeed, any game we represent is the consequence of some choices by the agent; they are all subgames of the game of life.</p>
+<ul>
+<li>The value of a game is the value of one of the terminal nodes.</li>
+</ul>
+<p>We prove this by induction on the length of games. (The length of a game is the <em>maximum</em> number of moves needed to reach a terminal node. We’ve only looked so far at games where every path takes the same number of moves to reach a conclusion, but that’s not a compulsory feature of games.)</p>
+<p>If the game has zero moves, then it has just one node, and its value is the value of that node. And that node is a terminal node, so the value is the value of a terminal node.</p>
+<p>Now assume that the claim is true for any game of length <span class="math inline">\(k\)</span> or less, and consider an arbitrary game of length <span class="math inline">\(k + 1\)</span> The first node of the game consists of a choice about which path to go down. So the value of the initial node is the value of one of the subsequent nodes. Once that choice is made, we are in a subgame of length <span class="math inline">\(k\)</span>, no matter which choice is made. By the inductive hypothesis, the value of that subgame is the value of one of its terminal nodes. So the value of the game, which is the value of one of the immediate subsequent nodes to the initial node, is the value of one of its terminal nodes.</p>
+<ul>
+<li><span class="math inline">\(A\)</span> can guarantee that the outcome of the game is at least the value of the game.</li>
+</ul>
+<p>Again, we prove this by induction on the length of games. It is trivial for games of length 0. So assume it is true for all games of length at most <span class="math inline">\(k\)</span>, and we’ll prove it for games of length <span class="math inline">\(k+1\)</span>. The initial node of such a game is either a move by <span class="math inline">\(A\)</span> or a move by <span class="math inline">\(B\)</span>. We will consider these two cases separately.</p>
+<p>Assume that <span class="math inline">\(A\)</span> makes the first move. Then the value of the initial node is the maximum value of any immediate successor node. So <span class="math inline">\(A\)</span> can select to go to the node with the same value as the value of the game. Then we’re in a subgame of length <span class="math inline">\(k\)</span>. By the inductive assumption, in that game <span class="math inline">\(A\)</span> can guarantee that the outcome is at least the value of the subgame. And since the value of that node is the value of the subgame, so it is also the value of the initial node, i.e., the value of the initial game. So by choosing that node, and starting that subgame, <span class="math inline">\(A\)</span> can guarantee that the outcome is at least the value of the game.</p>
+<p>Now assume that <span class="math inline">\(B\)</span> makes the first move. <span class="math inline">\(B\)</span> can choose the node with the least value of the available choices. Then, as above, we’ll be in a subgame in which (by the inductive hypothesis) <span class="math inline">\(B\)</span> can guarantee has an outcome which is at most its value. That is, <span class="math inline">\(B\)</span> can guarantee the outcome of the game is at most the value of the initial node of the subgame. And since <span class="math inline">\(B\)</span> can guarantee that that subgame is played, <span class="math inline">\(B\)</span> can guarantee that the game has an outcome of at most its value.</p>
+<ul>
+<li><span class="math inline">\(B\)</span> can guarantee that the outcome of the game is at most the value of the game.</li>
+</ul>
+<p>The proof of this exactly parallels the previous proof, and the details are left as an exercise.</p>
+<p>Let’s note a couple of consequences of these theorems.</p>
+<p>First, assume that the rationality of each player is common knowledge, and that it is also common knowledge that this will persist throughout the game. Then the kind of backwards induction argument we used is discussing <strong>Five</strong> will show that the outcome of the game will be the value of the game. That’s because if <span class="math inline">\(A\)</span> is rational and knows this much about <span class="math inline">\(B\)</span>, the outcome won’t be lower than the value, and if <span class="math inline">\(B\)</span> is rational and knows this much about <span class="math inline">\(A\)</span>, the outcome won’t be greater than the value.</p>
+<p>Second, these theorems have many applications to real-life games. Both chess and checkers, for instance, satisfy the conditions we listed. The only condition that is not immediately obvious in each case is that the game ends in finite time. But the rules for draws in each game guarantee that is true. (Exercise: Prove this!) Since these games end with White win, Black win or draw, the value of the game must be one of those three outcomes.</p>
+<p>In the case of checkers, we know what the value of the game is. It is a draw. This was proved by the Chinook project at the University of Alberta. We don’t yet know what the value of chess is, but it is probably also a draw. Given how many possible moves there are in chess, and in principle how long games can go on, it is hard to believe that chess will be ‘solved’ any time soon. But advances in chess computers may be able to justify to everyone’s satisfaction a particular solution, even if we can’t prove that is the value of chess.</p>
+</section>
+<section id="subgame-perfect-equilibrium" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="subgame-perfect-equilibrium"><span class="header-section-number">5.4</span> Subgame Perfect Equilibrium</h2>
+<p>Consider the following little game. The two players, call them Player I and Player II, have a choice between two options, call them Good and Bad. The game is a sequential move game; first Player I moves then Player II moves. Each player gets 1 if they choose Good and 0 if they choose Bad. We will refer to this game as <strong>Easy Game</strong>. Its game tree is <a href="#fig-easy-game" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>.</p>
+<div id="fig-easy-game" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The Easy Game tree">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-easy-game-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/easy-game.svg" class="img-fluid figure-img" alt="The Easy Game tree">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-easy-game-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: Easy Game
+</figcaption>
+</figure>
+</div>
+<p>A strategy for Player I in <strong>Easy Game</strong> is just a choice of one option, Good or Bad. A strategy for Player II is a little more complicated. She has to choose both what to do if Player I chooses Good, and what to do if Player II chooses Bad. We’ll write her strategy as <span class="math inline">\(\alpha \beta\)</span>, where <span class="math inline">\(\alpha\)</span> is what she does if Player I chooses Good, and <span class="math inline">\(\beta\)</span> is what she does if Player II chooses Bad. (We will often use this kind of notation in what follows. Wherever it is potentially ambiguous, I’ll try to explain it. But the notation is very common in works on game theory, and it is worth knowing.)</p>
+<p>The most obvious Nash equilibrium of the game is that Player I chooses Good, and Player II chooses Good whatever Player I does. But there is another Nash equilibrium, as looking at the strategic form of the game reveals. We’ll put Player I on the row and Player II on the column. (We’ll also do this from now on unless there is a reason to do otherwise.)</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="4" style="text-align: center;">Player II</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;">gg</td>
+<td style="text-align: center;">gb</td>
+<td style="text-align: center;">bg</td>
+<td style="text-align: center;">bb</td>
+</tr>
+<tr class="odd">
+<td rowspan="2" style="text-align: left;">Player I</td>
+<td style="text-align: right;">G</td>
+<td style="text-align: center;">1, 1</td>
+<td style="text-align: center;"><strong>1, 1</strong></td>
+<td style="text-align: center;">1, 0</td>
+<td style="text-align: center;">1, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">B</td>
+<td style="text-align: center;">0, 1</td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">0, 1</td>
+<td style="text-align: center;">0, 0</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the cell that I’ve bolded, where Player I plays Good, and Player II plays Good, Bad. That’s a Nash equilibrium. Neither player can improve their outcome, given what the other player plays. But it is a very odd Nash equilibrium. It would be very odd for Player II to play this, since it risks getting 0 when they can guarantee getting 1.</p>
+<p>It’s true that Good, Bad is weakly dominated by Good, Good. But as we’ve already seen, and as we’ll see in very similar examples to this soon, there are dangers in throwing out <em>all</em> weakly dominated strategies. Many people think that there is something else wrong with what Player II does here.</p>
+<p>Consider the sub-game that starts with the right-hand decision node for Play­er II. That isn’t a very interesting game; Player I has no choices, and Player II simply has a choice between 1 and 0. But it is a game. And note that Good, Bad is not a Nash equilibrium&nbsp;of that game. Indeed, it is a <em>strictly</em> dominated strategy in that game, since it involves taking 0 when 1 is freely available.</p>
+<p>Say that a strategy pair is a <strong>subgame perfect equilibrium</strong> when it is a Nash equilibrium, and it is a Nash equilibrium&nbsp;of every sub-game of the game. The pair Good and Good, Bad is not subgame perfect, since it is not a Nash equilibrium&nbsp;of the right-hand subgame.</p>
+<p>When we solve extensive form games by backwards induction, we not only find Nash equilibria, but subgame perfect equilibria. Solving this game by backwards induction would reveal that Player II would choose Good wherever she ends up, and then Player I will play Good at the first move. And the only subgame perfect equilibrium&nbsp;of the game is that Player I plays Good, and Player II plays Good, Good.</p>
+<p>The stakes here don’t seem to high, since the ruled out Nash equilibrium has the same payout as the subgame perfect equilibrium. But that need not be the case. Sometimes the equilibrium that is not subgame perfect is an <strong>incredible threat</strong>. We mean <em>incredible</em> here in the literal sense of not credible. In the spirit of this, let’s consider a game I’ll call <strong>Incredible</strong>. Its game tree is <a href="#fig-incredible" class="quarto-xref">Figure&nbsp;<span>5.8</span></a>.</p>
+<div id="fig-incredible" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The game Incredible, showing an incredible threat">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-incredible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/incredible.svg" class="img-fluid figure-img" alt="The game Incredible, showing an incredible threat">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-incredible-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Incredible
+</figcaption>
+</figure>
+</div>
+<p>Using backwards induction, we can see that the only subgame perfect equilibrium of the game is <span class="math inline">\(Rbg\)</span>. That is, Player I plays <span class="math inline">\(R\)</span>, and Player II is disposed to play <span class="math inline">\(b\)</span> if Player I plays Left, and <span class="math inline">\(g\)</span> if Player plays <span class="math inline">\(R\)</span>. But writing out the able reveals another Nash equilibria.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="4" style="text-align: center;">Player II</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(gg\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(gb\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(bg\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(bb\)</span></td>
+</tr>
+<tr class="odd">
+<td rowspan="2" style="text-align: left;">Player I</td>
+<td style="text-align: right;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: center;">4,3</td>
+<td style="text-align: center;">4,3</td>
+<td style="text-align: center;">1,4</td>
+<td style="text-align: center;"><strong>1,4</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(R\)</span></td>
+<td style="text-align: center;">3,2</td>
+<td style="text-align: center;">0,0</td>
+<td style="text-align: center;"><strong>3,2</strong></td>
+<td style="text-align: center;">0,0</td>
+</tr>
+</tbody>
+</table>
+<p>I’ve bolded both the Nash equilibria. And note the one in the top right corner of the table. If Player II is committed to playing <span class="math inline">\(bb\)</span>, then the best response Player I can make is to play <span class="math inline">\(L\)</span>.</p>
+<p>But look how implausible this is in real time. It means that if we get to the right hand node, Player II will choose to get 0, when 2 is available. Of course, we won’t actually get to that node. But it requires Player II to have dispositions that make no sense. This is the intuition behind subgame perfect equilibrium. We require that players not just make choices which make sense, but are disposed to do so at all times.</p>
+<p>In the rest of this chapter, we’ll look at reasons why this might be too strong a constraint on rational players.</p>
+</section>
+<section id="problems-with-backwards-induction" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="problems-with-backwards-induction"><span class="header-section-number">5.5</span> Problems with Backwards Induction</h2>
+<p>When each player only moves once, it is very plausible that each player should play their part of a subgame perfect equilibrium&nbsp;solution to the game. But this is less compelling when players have multiple moves. We can start to see why by looking at a game that the philosopher Robert Stalnaker <span class="citation" data-cites="stalnaker1996">(<a href="references.html#ref-stalnaker1996" role="doc-biblioref">1996</a>)</span> has used in a few places to argue against backwards induction reasoning. Again, it is an extensive form game. We will call it <strong>Cooperative Caterpillar</strong>.</p>
+<div id="fig-caterpillar" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The Cooperative Caterpillar">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-caterpillar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/svg/caterpillar.svg" class="img-fluid figure-img" alt="The Cooperative Caterpillar">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caterpillar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9: Cooperative Caterpillar
+</figcaption>
+</figure>
+</div>
+<p>The game starts in the upper-left corner. There are up to three moves, each of them Across or Down. As soon as one player moves Down, the game ends. It is a common interest game; each player gets the payout at the terminal node.</p>
+<p>Since there is only one path to each decision node, a strategy merely has to consist of a set of plans for what to play if that node is reached. Alice’s strategy will consist of two capitalised moves, and Bob’s strategy will consist of one lower-case move.</p>
+<p>If we apply backwards induction, we get that the unique solution of the game is <span class="math inline">\(\langle A_1A_2, a \rangle\)</span>. Alice would play <span class="math inline">\(A_2\)</span> if it gets that far. Given that, Bob would be better off playing <span class="math inline">\(a\)</span> than <span class="math inline">\(d\)</span> if he gets to play. And given that, Alice is better off playing <span class="math inline">\(A_1\)</span> than <span class="math inline">\(D_1\)</span>.</p>
+<p>But there are many other Nash equilibria of the game. One of them is <span class="math inline">\(\langle D_1A_2, d \rangle\)</span>. Given that Player I is playing <span class="math inline">\(D_1\)</span>, Player II can play anything without changing her payout; it will be 2 come what may. Given that Player II is playing <span class="math inline">\(d\)</span>, Player I is best off playing <span class="math inline">\(D_1\)</span> and taking 2, rather than just getting the 1 that comes from leaving Player II to make a play.</p>
+<p>Could this equilibrium&nbsp;be one that rational players, who know each other to be rational, reach? Stalnaker argues that it could. Assume each player knows that the other player is rational, and is playing that strategy. Given what Player I knows, her strategy choice is clearly rational. She takes 2 rather than the 1 that she would get by playing <span class="math inline">\(A_1\)</span>, and she is disposed to take 3 rather than 0 if she gets to the final decision node. So her actual choice is rational, and her disposition is to make another rational choice if we reach the end of the game.</p>
+<p>Things are a little trickier for Player II. You might think it is impossible for rational Player II, who knows Player I to be rational, to move <span class="math inline">\(d\)</span>. After all, if Player I is rational, then she’ll play <span class="math inline">\(A_2\)</span>, not <span class="math inline">\(D_2\)</span>. And if she plays <span class="math inline">\(A_2\)</span>, it is better to play <span class="math inline">\(a\)</span> than <span class="math inline">\(d\)</span>. So it looks hard to justify Player II’s move. But looks can be deceiving. In fact there isn’t anything wrong with Player II’s move, as long as he has the right beliefs to justify it. It’s very important to distinguish the following two conditionals.</p>
+<ul>
+<li>If Player I has the choice, she chooses <span class="math inline">\(A_2\)</span> over <span class="math inline">\(D_2\)</span>.</li>
+<li>If Player I were to have the choice, she would choose <span class="math inline">\(A_2\)</span> over <span class="math inline">\(D_2\)</span>.</li>
+</ul>
+<p>Player II knows that the first, indicative, conditional is true. And indeed it is true. But he doesn’t know that the second, subjunctive, conditional is true. After all, if Player I were to have the choice between <span class="math inline">\(A_2\)</span> and <span class="math inline">\(D_2\)</span>, she would have, <em>irrationally</em>, chosen <span class="math inline">\(A_1\)</span> over <span class="math inline">\(D_1\)</span>. And if she had chosen irrationally once, it’s possible that she would choose irrationally again.</p>
+<p>Here’s an analogy that may help explain what’s going on. The following set of beliefs is consistent.</p>
+<ul>
+<li>Any perfectly rational being gets all of the questions on their algebra exam right.</li>
+<li>Alice is perfectly rational.</li>
+<li>If Alice had got the second-hardest question on the algebra exam wrong, she would have got the hardest question on the algebra exam wrong as well.</li>
+</ul>
+<p>Player II’s beliefs are like that. He believes Player I is perfectly rational. He also believes that if Player I were to make an irrational move, she would continue to make irrational moves. That’s consistent with belief in perfect rationality, and nothing about the game setup rules out such a belief. He also believes that playing <span class="math inline">\(A_1\)</span> would be irrational. That’s correct, given what Player I knows about Player II. Given all those beliefs, playing <span class="math inline">\(d\)</span>, if he had the chance, would be rational.</p>
+<p>Stalnaker argues that many game theorists have tacitly confused indicative and subjunctive conditionals in reasoning about games like <strong>Cooperative Caterpillar</strong>. There are other games where similar confusions arguably take place.</p>
+</section>
+<section id="money-burning-game" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="money-burning-game"><span class="header-section-number">5.6</span> Money Burning Game</h2>
+<p>Elchanen Ben-Porath and Eddie Dekel suggested this variant to the Battle of the Sexes game. The variation is in two steps. First, we change the payouts for the basic game to the following. (Note that I’m using a lowercase letter for one of Row’s options here; this is to distinguish the <span class="math inline">\(d\)</span> of down from the <span class="math inline">\(D\)</span> of Don’t burn.)</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="2" style="text-align: center;">Player II</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(l\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(r\)</span></td>
+</tr>
+<tr class="odd">
+<td rowspan="2" style="text-align: left;">Player I</td>
+<td style="text-align: right;"><span class="math inline">\(u\)</span></td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">0, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">1, 4</td>
+</tr>
+</tbody>
+</table>
+<p>Then we give Player I the option of publicly burning 2 utils before playing this game. We will use <span class="math inline">\(D\)</span> for Don’t burn, and <span class="math inline">\(B\)</span> for burn. So actually each player has four choices. Player I has to choose both <span class="math inline">\(D\)</span> or <span class="math inline">\(B\)</span>, then <span class="math inline">\(u\)</span> or <span class="math inline">\(d\)</span>. Player 2 has to choose whether to play <span class="math inline">\(l\)</span> or <span class="math inline">\(r\)</span> in each of the two possibilities: first, when <span class="math inline">\(D\)</span> is played, second, when <span class="math inline">\(B\)</span> is played. We’ll write <span class="math inline">\(lr\)</span> for the strategy of playing <span class="math inline">\(l\)</span> if <span class="math inline">\(D\)</span>, and <span class="math inline">\(r\)</span> if <span class="math inline">\(B\)</span>, and so on for the other strategies.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="4" style="text-align: center;"><strong>Player II</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(ll\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(lr\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(rl\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(rr\)</span></td>
+</tr>
+<tr class="odd">
+<td rowspan="4" style="text-align: left;"><strong>Player I</strong></td>
+<td style="text-align: right;"><span class="math inline">\(Du\)</span></td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">0, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(Dd\)</span></td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">1, 4</td>
+<td style="text-align: center;">1, 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(Bu\)</span></td>
+<td style="text-align: center;">2, 1</td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">2, 1</td>
+<td style="text-align: center;">-2, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(Bd\)</span></td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">-1, 4</td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">-1, 4</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can analyse this game a couple of ways. First, we can go through eliminating weakly dominated strategies. Note that <span class="math inline">\(Du\)</span> strictly dominated <span class="math inline">\(Bd\)</span>, so we can eliminate it. If <span class="math inline">\(Bd\)</span> is out, then <span class="math inline">\(ll\)</span> weakly dominates <span class="math inline">\(lr\)</span>, and <span class="math inline">\(rl\)</span> weakly dominates <span class="math inline">\(rr\)</span>. So we can eliminate <span class="math inline">\(lr\)</span> and <span class="math inline">\(rr\)</span>. Now <span class="math inline">\(Bu\)</span> weakly dominates <span class="math inline">\(Dd\)</span>, relative to the remaining options, so we can eliminate it. Given that just <span class="math inline">\(Du\)</span> and <span class="math inline">\(Bu\)</span> remain, <span class="math inline">\(ll\)</span> weakly dominates all options for Player II, so it is all that is left. And given that <span class="math inline">\(ll\)</span> is all that remains, <span class="math inline">\(Du\)</span> strongly dominates <span class="math inline">\(Bu\)</span>. So the iterative deletion of weakly dominated strategies leaves us with <span class="math inline">\(\langle Du, ll \rangle\)</span> as the unique solution of the game.</p>
+<p>Alternatively, we can think the players reason as follows. (The following reasoning is sometimes called ‘forward induction’ reasoning.) Playing <span class="math inline">\(Bd\)</span> is obviously irrational for Player I, since its maximum return is -1, and playing <span class="math inline">\(Du\)</span> or <span class="math inline">\(Dd\)</span> guarantees getting at least 0. So any rational player who plays <span class="math inline">\(B\)</span> must be playing <span class="math inline">\(Bu\)</span>. That is, if Player I is rational and plays <span class="math inline">\(B\)</span>, she will play <span class="math inline">\(Bu\)</span>. Moreover, this is common knowledge among the players. So if Player I plays <span class="math inline">\(B\)</span>, she will recognise that Player II will know that she is playing <span class="math inline">\(Bu\)</span>. And if Player II knows Player I is playing <span class="math inline">\(u\)</span> after burning, she will play <span class="math inline">\(l\)</span>, since that returns her 1 rather than 0. So Player I knows that playing <span class="math inline">\(B\)</span> leads to the 2,1 state; i.e., it returns her 2. But now it is irrational to play <span class="math inline">\(Dd\)</span>, since that gets at most 1, and playing <span class="math inline">\(B\)</span> leads to a return of 2. So Player I will play <span class="math inline">\(Bu\)</span> or <span class="math inline">\(Du\)</span>. And since the reasoning that leads to this is common knowledge, Player II must play <span class="math inline">\(ll\)</span>, since playing <span class="math inline">\(l\)</span> is her best response to a play of <span class="math inline">\(u\)</span>, and she knows Player I will play <span class="math inline">\(u\)</span>. But if Player II is going to play <span class="math inline">\(ll\)</span>, Player I doesn’t need to burn; she can just play <span class="math inline">\(Du\)</span>.</p>
+<p>There is a crucial conditional in the middle of that argument; let’s isolate it.</p>
+<ul>
+<li>If Player I is rational and plays <span class="math inline">\(B\)</span>, she will play <span class="math inline">\(Bu\)</span>.</li>
+</ul>
+<p>But that’s not what is needed to make the argument work. What Player I needs, and in fact needs to be common knowledge, is the following subjunctive.</p>
+<ul>
+<li>If Player I is rational then, if she were to play <span class="math inline">\(B\)</span>, she would play <span class="math inline">\(Bu\)</span>.</li>
+</ul>
+<p>But in fact there’s no reason to believe that. After all, if the forward induction argument is right, then it is <em>irrational</em> to burn the money. So if Player I were to play <span class="math inline">\(B\)</span>, i.e., burn the money, then she would be doing something irrational. And the fact that Player I is actually rational is consistent with the counterfactual that if she were to do one irrational thing, it would be because she is following an irrational strategy. Note that on the assumption that <span class="math inline">\(Du\)</span> is optimal, then if Player I finds herself having played <span class="math inline">\(B\)</span>, it isn’t clear that playing <span class="math inline">\(d\)</span> is irrational; it isn’t like it is dominated by <span class="math inline">\(u\)</span>.</p>
+<p>So it isn’t true that if Player I were to burn the utils, Player II would know that she is playing <span class="math inline">\(Bu\)</span>, and react accordingly by playing <span class="math inline">\(l\)</span>. And if that’s not true, then there’s no reason to think that <span class="math inline">\(Bu\)</span> is better than <span class="math inline">\(Dd\)</span>. And if there’s no reason to think that, there’s no reason to be confident Player 2 will play <span class="math inline">\(ll\)</span>.</p>
+<p>Robert Stalnaker, in his commentary on the game, goes further and provides a positive model where the players start with a common belief in rationality, and in what each other will do, but in which the players play <span class="math inline">\(Bu\)</span> and <span class="math inline">\(rl\)</span>. I’ll leave it as an exercise to work out what counterfactuals the agents have to believe to make this rational, but suffice to say that it is a situation where each side has true beliefs about the other, and maximises expected utility given their beliefs.</p>
+<p>There is another, relatively simple, equilibrium&nbsp;to the game. Player I will play <span class="math inline">\(Dd\)</span>, and Player II will play <span class="math inline">\(rr\)</span>. Player II is certain that Player I will play <span class="math inline">\(d\)</span>, and will keep that belief even if Player I irrationally burns 2 utils to start with. Given that certainty, it is rational for Player I to play <span class="math inline">\(Dd\)</span>, so Player II’s belief is consistent with believing Player I to be rational. And since Player I is playing <span class="math inline">\(Dd\)</span>, playing <span class="math inline">\(rr\)</span> is perfectly rational for Player II; indeed it results in her best possible outcome. Moreover, given that Player II is playing <span class="math inline">\(rr\)</span>, it makes sense for Player I to play <span class="math inline">\(d\)</span> even if they were, irrationally, to burn the utils. So even though playing <span class="math inline">\(Bd\)</span> would be irrational, since it is strictly dominated, if they were to (irrationally) play <span class="math inline">\(D\)</span>, they <em>should</em> follow that by playing <span class="math inline">\(d\)</span>. There’s an important point about the scope of the claim that playing <span class="math inline">\(Bd\)</span> is irrational. It <em>doesn’t</em> imply that if the player were to irrationally play <span class="math inline">\(B\)</span>, it would be irrational to follow with a play of <span class="math inline">\(d\)</span>. If Player I was convinced that Player II was playing <span class="math inline">\(rr\)</span>, then it would be rational to follow <span class="math inline">\(B\)</span> with <span class="math inline">\(d\)</span>.</p>
+</section>
+<section id="iterated-prisoners-dilemma" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="iterated-prisoners-dilemma"><span class="header-section-number">5.7</span> Iterated Prisoners’ Dilemma</h2>
+<p>Let’s return to Prisoners Dilemma, using <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> for cooperate and defect. We’ll call the players I and II, and use uppercase letters for Player I’s strategies, and lower case letters for Player II’s strategies. We’ll assume that each player knows that the other players are perfectly rational in Stalnaker’s sense. (That is, they have true beliefs about the other, and they maximise expected utility given their beliefs.)</p>
+<p>There are a couple of arguments that the players must end up at the equilibrium&nbsp;where every player defects on every move. One of these is an argument by backwards induction.</p>
+<p>At the last move of the game, defecting dominates cooperating. Both players know this. At the second-last move, you might have thought antecedently that there was some benefit to cooperating. After all, it might induce cooperation in the other player. But the only benefit one could get from cooperating was cooperation at the next (i.e., last) move. And no rational player will cooperate on the last move. So, if you’re playing with a rational player, there’s no benefit to cooperating on the second-last move. But if that’s right, and everyone knows it, then there is no benefit to cooperating on the third-last move. The only benefit would be if that would induce cooperation, and it couldn’t, since we just proved that any rational player would defect on the second-last move. And so on for any finite length game that you like.</p>
+<p>Alternatively, we could look at the game from a strategic perspective. As we’ve seen in games like <strong>Burning</strong>, sometimes there are Nash equilibria that don’t appear in backwards induction reasoning. But this isn’t the case in finitely iterated Prisoners’ Dilemma. The only Nash equilibrium&nbsp;is that both players defect in every circumstance.</p>
+<p>This is a little tricky to check since the strategic form of iterated Prisoners’ Dilemma gets very complex very quickly. Let’s just consider the three round version of the game. Already each player has 128 strategies to choose from. The choice of a strategy involves making 7 distinct choices:</p>
+<ol type="1">
+<li>What to do in the first round.</li>
+<li>What to do in the second round if the other player cooperates in the first round.</li>
+<li>What to do in the second round if the other player defects in the first round.</li>
+<li>What to do in the third round if the other player cooperates in each of the first two rounds.</li>
+<li>What to do in the third round if the other player cooperates in the first round then defects in the second round.</li>
+<li>What to do in the third round if the other player defects in the first round then cooperates in the second round.</li>
+<li>What to do in the third round is the other player defects in each fo the first two rounds.</li>
+</ol>
+<p>Since these 7 choices are distinct, and the player has 2 choices at each point, there are <span class="math inline">\(2^7 = 128\)</span> possible strategies. So the strategic form of the table involves <span class="math inline">\(128 \times 128 = 16384\)</span> cells. Needless to say, we <em>won’t</em> be putting that table here. (Though it isn’t too hard to get a computer to draw the table for you. The four round game, where each player has <span class="math inline">\(2^{15}\)</span> choices, and there are over one billion cells in the decision table, requires more computing power!)</p>
+<p>We’ll write a strategy as <span class="math inline">\(\langle x_1x_2x_3x_4x_5x_6x_7 \rangle\)</span>, where <span class="math inline">\(x_i\)</span> is 0 if the player’s answer to the <span class="math inline">\(i\)</span>’th question above is to cooperate, and 1 if it is to defect. So <span class="math inline">\(\langle 0000000 \rangle\)</span> is the strategy of always cooperating, <span class="math inline">\(\langle 1111111 \rangle\)</span> is the strategy of always defecting, <span class="math inline">\(\langle 0010101 \rangle\)</span> is ‘tit-for-tat’, the strategy of cooperating on the first move, then copying the other player’s previous move, and so on.</p>
+<p>Let <span class="math inline">\(\langle x_1x_2x_3x_4x_5x_6x_7 \rangle\)</span> be any strategy that doesn’t always involve defection on the final round, i.e., a strategy where <span class="math inline">\(x_4 + x_5 + x_6 + x_7 &lt; 4\)</span>. It is easy enough to verify that such a strategy is weakly dominated by <span class="math inline">\(\langle x_1x_2x_31111 \rangle\)</span>. In some plays of the game, the defection on the final round leads to getting a better outcome. In other plays of the game, <span class="math inline">\(\langle x_1x_2x_3x_4x_5x_6x_7 \rangle\)</span> and <span class="math inline">\(\langle x_1x_2x_31111 \rangle\)</span> have the same play. For instance, <span class="math inline">\(\langle 0001000 \rangle\)</span> will do just as well as <span class="math inline">\(\langle 0001111 \rangle\)</span> if the opponent plays any strategy of the form <span class="math inline">\(\langle 000x_4x_5x_6x_7 \rangle\)</span>, but it can never do better than <span class="math inline">\(\langle 0001111 \rangle\)</span>. So if each player is perfectly rational, we can assume their strategy ends with <span class="math inline">\(1111\)</span>.</p>
+<p>That cuts each player’s choices down to 8. Let’s do that table. We’ll use <span class="math inline">\(C\)</span> and <span class="math inline">\(c\)</span> rather than 0, and <span class="math inline">\(D\)</span> and <span class="math inline">\(d\)</span> rather than 1, so it is easier to distinguish the two players’ strategies. When we label the table, we’ll leave off the trailing <span class="math inline">\(D\)</span>s and <span class="math inline">\(d\)</span>’s, since we assume players are defecting on the last round. We’ll also leave off the 3 units the players each get in the last round. (In other words, this will look a lot like the table for a <em>two</em> round iterated Prisoners’ Dilemma, but it is crucial that it is actually a three-round game.)</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="8" style="text-align: center;"><strong>Player II</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(ccc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(ccd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(cdc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(cdd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(dcc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(dcd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(ddc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(ddd\)</span></td>
+</tr>
+<tr class="odd">
+<td rowspan="8" style="text-align: left;"><strong>Player I</strong></td>
+<td style="text-align: right;"><span class="math inline">\(CCC\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">0, 10</td>
+<td style="text-align: center;">0, 10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(CCD\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(CDC\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">0, 10</td>
+<td style="text-align: center;">0, 10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(CDD\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(DCC\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(DCD\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(DDC\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">10, 0</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(DDD\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">10, 0</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+</tr>
+</tbody>
+</table>
+<p>In this game <span class="math inline">\(CCC\)</span> is <em>strongly</em> dominated by <span class="math inline">\(CDD\)</span>, and <span class="math inline">\(DCC\)</span> is strongly dominated by <span class="math inline">\(DDD\)</span>. Similarly <span class="math inline">\(ccc\)</span> and <span class="math inline">\(dcc\)</span> are strongly dominated. So let’s delete them.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td colspan="6" style="text-align: center;"><strong>Player II</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(ccd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(cdc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(cdd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(dcd\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(ddc\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(ddd\)</span></td>
+</tr>
+<tr class="odd">
+<td rowspan="6" style="text-align: left;"><strong>Player I</strong></td>
+<td style="text-align: right;"><span class="math inline">\(CCD\)</span></td>
+<td style="text-align: center;">6, 6</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(CDC\)</span></td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">3, 8</td>
+<td style="text-align: center;">0, 10</td>
+<td style="text-align: center;">0, 10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(CDD\)</span></td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(DCD\)</span></td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">8, 3</td>
+<td style="text-align: center;">5, 5</td>
+<td style="text-align: center;">2, 2</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(DDC\)</span></td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">10, 0</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">1, 6</td>
+<td style="text-align: center;">4, 4</td>
+<td style="text-align: center;">1, 6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(DDD\)</span></td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">10, 0</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+<td style="text-align: center;">6, 1</td>
+<td style="text-align: center;">2, 2</td>
+</tr>
+</tbody>
+</table>
+<p>Note that each of these is a best response. In particular,</p>
+<ul>
+<li><span class="math inline">\(CCD\)</span> is a best response to <span class="math inline">\(dcd\)</span>.</li>
+<li><span class="math inline">\(CDC\)</span> is a best response to <span class="math inline">\(ccd\)</span>.</li>
+<li><span class="math inline">\(CDD\)</span> is a best response to <span class="math inline">\(ccd\)</span> and <span class="math inline">\(dcd\)</span>.</li>
+<li><span class="math inline">\(DCD\)</span> is a best response to <span class="math inline">\(ddc\)</span>.</li>
+<li><span class="math inline">\(DDC\)</span> is a best response to <span class="math inline">\(cdc\)</span> and <span class="math inline">\(cdd\)</span>.</li>
+<li><span class="math inline">\(DDD\)</span> is a best response to <span class="math inline">\(cdc\)</span>, <span class="math inline">\(cdd\)</span>, <span class="math inline">\(ddc\)</span> and <span class="math inline">\(ddd\)</span>.</li>
+</ul>
+<p>Now the only Nash equilibrium&nbsp;of that table is the bottom-right corner. But there are plenty of strategies that, in a strategic version of the game, would be consistent with common belief in perfect rationality. The players could, for instance, play <span class="math inline">\(CDC\)</span> and <span class="math inline">\(cdc\)</span>, thinking that the other players are playing <span class="math inline">\(ccd\)</span> and <span class="math inline">\(CCD\)</span> respectively. Those beliefs would be false, but they wouldn’t be signs that the other players are irrational, or that they are thinking the other players are irrational.</p>
+<p>But you might suspect that the strategic form of the game and the extensive form are crucially different. The very fact that there are Nash equilibria that are not subgame perfect equilibria suggests that there are tighter constraints on what can be played in an extensive game consistent with rationality and belief in rationality. Stalnaker argues, however, that this isn’t right. In particular, any strategy that is (given the right beliefs) perfectly rational in the strategic form of the game is also (given the right beliefs and belief updating dispositions) perfectly rational in the extensive form. We’ll illustrate this by working more slowly through the argument that the game play <span class="math inline">\(\langle CDC, cdc \rangle\)</span> is consistent with common belief in perfect rationality.</p>
+<p>The first thing you might worry about is that it isn’t clear that <span class="math inline">\(CDC\)</span> is perfectly rational, since it is looks to be weakly dominated by <span class="math inline">\(CDD\)</span>, and perfect rationality is inconsistent with playing weakly dominated strategies. But in fact <span class="math inline">\(CDC\)</span> isn’t weakly dominated by <span class="math inline">\(CDD\)</span>. It’s true that on the six columns represented here, <span class="math inline">\(CDC\)</span> never does better than <span class="math inline">\(CDD\)</span>. But remember that each of these strategies is short for a <em>three</em>-round strategy; they are really short for <span class="math inline">\(CDCDDDD\)</span> and <span class="math inline">\(CDDDDDD\)</span>. And <span class="math inline">\(CDCDDDD\)</span> is not weakly dominated by <span class="math inline">\(CDDDDDD\)</span>; it does better, for example, against <span class="math inline">\(dcccddd\)</span>. That is the strategy is defecting the first round, cooperating the second, then defecting on the third round unless the other player has cooperated on each of the first two rounds. Since <span class="math inline">\(CDC\)</span> does cooperate each of the first two rounds, it gets the advantage of defecting against a cooperator on the final round, and ends up with 8 points, whereas <span class="math inline">\(CDD\)</span> merely ends up with 6.</p>
+<p>But why would we think Player II might play <span class="math inline">\(dcccddd\)</span>? After all, it is itself a weakly dominated strategy, and perfectly rational beings (like Player II) don’t play weakly dominated strategies. But we’re not actually thinking Player II <em>will</em> play that. Remember, Player I’s assumption is that Player II will play <span class="math inline">\(ccddddd\)</span>, which is not a weakly dominated strategy. (Indeed, it is tit-for-tat-minus-one, which is a well-known strategy.) What Player I also thinks is that if she’s wrong about what Player II will play, then it is possible that Player II is not actually perfectly rational. That’s consistent with believing Player II is actually perfectly rational. The assumption of common belief in perfect rationality is not sufficient for the assumption that one should believe that the other player is perfectly rational <em>no matter what surprises happen</em>. Indeed, that assumption is barely coherent; some assumptions are inconsistent with perfect rationality.</p>
+<p>One might be tempted by a weaker assumption. Perhaps a player should hold on to the belief that the other player is perfectly rational unless they get evidence that is <em>inconsistent</em> with that belief. But it isn’t clear what could motivate that. In general, when we are surprised, we have to give up something that isn’t required by the surprise. If we antecedently believe <span class="math inline">\(p \wedge q\)</span>, and learn <span class="math inline">\(\neg (p \wedge q)\)</span>, then what we’ve learned is inconsistent with neither <span class="math inline">\(p\)</span> nor <span class="math inline">\(q\)</span>, but we must give up one of those beliefs. Similarly here, it seems we must be prepared to give up a belief in the perfect rationality of the other player in some circumstances when that is not entailed by our surprise. (Note that even if you don’t buy the argument of this paragraph, there still isn’t a reason to think that perfectly rational players can’t play <span class="math inline">\(CDD\)</span>. But analysing that possibility is beyond the scope of these notes.)</p>
+<p>What happens in the extensive form version of the game? Well, each player cooperates, thinking this will induce cooperation in the other, then each player is surprised by a defection at round two, then at the last round they both defect because it is a one-shot Prisoners’ Dilemma. Nothing seems irrational there. We might wonder why neither defected at round one. Well, if they believed that the other player was playing tit-for-tat-minus-one, then it is better to cooperate at round one (and collect 8 points over the first two rounds) than to defect (and collect at most 6). And playing tit-for-tat-minus-one is rational if the other person is going to defect on the first and third rounds, and play tit-for-tat on round two. So as long as Player I thinks that Player II thinks that Player I thinks that she is going to defect on the first and third rounds, and play tit-for-tat on round two, then her cooperation at round one is rational, and consistent with believing that the other player is rational.</p>
+<p>But note that we had to attribute an odd belief to Player II. We had to assume that Player II is <em>wrong</em> about what Player I will play. It turns out, at least for Prisoners’ Dilemma, that this is crucial. If both players are certain that both players are perfectly rational, and have no false beliefs, then the only strategy that can be rationalised is permanent defection. The proof (which I’m leaving out) is in <span class="citation" data-cites="stalnaker1996">Stalnaker (<a href="references.html#ref-stalnaker1996" role="doc-biblioref">1996</a>)</span>.</p>
+<p>This <em>isn’t</em> because the no false beliefs principle suffices for backwards induction reasoning in general. In <strong>Cooperative Caterpillar</strong>, we can have a model of the game where both players are perfectly rational, and have correct beliefs about what the other player will do, and both those things are common belief, and yet the backwards induction solution is not played. In that game <span class="math inline">\(A\)</span> believes, truly, that <span class="math inline">\(B\)</span> will play <span class="math inline">\(d\)</span>, and <span class="math inline">\(B\)</span> believes, truly, that <span class="math inline">\(A\)</span> will play <span class="math inline">\(A_1D_2\)</span>. And each of these moves is optimal given (true!) beliefs about the other player’s strategy.</p>
+<p>But Prisoners’ Dilemma is special. It isn’t that in a game played between players who know each other to have no false beliefs and be perfectly rational that we must end up at the bottom-right corner of the strategic table. But we must end up in a game where every player defects every time. It could be that Player I thinks Player II is playing either <span class="math inline">\(dcd\)</span> or <span class="math inline">\(ddd\)</span>, with <span class="math inline">\(ddd\)</span> being much more, and on that basis she decides to play <span class="math inline">\(dcd\)</span>. And Player II could have the converse beliefs. So we’ll end up with the play being <span class="math inline">\(\langle DCD, dcd \rangle\)</span>. But of course that means each player will defect on the first two rounds, and then again on the last round since they are perfectly rational. In such a case the requirement that each player have no false beliefs won’t even be enough to get us to Nash equilibrium  since <span class="math inline">\(\langle DCD, dcd \rangle\)</span> is not a Nash equilibrium. But it is enough to get permanent defection.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-stalnaker1996" class="csl-entry" role="listitem">
+Stalnaker, Robert. 1996. <span>“Knowledge, Belief and Counterfactual Reasoning in Games.”</span> <em>Economics and Philosophy</em> 12 (2): 133–63. <a href="https://doi.org/10.1017/S0266267100004132">https://doi.org/10.1017/S0266267100004132</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site\/notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-other-equilibria.html" class="pagination-link" aria-label="Other Equilibrium Concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06-bayesian-games.html" class="pagination-link" aria-label="Bayesian Games">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

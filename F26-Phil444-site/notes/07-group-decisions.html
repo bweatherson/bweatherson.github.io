@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Group Decisions – Game Theory and Social Choice</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./06-bayesian-games.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3f0f04337e27912b3c80d34ada9a29ec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+  window.MathJax = {
+    tex: { macros: { nicefrac: ["{}^{#1}\\!/\\!_{#2}", 2] } }
+  };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-group-decisions.html">Voting Theory</a></li><li class="breadcrumb-item"><a href="./07-group-decisions.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Game Theory and Social Choice</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Game-Theory-and-Social-Choice.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Game Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-decision-theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-nash-equilibrium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-other-equilibria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-games-and-time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-bayesian-games.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Voting Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-group-decisions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#making-a-decision" id="toc-making-a-decision" class="nav-link active" data-scroll-target="#making-a-decision"><span class="header-section-number">7.1</span> Making a Decision</a></li>
+  <li><a href="#desiderata-for-preference-aggregation-mechanisms" id="toc-desiderata-for-preference-aggregation-mechanisms" class="nav-link" data-scroll-target="#desiderata-for-preference-aggregation-mechanisms"><span class="header-section-number">7.2</span> Desiderata for Preference Aggregation Mechanisms</a></li>
+  <li><a href="#assessing-plurality-voting" id="toc-assessing-plurality-voting" class="nav-link" data-scroll-target="#assessing-plurality-voting"><span class="header-section-number">7.3</span> Assessing Plurality Voting</a></li>
+  <li><a href="#arrows-theorem" id="toc-arrows-theorem" class="nav-link" data-scroll-target="#arrows-theorem"><span class="header-section-number">7.4</span> Arrow’s Theorem</a></li>
+  <li><a href="#cyclic-preferences" id="toc-cyclic-preferences" class="nav-link" data-scroll-target="#cyclic-preferences"><span class="header-section-number">7.5</span> Cyclic Preferences</a></li>
+  <li><a href="#proofs-of-arrows-theorem" id="toc-proofs-of-arrows-theorem" class="nav-link" data-scroll-target="#proofs-of-arrows-theorem"><span class="header-section-number">7.6</span> Proofs of Arrow’s Theorem</a></li>
+  <li><a href="#voting-systems" id="toc-voting-systems" class="nav-link" data-scroll-target="#voting-systems"><span class="header-section-number">7.7</span> Voting Systems</a></li>
+  <li><a href="#plurality-voting" id="toc-plurality-voting" class="nav-link" data-scroll-target="#plurality-voting"><span class="header-section-number">7.8</span> Plurality voting</a></li>
+  <li><a href="#runoff-voting" id="toc-runoff-voting" class="nav-link" data-scroll-target="#runoff-voting"><span class="header-section-number">7.9</span> Runoff Voting</a></li>
+  <li><a href="#instant-runoff-voting" id="toc-instant-runoff-voting" class="nav-link" data-scroll-target="#instant-runoff-voting"><span class="header-section-number">7.10</span> Instant Runoff Voting</a></li>
+  <li><a href="#borda-count" id="toc-borda-count" class="nav-link" data-scroll-target="#borda-count"><span class="header-section-number">7.11</span> Borda Count</a></li>
+  <li><a href="#approval-voting" id="toc-approval-voting" class="nav-link" data-scroll-target="#approval-voting"><span class="header-section-number">7.12</span> Approval Voting</a></li>
+  <li><a href="#range-voting" id="toc-range-voting" class="nav-link" data-scroll-target="#range-voting"><span class="header-section-number">7.13</span> Range Voting</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-group-decisions.html">Voting Theory</a></li><li class="breadcrumb-item"><a href="./07-group-decisions.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>So far, we’ve been looking at the way that an individual may make a decision. In practice, we are just as often concerned with group decisions as with individual decisions. These range from relatively trivial concerns (e.g.&nbsp;Which movie shall we see tonight?) to some of the most important decisions we collectively make (e.g.&nbsp;Who shall be the next President?). So methods for grouping individual judgments into a group decision seem important.</p>
+<p>Unfortunately, it turns out that there are several challenges facing any attempt to merge preferences into a single decision. In this chapter, we’ll look at various approaches that different groups take to form decisions, and how these different methods may lead to different results. The different methods have different strengths and, importantly, different weaknesses. We might hope that there would be a method with none of these weaknesses. Unfortunately, this turns out to be impossible.</p>
+<p>One of the most important results in modern decision theory is the Arrow Impossibility Theorem, named after the economist Kenneth Arrow, who discovered it <span class="citation" data-cites="arrow1963">(<a href="references.html#ref-arrow1963" role="doc-biblioref">Arrow 1963</a>)</span>. The Arrow Impossibility Theorem says that there is no method for making group decisions that satisfies a certain, relatively small, list of desiderata. We will set out the theorem, and explore a little what those constraints are.</p>
+<p>Then we’ll look a bit at real world voting systems, and their different strengths and weaknesses. Different democracies use quite different voting systems to determine the winner of an election. (Indeed, within the United States there is an interesting range of systems used.) And some theorists have promoted the use of yet other systems than are currently used. Choosing a voting system is not quite like choosing a method for making a group decision. We will start off making the assumption that when we’re looking at ways to aggregate individual preferences into a group decision, we’ll assume that we have clear access to the preferences of individual agents. A voting system is not meant to tally preferences into a decision, it is meant to tally votes. And voters may have reasons (some induced by the system itself) for voting in ways other than their preferences. For instance, many voters in American presidential elections vote for their preferred candidate of the two major candidates, rather than ‘waste’ their vote on a third party candidate.</p>
+<p>For now we’ll put those problems to one side, and assume that members of the group express themselves honestly when voting. Still, it turns out there are complications that arise for even relatively simple decisions.</p>
+<section id="making-a-decision" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="making-a-decision"><span class="header-section-number">7.1</span> Making a Decision</h2>
+<p>Seven friends, who we’ll imaginatively name <span class="math inline">\(F_1, F_2, ..., F_7\)</span> are trying to decide which restaurant to go to. They have four options, which we’ll also imaginatively name <span class="math inline">\(R_1, R_2, R_3, R_4\)</span>. The first thing they do is ask which restaurant each person prefers. The results are as follows.</p>
+<ul>
+<li><p><span class="math inline">\(F_1, F_2\)</span> and <span class="math inline">\(F_3\)</span> all vote for <span class="math inline">\(R_1\)</span>, so it gets 3 votes</p></li>
+<li><p><span class="math inline">\(F_4\)</span> and <span class="math inline">\(F_5\)</span> both vote for <span class="math inline">\(R_2\)</span>, so it gets 2 votes</p></li>
+<li><p><span class="math inline">\(F_6\)</span> votes for <span class="math inline">\(R_3\)</span>, so it gets 1 vote</p></li>
+<li><p><span class="math inline">\(F_7\)</span> votes for <span class="math inline">\(R_4\)</span>, so it gets 1 vote</p></li>
+</ul>
+<p>It looks like <span class="math inline">\(R_1\)</span> should be the choice then. It, after all, has the most votes. It has a ‘plurality’ of the votes - that is, it has the most votes. In most American elections, the candidate with a plurality wins. This is sometimes known as plurality voting, or (for unclear reasons) first-past-the-post or winner-take-all. The obvious advantage of such a system is that it is easy enough to implement.</p>
+<p>But it isn’t clear that it is the ideal system to use. Only 3 of the 7 friends wanted to go to <span class="math inline">\(R_1\)</span>. Possibly the other friends are all strongly opposed to this particular restaurant. It seems unhappy to choose a restaurant that a majority is strongly opposed to, especially if this is avoidable.</p>
+<p>So the second thing the friends do is hold a ‘runoff’ election. This is the method used for voting in some U.S. states (most prominently in Georgia and Louisiana) and many European countries. The idea is that if no candidate (or in this case no restaurant) gets a majority of the vote, then there is a second vote, held just between the top two vote getters. Since <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span> were the top vote getters, the choice will just be between those two. When this vote is held the results are as follows.</p>
+<ul>
+<li><p><span class="math inline">\(F_1, F_2\)</span> and <span class="math inline">\(F_3\)</span> all vote for <span class="math inline">\(R_1\)</span>, so it gets 3 votes</p></li>
+<li><p><span class="math inline">\(F_4, F_5, F_6\)</span> and <span class="math inline">\(F_7\)</span> all vote for <span class="math inline">\(R_2\)</span>, so it gets 4 votes</p></li>
+</ul>
+<p>This is sometimes called ‘runoff’ voting, for the natural reason that there is a runoff. Now we’ve at least arrived at a result that the majority may not have as their first choice, but which a majority are at least happy to vote for.</p>
+<p>But both of these voting systems seem to put a lot of weight on the various friends’ first preferences, and less weight on how they rank options that aren’t optimal for them. There are a couple of notable systems that allow for these later preferences to count. For instance, here is how the polls in American college sports work. A number of voters rank the best teams from 1 to <span class="math inline">\(n\)</span>, for some salient <span class="math inline">\(n\)</span> in the relevant sport. Each team then gets a number of points per ballot, depending on where it is ranked, with <span class="math inline">\(n\)</span> points for being ranked first, <span class="math inline">\(n-1\)</span> points for being ranked second, <span class="math inline">\(n-2\)</span> points for being ranked third, and so on down to 1 point for being ranked <span class="math inline">\(n\)</span>’th. The teams’ overall ranking is then determined by who has the most points.</p>
+<p>In the college sport polls, the voters don’t rank every team, only the top <span class="math inline">\(n\)</span>, but we can imagine doing just that. So let’s have each of our friends rank the restaurants in order, and we’ll give 4 points to each restaurant that is ranked first, 3 to each second place, etc. The points that each friend awards are given by the following table.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(F_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_7\)</span></th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(R_1\)</span></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_2\)</span></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R_3\)</span></td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_4\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">15</td>
+</tr>
+</tbody>
+</table>
+<p>Now we have yet a different choice. By this method, <span class="math inline">\(R_3\)</span> comes out as the best option. This voting method is sometimes called the Borda count, after <span class="citation" data-cites="borda1781">Borda (<a href="references.html#ref-borda1781" role="doc-biblioref">1781</a>)</span>. The nice advantage of it is that it lets all preferences, not just first preferences, count. Note that previously we didn’t look at all at the preferences of the first three friends, beside noting that <span class="math inline">\(R_1\)</span> is their first choice. Note also that <span class="math inline">\(R_3\)</span> is no one’s least favourite option, and is many people’s second best choice. These seem to make it a decent choice for the group, and it is these facts that the Borda count is picking up on.</p>
+<p>But there is something odd about the Borda count. Sometimes when we prefer one restaurant to another, we prefer it by just a little. Other times, the first is exactly what we want, and the second is, by our lights, terrible. The Borda count tries to approximately measure this - if <span class="math inline">\(X\)</span> strongly prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then often there will be many choices between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, so <span class="math inline">\(A\)</span> will get many more points on <span class="math inline">\(X\)</span>’s ballot. But this is not necessary. It is possible to have a strong preference for <span class="math inline">\(A\)</span> over <span class="math inline">\(B\)</span> without there being any live option that is ‘between’ them. In any case, why try to come up with some proxy for strength of preference when we can measure it directly?</p>
+<p>That’s what happens if we use ‘range voting’. Under this method, we get each voter to give each option a score, say a number between 0 and 10, and then add up all the scores. This is, approximately, what’s used in various sporting competitions that involve judges, such as gymnastics or diving. In those sports there is often some provision for eliminating the extreme scores, but we won’t be borrowing that feature of the system. Instead, we’ll just get each friend to give each restaurant a score out of 10, and add up the scores. Here is how the numbers fall out.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(F_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_3\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_6\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_7\)</span></th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(R_1\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">45</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_2\)</span></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">53</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R_3\)</span></td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">55</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_4\)</span></td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">57</td>
+</tr>
+</tbody>
+</table>
+<p>Now <span class="math inline">\(R_4\)</span> is the choice! But note that the friends’ individual preferences have not changed throughout. The way each friend would have voted in the previous ‘elections’ is entirely determined by their scores as given in this table. But using four different methods for aggregating preferences, we ended up with four different decisions for where to go for dinner.</p>
+<p>I’ve been assuming so far that the friends are accurately expressing their opinions. If the votes came in just like this though, some of them might wonder whether this is really the case. After all, <span class="math inline">\(F_7\)</span> seems to have had an outsized effect on the overall result here. We’ll come back to this when looking at options for voting systems.</p>
+</section>
+<section id="desiderata-for-preference-aggregation-mechanisms" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="desiderata-for-preference-aggregation-mechanisms"><span class="header-section-number">7.2</span> Desiderata for Preference Aggregation Mechanisms</h2>
+<p>None of the four methods we used so far are obviously crazy. But they lead to four different results. Which of these, if any, is the correct result? Put another way, what is the ideal method for aggregating preferences? One natural way to answer this question is to think about some desirable features of aggregation methods. We’ll then look at which systems have the most such features, or ideally have all of them.</p>
+<p>One feature we’d like is that each option has a chance of being chosen. It would be a very bad preference aggregation method that didn’t give any possibility to, say, <span class="math inline">\(R_3\)</span> being chosen.</p>
+<p>More strongly, it would be bad if the aggregation method chose an option <span class="math inline">\(X\)</span> when there was another option <span class="math inline">\(Y\)</span> that everyone preferred to <span class="math inline">\(X\)</span>. Using some terminology from the game theory notes, we can express this constraint by saying our method should never choose a Pareto inferior option. Call this the <strong>Pareto condition</strong>.</p>
+<p>We might try for an even stronger constraint. Some of the time, not always but some of the time, there will be an option <span class="math inline">\(C\)</span> such than a majority of voters prefers <span class="math inline">\(C\)</span> to <span class="math inline">\(X\)</span>, for every alternative <span class="math inline">\(X\)</span>. That is, in a two-way match-up between <span class="math inline">\(C\)</span> and any other option <span class="math inline">\(X\)</span>, <span class="math inline">\(C\)</span> will get more votes. Such an option is sometimes called a Condorcet option, after Marie Jean Antoine Nicolas Caritat, the Marquis de Condorcet, who discussed such options <span class="citation" data-cites="condorcet1785">(<a href="references.html#ref-condorcet1785" role="doc-biblioref">Condorcet 1785</a>)</span>. The <strong>Condorcet condition</strong> on aggregation methods is that a Condorcet option always comes first, if such an option exists.</p>
+<p>Moving away from these comparative norms, we might also want our preference aggregation system to be fair to everyone. A method that said <span class="math inline">\(F_2\)</span> is the dictator, and <span class="math inline">\(F_2\)</span>’s preferences are the group’s preferences, would deliver a clear answer, but does not seem to be particularly fair to the group. There should be <strong>no dictators</strong>; for any person, it is possible that the group’s decision does not match up with their preference.</p>
+<p>More generally than that, we might restrict attention to preference aggregation systems that don’t pay attention to <em>who</em> has various preferences, just to <em>what</em> preferences people have. Here’s one way of stating this formally. Assume that two members of the group, <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span>, swap preferences, so <span class="math inline">\(v_1\)</span>’s new preference ordering is <span class="math inline">\(v_2\)</span>’s old preference ordering and vice versa. This shouldn’t change what the group’s decision is, since from a group level, nothing has changed. Call this the <strong>symmetry</strong> condition.</p>
+<p>Finally, we might want to impose a condition that we said is a condition we imposed on independent agents: the <strong>irrelevance of independent alternatives</strong>. If the group would choose <span class="math inline">\(A\)</span> when the options are <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then they wouldn’t choose <span class="math inline">\(B\)</span> out of any larger set of options that also include <span class="math inline">\(A\)</span>. More generally, adding options can change the group’s choice, but only to one of the new options.</p>
+</section>
+<section id="assessing-plurality-voting" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="assessing-plurality-voting"><span class="header-section-number">7.3</span> Assessing Plurality Voting</h2>
+<p>It is perhaps a little disturbing to think how few of those conditions are met by plurality voting, which is how Presidents of the USA are elected. (More precisely, it is how the electoral votes in most states are distributed. The President is chosen by a more complicated mechanism.) Plurality voting clearly satisfies the <strong>Pareto condition</strong>. If everyone prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then <span class="math inline">\(B\)</span> will get no votes, and so won’t win. So far so good. And since any one person might be the only person who votes for their preferred candidate, and since other candidates might get more than one vote, no one person can dictate who wins. So it satisfies <strong>no dictators</strong>. Finally, since the system only looks at votes, and not at who cast them, it satisfies <strong>symmetry</strong>.</p>
+<p>But it does not satisfy the <strong>Condorcet condition</strong>. Consider an election with three candidates. <span class="math inline">\(A\)</span> gets 40% of the vote, <span class="math inline">\(B\)</span> gets 35% of the vote, and <span class="math inline">\(C\)</span> gets 25% of the vote. <span class="math inline">\(A\)</span> wins, and <span class="math inline">\(C\)</span> doesn’t even finish second. But assume also that everyone who didn’t vote for <span class="math inline">\(C\)</span> has her as their second preference after either <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>. Something like this may happen if, for instance, <span class="math inline">\(C\)</span> is an independent moderate, and <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are doctrinaire candidates from the major parties. Then 60% prefer <span class="math inline">\(C\)</span> to <span class="math inline">\(A\)</span>, and 65% prefer <span class="math inline">\(C\)</span> to <span class="math inline">\(B\)</span>. So <span class="math inline">\(C\)</span> is a Condorcet candidate, yet is not elected.</p>
+<p>A similar example shows that the system does not satisfy the <strong>irrelevance of independent alternatives</strong> condition. If <span class="math inline">\(B\)</span> was not running, then presumably <span class="math inline">\(A\)</span> would still have 40% of the vote, while <span class="math inline">\(C\)</span> would have 60% of the vote, and would win. One thing you might want to think about is how many elections in recent times would have had the outcome changed by eliminating (or adding) unsuccessful candidates in this way.</p>
+</section>
+<section id="arrows-theorem" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="arrows-theorem"><span class="header-section-number">7.4</span> Arrow’s Theorem</h2>
+<p>Arrow’s Theorem is an important mathematical result about voting systems. It needs a bit of setup to state carefully. The theorem says that there is no way to aggregate individual preferences into a group preference ordering that satisfies some intuitive criteria.</p>
+<p>To get started, we’ll assume that each agent has a <strong>complete</strong> and <strong>transitive</strong> preference ordering over the options. If we say <span class="math inline">\(A &gt;_V B\)</span> means that <span class="math inline">\(V\)</span> prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, that <span class="math inline">\(A =_V B\)</span> means that <span class="math inline">\(V\)</span> is indifferent between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and that <span class="math inline">\(A \geq_V B\)</span> means that <span class="math inline">\(A &gt;_V B \vee A =_V B\)</span>, then these constraints can be expressed as follows.</p>
+<dl>
+<dt>Completeness</dt>
+<dd>
+<p>For any voter <span class="math inline">\(V\)</span> and options <span class="math inline">\(A, B\)</span>, either <span class="math inline">\(A \geq_V B\)</span> or <span class="math inline">\(B \geq_V A\)</span></p>
+</dd>
+<dt>Transitivity</dt>
+<dd>
+<p>For any voter <span class="math inline">\(V\)</span> and options <span class="math inline">\(A, B\)</span>, the following three conditions hold:</p>
+<ul>
+<li><p>If <span class="math inline">\(A &gt;_V B\)</span> and <span class="math inline">\(B &gt;_V C\)</span> then <span class="math inline">\(A &gt;_V C\)</span></p></li>
+<li><p>If <span class="math inline">\(A =_V B\)</span> and <span class="math inline">\(B =_V C\)</span> then <span class="math inline">\(A =_V C\)</span></p></li>
+<li><p>If <span class="math inline">\(A \geq_V B\)</span> and <span class="math inline">\(B \geq_V C\)</span> then <span class="math inline">\(A \geq_V C\)</span></p></li>
+</ul>
+</dd>
+</dl>
+<p>More generally, we assume the <strong>substitutivity of indifferent options</strong>. That is, if <span class="math inline">\(A =_V B\)</span>, then whatever is true of the agent’s attitude towards <span class="math inline">\(A\)</span> is also true of the agent’s attitude towards <span class="math inline">\(B\)</span>. In particular, whatever comparison holds in the agent’s mind between <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> holds between <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>. (The last two bullet points under transitivity follow from this principle about indifference and the earlier bullet point.)</p>
+<p>The effect of these assumptions is that we can represent the agent’s preferences by lining up the options from best to worst, with the possibility that we’ll have to put two options in one ‘spot’ to represent the fact that the agent values each of them equally.</p>
+<p>A <strong>ranking function</strong> is a function from the preference orderings of the agent to a new preference ordering, which we’ll call the preference ordering of the group. We’ll use the subscript <span class="math inline">\(_G\)</span> to note that it is the group’s ordering we are designing. We’ll also assume that the group’s preference ordering is complete and transitive.</p>
+<p>There are any number ranking functions that don’t look at all like the <em>group’s</em> preferences in any way. For instance, if the function is meant to work out the results of an election, we could consider the function that takes any input whatsoever, and returns a ranking that simply lists the candidates by age, with the oldest first, the second oldest second, etc. This doesn’t seem like it is the group’s preferences in any way. Whatever any member of the group thinks, the oldest candidate wins. What Arrow called the <strong>citizen sovereignty</strong> condition is that for any possible ranking of the candidates, it should be possible to have the group end up with that ranking.</p>
+<p>The citizen sovereignty follows from another constraint we might put on ranking functions. If everyone in the group prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then <span class="math inline">\(A &gt;_G B\)</span>, i.e.&nbsp;the group prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. We’ll call this the <strong>Pareto</strong> constraint. It is sometimes called the <strong>unanimity</strong> constraint, but we’ll call it the Pareto condition.</p>
+<p>One way to satisfy the Pareto constraint is to pick a particular person, and make them dictator. That is, the function ‘selects’ a person <span class="math inline">\(V\)</span>, and says that <span class="math inline">\(A &gt;_G B\)</span> if and only if <span class="math inline">\(A &gt;_V B\)</span>. If everyone prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then <span class="math inline">\(V\)</span> will, so this is consistent with the Pareto constraint. But it also doesn’t seem like a way of constructing the group’s preferences. So let’s say that we’d like a non-dictatorial ranking function. More carefully, for any given person, and any preference ordering they may have, there is some</p>
+<p>The last constraint is one we discussed in the previous chapter: the <strong>independence of irrelevant alternatives</strong>. Formally, this means that whether <span class="math inline">\(A &gt;_G B\)</span> is true depends only on how the voters rank <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. So changing how the voters rank, say <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, doesn’t change what the group says about the <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> comparison.</p>
+<p>It’s sometimes thought that it would be a very good thing if the voting system respected this constraint. Let’s say that you believe that if Gary Johnston had not been a candidate in the 2000 U.S. Presidential election, then Hillary Clinton, not Donald Trump, would have won the election. (I have no idea whether this is actually true, but I can see why someone might believe it.) Then you might think it is a little odd that whether Clinton or Trump wins depends on who else is in the election, and not on the voters’ preferences between Clinton and Trump. This is a special case of the independence of irrelevant alternatives - you think that the voting system should end up with the result that it would have come up with had there been just those two candidates. If we generalise this motivation a lot, we get the conclusion that third possibilities should be irrelevant.</p>
+<p>Unfortunately, we’ve now got ourselves into an impossible situation. Arrow’s theorem says that any ranking function that satisfies the Pareto and independence of irrelevant alternatives constraints, has a dictator in any case where the number of alternatives is greater than 2. When there are only 2 choices, majority rule satisfies all the constraints. But nothing, other than dictatorship, works in the general case.</p>
+</section>
+<section id="cyclic-preferences" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="cyclic-preferences"><span class="header-section-number">7.5</span> Cyclic Preferences</h2>
+<p>We can see why three option cases are a problem by considering one very simple example. Say there are three voters, <span class="math inline">\(V_1, V_2, V_3\)</span> and three choices <span class="math inline">\(A, B, C\)</span>. The agent’s rankings are given in the table below. (The column under each voter lists the choices from their first preference, on top, to their least favourite option, on the bottom.)</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(V_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>If we just look at the <span class="math inline">\(A/B\)</span> comparison, <span class="math inline">\(A\)</span> looks pretty good. After all, 2 out of 3 voters prefer <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. But if we look at the <span class="math inline">\(B/C\)</span> comparison, <span class="math inline">\(B\)</span> looks pretty good. After all, 2 out of 3 voters prefer <span class="math inline">\(B\)</span> to <span class="math inline">\(C\)</span>. So perhaps we should say <span class="math inline">\(A\)</span> is best, <span class="math inline">\(B\)</span> second best and <span class="math inline">\(C\)</span> worst. But wait! If we just look at the <span class="math inline">\(C/A\)</span> comparison, <span class="math inline">\(C\)</span> looks pretty good. After all, 2 out of 3 voters prefer <span class="math inline">\(C\)</span> to <span class="math inline">\(A\)</span>.</p>
+<p>It might seem like one natural response here is to say that the three options should be tied. The group preference ranking should just be that <span class="math inline">\(A =_G B =_G = C\)</span>. But note what happens if we say that and accept independence of irrelevant alternatives. If we eliminate option <span class="math inline">\(C\)</span>, then we shouldn’t change the group’s ranking of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. That’s what independence of irrelevant alternatives says. So now we’ll be left with the following rankings.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(V_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>By independence of irrelevant alternatives, we should still have <span class="math inline">\(A =_G B\)</span>. But 2 out of 3 voters wanted <span class="math inline">\(A\)</span> over <span class="math inline">\(B\)</span>. The one voter who preferred <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span> is making it that the group ranks them equally. That’s a long way from making them a dictator, but it’s our first sign that our constraints give excessive power to one voter. One other thing the case shows is that we can’t have the following three conditions on our ranking function.</p>
+<ul>
+<li><p>If there are just two choices, then the majority choice is preferred by the group.</p></li>
+<li><p>If there are three choices, and they are symmetrically arranged, as in the table above, then all choices are equally preferred.</p></li>
+<li><p>The ranking function satisfies independence of irrelevant alternatives.</p></li>
+</ul>
+<p>I noted after the example that <span class="math inline">\(V_2\)</span> has quite a lot of power. Their preference makes it that the group doesn’t prefer <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>. We might try to generalize this power. Maybe we could try for a ranking function that worked strictly by consensus. The idea would be that if everyone prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then <span class="math inline">\(A &gt;_G B\)</span>, but if there is no consensus, then <span class="math inline">\(A =_G B\)</span>. Since how the group ranks <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> only depends on how individuals rank <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, this method easily satisfies independence of irrelevant alternatives. And there are no dictators, and the method satisfies the Pareto condition. So what’s the problem?</p>
+<p>Unfortunately, the consensus method described here violates transitivity, so doesn’t even produce a group preference ordering in the formal sense we’re interested in. Consider the following distribution of preferences.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(V_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Everyone prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(C\)</span>, so by unanimity, <span class="math inline">\(A &gt;_G C\)</span>. But there is no consensus over the <span class="math inline">\(A/B\)</span> comparison. Two people prefer <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, but one person prefers <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>. And there is no consensus over the <span class="math inline">\(B/C\)</span> comparison. Two people prefer <span class="math inline">\(B\)</span> to <span class="math inline">\(C\)</span>, but one person prefers <span class="math inline">\(C\)</span> to <span class="math inline">\(B\)</span>. So if we’re saying the group is indifferent between any two options over which there is no consensus, then we have to say that <span class="math inline">\(A =_G B\)</span>, and <span class="math inline">\(B =_G C\)</span>. By transitivity, it follows that <span class="math inline">\(A =_G C\)</span>, contradicting our earlier conclusion that <span class="math inline">\(A &gt;_G C\)</span>.</p>
+<p>This isn’t going to be a formal argument, but we might already be able to see a difficulty here. Just thinking about our first case, where the preferences form a cycle suggests that the only way to have a fair ranking consistent with independence of irrelevant alternatives is to say that the group only prefers options when there is a consensus in favour of that option. But the second case shows that consensus based methods do not in general produce <em>rankings</em> of the options. So we have a problem. Arrow’s Theorem shows how deep that problem goes.</p>
+</section>
+<section id="proofs-of-arrows-theorem" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="proofs-of-arrows-theorem"><span class="header-section-number">7.6</span> Proofs of Arrow’s Theorem</h2>
+<p>The proofs of Arrow’s Theorem, though not particularly long, are a little tricky to follow. So we won’t go through them in any detail at all. But I’ll sketch one proof due to John Geanakoplos of the Cowles Foundation at Yale <span class="citation" data-cites="geanakoplos2005">(<a href="references.html#ref-geanakoplos2005" role="doc-biblioref">2005</a>)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Geanakopolos assumes that we have a ranking function that satisfies Pareto and independence of irrelevant alternatives, and aims to show that in this function there must be a dictator.</p>
+<p>The first thing he proves is a rather nice lemma. Assume that every voter puts some option <span class="math inline">\(B\)</span> on either the top or the bottom of their preference ranking. Don’t assume they all agree: some people hold that <span class="math inline">\(B\)</span> is the very best option, and the rest hold that it is the worst. Geanakopolos shows that in this case the ranking function must put <span class="math inline">\(B\)</span> either at the very top or the very bottom.</p>
+<p>To see this, assume that it isn’t true. So there are some options <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> such that <span class="math inline">\(A \geq_G B\)</span> and <span class="math inline">\(B \geq_G C\)</span>. Now imagine changing each voter’s preferences so that <span class="math inline">\(C\)</span> is moved above <span class="math inline">\(A\)</span> while <span class="math inline">\(B\)</span> stays where it is - either on the top or the bottom of that particular voter’s preferences. By Pareto, we’ll now have <span class="math inline">\(C &gt;_G A\)</span>, since everyone prefers <span class="math inline">\(C\)</span> to <span class="math inline">\(A\)</span>. But we haven’t changed how any person thinks about any comparison involving <span class="math inline">\(B\)</span>. So by independence of irrelevant alternatives, <span class="math inline">\(A \geq_G B\)</span> and <span class="math inline">\(B \geq_G C\)</span> must still be true. By transitivity, it follows that <span class="math inline">\(A \geq_G C\)</span>, contradicting our conclusion that <span class="math inline">\(C &gt;_G A\)</span>.</p>
+<p>This is a rather odd conclusion I think. Imagine that we have four voters with the following preferences.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(V_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>By what we’ve proven so far, <span class="math inline">\(B\)</span> has to come out either best or worst in the group’s rankings. But which should it be? Since half the people love <span class="math inline">\(B\)</span>, and half hate it, it seems it should get a middling ranking. One lesson of this is that independence of irrelevant alternatives is a very strong condition, one that we might want to question.</p>
+<p>The next stage of Geanakopolos’s proof is to consider a situation where at the start everyone thinks <span class="math inline">\(B\)</span> is the very worst option out of some long list of options. One by one the voters change their mind, with each voter in turn coming to think that <span class="math inline">\(B\)</span> is the best option. By the result we proved above, at every stage of the process, <span class="math inline">\(B\)</span> must be either the worst option according to the group, or the best option. <span class="math inline">\(B\)</span> starts off as the worst option, and by Pareto <span class="math inline">\(B\)</span> must end up as the best option. So at one point, when one voter changes their mind, <span class="math inline">\(B\)</span> must go from being the worst option on the group’s ranking to being the best option, simply in virtue of that person changing their mind.</p>
+<p>We won’t go through the rest, but the proof continues by showing that that person has to be a dictator. Informally, the idea is to prove two things about that person, both of which are derived by repeated applications of independence of irrelevant alternatives. First, this person has to retain their power to move <span class="math inline">\(B\)</span> from worst to first whatever the other people think of <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>. Second, since they can make <span class="math inline">\(B\)</span> jump all options by changing their mind about <span class="math inline">\(B\)</span>, if they move <span class="math inline">\(B\)</span> ‘halfway’, say they come to have the view <span class="math inline">\(A &gt;_V B &gt;_V C\)</span>, then <span class="math inline">\(B\)</span> will jump (in the group’s ranking) over all options that it jumps over in this voter’s rankings. But that’s possible (it turns out) only if the group’s ranking of <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span> is dependent entirely on this voter’s rankings of <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>. So the voter is a dictator with respect to this pair. A further argument shows that the voter is a dictator with respect to every pair, which shows there must be a dictator.</p>
+</section>
+<section id="voting-systems" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="voting-systems"><span class="header-section-number">7.7</span> Voting Systems</h2>
+<p>The Arrow Impossibility Theorem shows that we can’t have everything that we want in a voting system. In particular, we can’t have a voting system that takes as inputs the preferences of each voter, and outputs a preference ordering of the group that satisfies these three constraints.</p>
+<ol type="1">
+<li><p><strong>Unanimity</strong>: If everyone prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>, then the group prefers <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</p></li>
+<li><p><strong>Independence of Irrelevant Alternatives</strong>: If nobody changes their mind about the relative ordering of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then the group can’t change its mind about the relative ordering of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p></li>
+<li><p><strong>No Dictators</strong>: For each voter, it is possible that the group’s ranking will be different to their ranking</p></li>
+</ol>
+<p>Any voting system either won’t be a function in the sense that we’re interested in for Arrow’s Theorem, or will violate some of those constraints. (Or both.) But still there could be better or worse voting systems. Indeed, there are many voting systems in use around the world, and serious debate about which is best. In these notes we’ll look at the pros and cons of a few different voting systems.</p>
+<p>The discussion here will be restricted in two respects. First, we’re only interested in systems for making political decisions, indeed, in systems for electing representatives to political positions. We’re not interested in, for instance, the systems that a group of friends might use to choose which movie to see, or that an academic department might use to hire new faculty. Some of the constraints we’ll be looking at are characteristic of elections in particular, not of choices in general.</p>
+<p>Second, we’ll be looking only at elections to fill a single position. This is a fairly substantial constraint. Many elections are to fill multiple positions. The way a lot of electoral systems work is that many candidates are elected at once, with the number of representatives each party gets being (roughly) in proportion to the number of people who vote for that party. This is how the parliament is elected in many countries around the world (including, for instance, Mexico, Germany and Spain). Perhaps more importantly, it is basically the norm for new parliaments to have such kind of multi-member constituencies. But the mathematical issues get a little complicated when we look at the mechanisms for selecting multiple candidates, and we’ll restrict ourselves to looking at mechanisms for electing a single candidate.</p>
+</section>
+<section id="plurality-voting" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="plurality-voting"><span class="header-section-number">7.8</span> Plurality voting</h2>
+<p>By far the most common method used in America, and throughout much of the rest of the world, is plurality voting. Every voter selects one of the candidates, and the candidates with the most votes wins. As we’ve already noted, this is called plurality, or first-past-the-post, voting.</p>
+<p>Plurality voting clearly does not satisfy the independence of irrelevant alternatives condition. We can see this if we imagine that the voting distribution starts off with the table on the left, and ends with the table on the right. (The three candidates are <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, with the numbers at the top of each column representing the percentage of voters who have the preference ordering listed below it.)</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">35%</th>
+<th style="text-align: center;">25%</th>
+<th></th>
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">35%</th>
+<th style="text-align: center;">25%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>All that happens as we go from left-to-right is that some people who previously favoured <span class="math inline">\(C\)</span> over <span class="math inline">\(B\)</span>, come to favour <span class="math inline">\(B\)</span> over <span class="math inline">\(C\)</span>. Yet this change, which is completely independent of how anyone feels about <span class="math inline">\(A\)</span>, is sufficient for <span class="math inline">\(B\)</span> to go from losing the election 40-35 to winning the election 60-40.</p>
+<p>This is how we show that a system does not satisfy independent of irrelevant alternatives - coming up with a pair of situations where no voter’s opinion about the relative merits of two choices (in this case <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>) changes, but the group’s ranking of those two choices changes.</p>
+<p>One odd effect of this is that whether <span class="math inline">\(B\)</span> wins the election depends not just on how voters compare <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, but on how voters compare <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>. One of the consequences of Arrow’s Theorem might be taken to be that this kind of thing is unavoidable, but it is worth stopping to reflect on just how pernicious this is to the democratic system.</p>
+<p>Imagine that we are in the left-hand situation, and you are one of the 25% of voters who like <span class="math inline">\(C\)</span> best, then <span class="math inline">\(B\)</span> then <span class="math inline">\(A\)</span>. It seems that there is a reason for you to not vote the way your preferences go; you’ll have a better chance of electing a candidate you prefer if you vote, against your preferences, for <span class="math inline">\(B\)</span>. So the voting system might encourage voters to not express their preferences adequately. This can have a snowball effect - if in one election a number of people who prefer <span class="math inline">\(C\)</span> vote for <span class="math inline">\(B\)</span>, at future elections other people who might have voted for <span class="math inline">\(C\)</span> will also vote for <span class="math inline">\(B\)</span> because they don’t think enough other people share their preferences for <span class="math inline">\(C\)</span> to make such a vote worthwhile.</p>
+<p>Indeed, if the candidate <span class="math inline">\(C\)</span> themselves strongly prefers <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>, but thinks a lot of people will vote for them if they run, then <span class="math inline">\(C\)</span> might even be discouraged from running because it will lead to a worse election result. This doesn’t seem like a democratically ideal situation.</p>
+<p>Some of these consequences are inevitable consequences of a system that doesn’t satisfy independence of irrelevant alternatives. And the Arrow Theorem shows that it is hard to avoid independence of irrelevant alternatives. But some of them seem like serious democratic shortcomings, the effects of which can be seen in American democracy, and especially in the extreme power the two major parties have. (Though, to be fair, a number of other electoral systems that use plurality voting do not have such strong major parties. Indeed, Canada seems to have very strong third parties despite using this system, as does the United Kingdom.)</p>
+<p>One clear advantage of plurality voting should be stressed: it is quick and easy. There is little chance that voters will not understand what they have to do in order to express their preferences. And voting is, or at least should be, relatively quick. The voter just has to make one mark on a piece of paper, or press a single button, to vote. When the voter is expected to vote for dozens of offices, as is usual in America (though not elsewhere) this is a serious benefit. In many U.S. elections, we have seen queues hours long of people waiting to vote. Were voting any slower than it actually is, these queues might have been worse.</p>
+<p>Relatedly, it is easy to count the votes in a plurality system. You just sort all the votes into different bundles and count the size of each bundle. Some of the other systems we’ll be looking at are much harder to count the votes in. This can lead to serious delays in even being able to announce the results of an election.</p>
+</section>
+<section id="runoff-voting" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="runoff-voting"><span class="header-section-number">7.9</span> Runoff Voting</h2>
+<p>One solution to some of the problems with plurality voting is runoff voting, which is used in parts of America (including Georgia and Louisiana and, in practice, California) and is very common throughout Europe and South America. The most notable upcoming election using this system is the Presidential election in France.</p>
+<p>The idea is that there are, in general, two elections. At the first election, if one candidate has majority support, then they win. But otherwise the top two candidates go into a runoff. In the runoff, voters get to vote for one of those two candidates, and the candidate with the most votes wins.</p>
+<p>This doesn’t entirely deal with the problem of a spoiler candidate having an outsized effect on the election, but it makes such cases a little harder to produce. For instance, imagine that there are four candidates, and the arrangement of votes is as follows.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(D\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In a plurality election, <span class="math inline">\(A\)</span> will win with only 35% of the vote.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> In a runoff election, the runoff will be between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and presumably <span class="math inline">\(B\)</span> will win, since 65% of the voters prefer <span class="math inline">\(B\)</span> to <span class="math inline">\(A\)</span>. But look what happens if <span class="math inline">\(D\)</span> drops out of the election, or all of <span class="math inline">\(D\)</span>’s supporters decide to vote more strategically.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">35%</td>
+<td style="text-align: center;">30%</td>
+<td style="text-align: center;">20%</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Now the runoff is between <span class="math inline">\(C\)</span> and <span class="math inline">\(A\)</span>, and <span class="math inline">\(C\)</span> will win. <span class="math inline">\(D\)</span> being a candidate means that the candidate most like <span class="math inline">\(D\)</span>, namely <span class="math inline">\(C\)</span>, loses a race they could have won.</p>
+<p>In one respect this is much like what happens with plurality voting. On the other hand, it is somewhat harder to find real life cases that show this pattern of votes. That’s in part because it is hard to find cases where there are (a) four serious candidates, and (b) the third and fourth candidates are so close ideologically that they eat into each other’s votes and (c) the top two candidates are so close that these third and fourth candidates combined could leapfrog over each of them. Theoretically, the problem about spoiler candidates might look as severe, but it is much less of a problem in practice.</p>
+<p>The downside of runoff voting of course is that it requires people to go and vote twice. This can be a major imposition on the time and energy of the voters. More seriously from a democratic perspective, it can lead to an unrepresentative electorate. In American runoff elections, the runoff typically has a much lower turnout than the initial election, so the election comes down to the true party loyalists. At least, this is true in the southern states that have traditional runoff elections. In the Californian system, where the primary becomes a de facto first round of voting it is the other way around. In Europe, the first round has sometimes had a very low turnout, with fringe candidates making it to the final round on the strength of a small but loyal supporter base.</p>
+</section>
+<section id="instant-runoff-voting" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="instant-runoff-voting"><span class="header-section-number">7.10</span> Instant Runoff Voting</h2>
+<p>One approach to this problem is to do, in effect, the initial election and the runoff at the same time. In instant runoff voting, every voter lists their preference ordering over their desired candidates. In practice, that means marking ‘1’ beside their first choice candidate, ‘2’ beside their second choice and so on through the candidates.</p>
+<p>When the votes are being counted, the first thing that is done is to count how many first-place votes each candidate gets. If any candidate has a majority of votes, they win. If not, the candidate with the lowest number of votes is eliminated. The vote counter then distributes each ballot for that eliminated candidate to whichever candidate receives the ‘2’ vote on that ballot. If that leads to a candidate having a majority, that candidate wins. If not, the candidate with the lowest number of votes at this stage is eliminated, and their votes are distributed, each voter’s vote going to their most preferred candidate of the remaining candidates. This continues until a candidate gets a majority of the votes.</p>
+<p>This avoids the particular problem we discussed about runoff voting. In that case, <span class="math inline">\(D\)</span> would have been eliminated at the first round, and <span class="math inline">\(D\)</span>’s votes would all have flowed to <span class="math inline">\(C\)</span>. That would have moved <span class="math inline">\(C\)</span> about <span class="math inline">\(B\)</span>, eliminating <span class="math inline">\(B\)</span>. Then with <span class="math inline">\(B\)</span>’s preferences, <span class="math inline">\(C\)</span> would have won the election comfortably. But it doesn’t remove all problems. In particular, it leads to an odd kind of strategic voting possibility. The following situation does arise, though rarely. Imagine the voters are split the following way.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">45%</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">27%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>As things stand, <span class="math inline">\(C\)</span> will be eliminated. And when <span class="math inline">\(C\)</span> is eliminated, all of <span class="math inline">\(C\)</span>’s votes will be transferred to <span class="math inline">\(B\)</span>, leading to <span class="math inline">\(B\)</span> winning. Now imagine that a few of <span class="math inline">\(A\)</span>’s voters change the way they vote, voting for <span class="math inline">\(C\)</span> instead of their preferred candidate <span class="math inline">\(A\)</span>, so now the votes look like this.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">43%</td>
+<td style="text-align: center;">28%</td>
+<td style="text-align: center;">27%</td>
+<td style="text-align: center;">2%</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Now <span class="math inline">\(C\)</span> has more votes than <span class="math inline">\(B\)</span>, so <span class="math inline">\(B\)</span> will be eliminated. But <span class="math inline">\(B\)</span>’s voters have <span class="math inline">\(A\)</span> as their second choice, so now <span class="math inline">\(A\)</span> will get all the new votes, and <span class="math inline">\(A\)</span> will easily win. Some theorists think that this possibility for strategic voting is a sign that instant runoff voting is flawed.</p>
+<p>Perhaps a more serious worry is that the voting and counting system is more complicated. This slows down voting itself, though this is a problem can be partially dealt with by having more resources dedicated to making it possible to vote. The vote count is also somewhat slower. A worse consequence is that because the voter has more to do, there is more chance for the voter to make a mistake. In some jurisdictions, if the voter does not put a number down for each candidate, their vote is invalid, even if it is clear which candidate they wish to vote for. It also requires the voter to have opinions about all the candidates running, and this may include a number of frivolous candidates. But it isn’t clear that this is a major problem if it does seem worthwhile to avoid the problems with plurality and runoff voting.</p>
+<p>The other systems we’ll look at are not in wide use around the world.</p>
+</section>
+<section id="borda-count" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="borda-count"><span class="header-section-number">7.11</span> Borda Count</h2>
+<p>In a Borda Count election, each voter ranks each of the candidates, as in Instant Runoff Voting. Each candidate then receives <span class="math inline">\(n\)</span> points for each first place vote they receive (where <span class="math inline">\(n\)</span> is the number of candidates), <span class="math inline">\(n-1\)</span> points for each second place vote, and so on through the last place candidate getting 1 point. The candidate with the most points wins.</p>
+<p>One nice advantage of the Borda Count is that it eliminates the chance for the kind of strategic voting that exists in Instant Runoff Voting, or for that matter any kind of Runoff Voting. It can never make it more likely that <span class="math inline">\(A\)</span> will win by someone changing their vote away from <span class="math inline">\(A\)</span>. Indeed, this could only lead to <span class="math inline">\(A\)</span> having fewer votes. This certainly seems to be reasonable.</p>
+<p>Another advantage is that many preferences beyond first place votes count. A candidate who is every single voter’s second best choice will not do very well under any voting system that gives a special weight to first preferences. But such a candidate may well be in a certain sense the best representative of the whole community.</p>
+<p>And a third advantage is that the Borda Count includes a rough approximation of voter’s strength of preference. If one voter ranks <span class="math inline">\(A\)</span> a little above <span class="math inline">\(B\)</span>, and another votes <span class="math inline">\(B\)</span> many places above <span class="math inline">\(A\)</span>, that’s arguably a sign that <span class="math inline">\(B\)</span> is a better representative of the two of them than <span class="math inline">\(A\)</span>. Although only one of the two prefers <span class="math inline">\(B\)</span>, one voter will be a little disappointed that <span class="math inline">\(B\)</span> wins, while the other would be very disappointed if <span class="math inline">\(B\)</span> lost.</p>
+<p>These are not trivial advantages. But there are also many disadvantages which explain why no major electoral system has adopted Borda Count voting yet, despite its strong support from some theorists.</p>
+<p>First, Borda Count is particularly complicated to implement. It is just as difficult for the voter to as in Instant Runoff Voting; in each case they have to express a complete preference ordering. But it is much harder to count, because the vote counter has to detect quite a bit of information from each ballot. Getting this information from millions of ballots is not a trivial exercise.</p>
+<p>Second, Borda Count has a serious problem with ‘clone candidates’. In plurality voting, a candidate suffers if there is another candidate much like them on the ballot. In Borda Count, a candidate can seriously gain if such a candidate is added. Consider the following situation. In a certain electorate, of say 100,000 voters, 60% of the voters are Republicans, and 40% are Democrats. But there is only one Republican, call them <span class="math inline">\(R\)</span>, on the ballot, and there are 2 Democrats, <span class="math inline">\(D1\)</span> and <span class="math inline">\(D2\)</span> on the ballot. Moreover, <span class="math inline">\(D2\)</span> is clearly a worse candidate than <span class="math inline">\(D1\)</span>, but the Democrats still prefer the Democrat to the Republican. Since the district is overwhelmingly Republican, intuitively the Republican should win. But let’s work through what happens if 60,000 Republicans vote for <span class="math inline">\(R\)</span>, then <span class="math inline">\(D1\)</span>, then <span class="math inline">\(D2\)</span>, and the 40,000 Democrats vote <span class="math inline">\(D1\)</span> then <span class="math inline">\(D2\)</span> then <span class="math inline">\(R\)</span>. In that case, <span class="math inline">\(R\)</span> will get <span class="math inline">\(60,000 \times 3 + 40,000 \times 1 = 220,000\)</span> points, <span class="math inline">\(D1\)</span> will get <span class="math inline">\(60,000 \times 2 + 40,000 \times 3 = 240,000\)</span> points, and <span class="math inline">\(D2\)</span> will get <span class="math inline">\(60,000 \times 1 + 40,000 \times 2 = 140,000\)</span> points, and <span class="math inline">\(D1\)</span> will win. Having a ‘clone’ on the ticket was enough to push <span class="math inline">\(D1\)</span> over the top.</p>
+<p>On the one hand, this may look a lot like the mirror image of the ‘spoiler’ problem for plurality voting. But in another respect it is much worse. It is hard to get someone who is a lot ideologically like your opponent to run in order to improve your electoral chances. It is much easier to convince someone who already wants you to win to add their name to the ballot in order to improve your chances. In practice, this would either lead to an arms race between the two parties, each trying to get the most names onto the ballot, or very restrictive (and hence undemocratic) rules about who was even allowed to be on the ballot, or, most likely, both.</p>
+<p>The third problem comes from thinking through the previous problem from the point of view of a Republican voter. If the Republican voters realise what is up, they might vote tactically for <span class="math inline">\(D2\)</span> over <span class="math inline">\(D1\)</span>, putting <span class="math inline">\(R\)</span> back on top. In a case where the electorate is as partisan as in this case, this might just work. But this means that Borda Count is just as susceptible to tactical voting as other systems; it is just that the tactical voting often occurs downticket. (There are more complicated problems, that we won’t work through, about what happens if the voters mistakenly judge what is likely to happen in the election, and tactical voting backfires.)</p>
+<p>Finally, it’s worth thinking about whether the supposed major virtue of Borda Count, the fact that it considers all preferences and not just first choices, is a real gain. The core idea behind Borda Count is that all preferences should count equally. So the difference between first place and second place in a voter’s affections counts just as much as the difference between third and fourth. But for many elections, this isn’t how the voters themselves feel. I suspect many people reading this have strong feelings about who was the best candidate in the past Presidential election. I suspect very few people had strong feelings about who was the third best versus fourth best candidate. This is hardly a coincidence; people identify with a party that is their first choice. They say, “I’m a Democrat” or “I’m a Green” or “I’m a Republican”. They don’t identify with their third versus fourth preference. Perhaps voting systems that give primary weight to first place preferences are genuinely reflecting the desires of the voters.</p>
+</section>
+<section id="approval-voting" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="approval-voting"><span class="header-section-number">7.12</span> Approval Voting</h2>
+<p>In plurality voting, every voter gets to vote for one candidate, and the candidate with the most votes wins. Approval voting is similar, except that each voter is allowed to vote for as many candidates as they like. The votes are then added up, and the candidate with the most votes wins. Of course, the voter has an interest in not voting for too many candidates. If they vote for all of the candidates, this won’t advantage any candidate; they may as well have voted for no candidates at all.</p>
+<p>The voters who are best served by approval voting, at least compared to plurality voting, are those voters who wish to vote for a non-major candidate, but who also have a preference between the two major candidates. Under approval voting, they can vote for the minor candidate that they most favor, and also vote for the the major candidate who they hope will win. Of course, runoff voting (and Instant Runoff Voting) also allow these voters to express a similar preference. Indeed, the runoff systems allow the voters to express not only two preferences, but express the order in which they hold those preferences. Under approval voting, the voter only gets to vote for more than one candidate, they don’t get to express any ranking of those candidates.</p>
+<p>But arguably approval voting is easier on the voter. The voter can use a ballot that looks just like the ballot used in plurality voting. And they don’t have to learn about preference flows, or Borda Counts, to understand what is going on in the voting. Currently there are many voters who vote for, or at least appear to try to vote for, multiple candidates. This is presumably inadvertent, but approval voting would let these votes be counted, which would refranchise a number of voters. Approval voting has never been used as a mass electoral tool, so it is hard to know how quick it would be to count, but presumably it would not be incredibly difficult.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>One striking thing about approval voting is that it is not a function from voter preferences to group preferences. Hence it is not subject to the Arrow Impossibility Theorem. It isn’t such a function because the voters have to not only rank the candidates, they have to decide where on their ranking they will ‘draw the line’ between candidates that they will vote for, and candidates that they will not vote for. Consider the following two sets of voters. In each case candidates are listed from first preference to last preference, with stars indicating which candidates the voters vote for.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">35%</th>
+<th style="text-align: center;">25%</th>
+<th></th>
+<th style="text-align: center;">40%</th>
+<th style="text-align: center;">35%</th>
+<th style="text-align: center;">25%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(*A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(*B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(*C\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(*A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(*B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(*C\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(*B\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+<td></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the election on the left-hand-side, no voter takes advantage of approval voting to vote for more than one candidate. So <span class="math inline">\(A\)</span> wins with 40% of the vote. In the election on the right-hand-side, no one’s preferences change. But the 25% who prefer <span class="math inline">\(C\)</span> also decide to vote for <span class="math inline">\(B\)</span>. So now <span class="math inline">\(B\)</span> has 60% of the voters voting for them, as compared to 40% for <span class="math inline">\(A\)</span> and 25% for <span class="math inline">\(C\)</span>, so <span class="math inline">\(B\)</span> wins.</p>
+<p>This means that the voting system is not a function from voter preferences to group preferences. If it were a function, fixing the group preferences would fix who wins. But in this case, without a single voter changing their preference ordering of the candidates, a different candidate won. Since the Arrow Impossibility Theorem only applies to functions from voter preferences to group preferences, it does not apply to Approval Voting.</p>
+</section>
+<section id="range-voting" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="range-voting"><span class="header-section-number">7.13</span> Range Voting</h2>
+<p>In Range Voting, every voter gives each candidate a score. Let’s say that score is from 0 to 10. The name ‘Range’ comes from the range of options the voter has. In the vote count, the score that each candidate receives from each voter is added up, and the candidate with the most points wins.</p>
+<p>In principle, this is a way for voters to express very detailed opinions about each of the candidates. They don’t merely rank the candidates, they measure how much better each candidate is than all the other candidates. And this information is then used to form an overall ranking of the various candidates.</p>
+<p>In practice, it isn’t so clear this would be effective. Imagine that a voter <span class="math inline">\(V\)</span> thinks that candidate <span class="math inline">\(A\)</span> would be reasonably good, and candidate <span class="math inline">\(B\)</span> would be merely OK, and that no other candidates have a serious chance of winning. If <span class="math inline">\(V\)</span> was genuinely expressing their opinions, they might think that <span class="math inline">\(A\)</span> deserves an 8 out of 10, and <span class="math inline">\(B\)</span> deserves a 5 out of 10. But <span class="math inline">\(V\)</span> wants <span class="math inline">\(A\)</span> to win, since <span class="math inline">\(V\)</span> thinks <span class="math inline">\(A\)</span> is the better candidate. And <span class="math inline">\(V\)</span> knows that what will make the biggest improvement in <span class="math inline">\(A\)</span>’s chances is if they score <span class="math inline">\(A\)</span> a 10 out of 10, and <span class="math inline">\(B\)</span> a 0 out of 10. That will give <span class="math inline">\(A\)</span> a 10 point advantage, whereas they may only get a 3 point advantage if the voter voted sincerely.</p>
+<p>It isn’t unusual for a voter to find themselves in <span class="math inline">\(V\)</span>’s position. So we might suspect that although Range Voting will give the voters quite a lot of flexibility, and give them the chance to express detailed opinions, it isn’t clear how often it would be in a voter’s interests to use these options.</p>
+<p>And Range Voting is quite complex, both from the perspective of the voter and of the vote counter. There is a lot of information to be gleaned from each ballot in Range Voting. This means the voter has to go to a lot of work to fill out the ballot, and the vote counter has to do a lot of work to process all that information. This means that Range Voting might be very slow, both in terms of voting and counting. And if voters have a tactical reason for not wanting to fill in detailed ballots, this might mean it’s a lot of effort for not a lot of reward, and that we should stick to somewhat simpler vote counting methods.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-arrow1963" class="csl-entry" role="listitem">
+Arrow, Kenneth J. 1963. <em>Social Choice and Individual Values</em>. 2nd ed. Yale University Press.
+</div>
+<div id="ref-borda1781" class="csl-entry" role="listitem">
+Borda, Jean-Charles de. 1781. <span>“Mémoire Sur Les Élections Au Scrutin.”</span> <em>Histoire de l’Académie Royale Des Sciences</em>.
+</div>
+<div id="ref-condorcet1785" class="csl-entry" role="listitem">
+Condorcet, Marquis de. 1785. <em>Essai Sur l’application de l’analyse à La Probabilité Des Décisions Rendues à La Pluralité Des Voix</em>. Paris.
+</div>
+<div id="ref-geanakoplos2005" class="csl-entry" role="listitem">
+Geanakoplos, John. 2005. <span>“Three Brief Proofs of <span>A</span>rrow’s Impossibility Theorem.”</span> <em>Economic Theory</em> 26 (1): 211–15. <a href="https://doi.org/10.1007/s00199-004-0556-7">https://doi.org/10.1007/s00199-004-0556-7</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The proof is available at http://ideas.repec.org/p/cwl/cwldpp/1123r3.html.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This isn’t actually that unusual in the overall scope of American elections, especially in primaries.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>There is one circumstance when something like Approval Voting is used in the United States. It is not uncommon when there are <span class="math inline">\(n &gt; 1\)</span> candidates to be elected to a position, like school board members, that each voter can select <span class="math inline">\(n\)</span> candidates, and the top <span class="math inline">\(n\)</span> vote getters are elected. This isn’t true Approval Voting, since there is still a cap on how many people you can vote for.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site\/notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-bayesian-games.html" class="pagination-link" aria-label="Bayesian Games">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

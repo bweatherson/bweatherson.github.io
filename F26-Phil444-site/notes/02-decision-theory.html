@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Probability and Decision Theory – Game Theory and Social Choice</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-nash-equilibrium.html" rel="next">
+<link href="./01-basics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-3f0f04337e27912b3c80d34ada9a29ec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+  window.MathJax = {
+    tex: { macros: { nicefrac: ["{}^{#1}\\!/\\!_{#2}", 2] } }
+  };
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./02-decision-theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Game Theory and Social Choice</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Game-Theory-and-Social-Choice.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Game Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-decision-theory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-nash-equilibrium.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-other-equilibria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-games-and-time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-bayesian-games.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Voting Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-group-decisions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#probability" id="toc-probability" class="nav-link active" data-scroll-target="#probability"><span class="header-section-number">2.1</span> Probability</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</a></li>
+  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value"><span class="header-section-number">2.4</span> Expected Value</a></li>
+  <li><a href="#orthodox-decision-theory" id="toc-orthodox-decision-theory" class="nav-link" data-scroll-target="#orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./02-decision-theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="probability" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="probability"><span class="header-section-number">2.1</span> Probability</h2>
+<p>We’ll start by going over the notion of probability that is used in decision theory. The best way to think about probability functions is by thinking about <strong>measure</strong> functions. Intuitively, a measure function is a non-negative <strong>additive</strong> function. That is, it is a function which only takes non-negative values, and where the value of a whole is equal to the sum of the value of the (non-overlapping) parts. In principle the domain of a measure function could be the size of any set, but we’ll only consider functions with finite domains for now.</p>
+<p>Such functions are frequently used in the real world. Consider, for instance, the functions from regions to their population and land mass. <a href="#tbl-uk-geography" class="quarto-xref">Table&nbsp;<span>2.1</span></a> lists the (very approximate) population and land mass for England, Scotland, Wales and Northern Ireland.</p>
+<div id="tbl-uk-geography" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-uk-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Some statistics about the United Kingdom
+</figcaption>
+<div aria-describedby="tbl-uk-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;">Population</td>
+<td style="text-align: center;">Land Mass</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: center;">(Millions)</td>
+<td style="text-align: center;">(Thousands of mi<span class="math inline">\(^2\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>England</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">50</td>
+</tr>
+<tr class="even">
+<td>Scotland</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">30</td>
+</tr>
+<tr class="odd">
+<td>Wales</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td>Northern Ireland</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The nice thing about tables like <a href="#tbl-uk-geography" class="quarto-xref">Table&nbsp;<span>2.1</span></a> is that they give you a lot of information implicitly. You don’t need a separate table to tell you that the combined population of England and Scotland is 55 million, or that the combined land mass of England and Wales is 58,000 square miles. Those (approximate) facts follow from the facts listed on the table, as well as the fact that populations and land masses are additive. Once you know the population of the parts, you know the population of the whole.</p>
+<p>The next notion we need is that of a <strong>normalised</strong> measure function. A normalised measure is a measure where every function takes the value assigned to the largest whole is 1. We often use this notion when talking about proportions. <a href="#tbl-uk-geography-normal" class="quarto-xref">Table&nbsp;<span>2.2</span></a> is a table listing, again approximately, the portion of the UK population and land mass in each of the four countries.</p>
+<div id="tbl-uk-geography-normal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-uk-geography-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: A normalised verison of <a href="#tbl-uk-geography" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.
+</figcaption>
+<div aria-describedby="tbl-uk-geography-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;">Population</td>
+<td style="text-align: center;">Land Mass</td>
+</tr>
+<tr class="even">
+<td></td>
+<td style="text-align: center;">(Proportion)</td>
+<td style="text-align: center;">(Proportion)</td>
+</tr>
+<tr class="odd">
+<td>England</td>
+<td style="text-align: center;">0.84</td>
+<td style="text-align: center;">0.54</td>
+</tr>
+<tr class="even">
+<td>Scotland</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">0.32</td>
+</tr>
+<tr class="odd">
+<td>Wales</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.09</td>
+</tr>
+<tr class="even">
+<td>Northern Ireland</td>
+<td style="text-align: center;">0.03</td>
+<td style="text-align: center;">0.05</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The way we turn the regular measure function into a normalised measure is by dividing each value on the earlier table by the value of whole. So the land mass of England is (about) 50,000 mi<span class="math inline">\(^2\)</span>, and the land mass of the UK is (about) 93,000 mi<span class="math inline">\(^2\)</span>, and <span class="math inline">\(\nicefrac{50,000}{93,000}\)</span> is about 0.54. So that’s why we right 0.54 in the top right cell of the normalised measure table.</p>
+<p>The last notion we need is that of a possibility space, or more formally, a <strong>field</strong> of propositions. Although these terms might be unfamiliar, the notion should be very familiar; it is just what we represent with a truth table. We will identify, for these purposes, propositions with sets of possible worlds. Then a field of propositions is a set of propositions such that whenever <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are in the set, so are <span class="math inline">\(\neg A\)</span> and <span class="math inline">\(A \wedge B\)</span>. This is, of course, just what we see with truth tables. Whenever you can represent two propositions on a truth table, you can represent their conjunction and each of their negations. Just like with truth-tables, we’ll only consider finite fields. It’s possible to extend this to cover any set-sized partition of possibility space, but we’ll ignore such complications for now.</p>
+<p>A <strong>Probability function</strong> is just a normalised measure on a possibility space. That is, it is a function satisfying these two conditions, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are any propositions, and <span class="math inline">\(T\)</span> is a logical truth.</p>
+<ul>
+<li><span class="math inline">\(0 \leq \Pr(A) \leq 1 = \Pr(T)\)</span></li>
+<li>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can’t both be true, then <span class="math inline">\(\Pr(A \vee B) = \Pr(A) + \Pr(B)\)</span>.</li>
+</ul>
+<p>We normally suppose that any rational agent has <strong>credences</strong> over the space of (salient) epistemic possibilities, and these credences form a probability function.</p>
+<p>In any finite field of propositions, there will be some <strong>atoms</strong>. These are propositions such that no stronger consistent proposition is in the field. (Some, but not all, infinite fields are atomic.) We will use these atoms a lot. I’ll use the variable <span class="math inline">\(w\)</span> to range over atoms, reminding us that for practical purposes, atoms behave a lot like <em>worlds</em>. They aren’t worlds, of course; they only settle the truth values of a handful of propositions. But they are divisions of possibility space that are maximally precise for present purposes. That is, they are being treated as worlds. On a pragmatist approach to modality, there’s no more to being a world than to be treated as a world in the right circumstances, and thinking about probability encourages, I think, such a pragmatist approach.</p>
+</section>
+<section id="conditional-probability" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</h2>
+<p>So far we’ve talked simply about the probability of various propositions. But sometimes we’re not interested in the absolute probability of a proposition, we’re interested in its <strong>conditional</strong> probability. That is, we’re interested in the probability of the proposition <em>assuming</em> or <em>conditional on</em> some other proposition obtaining.</p>
+<p>It isn’t too hard to visualise how conditional probability works if we think of a possibility space simply as a truth table, so a measure over a possibility space is simply a measure over on the truth table. <a href="#tbl-tt-first" class="quarto-xref">Table&nbsp;<span>2.3</span></a> how we might represent a simple probability function, defined over the Boolean combinations of three propositions, if we’re thinking about things this way.</p>
+<div id="tbl-tt-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tt-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.3: A truth table, with measures
+</figcaption>
+<div aria-describedby="tbl-tt-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(p\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.0008</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.0002</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The way to read <a href="#tbl-tt-first" class="quarto-xref">Table&nbsp;<span>2.3</span></a> is that each row defines a world. The characteristics of the world are just the truth values of three salient propositions: <span class="math inline">\(p, q, r\)</span>. If T is shown underneath the name of a proposition, that means the proposition is true in the world, and if an F is shown, it mans the proposition is false. So the third line is the world where <span class="math inline">\(p\)</span> and <span class="math inline">\(r\)</span> are true, and <span class="math inline">\(q\)</span> is false. To the right of the vertical line is the probability of that world. We can work out the probability of any proposition that is true at multiple worlds by adding up the probabilities of the worlds where it is true. So <span class="math inline">\(\Pr(q) = 0.0008 + 0.008 + 0.0002 + 0.001 = 0.01\)</span>.</p>
+<p>Now let’s see what happens when we look at conditional probabilities, i.e., probabilities you get from assuming some particular proposition is true. If we assume that <span class="math inline">\(B\)</span> is true, then we should ‘zero out’, i.e.&nbsp;assign probability 0, to all the possibilities where <span class="math inline">\(B\)</span> doesn’t obtain. We’re now left with a measure over only the <span class="math inline">\(B\)</span>-possibilities. The problem is that it isn’t a normalised measure. The values will only sum to <span class="math inline">\(\Pr(B)\)</span>, not to 1. We need to renormalise. So we divide by <span class="math inline">\(\Pr(B)\)</span> and we get a probability back. In a formula, we’re left with</p>
+<p><span class="math display">\[\begin{equation*}
+Pr(A|B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
+\end{equation*}\]</span></p>
+<p>Assume now that we’re trying to find the conditional probability of <span class="math inline">\(p\)</span> given <span class="math inline">\(q\)</span> in the above table. We could do this in two different ways. First, we could set the probability of any line where <span class="math inline">\(q\)</span> is false to 0. So we will get <a href="#tbl-tt-second" class="quarto-xref">Table&nbsp;<span>2.4</span></a>.</p>
+<div id="tbl-tt-second" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tt-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.4: What happens to <a href="#tbl-tt-first" class="quarto-xref">Table&nbsp;<span>2.3</span></a> if we 0 out <span class="math inline">\(\neg q\)</span>
+</figcaption>
+<div aria-describedby="tbl-tt-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(p\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.0008</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.0002</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The numbers don’t sum to 1 any more. They sum to 0.01. So we need to divide everything by 0.01. It’s sometimes easier to conceptualise this as multiplying by <span class="math inline">\(\nicefrac{1}{\Pr(q)}\)</span>, i.e.&nbsp;by multiplying by 100. Then we’ll end up with <a href="#tbl-tt-third" class="quarto-xref">Table&nbsp;<span>2.5</span></a>.</p>
+<div id="tbl-tt-third" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tt-third-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.5: What happens to <a href="#tbl-tt-second" class="quarto-xref">Table&nbsp;<span>2.4</span></a> if renormalise
+</figcaption>
+<div aria-describedby="tbl-tt-third-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(p\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td>0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>And since <span class="math inline">\(p\)</span> is true on the top two lines of <a href="#tbl-tt-third" class="quarto-xref">Table&nbsp;<span>2.5</span></a>, the ‘new’ probability of <span class="math inline">\(p\)</span> is 0.88. That is, the conditional probability of <span class="math inline">\(p\)</span> given <span class="math inline">\(q\)</span> is 0.88. As we were writing things above, <span class="math inline">\(\Pr(p | q) = 0.88\)</span>.</p>
+<p>Alternatively we could just use the formula given above. Just adding up rows gives us the following numbers.</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(p \wedge q) &amp;= 0.0008 + 0.008 = 0.0088 \\
+\Pr(q) &amp;= 0.0008 + 0.008 + 0.0002 + 0.001 = 0.01
+\end{align*}\]</span></p>
+<p>Then we can apply the formula.</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(p | q) &amp;= \frac{\Pr(p \wedge q)}{\Pr(q)} \\
+&amp;= \frac{0.0088}{0.01} \\
+&amp;= 0.88
+\end{align*}\]</span></p>
+</section>
+<section id="bayes-theorem" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</h2>
+<p>This is a bit of a digression from what we’re really focussing on in game theory, but it’s important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the ‘inverse’ direction to what we are interested in. That is, if we want to know <span class="math inline">\(\Pr(A | B)\)</span>, it might be much easier to discover <span class="math inline">\(\Pr(B | A)\)</span>. In these cases, we use Bayes Theorem to get the right result. I’ll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent.</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(A|B) &amp;= \frac{\Pr(B|A) \Pr(A)}{\Pr(B)} \\
+&amp;= \frac{\Pr(B|A) \Pr(A)}{\Pr(B|A)Pr(A) + \Pr(B|\neg A)Pr(\neg A)}
+\end{align*}\]</span></p>
+<p>These are equivalent because <span class="math inline">\(\Pr(B) = \Pr(B|A)Pr(A) + \Pr(B|\neg A)\Pr(\neg A)\)</span>. Since this is an independently interesting result, it’s worth going through the proof of it. First note that</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(B|A)\Pr(A) &amp;= \frac{\Pr(A \wedge B)}{\Pr(A)} \Pr(A) \\
+&amp;= \Pr(A \wedge B) \\
+\\
+\Pr(B|\neg A)\Pr(\neg A) &amp;= \frac{\Pr(\neg A \wedge B)}{\Pr\neg (A)} \Pr(\neg A) \\
+&amp;= \Pr(\neg A \wedge B)
+\end{align*}\]</span></p>
+<p>Adding those two together we get</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A) &amp;= \Pr(A \wedge B) + \Pr(\neg A \wedge B) \\
+&amp;= \Pr((A \wedge B) \vee (\neg A \wedge B)) \\
+&amp;= \Pr(B)
+\end{align*}\]</span></p>
+<p>The second line uses the fact that <span class="math inline">\(A \wedge B\)</span> and <span class="math inline">\(\neg A \wedge B\)</span> are inconsistent. And the third line uses the fact that <span class="math inline">\((A \wedge B) \vee (\neg A \wedge B)\)</span> is equivalent to <span class="math inline">\(A\)</span>. So we get a nice result, one that we’ll have occasion to use a bit in what follows.</p>
+<p><span class="math display">\[\begin{equation*}
+\Pr(B) = \Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A)
+\end{equation*}\]</span></p>
+<p>So the two forms of Bayes Theorem are the same. We’ll often find ourselves in a position to use the second form.</p>
+<p>One kind of case where we have occasion to use Bayes Theorem is when we want to know how significant a test finding is. So imagine we’re trying to decide whether the patient has disease D, and we’re interested in how probable it is that the patient has the disease conditional on them returning a test that’s positive for the disease. We also know the following background facts.</p>
+<ul>
+<li>In the relevant demographic group, 5% of patients have the disease.</li>
+<li>When a patient has the disease, the test returns a position result 80% of the time</li>
+<li>When a patient does not have the disease, the test returns a negative result 90% of the time</li>
+</ul>
+<p>So in some sense, the test is fairly reliable. It usually returns a positive result when applied to disease carriers. And it usually returns a negative result when applied to non-carriers. But as we’ll see when we apply Bayes Theorem, it is very unreliable in another sense. So let <span class="math inline">\(A\)</span> be that the patient has the disease, and <span class="math inline">\(B\)</span> be that the patient returns a positive test. We can use the above data to generate some ‘prior’ probabilities, i.e.&nbsp;probabilities that we use prior to getting information about the test.</p>
+<ul>
+<li><span class="math inline">\(\Pr(A) = 0.05\)</span>, and hence <span class="math inline">\(\Pr(\neg A) = 0.95\)</span></li>
+<li><span class="math inline">\(\Pr(B | A) = 0.8\)</span></li>
+<li><span class="math inline">\(\Pr(B | \neg A) = 0.1\)</span></li>
+</ul>
+<p>Now we can apply Bayes theorem in its second form.</p>
+<p><span class="math display">\[\begin{align*}
+\Pr(A|B) &amp;= \frac{\Pr(B|A) \Pr(A)}{\Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A)} \\
+&amp;= \frac{0.8 \times 0.05}{0.08 \times 0.05 + 0.1 \times 0.95} \\
+&amp;= \frac{0.04}{0.04 + 0.095} \\
+&amp;= \frac{0.04}{0.135} \\
+&amp;\approx&amp; 0.296
+\end{align*}\]</span></p>
+<p>So in fact the probability of having the disease, conditional on having a positive test, is less than 0.3. So in that sense the test is quite unreliable.</p>
+<p>This is actually a quite important point. The fact that the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span> is quite high does not mean that the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is equally high. By tweaking the percentages in the example I gave you, you can come up with cases where the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span> is arbitrarily high, even 1, while the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is arbitrarily low.</p>
+<p>Confusing these two conditional probabilities is sometimes referred to as the <em>Prosecutors’ fallacy</em>, though it’s not clear how many actual prosecutors are guilty of it. The thought is that some prosecutors start with the premise that the probability of the defendant’s blood (or DNA or whatever) matching the blood at the crime scene, conditional on the defendant being innocent, is 1 in a billion (or whatever it exactly is). They conclude that the probability of the defendant being innocent, conditional on their blood matching the crime scene, is about 1 in a billion. Because of derivations like the one we just saw, that is a clearly invalid move.</p>
+<p>A more striking real world example comes from the analysis of soccer carried out by Charles Reep and Charles Hughes. (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.</p>
+<p>You may be able to spot the error in their reasoning already, but if not let’s work through a fictionalised version to see the problem. (The numbers I’m using are made up, though I think the scale roughly matches what Reep and Hughes found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a>.</p>
+<div id="tbl-soccer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-soccer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.6: Some imagined data for how soccer goals are scored
+</figcaption>
+<div aria-describedby="tbl-soccer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Goal</th>
+<th style="text-align: center;">No Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Short</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">822</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">48</td>
+</tr>
+<tr class="odd">
+<td>Long</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>As you can see, most goals come from short possessions. But you shouldn’t get excited by finding your team has had a short possession; over 90% of short possessions go nowhere. On the other hand, medium to long possessions often end in goals. In <a href="#tbl-soccer-percent" class="quarto-xref">Table&nbsp;<span>2.7</span></a> I’ve added another column to <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a> to make this clear.</p>
+<div id="tbl-soccer-percent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-soccer-percent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.7: A version of <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a> with success probability added.
+</figcaption>
+<div aria-describedby="tbl-soccer-percent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">Goal</th>
+<th style="text-align: center;">No Goal</th>
+<th style="text-align: center;">Success %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Short</td>
+<td style="text-align: center;">78</td>
+<td style="text-align: center;">822</td>
+<td style="text-align: center;">8.7</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td>Long</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The longer a possession is, the higher the frequency that it ends in a goal. I’m not sure in real soccer it is as dramatic as the numbers I gave you. (And in fact at high levels of soccer not nearly this high a percentage of possessions end in goals.) But I am confident that (at least at high levels, at most times in the history of soccer) the broad pattern I’ve outlined here is correct. Most goals come from short possessions, but short possessions lead to fewer goals, on average, than long possessions. Anyone who has taken a probability class should know that this suggests aiming for longer possessions rather than shorter ones, but apparently the England hierarchy didn’t take that lesson for several decades.</p>
+</section>
+<section id="expected-value" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="expected-value"><span class="header-section-number">2.4</span> Expected Value</h2>
+<p>One very convenient notion to define using a probability function is that of an <strong>expected value</strong>. Say that a <strong>random variable</strong> is any function from possibilities to real numbers. We usually designate random variables with capital letters. So expressions like <span class="math inline">\(X=x\)</span>, which you’ll often see in probability textbooks, means that the random variable <span class="math inline">\(X\)</span> takes real value <span class="math inline">\(x\)</span>.</p>
+<p>The expected value of a random variable is calculated using the following formula.</p>
+<p><span class="math display">\[\begin{equation*}
+E(X) = \sum_w \Pr(w)X(w)
+\end{equation*}\]</span></p>
+<p>Remember that <span class="math inline">\(w\)</span> is a variable that ranges over atoms. So the summation here is over the atoms in the field. <span class="math inline">\(\Pr(w)\)</span> is the probability of that atom obtaining, and <span class="math inline">\(X(w)\)</span> is the value of the random variable at <span class="math inline">\(w\)</span>. Here’s a worked example to make it clearer.</p>
+<p>Let our random variable <span class="math inline">\(X\)</span> be the number of children of the next person to walk through the door. Let’s assume that the department contains 10 people; 2 of whom have three children, 3 of whom have two children, 3 of whom have one child, and 2 are childless. Each member of the department is equally likely to walk through the door, and no one else is going to. So the probability of any given member of the department walking through the door is <span class="math inline">\(\nicefrac{1}{10}\)</span>. Then the expected value of <span class="math inline">\(X\)</span>, i.e., <span class="math inline">\(E(X)\)</span>, is:</p>
+<p><span class="math display">\[\begin{align*}
+\nicefrac{1}{10} \times 3 + \nicefrac{1}{10} \times 3 &amp;+ \\
+\nicefrac{1}{10} \times 2 + \nicefrac{1}{10} \times 2 + \nicefrac{1}{10} \times 2 &amp;+ \\
+\nicefrac{1}{10} \times 1 + \nicefrac{1}{10} \times 1 + \nicefrac{1}{10} \times 1 &amp;+ \\
+\nicefrac{1}{10} \times 0 + \nicefrac{1}{10} \times 0 &amp;= 1.5 \\
+\end{align*}\]</span></p>
+<p>Note that the expected value of <span class="math inline">\(X\)</span> is <em>not</em> the value we ‘expect’, in the ordinary sense, <span class="math inline">\(X\)</span> to take. We can be pretty sure that <span class="math inline">\(X\)</span>’s value will be an integer, so it won’t be 1.5, for instance! That is to say, ‘expected value’ is a term of art.</p>
+<p>As well as ‘absolute’ expected values, we can also define conditional expected values, as follows:</p>
+<p><span class="math display">\[\begin{equation*}
+E(X | p) = \sum_w \Pr(w | p)X(w)
+\end{equation*}\]</span></p>
+<p>I won’t go through the proof of this, but it turns out that conditional expected values satisfy a nice theorem. Let <span class="math inline">\(\{p_1, \dots, p_n\}\)</span> be a partition of possibility space. Then the following holds.</p>
+<p><span class="math display">\[\begin{equation*}
+E(X) = \sum_{i=1}^n \Pr(p_i) E(X | p_i)
+\end{equation*}\]</span></p>
+<p>Here are a few of immediate corrollaries of that result.</p>
+<p><span class="math display">\[\begin{align*}
+E(X) -E(Y) &amp;= E(X - Y) \\
+&amp;= \sum_{i=1}^n \Pr(p_i) (E(X | p_i) - E(Y | p_i)) \\
+&amp;= \sum_{i=1}^n \Pr(p_i) (E((X - Y) | p_i))
+\end{align*}\]</span></p>
+<p>Often we know more about the difference between two expected values than we do about the absolute value of either. For instance, if we are comparing the expected values of taking and declining a small bet, we can figure out which action has a higher expected value without figuring out the expected value of either, which presumably depends on all sorts of facts about how our life might (probably) go. But as long as we can work out the difference in expected value between the two acts conditional on each <span class="math inline">\(p_i\)</span>, and the probability of each <span class="math inline">\(p_i\)</span>, we can work out at least which has a higher expected value, and by how much.</p>
+</section>
+<section id="orthodox-decision-theory" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</h2>
+<p>Given all that, it is fairly easy to summarise orthodox decision theory.</p>
+<ul>
+<li>Rational agents have a credence function over salient alternatives that is identical to some probability function <span class="math inline">\(\Pr\)</span>.</li>
+<li>Rational agents also have a real-valued utility function <span class="math inline">\(U\)</span> over salient outcomes.</li>
+<li>The rational action for such an agent to do is the action that maximises <strong>expected</strong> utility, i.e., maximises the expected value of <span class="math inline">\(U\)</span> relative to that function <span class="math inline">\(\Pr\)</span>.</li>
+</ul>
+<p>Next time we’ll start with an application of those ideas that leads to the most central concept in game theory.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site\/notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-basics.html" class="pagination-link" aria-label="Basics of Game Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-nash-equilibrium.html" class="pagination-link" aria-label="Mixed Strategies and Nash Equilibrium">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

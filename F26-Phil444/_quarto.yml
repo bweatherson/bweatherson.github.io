@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: ../F26-Phil444-site
+  render:
+    - index.qmd
+    - syllabus-F26-444.qmd
+    - slides/*.qmd
 
 website:
   site-url: https://bweatherson.github.io/F26-Phil444-site

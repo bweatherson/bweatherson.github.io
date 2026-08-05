@@ -1,0 +1,150 @@
+project:
+  type: book
+  output-dir: ../../F26-Phil444-site/notes
+
+book:
+  title: "Game Theory and Social Choice"
+  subtitle: "Lecture Notes"
+  author: "Brian Weatherson"
+  date: "Fall 2026"
+  date-format: "[Fall] YYYY"
+  site-url: https://bweatherson.github.io/F26-Phil444-site/notes/
+  downloads: [pdf]
+  search: true
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - part: "Game Theory"
+      chapters:
+        - 01-basics.qmd
+        - 02-decision-theory.qmd
+        - 03-nash-equilibrium.qmd
+        - 04-other-equilibria.qmd
+        - 05-games-and-time.qmd
+        - 06-bayesian-games.qmd
+    - part: "Voting Theory"
+      chapters:
+        - 07-group-decisions.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+# Let the columns size to their contents. Pandoc turns the width of the ASCII
+# art in the source into fixed p{} column widths, so one long cell (the mixed
+# strategy in chapter 3) stretches its column to half the page and strands the
+# Row label out on the left. tbl-colwidths: false does not fix this, because it
+# governs widths you specify rather than the ones pandoc infers, so the widths
+# are stripped from the AST instead.
+filters:
+  - natural-tables.lua
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    number-sections: true
+    number-depth: 2
+    include-in-header:
+      # MathJax has no \nicefrac; the notes use it 61 times. Define it before
+      # MathJax loads so the HTML matches what the PDF gets from the package.
+      text: |
+        <script>
+          window.MathJax = {
+            tex: { macros: { nicefrac: ["{}^{#1}\\!/\\!_{#2}", 2] } }
+          };
+        </script>
+
+  pdf:
+    documentclass: scrbook
+    pdf-engine: xelatex
+    keep-tex: true
+    geometry: margin=1in
+    # EB Garamond Math is a custom build with the maths characters added; it
+    # serves as both main and maths font. It has no bold or italic, so those
+    # come from the stock EB Garamond faces.
+    mainfont: "EB Garamond Math"
+    mainfontoptions:
+      - BoldFont=EB Garamond SemiBold
+      - ItalicFont=EB Garamond Italic
+      - BoldItalicFont=EB Garamond SemiBold Italic
+    mathfont: "EB Garamond Math"
+    number-sections: true
+    number-depth: 2
+    fig-cap-location: bottom
+    include-in-header:
+      text: |
+        \usepackage{nicefrac}
+        \usepackage{microtype}
+        \usepackage{booktabs}
+        \usepackage{longtable}
+        \usepackage{etoolbox}
+
+        % Rules off entirely, as in iribookstyle.tex / quarto2024book.tex.
+        % Pandoc writes \toprule\noalign{}, so the commands must survive;
+        % zeroing the widths is the safe way to hide them.
+        \setlength\heavyrulewidth{0ex}
+        \setlength\lightrulewidth{0ex}
+
+        % Keep payoff matrices whole. Pandoc emits every table as a longtable,
+        % which exists to split across pages; a minipage cannot split. The
+        % \par and \medskip stop the minipage sitting inline with the text.
+        \BeforeBeginEnvironment{longtable}{%
+          \par\medskip\noindent\begin{minipage}{\linewidth}\centering}
+        \AfterEndEnvironment{longtable}{%
+          \end{minipage}\par\medskip}
+
+        % Page furniture, from quarto2024book.tex. This is the scrlayer-scrpage
+        % version rather than the older fancyhdr one in iribookstyle.tex;
+        % scrlayer-scrpage is KOMA's own and this book is scrbook.
+        \usepackage[automark]{scrlayer-scrpage}
+        \clearpairofpagestyles
+        \cehead{\leftmark}
+        \cohead{\rightmark}
+        \ohead{\bfseries \pagemark}
+        \cfoot{}
+        \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+        \renewcommand{\sectionmark}[1]{\markright{#1}}
+
+        \setlength{\parindent}{17pt}
+        \setlength{\parskip}{0ex plus 2ex minus 0ex}
+
+        % More air above headings, and a guaranteed minimum. KOMA's defaults
+        % are -3.5ex plus -1ex minus -.2ex for section and -3.25ex for the
+        % rest; the negative sign is KOMA's way of saying "no indent on the
+        % paragraph after the heading", so it has to be kept. Raising the
+        % first number adds space, and dropping the shrink to 0 stops a
+        % heading being pushed up against the paragraph before it when the
+        % page is tight. afterskip is left alone, so the gap below a heading
+        % does not change.
+        \RedeclareSectionCommand[beforeskip=-6ex plus -1ex minus -0ex]{section}
+        \RedeclareSectionCommand[beforeskip=-4.5ex plus -1ex minus -0ex]{subsection}
+        \RedeclareSectionCommand[beforeskip=-3.5ex plus -1ex minus -0ex]{subsubsection}
+        \raggedbottom
+        \widowpenalty=150
+        \clubpenalty=150
+
+        % Keep a list whole and attached to the sentence that introduces it.
+        % LaTeX's defaults actively encourage breaking there (\@itempenalty
+        % and \@endparpenalty are both negative out of the box), which is why
+        % a three-item list was splitting one item / two across a page. The
+        % longest list in the book is seven items and about 160 words, so
+        % making them unbreakable costs nothing. \@endparpenalty stays neutral
+        % rather than 10000, so a break is still allowed after the list.
+        \makeatletter
+        \@beginparpenalty=10000
+        \@itempenalty=10000
+        \@endparpenalty=0
+        \makeatother
+
+        \makeatletter
+        \newcommand*\NoIndentAfterEnv[1]{%
+          \AfterEndEnvironment{#1}{\par\@afterindentfalse\@afterheading}}
+        \makeatother
+        \NoIndentAfterEnv{itemize}
+        \NoIndentAfterEnv{enumerate}
+        \NoIndentAfterEnv{description}
+        \NoIndentAfterEnv{quote}
+        \NoIndentAfterEnv{equation}
+        \NoIndentAfterEnv{longtable}
+
+        \counterwithout*{footnote}{chapter}

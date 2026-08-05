@@ -1,0 +1,28 @@
+% Perfect
+\begin{tikzpicture}[x=1pt, y=1pt, every node/.style={inner sep=1pt, font=\small}]
+  \draw (100,15) circle (2);
+  \node[anchor=south] at (100,0) {1};
+  \draw (100,15) -- (30,50);
+  \draw (100,15) -- (100,50);
+  \draw (100,15) -- (170,50);
+  \node[anchor=south] at (60,25) {$L$};
+  \node[anchor=south] at (108,25) {$M$};
+  \node[anchor=south] at (140,25) {$R$};
+  \draw[dashed] (30,50) -- (100,50);
+  \node[anchor=south] at (65,55) {2};
+  \fill (30,50) circle (2);
+  \fill (100,50) circle (2);
+  \draw (30,50) -- (10,90);
+  \draw (30,50) -- (50,90);
+  \draw (100,50) -- (80,90);
+  \draw (100,50) -- (120,90);
+  \node[anchor=south] at (15,60) {$l$};
+  \node[anchor=south] at (45,60) {$r$};
+  \node[anchor=south] at (85,60) {$l$};
+  \node[anchor=south] at (115,60) {$r$};
+  \node[anchor=south] at (10,90) {(3, 1)};
+  \node[anchor=south] at (50,90) {(0, 0)};
+  \node[anchor=south] at (80,90) {(1, 1)};
+  \node[anchor=south] at (120,90) {(0, 0)};
+  \node[anchor=south] at (170,50) {(2, 2)};
+\end{tikzpicture}

@@ -1,0 +1,650 @@
+# Mixed Strategies and Nash Equilibrium
+
+## Mixed Strategies
+
+In any game, if player $x$ has strategies $s_1, s_2$ available, then we'll also assume they have available the **mixed strategy** of playing $s_1$ with probability $p$ and $s_2$ with probability $1-p$ (for arbitrary $p \in (0, 1)$). Such strategies have an expected value given strategies for the other players in the game, and we'll think of that expected value as the return to the player for playing the strategy.
+
+Mixed strategies are contrasted with **pure strategies**. These are the strategies that are usually listed on the game table. They are the only strategies that we have considered so far.
+
+I'm not sure whether there is a standard terminology for denoting mixed strategies. We'll write $\langle s_1, p; s_2, 1-p \rangle$ for the mixed strategy of playing $s_1$ with probability $p$ and $s_2$ with probability $1-p$. It is possible for mixed strategies to involve more than two pure strategies; in those cases the list of pure strategies and their probabilities will have to be longer.
+
+If the agent has more than two pure strategies available to them, and plays $\langle s_1, p; s_2, 1-p \rangle$, it wouldn't make any difference if they instead played $\langle s_1, p; s_2, 1-p; s_3, 0; \dots; s_n, 0\rangle$. We can treat any mixed strategy as a mixture of all the pure strategies, just that some of the strategies have probability 0 of being played. Indeed, we can treat any strategy as a mixed strategy that perhaps gives some pure strategies probability 0. So we no longer need to talk about pure strategies at all; they are just a limit case of mixed strategies where one pure strategy gets probability 1, and the others all get probability zero.
+
+Still, even if every mixed strategy can be represented as a mixture of all pure strategies, there is an important distinction between the pure strategies that get positive probability, and those that get zero probability. We'll call the set of pure strategies that get positive probability the **support** of the mixed strategy. What we used to call a pure strategy is a mixed strategy whose support is a singleton.
+
+Now it's a somewhat delicate philosophical question just what this assumption amounts to. While the assumption is more or less universally made by game theorists, there is less agreement about just what it comes to. There are three natural interpretations, which we might call the objective chance, epistemic and frequentist readings. We'll leave them there for now; the question of which is right doesn't bite until we can see what a mixed equilibrium asks of a player, so we'll come back to it at the end of the chapter.
+
+## Best Responses
+
+A strategy $s$ is a **best response** for player $x$ iff there is some probability distribution $\Pr$ over the possible strategies of other players such that no strategy has a higher expected payoff than $s$ does, given $\Pr$.
+
+Let's look at an example of this. So far we've used the same names for the options that Row and Column have available. But we'll start to look at asymmetric games, so it helps to use asymmetric terminology. In @tbl-first-best we'll use $U$, for Up, $M$ for Middle, and $D$, for Down, for Row's options, and $L$ for Left, and $R$ for Right, for Column's options.
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 3, 0 | 0, 0 |
+|         +-----+------+------+
+|         | $M$ | 2, 0 | 2, 0 |
+|         +-----+------+------+
+|         | $D$ | 0, 0 | 3, 0 |
++---------+-----+------+------+
+
+: An example of best responses. {#tbl-first-best}
+
+We will just look at things from the perspective of Row. What we want to show is that all three of the possible moves here are best responses. We will write $E(X) = x$ to mean that the expected value of strategy $X$ is $x$.
+
+It is clear that $U$ is a best response. Set $\Pr(L) = 1, \Pr(R) = 0$. Then $E(U) = 3, E(M) = 2, E(D) = 0$, so $U$ is best. It is also clear that $D$ is a best response. Set $\Pr(L) = 0, \Pr(R) = 1$. Then $E(U) = 0, E(M) = 2, E(D) = 3$, so $D$ is best.
+
+The striking thing is that $M$ can also be a best response. Set $\Pr(L) = \Pr(R) = 0.5$. Then $E(U) = E(D) = 1.5$. But $E(M) = 2$, which is greater than 1.5. So if Row thinks it is equally likely that Col will play either $L$ or $R$, then she maximizes expected utility by playing $M$. Of course, she doesn't maximize actual utility. Maximizing actual utility requires making a gamble on which choice $C$ will make. That isn't always wise; it might be best to take the safe option.
+
+It's very plausible that agents should play best responses. If a move is not a best response, then there is no way that it maximizes expected utility, no matter what one's views of the other players are. And one should maximize expected utility.
+
+Any strongly dominated option will never be a best response. That's because whatever strategy strongly dominates it will have a higher expected return no matter what the probabilities are. But a weakly dominated response can be a best response. That's because we've defined best responses to allow that something can be a best response when something else ties it. So in @tbl-wd-first, $D$ is weakly dominated by $U$, but it is a best response given $\Pr(R) = 1$.
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 1, 0 | 0, 0 |
+|         +-----+------+------+
+|         | $D$ | 0, 0 | 0, 0 |
++---------+-----+------+------+
+
+: An example of weak dominance {#tbl-wd-first}
+
+What about the other direction? If something is not dominated, does that mean it is a best response? It turns out the answer to this question is a little more complicated. Start with @tbl-bad-middle.
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 3, 0 | 0, 0 |
+|         +-----+------+------+
+|         | $M$ | 1, 0 | 1, 0 |
+|         +-----+------+------+
+|         | $D$ | 0, 0 | 3, 0 |
++---------+-----+------+------+
+
+: An example where something is dominated by a mixture. {#tbl-bad-middle}
+
+In this game, $M$ is not dominated by either $U$ or $D$. After all, if Col plays $L$, then $M$ beats $D$. And if Col plays $R$ then $M$ beats $D$.
+
+On the other hand, $M$ is not a best response. The possible views Row could have about Col are all characterised by a single variable $x$, where $x$ is the probability (according to Row) of Col playing $L$. This variable $x$ can take any value in $[0, 1]$. But whatever value it takes, $M$ is not the best option. Note that the expected return of $L$ is $3x$, and the expected return of $R$ is $3(1-x)$. From that, we can easily compute that:
+
+- If $0 \leq x < 0.5$ then $D$ is the best response.
+- If $x = 0.5$ then $U$ and $D$ are tied for best response.
+- If $0.5 < x \leq 1$ then $U$ is the best response.
+
+So in no circumstance is $M$ best. It is not a best response.
+
+But on second thought, perhaps it is dominated. Let's add a row to the table for the mixed strategy $\langle U, 0.5; D, 0.5 \rangle$. In @tbl-bad-mix, we'll add this to the table, and note its expected value.
+
++:--------+---------------------------------:+:------:+:------:+
+|         |                                  | **Col**         |
++---------+----------------------------------+--------+--------+
+|         |                                  | $L$    | $R$    |
++---------+----------------------------------+--------+--------+
+| **Row** | $U$                              | 3, 0   | 0, 0   |
+|         +----------------------------------+--------+--------+
+|         | $M$                              | 1, 0   | 1, 0   |
+|         +----------------------------------+--------+--------+
+|         | $D$                              | 0, 0   | 3, 0   |
+|         +----------------------------------+--------+--------+
+|         | $\langle U, 0.5; D, 0.5 \rangle$ | 1.5, 0 | 1.5, 0 |
++---------+----------------------------------+--------+--------+
+
+: A version of @tbl-bad-middle with the mixed strategy made explicit. {#tbl-bad-mix}
+
+And note that $\langle U, 0.5; D, 0.5 \rangle$ dominates $M$; whatever Col plays, that mixed strategy has a higher expected return than $M$.
+
+If we change the payout to $M$ so that it isn't dominated, it becomes a best response. So recall the version of the game where the payout from $M$ from a guaranteed 1 to a guaranteed 2. I've reprinted that as @tbl-second-best with the mixed strategy made explicit.
+
++:--------+---------------------------------:+:------:+:------:+
+|         |                                  | **Col**         |
++---------+----------------------------------+--------+--------+
+|         |                                  | $L$    | $R$    |
++---------+----------------------------------+--------+--------+
+| **Row** | $U$                              | 3, 0   | 0, 0   |
+|         +----------------------------------+--------+--------+
+|         | $M$                              | 2, 0   | 2, 0   |
+|         +----------------------------------+--------+--------+
+|         | $D$                              | 0, 0   | 3, 0   |
+|         +----------------------------------+--------+--------+
+|         | $\langle U, 0.5; D, 0.5 \rangle$ | 1.5, 0 | 1.5, 0 |
++---------+----------------------------------+--------+--------+
+
+: A version of @tbl-first-best with the mixed strategy added. {#tbl-second-best}
+
+Now $M$ is not dominated. Indeed, it dominates $\langle U, 0.5; D, 0.5 \rangle$. And as we saw above it is also a best response. If Row thinks it is 50/50 whether Col plays $L$ or $R$, then $M$ has the highest expected return.
+
+## Iterated Best Responses
+
+It seems very plausible that one should only play best responses. But not all best responses are worth playing. Some best responses are pretty hard to justify when playing against a rational opponent. Consider @tbl-ibr-first from Row's perspective.
+
++:--------+----:+:----:+:-----:+
+|         |     | **Col**      |
++---------+-----+------+-------+
+|         |     | $L$  | $R$   |
++---------+-----+------+-------+
+| **Row** | $U$ | 5, 5 | 0, -5 |
+|         +-----+------+-------+
+|         | $D$ | 0, 5 | 2, -5 |
++---------+-----+------+-------+
+
+: A dominance example {#tbl-ibr-first}
+
+In this game, $D$ is a best response. It does best if Col chooses $R$. But why would Col do that? Col gets 5 for sure if she chooses $L$, and -5 for sure if she chooses $R$. Assuming the weakest possible rationality constraint on Col, she won't choose a sure loss over a sure gain. So given that, Row should choose $U$.
+
+Now we could have shown that with just considering domination; indeed domination by pure strategies. @tbl-ibr-second is a little more complex.
+
++:--------+----:+:----:+:----:+:----:+
+|         |     | **Col**            |
++---------+-----+------+------+------+
+|         |     | $L$  | $C$  | $R$  |
++---------+-----+------+------+------+
+| **Row** | $U$ | 1, 3 | 0, 1 | 1, 0 |
+|         +-----+------+------+------+
+|         | $D$ | 0, 0 | 1, 1 | 0, 3 |
++---------+-----+------+------+------+
+
+: A mixed strategy dominance example {#tbl-ibr-second}
+
+In @tbl-ibr-second neither player has a dominated move, as long as we restrict ourselves to pure strategies. And, from Row's perspective, thinking about best responses doesn't help either. $U$ is a best response if Col is going to play $L$ or $R$ with probability at least 0.5, and $D$ is best response if Col is going to play $m$ with probability at least 0.5.
+
+But note that $C$ is not a best response for Col. One of the outer options has a higher expected value, whatever probability she gives to Row playing $U$. Now let's assume, when thinking from Row's perspective, that Col will play a best response. That is, we're assuming Col will play either $L$ or $R$. Given that, the best thing for Row to do is to play $U$.
+
+More carefully, if Row knows that Col is rational, and if Row knows that rational agents always play best responses, then Row has a compelling reason to play $U$. This suggests an important normative status. Call a **BRBR** strategy one that is a **B**est **R**esponse to a **B**est **R**esponse.
+
+But we can go further than that. What should Col play, given what we just concluded about Row? She should play $L$. After all, she knows that Row will play $U$, and given that $L$ has the best return.
+
+The idea that players should play BRBR strategies isn't strong enough to get us that result. After all, $D$ is a best response, and $R$ is a best response to $D$. So $R$ is BRBR. What it isn't is a best response to something that is a best response to a best response. Rather than keep counting layers of best responses, let's collapse this into one notion of being a best response to a best response to a best response to etc., to infinity. Call any strategy which has this feature an **IBR**, or **I**terated **B**est **R**esponse.
+
+## Nash Equilibrium
+
+In a two-player game, for a strategy $s_0$ to be IBR, it must be the best response to some strategy $s_1$, which is the best response to some strategy $s_2$, which is the best response to some strategy $s_3$, etc. But we are assuming that there are only finitely many strategy choices available. So how can we get such an infinite chain going?
+
+The answer, of course, is to repeat ourselves. As long as we get some kind of loop, we can extend such a chain forever, by keeping on circling around the loop. And the simplest loop will have just two steps in it. So consider any pair of strategies $\langle s_0, s_1 \rangle$ such that $s_0$ is the best response to $s_1$, and $s_1$ is the best response to $s_0$. In that case, each strategy will be BRBRI, since we can run around that two-step 'loop' forever, with each stop on the loop being a strategy which is a best response to the strategy we previous stopped at.
+
+When a pair of strategies fit together nicely like this, we say they are a **Nash Equilibrium**. More generally, in an $n$-player game, we use the following definition.
+
+NE
+:   Some strategies $s_1, ..., s_n$ in an $n$-player game form a **N**ash **E**quilibrium iff for each $i$, $s_i$ is a best response to the strategies played by the other $n-1$ players. That is, iff player $i$ cannot do better by playing any alternative strategy to $s_i$, given that the other players are playing what they actually do.
+
+The 'Nash' in Nash Equilibrium is in honour of John Nash, who developed the concept, and proved some striking mathematical results concerning it [@nash1951].
+
+## Nash Equilibrium in Simultaneous Move Games
+
+Consider @tbl-no-pure-eqm:
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 2, 0 | 0, 2 |
+|         +-----+------+------+
+|         | $D$ | 0, 4 | 1, 0 |
++---------+-----+------+------+
+
+: A game with no pure strategy equilibria {#tbl-no-pure-eqm} 
+
+Any of the pure strategies is a best response. Indeed, any of them are iterated best responses. So is all we can say about the game that anything goes? Most game theorists disagree with that claim. They say that once we consider mixed strategies, there is a distinctive solution to the game. Consider the following pair of strategies:
+
+- Row plays $\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle$
+- Col plays $\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle$
+
+Given that Row has that strategy, let's work out the expected return (to Col) of Col's two possible plays.
+
+\begin{align*}
+E(L) &= 0 \times \frac{2}{3} + 4 \times \frac{1}{3} \\
+&= 0 + \frac{4}{3} \\
+&= \frac{4}{3} \\
+E(R) &= 2 \times \frac{2}{3} + 0 \times \frac{1}{3} \\
+&= \frac{4}{3} + 0 \\
+&= \frac{4}{3}
+\end{align*}
+
+And we can do the same calculation for the expected return (to Row) of Row's possible strategies.
+
+\begin{align*}
+E(U) &= 2 \times \frac{1}{3} + 0 \times \frac{2}{3} \\
+&= \frac{2}{3} + 0\\
+&= \frac{2}{3} \\
+E(D) &= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
+&= 0 + \frac{2}{3} \\
+&= \frac{2}{3}
+\end{align*}
+
+Both players would be, if they knew what the other player was doing, indifferent between the two possible strategies that are available to them.
+
+The expected return of Col's playing the mixed strategy $\langle L, x; R, 1-x \rangle$ is $xE(L) + (1-x)E(R)$. So if $E(L) = E(R) = \nicefrac{4}{3}$, then for all $x \in [0, 1]$, the expected return of $\langle L, x; R, 1-x \rangle$ is also $\nicefrac{4}{3}$. So all strategies are equally good in response to Row playing $\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle$. That is, they are all best responses. By similar reasoning, all strategies Row could play in response to Col playing $\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle$ are equally good, so they are all best responses.
+
+So the two strategies $\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle$ and $\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle$ are best responses to each other; they form a Nash Equilibrium. Indeed, this is the only Nash Equilibrium of the game.
+
+We aren't going to prove this, but for any game with bounded payouts, and finite options for each player, there will be some Nash Equilibrium. This equilibria will often be a mixed strategy equilibria, but it is guaranteed to exist.
+
+## Finding Nash Equilibria
+
+It isn't easy in general to find Nash Equilibria. But let's start with some general approaches we can use.
+
+## Iterated Dominance
+
+Strongly dominated strategies can't be part of an equilibrium. (I'll just use 'equilibrium' for 'Nash Equilibrium' in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can't be part of an equilibrium either. This idea can help us find the equilibrium in some games, such as @tbl-id-first.
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 1, 2 | 5, 0 |
+|         +-----+------+------+
+|         | $D$ | 0, 0 | 3, 6 |
++---------+-----+------+------+
+
+: A game that can be solved with dominance {#tbl-id-first}
+
+Neither of Col's strategies is dominated. Col wants to choose whatever Row chooses. But look at the game from Row's perspective. Here there is a strongly dominating strategy, namely choosing $U$. So $D$ cannot be part of any equilbria. Indeed, if we assume that Row is rational, and so won't play strongly dominated strategies, it is really as if the strategy isn't even there. From that perspective, we can rewrite @tbl-id-first as @tbl-id-second.
+
++:--------+----:+:----:+:----:+
+|         |     | **Col**     |
++---------+-----+------+------+
+|         |     | $L$  | $R$  |
++---------+-----+------+------+
+| **Row** | $U$ | 1, 2 | 5, 0 |
++---------+-----+------+------+
+
+: The result of deleting a dominated strategy from @tbl-id-first {#tbl-id-second}
+
+Now in this game there is a dominating strategy for Col, namely $L$. So the only equilibrium of the game is $\langle U, L \rangle$. And it seems that those are the only rational strategies for the players, assuming they each know the other to be rational.
+
+We can use the idea of removing dominating strategies to illustrate some puzzling features of a couple of other games. I won't do tables for these games, because they'd be much too big. The first is a location game that has many applications.
+
+> Two trucks have to choose where they will sell ice-cream on a particular beach. There are 11 locations to choose from, which we'll number 0, 1, ..., 9, 10. Spot 0 is at the left end of the beach, Spot 10 is at the right end of the beach, and the other spots are equally spaced in between. There are 10 people at each location. Each of them will buy ice-cream. If one truck is closer, they will buy ice-cream from that truck. If two trucks are equally close, then 5 of them will buy ice-cream from one truck, and 5 from the other. Each truck aims to maximise the amount of ice-cream it sells. Where should the trucks end up?
+
+Let's start by looking at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We'll call the players Row and Col, as usual, and just use the number $n$ for the strategy of choosing location $n$.
+
++:--------+--:+:-------:+:-------:+:------:+:------:+:------:+:---:+
+|         |   | **Col**                                            |
++---------+---+---------+---------+--------+--------+--------+-----+
+|         |   | 0       | 1       | 2      | 3      | 4      | ... |
++---------+---+---------+---------+--------+--------+--------+-----+
+| **Row** | 0 | 55, 55  | 10, 100 | 15, 95 | 20, 90 | 25, 85 | ... |
+|         +---+---------+---------+--------+--------+--------+-----+
+|         | 1 | 100, 10 | 55, 55  | 20, 90 | 25, 95 | 30, 80 | ... |
++---------+---+---------+---------+--------+--------+--------+-----+
+| ...     |   |         |         |        |        |        |     |
++---------+---+---------+---------+--------+--------+--------+-----+
+
+I'll leave it as an exercise to confirm that these numbers are indeed correct. Note that no matter what Col selects, Row is better off picking 1 than 0. If Col picks 0 or 1, she is a lot better off; she sells 45 more ice-creams. And if Col picks a higher number, she is a bit better off; she sells 5 more ice-creams. So picking 1 dominates picking 0.
+
+Let's look at the opposite corner of the matrix.
+
++:--------+---:+:---:+:------:+:------:+:------:+:-------:+:-------:+
+|         |    | **Col**                                            |
++---------+----+-----+--------+--------+--------+---------+---------+
+|         |    | ... | 6      | 7      | 8      | 9       | 10      |
++---------+----+-----+--------+--------+--------+---------+---------+
+| ...     |    |     |        |        |        |         |         |
++---------+----+-----+--------+--------+--------+---------+---------+
+| **Row** | 9  | ... | 30, 80 | 25, 85 | 20, 90 | 55, 55  | 100, 10 |
+|         +----+-----+--------+--------+--------+---------+---------+
+|         | 10 | ... | 25, 85 | 20, 80 | 15, 95 | 10, 100 | 55, 55  |
++---------+----+-----+--------+--------+--------+---------+---------+
+
+Again, there should be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I'll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.
+
+So there is a clear conclusion to be drawn from what we've said so far.
+
+- Spot 0 is dominated by Spot 1, and Spot 10 is dominated by Spot 9. So if Row is rational, she won't pick either of those spots. Since the game is symmetric, if Col is rational, she won't pick either of those spots either. Moreover, neither 0 nor 10 can be part of any equilibrium.
+
+Now let's turn to the comparison between Spot 1 and Spot 2. Again, we'll just look at a fragment of the matrix.
+
++:--------+--:+:-------:+:------:+:------:+:------:+:------:+:------:+:---:+
+|         |   | **Col**                                                    |
++---------+---+---------+--------+--------+--------+--------+--------+-----+
+|         |   | 0       | 1      | 2      | 3      | 4      | 5      | ... |
++---------+---+---------+--------+--------+--------+--------+--------+-----+
+| ...     |   |         |        |        |        |        |        |     |
++---------+---+---------+--------+--------+--------+--------+--------+-----+
+| **Row** | 1 | 100, 10 | 55, 55 | 20, 90 | 25, 95 | 30, 80 | 35, 75 | ... |
+|         +---+---------+--------+--------+--------+--------+--------+-----+
+|         | 2 | 95, 15  | 90, 20 | 55, 55 | 30, 80 | 35, 75 | 40, 70 | ... |
++---------+---+---------+--------+--------+--------+--------+--------+-----+
+| ...     |   |         |        |        |        |        |        |     |
++---------+---+---------+--------+--------+--------+--------+--------+-----+
+
+The pattern is also clear. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 *fewer* ice-creams by picking 2 rather than 1. So picking 2 does *not* dominate picking 1.
+
+But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let's delete that dominated strategy. Here's what the top left corner of the game matrix looks like when we do that.
+
++:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
+|         |   | **Col**                                          |
++---------+---+--------+--------+--------+--------+--------+-----+
+|         |   | 1      | 2      | 3      | 4      | 5      | ... |
++---------+---+--------+--------+--------+--------+--------+-----+
+| **Row** | 1 | 55, 55 | 20, 90 | 25, 95 | 30, 80 | 35, 75 | ... |
+|         +---+--------+--------+--------+--------+--------+-----+
+|         | 2 | 90, 20 | 55, 55 | 30, 80 | 35, 75 | 40, 70 | ... |
++---------+---+--------+--------+--------+--------+--------+-----+
+| ...     |   |        |        |        |        |        |     |
++---------+---+--------+--------+--------+--------+--------+-----+
+
+And now it looks like picking 1 is dominated. This teaches us another lesson about the game.
+
+- If we 'delete' the option of picking either 0 or 10 for Col, then picking 2 dominates picking 1 for Row. In other words, if Row knows Col is rational, and hence won't pick a dominated option, then picking 2 dominates picking 1 for Row, relative to the space of epistemically possible moves in the game. For similar reasons, if Row knows Col is rational, then picking 8 dominates picking 9. And if Col knows Row is rational, then picking either 1 or 9 is dominated (by 2 and 8 respectively). And for similar reasons, neither 1 nor 9 can be part of an equilibrium strategy.
+
+Summarising what we know so far,
+
+- If the players are rational, they won't pick 0 or 10.
+- If the players know the other player is rational, they also won't pick 1 or 9.
+
+Let's continue down the matrix. For simplicity, we'll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.
+
++:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
+|         |   | **Col**                                          |
++---------+---+--------+--------+--------+--------+--------+-----+
+|         |   | 1      | 2      | 3      | 4      | 5      | ... |
++---------+---+--------+--------+--------+--------+--------+-----+
+| **Row** | 2 | 90, 20 | 55, 55 | 30, 80 | 35, 75 | 40, 70 | ... |
+|         +---+--------+--------+--------+--------+--------+-----+
+|         | 3 | 85, 25 | 80, 30 | 55, 55 | 40, 70 | 45, 65 | ... |
++---------+---+--------+--------+--------+--------+--------+-----+
+| ...     |   |        |        |        |        |        |     |
++---------+---+--------+--------+--------+--------+--------+-----+
+
+Picking 3 doesn't *quite* dominate picking 2. In most circumstances, Row does better by picking 3 rather than 2. But she does a little worse if Col picks 1. But wait! We just had an argument that Col shouldn't pick 1. Or, at least, if Col knows that Row is rational, she shouldn't pick 1. Let's assume that Col does know that Row is rational, and Row in turn knows that fact, so she can use it in reasoning. That means she knows Col won't pick 1. So she can delete it from consideration too. And once she does, picking 3 dominates picking 2, relative to the reduced space of epistemically possible outcomes.
+
+I haven't belaboured the point as much as in the previous paragraphs, but hopefully the following conclusion is clear.
+
+- If the players know that the players know that the other player is rational, they won't pick 2 or 8. So neither 2 nor 8 can be part of an equilibrium.
+
+And you can see where this is going. Once we rule out each player picking 2 or 8, then picking 4 dominates picking 3, so picking 3 should be ruled out. And picking 7 should be ruled out for symmetric reasons. But once 3 and 7 are ruled out, picking 5 dominates picking either 4 or 6. So both players will end up picking 5.
+
+And that is, in the standard economic textbooks, a nice explanation of why we see so much 'clustering' of shops. (For instance, why so often there are several gas stations on one corner, rather than spread over town.) Of course the full explanation of clustering is more complicated, but it is nice to see such a simple model deliver such a strong outcome.
+
+This process is called the **Iterative Deletion of Dominated Strategies**. More precisely, what we've used here is the strategy of iteratively deleting **strongly** dominated strategies. This is a powerful technique for solving games that don't, at first glance, admit of any easy solution. If only one strategy pair remains after using this technique, that is the only equilibrium of the game.
+
+We'll return a bit to this point in what follows, but it's worth noting that in a one-shot version of this game, to get to the conclusion that each player should play 5, we had to use a number of very strong assumptions. We had to assume that each player is rational, that they know the other is rational, that they know that the other knows they are rational, and so on through six iterations. In principle, to justify iteratively deleting dominated strategies, we have to assume that there are arbitrarily many iterations of this idea that each player knows that the other player knows etc that they are rational.
+
+## Finding Best Responses
+
+It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider @tbl-complicated.
+
++:--------+----:+:---:+:---:+:---:+:---:+:---:+
+|         |     | **Col**                     |
++---------+-----+-----+-----+-----+-----+-----+
+|         |     | $a$ | $b$ | $c$ | $d$ | $e$ |
++---------+-----+-----+-----+-----+-----+-----+
+| **Row** | $A$ | 9,9 | 5,1 | 6,4 | 3,3 | 1,8 |
+|         +-----+-----+-----+-----+-----+-----+
+|         | $B$ | 3,1 | 7,3 | 1,7 | 3,9 | 8,2 |
+|         +-----+-----+-----+-----+-----+-----+
+|         | $C$ | 4,5 | 8,7 | 2,4 | 4,1 | 2,9 |
+|         +-----+-----+-----+-----+-----+-----+
+|         | $D$ | 3,2 | 1,5 | 3,7 | 7,7 | 9,1 |
+|         +-----+-----+-----+-----+-----+-----+
+|         | $E$ | 5,3 | 8,3 | 7,6 | 3,5 | 8,4 |
++---------+-----+-----+-----+-----+-----+-----+
+
+: A complicated game {#tbl-complicated}
+
+We'll start by finding the best response for Row to each of Col's plays. We'll underline the payoff for Row that does best, assuming Col makes that choice. Here's how the table looks after we do that.
+
++:--------+----:+:-----------------:+:-----------------:+:-----------------:+:-----------------:+:-----------------:+
+|         |     | **Col**                                                                                           |
++---------+-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+|         |     | $a$               | $b$               | $c$               | $d$               | $e$               |
++---------+-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+| **Row** | $A$ | [9]{.underline},9 | 5,1               | 6,4               | 3,3               | 1,8               |
+|         +-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+|         | $B$ | 3,1               | 7,3               | 1,7               | 3,9               | 8,2               |
+|         +-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+|         | $C$ | 4,5               | [8]{.underline},7 | 2,4               | 4,1               | 2,9               |
+|         +-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+|         | $D$ | 3,2               | 1,5               | 3,7               | [7]{.underline},7 | [9]{.underline},1 |
+|         +-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+|         | $E$ | 5,3               | [8]{.underline},3 | [7]{.underline},6 | 3,5               | 8,4               |
++---------+-----+-------------------+-------------------+-------------------+-------------------+-------------------+
+
+Note that under $b$, we underlined two possible payoffs. That's because they are tied for best, and best response is compatible with ties. Now we'll go through Col's options, finding the best response to each possible play by Row.
+
++:--------+----:+:-------------------------------:+:-----------------:+:-------------------------------:+:-------------------------------:+:-----------------:+
+|         |     | **Col**                                                                                                                                     |
++---------+-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+|         |     | $a$                             | $b$               | $c$                             | $d$                             | $e$               |
++---------+-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+| **Row** | $A$ | [9]{.underline},[9]{.underline} | 5,1               | 6,4                             | 3,3                             | 1,8               |
+|         +-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+|         | $B$ | 3,1                             | 7,3               | 1,7                             | 3,[9]{.underline}               | 8,2               |
+|         +-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+|         | $C$ | 4,5                             | [8]{.underline},7 | 2,4                             | 4,1                             | 2,[9]{.underline} |
+|         +-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+|         | $D$ | 3,2                             | 1,5               | 3,[7]{.underline}               | [7]{.underline},[7]{.underline} | [9]{.underline},1 |
+|         +-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+|         | $E$ | 5,3                             | [8]{.underline},3 | [7]{.underline},[6]{.underline} | 3,5                             | 8,4               |
++---------+-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
+
+Any cell where both values are underlined is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: $\langle Aa \rangle$, $\langle Dd \rangle$, $\langle Ec \rangle$. I'll leave finding the mixed strategy equilibria as an exercise for the interested reader.
+
+## Finding Mixed Strategy Equilibria
+
+It isn't easy in general to find mixed strategy equilibria. But we can start by dividing the problem into two parts.
+
+1. Finding the support for each player's part of the equilibria.
+
+1. Finding the probability with which they play each part of their support.
+
+And it turns out, a bit surprisingly, that it is the first part of the problem that is harder in general. (Recall that the support of a mixed strategy is the set of pure strategies that have a positive probability of being played given that mixed strategy.) And while that isn't an easy problem to solve in general, it isn't something we need to worry about in very simple games. In games with just two options per player, then either there will be a pure strategy equilibria, or the mixed strategy Nash Equilibria will have all strategies in its support. Even if there are three strategies available per player, then it usually isn't too hard to find the support for the mixed strategy equilibria by just noting that strongly dominated strategies cannot be part of an equilibria.
+
+We'll start by considering the very abstractly defined game.
+
++:--------+----:+:-----------------:+:-----------------:+
+|         |     | **Col**                               |
++---------+-----+-------------------+-------------------+
+|         |     | $L$               | $R$               |
++---------+-----+-------------------+-------------------+
+| **Row** | $U$ | [a]{.underline},b | c,[d]{.underline} |
+|         +-----+-------------------+-------------------+
+|         | $D$ | e,[f]{.underline} | [0]{.underline},0 |
++---------+-----+-------------------+-------------------+
+
+Don't make too much of the fact that I've put 0 for both players in the bottom right. Since utility scales are only defined up to affine transformation, adding a constant to each possible payout a player gets literally doesn't change the game. So any game representation can be changed into an equivalent representation with 0 for each player in an arbitrarily chosen cell. We'll make that cell be the bottom right, but it could be anywhere.
+
+But do notice the underlining. That has meaning. In particular, it means that all of the following must hold.
+
+- $a > e$, since $a$ is underlined and $e$ is not, and those are the choices if Col chooses $L$.
+
+- $0 > c$, since $0$ is underlined (for Row) and $c$ is not, and those are the choices if Col chooses $R$.
+
+- $d > b$, since $d$ is underlined and $b$ is not, and those are the choices if Row chooses $U$.
+
+- $f > 0$, since $f$ is underlined and $0$ is not (for Col), and those are the choices if Row chooses $D$.
+
+Since there is no cell where both are underlined, there is no pure strategy equilibrium. So the equilibria must include at least one mixed strategy.
+
+Recall how we calculated the expected return $E(M)$ of the mixed strategy $\langle x, L; 1-x, R$, given the expected returns of $L$ and $R$. It is
+
+\begin{equation*}
+E(M) = xE(L) + (1-x)E(R)
+\end{equation*}
+
+ If we let $k = E(R) - E(L)$, we can rewrite this as
+
+\begin{align*}
+E(M) &= xE(L) + (1-x)E(R) \\
+&= xE(L) + (1-x)(E(L) + k) \\
+&= xE(L) + (1-x)E(L) + k(1-x) \\
+&= (x + (1-x))E(L) + k(1-x) \\
+&= E(L) + k(1-x)
+\end{align*}
+
+ A similar bit of reasoning shows that $E(M) = E(R) + kx$. Now if the strategy is genuinely mixed, then both $x$ and $1-x$ will be greater than 0. And so if $k \neq 0$, then one of $kx$ and $k(1-x)$ will be positive. And if one of them is positive, then $E(M)$ will be less than one of $E(L)$ and $E(R)$, so it won't be a best response.
+
+So the only time when $\langle x, L; 1-x, R$ is a best response for Col is when $E(L) = E(R)$. In that circumstance, all responses are best responses. In any other circumstance, one of the pure responses is best. So,
+
+- If the equilibrium has Col playing a mixed strategy, then Row must play a strategy that makes Col's expected returns from $L$ and $R$ equal.
+
+- And that can only obtain if Row herself plays a mixed strategy.
+
+I've done all this from Col's perspective, but we could redo the argument from Row's perspective to get a similar result; if a mixed strategy is to be best for Row, then Col must play the mixed strategy that makes each of Row's pure strategies equally good.
+
+So now we have a recipe, or at least something like one, for finding the mixed strategy equilibria. Each player must choose a mixed strategy that makes the expected return of the other player's pure strategies equal. So let's assume that
+
+- Row plays $\langle U, x; D, 1-x \rangle$; and
+
+- Col plays $\langle L, y; R, 1-y \rangle$
+
+Then we need $x$ to be such that $E(L) = E(R)$, and $y$ to be such that $E(U) = E(D)$. So we can solve for each of these variables in turn.
+
+\begin{align*}
+E(L) &= E(R) \\
+xb + (1-x)f &= xd \\
+xb + f - xf &= xd \\
+f &= xd + xf - xb \\
+f &= x(d + f -b) \\
+\frac{f}{d + f - b} &= x
+\end{align*}
+
+ So Row must play the mixed strategy $\langle U, \frac{f}{d + f - b}; D, \frac{d-b}{d + f - b} \rangle$ if there is to be an equilibrium. If she does, then Col's expected return from playing either $L$, or $R$, or any mixture of them, will be $\frac{df - bf}{d + f - b}$.
+
+Let's now solve for $y$ using the same technique.
+
+\begin{align*}
+E(U) &= E(D) \\
+ya + (1-y)c &= ye \\
+ya + c - yc &= ye \\
+c &= ye + yc - ya \\
+c &= y(e + c - a) \\
+\frac{c}{e + c - a} &= y
+\end{align*}
+
+ So Col must play the mixed strategy $\langle L, \frac{c}{e + c - a}; R, \frac{e-a}{e + c - a} \rangle$ if there is to be an equilibrium. If she does, then Row's expected return from playing either $U$, or $D$, or any mixture of them, will be $\frac{ec}{e + c - a}$.
+
+There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn't care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn't want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. Here are the payoffs.
+
++:--------+-----:+:-------:+:-----:+
+|         |      | **Col**         |
++---------+------+---------+-------+
+|         |      | $S$     | $NS$  |
++---------+------+---------+-------+
+| **Row** | $D$  | 10, -10 | -1, 0 |
+|         +------+---------+-------+
+|         | $ND$ | 0, 1    | 0, 0  |
++---------+------+---------+-------+
+
+The equilibrium of this game is that Col speeds with probability $\frac{1}{11}$, and Row detects with probability $\frac{1}{11}$, and each has an expected payoff of 0.
+
+Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like this.
+
++:--------+-----:+:-------:+:-----:+
+|         |      | **Col**         |
++---------+------+---------+-------+
+|         |      | $S$     | $NS$  |
++---------+------+---------+-------+
+| **Row** | $D$  | 10, -20 | -1, 0 |
+|         +------+---------+-------+
+|         | $ND$ | 0, 1    | 0, 0  |
++---------+------+---------+-------+
+
+If nothing else apart from the penalty for speeding, the rational response by police department Row is to reduce monitoring of speeding, and spend time on other crimes. After all, the new equilibrium is that Row detects with probability $\frac{1}{21}$, and Col still speeds with probability $\frac{1}{11}$. If there is a game in a mixed strategy equilibrium, and the result of any change to the payoffs will be to move it to a new equilibrium, then the only way to change Col's behavior is to either create a new dominant strategy, or to change Row's payoffs. Perhaps what the legislature should do here is to not just increase speeding fines, but to give the money to police departments - that would change the equilibrium of the game in a hurry.
+
+## Combining Strategies
+
+We'll work out the equilibria for the following game.
+
++:--------+----:+:---:+:----:+:----:+
+|         |     | **Col**           |
++---------+-----+-----+------+------+
+|         |     | $a$ | $b$  | $c$  |
++---------+-----+-----+------+------+
+| **Row** | $A$ | 5,0 | 0,1  | 1,-1 |
+|         +-----+-----+------+------+
+|         | $B$ | 0,2 | 1,0  | 2,1  |
+|         +-----+-----+------+------+
+|         | $C$ | 3,4 | -1,2 | 6,3  |
++---------+-----+-----+------+------+
+
+As a first step, we'll underline the best responses, and see if any equilibria turn up that way.
+
++:--------+----:+:-----------------:+:-----------------:+:-----------------:+
+|         |     | **Col**                                                   |
++---------+-----+-------------------+-------------------+-------------------+
+|         |     | $a$               | $b$               | $c$               |
++---------+-----+-------------------+-------------------+-------------------+
+| **Row** | $A$ | [5]{.underline},0 | 0,[1]{.underline} | 1,-1              |
+|         +-----+-------------------+-------------------+-------------------+
+|         | $B$ | 0,[2]{.underline} | [1]{.underline},0 | 2,1               |
+|         +-----+-------------------+-------------------+-------------------+
+|         | $C$ | 3,[4]{.underline} | -1,2              | [6]{.underline},3 |
++---------+-----+-------------------+-------------------+-------------------+
+
+That doesn't look like it helps. Row doesn't have any dominated strategies either. But Col does have a dominated strategy, since $a$ dominates $c$. It doesn't matter that $c$ might outperform $b$; there is no reason to play $c$ since $a$ will always do 1 point better. So let's delete that.
+
++:--------+----:+:-----------------:+:-----------------:+
+|         |     | **Col**                               |
++---------+-----+-------------------+-------------------+
+|         |     | $a$               | $b$               |
++---------+-----+-------------------+-------------------+
+| **Row** | $A$ | [5]{.underline},0 | 0,[1]{.underline} |
+|         +-----+-------------------+-------------------+
+|         | $B$ | 0,[2]{.underline} | [1]{.underline},0 |
+|         +-----+-------------------+-------------------+
+|         | $C$ | 3,[4]{.underline} | -1,2              |
++---------+-----+-------------------+-------------------+
+
+We don't have to change the underlining, because a dominated strategy is never a best response.
+
+Now compare options $A$ and $C$. If we rule out Col playing $c$, it turns out there is never a reason for Row to play $C$ over $A$. Option $A$ does better than $C$ whether Col plays $a$ or $b$. So let's delete option $C$ as well.
+
++:--------+----:+:-----------------:+:-----------------:+
+|         |     | **Col**                               |
++---------+-----+-------------------+-------------------+
+|         |     | $a$               | $b$               |
++---------+-----+-------------------+-------------------+
+| **Row** | $A$ | [5]{.underline},0 | 0,[1]{.underline} |
+|         +-----+-------------------+-------------------+
+|         | $B$ | 0,[2]{.underline} | [1]{.underline},0 |
++---------+-----+-------------------+-------------------+
+
+Now we have a familiar kind of game. Each player has two options, and there is no pure strategy equilibrium. The problem has reduced to the form of the problem we tackled in the previous subsection. The only equilibrium will be a mixed strategy equilibrium. And we find it by making each player leave the other indifferent between their options. I won't repeat the algebra for finding it, but you can verify yourself that the following works.
+
+- Row plays $\langle A, \frac{2}{3}; B, \frac{1}{3} \rangle$.
+
+- Col plays $\langle a, \frac{1}{6}; b, \frac{5}{6} \rangle$.
+
+If you prefer to have the mixed strategies range over all of the options that were originally available, with the strategies outside the support getting probability 0, we can write the equilibrium of the game as.
+
+- Row plays $\langle A, \frac{2}{3}; B, \frac{1}{3}; C, 0 \rangle$.
+
+- Col plays $\langle a, \frac{1}{6}; b, \frac{5}{6}; c, 0 \rangle$.
+
+## Why Care about Equilibria?
+
+There is a philosophical question, alluded to at the end of Chapter 2 of the textbook, about why we should care about Nash equilibria. Thinking about the mixed strategy equilibria can make these questions particularly vivid.
+
+Imagine I'm Col in one of the driving games from the last section. Why should I ever play a mixed strategy? Here is an argument that I should not.
+
+- If police Row is playing the mixed strategy that brings the game into equilibrium, then my expected return from playing either Speed or Not Speed is 0. So I don't have any incentive to play the particular mixed strategy that brings the game into equilibrium.
+
+- Figuring out how to make it that I speed with probability $\frac{1}{11}$ seems like hard work, when it will have no positive return.
+
+- If police Row is not playing the mixed strategy that brings the game into equilibrium, then one of the pure strategies open to me will have a higher expected return than playing the mixed strategy.
+
+So either playing the mixed strategy will involve work for no gain, or it will actually lower my expected return compared to an available alternative. This isn't seeming very promising. But we can imagine some circumstances when the mixed strategy would be more appealing. Here are three related circumstances where it seems useful.
+
+1. Imagine that I'm too incompetent to make decisions for myself in games like this. You have to advise me. But the advice will be public; police Row will see it as well. Then the only advice you can rationally offer is that I should play the mixed strategy. Any other advice will backfire because the police will respond to it in ways that make it worthless.
+
+1. Imagine that my strategy will leak to the police, no matter what. That could be because I'm so incompetent that I need to rely on public advice, or it could be because the police have a way of reading my moves. And imagine that the police are in the same boat; their strategy will leak to me. Then we should each play the equilibrium strategy; it is immune to doing worse in light of leaks. That's an implausible situation in most cases, but there is one special case worth considering.
+
+1. Imagine the game will be repeated so many times that eventually our strategies will become visible enough just from the record of our play. Then we are (eventually) back into the 'leaked strategy' situation. And in that situation, we should play equilibrium strategies.
+
+Personally, I think it's the last possibility that makes the concept of an equilibrium play so important. Equilibria (in one shot games) are interesting because they alone are sensible plays in repeated games.
+
+This matches up nicely with our intuitive judgments about games like the driving game. What would happen, intuitively, if one player deviated dramatically from the equilibrium in a one-shot game? The answer is that that player would probably do fine. If Col speeds, then they'll probably get away with it. But think about what would happen (again intuitively) if a player repeated non-equilibrium play over a long period of time. I think it would end up being counterproductive. If Col speeds all the time, Row will adjust and catch them. If Row detects all the time, Col will slow down, but Row will end up wasting detecting resources. It's in repeated games, that non-equilibrium play leads to disaster.
+
+Recall at the start of the chapter we said that it is hard to sometimes make sense of what it even means to play a mixed strategy outside of the context of a repeated game. The reasoning of the last paragraph is why I don't find that worrying. Just like it is hard to define a mixed strategy in a genuinely one-shot game, it is hard to motivate such a strategy. Mixed strategies become easier to define in repeated games, and they become easier to motivate in those games too.

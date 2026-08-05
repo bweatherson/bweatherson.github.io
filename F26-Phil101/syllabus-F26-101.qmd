@@ -1,0 +1,444 @@
+---
+title: 'PHIL 101: Introduction to Philosophy'
+author: "Brian Weatherson"
+date: "Fall 2026"
+format:
+  pdf:
+    keep-tex: true
+    pdf-engine: xelatex
+    fig-cap-location: bottom
+    geometry: margin=1in
+    mainfont: "EB Garamond Math"
+    mainfontoptions:
+      - BoldFont=EB Garamond SemiBold
+      - ItalicFont=EB Garamond Italic
+      - BoldItalicFont=EB Garamond SemiBold Italic
+    mathfont: "EB Garamond Math"
+    date-format: "[Fall] YYYY"
+    include-in-header:
+      text: |
+        \linespread{1.05}
+        \RedeclareSectionCommand[
+          afterskip=0.3ex,
+          beforeskip=0.8ex
+          ]{subsection}
+        \RedeclareSectionCommand[
+          afterskip=0.1ex,
+          beforeskip=0.5ex
+          ]{subsubsection}
+  html:
+    theme: cosmo
+    code-tools: false
+    toc: true
+    shift-heading-level-by: 1
+    date-format: "[Fall] YYYY"
+  docx: default
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| cache: false
+#| message: false
+#| warning: false
+
+knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+```{r}
+#| label: dates
+#| include: false
+#| cache: false
+
+mon <- as.Date("2026-08-31") # Monday of the first week, per the Fall 2026 academic calendar
+tue <- mon + 1
+wed <- tue + 1
+thu <- wed + 1
+fri <- thu + 1
+
+advdate <- function(obj, adv) {
+  theday <- obj + 7 * (adv - 1)
+  format(theday, format = "%A, %B %d")
+}
+```
+
+::: {.callout-important}
+## Draft for discussion with GSIs
+
+This version is for the pre-term meeting, not for students. The last section records what is still open. Delete that section, and this box, before the student version goes out.
+:::
+
+| **Instructor**: Brian Weatherson
+| **Email**: weath@umich.edu
+| **Office Hours**: TBD
+| **Lectures**: Tuesday and Thursday, 9:00–9:50, room TBD
+| **Discussion sections**: Twice weekly, 50 minutes, times and rooms TBD
+| **Web**: canvas.umich.edu and <https://bweatherson.github.io/F26-Phil101-site/>
+
+&nbsp;
+
+# Key Points
+
+- This course is an introduction to philosophy through a set of connected questions: how we ought to reason, when a belief is rational, what minds and persons are, and what we owe each other.
+- No background is assumed. Most readings are short, and all of them are free.
+- The course meets twice a week for lecture and twice a week for discussion section. Attendance at both matters, and a good deal of the assessment happens in the room.
+- Assessment is spread across many small pieces rather than concentrated in a few large ones. Nothing worth more than 3% falls due before the sixth week.
+- There is one essay, worth 25%, and it comes at the end of a sequence designed to teach you how to write it.
+
+# Course Description
+
+Philosophy starts from questions that are easy to ask and hard to answer. This course takes a handful of them and works through what has been said in reply, from classical India and ancient Greece to work published in the last few years.
+
+We begin with reasoning. What makes an argument a good one, what separates the inferences that are safe from the ones that pay, and why does a run of evidence never quite settle what comes next?
+
+The second unit asks when a belief is rational. We'll start with the question of when perceptual beliefs are rational, and then move onto other cases. A particular focus will be beliefs formed via testimony. This raises both theoretical questions, what makes a belief formed via testimony rational, and practical questions, in a world like this, who should we trust?
+
+The middle of the course is about minds. The big question here is one of the oldest in philosophy: what is the relationship between minds and bodies. We'll get to that by looking again at perception, and in particular thinking about the conscious aspects of perception, what it _feels like_ to perceive the world the way we do.
+
+The rest of the course is about value. What makes an action right, what makes a life go well, what makes you the same person you were at five, and what a state may and may not do to you. We end on free speech, which sends us back to where we started, since the case for free speech is a claim about how a group of people reasons its way to the truth.
+
+# Required Materials
+
+There is no textbook to buy. Every required reading is free and linked from the course site and from Canvas.
+
+Readings are short by design. Most weeks ask for under 5,000 words. Three days in the term are heavier, and they are marked in the schedule below.
+
+You will need an iclicker or the iclicker app for this course, since reading quizzes are answered in lecture. Details will be on Canvas before the first class.
+
+# Course Requirements
+
+| Component | Weight |
+|-----------------------------------------------|-------:|
+| Reading quizzes in lecture, best 15 of about 20 | 15% |
+| Discussion section, including Short Answer 1 | 20% |
+| Module quizzes, four at 2.5% each | 10% |
+| Short Answer 2 | 10% |
+| Essay | 25% |
+| Final examination | 20% |
+| **Total** | **100%** |
+
+**Reading quizzes.** Two or three questions in lecture on that day's reading. These should be trivial _if you've done the reading_. Quizzes run on **twenty** of the days that carry a reading and the best **fifteen** count, so five missed days cost you nothing and need no explanation.
+
+**Discussion section.** Twenty per cent of the grade is earned in section. Part of it is Short Answer 1, described below. **WE NEED TO DISCUSS WHAT GOES HERE BEFORE DISTIBUTING TO THE STTUDENTS**
+
+**Module quizzes.** Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up, and they are weighted accordingly.
+
+**Short Answer 1.** Three short questions on the first block of the course, written by hand in section in the week of `r advdate(mon, 6)`. About thirty minutes. This is the first piece of writing anyone reads.
+
+**Short Answer 2.** Five questions on Lectures 10 to 12, done at home, due Friday 23 October. They walk you through the moves a philosophy essay makes: state a view, give the best argument for it, raise the strongest objection, answer the objection, and say where you come down. Each answer is a paragraph. This is practice for the essay.
+
+**Essay.** About 1,200 words on a question in ethics or welfare, due Monday 23 November. The essay shoudl have a similar structure to Short Answer 2. We will get comments back to you on Short Answer 2 well before this is due.
+
+**Final examination.** Two parts. Multiple-choice questions covering the whole term, worth 12%. And three short-answer questions worth 8%, of the kind you have already met in Short Answer 1 and in section, drawn from the last three weeks of the course.
+
+# Submit Your Own Work
+
+Anything you put your name to, and hand in, has to be _your own work_. Copying passages from a textbook, borrowing someone else's work, paying someone to do it for you, or handing the assignment to a chatbot, are 
+
+# Canvas
+
+There is a Canvas site for this course at <https://canvas.umich.edu>. Readings, quizzes, and announcements live there. Check it regularly.
+
+There is also a course website at <https://bweatherson.github.io/F26-Phil101-site/> with the slides and other material.
+
+\pagebreak
+
+# Class Schedule
+
+Readings are listed under the class they are for, and should be done before that class. Where more than one required item is listed, do the shortest one first.
+
+The *Stanford Encyclopedia of Philosophy* (plato.stanford.edu) and the *Internet Encyclopedia of Philosophy* (iep.utm.edu) have entries on nearly every topic in this course. Both are free and written by specialists. Checking them is a good move whenever a reading or a lecture leaves you stuck, whether or not a particular entry is listed below.
+
+## Week 1: Getting Started
+
+### `r advdate(tue, 1)` (Lecture 1) — Introduction
+
+What the course is about, and how it works. No reading.
+
+### `r advdate(thu, 1)` (Lecture 2) — Deduction: the logic game
+
+We play a deduction game in class. No reading.
+
+## Week 2: Risky Inference
+
+### `r advdate(tue, 2)` (Lecture 3) — Induction, analogy, and explanation
+
+**Required**: Arthur Conan Doyle, "The Boscombe Valley Mystery," in *The Adventures of Sherlock Holmes* (Project Gutenberg). One passage only, about two pages: from "Sherlock Holmes was transformed when he was hot upon such a scent as this" to "There are several other indications, but these may be enough to aid us in our search." Holmes reads the ground, and then announces what he takes it to show. Those are two different things, and the class is about the second one.
+
+**Recommended**: the rest of the story, which is good.
+
+### `r advdate(thu, 2)` (Lecture 4) — Grue
+
+**Required**: Jonathan Weisberg, "The Grue Paradox," in *Odds & Ends*, ch. C.
+
+**Recommended**: Sven Neth, "Goodman's New Riddle of Induction Explained in Words of One Syllable."
+
+## Week 3: When Is a Belief Rational?
+
+### `r advdate(tue, 3)` (Lecture 5) — Perceptual evidence, and how many sources of knowledge there are
+
+**Required**: Todd R. Long, "Epistemic Justification: What is Rational Belief?" (1000-Word Philosophy).
+
+**Required**: SEP, "Epistemology in Classical Indian Philosophy," §1.1.
+
+**Recommended**: IEP, "Foundationalism," §§1–2.
+
+### `r advdate(thu, 3)` (Lecture 6) — Memory and the forgotten source
+
+**Required**: SEP, "Epistemological Problems of Memory," §2.4.
+
+**Recommended**: Lisa K. Fazio et al., "Knowledge Does Not Protect Against Illusory Truth."
+
+## Week 4: Believing Other People
+
+### `r advdate(tue, 4)` (Lecture 7) — Does testimony stand on its own?
+
+**Required**: Dhirendra Mohan Datta, "Testimony as a Method of Knowledge," *Mind* 36 (1927): 354–358.
+
+**Recommended**: Dan Sperber et al., "Epistemic Vigilance," *Mind & Language* 25 (2010).
+
+### `r advdate(thu, 4)` (Lecture 8) — Whom do you trust?
+
+**Required**: Elizabeth Anderson, "Democracy, Public Policy, and Lay Assessments of Scientific Testimony," *Episteme* (2011), §2 (pp. 145–149).
+
+**Recommended**: SEP, "The Social Dimensions of Scientific Knowledge," §2.
+
+## Week 5: Science, and the Mind
+
+### `r advdate(tue, 5)` (Lecture 9) — Why trust science, and how trust breaks
+
+**Required**: C. Thi Nguyen, "Escape the Echo Chamber" (*Aeon*).
+
+**Recommended**: Naomi Oreskes, "Defending science in a post-fact era" (*Harvard Gazette*, 2019).
+
+*Module Quiz 1 (Lectures 1–9) opens after class, due Sunday.*
+
+### `r advdate(thu, 5)` (Lecture 10) — Perception reconsidered
+
+**Required**: Bertrand Russell, *The Problems of Philosophy*, ch. 1, "Appearance and Reality."
+
+**Recommended**: SEP, "The Problem of Perception," §2, "The Argument from Illusion"; and IEP, "Sense-Data" (Michael Huemer). Short Answer 2 draws on this class and the two after it, so take whatever scaffolding is useful.
+
+## Week 6: Consciousness
+
+*Short Answer 1 is written in section this week.*
+
+### `r advdate(tue, 6)` (Lecture 11) — What it is like
+
+**Required**: Thomas Nagel, "What Is It Like to Be a Bat?" (1974). About sixteen pages, and one of the three heavier days in the term.
+
+### `r advdate(thu, 6)` (Lecture 12) — The hard problem, and Mary
+
+**Required**: Tufan Kıymaz, "The Knowledge Argument Against Physicalism" (1000-Word Philosophy).
+
+**Required**: Frank Jackson, "What Mary Didn't Know" (1986). Five pages. It joins a debate already in progress, so read Kıymaz first for the background.
+
+*Short Answer 2 goes out after class, on Lectures 10 to 12, due Friday 23 October.*
+
+## Week 7: Dualism
+
+### `r advdate(tue, 7)` (Lecture 13) — The case for
+
+**Required**: Peter Adamson, "What can Avicenna teach us about the mind-body problem?" (*Aeon Ideas*).
+
+**Required**: Marc Bobro, "René Descartes' *Meditations* 4–6" (1000-Word Philosophy). 999 words, and the last third is Meditation VI on the real distinction between mind and body.
+
+**Recommended**: Jacob Berger, "The Mind-Body Problem," the "Varieties of Dualism" section; and Descartes, Meditation VI itself (Bennett, Early Modern Texts) for anyone who wants the primary text.
+
+### `r advdate(thu, 7)` (Lecture 14) — The case against
+
+**Required**: Jacob Berger, "The Mind-Body Problem: What Are Minds?" (1000-Word Philosophy), the identity theory and functionalism sections, and the interaction objection.
+
+**Recommended**: IEP, "Identity Theory" (Susan Schneider), introduction; and Princess Elisabeth of Bohemia and Descartes, correspondence of 1643 (Bennett, Early Modern Texts), which is short and worth seeing in her own words.
+
+*Module Quiz 2 (Lectures 10–14) opens after class, due Sunday 1 November.*
+
+## Week 8: Consequentialism
+
+*Short Answer 2 due `r advdate(fri, 8)`.*
+
+### `r advdate(tue, 8)` — Fall Study Break, no class
+
+### `r advdate(thu, 8)` (Lecture 15) — Consequentialism
+
+**Required**: Shane Gronholz, "Consequentialism and Utilitarianism" (1000-Word Philosophy).
+
+**Required**: J. S. Mill, *Utilitarianism*, ch. 2, the greatest-happiness passage and the passage on higher and lower pleasures.
+
+**Recommended**: SEP, "Consequentialism" (Walter Sinnott-Armstrong), §1, "Classic Utilitarianism." About 1,300 words.
+
+## Week 9: Deontology and Trolleys
+
+### `r advdate(tue, 9)` (Lecture 16) — Deontology
+
+**Required**: Andrew Chapman, "Deontology: Kantian Ethics" (1000-Word Philosophy).
+
+**Recommended**: SEP, "Deontological Ethics," §1, "Deontology's Foil: Consequentialism"; and Immanuel Kant, *Groundwork*, Section I (Bennett, Early Modern Texts), the opening on the good will and the passages on universal law.
+
+### `r advdate(thu, 9)` (Lecture 17) — Trolley problems and objections
+
+**Required**: Gabriel Andrade, "The Doctrine of Double Effect" (1000-Word Philosophy).
+
+**Required**: Judith Jarvis Thomson, "The Trolley Problem" (1985), opening pages.
+
+## Week 10: What Makes a Life Go Well
+
+### `r advdate(tue, 10)` (Lecture 18) — What is welfare?
+
+**Required**: Richard Y. Chappell and Darius Meissner, "Theories of Well-Being," in R. Y. Chappell, D. Meissner, and W. MacAskill (eds.), *An Introduction to Utilitarianism* (2023), the introduction. <https://www.utilitarianism.net/theories-of-wellbeing>
+
+**Required**: Roger Crisp, "Well-Being," *Stanford Encyclopedia of Philosophy*, §1, "The Concept." <https://plato.stanford.edu/entries/well-being/>
+
+### `r advdate(thu, 10)` (Lecture 19) — Hedonism
+
+**Required**: SEP, "Well-Being," §4.1, "Hedonism."
+
+**Required**: Robert Nozick, "The Experience Machine" (excerpt). Two pages.
+
+*Short Answer 2 comes back Friday, with the essay question.*
+
+## Week 11: Desire, and the Objective List
+
+### `r advdate(tue, 11)` (Lecture 20) — Desire and preference theories
+
+**Required**: SEP, "Well-Being," §4.2, "Desire Theories."
+
+**Recommended**: "Theories of Well-Being" (utilitarianism.net), the desire-theory section.
+
+### `r advdate(thu, 11)` (Lecture 21) — Objective lists, and who has a welfare
+
+**Required**: SEP, "Well-Being," §4.3, "Objective List Theories."
+
+**Required**: "The Moral Status of Animals" (1000-Word Philosophy).
+
+**Recommended**: "If AIs Can Feel Pain, What Is Our Responsibility Towards Them?" (*Aeon*).
+
+**Recommended**: Walter Sinnott-Armstrong and Vincent Conitzer, "How Much Moral Status Could Artificial Intelligence Ever Achieve?", ch. 16 of Steve Clarke, Hazem Zohny, and Julian Savulescu (eds.), *Rethinking Moral Status* (Oxford University Press, 2021). Twenty-one pages, longer than anything else on this list, and the best single thing to read if you are writing your essay on who has a welfare.
+
+*Module Quiz 3 (Lectures 15–21) opens after class.*
+
+## Week 12: The Self
+
+### `r advdate(tue, 12)` (Lecture 22) — Personal identity: the cases
+
+**Required**: Kristin Seemuth Whaley, "Psychological Approaches to Personal Identity" (1000-Word Philosophy).
+
+**Required**: Derek Parfit, "Divided Minds and the Nature of Persons" (1987). Six pages.
+
+**Recommended**: Chad Vance, "Personal Identity: How We Exist Over Time" (1000-Word Philosophy).
+
+### `r advdate(thu, 12)` (Lecture 23) — What matters in survival
+
+**Required**: John Locke, *Essay*, II.xxvii, §§9–26 (Bennett, Early Modern Texts), the prince and the cobbler.
+
+**Required**: Daniel Weltman, "The Buddhist Theory of No-Self" (1000-Word Philosophy).
+
+**Required**: Jessica Gordon-Roth, "Locke on Personal Identity," *Stanford Encyclopedia of Philosophy*, §1, "Locke on Persons and Personal Identity: The Basics." About 2,000 words, and it works through the prince and the cobbler alongside Locke's distinction between a man and a person.
+
+## Week 13: Law
+
+*Essay due `r advdate(mon, 13)`.*
+
+### `r advdate(tue, 13)` (Lecture 24) — Why obey the law?
+
+**Required**: Spencer Case, "Plato's *Crito*: When Should We Break the Law?" (1000-Word Philosophy). Read this first.
+
+**Required**: Plato, *Crito* (Jowett translation, Project Gutenberg). A short dialogue, and one of the three heavier days.
+
+### `r advdate(thu, 13)` — Thanksgiving recess, no class
+
+## Week 14: Punishment and Speech
+
+### `r advdate(tue, 14)` (Lecture 25) — Theories of punishment
+
+**Required**: Travis Joseph Rodgers, "Theories of Punishment" (1000-Word Philosophy).
+
+**Recommended**: SEP, "Legal Punishment," the consequentialist and retributivist sections.
+
+### `r advdate(thu, 14)` (Lecture 26) — Free speech and the marketplace of ideas
+
+**Required**: Mark Satta, "Free Speech" (1000-Word Philosophy).
+
+**Required**: J. S. Mill, *On Liberty*, ch. 2, as far as the four distinct grounds. The third of the heavier days.
+
+## Week 15: Ending
+
+### `r advdate(tue, 15)` (Lecture 27) — Does the marketplace track truth?
+
+**Required**: David V. Johnson, "How do we pry apart the true and compelling from the false and toxic?" (*Aeon Ideas*).
+
+*Module Quiz 4 (Lectures 22–27) opens after class, due Friday.*
+
+### `r advdate(thu, 15)` (Lecture 28) — Review
+
+No reading. Bring questions.
+
+The final examination is in the University examination period, 14–21 December. The date and room will be posted once the University publishes the schedule.
+
+\pagebreak
+
+# Open for the GSI meeting
+
+*This section is not for students. Delete it before the syllabus goes out.*
+
+## The section component
+
+Twenty per cent is a lot to leave undefined, and two of the three GSIs are teaching for the first time, so the aim of the meeting is to hand them a structure rather than a blank page. Proposed split, to be argued about:
+
+| Piece | Weight |
+|---|---:|
+| Short Answer 1, written in section | 8% |
+| Section engagement, banded rubric | 7% |
+| One further task, form chosen by the GSI from an agreed menu | 5% |
+
+For the 5%, a menu of three or four options gives real choice without asking anyone to invent an assessment. Candidates: a short presentation on a reading, leading discussion once, a second in-section written exercise, or a structured reading response.
+
+For the 7%, a rubric with three or four bands and a worked description of each. Worth checking distributions across sections around week eight, since three markers on 20% of the grade is where cross-section inequity shows up.
+
+Also needed: a worked example of a marked Short Answer 1, and a calibration meeting once the first batch is in.
+
+## Consequences of the November essay deadline
+
+The essay is due Monday 23 November so that marked essays go back before the examination. Three things follow, and the GSIs should hear all three.
+
+Short Answer 2 is marked across a fortnight, 23 October to 6 November, because its feedback is the writing instruction the essay leans on. Ten hours each over two weeks. The 6 November return date is not movable: the essay question goes out with the marked scripts, and slipping it eats the essay window rather than the marking window.
+
+Essays are marked between 30 November and 11 December, not over the Thanksgiving recess. Seventeen hours each across two working weeks, returned on the last day of classes.
+
+Lectures 22 to 28 now sit outside every piece of written work. Module Quiz 4 at 2.5% is all that attaches to them, which is not enough to keep a room full of first-years awake in December. The proposed fix is to draw the final's short-answer questions from that stretch and say so on the syllabus, which puts about 10.5% on the last three weeks.
+
+## Decisions still outstanding
+
+- Whether Short Answer 1 is written by hand or typed, which sets what the section rooms need.
+- The reading-quiz drop policy. Best 15 of about 20 gives five free absences, which is kind, but it also lets a student with fifteen strong scores by mid-November skip the last three weeks for nothing. Best 15 of 18 closes that hole and is harder on anyone genuinely ill.
+- Accommodations for Short Answer 1: at this enrolment several students will need extra time or a keyboard, and a 50-minute section cannot absorb that without arrangement.
+- A makeup path for Short Answer 1. Expect ten to fifteen absences across six sections; one scheduled makeup slot is cheaper than arranging them singly.
+- The clicker platform, and whether it ties responses to the room.
+- Whether the AI paragraph above matches what the department and the University require this year.
+
+## What the recommended column is for
+
+Settled, so it does not get re-argued. It serves three purposes, in ascending order of how real they are: the very keen student, of whom there are approximately none; the student writing an essay on that topic, of whom there are a few, and who is the reason Day 21 carries the Sinnott-Armstrong chapter; and the GSIs and future instructors, who need somewhere to draw from. The third is the one that earns the column its place. It could live in a separate document, but it does no harm here.
+
+## Readings that need checking before this goes to students
+
+- Five readings are course-hosted copies of in-copyright work: Nagel, Jackson, Chalmers, the Nozick excerpt, and Parfit. Parfit is the one most likely to be a problem. Every link wants testing, and Parfit wants a fallback (SEP "Personal Identity" §§4–5 alongside Whaley and Vance would cover the ground).
+- Four excerpt ranges are still named by description rather than by page: Mill's *Utilitarianism* ch. 2, Mill's *On Liberty* ch. 2, Thomson, and Locke's §§9–26. The Locke range is fixed; the rest need exact ranges from the Gutenberg texts. Kant and Descartes's Meditation VI have moved to recommended, so their ranges matter less.
+
+- Days 13 and 14 no longer require a Bennett text. Descartes's argument now comes through Marc Bobro's 1000-word piece, with Meditation VI kept as recommended for anyone who wants the primary.
+
+  Elisabeth is the unresolved one. I could not find an accessible short piece on her that does what Adamson's does for Avicenna. The candidates are all wrong for a 101: the SEP entry on her is dense, the Hypatia and Project MUSE articles are scholarly, and the rest of what surfaces is blog posts of uncertain provenance. Berger's 1000-word essay carries the interaction objection, which covers the argument, but it does not put her on the page as a person. The cheap fix is the one used for the Doyle: quote her letter directly on a slide. Worth another look before term if it matters to you, and worth flagging as a genuine gap in the free-and-accessible literature.
+
+- Day 21's Sinnott-Armstrong and Conitzer chapter is safe to link. The copy is on Conitzer's own faculty page at CMU, so it is an author self-archive rather than a scraped PDF, and the book was Wellcome-funded and released open access, which is why it also appears on NCBI Bookshelf and OAPEN. Both routes are legitimate. The chapter is the second reason to keep the recommended column: it is exactly the extra reading an essay writer on welfare subjects should be pointed at.
+
+- Small correction carried into Day 18: the SEP "Well-Being" section 1 is titled "The Concept", not "The Concept of Well-Being".
+
+- Day 23 now carries three required items, the only day in the term that does: Locke's §§9–26, Weltman on no-self, and Gordon-Roth's SEP section. By word count it is not the heaviest day, but by number of things to open it is. If that is one too many, the consistent cut is to demote the Locke to recommended and let Gordon-Roth carry the prince and the cobbler, which is exactly the move made on Day 13 with Descartes. I have left the primary required because your worry about Bennett was about Descartes and Elisabeth being hard to follow, and the prince-and-cobbler passage is neither long nor obscure. Your call whether the objection generalises.
+- Day 3 has no reading in the original plan. Conan Doyle's "The Boscombe Valley Mystery" is proposed here, cut to the two pages from "Sherlock Holmes was transformed" to "these may be enough to aid us in our search." That span holds the observation phase and the inference phase, which is the structure the lecture teaches.
+
+  Settled: the two pages are required and the rest of the story is recommended. Deck 03 quotes four passages and two of them fall outside the required span, the "trivial example of observation and inference, therein lies my métier" line and the "nothing more deceptive than an obvious fact" exchange, both of which come before Holmes reaches the scene. The slide quotes each in full, so nobody is asked to recall something they were not given. Both are verified against the text and the deck's wording is accurate.
+- Day 17 lists Thomson rather than Foot. Foot's paper is where the case originates, but its framing is an argument about abortion, which is a lot to hand a first-year in week 9 as the required text. Foot works better as recommended, or as instructor background.
+- Day 18 has no Keller piece, since none at 101 length is freely available. Keller stays as background.
+- Day 25's Mill speech on capital punishment is left off pending a clean host.

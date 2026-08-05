@@ -356,16 +356,16 @@ That deserves its own section, so let's give it one.
 The literature contains at least five accounts of what a mixed equilibrium describes. We will go over each of these in turn.
 
 ::: {.nonincremental}
-1. Literal randomisation
-2. Long-run frequency
+1. Objective chance
+2. Frequentist
 3. Population proportions
 4. Purification
-5. Belief
+5. Epistemic
 :::
 
-## Literal Randomisation
+## Objective Chance
 
-Players use a randomising device and know that they are using one.
+Players use a randomising device and know that they are using one. The probabilities in the equilibrium are **objective chances**.
 
 . . .
 
@@ -391,13 +391,13 @@ In practice, this is pretty similar to real randomisation. But theoretically, it
 
 For all this, it doesn't solve the indifference puzzle. Why set the randomiser (or the as-if randomiser) to one setting rather than another?
 
-## Long-Run Frequency
+## Frequentist
 
 The mixture is not something in anyone's head. It is a limiting frequency in a long series of plays.
 
 . . .
 
-This is a version of the _frequentist_ interpretation of probability associated with Hans Reichenbach.^[In particular his 1935 book _Wahrscheinlichkeitslehre_, translated into English and published in 1949 as _The Theory of Probability: An Inquiry into the Logical and Mathematical Foundations of the Calculus of Probability_.]
+This is the **frequentist** interpretation of probability, associated with Hans Reichenbach.^[In particular his 1935 book _Wahrscheinlichkeitslehre_, translated into English and published in 1949 as _The Theory of Probability: An Inquiry into the Logical and Mathematical Foundations of the Calculus of Probability_.]
 
 . . .
 
@@ -433,9 +433,9 @@ As the perturbation shrinks to nothing, the distribution over actions converges 
 
 We'll come back to this point in lecture 10; we need some theory to explain it. So this is a promissory note for that later discussion.
 
-## Belief
+## Epistemic
 
-The last reading gives up on the idea that anyone randomises at all. This is the project of _epistemic game theory_, most associated with Robert Aumann and Adam Brandenburger.^[It's also the version of game theory that Robert Stalnaker contributed the most to, so it's got deep connections to philosophy.]
+The last reading gives up on the idea that anyone randomises at all. This is the **epistemic** reading, and the project of _epistemic game theory_, most associated with Robert Aumann and Adam Brandenburger.^[It's also the version of game theory that Robert Stalnaker contributed the most to, so it's got deep connections to philosophy.]
 
 . . .
 

@@ -1,0 +1,82 @@
+/*-- scss:defaults --*/
+
+// EB Garamond from Google Fonts, so students get it without an Adobe account.
+// This is the same family as the PDF, which uses the local EB Garamond Math.
+$web-font-path: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap";
+
+// EB Garamond has no true bold. 600 is SemiBold, matching
+// BoldFont=EB Garamond SemiBold in the PDF build. From htmlfonts.scss.
+$font-weight-normal: 400 !default;
+$font-weight-bold:   600 !default;
+
+$font-family-sans-serif: "EB Garamond", Georgia, "Times New Roman", serif !default;
+$headings-font-family:   "EB Garamond", Georgia, "Times New Roman", serif !default;
+
+// Garamond has a small x-height and reads small on screen at 16px.
+$font-size-root: 18px !default;
+
+// No rules on tables anywhere, matching heavyrulewidth/lightrulewidth = 0.
+$table-border-color: transparent !default;
+
+/*-- scss:rules --*/
+
+.toc-title,
+.sidebar-title,
+.quarto-title-meta-heading {
+  font-family: $headings-font-family;
+}
+
+/* Tables.
+   Payoff matrices should size to their content and sit centred. Two separate
+   things stretch them: pandoc writes an inline style="width:N%" computed from
+   the ASCII art in the source (most land at 39-51%, about twenty at 78-97%),
+   and Bootstrap's .table rule stretches the rest to 100%. An inline style
+   beats a class rule, hence !important. The colgroup percentages have to go
+   too or the cells stretch inside an auto-width table. */
+main table {
+  width: auto !important;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 0;
+}
+
+main table col {
+  width: auto !important;
+}
+
+/* As few lines as possible. None of these tables has a header row, so there
+   is nothing a rule would separate. Bootstrap's default cell padding is built
+   for data tables and leaves a 2x2 matrix looking sparse; nowrap keeps a
+   payoff pair like "3, 3" from breaking across lines. */
+main table th,
+main table td {
+  border: 0;
+  padding: 0.25rem 0.65rem;
+  white-space: nowrap;
+}
+
+/* Definition lists, from htmlfonts.scss. */
+dt {
+  float: none;
+  text-align: left;
+  font-weight: $font-weight-bold;
+}
+
+dl {
+  margin: 0.5em 0.5em 0.5em 1em;
+}
+
+.column-container {
+  font-weight: 300;
+  font-size: smaller;
+}
+
+/* Printing from the browser: keep a payoff matrix on one page, the way the
+   minipage wrapper does for the PDF. */
+@media print {
+  main table {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
