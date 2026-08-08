@@ -119,3 +119,8 @@ W26-Phil305-site/Final_Exam.pdf
 W26-Phil305-site/site_libs/quarto-html/.DS_Store
 W26-Phil305-site/site_libs/revealjs/.DS_Store
 W26-Phil305-site/site_libs/quarto-html/.DS_Store
+
+# Full-resolution image originals. Derivatives in images/ are committed;
+# the originals never are. Applies to every course folder.
+# Build the derivatives with: python3 tools/prep-images.py build --dir F26-PhilNNN
+**/images/_originals/

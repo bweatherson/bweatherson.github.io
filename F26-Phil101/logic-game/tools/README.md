@@ -18,10 +18,11 @@ Search 3×3 puzzles that require a genuine three-clue reductio:
 
     node gen2.js 3 3 3 200      # width height targetHardness tries
 
-Read a specific puzzle (the three in the game are seeds 19, 17, 26):
+Read a specific puzzle (the four in the game are seeds 19, 17, 74, 26):
 
     node inspect.js 3 3 19      # warm-up
     node inspect.js 4 3 17      # challenge
+    node inspect.js 4 3 74      # challenge II
     node inspect.js 3 3 26      # worked example
 
 ## Adding a puzzle to the game

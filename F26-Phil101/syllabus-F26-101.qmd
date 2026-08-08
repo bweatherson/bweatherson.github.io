@@ -103,15 +103,15 @@ The rest of the course is about value. What makes an action right, what makes a 
 
 There is no textbook to buy. Every required reading is free and linked from the course site and from Canvas.
 
-Readings are short by design. Most weeks ask for under 5,000 words. Three days in the term are heavier, and they are marked in the schedule below.
+Readings are short by design. Most weeks ask for under 5,000 words (about 10-15 pages of a normal book), though there are a couple of heavier days.
 
-You will need an iclicker or the iclicker app for this course, since reading quizzes are answered in lecture. Details will be on Canvas before the first class.
+You will need an iClicker or the iClicker app for this course, since reading quizzes are answered in lecture. Details will be on Canvas before the first class.
 
 # Course Requirements
 
 | Component | Weight |
 |-----------------------------------------------|-------:|
-| Reading quizzes in lecture, best 15 of about 20 | 15% |
+| Reading quizzes in lecture, best 15 of 20 | 15% |
 | Discussion section, including Short Answer 1 | 20% |
 | Module quizzes, four at 2.5% each | 10% |
 | Short Answer 2 | 10% |
@@ -121,7 +121,7 @@ You will need an iclicker or the iclicker app for this course, since reading qui
 
 **Reading quizzes.** Two or three questions in lecture on that day's reading. These should be trivial _if you've done the reading_. Quizzes run on **twenty** of the days that carry a reading and the best **fifteen** count, so five missed days cost you nothing and need no explanation.
 
-**Discussion section.** Twenty per cent of the grade is earned in section. Part of it is Short Answer 1, described below. **WE NEED TO DISCUSS WHAT GOES HERE BEFORE DISTIBUTING TO THE STTUDENTS**
+**Discussion section.** Twenty per cent of the grade is earned in section. Part of it is Short Answer 1, described below. **WE NEED TO DISCUSS WHAT GOES HERE BEFORE DISTRIBUTING TO THE STUDENTS**
 
 **Module quizzes.** Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up, and they are weighted accordingly.
 
@@ -129,9 +129,9 @@ You will need an iclicker or the iclicker app for this course, since reading qui
 
 **Short Answer 2.** Five questions on Lectures 10 to 12, done at home, due Friday 23 October. They walk you through the moves a philosophy essay makes, and are practice for the essay.
 
-**Essay.** About 1,200 words on a question in ethics or welfare, due Monday 23 November. The essay shoudl have a similar structure to Short Answer 2. We will get comments back to you on Short Answer 2 well before this is due.
+**Essay.** About 1,200 words on a question in ethics or welfare, due Monday 23 November. The essay should have a similar structure to Short Answer 2. We will get comments back to you on Short Answer 2 well before this is due.
 
-**Final examination.** This will primarily be on the last part of the course, since there is no work to turn in from that part. It will be a mix of short-answer and multiple-choice.
+**Final examination.** This will be on the last part of the course, since there is no work to turn in from that part. It will be a mix of short-answer and multiple-choice.
 
 # Submit Your Own Work
 
@@ -139,7 +139,7 @@ Anything you put your name to, and hand in, has to be _your own work_. Copying p
 
 In practice, we have the following two rules on *everything* written that you turn in.
 
-1. There must be an *acknowledgments* section where you record all the help you got, from friends, family, books, computers, etc. You should overshare here; it's fine to get lots of help, and as long as the result is your own work, we aren't going to worry what help you got. One exception to this: if  if you do use any online tools (that includes search engines, now that they have language models built it) you must keep records of everything you ask them. Do not use anyone else's account, or any account you cannot access the history of, for any course-related purpose.
+1. There must be an *acknowledgments* section where you record all the help you got, from friends, family, books, computers, etc. You should overshare here; it's fine to get lots of help, and as long as the result is your own work, we aren't going to worry what help you got. One exception to this: if  if you do use any online tools (that includes search engines, now that they have language models built in) you must keep records of everything you ask them. Do not use anyone else's account, or any account you cannot access the history of, for any course-related purpose.
 2. For anything you write, you have to be able to answer two questions: _What did you mean by that?_ and _Why did you write that?_. That's what we mean by something being your own work; you can explain and defend it.
 
 **NOTE FOR GSIs - THIS IS IMPORTANT AND WILL BE SOMETHING YOU HAVE TO DO; WE SHOULD TALK ABOUT THE LOGISTICS OF THIS AND WHETHER IT CAN BE IMPROVED**
@@ -192,15 +192,15 @@ We play a deduction game in class. No reading.
 
 ### `r advdate(thu, 3)` (Lecture 6) — Memory and the forgotten source
 
-**Required**: Matthew Frise, ["Epistemological Problems of Memory](https://plato.stanford.edu/entries/memory-episprob/#PresGene), SEP, **§2.4**.    
+**Required**: Matthew Frise, ["Epistemological Problems of Memory"](https://plato.stanford.edu/entries/memory-episprob/#PresGene), SEP, **§2.4**.    
 **Recommended**: Lisa K. Fazio et al., ["Knowledge Does Not Protect Against Illusory Truth."](https://www.apa.org/pubs/journals/features/xge-0000098.pdf)
 
 ## Week 4: Believing Other People
 
 ### `r advdate(tue, 4)` (Lecture 7) — Does testimony stand on its own?
 
-**Required**: Dhirendra Mohan Datta, ["Testimony as a Method of Knowledge," *Mind* 36 (1927): 354–358](https://academic.oup.com/mind/article-abstract/XXXVI/143/354/1029875).    
-**Recommended**: Dan Sperber et al., ["Epistemic Vigilance," *Mind & Language* 25 (2010)](https://www.dan.sperber.fr/wp-content/uploads/2010_clement-et-al_epistemic-vigilance.pdf).
+**Required**: Dhirendra Mohan Datta, ["Testimony as a Method of Knowledge,"](https://www.jstor.org/stable/2249544)  *Mind* 36 (1927): 354–358. (Note you need to be on campus, or have a JSTOR account, for this one.)       
+**Recommended**: Dan Sperber et al., ["Epistemic Vigilance,"](https://www.dan.sperber.fr/wp-content/uploads/2010_clement-et-al_epistemic-vigilance.pdf) *Mind & Language* 25 (2010).
 
 ### `r advdate(thu, 4)` (Lecture 8) — Whom do you trust?
 
@@ -303,7 +303,7 @@ We play a deduction game in class. No reading.
 ### `r advdate(thu, 11)` (Lecture 21) — Objective lists, and who has a welfare
 
 **Required**: Roger Crisp, ["Well-Being"](https://plato.stanford.edu/entries/well-being/), SEP, **§4.3**, "Objective List Theories."    
-**Required**: Lori Gruen amd Susana Monsó, ["The Moral Status of Animals"](https://plato.stanford.edu/entries/moral-animal/#MorConAni), SEP, **§1.1**, "Speciesism" and **§1.4**, "Sentience".    
+**Required**: Lori Gruen and Susana Monsó, ["The Moral Status of Animals"](https://plato.stanford.edu/entries/moral-animal/#MorConAni), SEP, **§1.1**, "Speciesism" and **§1.4**, "Sentience".    
 **Recommended**: Conor Purcell, ["If AIs Can Feel Pain, What Is Our Responsibility Towards Them?"](https://aeon.co/essays/if-ais-can-feel-pain-what-is-our-responsibility-towards-them), *Aeon*.    
 **Recommended**: Walter Sinnott-Armstrong and Vincent Conitzer, ["How Much Moral Status Could Artificial Intelligence Ever Achieve?"](https://www.cs.cmu.edu/~conitzer/AImoralstatuschapter.pdf). If you are writing an essay on this topic, this is **Required**.
 
@@ -320,7 +320,7 @@ We play a deduction game in class. No reading.
 ### `r advdate(thu, 12)` (Lecture 23) — What matters in survival
 
 **Required**: John Locke, [*An Essay Concerning Human Understanding*, Book II: Ideas](https://www.earlymoderntexts.com/assets/pdfs/locke1690book2_4.pdf), Chapter xxvii, §§9, 14, and 26. (Those are on pages 115, 117, and 120.)    
-**Required**: Daniel Weltman, ["The Buddhist Theory of No-Self"](https://1000wordphilosophy.com/2023/02/25/no-self/) (1000-Word Philosophy).
+**Required**: Daniel Weltman, ["The Buddhist Theory of No-Self"](https://1000wordphilosophy.com/2023/02/25/no-self/) (1000-Word Philosophy).    
 **Required**: Jessica Gordon-Roth, ["Locke on Personal Identity"](https://plato.stanford.edu/entries/locke-personal-identity/), *Stanford Encyclopedia of Philosophy*, **§1**, "Locke on Persons and Personal Identity: The Basics."    
 **Recommended**: [*An Essay Concerning Human Understanding*, Book II: Ideas](https://www.earlymoderntexts.com/assets/pdfs/locke1690book2_4.pdf), all of Chapter xxvii, for anyone who wants to see the details of Locke's view in a more original form.
 
@@ -330,7 +330,7 @@ We play a deduction game in class. No reading.
 
 ### `r advdate(tue, 13)` (Lecture 24) — Why obey the law?
 
-**Required**: John Protavi, ["Plato's *Crito*"](https://www.protevi.com/john/FH/PDF/Crito.pdf). Read this first.    
+**Required**: John Protevi, ["Plato's *Crito*"](https://www.protevi.com/john/FH/PDF/Crito.pdf). Read this first.    
 **Required**: Plato, [*Crito*](https://www.gutenberg.org/files/1657/1657-h/1657-h.htm).  (Jowett translation, Project Gutenberg)
 
 ### `r advdate(thu, 13)` — Thanksgiving recess, no class

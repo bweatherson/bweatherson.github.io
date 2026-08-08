@@ -1,6 +1,6 @@
 # Phil 101 — Reading Options (Days 4–27)
 
-A menu to sort, not a final list. Bias throughout: short, structured, freely available, friendly to non-majors. Each line is: citation — link — free? · length · why it fits. Days 6–9 are already chosen and marked accordingly. Long primary texts (Mill, Kant, Foot, Thomson, Crito, On Liberty) are flagged "excerpt"; the Early Modern Texts editions are genuinely free, public-domain, and modernized for readability.
+A menu to sort, not a final list. Bias throughout: short, structured, freely available, friendly to non-majors. Each line is: citation — link — free? · length · why it fits. Days 4–9 are already chosen and marked accordingly. Long primary texts (Mill, Kant, Foot, Thomson, Crito, On Liberty) are flagged "excerpt"; the Early Modern Texts editions are genuinely free, public-domain, and modernized for readability.
 
 ## Reasoning
 
