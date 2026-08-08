@@ -67,13 +67,15 @@ The load-bearing connections, so they survive edits:
 - The first four classes are reasoning and inference; 5 to 9 are the epistemology of evidence and testimony. Perceptual evidentialism (5–6) now comes before testimony (7–9), so testimony has something to be measured against. Memory (6) is the bridge: a forgotten-source belief is usually forgotten testimony.
 - Hume on miracles lives inside the testimony class at 7, as the lead reductionist case Datta answers, rather than in a religion unit.
 - The mind unit opens by reconsidering perception (10). We leaned on perception as evidence for the whole epistemology unit; now we crack the bedrock open. The flying man opens the unit as a hook and pays off at 13.
+- Welfare hands to welfare subjects across the 20–21 seam, and the handover has to happen in class on the Tuesday. Desire theories at 20 run into beings who cannot form desires: infants, animals, anyone with severe cognitive impairment. That is the marginal-cases problem wearing welfare clothing, and it is the same shape as the question 21 asks about who has a welfare at all. Close 20 on it.
+
+  This is not optional polish. Day 21 assigns Gruen and Monsó §§1.1 and 1.4, and §1.4 argues for sentience as the reply to the personhood criterion set out in §1.3, which is not assigned. If the personhood view has not been put up on the Tuesday, the Thursday reading is an answer to a question the room has never heard asked.
+
 - The self unit ends on Locke's forensic person (23), which hands to law and politics: the person is whoever can be held responsible.
 - Law and politics runs authority, then coercion, then limits: Crito on why to obey, punishment on what the state may do to you, free speech on what it may not. Free speech at 27 closes the loop back to the first half, testing the marketplace of ideas against echo chambers, the illusory truth effect, and manufactured controversy.
 
 Calendar fit: the Fall break still lands exactly at the mind-to-ethics seam. Thanksgiving now falls at a clean join, after Crito and before punishment, with Crito as a self-contained dialogue that suits a thin pre-holiday Tuesday and the punishment-and-free-speech stretch running unbroken after.
 
 Deliberately left out: philosophy of religion (replaced by law and politics, with miracles kept and moved into the testimony class), free will, and the meaning-of-life topics. The buffer is a single slack day at 28; expect units to grow.
-
-Slide files still to renumber to match this order (05 becomes Evidence I, the memory deck becomes 06, the Datta deck becomes 07, Anderson 08, Oreskes and Nguyen 09).
 
 Parked in planning, not yet placed: the 2026 "old debates, new instances" asides (kept varied across technologies, not all LLMs), and two take-home discussion questions, belief versus representation (end of mind) and the identity conditions of an AI (end of personal identity).

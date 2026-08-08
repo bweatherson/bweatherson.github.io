@@ -1,0 +1,897 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[BoldFont=EB Garamond SemiBold,ItalicFont=EB Garamond
+Italic,BoldItalicFont=EB Garamond SemiBold Italic]{EB Garamond Math}
+  \setmathfont[]{EB Garamond Math}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\linespread{1.05}
+\RedeclareSectionCommand[
+  afterskip=0.3ex,
+  beforeskip=0.8ex
+  ]{subsection}
+\RedeclareSectionCommand[
+  afterskip=0.1ex,
+  beforeskip=0.5ex
+  ]{subsubsection}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={PHIL 101: Introduction to Philosophy},
+  pdfauthor={Brian Weatherson},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{PHIL 101: Introduction to Philosophy}
+\author{Brian Weatherson}
+\date{Fall 2026}
+\begin{document}
+\maketitle
+
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Draft for discussion with GSIs}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+This version is for the pre-term meeting, not for students. The last
+section records what is still open. Delete that section, and this box,
+before the student version goes out.
+
+\end{tcolorbox}
+
+\textbf{Instructor}: Brian Weatherson\\
+\textbf{Email}: weath@umich.edu\\
+\textbf{Office Hours}: TBD\\
+\textbf{Lectures}: Tuesday and Thursday, 9:00--9:50, room TBD\\
+\textbf{Discussion sections}: Twice weekly, 50 minutes, times and rooms
+TBD\\
+\textbf{Web}: canvas.umich.edu and
+\url{https://bweatherson.github.io/F26-Phil101-site/}
+
+~
+
+\section{Key Points}\label{key-points}
+
+\begin{itemize}
+\tightlist
+\item
+  This course is an introduction to philosophy through a set of
+  connected questions: how we ought to reason, when a belief is
+  rational, what minds and persons are, and what we owe each other.
+\item
+  No background is assumed. Most readings are short, and all of them are
+  free.
+\item
+  The course meets twice a week for lecture and twice a week for
+  discussion section. Attendance at both matters, and a good deal of the
+  assessment happens in the room.
+\item
+  Assessment is spread across many small pieces rather than concentrated
+  in a few large ones. Nothing worth more than 3\% falls due before the
+  sixth week.
+\item
+  There is one essay, worth 25\%, and it comes at the end of a sequence
+  designed to teach you how to write it.
+\end{itemize}
+
+\section{Course Description}\label{course-description}
+
+Philosophy starts from questions that are easy to ask and hard to
+answer. This course takes a handful of them and works through what has
+been said in reply, from classical India and ancient Greece to work
+published in the last few years.
+
+We begin with reasoning. What makes an argument a good one, what
+separates the inferences that are safe from the ones that pay, and why
+does a run of evidence never quite settle what comes next?
+
+The second unit asks when a belief is rational. We'll start with the
+question of when perceptual beliefs are rational, and then move onto
+other cases. A particular focus will be beliefs formed via testimony.
+This raises both theoretical questions, what makes a belief formed via
+testimony rational, and practical questions, in a world like this, who
+should we trust?
+
+The middle of the course is about minds. The big question here is one of
+the oldest in philosophy: what is the relationship between minds and
+bodies. We'll get to that by looking again at perception, and in
+particular thinking about the conscious aspects of perception, what it
+\emph{feels like} to perceive the world the way we do.
+
+The rest of the course is about value. What makes an action right, what
+makes a life go well, what makes you the same person you were at five,
+and what a state may and may not do to you. We end on free speech, which
+sends us back to where we started, since the case for free speech is a
+claim about how a group of people reasons its way to the truth.
+
+\section{Required Materials}\label{required-materials}
+
+There is no textbook to buy. Every required reading is free and linked
+from the course site and from Canvas.
+
+Readings are short by design. Most weeks ask for under 5,000 words.
+Three days in the term are heavier, and they are marked in the schedule
+below.
+
+You will need an iclicker or the iclicker app for this course, since
+reading quizzes are answered in lecture. Details will be on Canvas
+before the first class.
+
+\section{Course Requirements}\label{course-requirements}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Component & Weight \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Reading quizzes in lecture, best 15 of about 20 & 15\% \\
+Discussion section, including Short Answer 1 & 20\% \\
+Module quizzes, four at 2.5\% each & 10\% \\
+Short Answer 2 & 10\% \\
+Essay & 25\% \\
+Final examination & 20\% \\
+\textbf{Total} & \textbf{100\%} \\
+\end{longtable}
+}
+
+\textbf{Reading quizzes.} Two or three questions in lecture on that
+day's reading. These should be trivial \emph{if you've done the
+reading}. Quizzes run on \textbf{twenty} of the days that carry a
+reading and the best \textbf{fifteen} count, so five missed days cost
+you nothing and need no explanation.
+
+\textbf{Discussion section.} Twenty per cent of the grade is earned in
+section. Part of it is Short Answer 1, described below. \textbf{WE NEED
+TO DISCUSS WHAT GOES HERE BEFORE DISTIBUTING TO THE STTUDENTS}
+
+\textbf{Module quizzes.} Four short open-book multiple-choice quizzes,
+taken on Canvas, one at the end of each block of the course. These are
+there to help you keep up, and they are weighted accordingly.
+
+\textbf{Short Answer 1.} Three short questions on the first block of the
+course, written by hand in section in the week of Monday, October 05.
+About thirty minutes. This is the first piece of writing anyone reads.
+
+\textbf{Short Answer 2.} Five questions on Lectures 10 to 12, done at
+home, due Friday 23 October. They walk you through the moves a
+philosophy essay makes, and are practice for the essay.
+
+\textbf{Essay.} About 1,200 words on a question in ethics or welfare,
+due Monday 23 November. The essay shoudl have a similar structure to
+Short Answer 2. We will get comments back to you on Short Answer 2 well
+before this is due.
+
+\textbf{Final examination.} This will primarily be on the last part of
+the course, since there is no work to turn in from that part. It will be
+a mix of short-answer and multiple-choice.
+
+\section{Submit Your Own Work}\label{submit-your-own-work}
+
+Anything you put your name to, and hand in, has to be \emph{your own
+work}. Copying passages from a textbook, borrowing someone else's work,
+paying someone to do it for you, or handing the assignment to a chatbot,
+are ways of creating documents that are not your own work, and are
+violations of academic integrity. Getting someone (or something) else to
+translate what you wrote is also \emph{not acceptable} for this course.
+
+In practice, we have the following two rules on \emph{everything}
+written that you turn in.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  There must be an \emph{acknowledgments} section where you record all
+  the help you got, from friends, family, books, computers, etc. You
+  should overshare here; it's fine to get lots of help, and as long as
+  the result is your own work, we aren't going to worry what help you
+  got. One exception to this: if if you do use any online tools (that
+  includes search engines, now that they have language models built it)
+  you must keep records of everything you ask them. Do not use anyone
+  else's account, or any account you cannot access the history of, for
+  any course-related purpose.
+\item
+  For anything you write, you have to be able to answer two questions:
+  \emph{What did you mean by that?} and \emph{Why did you write that?}.
+  That's what we mean by something being your own work; you can explain
+  and defend it.
+\end{enumerate}
+
+\textbf{NOTE FOR GSIs - THIS IS IMPORTANT AND WILL BE SOMETHING YOU HAVE
+TO DO; WE SHOULD TALK ABOUT THE LOGISTICS OF THIS AND WHETHER IT CAN BE
+IMPROVED}
+
+To that end, we will frequently \textbf{audit} the turned in work. In
+practice, that means we'll ask the auditee (that might be you!) to
+explain, in person, what they meant by various claims, and why they
+wrote it. We will audit work that we think is suspicious, and we will
+also do some audits \emph{at random}. If we audit you, this does not
+mean we think you cheated; it could be random. It's annoying for us, and
+I'm sure annoying for you, that we have to do this, but the evidence is
+that people turning in work which is not their own is a bit out of
+control.
+
+\section{Canvas}\label{canvas}
+
+There is a Canvas site for this course at
+\url{https://canvas.umich.edu}. Readings, quizzes, and announcements
+live there. Check it regularly.
+
+There is also a course website at
+\url{https://bweatherson.github.io/F26-Phil101-site/} with the slides
+and other material.
+
+\pagebreak
+
+\section{Class Schedule}\label{class-schedule}
+
+Readings are listed under the class they are for, and should be done
+before that class. Where more than one required item is listed, do the
+shortest one first.
+
+The \emph{Stanford Encyclopedia of Philosophy} (plato.stanford.edu) and
+the \emph{Internet Encyclopedia of Philosophy} (iep.utm.edu) have
+entries on nearly every topic in this course. Both are free and written
+by specialists. Checking them is a good move whenever a reading or a
+lecture leaves you stuck, whether or not a particular entry is listed
+below. These entries are often long, and the listings below will
+sometimes point you to the part of an entry that's most relevant.
+
+\subsection{Week 1: Getting Started}\label{week-1-getting-started}
+
+\subsubsection{Tuesday, September 01 (Lecture 1) ---
+Introduction}\label{tuesday-september-01-lecture-1-introduction}
+
+What the course is about, and how it works. No reading.
+
+\subsubsection{Thursday, September 03 (Lecture 2) --- Deduction: the
+logic
+game}\label{thursday-september-03-lecture-2-deduction-the-logic-game}
+
+We play a deduction game in class. No reading.
+
+\subsection{Week 2: Risky Inference}\label{week-2-risky-inference}
+
+\subsubsection{Tuesday, September 08 (Lecture 3) --- Induction, analogy,
+and
+explanation}\label{tuesday-september-08-lecture-3-induction-analogy-and-explanation}
+
+\textbf{Required}: Arthur Conan Doyle,
+\href{https://www.gutenberg.org/ebooks/1661}{``The Boscombe Valley
+Mystery,'' in \emph{The Adventures of Sherlock Holmes}} (Project
+Gutenberg). One passage only, about two pages: from ``Sherlock Holmes
+was transformed when he was hot upon such a scent as this'' to ``There
+are several other indications, but these may be enough to aid us in our
+search.'' This isn't a philosophy paper, but we'll start with the
+philosophical presuppositions behind it.
+
+\textbf{Recommended}: \href{https://www.gutenberg.org/ebooks/1661}{The
+rest of the story}.
+
+\subsubsection{Thursday, September 10 (Lecture 4) ---
+Grue}\label{thursday-september-10-lecture-4-grue}
+
+\textbf{Required}: Jonathan Weisberg,
+\href{https://jonathanweisberg.org/vip/grue.html}{``The Grue Paradox,''
+in \emph{Odds \& Ends}, appendix C}.
+
+\textbf{Recommended}: Sven Neth,
+\href{https://philpapers.org/archive/NETGNR.pdf}{``Goodman's New Riddle
+of Induction Explained in Words of One Syllable.''}
+
+\subsection{Week 3: When Is a Belief
+Rational?}\label{week-3-when-is-a-belief-rational}
+
+\subsubsection{Tuesday, September 15 (Lecture 5) --- Perceptual
+evidence, and how many sources of knowledge there
+are}\label{tuesday-september-15-lecture-5-perceptual-evidence-and-how-many-sources-of-knowledge-there-are}
+
+\textbf{Required}: Todd R. Long,
+\href{https://1000wordphilosophy.com/2023/03/19/epistemic-justification/}{``Epistemic
+Justification: What is Rational Belief?''} (1000-Word Philosophy).
+
+\textbf{Required}: SEP,
+\href{https://plato.stanford.edu/entries/epistemology-india/\#KnowKnowSour}{``Epistemology
+in Classical Indian Philosophy,'' §1.1}.
+
+\textbf{Recommended}: IEP,
+\href{https://iep.utm.edu/foundationalism-in-epistemology/}{``Foundationalism,''
+§§1--2}.
+
+\subsubsection{Thursday, September 17 (Lecture 6) --- Memory and the
+forgotten
+source}\label{thursday-september-17-lecture-6-memory-and-the-forgotten-source}
+
+\textbf{Required}: SEP,
+\href{https://plato.stanford.edu/entries/memory-episprob/\#PresGene}{``Epistemological
+Problems of Memory,'' §2.4}.
+
+\textbf{Recommended}: Lisa K. Fazio et al.,
+\href{https://www.apa.org/pubs/journals/features/xge-0000098.pdf}{``Knowledge
+Does Not Protect Against Illusory Truth.''}
+
+\subsection{Week 4: Believing Other
+People}\label{week-4-believing-other-people}
+
+\subsubsection{Tuesday, September 22 (Lecture 7) --- Does testimony
+stand on its
+own?}\label{tuesday-september-22-lecture-7-does-testimony-stand-on-its-own}
+
+\textbf{Required}: Dhirendra Mohan Datta,
+\href{https://academic.oup.com/mind/article-abstract/XXXVI/143/354/1029875}{``Testimony
+as a Method of Knowledge,'' \emph{Mind} 36 (1927): 354--358}.
+
+\textbf{Recommended}: Dan Sperber et al.,
+\href{https://www.dan.sperber.fr/wp-content/uploads/2010_clement-et-al_epistemic-vigilance.pdf}{``Epistemic
+Vigilance,'' \emph{Mind \& Language} 25 (2010)}.
+
+\subsubsection{Thursday, September 24 (Lecture 8) --- Whom do you
+trust?}\label{thursday-september-24-lecture-8-whom-do-you-trust}
+
+\textbf{Required}: Elizabeth Anderson,
+\href{https://joelvelasco.net/teaching/2330/democracy-public-policy-and-lay-assessments-of-scientific-testimony1.pdf}{``Democracy,
+Public Policy, and Lay Assessments of Scientific Testimony,''
+\emph{Episteme} (2011), §2 (pp.~145--149)}.
+
+\textbf{Recommended}: SEP,
+\href{https://plato.stanford.edu/entries/scientific-knowledge-social/\#BigSciTruAut}{``The
+Social Dimensions of Scientific Knowledge,'' §2}.
+
+\subsection{Week 5: Science, and the
+Mind}\label{week-5-science-and-the-mind}
+
+\subsubsection{Tuesday, September 29 (Lecture 9) --- Why trust science,
+and how trust
+breaks}\label{tuesday-september-29-lecture-9-why-trust-science-and-how-trust-breaks}
+
+\textbf{Required}: C. Thi Nguyen,
+\href{https://aeon.co/essays/why-its-as-hard-to-escape-an-echo-chamber-as-it-is-to-flee-a-cult}{``Escape
+the Echo Chamber'' (\emph{Aeon})}.
+
+\textbf{Recommended}: Naomi Oreskes,
+\href{https://news.harvard.edu/gazette/story/2019/10/in-why-trust-science-naomi-oreskes-explains-why-the-process-of-proof-is-worth-trusting/}{``Defending
+science in a post-fact era'' (\emph{Harvard Gazette}, 2019)}.
+
+\emph{Module Quiz 1 (Lectures 1--9) opens after class, due Sunday.}
+(NOTE FOR GSIs; should I just post the questions earlier?)
+
+\subsubsection{Thursday, October 01 (Lecture 10) --- Perception
+reconsidered}\label{thursday-october-01-lecture-10-perception-reconsidered}
+
+\textbf{Required}: Bertrand Russell,
+\href{https://www.gutenberg.org/files/5827/5827-h/5827-h.htm}{\emph{The
+Problems of Philosophy}, ch.~1, ``Appearance and Reality.''}
+
+\textbf{Recommended}: SEP,
+\href{https://plato.stanford.edu/entries/perception-problem/}{``The
+Problem of Perception,'' §2, ``The Argument from Illusion''}; and IEP,
+\href{https://iep.utm.edu/sense-da/}{``Sense-Data''}.
+
+\subsection{Week 6: Consciousness}\label{week-6-consciousness}
+
+\emph{Short Answer 1 is written in section this week.}
+
+\subsubsection{Tuesday, October 06 (Lecture 11) --- What it is
+like}\label{tuesday-october-06-lecture-11-what-it-is-like}
+
+\textbf{Required}: Thomas Nagel,
+\href{https://rintintin.colorado.edu/~vancecd/phil201/Nagel.pdf}{``What
+Is It Like to Be a Bat?''}. Note this is slightly more reading than most
+days in class.
+
+\subsubsection{Thursday, October 08 (Lecture 12) --- The hard problem,
+and
+Mary}\label{thursday-october-08-lecture-12-the-hard-problem-and-mary}
+
+\textbf{Required}: Tufan Kıymaz,
+\href{https://1000wordphilosophy.com/2019/10/05/the-knowledge-argument-against-physicalism/}{``The
+Knowledge Argument Against Physicalism''} (1000-Word Philosophy).
+
+\textbf{Required}: Frank Jackson,
+\href{https://courses.physics.illinois.edu/phys419/sp2021/Jackson1986_WhatMaryDidntKnow.pdf}{``What
+Mary Didn't Know''}. It's probably best to read Kıymaz first as
+background for Jackson's paper.
+
+\emph{Short Answer 2 goes out after class, on Lectures 10 to 12, due
+Friday 23 October.}
+
+\subsection{Week 7: Dualism}\label{week-7-dualism}
+
+\subsubsection{Tuesday, October 13 (Lecture 13) --- The case
+for}\label{tuesday-october-13-lecture-13-the-case-for}
+
+\textbf{Required}: Peter Adamson,
+\href{https://aeon.co/ideas/what-can-avicenna-teach-us-about-the-mind-body-problem}{``What
+can Avicenna teach us about the mind-body problem?'' (\emph{Aeon
+Ideas})}.
+
+\textbf{Required}: Marc Bobro,
+\href{https://1000wordphilosophy.com/2018/08/05/descartes-meditations-4-6/}{``René
+Descartes' \emph{Meditations} 4--6''} (1000-Word Philosophy). The most
+important part is the end, on Meditation VI.
+
+\textbf{Recommended}: Jacob Berger,
+\href{https://1000wordphilosophy.com/2024/02/03/mind-body-problem/}{``The
+Mind-Body Problem,'' the ``Varieties of Dualism'' section}; and
+\href{https://www.earlymoderntexts.com/assets/pdfs/descartes1641.pdf}{Descartes,
+Meditation VI itself (Bennett, Early Modern Texts)}.
+
+\subsubsection{Thursday, October 15 (Lecture 14) --- The case
+against}\label{thursday-october-15-lecture-14-the-case-against}
+
+\textbf{Required}: Jacob Berger,
+\href{https://1000wordphilosophy.com/2024/02/03/mind-body-problem/}{``The
+Mind-Body Problem: What Are Minds?'' (1000-Word Philosophy)}.
+
+\textbf{Recommended}: IEP,
+\href{https://iep.utm.edu/identity/}{``Identity Theory'', introduction};
+and Princess Elisabeth of Bohemia and Descartes,
+\href{https://www.earlymoderntexts.com/assets/pdfs/descelis.pdf}{correspondence
+of 1643}.
+
+\emph{Module Quiz 2 (Lectures 10--14) opens after class, due Sunday 1
+November.}
+
+\subsection{Week 8: Consequentialism}\label{week-8-consequentialism}
+
+\emph{Short Answer 2 due Friday, October 23.}
+
+\subsubsection{Tuesday, October 20 --- Fall Study Break, no
+class}\label{tuesday-october-20-fall-study-break-no-class}
+
+\subsubsection{Thursday, October 22 (Lecture 15) ---
+Consequentialism}\label{thursday-october-22-lecture-15-consequentialism}
+
+\textbf{Required}: Shane Gronholz,
+\href{https://1000wordphilosophy.com/2014/05/15/consequentialism/}{``Consequentialism
+and Utilitarianism''} (1000-Word Philosophy).
+
+\textbf{Required}: J. S. Mill,
+\href{https://utilitarianism.net/books/utilitarianism-john-stuart-mill/2/}{\emph{Utilitarianism}}
+ch.~2, first five paragraphs (extract posted to Canvas).
+
+\textbf{Recommended}: SEP,
+\href{https://plato.stanford.edu/entries/consequentialism/}{``Consequentialism''},
+§1, ``Classic Utilitarianism.''
+
+\subsection{Week 9: Deontology and
+Trolleys}\label{week-9-deontology-and-trolleys}
+
+\subsubsection{Tuesday, October 27 (Lecture 16) ---
+Deontology}\label{tuesday-october-27-lecture-16-deontology}
+
+\textbf{Required}: Andrew Chapman,
+\href{https://1000wordphilosophy.com/2014/06/09/introduction-to-deontology-kantian-ethics/}{``Deontology:
+Kantian Ethics''} (1000-Word Philosophy).
+
+\textbf{Recommended}: SEP,
+\href{https://plato.stanford.edu/entries/ethics-deontological/}{``Deontological
+Ethics,''} §1, ``Deontology's Foil: Consequentialism''; and Immanuel
+Kant,
+\href{https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf}{\emph{Groundwork},
+Section I}, especially the opening on the good will and the passages on
+universal law.
+
+\subsubsection{Thursday, October 29 (Lecture 17) --- Trolley problems
+and
+objections}\label{thursday-october-29-lecture-17-trolley-problems-and-objections}
+
+\textbf{Required}: Gabriel Andrade,
+\href{https://1000wordphilosophy.com/2023/03/11/doctrine-of-double-effect/}{``The
+Doctrine of Double Effect''} (1000-Word Philosophy).
+
+\textbf{Required}: Judith Jarvis Thomson,
+\href{https://openyls.law.yale.edu/handle/20.500.13051/16338}{``The
+Trolley Problem''}, sections I and II.
+
+\subsection{Week 10: What Makes a Life Go
+Well}\label{week-10-what-makes-a-life-go-well}
+
+\subsubsection{Tuesday, November 03 (Lecture 18) --- What is
+welfare?}\label{tuesday-november-03-lecture-18-what-is-welfare}
+
+\textbf{Required}: Richard Y. Chappell and Darius Meissner,
+\href{https://www.utilitarianism.net/theories-of-wellbeing}{``Theories
+of Well-Being''}, the introduction.
+
+\textbf{Required}: Roger Crisp,
+\href{https://plato.stanford.edu/entries/well-being/}{``Well-Being''},
+\emph{Stanford Encyclopedia of Philosophy}, §1, ``The Concept.''
+
+\subsubsection{Thursday, November 05 (Lecture 19) ---
+Hedonism}\label{thursday-november-05-lecture-19-hedonism}
+
+\textbf{Required}: SEP,
+\href{https://plato.stanford.edu/entries/well-being/}{``Well-Being''},
+§4.1, ``Hedonism.''
+
+\textbf{Required}: Robert Nozick,
+\href{https://rintintin.colorado.edu/~vancecd/phil3160/Nozick1.pdf}{``The
+Experience Machine''}. (This is just a two page excerpt.)
+
+\emph{Short Answer 2 comes back Friday, with the essay question.}
+(AGAIN, IT MIGHT BE BEST TO DISTRIBUTE ESSAY QUESTIONS EARLIER)
+
+\subsection{Week 11: Desire, and the Objective
+List}\label{week-11-desire-and-the-objective-list}
+
+\subsubsection{Tuesday, November 10 (Lecture 20) --- Desire and
+preference
+theories}\label{tuesday-november-10-lecture-20-desire-and-preference-theories}
+
+\textbf{Required}: SEP,
+\href{https://plato.stanford.edu/entries/well-being/}{``Well-Being,''
+§4.2, ``Desire Theories.''}
+
+\textbf{Recommended}:
+\href{https://utilitarianism.net/theories-of-wellbeing/\#desire-theories}{``Theories
+of Well-Being'' (utilitarianism.net), the desire-theory section}.
+
+\subsubsection{Thursday, November 12 (Lecture 21) --- Objective lists,
+and who has a
+welfare}\label{thursday-november-12-lecture-21-objective-lists-and-who-has-a-welfare}
+
+\textbf{Required}: SEP,
+\href{https://plato.stanford.edu/entries/well-being/}{``Well-Being''},
+§4.3, ``Objective List Theories.''
+
+\textbf{Required}:
+\href{https://1000wordphilosophy.com/2014/02/03/the-moral-status-of-animals/}{``The
+Moral Status of Animals''} (1000-Word Philosophy).
+
+\textbf{Recommended}:
+\href{https://aeon.co/essays/if-ais-can-feel-pain-what-is-our-responsibility-towards-them}{``If
+AIs Can Feel Pain, What Is Our Responsibility Towards Them?''
+(\emph{Aeon})}.
+
+\textbf{Recommended}: Walter Sinnott-Armstrong and Vincent Conitzer,
+\href{https://www.cs.cmu.edu/~conitzer/AImoralstatuschapter.pdf}{``How
+Much Moral Status Could Artificial Intelligence Ever Achieve?''}. If you
+are writing an essay on this topic, this is \textbf{Required}.
+
+\emph{Module Quiz 3 (Lectures 15--21) opens after class.}
+
+\subsection{Week 12: The Self}\label{week-12-the-self}
+
+\subsubsection{Tuesday, November 17 (Lecture 22) --- Personal identity:
+the
+cases}\label{tuesday-november-17-lecture-22-personal-identity-the-cases}
+
+\textbf{Required}: Kristin Seemuth Whaley,
+\href{https://1000wordphilosophy.com/2022/02/03/psychological-approaches-to-personal-identity/}{``Psychological
+Approaches to Personal Identity''} (1000-Word Philosophy).
+
+\textbf{Required}: Derek Parfit,
+\href{https://rintintin.colorado.edu/~vancecd/phil375/Parfit.pdf}{``Divided
+Minds and the Nature of Persons''}.
+
+\textbf{Recommended}: Chad Vance,
+\href{https://1000wordphilosophy.com/2014/02/10/personal-identity/}{``Personal
+Identity: How We Exist Over Time''} (1000-Word Philosophy).
+
+\subsubsection{Thursday, November 19 (Lecture 23) --- What matters in
+survival}\label{thursday-november-19-lecture-23-what-matters-in-survival}
+
+\textbf{Required}: John Locke,
+\href{https://www.earlymoderntexts.com/assets/pdfs/locke1690book2_4.pdf}{\emph{Essay},
+II.xxvii}, §§9, 14, and 26.
+
+\textbf{Required}: Daniel Weltman,
+\href{https://1000wordphilosophy.com/2023/02/25/no-self/}{``The Buddhist
+Theory of No-Self''} (1000-Word Philosophy).
+
+\textbf{Required}: Jessica Gordon-Roth,
+\href{https://plato.stanford.edu/entries/locke-personal-identity/}{``Locke
+on Personal Identity''}, \emph{Stanford Encyclopedia of Philosophy}, §1,
+``Locke on Persons and Personal Identity: The Basics.''
+
+\textbf{Recommended}:
+\href{https://www.earlymoderntexts.com/assets/pdfs/locke1690book2_4.pdf}{Locke,
+II.xxvii, §§9--26 entire}, for anyone who wants to see the details of
+Locke's view in a more original form.
+
+\subsection{Week 13: Law}\label{week-13-law}
+
+\emph{Essay due Monday, November 23.}
+
+\subsubsection{Tuesday, November 24 (Lecture 24) --- Why obey the
+law?}\label{tuesday-november-24-lecture-24-why-obey-the-law}
+
+\textbf{Required}: John Protavi,
+\href{https://www.protevi.com/john/FH/PDF/Crito.pdf}{``Plato's
+\emph{Crito}''}. Read this first.
+
+\textbf{Required}: Plato,
+\href{https://www.gutenberg.org/files/1657/1657-h/1657-h.htm}{\emph{Crito}}.
+(Jowett translation, Project Gutenberg)
+
+\subsubsection{Thursday, November 26 --- Thanksgiving recess, no
+class}\label{thursday-november-26-thanksgiving-recess-no-class}
+
+\subsection{Week 14: Punishment and
+Speech}\label{week-14-punishment-and-speech}
+
+\subsubsection{Tuesday, December 01 (Lecture 25) --- Theories of
+punishment}\label{tuesday-december-01-lecture-25-theories-of-punishment}
+
+\textbf{Required}: Travis Joseph Rodgers,
+\href{https://1000wordphilosophy.com/2019/02/05/theories-of-punishment/}{``Theories
+of Punishment''} (1000-Word Philosophy).
+
+\textbf{Recommended}: SEP,
+\href{https://plato.stanford.edu/entries/legal-punishment/}{``Legal
+Punishment''}, the consequentialist and retributivist sections.
+
+\subsubsection{Thursday, December 03 (Lecture 26) --- Free speech and
+the marketplace of
+ideas}\label{thursday-december-03-lecture-26-free-speech-and-the-marketplace-of-ideas}
+
+\textbf{Required}: Mark Satta,
+\href{https://1000wordphilosophy.com/2021/02/04/free-speech/}{``Free
+Speech''} (1000-Word Philosophy)
+
+\textbf{Required}: J. S. Mill and H. T. Mill,
+\href{https://www.gutenberg.org/files/34901/34901-h/34901-h.htm}{\emph{On
+Liberty}}, extract on Canvas.
+
+\subsection{Week 15: Ending}\label{week-15-ending}
+
+\subsubsection{Tuesday, December 08 (Lecture 27) --- Does the
+marketplace track
+truth?}\label{tuesday-december-08-lecture-27-does-the-marketplace-track-truth}
+
+\textbf{Required}: David V. Johnson,
+\href{https://aeon.co/ideas/how-do-we-pry-apart-the-true-and-compelling-from-the-false-and-toxic}{``How
+do we pry apart the true and compelling from the false and toxic?''
+(\emph{Aeon Ideas})}.
+
+\emph{Module Quiz 4 (Lectures 22--27) opens after class, due Friday.}
+
+\subsubsection{Thursday, December 10 (Lecture 28) ---
+Review}\label{thursday-december-10-lecture-28-review}
+
+No reading. Bring questions.
+
+The final examination is in the University examination period, 14--21
+December. The date and room will be posted once the University publishes
+the schedule.
+
+\pagebreak
+
+\section{Open for the GSI meeting}\label{open-for-the-gsi-meeting}
+
+\emph{This section is not for students. Delete it before the syllabus
+goes out.}
+
+\subsection{The section component}\label{the-section-component}
+
+We should decide what to do with the 20\%. That's a lot for you, but on
+the other hand, it gives you plenty of things to do in class, and two
+classes a week is a lot to prep. So I think we should go with something
+like
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Short Answer 1 \textasciitilde8\%
+\item
+  Presentations on readings \textasciitilde6\%
+\item
+  Participation \textasciitilde6\%
+\end{enumerate}
+
+But we can alter point 2, or add something else. I think it would
+\emph{probably} be best to be uniform across the sections, but I'm
+willing to be talked out of it.
+
+\subsection{Consequences of the November essay
+deadline}\label{consequences-of-the-november-essay-deadline}
+
+The essay is due Monday 23 November so that marked essays go back before
+the examination.
+
+Short Answer 2 is marked across two weeks, 23 October to 6 November.
+That's an important deadline to hit, because the students should use the
+feedback from in in essay 1. Also, this should get \emph{more} feedback
+than either short answer 1 or frankly the essay. (And definitely more
+than the exam.)
+
+Then essay marking doesn't have as hard a deadline; ideally 2 weeks
+after it's turned in, but a bit of slippage here isn't the end of the
+world.
+
+The stuff at the end isn't as crucial to the grading, because it only
+shows up on one quiz and an exam. That may result in some loss of
+enthusiasm. Now maybe that's fine; it's the end of term. And free speech
+normally gets enough enthusiasm anyway. And no matter what the grade,
+students over-index on the importance of the exam. But if you're
+worried, we could move some of the 20\% to in class activities after the
+essay is due in.
+
+Short Answer 1 is meant to be in class, and this could cause
+accommodations complications. We should flag this early, and get on top
+of any issues. The same goes for any other in class writing assignments
+you want to do. Also, you might want to schedule a makeup slot -
+preferably one slot across all six sections, because out of 150 we will
+always have some crises.
+
+
+
+
+\end{document}

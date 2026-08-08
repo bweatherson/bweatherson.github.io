@@ -1,0 +1,79 @@
+---
+title: "Of the Liberty of Thought and Discussion"
+subtitle: "Two extracts from Chapter 2 of _On Liberty_"
+author: "John Stuart Mill and Harriet Taylor Mill"
+format:
+  pdf:
+    pdf-engine: xelatex
+    geometry: margin=1in
+    fontsize: 12pt
+    mainfont: "EB Garamond Math"
+    mainfontoptions:
+      - BoldFont=EB Garamond SemiBold
+      - ItalicFont=EB Garamond Italic
+      - BoldItalicFont=EB Garamond SemiBold Italic
+    include-in-header:
+      text: |
+        \linespread{1.06}
+  html:
+    theme: cosmo
+    toc: false
+---
+
+**Phil 101, Class 26.** Read this before class. It is about 1,050 words.
+
+**About these extracts.** *On Liberty* appeared in 1859. Its second chapter is the case
+against silencing opinions, and it runs to about 16,700 words. Printed here are the two
+ends of it: the principle stated as strongly as it is ever stated, and the summary at
+the close of the chapter of the four grounds established for it. Before them is the
+dedication, which stands at the front of the book.
+
+**On the authorship.** The book was published under John Stuart Mill's name alone, and
+older editions print it that way. It is now commonly credited to Harriet Taylor Mill as
+well, and the Hackett edition of 2026 was the first to put both names on the title page. Mill says that they wrote it together in his *Autobiography*:
+
+> The *Liberty* was more directly and literally our joint production than anything else which bears my name, for there was not a sentence of it that was not several times gone through by us together, turned over in many ways, and carefully weeded of any faults, either in thought or expression, that we detected in it.
+
+Note what he singles out: this book, as against everything else he wrote. There is
+support that does not rest on his word, in stylometric work by Christoph Schmidt-Petri,
+Michael Schefczyk and Lilly Osburg (*Utilitas*, 2022), arguing that the writing is not
+all in one hand.
+
+You have spent a good part of this term on when to believe what you are told. Mill is a
+witness with an interest, writing in grief for his wife. The dedication below is his
+too, and it is doing several things at once. Read both with the distinction in mind.
+
+**On the text.** The chapter comes from Project Gutenberg's edition of *On Liberty*,
+eBook 34901, which names Mill alone. The work is in the public domain, and the full text
+is at <https://www.gutenberg.org/ebooks/34901>. One footnote marker has been removed. The italic line between the two extracts is mine.
+
+------------------------------------------------------------------------
+
+### Dedication
+
+*To the beloved and deplored memory of her who was the inspirer, and in part the author, of all that is best in my writings—the friend and wife whose exalted sense of truth and right was my strongest incitement, and whose approbation was my chief reward—I dedicate this volume. Like all that I have written for many years, it belongs as much to her as to me; but the work as it stands has had, in a very insufficient degree, the inestimable advantage of her revision; some of the most important portions having been reserved for a more careful re-examination, which they are now never destined to receive. Were I but capable of interpreting to the world one-half the great thoughts and noble feelings which are buried in her grave, I should be the medium of a greater benefit to it than is ever likely to arise from anything that I can write, unprompted and unassisted by her all but unrivalled wisdom.*
+
+------------------------------------------------------------------------
+
+### I. The principle
+
+The time, it is to be hoped, is gone by, when any defence would be necessary of the "liberty of the press" as one of the securities against corrupt or tyrannical government. No argument, we may suppose, can now be needed, against permitting a legislature or an executive, not identified in interest with the people, to prescribe opinions to them, and determine what doctrines or what arguments they shall be allowed to hear. This aspect of the question, besides, has been so often and so triumphantly enforced by preceding writers, that it need not be specially insisted on in this place. Though the law of England, on the subject of the press, is as servile to this day as it was in the time of the Tudors, there is little danger of its being actually put in force against political discussion, except during some temporary panic, when fear of insurrection drives ministers and judges from their propriety; and, speaking generally, it is not, in constitutional countries, to be apprehended that the government, whether completely responsible to the people or not, will often attempt to control the expression of opinion, except when in doing so it makes itself the organ of the general intolerance of the public. Let us suppose, therefore, that the government is entirely at one with the people, and never thinks of exerting any power of coercion unless in agreement with what it conceives to be their voice. But I deny the right of the people to exercise such coercion, either by themselves or by their government. The power itself is illegitimate. The best government has no more title to it than the worst. It is as noxious, or more noxious, when exerted in accordance with public opinion, than when in or opposition to it. If all mankind minus one, were of one opinion, and only one person were of the contrary opinion, mankind would be no more justified in silencing that one person, than he, if he had the power, would be justified in silencing mankind. Were an opinion a personal possession of no value except to the owner; if to be obstructed in the enjoyment of it were simply a private injury, it would make some difference whether the injury was inflicted only on a few persons or on many. But the peculiar evil of silencing the expression of an opinion is, that it is robbing the human race; posterity as well as the existing generation; those who dissent from the opinion, still more than those who hold it. If the opinion is right, they are deprived of the opportunity of exchanging error for truth: if wrong, they lose, what is almost as great a benefit, the clearer perception and livelier impression of truth, produced by its collision with error.
+
+It is necessary to consider separately these two hypotheses, each of which has a distinct branch of the argument corresponding to it. We can never be sure that the opinion we are endeavouring to stifle is a false opinion; and if we were sure, stifling it would be an evil still.
+
+First: the opinion which it is attempted to suppress by authority may possibly be true. Those who desire to suppress it, of course deny its truth; but they are not infallible. They have no authority to decide the question for all mankind, and exclude every other person from the means of judging. To refuse a hearing to an opinion, because they are sure that it is false, is to assume that *their* certainty is the same thing as *absolute* certainty. All silencing of discussion is an assumption of infallibility. Its condemnation may be allowed to rest on this common argument, not the worse for being common.
+
+::: {.center data-latex=""}
+*[Mill and Taylor Mill argue the first two grounds at length, over some fourteen
+thousand words. The chapter closes by drawing all four together.]*
+:::
+
+### II. The four grounds
+
+We have now recognised the necessity to the mental well-being of mankind (on which all their other well-being depends) of freedom of opinion, and freedom of the expression of opinion, on four distinct grounds; which we will now briefly recapitulate.
+
+First, if any opinion is compelled to silence, that opinion may, for aught we can certainly know, be true. To deny this is to assume our own infallibility.
+
+Secondly, though the silenced opinion be an error, it may, and very commonly does, contain a portion of truth; and since the general or prevailing opinion on any subject is rarely or never the whole truth, it is only by the collision of adverse opinions, that the remainder of the truth has any chance of being supplied.
+
+Thirdly, even if the received opinion be not only true, but the whole truth; unless it is suffered to be, and actually is, vigorously and earnestly contested, it will, by most of those who receive it, be held in the manner of a prejudice, with little comprehension or feeling of its rational grounds. And not only this, but, fourthly, the meaning of the doctrine itself will be in danger of being lost, or enfeebled, and deprived of its vital effect on the character and conduct: the dogma becoming a mere formal profession, inefficacious for good, but cumbering the ground, and preventing the growth of any real and heartfelt conviction, from reason or personal experience.
