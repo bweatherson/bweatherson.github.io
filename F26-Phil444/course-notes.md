@@ -126,3 +126,181 @@ Five sections now sit at the head of chapter 6, ahead of the existing perfect Ba
 Conventions followed: grid tables in the chapter 1 style, `\nicefrac` inline and `\frac` in displayed maths, which is what the rest of the book does.
 
 Still open on the game theory side. No centipede for L8. Nothing on Spence or Akerlof for L13 and L14, though the papers are assigned so this may be fine. And the five interpretations of mixed strategies exist only in `slides/05.qmd`, so a student reading the notes gets the mechanics of mixing and none of the philosophy. That is the same species of gap as the one just closed.
+
+## Second half: how defeasible the schedule is
+
+The choice was between drafting class plans for all fourteen sessions and treating the schedule as a defeasible default. Went with the default, plus pacing work on L16-L18 only, on the grounds that a class plan written in August for a seminar not yet met is fiction, while L16-L18 is pure formal content that can be timed now.
+
+Two things made the question look harder than it was.
+
+There was no slack. Fourteen sessions, fourteen topics, one reading each. "Let the pace decide" would have meant "let the pace decide what falls off the end", which is why the strength-of-default question felt unanswerable.
+
+The quizzes are pinned to dates and the content is not. Quizzes 5-8 sit at L19, L21, L23 and L24. If content slides by a session and quiz dates do not, the quiz tests untaught material. The syllabus now says quizzes cover material through the previous class meeting, whatever that turned out to be.
+
+On how strong the default is: strong about order and prerequisites, weak about pace. Never reorder to catch up, never skip L16, L17, L18 or L21, and spend two classes on a topic whenever the room needs it. The thing being defended is the trunk, not the calendar.
+
+On the trade-off between covering the important material and keeping a sensible order: it is weaker than it looks, because Part II is not a chain. The three escapes at L19, L20 and L21 are parallel. Each needs L17-L18 and none needs the others. The Paretian liberal at L23 needs Ch 2's apparatus and not Arrow's proof. L25 and L26 hang off L21. So a branch can be compressed without disturbing any order.
+
+The trade-off only bites if the cut runs backwards from the end, which is what happens by default, and which would put capability at L26 at risk. Since capability is the part of Sen these students are most likely to meet again, that is the worst thing to leave exposed. Fix is a pre-declared drop order that does not run backwards: L27 and L28 merge first, then L24 folds into L23. Two sessions recoverable, identified in August rather than in November.
+
+## Second half: pacing L16-L20 against the text
+
+Done with Ch 1*, Ch 2, Ch 2*, Ch 3 and Ch A1* in hand.
+
+**L16 was overloaded and now is not.** As written it carried about twenty-five numbered items: six relation properties, Sen's six-way naming table on p. 54, P and I, maximal set against choice set, choice functions, quasi-transitivity, acyclicity, Lemmas 1*b, 1*j, 1*k and 1*l, then Definitions 2*1 to 2*6 and Lemmas 2*a, 2*b and 2*e. That is not eighty minutes. The maximal-against-choice-set distinction on its own wants ten, and Sen's example where neither xRy nor yRx holds, so both are maximal and neither is best, is the thing students need and the thing they will otherwise miss.
+
+Quasi-transitivity, choice functions and the existence lemmas are not used until L20, and acyclicity is not used until L19. Both moved to where they are used. L16 keeps R, P and I, reflexivity, completeness and transitivity, quasi-ordering against ordering, maximal set against choice set, the CCR definition, the Pareto relation, and Lemma 2*a.
+
+**Section 2*2 of Ch 2* is now recommended only.** Kaldor and Scitovsky compensation tests, Lemmas 2*f to 2*h. Three of the chapter's six pages, orthodox welfare economics, and nothing later in the course uses it. Ch 2* is a three-page reading now.
+
+**Ch 3 moved from L20 to L17, and Ch 3* dropped to recommended.** The chapter is called Collective Rationality, which is why it was at L20, but the content is Arrow's setup: 3.1 and 3.2 are Bergson-Samuelson and the Arrovian SWF, 3.3 states U, P, I and D informally with the Lincoln and Lenin gloss on independence, and 3.4 gives Condorcet properly plus the Borda count failing I and the traditional-code rule failing P. That is L17's topic almost line by line. The chapters that are actually about weakening collective rationality are Ch 4 and A2, which stay at L20. Side benefit: the four conditions now arrive in prose the night before the proof rather than in Ch 3*'s formalism.
+
+**L18 has about half an hour spare**, which was the surprise. Sen's 2017 proof is as short as he claims. Axioms five minutes if L17 has done them, decisive and locally decisive five, spread of decisiveness fifteen, contraction of decisive sets twenty to twenty-five, theorem five. The contraction lemma is the only fiddly one, because of the G1 and G2 partition and the case split on z. Call it fifty-five minutes. The Kirman and Sondermann invisible-dictators material on p. 288 is right there and is a good use of the rest.
+
+**The L20 overload dissolves.** Ch A1* does double duty. Pages 282 to 288 are the Arrow proof, which is L18. Pages 289 to 293 are quasi-transitivity, the Pareto-extension rule, Gibbard's oligarchy theorem and the acyclicity and veto results, which is L20's topic entire. So L20 reads the back half of a chapter the class already has, plus Ch 4 and A2, rather than three new chapters.
+
+Sen also hands over L20's organising fact on p. 289. The spread of decisiveness needs only quasi-transitivity; the contraction of decisive sets needs full transitivity. That is why weakening transitivity escapes Arrow, and it is visible as a specific broken step in a proof they saw the week before. Build the lecture on it.
+
+Students should stop at p. 293. Blau and Deb on NIM, semi-orders, s-and-t orders and the ultrafilter topology run to p. 300 and are a different course.
+
+**Two loose ends.** May's theorem has no required reading; it is in Ch 5*, which is recommended, so L17's contrast case is board-only. And the notation is not uniform across editions: A1* is 2017 and writes I-squared for independence while distinguishing relational I from Arrow's choice-functional I-A, Ch 3 and Ch 3* are 1970 and write plain I, and the Pareto relation R-bar from Ch 2* does not reappear in A1*. Worth one slide at L18.
+
+## Syllabus reading list: notes references and links
+
+Three passes over the schedule.
+
+**Hard line breaks.** Every **Topic**, **Reading**, **Recommended**, **Quiz** and **Essay** line that is followed by another such line now ends in four spaces, so Quarto breaks rather than reflowing them into one paragraph. Forty-five lines. Lines at the end of a block were left alone.
+
+**Notes references.** The TBDs for Lectures 2 through 11 are filled in against the lecture notes, by chapter and numbered section. Section numbers assume the current heading order in `notes/*.qmd`, so if headings get inserted or moved the numbers shift; the section titles are given alongside as a check. Lecture 15 picks up Ch 7 as recommended background, since it covers Arrow and the voting systems quickly before the second half slows down and does it properly.
+
+**Links.** JSTOR where the item has a 10.2307 DOI, which covers Cho and Kreps (1885060), Spence (1882010), Akerlof (1879431) and Gibbard (1914083). Publisher pages otherwise: AEA for Sen's Nobel lecture, the Chicago DOI for the Paretian liberal, the Taylor and Francis DOI for Nussbaum, and the Tanner Lectures site for "Equality of What?". All eight resolved when checked. The syllabus now warns that most need a campus connection or the library proxy.
+
+The "textbook to be confirmed" sentence in Required Materials is gone. The notes are named as the main first-half reading, with Bonanno as an optional second voice. No Bonanno chapter numbers, because I have not checked them against the edition students would download.
+
+## Gaps the reading-list pass turned up
+
+Four places where the syllabus promises something the notes do not contain.
+
+- **L2 lists Allais and Ellsberg**, and neither appears anywhere in the notes. Ch 2 has probability, conditional probability, Bayes, expected value and orthodox decision theory, and stops. The reading now points at 2.4-2.5, which is the expected utility material only.
+- **L8 lists the centipede**, and there is no centipede in the notes. The draft in `_new-centipede-ch5.md` is still not spliced. The reading points at 5.5, Problems with Backwards Induction, which is the right home for it.
+- **L13 and L14 are Spence and Akerlof**, and `_new-spence-akerlof-ch6.md` is still not spliced either. Both lectures currently rest entirely on the papers. That may be fine, but it means two of the fourteen first-half classes have no notes behind them.
+- **Three sections have no lecture**: 4.2 (Correlated Equilibrium), 4.3 (Coordination Games) and 5.7 (Iterated Prisoners' Dilemma). Correlated equilibrium in particular is a substantial piece of the notes with nowhere to be taught. Either it earns a place in one of L6 or L7, or it should be marked as background.
+
+The interpretations draft did land: 3.12 (What Is a Mixed Strategy?) is in the notes and is assigned at L5.
+
+## Bonanno as second voice
+
+Bonanno's *Game Theory* is now cited by section in the Recommended lines for Lectures 2 through 12.
+
+**The edition matters.** The table of contents that circulates on arXiv and eScholarship is the second edition, 15 chapters. The file on Bonanno's own site is the third edition, 16 chapters, because the Introduction became Chapter 1 and everything shifted by one. Ordinal games in strategic form is Ch 2 there, not Ch 1; expected utility is Ch 5, not Ch 4; perfect Bayesian equilibrium is Ch 13, not Ch 12. Chapters 8 and 10 were also reorganised internally, so section numbers within them do not carry over either. All references in the syllabus are to the third edition, and Required Materials now says so and links to the author's PDF rather than to arXiv.
+
+**Two lectures get nothing from Bonanno.** He has no forward induction, so L9 has no Recommended line at all. And he has no intuitive criterion, so L12 points at Ch 12 on sequential equilibrium as the neighbouring refinement, with a note saying as much. He also has nothing on correlated equilibrium, nothing on Spence or Akerlof, and nothing on social choice, so the second half of the course is unaffected by any of this.
+
+**One pairing worth keeping.** Bonanno 9.5, Harsanyi consistency of beliefs, is the common prior assumption under another name. The notes flag that assumption as philosophically loaded at 6.2 and promise to come back to it, so the pointer is doing real work rather than padding.
+
+## Part II of the book is cut
+
+Chapter 7 (Group Decisions) is out of the coursebook. The book now runs
+index, chapters 1 to 6, references, with no parts, since a single part called
+"Game Theory" in a book that is entirely game theory was doing no work.
+
+The reasoning: the text for the second half is Sen, one informal chapter is a
+stub rather than a part, and there is no point paraphrasing a book the students
+have in front of them.
+
+The file is kept at `notes/_archive/07-group-decisions.qmd`. The underscore keeps
+Quarto from rendering it, so it stays available without appearing anywhere. It is
+9,000 words on Arrow, proofs of Arrow, Condorcet cycles and six voting systems.
+
+The preface was rewritten, since it previously said the last chapter was relevant
+to the second half and that the Part II voting material was still assigned. Both
+claims are now false. The L15 recommendation of Ch 7 has come out of the syllabus.
+
+**Two consequences worth tracking.** The book title is still *Game Theory and
+Social Choice*, which now promises a half the book does not contain. Either the
+title changes or the preface has to carry the explanation, which at the moment it
+does. And cutting the chapter cuts plurality, runoff, instant runoff, Borda,
+approval and range voting from the course altogether, since Sen barely covers
+them. The Gibbard-Satterthwaite handout for L22 is the obvious place to put them
+back, because it is about voting rules as game forms and those are the rules.
+
+## Spence: what came over from the 300-level slides
+
+Compared `notes/_new-spence-akerlof-ch6.md` and section 6.8 against slides 18 and
+19 from the 300-level course. The v1 draft is at
+`notes/_to_delete/_new-spence-akerlof-ch6-v1.md`.
+
+The structural problem was that the notes ran model-first and mentioned the world
+once, in an aside, while the slides run explanandum-first. More to the point, the
+notes gave the case against signalling (the age gradient) and not the case for it,
+then closed on a firm negative verdict. Two new sections fix that.
+
+**The College Wage Premium** brings in the sheepskin effect, which was missing
+entirely and is the strongest single piece of evidence for signalling; the
+three-way split between human capital, selection and signalling, in place of the
+old two-way contrast; and the what-would-the-world-look-like test.
+
+**Does the Signalling Model Fit?** collects what the model gets right (sheepskin,
+content independence, no front-end gatekeeping, the scale of the premium) and then
+three difficulties: the age gradient with its two available responses, the
+permanent student problem, and degree length. The permanent student point is from
+the slides and is the best thing in either document, because it attacks the single
+crossing assumption rather than a prediction, so it does not merely embarrass the
+model, it stops the separating equilibrium existing.
+
+Degree length is where the evidence divides. Bologna and the UK against the US
+favour signalling; @arteaga2018 on Universidad de los Andes runs the other way and
+is much the cleanest test, since the reform cut coursework by 20% and 14% while
+holding the university, the degree title, the diploma, the entering class and the
+graduation rates fixed, and earnings still fell 16% and 13%. Verified against the
+paper: *Journal of Public Economics* 157 (2018) 212-225, doi
+10.1016/j.jpubeco.2017.10.007. Needs a bib entry; one is in the draft file.
+
+**Placement.** These go at the end of chapter 6, after 6.9 The Intuitive
+Criterion, not inside 6.8. That matches lecture order, since the intuitive
+criterion is L12 and Spence and Akerlof are L13 and L14, and it avoids breaking
+6.8's run-in to 6.9.
+
+**Three suggested edits to existing 6.8 prose** are at the foot of the draft file
+and have not been applied: retiring "dullard", replacing the closing verdict
+paragraph, which now duplicates and pre-empts the new material, and the question
+of where the cheap talk point belongs.
+
+**One trap.** The slides and the notes are not the same game. Student payoffs
+agree but the employer's do not, and the difference is not an affine
+transformation, so no numbers or trees can move across without redoing the
+equilibrium analysis.
+
+Left in the slides deliberately: the three OECD tables, the gender breakdown of
+the age gradient, and the discussion prompts.
+
+## Correlated equilibrium and the iterated Prisoners' Dilemma: both cut from the syllabus, both kept in the book
+
+**Correlated equilibrium (4.2) is out of the course.** Its place in the
+literature is unsettled; some people think it should displace Nash, others barely
+mention it. Bonanno refers to it a couple of times and then says it is not
+covered in his book. If he can leave it out, so can we.
+
+**The iterated Prisoners' Dilemma (5.7) is out too**, for a different reason.
+It was done at length in the 300-level course and enough of this class will have
+been there that repeating it is not a good use of eighty minutes.
+
+Both sections stay in the book, so that students who have not met the material
+have somewhere to go. No syllabus change was needed, because neither section was
+ever assigned: L6 reads 4.1 only, and L7 to L9 read 5.1 to 5.6. The preface
+already carries the right framing, since it now says that a section not on the
+schedule is there as background rather than as something students are expected to
+have read.
+
+**Still open: 4.3, Coordination Games.** About 1,950 words, against 1,150 for
+4.1 and 2,000 for 4.2. With 4.2 out as well, L6 assigns only 4.1, which is roughly
+a quarter of the chapter. It covers equilibrium selection across three games and
+runs through to the society-formation discussion, which asks how far social life resembles an iterated Prisoners'
+Dilemma and how far an iterated Stag Hunt. That is the most philosophical passage
+in chapter 4, and as things stand no lecture reaches it.
+
+**One dangling cross-reference.** Section 3.12, which is assigned at L5, says
+"as we will see when we come to the iterated Prisoners' Dilemma". Since 5.7 stays
+in the book, that sentence is still true of the book and now false of the course.
+Fine if it reads as a pointer into the text; worth rewording if it reads as a
+promise about a class.

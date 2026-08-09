@@ -121,7 +121,7 @@ Then we can apply the formula.
 
 ## Bayes Theorem
 
-This is a bit of a digression from what we're really focussing on in game theory, but it's important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the 'inverse' direction to what we are interested in. That is, if we want to know $\Pr(A | B)$, it might be much easier to discover $\Pr(B | A)$. In these cases, we use Bayes Theorem to get the right result.^[Bayes Theory is named after the [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes), an 18th century statistician and nonconformist minister.] I'll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent. 
+This is a bit of a digression from what we're really focussing on in game theory, but it's important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the 'inverse' direction to what we are interested in. That is, if we want to know $\Pr(A | B)$, it might be much easier to discover $\Pr(B | A)$. In these cases, we use Bayes Theorem to get the right result. I'll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent. 
 
 \begin{align*}
 \Pr(A|B) &= \frac{\Pr(B|A) \Pr(A)}{\Pr(B)} \\
@@ -182,7 +182,7 @@ This is actually a quite important point. The fact that the probability of $B$ g
 
 Confusing these two conditional probabilities is sometimes referred to as the *Prosecutors' fallacy*, though it's not clear how many actual prosecutors are guilty of it. The thought is that some prosecutors start with the premise that the probability of the defendant's blood (or DNA or whatever) matching the blood at the crime scene, conditional on the defendant being innocent, is 1 in a billion (or whatever it exactly is). They conclude that the probability of the defendant being innocent, conditional on their blood matching the crime scene, is about 1 in a billion. Because of derivations like the one we just saw, that is a clearly invalid move.
 
-A more striking real world example comes from the analysis of soccer carried out by [Charles Reep](https://en.wikipedia.org/wiki/Charles_Reep) and [Charles Hughes](https://en.wikipedia.org/wiki/Charles_Hughes_(football_manager)). (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.
+A more striking real world example comes from the analysis of soccer carried out by Charles Reep and Charles Hughes. (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.
 
 You may be able to spot the error in their reasoning already, but if not let's work through a fictionalised version to see the problem. (The numbers I'm using are made up, though I think the scale roughly matches what Reep and Hughes found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in @tbl-soccer.
 
@@ -258,166 +258,5 @@ Given all that, it is fairly easy to summarise orthodox decision theory.
 - Rational agents have a credence function over salient alternatives that is identical to some probability function $\Pr$.
 - Rational agents also have a real-valued utility function $U$ over salient outcomes.
 - The rational action for such an agent to do is the action that maximises **expected** utility, i.e., maximises the expected value of $U$ relative to that function $\Pr$.
-
-## Money Is Not Utility
-
-Chapter 1 separated a player's payout from their utility, and said that we would normally specify games using the latter. This section is about why that
-separation matters, because the difference between money and utility plays several different explanatory roles.
-
-Getting \$2x is not twice as good as getting \$x. Getting \$2x is like getting \$x, and then getting another \$x when you are already \$x richer, and the second \$x does you less good than the first did. This what is known as the **declining marginal utility** of money. The **marginal** utility of money is the margin between the utility you had before and after getting that money. A core thought of economic theory since the 1870s is that marginal utility is the core explanation of action; absolute utility is either non-existent or unimportant.^[Like many things, the importance of marginal utility seems to have been independently discovered by many people at once. The philosophy connection here is that one of the independent discoverers was William Stanley @Jevons1871. I'd like to think he came up with the idea while working in Australia in the 1850s, which would make this one of the earliest Australian contributions to Anglophone philosophy. But as far as I know, there is literally zero evidence for that timeline.] And the marginal utility of money falls, i.e., declines, the more of it you have.
-
-Two claims that sound quite different both fall out of this. You are better off taking a million dollars than a fifty-fifty shot at two million. And a million dollars changes your life more than it changes a billionaire's. The orthodox view (and we'll see reasons that not everyone buys this when we get to @sec-allais) is that these are just two features of the same thing, that money has a declining marginal utility.
-
-If we graph utility against wealth, declining marginal utility fixes two things about the shape. The curve slopes upward, because more money is better than less. And it bends downward; it is concave.
-
-Here is a crude model. Let utility be the square root of net wealth in dollars,
-and take three equal steps of \$300.
-
-- Utility at \$100 is $\sqrt{100} = 10$.
-- Utility at \$400 is $\sqrt{400} = 20$.
-- Utility at \$700 is $\sqrt{700} \approx 26.46$.
-- Utility at \$1000 is $\sqrt{1000} \approx 31.62$.
-
-The same \$300 buys 10 units of utility, then 6.46, then 5.17. Put the other wayround, equal gains in utility take larger and larger amounts of money.
-
-For wealth above a thousand dollars or so, a logarithm is a more plausible model than a square root. Let utility be $\log_{10}$ of net wealth.
-
-- Utility at \$10,000 is 4.
-- Utility at \$100,000 is 5.
-- Utility at \$1,000,000 is 6.
-
-*Multiplying* your wealth by ten *adds* one to your utility. The relation between dollars and utility is not just nonlinear, it is dramatically so.
-
-That has consequences that are easy to miss. Take someone whose net wealth is \$100,000, so their utility is 5, and offer them a bet that pays \$900,000 if it wins and costs \$90,000 if it loses, on the flip of a fair coin.
-
-\begin{align*}
-E(U(\text{bet})) &= \nicefrac{1}{2} \times \log_{10}(1{,}000{,}000) + \nicefrac{1}{2} \times \log_{10}(10{,}000) \\
-&= \nicefrac{1}{2} \times 6 + \nicefrac{1}{2} \times 4 \\
-&= 5
-\end{align*}
-
-The bet has exactly the expected utility of doing nothing, so they should be indifferent, even though its expected dollar return is \$405,000.
-
-Now shrink the prize to \$800,000, leaving everything else alone.
-
-\begin{align*}
-E(U(\text{bet})) &= \nicefrac{1}{2} \times \log_{10}(900{,}000) + \nicefrac{1}{2} \times \log_{10}(10{,}000) \\
-&\approx \nicefrac{1}{2} \times 5.954 + \nicefrac{1}{2} \times 4 \\
-&\approx 4.977
-\end{align*}
-
-That is below the utility of the status quo, so they should decline, and the expected dollar return is still \$355,000. Expected dollars and expected utility do not merely differ in size. They can point in opposite directions. This fact explains why there is an insurance industry; an insurance contract (from the consumer's perspective) typically has a negative expected dollar return, and a positive expected utility return.
-
-## The Allais Paradox {#sec-allais}
-
-Some people have the intuition that expected utility theory doesn't sufficiently account for the preference people have for avoiding risk. After all, we routinely turn down bets with a positive expected dollar return. The orthodox reply (which I think is completely right, for what it's worth) is that these preferences over individual bets (when they are rational) can be explained by the declining marginal utility of money, plus the view that rationality requires maximising expected utility. No matter what bets people turn down, if we want to rationalise them, we can by positing a steeper declining marginal utility.
-
-It turns out, as Maurice @Allais showed^[[Allais](https://en.wikipedia.org/wiki/Maurice_Allais) was a French economist. He won the 1988 Nobel, though not primarily for the result that he's most famous for in the Anglophone world, i.e., this paradox.], that the theory does have some striking predictions not for individual betting dispositions, but for _pairs_ of betting dispositions. He came up with a pair of binary choices, and showed that there was no way for expected utility theory to explain why one attractive pair of dispositions to choose could be rationalised.
-
-Here is the first choice.
-
-- **1A**: \$1,000,000, guaranteed.
-- **1B**: a 1% chance of \$0, an 89% chance of \$1,000,000, and a 10% chance of \$5,000,000.
-
-Many people, I suspect most, take **1A**. Most people take **1A**. A guaranteed million is not worth risking for a one in ten shot at five, when the risk is walking away with nothing. That doesn't maximise expected dollars, but it's fine; as long as the marginal utility of the first million is sufficiently greater than the marginal utility of the next four million, **1A** could maximise expected utility.
-
-Here is the second.
-
-- **2A**: an 89% chance of \$0, and an 11% chance of \$1,000,000.
-- **2B**: a 90% chance of \$0, and a 10% chance of \$5,000,000.
-
-Now it seems fine to take **2B**, and many people do. Crucially, many people who take **1A** take it. Why take **2B**? Well, yu will almost certainly get nothing either way, so the extra 1% of risk looks cheap for the chance at five times the money.
-
-Those two choices are inconsistent with expected utility theory. To see why, imagine the outcomes are settled by drawing one of a hundred numbered tickets, as shown in @tbl-allais.
-
-+:-------+:-------------:+:----------------:+:------------------:+
-|        | **Ticket 1**  | **Tickets 2-11** | **Tickets 12-100** |
-+========+===============+==================+====================+
-| **1A** | \$1M          | \$1M             | \$1M               |
-+--------+---------------+------------------+--------------------+
-| **1B** | \$0           | \$5M             | \$1M               |
-+--------+---------------+------------------+--------------------+
-| **2A** | \$1M          | \$1M             | \$0                |
-+--------+---------------+------------------+--------------------+
-| **2B** | \$0           | \$5M             | \$0                |
-+--------+---------------+------------------+--------------------+
-
-: The Allais choices, laid out over a hundred tickets {#tbl-allais}
-
-Look at the last column. Within each pair, the two options pay the same thing if a ticket from 12 to 100 comes up. So that column cannot bear on either
-choice. Delete it, and what is left of **1A** against **1B** is _exactly the same_ what is left of **2A** against **2B**.
-
-The algebra says the same thing. Write $x$ for $U(\$5\text{M})$, $y$ for $U(\$1\text{M})$ and $z$ for $U(\$0)$. Preferring **1A** to **1B** means 
-
-\begin{equation*}
-y > 0.01z + 0.89y + 0.10x
-\end{equation*}
-
-which rearranges to
-
-\begin{equation*}
-0.11y - 0.10x - 0.01z > 0
-\end{equation*}
-
-And the difference between the two options in the second choice is
-
-\begin{align*}
-E(U(2A)) - E(U(2B)) &= (0.11y + 0.89z) - (0.10x + 0.90z) \\
-&= 0.11y - 0.10x - 0.01z
-\end{align*}
-
-which is the same expression. So anyone who prefers **1A** to **1B** is committed to preferring **2A** to **2B**, whatever their utilities for money happen to be. Taking **1A** and **2B** is not a sign of unusual attitudes to risk. It is inconsistent with expected utility theory. If you think **1A** and **2B** are rational, you think that expected utility theory is wrong.
-
-## Ellsberg
-
-Around the same time, a similar challenge to expected utility theory was formulated by [Daniel Ellsberg](https://en.wikipedia.org/wiki/Daniel_Ellsberg). Ellsberg is a fascinating figure; his Wikipedia page lists seven _films_ that his story has a non-trivial part in. We're going to discuss something he discovered quite early in life, before the work that made him famous. How related it is to that later work is an interesting question; Ellsberg himself always said it was.
-
-Like Allais, @Ellsberg1961 discussed a pair of choices. Just as before, Ellsberg showed that while an expected utility theorist could explain either choice that the typical subject made, they could not explain both. The choices concern an urn that has 90 marbles in it. The subject is told that 30 marbles are red, and the other 60 are a mix of black and yellow. But they are not told what the mixture is. They will be offered a choice between two bets, which have the same return, say \$10 if you win, and \$0 if you lose. All the bets turn on which marble is drawn from the urn at its next draw.
-
-Here is the first choice.
-
-- **1A**: You win if the marble is red, and lose otherwise.
-- **1B**: You win if the marble is black, and lose otherwise.
-
-Many people, I suspect most, take **1A**. They prefer knowing they have a 1/3 chance to not knowing what their odds are. That's actually fine; theory doesn't disagree.
-
-Here is the second.
-
-- **2A**: You win if the marble is red or yellow, and lose otherwise.
-- **2B**: You win if the marble is black or yellow, and lose otherwise.
-
-Now most people prefer **2B**. They prefer knowing that they have a 2/3 chance of winning, to the unknown odds with **2A**. Ellsberg's argument is that there is no way for standard expected utility theory to explain both preferences.
-
-At some level, the problem is the same as in the Allais paradox. @tbl-ellsberg is how the table looks if we draw the two of them together.
-
-+:-------+:-------------:+:----------------:+:------------------:+
-|        | **Red**       | **Black**        | **Yellow**         |
-+========+===============+==================+====================+
-| **1A** | Win           | Lose             | Lose               |
-+--------+---------------+------------------+--------------------+
-| **1B** | Lose          | Win              | Lose               |
-+--------+---------------+------------------+--------------------+
-| **2A** | Win           | Lose             | Win                |
-+--------+---------------+------------------+--------------------+
-| **2B** | \$0           | Win              | Win                |
-+--------+---------------+------------------+--------------------+
-
-: The Ellsberg choices, laid out together {#tbl-ellsberg}
-
-Here's what both choices have in common. In both choices, there's a column where you get the same result whether you choose **A** or **B**. That's the right hand column in each. The pair **1A**/**2B** violates this principle.
-
-::: {.callout-tip, title="Value of Irrelevant Alternatives"}
-Consider any choice between lotteries **A** and **B** where there is some possibility where the two options return the same amount, and you prefer **A** to **B**. Changing the lottery simply by changing that common amount, without making any other changes, shouldn't change your preferences. All that matters it that you get the same amount in that outcome, not what that 'same amount' is.
-:::
-
-This is a special case of what is known as the **Sure Thing Principle**. Both of these are consequences of the expected utility framework.^[This arguably understates things. One prominent argument for the expected utility framework takes the Sure Thing Principle as a premise, and argues that anyone who satisfies it, and some other principles, is in effect an expected utility maximiser. We're not going to go into this, but if you're interested, look up work on _representation theorems_.] And both the Allais and Ellsberg paradoxes show that what I'm calling **Value of Irrelevant Alternatives** is sometimes counterintuitive.
-
-But while the two paradoxes target the same principle of expected utility theory, they suggest different modifications to it. The Allais paradox suggests that we are wrong to say that all attitudes to risk are accounted for by declining marginal utility. The Ellsberg paradox suggests that we are wrong to act as if everyone has a probability function in their head. Think about how you'd do a version of the algebraic argument that **1A**/**2B** is inconsistent in the Ellsberg case.
-
-Here's the most natural way to do this. By assumption, everyone has a probability for every important possibility in their head. Assume the chooser assigns probability $y$ to the drawn marble being yellow. The probability of **1A** winning is 1/3, and the probability of **1B** winning is 2/3-$y$, so if they prefer **1A** to **1B**, it follows that $y$ is greater than 1/3. The probability of **2A** winning is 1/3+$y$, and the probability of **2B** winning is 2/3. So $y$ is less than 1/3, contradicting the claim that it is greater.
-
-The response that Ellsberg and others gave to this argument is not to question the algebra, or to question the appeal to expected utility. It's to question the very assumption that there is such a thing as $y$. Or, in some versions, to question the assumption that it is a *number*. In @sec-bayesian, we'll come back to some game theoretic reasoning that also presupposes that things like _the probability that the marble is yellow_ exist, and whether we might want to question that assumption.
-
-## For Next Time
 
 Next time we'll start with an application of those ideas that leads to the most central concept in game theory.

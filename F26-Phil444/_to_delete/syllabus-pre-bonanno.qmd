@@ -102,7 +102,7 @@ The required text is:
 
 - Amartya Sen, *Collective Choice and Social Welfare: An Expanded Edition* (Harvard University Press, 2017). Available electronically through the University of Michigan library.
 
-The main reading for the first half is my own lecture notes, *Game Theory and Social Choice*, free at <https://bweatherson.github.io/F26-Phil444-site/notes/>, supplemented by three classic papers (Akerlof on lemons, Spence on job-market signalling, Cho and Kreps on the intuitive criterion). Giacomo Bonanno's *Game Theory*, also free, is a good second voice if a topic is not landing, and it comes with worked solutions to every exercise. Get it from <https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf>. Section numbers in the schedule refer to that file, which is the third edition; the copy on arXiv is the second edition and is numbered differently.
+The main reading for the first half is my own lecture notes, *Game Theory and Social Choice*, free at <https://bweatherson.github.io/F26-Phil444-site/notes/>, supplemented by three classic papers (Akerlof on lemons, Spence on job-market signalling, Cho and Kreps on the intuitive criterion). Giacomo Bonanno's *Game Theory*, also free, is a good second voice if a topic is not landing.
 
 Three readings in the second half come from outside CCSW: Sen's Nobel lecture "The Possibility of Social Choice" (1999), Sen's "Equality of What?" (1979), and Nussbaum's "Capabilities as Fundamental Entitlements" (2003). Links are given in the schedule below. Most of them will only resolve from a campus connection or through the library proxy.
 
@@ -155,7 +155,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 
 **Topic**:    Decision theory under risk and uncertainty: expected utility, Allais and Ellsberg. The formal contrast with strategic settings.    
 **Reading**:    Notes, Ch 2 (Probability and Decision Theory), 2.4-2.5 (Expected Value; Orthodox Decision Theory).    
-**Recommended**:    Notes, 2.1-2.3, if you want the probability revision. Bonanno, Ch 5 (Expected Utility Theory), 5.1-5.3, which does the von Neumann-Morgenstern axioms properly.
+**Recommended**:    Notes, 2.1-2.3, if you want the probability revision.
 
 ## Week 2: Strategic Form Games
 
@@ -163,13 +163,12 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 
 **Topic**:    Strategic form games; dominance and iterated elimination of dominated strategies.    
 **Reading**:    Notes, Ch 1 (Basics of Game Theory), all of it. The four examples in 1.3-1.7 are the ones we used in Lecture 1; dominance is 1.8-1.10.    
-**Recommended**:    Notes, 3.7 (Iterated Dominance), which we return to in Lecture 4. Bonanno, Ch 2 (Ordinal Games in Strategic Form), 2.1-2.2 and 2.5, which keeps the two iterated deletion procedures carefully apart.
+**Recommended**:    Notes, 3.7 (Iterated Dominance), which we return to in Lecture 4.
 
 ### `r advdate(thu, 2)` (Lecture 4)
 
 **Topic**:    Nash equilibrium.    
-**Reading**:    Notes, Ch 3 (Mixed Strategies and Nash Equilibrium), 3.1-3.8 (Mixed Strategies through Finding Best Responses).    
-**Recommended**:    Bonanno, 2.6 (Nash equilibrium).
+**Reading**:    Notes, Ch 3 (Mixed Strategies and Nash Equilibrium), 3.1-3.8 (Mixed Strategies through Finding Best Responses).
 
 **Quiz**:    Quiz 1, in class.
 
@@ -178,14 +177,12 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(tue, 3)` (Lecture 5)
 
 **Topic**:    Mixed strategies and the interpretation problem (Aumann; Harsanyi purification).    
-**Reading**:    Notes, 3.9-3.12 (Finding Mixed Strategy Equilibria through What Is a Mixed Strategy?).    
-**Recommended**:    Bonanno, Ch 6 (Strategic-form Games), 6.1-6.3.
+**Reading**:    Notes, 3.9-3.12 (Finding Mixed Strategy Equilibria through What Is a Mixed Strategy?).
 
 ### `r advdate(thu, 3)` (Lecture 6)
 
 **Topic**:    Rationalizability; common knowledge of rationality.    
-**Reading**:    Notes, 4.1 (Rationalizability).    
-**Recommended**:    Bonanno, 6.4 (Strict dominance and rationalizability), and Ch 10 (Rationality), 10.1-10.3. Ch 8 (Common Knowledge) if you want the epistemics built up from scratch.
+**Reading**:    Notes, 4.1 (Rationalizability).
 
 **Quiz**:    Quiz 2, in class.
 
@@ -194,14 +191,12 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(tue, 4)` (Lecture 7)
 
 **Topic**:    Extensive form games; subgame perfection.    
-**Reading**:    Notes, Ch 5 (Games and Time), 5.1-5.4 (Normal Form and Extensive Form through Subgame Perfect Equilibrium).    
-**Recommended**:    Bonanno, Ch 3 (Perfect-information Games), 3.1-3.3; Ch 4 (General Dynamic Games), 4.1-4.4; and 7.2, which redoes subgame perfection once payoffs are cardinal.
+**Reading**:    Notes, Ch 5 (Games and Time), 5.1-5.4 (Normal Form and Extensive Form through Subgame Perfect Equilibrium).
 
 ### `r advdate(thu, 4)` (Lecture 8)
 
 **Topic**:    Backward induction; the centipede paradox.    
-**Reading**:    Notes, 5.5 (Problems with Backwards Induction).    
-**Recommended**:    Bonanno, 3.2 and 3.4; 7.3 (Problems with the notion of subgame-perfect equilibrium); 10.4 (Common knowledge of rationality in extensive-form games).
+**Reading**:    Notes, 5.5 (Problems with Backwards Induction).
 
 **Quiz**:    Quiz 3, in class.
 
@@ -215,22 +210,19 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(thu, 5)` (Lecture 10)
 
 **Topic**:    Bayesian games and Bayesian Nash equilibrium. Types, incomplete information, and Nash equilibrium applied to type-conditional strategies.    
-**Reading**:    Notes, Ch 6 (Bayesian Games), 6.1-6.5 (Two Kinds of Ignorance through Purification).    
-**Recommended**:    Bonanno, Ch 14 (Static Games), 14.1-14.3, and Ch 16 (The Type-Space Approach), 16.1-16.2. Also 9.5 (Harsanyi consistency of beliefs), which is our common prior assumption under another name.
+**Reading**:    Notes, Ch 6 (Bayesian Games), 6.1-6.5 (Two Kinds of Ignorance through Purification).
 
 ## Week 6: Signaling Games
 
 ### `r advdate(tue, 6)` (Lecture 11)
 
 **Topic**:    Signaling games; perfect Bayesian equilibrium.    
-**Reading**:    Notes, 6.6-6.8 (Perfect Bayesian Equilibrium through Signaling without Cooperation).    
-**Recommended**:    Bonanno, Ch 13 (Perfect Bayesian Equilibrium), 13.1-13.3, and 15.1 (One-sided incomplete information).
+**Reading**:    Notes, 6.6-6.8 (Perfect Bayesian Equilibrium through Signaling without Cooperation).
 
 ### `r advdate(thu, 6)` (Lecture 12)
 
 **Topic**:    The beer-quiche game; the intuitive criterion.    
-**Reading**:    Notes, 6.9 (The Intuitive Criterion). In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria", *Quarterly Journal of Economics* 102 (1987): 179-221. <https://www.jstor.org/stable/1885060>    
-**Recommended**:    Bonanno, Ch 12 (Sequential Equilibrium). He does not cover the intuitive criterion, but this is the neighbouring refinement.
+**Reading**:    Notes, 6.9 (The Intuitive Criterion). In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria", *Quarterly Journal of Economics* 102 (1987): 179-221. <https://www.jstor.org/stable/1885060>
 
 **Quiz**:    Quiz 4, in class.
 
@@ -256,6 +248,7 @@ No class -- Fall Study Break (October 19-20).
 
 **Topic**:    Transition from strategic rationality to collective choice. Why aggregation is a different problem from strategy. Condorcet's paradox, now stated properly.    
 **Reading**:    CCSW: Ch 1 (Introduction); Ch A1 (Enlightenment and Impossibility).    
+**Recommended**:    Notes, Ch 7 (Group Decisions), which covers this ground quickly and informally before we slow down and do it properly.    
 **Recommended**:    CCSW: New Introduction (2017). This is worth reading over the study break; it is the best short account of what the whole book is doing.
 
 ## Week 9: Foundations

@@ -36,8 +36,7 @@ Each player, Row and Col, has two options: X and Y. The payoffs, given their mov
 
 What does it mean to say that they 'get' 0, 1, 3 or 5? It means that the **utility** they get from the payout is that amount. For any given game, the results for the players can be specified in two related, but importantly distinct, ways.
 
-- We can specify their **payouts**. These are the concrete things the players get. In the first example in @leytonbrown2008, the payout the players get is that their average packet delay is a certain amount. Payouts might be specified in dollars, or grades, or goals, or any thing we like.
-
+- We can specify their **payouts**. These are the concrete things the players get. 
 - Alternatively, we can specify the **utility** each player gets from their payout.
 
 Utility is a somewhat technical, somewhat theoretical, notion.

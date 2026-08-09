@@ -15,17 +15,12 @@ book:
     style: docked
   chapters:
     - index.qmd
-    - part: "Game Theory"
-      chapters:
-        - 01-basics.qmd
-        - 02-decision-theory.qmd
-        - 03-nash-equilibrium.qmd
-        - 04-other-equilibria.qmd
-        - 05-games-and-time.qmd
-        - 06-bayesian-games.qmd
-    - part: "Voting Theory"
-      chapters:
-        - 07-group-decisions.qmd
+    - 01-basics.qmd
+    - 02-decision-theory.qmd
+    - 03-nash-equilibrium.qmd
+    - 04-other-equilibria.qmd
+    - 05-games-and-time.qmd
+    - 06-bayesian-games.qmd
     - references.qmd
 
 bibliography: references.bib

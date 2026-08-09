@@ -2,7 +2,7 @@
 
 The primary concept we'll use in this course is Nash Equilibrium. But there are many many other solution concepts for games. Many of them have practical applications. Many of them have a case to be the one true constraint on rational agents playing games.
 
-## Rationalizability
+## Rationalizability {#sec-rationalizability}
 
 We looked at this briefly last chapter, under the label of 'Iterated Best Response'. But it's worth stating the idea more carefully, and saying a bit about why it is an important concept.
 
