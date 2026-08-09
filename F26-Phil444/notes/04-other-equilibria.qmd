@@ -1,10 +1,10 @@
-# Other Equilibrium Concepts
+# Other Equilibrium Concepts {#sec-other-equilibria}
 
 The primary concept we'll use in this course is Nash Equilibrium. But there are many many other solution concepts for games. Many of them have practical applications. Many of them have a case to be the one true constraint on rational agents playing games.
 
 ## Rationalizability {#sec-rationalizability}
 
-We looked at this briefly last chapter, under the label of 'Iterated Best Response'. But it's worth stating the idea more carefully, and saying a bit about why it is an important concept.
+We looked at this briefly in @sec-iterated-best-responses, under the label of 'Iterated Best Response'. But it's worth stating the idea more carefully, and saying a bit about why it is an important concept.
 
 A class of strategies is rationalizable if:
 
@@ -80,7 +80,7 @@ In both games, there is a unique Nash equilibrium, $Cc$. But all strategies are 
 
 Ideally, we would have clear intuitions here about what strategies are rationally permissible, and this would let us decide between Principle 1 and Principle 2. Unfortunately, I don't think the intuitions about the cases are at all clear. For what it is worth, I think intuitively that playing one of $A$ or $B$ is rational when the alternative is the equilibrium that returns 1 to each player, but not when the alternative is a guaranteed 2. So these cases don't ultimately settle the question. But they do make more vivid what is at stake. Could it ever be rational, under conditions of common knowledge of rationality, to play $A$ or $B$ in either of these games?
 
-## Correlated Equilibrium
+## Correlated Equilibrium {#sec-correlated-equilibrium}
 
 To get Nash equilibrium, we have to assume that every player has a way of letting their play be chosen by a random process. But we assume that these random choices are independent. If Row has a 40% chance of playing Up, and Column has a 30% chance of playing Left, then the probability of the Up-Left outcome is 12%. (That is, 40% times 30%.) The idea behind correlated equilibrium is that the players may have a way to coordinate on a random strategy.
 
@@ -201,7 +201,7 @@ The possibility of attractive correlated equilibria shows us something about the
 
 The existence of games with nice correlated equilibria shows that this intuitive finding is actually false. Players who are allowed cheap talk can work out a correlated equilibrium that they both prefer to strategies that are available without cheap talk.
 
-## Coordination Games
+## Coordination Games {#sec-coordination-games}
 
 Many games have multiple equilibria. In such cases, it is interesting to work through the means by which one equilibrium rather than another may end up being chosen. Consider, for instance, the following three games (two of which we've seen before).
 

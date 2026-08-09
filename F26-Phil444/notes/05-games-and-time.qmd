@@ -1,4 +1,4 @@
-# Games and Time
+# Games and Time {#sec-games-and-time}
 
 So far we've looked just at games where each player makes just one move, and they make it simultaneously. That might not feel like most games that you know about. It isn't how we play, for instance, chess. Instead, most games involve players making multiple moves, and these moves taking place in time. Here is one simple such game. It's not very interesting; you won't have fun games nights playing it. But it is useful to study.
 
@@ -9,7 +9,7 @@ This is a simple zero-sum game. The payoff is either 1 to $A$ and 0 to $B$, or 1
 
 Before we go on, it's worth thinking about how you would play this game from each player's perspective. The formal approach we'll eventually take is pretty similar, I think, to the way one thinks about the game.
 
-## Normal Form and Extensive Form
+## Normal Form and Extensive Form {#sec-normal-and-extensive}
 
 @fig-five is the **extensive form** representation of **Five**. We will use $W$ to denote that $A$ wins, and $L$ to denote that $B$ wins.
 
@@ -95,7 +95,7 @@ In part because of this fact, i.e., because every change to the value assignment
 
 We will prove this in a little bit, but first we will look at how to 'solve' games like **Five**.
 
-## Backwards Induction
+## Backwards Induction {#sec-backwards-induction}
 
 The way to think through games like **Five** is by working from top to bottom. $A$ moves last. Once we get to the point of the last move, there is no tactical decision making needed. $A$ knows what payoff she gets from each move, and she simply will take the highest payoff (assuming rationality).
 
@@ -161,7 +161,7 @@ Now you might think that even if $A$ isn't perfectly rational, it still is crazy
 
 We will come back to this point, a lot, in subsequent discussions of backwards induction. Note that it is a point that doesn't really arise in the context of normal form games. There we might wonder about whether common knowledge of rationality is a legitimate assumption at the *start* of the game. But once we've settled that, we don't have a further issue to decide about whether it is still a legitimate assumption at later stages of the game.
 
-## Value of Games
+## Value of Games {#sec-value-of-games}
 
 Consider games with the following characteristics.
 
@@ -214,7 +214,7 @@ Second, these theorems have many applications to real-life games. Both chess and
 
 In the case of checkers, we know what the value of the game is. It is a draw. This was proved by the Chinook project at the University of Alberta. We don't yet know what the value of chess is, but it is probably also a draw. Given how many possible moves there are in chess, and in principle how long games can go on, it is hard to believe that chess will be 'solved' any time soon. But advances in chess computers may be able to justify to everyone's satisfaction a particular solution, even if we can't prove that is the value of chess.
 
-## Subgame Perfect Equilibrium
+## Subgame Perfect Equilibrium {#sec-subgame-perfect}
 
 Consider the following little game. The two players, call them Player I and Player II, have a choice between two options, call them Good and Bad. The game is a sequential move game; first Player I moves then Player II moves. Each player gets 1 if they choose Good and 0 if they choose Bad. We will refer to this game as **Easy Game**. Its game tree is @fig-easy-game.
 
@@ -274,7 +274,7 @@ But look how implausible this is in real time. It means that if we get to the ri
 
 In the rest of this chapter, we'll look at reasons why this might be too strong a constraint on rational players.
 
-## Problems with Backwards Induction {#problems-with-backwards-induction}
+## Problems with Backwards Induction {#sec-problems-backwards-induction}
 
 When each player only moves once, it is very plausible that each player should play their part of a subgame perfect equilibrium solution to the game. But this is less compelling when players have multiple moves. We can start to see why by looking at a game that the philosopher Robert Stalnaker [-@stalnaker1996] has used in a few places to argue against backwards induction reasoning. Again, it is an extensive form game. We will call it **Cooperative Caterpillar**.
 
@@ -311,7 +311,7 @@ Player II's beliefs are like that. He believes Player I is perfectly rational. H
 
 Stalnaker argues that many game theorists have tacitly confused indicative and subjunctive conditionals in reasoning about games like **Cooperative Caterpillar**. There are other games where similar confusions arguably take place.
 
-## Money Burning Game {#money-burning-game}
+## Money Burning Game {#sec-money-burning}
 
 Elchanen Ben-Porath and Eddie Dekel suggested this variant to the Battle of the Sexes game. The variation is in two steps. First, we change the payouts for the basic game to the following. (Note that I'm using a lowercase letter for one of Row's options here; this is to distinguish the $d$ of down from the $D$ of Don't burn.)
 
@@ -361,7 +361,7 @@ Robert Stalnaker, in his commentary on the game, goes further and provides a pos
 
 There is another, relatively simple, equilibrium to the game. Player I will play $Dd$, and Player II will play $rr$. Player II is certain that Player I will play $d$, and will keep that belief even if Player I irrationally burns 2 utils to start with. Given that certainty, it is rational for Player I to play $Dd$, so Player II's belief is consistent with believing Player I to be rational. And since Player I is playing $Dd$, playing $rr$ is perfectly rational for Player II; indeed it results in her best possible outcome. Moreover, given that Player II is playing $rr$, it makes sense for Player I to play $d$ even if they were, irrationally, to burn the utils. So even though playing $Bd$ would be irrational, since it is strictly dominated, if they were to (irrationally) play $D$, they *should* follow that by playing $d$. There's an important point about the scope of the claim that playing $Bd$ is irrational. It *doesn't* imply that if the player were to irrationally play $B$, it would be irrational to follow with a play of $d$. If Player I was convinced that Player II was playing $rr$, then it would be rational to follow $B$ with $d$.
 
-## Iterated Prisoners' Dilemma {#iterated-prisoners-dilemma}
+## Iterated Prisoners' Dilemma {#sec-iterated-pd}
 
 Let's return to Prisoners Dilemma, using $C$ and $D$ for cooperate and defect. We'll call the players I and II, and use uppercase letters for Player I's strategies, and lower case letters for Player II's strategies. We'll assume that each player knows that the other players are perfectly rational in Stalnaker's sense. (That is, they have true beliefs about the other, and they maximise expected utility given their beliefs.)
 

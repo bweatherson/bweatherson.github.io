@@ -304,3 +304,42 @@ in chapter 4, and as things stand no lecture reaches it.
 in the book, that sentence is still true of the book and now false of the course.
 Fine if it reads as a pointer into the text; worth rewording if it reads as a
 promise about a class.
+
+## Cross-references
+
+Every `#` and `##` heading in chapters 1 to 6 now carries a `{#sec-...}` id: 56 in
+all, 50 newly added, no duplicates. Only those two levels, because
+`number-depth: 2` means `###` headings are not numbered and a `@sec-` reference to
+an unnumbered heading does not resolve.
+
+Backups of all six chapters at `notes/_to_delete/pre-crossref/`.
+
+**Two bugs found and fixed.** The chapter 6 heading read
+`# Bayesian Games {@sec-bayesian}`, with an at-sign where the hash should be, so
+the id was never created and both references to it rendered as unresolved. And
+`03-nash-equilibrium.qmd` had `[@sec-bayesian]` in square brackets, which pandoc
+reads as a citation rather than a cross-reference.
+
+**Three ids renamed.** `#problems-with-backwards-induction`, `#money-burning-game`
+and `#iterated-prisoners-dilemma` in chapter 5 became `sec-` prefixed, which they
+have to be for `@` references to work. Nothing linked to them, so nothing broke.
+
+**Ten in-text references converted**, all of the form where the text names a
+specific chapter, section, table or figure. Everything vaguer was left alone:
+"In later chapters", "We will come back to this point, a lot", "the
+representations using tables that we've used previously", "as we've seen in games
+like **Burning**", "the signalling games later in this chapter", "in the rest of
+this chapter".
+
+**Two judgement calls worth a second look.** At 06:104, "a debt from the chapter
+on mixed strategies" became `@sec-mixed-and-nash`, the chapter, because that is
+what the sentence says; but the debt is incurred specifically in 3.12, so
+`@sec-what-is-a-mixed-strategy` may be the better target. At 02:264, "Chapter 1"
+became `@sec-basics` for the same literal reason, where `@sec-utility` would be
+more precise.
+
+**To check on the next render**: three of the references point at chapter-level
+headings, and Quarto should render those as "Chapter N" rather than "Section N".
+Worth eyeballing.
+
+Unrelated typo spotted at 01:233: "we'll look what happens" wants an "at".

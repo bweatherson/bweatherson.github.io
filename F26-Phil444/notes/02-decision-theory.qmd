@@ -1,6 +1,6 @@
-# Probability and Decision Theory
+# Probability and Decision Theory {#sec-decision-theory}
 
-## Probability
+## Probability {#sec-probability}
 
 We'll start by going over the notion of probability that is used in decision theory. The best way to think about probability functions is by thinking about **measure** functions. Intuitively, a measure function is a non-negative **additive** function. That is, it is a function which only takes non-negative values, and where the value of a whole is equal to the sum of the value of the (non-overlapping) parts. In principle the domain of a measure function could be the size of any set, but we'll only consider functions with finite domains for now.
 
@@ -32,7 +32,7 @@ The next notion we need is that of a **normalised** measure function. A normalis
 
 : A normalised verison of @tbl-uk-geography. {#tbl-uk-geography-normal}
 
-The way we turn the regular measure function into a normalised measure is by dividing each value on the earlier table by the value of whole. So the land mass of England is (about) 50,000 mi$^2$, and the land mass of the UK is (about) 93,000 mi$^2$, and $\nicefrac{50,000}{93,000}$ is about 0.54. So that's why we right 0.54 in the top right cell of the normalised measure table.
+The way we turn the regular measure function into a normalised measure is by dividing each value in @tbl-uk-geography by the value of whole. So the land mass of England is (about) 50,000 mi$^2$, and the land mass of the UK is (about) 93,000 mi$^2$, and $\nicefrac{50,000}{93,000}$ is about 0.54. So that's why we right 0.54 in the top right cell of the normalised measure table.
 
 The last notion we need is that of a possibility space, or more formally, a **field** of propositions. Although these terms might be unfamiliar, the notion should be very familiar; it is just what we represent with a truth table. We will identify, for these purposes, propositions with sets of possible worlds. Then a field of propositions is a set of propositions such that whenever $A$ and $B$ are in the set, so are $\neg A$ and $A \wedge B$. This is, of course, just what we see with truth tables. Whenever you can represent two propositions on a truth table, you can represent their conjunction and each of their negations. Just like with truth-tables, we'll only consider finite fields. It's possible to extend this to cover any set-sized partition of possibility space, but we'll ignore such complications for now.
 
@@ -45,7 +45,7 @@ We normally suppose that any rational agent has **credences** over the space of 
 
 In any finite field of propositions, there will be some **atoms**. These are propositions such that no stronger consistent proposition is in the field. (Some, but not all, infinite fields are atomic.) We will use these atoms a lot. I'll use the variable $w$ to range over atoms, reminding us that for practical purposes, atoms behave a lot like *worlds*. They aren't worlds, of course; they only settle the truth values of a handful of propositions. But they are divisions of possibility space that are maximally precise for present purposes. That is, they are being treated as worlds. On a pragmatist approach to modality, there's no more to being a world than to be treated as a world in the right circumstances, and thinking about probability encourages, I think, such a pragmatist approach.
 
-## Conditional Probability
+## Conditional Probability {#sec-conditional-probability}
 
 So far we've talked simply about the probability of various propositions. But sometimes we're not interested in the absolute probability of a proposition, we're interested in its **conditional** probability. That is, we're interested in the probability of the proposition *assuming* or *conditional on* some other proposition obtaining.
 
@@ -119,7 +119,7 @@ Then we can apply the formula.
 &= 0.88
 \end{align*}
 
-## Bayes Theorem
+## Bayes Theorem {#sec-bayes-theorem}
 
 This is a bit of a digression from what we're really focussing on in game theory, but it's important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the 'inverse' direction to what we are interested in. That is, if we want to know $\Pr(A | B)$, it might be much easier to discover $\Pr(B | A)$. In these cases, we use Bayes Theorem to get the right result.^[Bayes Theory is named after the [Reverend Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes), an 18th century statistician and nonconformist minister.] I'll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent. 
 
@@ -206,7 +206,7 @@ As you can see, most goals come from short possessions. But you shouldn't get ex
 
 The longer a possession is, the higher the frequency that it ends in a goal. I'm not sure in real soccer it is as dramatic as the numbers I gave you. (And in fact at high levels of soccer not nearly this high a percentage of possessions end in goals.) But I am confident that (at least at high levels, at most times in the history of soccer) the broad pattern I've outlined here is correct. Most goals come from short possessions, but short possessions lead to fewer goals, on average, than long possessions. Anyone who has taken a probability class should know that this suggests aiming for longer possessions rather than shorter ones, but apparently the England hierarchy didn't take that lesson for several decades.
 
-## Expected Value
+## Expected Value {#sec-expected-value}
 
 One very convenient notion to define using a probability function is that of an **expected value**. Say that a **random variable** is any function from possibilities to real numbers. We usually designate random variables with capital letters. So expressions like $X=x$, which you'll often see in probability textbooks, means that the random variable $X$ takes real value $x$.
 
@@ -251,7 +251,7 @@ E(X) -E(Y) &= E(X - Y) \\
 
 Often we know more about the difference between two expected values than we do about the absolute value of either. For instance, if we are comparing the expected values of taking and declining a small bet, we can figure out which action has a higher expected value without figuring out the expected value of either, which presumably depends on all sorts of facts about how our life might (probably) go. But as long as we can work out the difference in expected value between the two acts conditional on each $p_i$, and the probability of each $p_i$, we can work out at least which has a higher expected value, and by how much.
 
-## Orthodox Decision Theory
+## Orthodox Decision Theory {#sec-orthodox-decision-theory}
 
 Given all that, it is fairly easy to summarise orthodox decision theory.
 
@@ -259,9 +259,9 @@ Given all that, it is fairly easy to summarise orthodox decision theory.
 - Rational agents also have a real-valued utility function $U$ over salient outcomes.
 - The rational action for such an agent to do is the action that maximises **expected** utility, i.e., maximises the expected value of $U$ relative to that function $\Pr$.
 
-## Money Is Not Utility
+## Money Is Not Utility {#sec-money-not-utility}
 
-Chapter 1 separated a player's payout from their utility, and said that we would normally specify games using the latter. This section is about why that
+@sec-basics separated a player's payout from their utility, and said that we would normally specify games using the latter. This section is about why that
 separation matters, because the difference between money and utility plays several different explanatory roles.
 
 Getting \$2x is not twice as good as getting \$x. Getting \$2x is like getting \$x, and then getting another \$x when you are already \$x richer, and the second \$x does you less good than the first did. This what is known as the **declining marginal utility** of money. The **marginal** utility of money is the margin between the utility you had before and after getting that money. A core thought of economic theory since the 1870s is that marginal utility is the core explanation of action; absolute utility is either non-existent or unimportant.^[Like many things, the importance of marginal utility seems to have been independently discovered by many people at once. The philosophy connection here is that one of the independent discoverers was William Stanley @Jevons1871. I'd like to think he came up with the idea while working in Australia in the 1850s, which would make this one of the earliest Australian contributions to Anglophone philosophy. But as far as I know, there is literally zero evidence for that timeline.] And the marginal utility of money falls, i.e., declines, the more of it you have.
@@ -368,7 +368,7 @@ E(U(2A)) - E(U(2B)) &= (0.11y + 0.89z) - (0.10x + 0.90z) \\
 
 which is the same expression. So anyone who prefers **1A** to **1B** is committed to preferring **2A** to **2B**, whatever their utilities for money happen to be. Taking **1A** and **2B** is not a sign of unusual attitudes to risk. It is inconsistent with expected utility theory. If you think **1A** and **2B** are rational, you think that expected utility theory is wrong.
 
-## Ellsberg
+## Ellsberg {#sec-ellsberg}
 
 Around the same time, a similar challenge to expected utility theory was formulated by [Daniel Ellsberg](https://en.wikipedia.org/wiki/Daniel_Ellsberg). Ellsberg is a fascinating figure; his Wikipedia page lists seven _films_ that his story has a non-trivial part in. We're going to discuss something he discovered quite early in life, before the work that made him famous. How related it is to that later work is an interesting question; Ellsberg himself always said it was.
 
@@ -418,6 +418,6 @@ Here's the most natural way to do this. By assumption, everyone has a probabilit
 
 The response that Ellsberg and others gave to this argument is not to question the algebra, or to question the appeal to expected utility. It's to question the very assumption that there is such a thing as $y$. Or, in some versions, to question the assumption that it is a *number*. In @sec-bayesian, we'll come back to some game theoretic reasoning that also presupposes that things like _the probability that the marble is yellow_ exist, and whether we might want to question that assumption.
 
-## For Next Time
+## For Next Time {#sec-ch2-next-time}
 
 Next time we'll start with an application of those ideas that leads to the most central concept in game theory.

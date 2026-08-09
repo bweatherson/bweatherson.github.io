@@ -1,8 +1,8 @@
-# Bayesian Games {@sec-bayesian}
+# Bayesian Games {#sec-bayesian}
 
-## Two Kinds of Ignorance
+## Two Kinds of Ignorance {#sec-two-kinds-of-ignorance}
 
-In the games of the last chapter, players were sometimes ignorant about what had already happened. When a player has to move without knowing which node of the tree they are at, we represent that with an information set, and we say the game is one of **imperfect information**. Prisoners' Dilemma in extensive form is like this. The second player moves knowing the rules, knowing the payoffs, knowing everything about the game, and not knowing only what the first player just did.
+In the games of @sec-games-and-time, players were sometimes ignorant about what had already happened. When a player has to move without knowing which node of the tree they are at, we represent that with an information set, and we say the game is one of **imperfect information**. Prisoners' Dilemma in extensive form is like this. The second player moves knowing the rules, knowing the payoffs, knowing everything about the game, and not knowing only what the first player just did.
 
 There is a different thing a player might not know. They might not know what the game is. They might not know what the other player's payoffs are, and so not know what the other player is trying to achieve. Games like this are games of **incomplete information**.
 
@@ -12,7 +12,7 @@ Almost every interesting application of game theory outside the classroom involv
 
 But we don't obviously have a theory for these cases. Our solution concepts all take a game as input, and a game is a payoff table. If the players don't know the payoff table, we cannot even say what game they are playing, and if we cannot say that, we cannot say what an equilibrium of it would be. Worse, there is a regress waiting. If Row doesn't know Col's payoffs, Row has beliefs about them. Col then has beliefs about Row's beliefs about Col's payoffs. And Row has beliefs about those. It looks like modelling ignorance about payoffs requires an infinite hierarchy of beliefs about beliefs, which is not something we can write on a page.
 
-## Types
+## Types {#sec-types}
 
 John Harsanyi [-@harsanyi1967] found a way through this, and it is one of the great ideas in the subject. Games of incomplete information can be turned into games of imperfect information, which we already know how to handle.
 
@@ -33,7 +33,7 @@ We assume the prior is common knowledge. This is the **common prior assumption**
 
 You have already seen this construction without it being named. The signalling games later in this chapter all begin with an unfilled node marked $N$, with probabilities on the branches leading out of it. That is Nature, drawing a type for the player who is about to signal.
 
-## Bayesian Nash Equilibrium
+## Bayesian Nash Equilibrium {#sec-bne}
 
 Once the game has been transformed this way, we can reuse Nash equilibrium almost unchanged. There is one adjustment to make first.
 
@@ -45,9 +45,9 @@ A **Bayesian Nash equilibrium** is then a profile of strategies, one for each pl
 
 Equivalently, and this is the cleaner way to say it: a Bayesian Nash equilibrium is a Nash equilibrium of the imperfect information game that Harsanyi's transformation produces. We have not invented a new solution concept. We have found a way to describe a wider class of situations in terms we already had.
 
-## An Example
+## An Example {#sec-bayesian-example}
 
-Take Battle of the Sexes from the first chapter, and make one change. Row still wants to meet Col. But Row is no longer sure that Col wants to meet Row.
+Take Battle of the Sexes from @sec-battle-of-sexes, and make one change. Row still wants to meet Col. But Row is no longer sure that Col wants to meet Row.
 
 Col has two types. With probability $\nicefrac{1}{2}$ Col is *sociable*, and wants to meet, with the payoffs we saw before. With probability $\nicefrac{1}{2}$ Col is *elusive*, and would rather be wherever Row is not. Col knows which type Col is. Row does not.
 
@@ -99,9 +99,9 @@ The first is that Col's two types do different things, and that is what makes th
 
 The second is that Row's behaviour looks, from the outside, exactly like behaviour in an ordinary game. Row picks X and sticks with it. The incomplete information is not visible in what Row does. But it is visible in why Row does it, and in what Row would have done had the probabilities been different. Suppose Col were sociable with probability $p$ rather than $\nicefrac{1}{2}$. Then Row's expected payoff from X is $2p$ and from Y is $1 - p$, so Row prefers X just when $p > \nicefrac{1}{3}$. Below that, Row gives up on meeting.
 
-## Purification
+## Purification {#sec-purification}
 
-We can now settle a debt from the chapter on mixed strategies.
+We can now settle a debt from @sec-mixed-and-nash.
 
 The problem there was that mixed equilibria seem to require players to randomise, and it is not clear why anyone would. At a mixed equilibrium every pure strategy in the support does exactly as well as the mixture, so nothing recommends the mixture over any of them. The only thing a player's mixture accomplishes is keeping the *other* player indifferent, which is a strange thing for a self-interested agent to be aiming at.
 
@@ -117,7 +117,7 @@ If that is right, the interpretive problem dissolves. Nobody was ever spinning a
 
 Whether it is right is a further question, and there are two obvious places to push. The first is that the result is a limit claim, and the game we actually wanted to analyse is the one at the limit, where the perturbations are gone and the puzzle is back. The second is that the perturbed game is not the game we started with, so we can ask why facts about its neighbours should tell us what to do here. Neither objection is decisive. But both are worth taking seriously.
 
-## Perfect Bayesian Equilibrium
+## Perfect Bayesian Equilibrium {#sec-pbe}
 
 The core idea behind subgame perfect equilibrium was that we wanted to eliminate equilibria that relied on 'incredible threats'. That is, there are some equilibria such that the first player makes a certain move only because if they make a different move, the second player to move would, on their current strategy, do something that makes things worse for both players. But there's no reason to think that the second player would actually do that.
 
@@ -144,7 +144,7 @@ The last constraint is very weak, but it does enough to eliminate the equilibriu
 
 It's true, but I'm not going to prove it, that all Perfect Bayesian equilibria are Nash equilibria. It's also true that the converse does not hold, and this we have proved; **Perfect** is an example.
 
-## Signaling Games
+## Signaling Games {#sec-signaling-games}
 
 Concepts like Perfect Bayesian equilibrium are useful for the broad class of games known as signaling games. In a signaling game, Player 1 gets some information that is hidden from player 2. Many applications of these games involve the information being *de se* information, so the information that Player 1 gets is referred to as her *type*. But that's inessential; what is essential is that only one player gets this information. Player 1 then has a choice of move to make. There is a small loss of generality here, but we'll restrict our attention to games where Player 1's choices are independent of her type, i.e., of the information she receives. Player 2 sees Player 1's move (but not, remember, her type) and then has a choice of her own to make. Again with a small loss of generality, we'll restrict attention to cases where Player 2's available moves are independent of what Player 1 does.
 
@@ -172,7 +172,7 @@ Unfortunately, these are all Perfect Bayesian equilibria too. For the separating
 
 That doesn't mean we have nothing to say. For one thing, the separating equilibria are Pareto-dominant in the sense that both players do better on those equilibria than they do on any other. So that's a non-coincidental reason to think that they will be the equilibria that arise. There are other refinements on Perfect Bayesian equilibria that are more narrowly tailored to signaling games. We'll introduce them by looking at a couple of famous signaling games.
 
-## Signaling without Cooperation
+## Signaling without Cooperation {#sec-signaling-without-cooperation}
 
 Economists have been interested for several decades in game-theoretic representations of college that give make going to college essentially a signal in a game. For example, consider the following variant of the signaling game, **College Signal**. It has the following intended interpretation:
 
@@ -206,7 +206,7 @@ This is a very odd strategy for Player 2 to adopt, but it is a little hard to sa
 
 But now note what an odd update strategy this is for Player 2. She has to assume that if someone deviates from the $DD$ strategy, it is someone for whom the deviation is strictly dominated. Well, perhaps it isn't crazy to assume that someone who would deviate from an equilibrium isn't very bright, so maybe this isn't the oddest assumption in this particular context. But a few economists and game theorists have thought that we can put more substantive constraints on probabilities conditional on 'off-the-equilibrium-path' behaviour. One such constraint, is, roughly, that deviation shouldn't lead to playing a dominated strategy. This is the "**intuitive criterion**" of @chokreps1987. In this game, all the criterion rules out is the odd pair $\langle DD, rl \rangle$. It doesn't rule out the very similiar pair $\langle DD, ll \rangle$. But the intuitive criterion makes more substantial constraints in other games. We'll close the discussion of signaling games with such an example, and a more careful statement of the criterion.
 
-## The Intuitive Criterion
+## The Intuitive Criterion {#sec-intuitive-criterion}
 
 The tree in @fig-canadian-signal represents **Canadian Signal**, which is also a guessing game. The usual statement of it involves all sorts of unfortunate stereotypes about the type of men who have quiche and/or beer for breakfast, and I'm underwhelmed by it. So I'll run with an example that relies on different stereotypes.
 
@@ -216,7 +216,7 @@ A North American tourist is in a bar. 60% of the North Americans who pass throug
 - If she is Canadian, she has a (weak) preference for watching hockey rather than baseball.
 - Either way, she has a strong preference for being thought of as Canadian rather than American. This preference is considerably stronger than her preference over which sport to watch.
 
-The barman's preferences are simpler; he prefers to make true guesses to false guesses about the tourist's nationality. All of this is common knowledge. So the decision tree is given below. In this tree, $B$ means asking for baseball, $H$ means asking for hockey, $a$ means guessing the tourist is from the USA, $c$ means guessing she is from Canada.
+The barman's preferences are simpler; he prefers to make true guesses to false guesses about the tourist's nationality. All of this is common knowledge. So the decision tree is given in @fig-canadian-signal. In this tree, $B$ means asking for baseball, $H$ means asking for hockey, $a$ means guessing the tourist is from the USA, $c$ means guessing she is from Canada.
 
 ::: {#fig-canadian-signal}
 ![](figures/svg/canadian-signal.svg){fig-alt="The Canadian signalling game"}

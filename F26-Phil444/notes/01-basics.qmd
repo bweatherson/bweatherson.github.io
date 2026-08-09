@@ -1,6 +1,6 @@
-# Basics of Game Theory
+# Basics of Game Theory {#sec-basics}
 
-## Nature of Games
+## Nature of Games {#sec-nature-of-games}
 
 We'll think of a game as any situation where multiple players have to make some decisions, and the outcome they get is a function of (perhaps among other things) the decisions that each make. So understood, that's a very large class of situations. Indeed, game theory has been used to analyse any number of real-world interactions, as you might expect from a definition so broad.
 
@@ -12,7 +12,7 @@ In practice, this isn't really possible with current technology. There are too m
 
 For these reasons, when we are discussing simultaneous move games, we will often refer to the players' options as *strategies*. The representation of the game as an $n \times m$ matrix, where one player (represented on rows) has $n$ options, and the other player (represented on columns) has $m$ options, is sometimes called a **normal form** representation of a game and sometimes called a **strategic form** representation. And we'll start off with these matrix representations. When we complicate things by explicitly representing time in the game, we'll call the representation the **extensive form** representation of the game.
 
-## Utility
+## Utility {#sec-utility}
 
 Here is a representation of an important kind of two player simultaneous move game.
 
@@ -57,11 +57,11 @@ What does it mean to say that a function $u$ correctly represents the agent? Fir
 
 When it isn't stated otherwise, we will describe the outcomes of games in terms of the utility each agent gets. Sometimes we will have to just state what the payout is each agent gets, and the utility function will be either unknown, or will have to be figured out. But the default is that we will list the utility of each outcome.
 
-## Four Examples of Games
+## Four Examples of Games {#sec-four-examples}
 
 We'll start with a very simple class of games: 2 player simultaneous move games where each player has 2 choices for their move. As we'll see, there is plenty of complexity within even this class.
 
-## Prisoners' Dilemma
+## Prisoners' Dilemma {#sec-pd}
 
 We've already seen this game, it was @tbl-pd-standard, but it's worthwhile having on the table again.
 
@@ -91,7 +91,7 @@ The general form of Prisoners' Dilemma is given in @tbl-pd-abstract, assuming $a
 
 One characteristic of the game is that for each player, playing $Y$ is better than playing $X$ no matter what the other person does. That is, playing $Y$ **dominates** playing $X$; it is better no matter what. But, and this is what gives the game its distinctive character, it is better for both players if they both play $X$ than if they both play $Y$. (And in a repeated game it is better to always play $X$ than to alternate between the outcomes where players make opposite moves.) It is an interesting way to think about modeling situations where there are rewards to cooperation, but incentives to individualist behavior.
 
-## Stag Hunt
+## Stag Hunt {#sec-stag-hunt}
 
 The next game we'll look at is called Stag Hunt. We'll first do a version with commonly used numbers (in @tbl-sh-standard), then the general version.
 
@@ -125,7 +125,7 @@ In Stag Hunt, the best outcome for all parties is the cooperative one. But if a 
 
 The cute story behind this game comes from the eighteenth century political philosopher Jean-Jacques Rousseau [@rousseau1755]. Imagine two people are setting out on the day's hunt, and are going to hunt stag or rabbits. Catching a stag will lead to more meat, but it is impossible with just one person. One person can catch a lot of rabbits, especially if no one else is hunting rabbits. In this case, X is joining the stag hunt, and Y is setting off on a solo rabbit hunt. It isn't as hard to get cooperative outcomes in this game as in Prisoners' Dilemma, but it takes some background trust.
 
-## Battle of the Sexes
+## Battle of the Sexes {#sec-battle-of-sexes}
 
 I don't particularly like the name of this game, but it is common enough that you probably should know it. @tbl-bs-standard gives a commonly used version of the game.
 
@@ -157,7 +157,7 @@ I don't particularly like the name of this game, but it is common enough that yo
 
 The thought is that both parties prefer coordination - making the same pick - to doing different things. But they differ on what they would like to coordinate on; Row would like to coordinate on X, and Column would like to coordinate on Y. The name comes from the version of the game where Row and Column are husband and wife, and X and Y are stereotypically male/female things to prefer doing. You can probably fill in your own example here.
 
-## Chicken
+## Chicken {#sec-chicken}
 
 Our last game, shown in @tbl-chicken-standard, is not for the faint of heart.
 
@@ -177,7 +177,7 @@ The idea comes from a James Dean movie. Two cars are lined up facing each other 
 
 Unlike the previous games we've looked at, there is no pure **equilibrium** to this game. That is, there is no point in the game where no one regrets their choice on finding out what the other players choose. There is an equilibrium to the game, it turns out, but getting to it requires a bit of background.
 
-## Types of Games
+## Types of Games {#sec-types-of-games}
 
 Let $u(x, o)$ be the utility that player $x$ gets in outcome $o$. Then a two player game, with players $p_1, p_2$ is **zero-sum** if there is some constant $c$ such that for any outcome $o$, $u(p_1, o) + u(p_2, o) = c$. That is, however good an outcome is for $p_1$, it is equally bad for $p_2$, and vice versa. Pure competitions are zero-sum, though real zero-sum interactions are rare in the real world.
 
@@ -187,7 +187,7 @@ You might worry that whether a game is zero-sum or not depends on completely arb
 
 A game is **cooperative** if in any outcome, each player gets the same utility. As with the definition of zero-sum, it doesn't matter whether the game looks cooperative on every way of representing the utilities of the players, just if it looks cooperative on some representation.
 
-## Dominant Strategies
+## Dominant Strategies {#sec-dominant-strategies}
 
 Say that one player has available to them strategies $s_1, \dots, s_n$, and the other players have available to them collectively strategies $v_1, \dots, v_m$. In the case of a two player game, the strategies available to other players will just be strategies. But in games with more than two players, we'll think of the alternatives available to other players as *vectors*, with each dimension being a choice available to one of the other players. So $v_17$ might be that player 2 plays X, and player 3 plays Y, and player 4 plays Z, and player 5 also plays Z. Every one of these vectors specifies the choices of all other players in the game.
 
@@ -207,7 +207,7 @@ We'll say that strategy $s_i$ **weakly dominates** strategy $s_j$ if and only if
 
 That is, playing $s_1$ can't do any worse than playing $s_2$, no matter what the others do, and it could do better.
 
-## Dominance and Solving Games
+## Dominance and Solving Games {#sec-dominance-solving}
 
 Here is one simple way to make progress on a game.
 

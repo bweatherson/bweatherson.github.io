@@ -1,6 +1,6 @@
-# Mixed Strategies and Nash Equilibrium
+# Mixed Strategies and Nash Equilibrium {#sec-mixed-and-nash}
 
-## Mixed Strategies
+## Mixed Strategies {#sec-mixed-strategies}
 
 In any game, if player $x$ has strategies $s_1, s_2$ available, then we'll also assume they have available the **mixed strategy** of playing $s_1$ with probability $p$ and $s_2$ with probability $1-p$ (for arbitrary $p \in (0, 1)$). Such strategies have an expected value given strategies for the other players in the game, and we'll think of that expected value as the return to the player for playing the strategy.
 
@@ -14,7 +14,7 @@ Still, even if every mixed strategy can be represented as a mixture of all pure 
 
 Now it's a somewhat delicate philosophical question just what this assumption amounts to. While the assumption is more or less universally made by game theorists, there is less agreement about just what it comes to. There are three natural interpretations, which we might call the objective chance, epistemic and frequentist readings. We'll leave them there for now; the question of which is right doesn't bite until we can see what a mixed equilibrium asks of a player, so we'll come back to it at the end of the chapter.
 
-## Best Responses
+## Best Responses {#sec-best-responses}
 
 A strategy $s$ is a **best response** for player $x$ iff there is some probability distribution $\Pr$ over the possible strategies of other players such that no strategy has a higher expected payoff than $s$ does, given $\Pr$.
 
@@ -122,7 +122,7 @@ If we change the payout to $M$ so that it isn't dominated, it becomes a best res
 
 Now $M$ is not dominated. Indeed, it dominates $\langle U, 0.5; D, 0.5 \rangle$. And as we saw above it is also a best response. If Row thinks it is 50/50 whether Col plays $L$ or $R$, then $M$ has the highest expected return.
 
-## Iterated Best Responses
+## Iterated Best Responses {#sec-iterated-best-responses}
 
 It seems very plausible that one should only play best responses. But not all best responses are worth playing. Some best responses are pretty hard to justify when playing against a rational opponent. Consider @tbl-ibr-first from Row's perspective.
 
@@ -164,7 +164,7 @@ But we can go further than that. What should Col play, given what we just conclu
 
 The idea that players should play BRBR strategies isn't strong enough to get us that result. After all, $D$ is a best response, and $R$ is a best response to $D$. So $R$ is BRBR. What it isn't is a best response to something that is a best response to a best response. Rather than keep counting layers of best responses, let's collapse this into one notion of being a best response to a best response to a best response to etc., to infinity. Call any strategy which has this feature an **IBR**, or **I**terated **B**est **R**esponse.
 
-## Nash Equilibrium
+## Nash Equilibrium {#sec-nash-equilibrium}
 
 In a two-player game, for a strategy $s_0$ to be IBR, it must be the best response to some strategy $s_1$, which is the best response to some strategy $s_2$, which is the best response to some strategy $s_3$, etc. But we are assuming that there are only finitely many strategy choices available. So how can we get such an infinite chain going?
 
@@ -177,7 +177,7 @@ NE
 
 The 'Nash' in Nash Equilibrium is in honour of John Nash, who developed the concept, and proved some striking mathematical results concerning it [@nash1951].
 
-## Nash Equilibrium in Simultaneous Move Games
+## Nash Equilibrium in Simultaneous Move Games {#sec-nash-simultaneous}
 
 Consider @tbl-no-pure-eqm:
 
@@ -228,11 +228,11 @@ So the two strategies $\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle$ a
 
 We aren't going to prove this, but for any game with bounded payouts, and finite options for each player, there will be some Nash Equilibrium. This equilibria will often be a mixed strategy equilibria, but it is guaranteed to exist.
 
-## Finding Nash Equilibria
+## Finding Nash Equilibria {#sec-finding-nash}
 
 It isn't easy in general to find Nash Equilibria. But let's start with some general approaches we can use.
 
-## Iterated Dominance
+## Iterated Dominance {#sec-iterated-dominance}
 
 Strongly dominated strategies can't be part of an equilibrium. (I'll just use 'equilibrium' for 'Nash Equilibrium' in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can't be part of an equilibrium either. This idea can help us find the equilibrium in some games, such as @tbl-id-first.
 
@@ -371,7 +371,7 @@ This process is called the **Iterative Deletion of Dominated Strategies**. More 
 
 We'll return a bit to this point in what follows, but it's worth noting that in a one-shot version of this game, to get to the conclusion that each player should play 5, we had to use a number of very strong assumptions. We had to assume that each player is rational, that they know the other is rational, that they know that the other knows they are rational, and so on through six iterations. In principle, to justify iteratively deleting dominated strategies, we have to assume that there are arbitrarily many iterations of this idea that each player knows that the other player knows etc that they are rational.
 
-## Finding Best Responses
+## Finding Best Responses {#sec-finding-best-responses}
 
 It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider @tbl-complicated.
 
@@ -436,7 +436,7 @@ Note that under $b$, we bolded two possible payoffs. That's because they are tie
 
 Any cell where both values are bolded is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: $\langle Aa \rangle$, $\langle Dd \rangle$, $\langle Ec \rangle$. I'll leave finding the mixed strategy equilibria as an exercise for the interested reader.
 
-## Finding Mixed Strategy Equilibria
+## Finding Mixed Strategy Equilibria {#sec-finding-mixed}
 
 It isn't easy in general to find mixed strategy equilibria. But we can start by dividing the problem into two parts.
 
@@ -552,7 +552,7 @@ Now what happens if the legislature decides that there is too much speeding, and
 
 If nothing else apart from the penalty for speeding, the rational response by police department Row is to reduce monitoring of speeding, and spend time on other crimes. After all, the new equilibrium is that Row detects with probability $\frac{1}{21}$, and Col still speeds with probability $\frac{1}{11}$. If there is a game in a mixed strategy equilibrium, and the result of any change to the payoffs will be to move it to a new equilibrium, then the only way to change Col's behavior is to either create a new dominant strategy, or to change Row's payoffs. Perhaps what the legislature should do here is to not just increase speeding fines, but to give the money to police departments - that would change the equilibrium of the game in a hurry.
 
-## Combining Strategies
+## Combining Strategies {#sec-combining-strategies}
 
 We'll work out the equilibria for the following game.
 
@@ -620,7 +620,7 @@ If you prefer to have the mixed strategies range over all of the options that we
 - Row plays $\langle A, \frac{2}{3}; B, \frac{1}{3}; C, 0 \rangle$.
 - Col plays $\langle a, \frac{1}{6}; b, \frac{5}{6}; c, 0 \rangle$.
 
-## Why Care about Equilibria?
+## Why Care about Equilibria? {#sec-why-care}
 
 There is a philosophical question about why we should care about Nash equilibria. Thinking about the mixed strategy equilibria can make these questions particularly vivid.
 
@@ -640,11 +640,11 @@ Personally, I think it's the last possibility that makes the concept of an equil
 
 This matches up nicely with our intuitive judgments about games like the driving game. What would happen, intuitively, if one player deviated dramatically from the equilibrium in a one-shot game? The answer is that that player would probably do fine. If Col speeds, then they'll probably get away with it. But think about what would happen (again intuitively) if a player repeated non-equilibrium play over a long period of time. I think it would end up being counterproductive. If Col speeds all the time, Row will adjust and catch them. If Row detects all the time, Col will slow down, but Row will end up wasting detecting resources. It's in repeated games, that non-equilibrium play leads to disaster.
 
-Recall at the start of the chapter we said that it is hard to sometimes make sense of what it even means to play a mixed strategy outside of the context of a repeated game. The reasoning of the last paragraph is why I don't find that worrying. Just like it is hard to define a mixed strategy in a genuinely one-shot game, it is hard to motivate such a strategy. Mixed strategies become easier to define in repeated games, and they become easier to motivate in those games too.
+Recall that in @sec-mixed-strategies we said that it is hard to sometimes make sense of what it even means to play a mixed strategy outside of the context of a repeated game. The reasoning of the last paragraph is why I don't find that worrying. Just like it is hard to define a mixed strategy in a genuinely one-shot game, it is hard to motivate such a strategy. Mixed strategies become easier to define in repeated games, and they become easier to motivate in those games too.
 
-## What Is a Mixed Strategy?
+## What Is a Mixed Strategy? {#sec-what-is-a-mixed-strategy}
 
-Back at the start of the chapter we assumed that players have mixed strategies available, and noted that it is a tricky question what that assumption amounts to. We can now make that note much more precise.
+Back in @sec-mixed-strategies we assumed that players have mixed strategies available, and noted that it is a tricky question what that assumption amounts to. We can now make that note much more precise.
 
 This is the feature of mixed equilibria that generates the difficulty. At a mixed equilibrium, every pure strategy in the support has the same expected return as the mixture itself. We use that fact to discover equilibria. The trick is to find the probabilities that make the *other* player indifferent. That means that at the equilibrium, a player has no reason at all to play the mixture rather than any of the strategies in its support. Playing $U$ for certain does exactly as well as playing $\langle U, 0.5; D, 0.5 \rangle$, given what the other player is doing.
 
@@ -686,6 +686,6 @@ To the extent that contemporary philosophers talk about rational choice game the
 
 The three readings disagree about where the probability lives: in a device, in a sequence of plays, or in someone's beliefs. They also disagree about what an equilibrium is a claim about. The first makes it a claim about individual behaviour, the second about a series or a population, the third about states of information.
 
-There is a fourth answer, due to Harsanyi, which says the randomness is real but sits in the other player's ignorance of your exact payoffs. We cannot state it properly yet, because it needs machinery we have not built. We will come back to it in the chapter on Bayesian games [@sec-bayesian].
+There is a fourth answer, due to Harsanyi, which says the randomness is real but sits in the other player's ignorance of your exact payoffs. We cannot state it properly yet, because it needs machinery we have not built. We will come back to it in @sec-bayesian.
 
 You do not have to choose between these interpretations. You do have to notice that "the players mix 50-50" is not yet a claim with a settled meaning.
