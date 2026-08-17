@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Brian Weatherson">
   <meta name="dcterms.date" content="2026-09-01">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -33,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7a9dee3f40ff4b0766c8634b129d08e8.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-44b0e5eff8a4443f51d7949ecb1dfac9.css">
   <link rel="stylesheet" href="custom_styles_css.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -139,12 +142,17 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Brian Weatherson 
+Brian Weatherson
 </div>
 </div>
 </div>
 
   <p class="date">2026-09-01</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Introduction</h1>
+
 </section>
 <section class="slide level2 scrollable">
 <h2>Two Questions</h2>
@@ -156,7 +164,7 @@ Brian Weatherson
 <div class="fragment">
 <p>We will spend roughly half the semester on each.</p>
 </div>
-</section>
+</section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Game Theory</h1>
@@ -184,11 +192,11 @@ Table&nbsp;1: A decision that rests on ‘passive’ facts
 <tr class="odd">
 <td style="text-align: right;"><strong>Take Umbrella</strong></td>
 <td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
+<td style="text-align: center;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><strong>Don’t Take Umbrella</strong></td>
-<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">3</td>
 </tr>
 </tbody>
@@ -285,12 +293,12 @@ Table&nbsp;3: A not so simple coordination game
 </div>
 </section>
 <section class="slide level2">
-<h2>The Prisoners’ Dilemma</h2>
+<h2>The Prisoner’s Dilemma</h2>
 <p>These strategic choices can lead to distinctive puzzles; this might be the most famous one.</p>
 <div id="tbl-basic-pd" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-basic-pd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: A canonical Prisoners’ Dilemma
+Table&nbsp;4: A canonical Prisoner’s Dilemma
 </figcaption>
 <div aria-describedby="tbl-basic-pd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -349,8 +357,8 @@ Table&nbsp;4: A canonical Prisoners’ Dilemma
 <h2>Question Two</h2>
 <p>What does it mean for a group to choose?</p>
 <p>Different individuals have different preferences. Can we combine those preferences into a single group preference? When can we say what the group has decided?</p>
-<p>The primary puzzle here concerns aggregation rather than strategy, though strategic considerations will never quite go away.</p>
-<p>As you might already be familiar with from thinking about elections, or about everyday interactions, the choice of an aggregation procedure needs to be sensitive to the strategic behavior of group members.</p>
+<p>The primary puzzle here concerns aggregation rather than strategy, though strategic considerations will never totally go away.</p>
+<p>As you might already be familiar with from thinking about elections, or about everyday interactions, the choice of an aggregation procedure needs to be sensitive to the strategic behaviour of group members.</p>
 </section>
 <section class="slide level2">
 <h2>Condorcet’s Paradox</h2>
@@ -421,7 +429,7 @@ Table&nbsp;5: Condorcet’s Paradox
 </tr>
 </tbody>
 </table>
-<p>Let’s say we adopt the rule that the group prefers <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> when a majority of its members do. Then we get that the group prefers A to B, and prefers B to C, and prefers C to A. Oops!</p>
+<p>Let’s say we adopt the rule that the group prefers X to Y when a majority of its members do. Then we get that the group prefers A to B, and prefers B to C, and prefers C to A. Oops!</p>
 </section>
 <section class="slide level2">
 <h2>Generalizations</h2>
@@ -433,7 +441,7 @@ Table&nbsp;5: Condorcet’s Paradox
 <section class="slide level2">
 <h2>What the Social-Choice Half Will Do</h2>
 <p>We work through Amartya Sen’s <em>Collective Choice and Social Welfare</em> (originally published in 1970, with an expanded edition in 2017 that we’ll work through).</p>
-<p>Obviously there are lots of great economists around, and lots of great philosophers, but you’d be hard pressed to find someone who is better than Sen at <em>both</em>. He’s also an excellent writer, though this doesn’t <em>always</em> come through in CC&amp;SW.</p>
+<p>Obviously there are lots of great economists around, and lots of great philosophers, but you’d be hard pressed to find someone who is better than Sen at <em>both</em>. He’s also an excellent writer, though this doesn’t <em>always</em> come through in CCSW.</p>
 <p>Some of the topics we’ll cover include:</p>
 <ul>
 <li class="fragment">Arrow’s Theorem (including Sen’s preferred proof of it)</li>
@@ -467,7 +475,7 @@ Table&nbsp;5: Condorcet’s Paradox
 </section>
 <section class="slide level2">
 <h2>Mathematical Level</h2>
-<p>Philosophy courses sometimes shy away from formal material. This one will not.</p>
+<p>This course is more mathematical than the average philosophy course, though less mathematical than many (I guess most) economics courses.</p>
 <p>The mathematics will be at roughly the level of formal work in a philosophy journal. You should expect sets, functions, probabilities, expected utilities, and some algebra. <strong>Calculus</strong> will not be needed.</p>
 <p>If you have taken a philosophy course in formal methods, you’ll be fine. Similarly, if you’ve done any stats or econ courses, you’ll be fine.</p>
 <p>If you have not, <strong>ask questions</strong>; the formalism is there to make the structure visible.</p>
@@ -488,31 +496,29 @@ Table&nbsp;5: Condorcet’s Paradox
 </thead>
 <tbody>
 <tr class="odd">
-<td>Four short assignments (10% each)</td>
-<td>40%</td>
-</tr>
-<tr class="even">
 <td>Two essays (25% each)</td>
 <td>50%</td>
 </tr>
+<tr class="even">
+<td>Eight quizzes (best six count)</td>
+<td>40%</td>
+</tr>
 <tr class="odd">
-<td>Discussion section participation</td>
+<td>Class participation</td>
 <td>10%</td>
 </tr>
 </tbody>
 </table>
-<p>The short assignments lean technical; the essays will be more discurive.</p>
+<p>The quizzes are going to be relatively technical; the essays will be more discursive.</p>
 </section>
 <section class="slide level2">
 <h2>Practicalities</h2>
 <ul>
 <li class="fragment">Lectures: Tuesday and Thursday, [time and room]</li>
-<li class="fragment">Discussion section: Thursday or Friday (check Canvas for your section)</li>
 <li class="fragment">Office hours: to be announced</li>
-<li class="fragment">Course website: bweatherson.github.io/F26-Phil444_site</li>
+<li class="fragment">Course website: bweatherson.github.io/F26-Phil444-site</li>
 <li class="fragment">Canvas: readings, assignments, announcements</li>
 </ul>
-<p>No discussion section this week.</p>
 </section>
 <section class="slide level2">
 <h2>Next Lecture</h2>
@@ -806,7 +812,7 @@ Table&nbsp;5: Condorcet’s Paradox
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444_site");
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

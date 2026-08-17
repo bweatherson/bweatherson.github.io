@@ -1,0 +1,40 @@
+---
+title: "Philosophy 444 - Fall 2026"
+about:
+    template: solana
+---
+
+# Syllabus
+
+- [Syllabus](syllabus-F26-444.html)
+- [PDF version](syllabus-F26-444.pdf)
+- [Microsoft Word version](syllabus-F26-444.docx)
+
+# Lecture Notes
+
+- [Lecture Notes](notes/index.html) (the primary reading for the first half of the course)
+- [PDF version of the notes](notes/Game-Theory-and-Social-Choice.pdf)
+
+# Textbooks
+
+- Amartya Sen, *Collective Choice and Social Welfare: An Expanded Edition* (Harvard, 2017). Required; available electronically through [the library](https://search.lib.umich.edu).
+- Giacomo Bonanno, [Game Theory](https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf), 3rd edition (2024). Free, and a useful second voice on the game theory material. It has 165 solved exercises.
+
+# Readings
+
+TBD
+
+# Lectures
+
+| Number | Date | Topic | HTML | PDF |
+|:--:|:---:|:-------:|:---:|:---:|
+| 1 | 9/1/26 | Introduction | [HTML](slides/01.html) | [PDF](slides/01.pdf) |
+
+## Instructions for Slides
+
+The slides are built using [revealjs](https://revealjs.com). To move around them, the four key things to know are:
+
+1. Left and right arrows move between sections.
+2. Up and down arrows move between slides within a section.
+3. If you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.
+4. Or simply use space bar to advance one slide forward at any time.

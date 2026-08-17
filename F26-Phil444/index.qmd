@@ -20,19 +20,30 @@ about:
 - Amartya Sen, *Collective Choice and Social Welfare: An Expanded Edition* (Harvard, 2017). Required; available electronically through [the library](https://search.lib.umich.edu).
 - Giacomo Bonanno, [Game Theory](https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf), 3rd edition (2024). Free, and a useful second voice on the game theory material. It has 165 solved exercises.
 
-# Link to Games
-
-- [Link](../games/index.html)
-
 # Readings
 
-TBD
+Everything on the schedule that is not the lecture notes, CCSW or Bonanno. Most of these links will only resolve from a campus connection or through the
+library proxy. The Tanner Lecture is the exception; it is free to anyone.
+
+| Lecture | Reading | | Link |
+|:--:|:---|:--:|:--:|
+| 9 | Elchanan Ben-Porath and Eddie Dekel, "Signaling Future Actions and the Potential for Sacrifice", *Journal of Economic Theory* 57 (1992): 36--51 | Recommended | [DOI](<https://doi.org/10.1016/S0022-0531(05)80039-0>) |
+| 12 | In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria", *Quarterly Journal of Economics* 102 (1987): 179--221 | Required | [JSTOR](https://www.jstor.org/stable/1885060) |
+| 13 | Michael Spence, "Job Market Signaling", *Quarterly Journal of Economics* 87 (1973): 355--374 | Required | [JSTOR](https://www.jstor.org/stable/1882010) |
+| 14 | George A. Akerlof, "The Market for 'Lemons': Quality Uncertainty and the Market Mechanism", *Quarterly Journal of Economics* 84 (1970): 488--500 | Required | [JSTOR](https://www.jstor.org/stable/1879431) |
+| 22 | Amartya Sen, "The Possibility of Social Choice", *American Economic Review* 89 (1999): 349--378 | Required | [AEA](https://www.aeaweb.org/articles?id=10.1257/aer.89.3.349) |
+| 22 | Allan Gibbard, "Manipulation of Voting Schemes: A General Result", *Econometrica* 41 (1973): 587--601 | Recommended | [JSTOR](https://www.jstor.org/stable/1914083) |
+| 23 | Amartya Sen, "The Impossibility of a Paretian Liberal", *Journal of Political Economy* 78 (1970): 152--157 | Recommended | [DOI](https://doi.org/10.1086/259614) |
+| 26 | Amartya Sen, "Equality of What?", Tanner Lecture on Human Values, Stanford University, 22 May 1979 | Required | [Tanner](https://tannerlectures.org/lectures/equality-of-what/) |
+| 26 | Martha Nussbaum, "Capabilities as Fundamental Entitlements: Sen and Social Justice", *Feminist Economics* 9 (2003): 33--59 | Recommended | [DOI](https://doi.org/10.1080/1354570022000077926) |
+
+: Readings other than the notes, CCSW and Bonanno {tbl-colwidths="[8,62,15,15]"}
 
 # Lectures
 
 | Number | Date | Topic | HTML | PDF |
 |:--:|:---:|:-------:|:---:|:---:|
-| 1 | TBD | TBD | [HTML](slides/01.html) | [PDF](slides/01.pdf) |
+| 1 | 9/1/26 | Introduction | [HTML](slides/01.html) | [PDF](slides/01.pdf) |
 
 ## Instructions for Slides
 
