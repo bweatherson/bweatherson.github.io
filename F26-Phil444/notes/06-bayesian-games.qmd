@@ -14,11 +14,11 @@ But we don't obviously have a theory for these cases. Our solution concepts all 
 
 ## Types {#sec-types}
 
-John Harsanyi [-@harsanyi1967] found a way through this, and it is one of the great ideas in the subject. Games of incomplete information can be turned into games of imperfect information, which we already know how to handle.
+John Harsanyi [-@harsanyi1967] found a clever way through this. Games of incomplete information can be turned into games of imperfect information, which we already know how to handle.
 
 The trick is to let the ignorance be about a move rather than about the game. We add a new player, **Nature**, who moves first, and whose move settles what the payoffs are. Nature's move is not a choice; it is a draw from a probability distribution that is common knowledge. The players then observe part of what Nature did, and not all of it.
 
-What each player observes about Nature's move is called their **type**. A type settles everything about a player that the other players might be unsure of. In most of our examples the type just is the player's payoff function, but nothing turns on that. A type could encode how patient a player is, or how good they are at chess, or what they believe about the other player.
+What each player observes about Nature's move is called their **type**. A type settles everything about a player that the other players might be unsure of. In most of our examples the type just is the player's payoff function, but nothing turns on that. A type could encode how patient a player is, or how good they are at chess, or what they believe about the other player. It could encode something completely distinct; in a scenario where one player can observe whether it is raining and the other can't, it's sometimes useful to classify the first player's type as _rain_ or _sun_. (If you insist, you could call their type _sees rain_ or _sees sun_, but we often use the externally individuated types.)
 
 So a **Bayesian game** has:
 
@@ -26,12 +26,9 @@ So a **Bayesian game** has:
 - for each player, a set of actions;
 - for each player, a set of possible types;
 - a probability distribution over the profiles of types, called the **prior**;
-- for each player, a payoff function that depends on the actions of everyone
-  and on their own type.
+- for each player, a payoff function that depends on the actions of everyone and on their own type.
 
-We assume the prior is common knowledge. This is the **common prior assumption**, and it is doing a lot of work. It says the players start out agreeing about how likely each type profile is, and disagree only because they have seen different draws. That assumption is not innocent, and philosophers have pushed on it hard. We will come back to it. For now, notice what it buys us: the infinite hierarchy of beliefs about beliefs collapses. Once the prior is common knowledge, a player's beliefs about the others' types are just the conditional probabilities they get from the prior, given their own type, and everyone can compute those.
-
-You have already seen this construction without it being named. The signalling games later in this chapter all begin with an unfilled node marked $N$, with probabilities on the branches leading out of it. That is Nature, drawing a type for the player who is about to signal.
+We assume the prior is common knowledge. This is the **common prior assumption**, and without it we need a more complicated theory. One consequence of it is that the players start out agreeing about how likely each type profile is, and disagree only because they have seen different draws. That assumption is not always plausible in the cases the these tools are applied to, and it's often worth questioning on an application. For now, notice one useful theoretical simplification that this assumption gets us. Instead of thinking about a potentially infinite hierarchy of beleifs about beliefs, we can just use the conditional probabilities a player gets from the prior, given their own type, and everyone can compute those.
 
 ## Bayesian Nash Equilibrium {#sec-bne}
 
@@ -39,11 +36,11 @@ Once the game has been transformed this way, we can reuse Nash equilibrium almos
 
 In a Bayesian game, a player knows their own type before acting. So a strategy cannot just be an action; it has to say what the player does for each type they might turn out to have. A **strategy** in a Bayesian game is a function from that player's types to that player's actions.
 
-This is the point where students most often go wrong, so it's worth being heavy-handed about it. If Col has two types, then Col has *four* strategies, not two: do X whatever happens, do Y whatever happens, do X if the first type and Y if the second, or do Y if the first and X if the second. And Col will only ever perform one action in any play of the game. But the strategy has to be defined for the type Col didn't turn out to have, because Row's reasoning depends on what Col would have done in that case.
+This is a common mistake, so it's worth belaboring the point. If Col has two types, and Col has two moves regardless of their type, then Col has *four* strategies, not two: do X whatever happens, do Y whatever happens, do X if the first type and Y if the second, or do Y if the first and X if the second.  Col will only ever perform one action in any play of the game. But the strategy has to be defined for the type Col didn't turn out to have, because Row's reasoning depends on what Col would have done in that case.
 
 A **Bayesian Nash equilibrium** is then a profile of strategies, one for each player, such that each type of each player is choosing an action that maximises their expected payoff, given the strategies of the others and given the beliefs about the others' types that they get by conditioning the prior on their own type.
 
-Equivalently, and this is the cleaner way to say it: a Bayesian Nash equilibrium is a Nash equilibrium of the imperfect information game that Harsanyi's transformation produces. We have not invented a new solution concept. We have found a way to describe a wider class of situations in terms we already had.
+Equivalently, and this is the cleaner way to say it: a Bayesian Nash equilibrium is a Nash equilibrium of the imperfect information game that Harsanyi's transformation produces. In a sense, this isn't a new solution concept; it's a new term for an old concept.
 
 ## An Example {#sec-bayesian-example}
 
@@ -51,7 +48,7 @@ Take Battle of the Sexes from @sec-battle-of-sexes, and make one change. Row sti
 
 Col has two types. With probability $\nicefrac{1}{2}$ Col is *sociable*, and wants to meet, with the payoffs we saw before. With probability $\nicefrac{1}{2}$ Col is *elusive*, and would rather be wherever Row is not. Col knows which type Col is. Row does not.
 
-If Col is sociable, the game is the one we already know.
+If Col is sociable, the game (shown in @tbl-familiar-bos) is the one we already know.
 
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
@@ -63,7 +60,9 @@ If Col is sociable, the game is the one we already know.
 |         | Y | 0, 0 | 1, 2 |
 +---------+---+------+------+
 
-If Col is elusive, Row's payoffs are unchanged, and Col's are not.
+: Familiar Battle of the Sexes {#tbl-familiar-bos}
+
+If Col is elusive, Row's payoffs are unchanged, but Col's change.
 
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
@@ -75,7 +74,9 @@ If Col is elusive, Row's payoffs are unchanged, and Col's are not.
 |         | Y | 0, 1 | 1, 0 |
 +---------+---+------+------+
 
-Look first at Col, who has it easy, because Col knows which table is live.
+: A variant of @#tbl-familiar-bos where Col does not want to meet {#tbl-changed-bos}
+
+In @tbl-changed-bos, look first at Col, who has it easy, because Col knows which table is 'real'.
 
 Sociable Col wants to match Row. If Row plays X, sociable Col gets 1 from X and 0 from Y, so plays X. If Row plays Y, sociable Col gets 0 from X and 2 from Y, so plays Y.
 
@@ -93,29 +94,27 @@ $$
 
 So Row plays X. And we should check this is consistent: given that Row plays X, sociable Col does want to play X, and elusive Col does want to play Y. Nothing unravels, so we have a Bayesian Nash equilibrium.
 
-Two things about this are worth pausing on.
+Two things about this are worth spelling out in more detail.
 
-The first is that Col's two types do different things, and that is what makes the whole exercise interesting. Row is not facing a single opponent with known motives. Row is facing a distribution over opponents, and has to pick an action that is good on average against it.
+The first is that Col's two types do different things. The possibility of this happening is why the type system is interesting. Externally, Row is facing one person. But from the inside, from Row's perspective, they are facing a distribution over opponents, and has to pick an action that is good on average against it.
 
-The second is that Row's behaviour looks, from the outside, exactly like behaviour in an ordinary game. Row picks X and sticks with it. The incomplete information is not visible in what Row does. But it is visible in why Row does it, and in what Row would have done had the probabilities been different. Suppose Col were sociable with probability $p$ rather than $\nicefrac{1}{2}$. Then Row's expected payoff from X is $2p$ and from Y is $1 - p$, so Row prefers X just when $p > \nicefrac{1}{3}$. Below that, Row gives up on meeting.
+The second is that Row's behaviour looks, from the outside, exactly like behaviour in an ordinary game. Row picks X and sticks with it. The incomplete information is not visible in what Row does. But it is visible in why Row does it, and in what Row would have done had the probabilities been different. Suppose Col were sociable with probability $p$ rather than $\nicefrac{1}{2}$. Then Row's expected payoff from X is $2p$ and from Y is $1-p$, so the equilibrium we just found survives exactly when $p \geqslant \frac{1}{3}$. Below that it falls apart, though something strange starts to happen. There is no pure strategy equilibrium when $p$ is below $frac{1}{3}$. Whatever Row does, if Col knows it, they will avoid Row, which Row doesn't want. So Row has to mix, playing X a third of the time, and Row and Col still find each other sometimes, by luck rather than design.
 
 ## Purification {#sec-purification}
 
-We can now settle a debt from @sec-mixed-and-nash.
+We can now settle a debt from @sec-what-is-a-mixed-strategy.
 
 The problem there was that mixed equilibria seem to require players to randomise, and it is not clear why anyone would. At a mixed equilibrium every pure strategy in the support does exactly as well as the mixture, so nothing recommends the mixture over any of them. The only thing a player's mixture accomplishes is keeping the *other* player indifferent, which is a strange thing for a self-interested agent to be aiming at.
 
-Harsanyi's response is that the randomness is real but it is in the wrong place. It is not in anyone's decision. It is in the other player's ignorance.
+Harsanyi's response is that the randomness is really in ignorance of the payoffs, not in what the other player does [@harsanyi1973]. Here's the idea. Imagine that we're in a game with a mixed strategy equilibrium and no pure strategy equilibrium. And each player has a small amount of private information. They know their own payoffs. For instance, in one outcome they might know that their payoff is 2, while the other player only knows that it is $2 + \delta$, where $\delta$ is randomly drawn from $[-\epsilon, \epsilon]$, for arbitrarily small $\epsilon$. Now we're playing a Bayesian game; the player's type is the value of $\delta$.
 
-The argument runs like this. Take a game with a mixed equilibrium and no pure one. Now perturb it slightly. Give each player a small amount of private information about their own payoffs: their true payoffs are the original ones plus some small random amount, and each player observes their own perturbation and not the other's. This is a Bayesian game, and the perturbation is the type.
+In the Bayesian equilibrium of the perturbed game, almost every type has a strict best reply. A player whose private draw tips them slightly towards one action simply takes it. Almost no one randomises; almost every type plays a pure strategy. But an opponent who cannot see the draw cannot predict the action, and from the opponent's point of view the player's behaviour is a probability distribution over actions.
 
-In the perturbed game, almost every type has a strict best reply. A player whose private draw tips them slightly towards one action simply takes it. No one randomises; every type plays a pure strategy. But an opponent who cannot see the draw cannot predict the action, and from the opponent's point of view the player's behaviour is a probability distribution over actions.
+Harsanyi's theorem [-@harsanyi1973] is that as $\epsilon$ shrinks to zero, that of pure strategies converges to the mixed equilibrium of the original game. The mixed equilibrium is the limit of pure strategy Bayesian Nash equilibria of nearby games of incomplete information.
 
-Harsanyi's theorem [-@harsanyi1973] is that as the perturbations shrink towards zero, that distribution converges to the mixed equilibrium of the original game. The mixed equilibrium is the limit of pure strategy Bayesian Nash equilibria of nearby games of incomplete information.
+If that is right, the interpretive problem dissolves. Nobody was ever randomising. Each player was doing the strictly best thing their own private situation called for, and the mixture was never a description of anyone's decision. It was a description of what the other player could work out.
 
-If that is right, the interpretive problem dissolves. Nobody was ever spinning a wheel. Each player was doing the determinate thing their own private situation called for, and the mixture was never a description of anyone's decision. It was a description of what the other player could work out.
-
-Whether it is right is a further question, and there are two obvious places to push. The first is that the result is a limit claim, and the game we actually wanted to analyse is the one at the limit, where the perturbations are gone and the puzzle is back. The second is that the perturbed game is not the game we started with, so we can ask why facts about its neighbours should tell us what to do here. Neither objection is decisive. But both are worth taking seriously.
+Whether it is right is a further question, and there are two obvious worries. The first is that this all rests on reasoning from a sequence to what happens in the limit. You might worry that this is illegitimate. Relatedly, you might worry that we can't tell much about a game by looking at different games, even if they are neighbors. For what it's worth, the idea that we should look at nearby games has been really influential. We're not going to focus on it, but the formal statements of many of the concepts we'll somewhat informally introduce in the rest of this chapter uses the same idea.
 
 ## Perfect Bayesian Equilibrium {#sec-pbe}
 
@@ -177,18 +176,18 @@ That doesn't mean we have nothing to say. For one thing, the separating equilibr
 Economists have been interested for several decades in game-theoretic representations of college that give make going to college essentially a signal in a game. For example, consider the following variant of the signaling game, **College Signal**. It has the following intended interpretation:
 
 - Player 1 is a student and potential worker, Player 2 is an employer.
-- The student is either bright or dull with probability $p$ of being bright. Nature reveals the type to the student, but only the probability to the employer, so $q$ is that the student is bright.
+- The student is either type high or low^[For some purposes we interpret 'high' as high intelligence, other times as 'high' labor market value, other times as something else. I'll use use 'high' and 'low', and leave off what this might mean until we get to the question of whether this is really a model of anything in the real world] with probability $p$ of being high. Nature reveals the type to the *student*, but only the probability to the employer, so $p$ is that the student is high.
 - The student has the choice of going to college ($U$) or the beach ($D$).
 - The employer has the choice of hiring the student ($l$) or rejecting them ($r$).
 
 In **College Signal** we make the following extra assumptions about the payoffs.
 
 - Being hired is worth 4 to the student.
-- Going to college rather than the beach costs the bright student 1, and the dull student 5, since college is much harder work for dullards.
+- Going to college rather than the beach costs the high student 1, and the low student 5, since college is much harder work for low types.
 - The employer gets no benefit from hiring college students as such.
-- Hiring a bright student pays the employer 1, hiring a dull student costs the employer 1, and rejections have no cost or benefit.
+- Hiring a high student pays the employer 1, hiring a low student costs the employer 1, and rejections have no cost or benefit.
 
-The resulting game tree is shown in @fig-college-signal. In this game, dull students never prefer to go to college, since even the lure of a job doesn't make up for the pain of actually having to study. So a rational strategy for Player 1 will never be of the form $\alpha U$, since for dull students, college is a dominated option, being dominated by $\alpha D$. But whether bright students should go to college is a trickier question. That is, it is trickier to say whether the right strategy for Player 1 is $UD$ or $DD$, which are the two strategies consistent with eliminating the strictly dominated strategies. (Remember that strictly dominated strategies cannot be part of a Nash equilibrium.)
+The resulting game tree is shown in @fig-college-signal. The first move, by nature, sends high types to the left, and low types to the right. In this game, low students never prefer to go to college, since even the lure of a job doesn't make up for the pain of actually having to study. So a rational strategy for Player 1 will never be of the form $\alpha U$, since for low students, college is a dominated option, being dominated by $\alpha D$. But whether high students should go to college is a trickier question. That is, it is trickier to say whether the right strategy for Player 1 is $UD$ or $DD$, which are the two strategies consistent with eliminating the strictly dominated strategies. (Remember that strictly dominated strategies cannot be part of a Nash equilibrium.)
 
 ::: {#fig-college-signal}
 ![](figures/svg/college-signal.svg){fig-alt="The college signalling game"}
@@ -196,15 +195,15 @@ The resulting game tree is shown in @fig-college-signal. In this game, dull stud
 College Signal
 :::
 
-First, consider the case where $p < \nicefrac{1}{2}$. In that case, if Player 1 plays $DD$, then Player 2 gets $2p-1$ from playing either $ll$ or $rl$, and 0 from playing $lr$ or $rr$. So she should play one of the latter two options. If she plays $rr$, then $DD$ is a best response, since when employers aren't going to hire, students prefer to go to the beach. So there is one **pooling** equilibrium, namely $\langle DD, rr \rangle$. But what if Player 2 plays $lr$. Then Player 1's best response is $UD$, since bright students prefer college conditional on it leading to a job. So there is also a **separating** equilibrium, namely $\langle UD, lr \rangle$. The employer prefers that equilibrium, since her payoff is now $p$ rather than 0. And students prefer it, since their payoff is $3p$ rather than 0. So if we assume that people will end up at Pareto-dominant outcomes, we have reason to think that bright students, and only bright students, will go to college, and employers will hire college students, and only college students. And all this is true despite there being no advantage whatsoever to going to college in terms of how good an employee one will be.
+First, consider the case where $p < \nicefrac{1}{2}$. In that case, if Player 1 plays $DD$, then Player 2 gets $2p-1$ from playing either $ll$ or $rl$, and 0 from playing $lr$ or $rr$. So she should play one of the latter two options. If she plays $rr$, then $DD$ is a best response, since when employers aren't going to hire, students prefer to go to the beach. So there is one **pooling** equilibrium, namely $\langle DD, rr \rangle$. But what if Player 2 plays $lr$? Then Player 1's best response is $UD$, since high students prefer college conditional on it leading to a job. So there is also a **separating** equilibrium, namely $\langle UD, lr \rangle$. The employer prefers that equilibrium, since her payoff is now $p$ rather than 0. And students prefer it, since their payoff is $3p$ rather than 0. So if we assume that people will end up at Pareto-dominant outcomes, we have reason to think that high students, and only high students, will go to college, and employers will hire college students, and only college students. And all this is true despite there being no advantage whatsoever to going to college in terms of how good an employee one will be.
 
-Especially in popular treatments of the case, the existence of this kind of model can be used to motivate the idea that college *only* plays a signaling role. That is, some people argue that in the real world college does not make students more economically valuable, and the fact that college graduates have better employment rates, and better pay, can be explained by the signaling function of college. For what it's worth, I highly doubt that is the case. The wage premium one gets for going to college tends to *increase* as one gets further removed from college, although the further out from college you get, the less important a signal college participation is. One can try to explain this fact too on a pure signaling model of college's value, but frankly I think the assumptions needed to do so are heroic. The model is cute, but not really a picture of how actual college works.
+Especially in popular treatments of the case, the existence of this kind of model can be used to motivate the idea that college *only* plays a signaling role. That is, some people argue that in the real world college does not make students more economically valuable, and the fact that college graduates have better employment rates, and better pay, can be explained by the signaling function of college. We'll look in a bit at the detailed evidence for this, but first lets look at some variants of the model.
 
 So far we assumed that $p < \nicefrac{1}{2}$. If we drop that assumption, and assume instead that $p > \nicefrac{1}{2}$, the case becomes more complicated. Now if Player 1 plays $DD$, i.e., goes to the beach no matter what, Player 2's best response is still to hire them. But note that now a very odd equilibrium becomes available. The pair $\langle DD, rl \rangle$ is a Nash equilibrium, and, with the right assumptions, a Perfect Bayesian equilibrium. This pair says that Player 1 goes to the beach whatever her type, and Player 2 hires only beach goers.
 
-This is a very odd strategy for Player 2 to adopt, but it is a little hard to say just why it is odd. It is clearly a Nash equilibrium. Given that Player 2 is playing $rl$, then clearly beach-going dominates college-going. And given that Player 1 is playing $DD$, playing $rl$ gets as good a return as is available to Player 2, i.e., $2p-1$. Could it also be a Perfect Bayesian equilibrium? It could, provided Player 2 has a rather odd update policy. Say that Player 2 thinks that if someone goes to college, they are a dullard with probability greater than $\nicefrac{1}{2}$. That's consistent with what we've said; given that Player 1 is playing $DD$, the probability that a student goes to college is 0. So the conditional probability that a college-goer is bright is left open, and can be anything one likes in Perfect Bayesian equilibrium. So if Player 2 sets it to be, say, 0, then the rational reaction is to play $rl$.
+This is a very odd strategy for Player 2 to adopt, but it is a little hard to say just why it is odd. It is clearly a Nash equilibrium. Given that Player 2 is playing $rl$, then clearly beach-going dominates college-going. And given that Player 1 is playing $DD$, playing $rl$ gets as good a return as is available to Player 2, i.e., $2p-1$. Could it also be a Perfect Bayesian equilibrium? It could, provided Player 2 has a rather odd update policy. Say that Player 2 thinks that if someone goes to college, they are low type with probability greater than $\nicefrac{1}{2}$. That's consistent with what we've said; given that Player 1 is playing $DD$, the probability that a student goes to college is 0. So the conditional probability that a college-goer is high type is left open, and can be anything one likes in Perfect Bayesian equilibrium. So if Player 2 sets it to be, say, 0, then the rational reaction is to play $rl$.
 
-But now note what an odd update strategy this is for Player 2. She has to assume that if someone deviates from the $DD$ strategy, it is someone for whom the deviation is strictly dominated. Well, perhaps it isn't crazy to assume that someone who would deviate from an equilibrium isn't very bright, so maybe this isn't the oddest assumption in this particular context. But a few economists and game theorists have thought that we can put more substantive constraints on probabilities conditional on 'off-the-equilibrium-path' behaviour. One such constraint, is, roughly, that deviation shouldn't lead to playing a dominated strategy. This is the "**intuitive criterion**" of @chokreps1987. In this game, all the criterion rules out is the odd pair $\langle DD, rl \rangle$. It doesn't rule out the very similiar pair $\langle DD, ll \rangle$. But the intuitive criterion makes more substantial constraints in other games. We'll close the discussion of signaling games with such an example, and a more careful statement of the criterion.
+But now note what an odd update strategy this is for Player 2. She has to assume that if someone deviates from the $DD$ strategy, it is someone for whom the deviation is strictly dominated. A few economists and game theorists have thought that we can put more substantive constraints on probabilities conditional on 'off-the-equilibrium-path' behaviour. One such constraint, is, roughly, that deviation shouldn't lead to playing a dominated strategy. This is the "**intuitive criterion**" of @chokreps1987. In this game, all the criterion rules out is the odd pair $\langle DD, rl \rangle$. It doesn't rule out the very similiar pair $\langle DD, ll \rangle$. But the intuitive criterion makes more substantial constraints in other games. We'll close the discussion of the math of signaling games with such an example, and a more careful statement of the criterion.
 
 ## The Intuitive Criterion {#sec-intuitive-criterion}
 
@@ -230,9 +229,9 @@ The other equilibrium is rather odder. It is $\langle BB, ac \rangle$; everyone
 
 Surprisingly, this could also be a perfect Bayesian equilibrium. This requires that the barman maximise utility at every node. The tricky thing is to ensure he maxmises utility at the node where hockey is chosen. This can be done provided that conditional on hockey being chosen, the probability of American rises to above $\nicefrac{1}{2}$. Well, nothing we have said rules that out, so there *exists* a perfect Bayesian equilibrium. But it doesn't seem very plausible. Why would the barman adopt just *this* updating disposition?
 
-One of the active areas of research on signaling games is the development of formal rules to rule out intuitively crazy updating dispositions like this. (Small note for the methods folks: at least some of the economists working on this explicitly say that the aim is to develop formal criteria that capture clear intuitions about cases.) I'm just going to note one of the very early attempts in this area, Cho and Kreps' *Intuitive Criterion*.
+There were a bunch of suggestions for formal rules to rule out intuitively crazy updating dispositions like this. I'm just going to note one of the very early attempts in this area, Cho and Kreps' *Intuitive Criterion*. [@chokreps1987 202]
 
-Start with some folksy terminology that is (I think) novel to me. Let an outcome $o$ of the game be any combination of moves by nature and the players. Call the players' moves collectively $P$ and nature's move $N$. So an outcome is a pair $\langle P, N \rangle$. Divide the players into three types.
+Let an outcome $o$ of the game be any combination of moves by nature and the players. Call the players' moves collectively $P$ and nature's move $N$. So an outcome is a pair $\langle P, N \rangle$. Divide the players into three categories.
 
 - The **happy** players in $o$ are those such that given $N$, $o$ maximises their possible returns. That is, for all possible $P^\prime$, their payoff in $\langle P, N \rangle$ is at least as large as their payoff in $\langle P^\prime, N \rangle$.
 - The **content** players are those who are not happy, but who are such that for no strategy $s^\prime$ which is an alternative to their current strategy $s$, would they do better given what nature and the other players would do if they played $s^\prime$.
@@ -264,4 +263,111 @@ If a player is happy to have played $s$ rather than $s^\prime$, and $s$ is part 
 
 This refinement matters in games where players have three or more options. It might be that a player's options are $s_1, s_2$ and $s_3$, and their type is $t_1$ or $t_2$. In the Nash equilibrium in question, they play $s_1$. If they are type $t_1$, they are happy to have played $s_1$ rather than $s_2$, but merely content to have played $s_1$ rather than $s_3$. If they are type $t_2$, they are happy to have played $s_1$ rather than $s_3$, but merely content to have played $s_1$ rather than $s_2$. In my terminology above, both players are content rather than happy with the outcome. So the weak version of the Intuitive Criterion wouldn't put any restrictions on what we can say about them conditional on them playing, say $s_2$. But the full version does say something; it says other players should assign probability 1 to the player being type $t_2$ conditional on them playing $s_2$, since the alternative is that $s_2$ is played by a player who is happy they played $s_1$ rather than $s_2$. Similarly, it says that conditional on the player playing $s_3$, other players should assign probability 1 to their being of type $t_1$, since the alternative is to assign positive probability to a player deviating to a strategy they are happy not to play.
 
-The Intuitive Criterion has been the subject of an enormous literature. Goo­gle Scholar lists nearly 2000 citations for the Cho and Kreps paper alone, and similar rules are discussed in other papers. So there are arguments that it is too weak and arguments too strong, and refinements in all sorts of directions. But we'll leave those. What I most wanted to stress was the *form* a refinement of Perfect Bayesian equilibrium would take. It is a constraint on the conditional credences of agents conditional on some probability 0 event happening. It's interesting that there are some plausible, even intuitive constraints; in general it seems the economic literature has investigated rationality under 0 probability evidence more than philosophers have.
+The Intuitive Criterion has been the subject of an enormous literature. Goo­gle Scholar lists over 5000 citations for the Cho and Kreps paper alone, and similar rules are discussed in other papers. So there are arguments that it is too weak and arguments too strong, and refinements in all sorts of directions. But we'll leave those. What I most wanted to stress was the *form* a refinement of Perfect Bayesian equilibrium would take. It is a constraint on the conditional credences of agents conditional on some probability 0 event happening. It's interesting that there are some plausible, even intuitive constraints; in general it seems the economic literature has investigated rationality under 0 probability evidence more than philosophers have.
+
+## Spence and the Value of a Useless Signal {#sec-spence}
+
+Let's turn away from these very theoretical questions, and back to applications of these models to real world problems.
+
+**College Signal** has an important history. It is a simplified version of the model @spence1973 published as an account of the labor market, and which won him a share of a Nobel Prize. It triggered a huge debate, going to this day, about the economic significance of college. The debate is not about the mathematics of the model, which all check out. It's about whether the model is an accurate representation of the real world.
+
+Let's look at those assumptions. In the separating equilibrium, high type students go to college and low type ones do not, employers hire college-goers and reject the rest, and everyone is behaving perfectly rationally. In the model, *no one learns anything* in college. A high type student is more valuable to employers, but they would have been just as valuable with no college. Indeed, them being hired without going to college would be a weak Pareto-improvement, since college is costly to the student. The student's productivity is settled by their type, which Nature fixed before the game started. College does not change it. All college does is cost less to a high type student than to a low type one.
+
+That asymmetry in cost is why the model works. Because the high type student finds college 'cheaper', and we'll want to come back to what that means, there is a range of prices at which the high type student is willing to pay and the low type one is not, and paying it therefore reveals the type.
+The signal works because it is expensive, and because it is differentially expensive. It does not need to be useful.
+
+Notice also how different this is from **Simple Signal**. There the players' interests were aligned, and a costless signal did the job. You can get the separating equilibrium in a case where it doesn't cost anything to leave one or the other signal.^[The canonical example of this signalling is in David Lewis's book _Convention_, which grew out of his PhD Thesis [@lewis1969]. The patriots in Boston want to warn their soldiers out at Lexington which way the English are attacking. The sexton in the Old North Church can see what the English are doing, but he can't be seen talking to other patriots. So they have a plan; he'll put out one lantern if the English are marching up the highway, and two if they are sailing up the river. This works, even though it doesn't cost more to put up two lanterns.] In this case, where the interests diverge, a costless signal couldn't work. If college was costless, everyone would go. If it cost the *same amount* to everyone, it wouldn't work.
+
+So we might worry what this says about what we do here. Is college just a sorting mechanism? Does it produce a private gain but no social gain? Is it a massively expensive system that just makes us collectively worse off?
+
+Now note that the model only gives us a consistency proof. We know, and we'll go over this evidence more in @sec-wage-premium, that college grads earn more than non grads. What Spence's model shows is that this fact alone is consistent with college not actually teaching anyone anything. But lots of things are consistent without being all true. To do more, we need to look more at the details.
+
+## The College Wage Premium {#sec-wage-premium}
+
+There is a key fact that needs explaining. In almost every rich country, people who finish a degree earn substantially more over a lifetime than people who do not. According to recent @OECD2025 figures (see especially Table A4.1), on average across a range of countries, degree holders earn 40% more over their lifetime than people with high school degrees who have not completed college. In the United States, this premium is even more. Here, grads earn 64% more than people whose highest qualification is either a high school degree _or a diploma_. That's a gap of well over a million dollars, probably closer to two million dollars. These are enormous numbers, and they need explaining.
+
+There are three natural explanations which are worth distinguishing.
+
+- **Human capital.** College teaches things that are worth money. The premium measures the skills. This explanation doesn't say _where_ college teaches these skills; as far as this explanation goes it could be that you learn more from your fellow students in the dorms than in class.^[Prima facie this is plausible, but note that most students around the world don't live in dorms.] What's central to this story is that people come out of college with more value to employers than they came in with.
+- **Selection.** Colleges admit people who were already going to do well. Just knowing that one group of students had higher SAT scores on average would suggest they'd earn more money. College grads do, on average, have much higher SAT scores than the general populace. Maybe that's the whole story.
+- **Signalling.** College is a hurdle that is cheaper to clear for the people employers want. The premium is a consequence of this fact.
+
+These are not exclusive, and the full explanation is likely to involve all three. But they are different, and a story where one of them explains 80% of the premium, and the other two explain 10% each leaves us with a very different picture than if a different one was the 80%.
+
+Still, let's see if we can make progress by thinking about what the world would look like if one of them were the whole story. Two of the explanations look fairly bad by that score.
+
+If it were all human capital, then partial degrees should earn partial returns, and three years of a four-year degree should be worth roughly three quarters of the premium. If it were all selection, an admission letter should be worth almost as much as a diploma, since the letter is where the sorting happened.
+
+Neither prediction holds. Two or three years of college buys very little, and the premium mostly arrives when the degree does. This is the **sheepskin effect**, named for the old practice of printing diplomas on sheepskin. This is the single strongest piece of evidence for the signalling story. It is hard to see why the fourth year of skill acquisition should be worth several times the third. It is easy to see why clearing a hurdle should be worth more than nearly clearing it.
+
+The effect is easiest to see in the United States, which has an unusually large population of people with some college and no degree. In most countries that group is too small to say much about. In the American data there are millions of them, and their advantage over high school graduates is small. While it would definitely be nicer to have more data, we shouldn't dismiss this American data: it does seem to tell against the purest version of the human capital story.
+
+## Does the Signalling Model Fit? {#sec-does-signalling}
+
+So that's the first bit of evidence that the signalling theory is right. It predicts the sheepskin effect, the other two, _if taken as comprehensive theories_, predict it won't exist. In fact, it does exist. 
+
+The model also explains why the different in wage premia between degrees is relatively small. So the model fits a world where a degree in medieval epistemology and a degree in accounting both open doors. We have to be careful, because there is _some_ difference in premia difference between degrees, but overall I'd say there's less than you'd expect on a pure capital model.^[Or maybe medieval epistemology has more labor market value than I realise. Disclosure: I've never taught a _course_ on medieval epistemology, but I have done lectures on it in epistemology classes.] 
+
+The signalling model also explains something else about public universities like this one: the doors to the lecture theatres are unlocked. Anyone can walk in to any lecture.^[Some of you may recall this fact plays an important part in the plot of _On the Calculation of Volume_ [@balle2025volIII].] We are, on the whole, not overrun with people taking advantage of all these effectively free lectures. This is a little surprising on the human capital story.^[Though a human capital story that focussed on what you learn in discussion sections and in discussions with fellow students will also predict this, and is frankly a little more plausible.]
+
+But there are also some difficulties.
+
+**The premium grows with age.** Again, the Among workers in their late twenties the advantage is real but moderate; among workers in their late forties it is substantially larger. That feels like the wrong way round for a signal. The whole apparatus rests on employers being unable to see a worker's type directly, and after twenty years of performance reviews, promotions and colleagues' opinions, the type is not hidden any more. The signal should be losing value, and it is gaining. The key thing is that the signalling model turns on the presence or absence of a degree being a key part of how employers judge the quality of a would-be-employee, and that's just not plausible after many years of work.
+
+There are things the defender of the signalling model could say. The premium at forty-five may reflect twenty years of sorting inside firms rather than the degree itself, in which case the degree got someone through the first door and the rest is career. Or the wage structure may have been fixed early, by contracts or internal pay scales, and simply persist. Both are defensible, but we're back in a situation where one theory is explaining things away, and the other theory is readily predicting them.
+
+**The cost assumption may not hold.** The model needs college to be more costly for the low type than the high type, and it needs the correlation to be tight; this is the single condition that makes the separating equilibrium work at all. It is worth asking whether it is true.
+
+The 'cost' here mostly isn't literal dollar cost. Some people get more scholarships for academic success, and some people have to repeat courses they can't complete. But none of these are making college literally two million dollars more expensive for low type students.
+
+Rather, the point is that college is more _pleasant_ for high types than low types. OK, who actually finds college fun, who pays the least psychic cost for being here?  The students who flourish, who enjoy the reading and the seminars and are untroubled by exams, are not obviously the students who will be the most valuable employees. The traits that make academic life comfortable are not the traits that make someone reliable under a deadline, or good with clients, or sound in practical judgement. When _I_ was a student, the students who were paying the least psychic cost were the perpetual student types, and I would be very hesitant of having hired them. More generally, one can be an excellent at many jobs that require college degrees while having found college genuinely painful, and one can be very happy indeed in a library and a poor fit for most workplaces.
+
+This is a more serious objection than the first, because it attacks an assumption rather than a prediction. If there isn't a correlation between the cost of degree and the value to the employer, the model breaks. Plenty of low types, from the perspective of employers, will sail through college because they love it here.
+
+**College isn't expensive enough.** The wage premium is _huge_. In the model, everyone is acting rationally. Some people ratioanlly turn down millions of dollars because the unpleasantness of those calculus classes is just too much. This beggars belief. In the modern university, with almost all courses being electives, not all courses will be that painful.
+
+There is a technical point here. There is a variant on Spence's model where the difference between high and low is not how much college _costs_, but whether it is an option at all. In the biological literature, signalling models often start with a costly signal that other animals _cannot_ send. That's still a signalling model, and a model where low types are simply incapable of finishing a degree, rather than able but unwilling, does not require thinking that there are all these people who will literally not take a calculus class even if they'll be paid a million dollars for it.
+
+**Changes in degree length provide natural experiments.** If the hurdle is what matters, then changing its height should not change the premium _much_, because employers will recalibrate and a three-year degree will come to mean what a four-year degree used to mean. If skills are what matter, cutting the coursework should cut the premium.
+
+Some of the evidence favours the signalling reading. In some countries bachelor's degrees take three years, and in other countries, like the US, they take four. On the whole, the premium doesn't obviously reflect this length difference. Though the US, which has four year degrees, does have a larger than average premium. In the EU, the Bologna reforms shortened degrees across much of the continent without eliminating the graduate premium, though the master's degree has become more expected since, which looks like the hurdle moving rather than disappearing.
+
+But the cleanest social data we have points towards the human capital theory. Carolina @arteaga2018 studied a reform at Universidad de los Andes in Colombia, which in 2006 cut the required coursework in economics by about 20% and in business by about 14%. The entering classes, their test scores and the graduation rates stayed put, and so did the university, the degree title and the diploma. The signal, in other words, was held fixed by construction. Earnings were not: graduates after the reform earned about 16% less in economics and about 13% less in business, and they did visibly worse in recruitment and ended up at weaker firms. Something in the missing courses was doing work that the diploma was not doing.
+
+The reasonable reading is that both mechanisms operate. A degree is partly a hurdle and partly an education, and the proportions vary by institution and by labor market. What the model establishes is not that college teaches nothing. It is that a world in which college taught nothing could look, at least in broad outline, very much like ours.
+
+## Akerlof and the Market for Lemons {#sec-akerlof-lemons}
+
+@spence1973 shows what the informed side can do about asymmetric information. George @akerlof1970 asks what happens when they cannot do anything about it, and the answer is that the market can break in unexpected ways.
+
+For most of the twentieth century, the used car market had a striking feature. Of course the older a car is, and the more miles it has on it, the less value it has. And for most of the car's life, this is a _reasonably_ linear decline. There was, however, a big discontinuity. When you bought a car, and drove it off the lot, it _immediately_ lost a big chunk of its value, maybe as much as 20%. Everyone knew this, but no one had a good theory for why it would be so.^[There were lots of bad theories, which I won't go into here. Suffice to say, they all made bad predictions.]
+
+Akerlof suggested this worked because of asymmetric information. Let's work with a really simple model. Most cars are good, but some are, in the terminology of the mid-twentieth century, _lemons_. They are just bad cars. You can drive them around the block on a test drive, but after a few days, weeks, or months at home, you'll realise you bought a dud. This is private information; a buyer, even one who kicks the tires and drives it around the block a few times, can't tell whether they are buying a lemon.
+
+Let's work with a _really_ simplified model. Assume that sellers are motivated to sell; that's to say, restrict attention to those people who have cars and would other things being equal like to sell them at market price. Assume that half the cars are lemons. That's absurd, but it keeps the numbers simple. The values of good and bad cars are in @tbl-lemons.
+
++:------------+:--------------:+:-------------:+
+|             | **To seller**  | **To buyer**  |
++-------------+----------------+---------------+
+| **Good car**| 100            | 120           |
++-------------+----------------+---------------+
+| **Lemon**   | 40             | 60            |
++-------------+----------------+---------------+
+
+: An extreme version of the market for lemons {#tbl-lemons}
+
+Every car is worth more to a buyer than to its seller, so if everyone could see quality, every car would change hands, the market would clear, and everyone would be better off.
+
+Now suppose buyers cannot tell the two apart. A buyer who thinks the odds are even values a random car at $\frac{120 + 60}{2} = 90$, and so is willing to pay up to 90.
+
+But a good car is worth 100 to its owner. At 90, no owner of a good car sells. So the only cars on the market are lemons, and the buyer who works this out revises: a car actually on offer is worth 60. Buyers now offer at most 60. Lemon owners, who value their cars at 40, are happy to sell.
+
+The market clears, in the sense that the cars put up for sale sell, but only lemons trade, at 60. Good cars never change hands, even though every good-car sale would have produced a surplus of 20.
+
+In more realistic models, where cars have continuous quality, there aren't _that many_ lemons, and some holders of good cars are _really_ motivated to sell, you'll get more trade. But still, the fact that a car is up for sale will be evidence that it's bad, and the used-car discount is what buyers rationally demand in order to overcome this evidence.
+
+The underlying structure here ends up being simmilar to the Spence model. Indeed, Spence was motivated to come up with his model after his advisors recommended reading Akerlof's paper.^[Spence tells this story in his Nobel lecture [@spence2002]. Those advisors included Thomas Schelling, who we've already met, and Kenneth Arrow, who we will discuss _at length_ in the next part of the course.] The decision to put a car up for sale is a signal; a signal that you're an unfortunate owner of a lemon.
+
+As well as explaining the used-car discount that was prevalent for the twentieth century, Akerlof's model also predicts the conditions under which the problem should ease. Those conditions have by now largely been met, and the discount is really small now. The model requires two things to hold. One is that there is enough variation in manufacturing quality that the possibility of lemons is a serious problem. That's just not as big a deal now; most car companies have excellent quality control and the cars rolling off the line are pretty similar to one another. The other condition is that there is an information asymmetry between buyers and sellers. That isn't nearly as dramatic now. Vehicle history services and cheap independent inspections, reduce the information gap, and for what's left manufacturer certification removes the downside of buying a lemon. Both of the model's assumptions were weakened, and the effect it was built to explain faded. That's a really neat result; it's one thing to explain a striking phenomenon, it's another altogether to predict when the phenomena will fade.
+
+One last very striking point for the philosophy students. Akerlof's model was really unpopular with economists when it was first published. They thought he was abandoning rational choice explanation. This is odd because in his model, everyone is completely rational by the standards that philosophers would use. They all have sensible priors, which they update by conditionalisation, and then they utility maximise. What's true is that in his model, not everyone is _fully informed_. Nowadays, I think economists have largely come around to philosophers' way of talking; ignorance is unfortunate, but it's not irrational. But there was something really sociologically puzzling about how economists reacted to it, and a different course would explore this more.

@@ -141,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./03-nash-equilibrium.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-nash-equilibrium.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,70 +175,42 @@ window.Quarto = {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Game Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-decision-theory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-nash-equilibrium.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-other-equilibria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-games-and-time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-bayesian-games.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Voting Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-group-decisions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -255,26 +227,35 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mixed-strategies" id="toc-mixed-strategies" class="nav-link active" data-scroll-target="#mixed-strategies"><span class="header-section-number">3.1</span> Mixed Strategies</a></li>
-  <li><a href="#best-responses" id="toc-best-responses" class="nav-link" data-scroll-target="#best-responses"><span class="header-section-number">3.2</span> Best Responses</a></li>
-  <li><a href="#iterated-best-responses" id="toc-iterated-best-responses" class="nav-link" data-scroll-target="#iterated-best-responses"><span class="header-section-number">3.3</span> Iterated Best Responses</a></li>
-  <li><a href="#nash-equilibrium" id="toc-nash-equilibrium" class="nav-link" data-scroll-target="#nash-equilibrium"><span class="header-section-number">3.4</span> Nash Equilibrium</a></li>
-  <li><a href="#nash-equilibrium-in-simultaneous-move-games" id="toc-nash-equilibrium-in-simultaneous-move-games" class="nav-link" data-scroll-target="#nash-equilibrium-in-simultaneous-move-games"><span class="header-section-number">3.5</span> Nash Equilibrium in Simultaneous Move Games</a></li>
-  <li><a href="#finding-nash-equilibria" id="toc-finding-nash-equilibria" class="nav-link" data-scroll-target="#finding-nash-equilibria"><span class="header-section-number">3.6</span> Finding Nash Equilibria</a></li>
-  <li><a href="#iterated-dominance" id="toc-iterated-dominance" class="nav-link" data-scroll-target="#iterated-dominance"><span class="header-section-number">3.7</span> Iterated Dominance</a></li>
-  <li><a href="#finding-best-responses" id="toc-finding-best-responses" class="nav-link" data-scroll-target="#finding-best-responses"><span class="header-section-number">3.8</span> Finding Best Responses</a></li>
-  <li><a href="#finding-mixed-strategy-equilibria" id="toc-finding-mixed-strategy-equilibria" class="nav-link" data-scroll-target="#finding-mixed-strategy-equilibria"><span class="header-section-number">3.9</span> Finding Mixed Strategy Equilibria</a></li>
-  <li><a href="#combining-strategies" id="toc-combining-strategies" class="nav-link" data-scroll-target="#combining-strategies"><span class="header-section-number">3.10</span> Combining Strategies</a></li>
-  <li><a href="#why-care-about-equilibria" id="toc-why-care-about-equilibria" class="nav-link" data-scroll-target="#why-care-about-equilibria"><span class="header-section-number">3.11</span> Why Care about Equilibria?</a></li>
+  <li><a href="#sec-mixed-strategies" id="toc-sec-mixed-strategies" class="nav-link active" data-scroll-target="#sec-mixed-strategies"><span class="header-section-number">3.1</span> Mixed Strategies</a></li>
+  <li><a href="#sec-best-responses" id="toc-sec-best-responses" class="nav-link" data-scroll-target="#sec-best-responses"><span class="header-section-number">3.2</span> Best Responses</a></li>
+  <li><a href="#sec-iterated-best-responses" id="toc-sec-iterated-best-responses" class="nav-link" data-scroll-target="#sec-iterated-best-responses"><span class="header-section-number">3.3</span> Iterated Best Responses</a></li>
+  <li><a href="#sec-nash-equilibrium" id="toc-sec-nash-equilibrium" class="nav-link" data-scroll-target="#sec-nash-equilibrium"><span class="header-section-number">3.4</span> Nash Equilibrium</a></li>
+  <li><a href="#sec-nash-simultaneous" id="toc-sec-nash-simultaneous" class="nav-link" data-scroll-target="#sec-nash-simultaneous"><span class="header-section-number">3.5</span> Nash Equilibrium in Simultaneous Move Games</a></li>
+  <li><a href="#sec-finding-nash" id="toc-sec-finding-nash" class="nav-link" data-scroll-target="#sec-finding-nash"><span class="header-section-number">3.6</span> Finding Nash Equilibria</a>
+  <ul class="collapse">
+  <li><a href="#sec-iterated-dominance" id="toc-sec-iterated-dominance" class="nav-link" data-scroll-target="#sec-iterated-dominance">Iterated Dominance</a></li>
+  <li><a href="#sec-finding-best-responses" id="toc-sec-finding-best-responses" class="nav-link" data-scroll-target="#sec-finding-best-responses">Finding Best Responses</a></li>
+  <li><a href="#sec-finding-mixed" id="toc-sec-finding-mixed" class="nav-link" data-scroll-target="#sec-finding-mixed">Finding Mixed Strategy Equilibria</a></li>
+  <li><a href="#sec-combining-strategies" id="toc-sec-combining-strategies" class="nav-link" data-scroll-target="#sec-combining-strategies">Combining Strategies</a></li>
+  </ul></li>
+  <li><a href="#sec-why-care" id="toc-sec-why-care" class="nav-link" data-scroll-target="#sec-why-care"><span class="header-section-number">3.7</span> Why Care about Equilibria?</a></li>
+  <li><a href="#sec-what-is-a-mixed-strategy" id="toc-sec-what-is-a-mixed-strategy" class="nav-link" data-scroll-target="#sec-what-is-a-mixed-strategy"><span class="header-section-number">3.8</span> What Is a Mixed Strategy?</a>
+  <ul class="collapse">
+  <li><a href="#objective-chance" id="toc-objective-chance" class="nav-link" data-scroll-target="#objective-chance">Objective Chance</a></li>
+  <li><a href="#frequentist" id="toc-frequentist" class="nav-link" data-scroll-target="#frequentist">Frequentist</a></li>
+  <li><a href="#epistemic" id="toc-epistemic" class="nav-link" data-scroll-target="#epistemic">Epistemic</a></li>
+  <li><a href="#where-this-leaves-us" id="toc-where-this-leaves-us" class="nav-link" data-scroll-target="#where-this-leaves-us">Where This Leaves Us</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./03-nash-equilibrium.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></h1>
+<h1 class="title"><span id="sec-mixed-and-nash" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></h1>
 </div>
 
 
@@ -291,24 +272,25 @@ window.Quarto = {
 </header>
 
 
-<section id="mixed-strategies" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="mixed-strategies"><span class="header-section-number">3.1</span> Mixed Strategies</h2>
+<section id="sec-mixed-strategies" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-mixed-strategies"><span class="header-section-number">3.1</span> Mixed Strategies</h2>
 <p>In any game, if player <span class="math inline">\(x\)</span> has strategies <span class="math inline">\(s_1, s_2\)</span> available, then we’ll also assume they have available the <strong>mixed strategy</strong> of playing <span class="math inline">\(s_1\)</span> with probability <span class="math inline">\(p\)</span> and <span class="math inline">\(s_2\)</span> with probability <span class="math inline">\(1-p\)</span> (for arbitrary <span class="math inline">\(p \in (0, 1)\)</span>). Such strategies have an expected value given strategies for the other players in the game, and we’ll think of that expected value as the return to the player for playing the strategy.</p>
 <p>Mixed strategies are contrasted with <strong>pure strategies</strong>. These are the strategies that are usually listed on the game table. They are the only strategies that we have considered so far.</p>
 <p>I’m not sure whether there is a standard terminology for denoting mixed strategies. We’ll write <span class="math inline">\(\langle s_1, p; s_2, 1-p \rangle\)</span> for the mixed strategy of playing <span class="math inline">\(s_1\)</span> with probability <span class="math inline">\(p\)</span> and <span class="math inline">\(s_2\)</span> with probability <span class="math inline">\(1-p\)</span>. It is possible for mixed strategies to involve more than two pure strategies; in those cases the list of pure strategies and their probabilities will have to be longer.</p>
 <p>If the agent has more than two pure strategies available to them, and plays <span class="math inline">\(\langle s_1, p; s_2, 1-p \rangle\)</span>, it wouldn’t make any difference if they instead played <span class="math inline">\(\langle s_1, p; s_2, 1-p; s_3, 0; \dots; s_n, 0\rangle\)</span>. We can treat any mixed strategy as a mixture of all the pure strategies, just that some of the strategies have probability 0 of being played. Indeed, we can treat any strategy as a mixed strategy that perhaps gives some pure strategies probability 0. So we no longer need to talk about pure strategies at all; they are just a limit case of mixed strategies where one pure strategy gets probability 1, and the others all get probability zero.</p>
 <p>Still, even if every mixed strategy can be represented as a mixture of all pure strategies, there is an important distinction between the pure strategies that get positive probability, and those that get zero probability. We’ll call the set of pure strategies that get positive probability the <strong>support</strong> of the mixed strategy. What we used to call a pure strategy is a mixed strategy whose support is a singleton.</p>
-<p>Now it’s a somewhat delicate philosophical question just what this assumption amounts to. While the assumption is more or less universally made by game theorists, there is less agreement about just what it comes to. Here are three natural interpretations:</p>
-<ul>
-<li>To play the mixed strategy <span class="math inline">\(\langle s_1, p; s_2, 1-p \rangle\)</span> is to use a randomizing device to pick between <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span>, with the device set to choose <span class="math inline">\(s_1\)</span> with probability <span class="math inline">\(p\)</span>. Call this the <strong>objective chance</strong> interpretation, since it says that the agent playing that strategy has some defined chance of playing each pure strategy.</li>
-<li>To say that someone is playing the mixed strategy <span class="math inline">\(\langle s_1, p; s_2, 1-p \rangle\)</span> is to say our evidence doesn’t settle what they will play, but it points to them playing either <span class="math inline">\(s_1\)</span> or <span class="math inline">\(s_2\)</span>, the first with probability <span class="math inline">\(p\)</span>, the second with probability <span class="math inline">\(1-p\)</span>. Our evidence could point this way because it is settled that the agent is using a randomizing device, but it could also be because we just don’t have enough information to settle what they will play. Call this the <strong>epistemic</strong> interpretation of a mixed strategy, since it locates a mixed strategy in our level of knowledge about what the agent will do.</li>
-<li>To say that someone is playing the mixed strategy <span class="math inline">\(\langle s_1, p; s_2, 1-p \rangle\)</span> is to say that in the long run they will play <span class="math inline">\(s_1\)</span> with frequency <span class="math inline">\(p\)</span>, and <span class="math inline">\(s_2\)</span> with frequency <span class="math inline">\(1-p\)</span>. Call this, for obvious reasons, the <strong>frequentist</strong> interpretation of mixed strategies. On this interpretation, there is no such thing as playing a mixed strategy in a one-off game; it only makes sense to think about these strategies in repeated games. In practice, we’ll usually deploy mixed strategies in repeated games, so this isn’t as big a restriction as it might sound.</li>
-</ul>
+<p>Now it’s a somewhat delicate philosophical question just what this assumption amounts to. While the assumption is more or less universally made by game theorists, there is less agreement about just what it comes to. There are three natural interpretations, which we might call the objective chance, epistemic and frequentist readings. We’ll leave them there for now; the question of which is right doesn’t bite until we can see what a mixed equilibrium asks of a player, so we’ll come back to it at the end of the chapter.</p>
 </section>
-<section id="best-responses" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="best-responses"><span class="header-section-number">3.2</span> Best Responses</h2>
+<section id="sec-best-responses" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-best-responses"><span class="header-section-number">3.2</span> Best Responses</h2>
 <p>A strategy <span class="math inline">\(s\)</span> is a <strong>best response</strong> for player <span class="math inline">\(x\)</span> iff there is some probability distribution <span class="math inline">\(\Pr\)</span> over the possible strategies of other players such that no strategy has a higher expected payoff than <span class="math inline">\(s\)</span> does, given <span class="math inline">\(\Pr\)</span>.</p>
-<p>Let’s look at an example of this. So far we’ve used the same names for the options that Row and Column have available. But we’ll start to look at asymmetric games, so it helps to use asymmetric terminology. We’ll use <span class="math inline">\(U\)</span>, for Up, <span class="math inline">\(M\)</span> for Middle, and <span class="math inline">\(D\)</span>, for Down, for Row’s options, and <span class="math inline">\(L\)</span> for Left, and <span class="math inline">\(R\)</span> for Right, for Column’s options.</p>
+<p>Let’s look at an example of this. So far we’ve used the same names for the options that Row and Column have available. But we’ll start to look at asymmetric games, so it helps to use asymmetric terminology. In <a href="#tbl-first-best" class="quarto-xref">Table&nbsp;<span>3.1</span></a> we’ll use <span class="math inline">\(U\)</span>, for Up, <span class="math inline">\(M\)</span> for Middle, and <span class="math inline">\(D\)</span>, for Down, for Row’s options, and <span class="math inline">\(L\)</span> for Left, and <span class="math inline">\(R\)</span> for Right, for Column’s options.</p>
+<div id="tbl-first-best" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-first-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: An example of best responses.
+</figcaption>
+<div aria-describedby="tbl-first-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -340,11 +322,20 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>We will just look at things from the perspective of Row. What we want to show is that all three of the possible moves here are best responses. We will write <span class="math inline">\(E(X) = x\)</span> to mean that the expected value of strategy <span class="math inline">\(X\)</span> is <span class="math inline">\(x\)</span>.</p>
 <p>It is clear that <span class="math inline">\(U\)</span> is a best response. Set <span class="math inline">\(\Pr(L) = 1, \Pr(R) = 0\)</span>. Then <span class="math inline">\(E(U) = 3, E(M) = 2, E(D) = 0\)</span>, so <span class="math inline">\(U\)</span> is best. It is also clear that <span class="math inline">\(D\)</span> is a best response. Set <span class="math inline">\(\Pr(L) = 0, \Pr(R) = 1\)</span>. Then <span class="math inline">\(E(U) = 0, E(M) = 2, E(D) = 3\)</span>, so <span class="math inline">\(D\)</span> is best.</p>
 <p>The striking thing is that <span class="math inline">\(M\)</span> can also be a best response. Set <span class="math inline">\(\Pr(L) = \Pr(R) = 0.5\)</span>. Then <span class="math inline">\(E(U) = E(D) = 1.5\)</span>. But <span class="math inline">\(E(M) = 2\)</span>, which is greater than 1.5. So if Row thinks it is equally likely that Col will play either <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span>, then she maximizes expected utility by playing <span class="math inline">\(M\)</span>. Of course, she doesn’t maximize actual utility. Maximizing actual utility requires making a gamble on which choice <span class="math inline">\(C\)</span> will make. That isn’t always wise; it might be best to take the safe option.</p>
 <p>It’s very plausible that agents should play best responses. If a move is not a best response, then there is no way that it maximizes expected utility, no matter what one’s views of the other players are. And one should maximize expected utility.</p>
-<p>Any strongly dominated option will never be a best response. That’s because whatever strategy strongly dominates it will have a higher expected return no matter what the probabilities are. But a weakly dominated response can be a best response. That’s because we’ve defined best responses to allow that something can be a best response when something else ties it. So in the following example, <span class="math inline">\(D\)</span> is weakly dominated by <span class="math inline">\(U\)</span>, but it is a best response given <span class="math inline">\(\Pr(R) = 1\)</span>.</p>
+<p>Any strongly dominated option will never be a best response. That’s because whatever strategy strongly dominates it will have a higher expected return no matter what the probabilities are. But a weakly dominated response can be a best response. That’s because we’ve defined best responses to allow that something can be a best response when something else ties it. So in <a href="#tbl-wd-first" class="quarto-xref">Table&nbsp;<span>3.2</span></a>, <span class="math inline">\(D\)</span> is weakly dominated by <span class="math inline">\(U\)</span>, but it is a best response given <span class="math inline">\(\Pr(R) = 1\)</span>.</p>
+<div id="tbl-wd-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wd-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: An example of weak dominance
+</figcaption>
+<div aria-describedby="tbl-wd-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -371,7 +362,16 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>What about the other direction? If something is not dominated, does that mean it is a best response? It turns out the answer to this question is a little more complicated. Start with this game.</p>
+</div>
+</figure>
+</div>
+<p>What about the other direction? If something is not dominated, does that mean it is a best response? It turns out the answer to this question is a little more complicated. Start with <a href="#tbl-bad-middle" class="quarto-xref">Table&nbsp;<span>3.3</span></a>.</p>
+<div id="tbl-bad-middle" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bad-middle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.3: An example where something is dominated by a mixture.
+</figcaption>
+<div aria-describedby="tbl-bad-middle-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -403,6 +403,9 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>In this game, <span class="math inline">\(M\)</span> is not dominated by either <span class="math inline">\(U\)</span> or <span class="math inline">\(D\)</span>. After all, if Col plays <span class="math inline">\(L\)</span>, then <span class="math inline">\(M\)</span> beats <span class="math inline">\(D\)</span>. And if Col plays <span class="math inline">\(R\)</span> then <span class="math inline">\(M\)</span> beats <span class="math inline">\(D\)</span>.</p>
 <p>On the other hand, <span class="math inline">\(M\)</span> is not a best response. The possible views Row could have about Col are all characterised by a single variable <span class="math inline">\(x\)</span>, where <span class="math inline">\(x\)</span> is the probability (according to Row) of Col playing <span class="math inline">\(L\)</span>. This variable <span class="math inline">\(x\)</span> can take any value in <span class="math inline">\([0, 1]\)</span>. But whatever value it takes, <span class="math inline">\(M\)</span> is not the best option. Note that the expected return of <span class="math inline">\(L\)</span> is <span class="math inline">\(3x\)</span>, and the expected return of <span class="math inline">\(R\)</span> is <span class="math inline">\(3(1-x)\)</span>. From that, we can easily compute that:</p>
 <ul>
@@ -411,7 +414,13 @@ window.Quarto = {
 <li>If <span class="math inline">\(0.5 &lt; x \leq 1\)</span> then <span class="math inline">\(U\)</span> is the best response.</li>
 </ul>
 <p>So in no circumstance is <span class="math inline">\(M\)</span> best. It is not a best response.</p>
-<p>But on second thought, perhaps it is dominated. Let’s add a row to the table for the mixed strategy <span class="math inline">\(\langle U, 0.5; D, 0.5 \rangle\)</span>. We’ll add this to the table, and note in the table its expected value.</p>
+<p>But on second thought, perhaps it is dominated. Let’s add a row to the table for the mixed strategy <span class="math inline">\(\langle U, 0.5; D, 0.5 \rangle\)</span>. In <a href="#tbl-bad-mix" class="quarto-xref">Table&nbsp;<span>3.4</span></a>, we’ll add this to the table, and note its expected value.</p>
+<div id="tbl-bad-mix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bad-mix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.4: A version of <a href="#tbl-bad-middle" class="quarto-xref">Table&nbsp;<span>3.3</span></a> with the mixed strategy made explicit.
+</figcaption>
+<div aria-describedby="tbl-bad-mix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -448,8 +457,17 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>And note that <span class="math inline">\(\langle U, 0.5; D, 0.5 \rangle\)</span> dominates <span class="math inline">\(M\)</span>; whatever Col plays, that mixed strategy has a higher expected return than <span class="math inline">\(M\)</span>.</p>
-<p>If we change the payout to <span class="math inline">\(M\)</span> so that it isn’t dominated, it becomes a best response. So recall the version of the game where the payout from <span class="math inline">\(M\)</span> from a guaranteed 1 to a guaranteed 2. I’ve reprinted that here with the mixed strategy made explicit.</p>
+<p>If we change the payout to <span class="math inline">\(M\)</span> so that it isn’t dominated, it becomes a best response. So recall the version of the game where the payout from <span class="math inline">\(M\)</span> from a guaranteed 1 to a guaranteed 2. I’ve reprinted that as <a href="#tbl-second-best" class="quarto-xref">Table&nbsp;<span>3.5</span></a> with the mixed strategy made explicit.</p>
+<div id="tbl-second-best" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-second-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.5: A version of <a href="#tbl-first-best" class="quarto-xref">Table&nbsp;<span>3.1</span></a> with the mixed strategy added.
+</figcaption>
+<div aria-describedby="tbl-second-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -486,11 +504,20 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Now <span class="math inline">\(M\)</span> is not dominated. Indeed, it dominates <span class="math inline">\(\langle U, 0.5; D, 0.5 \rangle\)</span>. And as we saw above it is also a best response. If Row thinks it is 50/50 whether Col plays <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span>, then <span class="math inline">\(M\)</span> has the highest expected return.</p>
 </section>
-<section id="iterated-best-responses" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="iterated-best-responses"><span class="header-section-number">3.3</span> Iterated Best Responses</h2>
-<p>It seems very plausible that one should only play best responses. But not all best responses are worth playing. Some best responses are pretty hard to justify when playing against a rational opponent. Consider the following game from Row’s perspective.</p>
+<section id="sec-iterated-best-responses" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-iterated-best-responses"><span class="header-section-number">3.3</span> Iterated Best Responses</h2>
+<p>It seems very plausible that one should only play best responses. But not all best responses are worth playing. Some best responses are pretty hard to justify when playing against a rational opponent. Consider <a href="#tbl-ibr-first" class="quarto-xref">Table&nbsp;<span>3.6</span></a> from Row’s perspective.</p>
+<div id="tbl-ibr-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ibr-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.6: A dominance example
+</figcaption>
+<div aria-describedby="tbl-ibr-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -517,8 +544,17 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>In this game, <span class="math inline">\(D\)</span> is a best response. It does best if Col chooses <span class="math inline">\(R\)</span>. But why would Col do that? Col gets 5 for sure if she chooses <span class="math inline">\(L\)</span>, and -5 for sure if she chooses <span class="math inline">\(R\)</span>. Assuming the weakest possible rationality constraint on Col, she won’t choose a sure loss over a sure gain. So given that, Row should choose <span class="math inline">\(U\)</span>.</p>
-<p>Now we could have shown that with just considering domination; indeed domination by pure strategies.The following example is a little more complex.</p>
+<p>Now we could have shown that with just considering domination; indeed domination by pure strategies. <a href="#tbl-ibr-second" class="quarto-xref">Table&nbsp;<span>3.7</span></a> is a little more complex.</p>
+<div id="tbl-ibr-second" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ibr-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.7: A mixed strategy dominance example
+</figcaption>
+<div aria-describedby="tbl-ibr-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -548,28 +584,37 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>In this game neither player has a dominated move, as long as we restrict ourselves to pure strategies. And, from Row’s perspective, thinking about best responses doesn’t help either. <span class="math inline">\(U\)</span> is a best response if Col is going to play <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span> with probability at least 0.5, and <span class="math inline">\(D\)</span> is best response if Col is going to play <span class="math inline">\(m\)</span> with probability at least 0.5.</p>
+</div>
+</figure>
+</div>
+<p>In <a href="#tbl-ibr-second" class="quarto-xref">Table&nbsp;<span>3.7</span></a> neither player has a dominated move, as long as we restrict ourselves to pure strategies. And, from Row’s perspective, thinking about best responses doesn’t help either. <span class="math inline">\(U\)</span> is a best response if Col is going to play <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span> with probability at least 0.5, and <span class="math inline">\(D\)</span> is best response if Col is going to play <span class="math inline">\(m\)</span> with probability at least 0.5.</p>
 <p>But note that <span class="math inline">\(C\)</span> is not a best response for Col. One of the outer options has a higher expected value, whatever probability she gives to Row playing <span class="math inline">\(U\)</span>. Now let’s assume, when thinking from Row’s perspective, that Col will play a best response. That is, we’re assuming Col will play either <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span>. Given that, the best thing for Row to do is to play <span class="math inline">\(U\)</span>.</p>
 <p>More carefully, if Row knows that Col is rational, and if Row knows that rational agents always play best responses, then Row has a compelling reason to play <span class="math inline">\(U\)</span>. This suggests an important normative status. Call a <strong>BRBR</strong> strategy one that is a <strong>B</strong>est <strong>R</strong>esponse to a <strong>B</strong>est <strong>R</strong>esponse.</p>
 <p>But we can go further than that. What should Col play, given what we just concluded about Row? She should play <span class="math inline">\(L\)</span>. After all, she knows that Row will play <span class="math inline">\(U\)</span>, and given that <span class="math inline">\(L\)</span> has the best return.</p>
 <p>The idea that players should play BRBR strategies isn’t strong enough to get us that result. After all, <span class="math inline">\(D\)</span> is a best response, and <span class="math inline">\(R\)</span> is a best response to <span class="math inline">\(D\)</span>. So <span class="math inline">\(R\)</span> is BRBR. What it isn’t is a best response to something that is a best response to a best response. Rather than keep counting layers of best responses, let’s collapse this into one notion of being a best response to a best response to a best response to etc., to infinity. Call any strategy which has this feature an <strong>IBR</strong>, or <strong>I</strong>terated <strong>B</strong>est <strong>R</strong>esponse.</p>
 </section>
-<section id="nash-equilibrium" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="nash-equilibrium"><span class="header-section-number">3.4</span> Nash Equilibrium</h2>
+<section id="sec-nash-equilibrium" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-nash-equilibrium"><span class="header-section-number">3.4</span> Nash Equilibrium</h2>
 <p>In a two-player game, for a strategy <span class="math inline">\(s_0\)</span> to be IBR, it must be the best response to some strategy <span class="math inline">\(s_1\)</span>, which is the best response to some strategy <span class="math inline">\(s_2\)</span>, which is the best response to some strategy <span class="math inline">\(s_3\)</span>, etc. But we are assuming that there are only finitely many strategy choices available. So how can we get such an infinite chain going?</p>
 <p>The answer, of course, is to repeat ourselves. As long as we get some kind of loop, we can extend such a chain forever, by keeping on circling around the loop. And the simplest loop will have just two steps in it. So consider any pair of strategies <span class="math inline">\(\langle s_0, s_1 \rangle\)</span> such that <span class="math inline">\(s_0\)</span> is the best response to <span class="math inline">\(s_1\)</span>, and <span class="math inline">\(s_1\)</span> is the best response to <span class="math inline">\(s_0\)</span>. In that case, each strategy will be BRBRI, since we can run around that two-step ‘loop’ forever, with each stop on the loop being a strategy which is a best response to the strategy we previous stopped at.</p>
 <p>When a pair of strategies fit together nicely like this, we say they are a <strong>Nash Equilibrium</strong>. More generally, in an <span class="math inline">\(n\)</span>-player game, we use the following definition.</p>
 <dl>
 <dt>NE</dt>
 <dd>
-<p>Some strategies <span class="math inline">\(s_1, ..., s_n\)</span> in an <span class="math inline">\(n\)</span>-player game form a <strong>N</strong>ash <strong>E</strong>quilibrium iff for each <span class="math inline">\(i\)</span>, <span class="math inline">\(s_i\)</span> is a best response to the strategies played by the other <span class="math inline">\(n-1\)</span> players. That is, iff player <span class="math inline">\(i\)</span> cannot do better by playing any alternative strategy to <span class="math inline">\(s_i\)</span>, given that the other players are playing what they actually do.</p>
+Some strategies <span class="math inline">\(s_1, ..., s_n\)</span> in an <span class="math inline">\(n\)</span>-player game form a <strong>N</strong>ash <strong>E</strong>quilibrium iff for each <span class="math inline">\(i\)</span>, <span class="math inline">\(s_i\)</span> is a best response to the strategies played by the other <span class="math inline">\(n-1\)</span> players. That is, iff player <span class="math inline">\(i\)</span> cannot do better by playing any alternative strategy to <span class="math inline">\(s_i\)</span>, given that the other players are playing what they actually do.
 </dd>
 </dl>
 <p>The ‘Nash’ in Nash Equilibrium&nbsp;is in honour of John Nash, who developed the concept, and proved some striking mathematical results concerning it <span class="citation" data-cites="nash1951">(<a href="references.html#ref-nash1951" role="doc-biblioref">Nash 1951</a>)</span>.</p>
 </section>
-<section id="nash-equilibrium-in-simultaneous-move-games" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="nash-equilibrium-in-simultaneous-move-games"><span class="header-section-number">3.5</span> Nash Equilibrium in Simultaneous Move Games</h2>
-<p>Consider the following game:</p>
+<section id="sec-nash-simultaneous" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-nash-simultaneous"><span class="header-section-number">3.5</span> Nash Equilibrium in Simultaneous Move Games</h2>
+<p>Consider <a href="#tbl-no-pure-eqm" class="quarto-xref">Table&nbsp;<span>3.8</span></a>:</p>
+<div id="tbl-no-pure-eqm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-no-pure-eqm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.8: A game with no pure strategy equilibria
+</figcaption>
+<div aria-describedby="tbl-no-pure-eqm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -596,10 +641,13 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Any of the pure strategies is a best response. Indeed, any of them are iterated best responses. So is all we can say about the game that anything goes? Most game theorists disagree with that claim. They say that once we consider mixed strategies, there is a distinctive solution to the game. Consider the following pair of strategies:</p>
 <ul>
-<li><p>Row plays <span class="math inline">\(\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle\)</span></p></li>
-<li><p>Col plays <span class="math inline">\(\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle\)</span></p></li>
+<li>Row plays <span class="math inline">\(\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle\)</span></li>
+<li>Col plays <span class="math inline">\(\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle\)</span></li>
 </ul>
 <p>Given that Row has that strategy, let’s work out the expected return (to Col) of Col’s two possible plays.</p>
 <p><span class="math display">\[\begin{align*}
@@ -624,13 +672,18 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <p>So the two strategies <span class="math inline">\(\langle U, \nicefrac{2}{3}; D, \nicefrac{1}{3} \rangle\)</span> and <span class="math inline">\(\langle L, \nicefrac{1}{3}; R, \nicefrac{2}{3} \rangle\)</span> are best responses to each other; they form a Nash Equilibrium. Indeed, this is the only Nash Equilibrium of the game.</p>
 <p>We aren’t going to prove this, but for any game with bounded payouts, and finite options for each player, there will be some Nash Equilibrium. This equilibria will often be a mixed strategy equilibria, but it is guaranteed to exist.</p>
 </section>
-<section id="finding-nash-equilibria" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="finding-nash-equilibria"><span class="header-section-number">3.6</span> Finding Nash Equilibria</h2>
-<p>As the textbook notes, it isn’t easy in general to find Nash Equilibria. But let’s start with some general approaches we can use.</p>
-</section>
-<section id="iterated-dominance" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="iterated-dominance"><span class="header-section-number">3.7</span> Iterated Dominance</h2>
-<p>Strongly dominated strategies can’t be part of an equilibrium. (I’ll just use ‘equilibrium’ for ‘Nash Equilibrium’ in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can’t be part of an equilibrium either. This idea can help us find the equilibrium in some games.</p>
+<section id="sec-finding-nash" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-finding-nash"><span class="header-section-number">3.6</span> Finding Nash Equilibria</h2>
+<p>It isn’t easy in general to find Nash Equilibria. But let’s start with some general approaches we can use.</p>
+<section id="sec-iterated-dominance" class="level3">
+<h3 class="anchored" data-anchor-id="sec-iterated-dominance">Iterated Dominance</h3>
+<p>Strongly dominated strategies can’t be part of an equilibrium. (I’ll just use ‘equilibrium’ for ‘Nash Equilibrium’ in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can’t be part of an equilibrium either. This idea can help us find the equilibrium in some games, such as <a href="#tbl-id-first" class="quarto-xref">Table&nbsp;<span>3.9</span></a>.</p>
+<div id="tbl-id-first" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-id-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.9: A game that can be solved with dominance
+</figcaption>
+<div aria-describedby="tbl-id-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -657,7 +710,16 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
-<p>Neither of Col’s strategies is dominated. Col wants to choose whatever Row chooses. But look at the game from Row’s perspective. Here there is a strongly dominating strategy, namely choosing <span class="math inline">\(U\)</span>. So <span class="math inline">\(D\)</span> cannot be part of any equilbria. Indeed, if we assume that Row is rational, and so won’t play strongly dominated strategies, it is really as if the strategy isn’t even there. From that perspective, the table really looks like this.</p>
+</div>
+</figure>
+</div>
+<p>Neither of Col’s strategies is dominated. Col wants to choose whatever Row chooses. But look at the game from Row’s perspective. Here there is a strongly dominating strategy, namely choosing <span class="math inline">\(U\)</span>. So <span class="math inline">\(D\)</span> cannot be part of any equilbria. Indeed, if we assume that Row is rational, and so won’t play strongly dominated strategies, it is really as if the strategy isn’t even there. From that perspective, we can rewrite <a href="#tbl-id-first" class="quarto-xref">Table&nbsp;<span>3.9</span></a> as <a href="#tbl-id-second" class="quarto-xref">Table&nbsp;<span>3.10</span></a>.</p>
+<div id="tbl-id-second" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-id-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.10: The result of deleting a dominated strategy from <a href="#tbl-id-first" class="quarto-xref">Table&nbsp;<span>3.9</span></a>
+</figcaption>
+<div aria-describedby="tbl-id-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -679,12 +741,21 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Now in this game there is a dominating strategy for Col, namely <span class="math inline">\(L\)</span>. So the only equilibrium of the game is <span class="math inline">\(\langle U, L \rangle\)</span>. And it seems that those are the only rational strategies for the players, assuming they each know the other to be rational.</p>
 <p>We can use the idea of removing dominating strategies to illustrate some puzzling features of a couple of other games. I won’t do tables for these games, because they’d be much too big. The first is a location game that has many applications.</p>
 <blockquote class="blockquote">
 <p>Two trucks have to choose where they will sell ice-cream on a particular beach. There are 11 locations to choose from, which we’ll number 0, 1, …, 9, 10. Spot 0 is at the left end of the beach, Spot 10 is at the right end of the beach, and the other spots are equally spaced in between. There are 10 people at each location. Each of them will buy ice-cream. If one truck is closer, they will buy ice-cream from that truck. If two trucks are equally close, then 5 of them will buy ice-cream from one truck, and 5 from the other. Each truck aims to maximise the amount of ice-cream it sells. Where should the trucks end up?</p>
 </blockquote>
-<p>Let’s start by looking at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We’ll call the players Row and Col, as usual, and just use the number <span class="math inline">\(n\)</span> for the strategy of choosing location <span class="math inline">\(n\)</span>.</p>
+<p>Let’s start by looking, in <a href="#tbl-ic-tl" class="quarto-xref">Table&nbsp;<span>3.11</span></a>, at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We’ll call the players Row and Col, as usual, and just use the number <span class="math inline">\(n\)</span> for the strategy of choosing location <span class="math inline">\(n\)</span>.</p>
+<div id="tbl-ic-tl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ic-tl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.11: The top-left corner of the ice cream game
+</figcaption>
+<div aria-describedby="tbl-ic-tl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -733,8 +804,17 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>I’ll leave it as an exercise to confirm that these numbers are indeed correct. Note that no matter what Col selects, Row is better off picking 1 than 0. If Col picks 0 or 1, she is a lot better off; she sells 45 more ice-creams. And if Col picks a higher number, she is a bit better off; she sells 5 more ice-creams. So picking 1 dominates picking 0.</p>
-<p>Let’s look at the opposite corner of the matrix.</p>
+<p>Let’s look, in <a href="#tbl-ic-br" class="quarto-xref">Table&nbsp;<span>3.12</span></a> at the opposite corner of the matrix.</p>
+<div id="tbl-ic-br" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ic-br-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.12: The bottom-right corner of the ice cream game
+</figcaption>
+<div aria-describedby="tbl-ic-br-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -783,12 +863,21 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
-<p>Again, there should be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I’ll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.</p>
+</div>
+</figure>
+</div>
+<p>Again, there is be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I’ll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.</p>
 <p>So there is a clear conclusion to be drawn from what we’ve said so far.</p>
 <ul>
 <li>Spot 0 is dominated by Spot 1, and Spot 10 is dominated by Spot 9. So if Row is rational, she won’t pick either of those spots. Since the game is symmetric, if Col is rational, she won’t pick either of those spots either. Moreover, neither 0 nor 10 can be part of any equilibrium.</li>
 </ul>
-<p>Now let’s turn to the comparison between Spot 1 and Spot 2. Again, we’ll just look at a fragment of the matrix.</p>
+<p>Now let’s turn, in <a href="#tbl-ic-tl-1d" class="quarto-xref">Table&nbsp;<span>3.13</span></a>, to the comparison between Spot 1 and Spot 2, after we conclude that Row won’t play 0. Again, we’ll just look at a fragment of the matrix.</p>
+<div id="tbl-ic-tl-1d" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ic-tl-1d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.13: The top-left corner of the ice cream game, after deleting 0 for Row
+</figcaption>
+<div aria-describedby="tbl-ic-tl-1d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -852,8 +941,17 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
-<p>The pattern is also clear. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 <em>fewer</em> ice-creams by picking 2 rather than 1. So picking 2 does <em>not</em> dominate picking 1.</p>
-<p>But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let’s delete that dominated strategy. Here’s what the top left corner of the game matrix looks like when we do that.</p>
+</div>
+</figure>
+</div>
+<p>Again, there’s a pattern. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 <em>fewer</em> ice-creams by picking 2 rather than 1. So picking 2 does <em>not</em> dominate picking 1.</p>
+<p>But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let’s delete that dominated strategy. <a href="#tbl-ic-tl-2d" class="quarto-xref">Table&nbsp;<span>3.14</span></a> is what the top left corner of the game matrix looks like when we do that.</p>
+<div id="tbl-ic-tl-2d" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ic-tl-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.14: The top-left corner of the ice cream game, after deleting 0 for both players
+</figcaption>
+<div aria-describedby="tbl-ic-tl-2d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -902,16 +1000,25 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>And now it looks like picking 1 is dominated. This teaches us another lesson about the game.</p>
 <ul>
 <li>If we ‘delete’ the option of picking either 0 or 10 for Col, then picking 2 dominates picking 1 for Row. In other words, if Row knows Col is rational, and hence won’t pick a dominated option, then picking 2 dominates picking 1 for Row, relative to the space of epistemically possible moves in the game. For similar reasons, if Row knows Col is rational, then picking 8 dominates picking 9. And if Col knows Row is rational, then picking either 1 or 9 is dominated (by 2 and 8 respectively). And for similar reasons, neither 1 nor 9 can be part of an equilibrium strategy.</li>
 </ul>
 <p>Summarising what we know so far,</p>
 <ul>
-<li><p>If the players are rational, they won’t pick 0 or 10.</p></li>
-<li><p>If the players know the other player is rational, they also won’t pick 1 or 9.</p></li>
+<li>If the players are rational, they won’t pick 0 or 10.</li>
+<li>If the players know the other player is rational, they also won’t pick 1 or 9.</li>
 </ul>
-<p>Let’s continue down the matrix. For simplicity, we’ll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.</p>
+<p>Let’s continue down the matrix, now with <a href="#tbl-ic-tl-3d" class="quarto-xref">Table&nbsp;<span>3.15</span></a>. For simplicity, we’ll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.</p>
+<div id="tbl-ic-tl-3d" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ic-tl-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.15: The top-left corner after deleting 0 and 1 for Row, and 0 for Column
+</figcaption>
+<div aria-describedby="tbl-ic-tl-3d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -960,19 +1067,28 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Picking 3 doesn’t <em>quite</em> dominate picking 2. In most circumstances, Row does better by picking 3 rather than 2. But she does a little worse if Col picks 1. But wait! We just had an argument that Col shouldn’t pick 1. Or, at least, if Col knows that Row is rational, she shouldn’t pick 1. Let’s assume that Col does know that Row is rational, and Row in turn knows that fact, so she can use it in reasoning. That means she knows Col won’t pick 1. So she can delete it from consideration too. And once she does, picking 3 dominates picking 2, relative to the reduced space of epistemically possible outcomes.</p>
 <p>I haven’t belaboured the point as much as in the previous paragraphs, but hopefully the following conclusion is clear.</p>
 <ul>
 <li>If the players know that the players know that the other player is rational, they won’t pick 2 or 8. So neither 2 nor 8 can be part of an equilibrium.</li>
 </ul>
 <p>And you can see where this is going. Once we rule out each player picking 2 or 8, then picking 4 dominates picking 3, so picking 3 should be ruled out. And picking 7 should be ruled out for symmetric reasons. But once 3 and 7 are ruled out, picking 5 dominates picking either 4 or 6. So both players will end up picking 5.</p>
-<p>And that is, in the standard economic textbooks, a nice explanation of why we see so much ‘clustering’ of shops. (For instance, why so often there are several gas stations on one corner, rather than spread over town.) Of course the full explanation of clustering is more complicated, but it is nice to see such a simple model deliver such a strong outcome.</p>
+<p>And that is, in the standard economic textbooks, a nice explanation of why we see so much ‘clustering’ of shops. For instance, starting with work by Harold <span class="citation" data-cites="hotelling1929">Hotelling (<a href="references.html#ref-hotelling1929" role="doc-biblioref">1929</a>)</span>, this has been used to explain why there are several shops for one kind of good in one neighborhood, rather than spread over town. Of course the full explanation of clustering is more complicated, but it is nice to see such a simple model deliver such a strong outcome.</p>
 <p>This process is called the <strong>Iterative Deletion of Dominated Strategies</strong>. More precisely, what we’ve used here is the strategy of iteratively deleting <strong>strongly</strong> dominated strategies. This is a powerful technique for solving games that don’t, at first glance, admit of any easy solution. If only one strategy pair remains after using this technique, that is the only equilibrium of the game.</p>
 <p>We’ll return a bit to this point in what follows, but it’s worth noting that in a one-shot version of this game, to get to the conclusion that each player should play 5, we had to use a number of very strong assumptions. We had to assume that each player is rational, that they know the other is rational, that they know that the other knows they are rational, and so on through six iterations. In principle, to justify iteratively deleting dominated strategies, we have to assume that there are arbitrarily many iterations of this idea that each player knows that the other player knows etc that they are rational.</p>
 </section>
-<section id="finding-best-responses" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="finding-best-responses"><span class="header-section-number">3.8</span> Finding Best Responses</h2>
-<p>It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider the following game.</p>
+<section id="sec-finding-best-responses" class="level3">
+<h3 class="anchored" data-anchor-id="sec-finding-best-responses">Finding Best Responses</h3>
+<p>It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider <a href="#tbl-complicated" class="quarto-xref">Table&nbsp;<span>3.16</span></a>.</p>
+<div id="tbl-complicated" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-complicated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.16: A complicated game
+</figcaption>
+<div aria-describedby="tbl-complicated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1032,7 +1148,16 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 </tr>
 </tbody>
 </table>
-<p>We’ll start by finding the best response for Row to each of Col’s plays. We’ll underline the payoff for Row that does best, assuming Col makes that choice. Here’s how the table looks after we do that.</p>
+</div>
+</figure>
+</div>
+<p>We’ll start by finding the best response for Row to each of Col’s plays. We’ll bold the payoff for Row that does best, assuming Col makes that choice. <a href="#tbl-complicated-bold" class="quarto-xref">Table&nbsp;<span>3.17</span></a> shows what it looks like after we do that.</p>
+<div id="tbl-complicated-bold" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-complicated-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.17: A version of <a href="#tbl-complicated" class="quarto-xref">Table&nbsp;<span>3.16</span></a> with Row’s best responses bolded.
+</figcaption>
+<div aria-describedby="tbl-complicated-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1052,7 +1177,7 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <tr class="odd">
 <td rowspan="5" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(A\)</span></td>
-<td style="text-align: center;"><u>9</u>,9</td>
+<td style="text-align: center;"><strong>9</strong>,9</td>
 <td style="text-align: center;">5,1</td>
 <td style="text-align: center;">6,4</td>
 <td style="text-align: center;">3,3</td>
@@ -1069,7 +1194,7 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(C\)</span></td>
 <td style="text-align: center;">4,5</td>
-<td style="text-align: center;"><u>8</u>,7</td>
+<td style="text-align: center;"><strong>8</strong>,7</td>
 <td style="text-align: center;">2,4</td>
 <td style="text-align: center;">4,1</td>
 <td style="text-align: center;">2,9</td>
@@ -1079,20 +1204,29 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <td style="text-align: center;">3,2</td>
 <td style="text-align: center;">1,5</td>
 <td style="text-align: center;">3,7</td>
-<td style="text-align: center;"><u>7</u>,7</td>
-<td style="text-align: center;"><u>9</u>,1</td>
+<td style="text-align: center;"><strong>7</strong>,7</td>
+<td style="text-align: center;"><strong>9</strong>,1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(E\)</span></td>
 <td style="text-align: center;">5,3</td>
-<td style="text-align: center;"><u>8</u>,3</td>
-<td style="text-align: center;"><u>7</u>,6</td>
+<td style="text-align: center;"><strong>8</strong>,3</td>
+<td style="text-align: center;"><strong>7</strong>,6</td>
 <td style="text-align: center;">3,5</td>
 <td style="text-align: center;">8,4</td>
 </tr>
 </tbody>
 </table>
-<p>Note that under <span class="math inline">\(b\)</span>, we underlined two possible payoffs. That’s because they are tied for best, and best response is compatible with ties. Now we’ll go through Col’s options, finding the best response to each possible play by Row.</p>
+</div>
+</figure>
+</div>
+<p>Note that under <span class="math inline">\(b\)</span>, we bolded two possible payoffs. That’s because they are tied for best, and best response is compatible with ties. In <a href="#tbl-complicated-both-bold" class="quarto-xref">Table&nbsp;<span>3.18</span></a> we also bold Col’s best responses.</p>
+<div id="tbl-complicated-both-bold" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-complicated-both-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.18: A version of <a href="#tbl-complicated" class="quarto-xref">Table&nbsp;<span>3.16</span></a> with best responses for both players bolded.
+</figcaption>
+<div aria-describedby="tbl-complicated-both-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1112,7 +1246,7 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <tr class="odd">
 <td rowspan="5" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(A\)</span></td>
-<td style="text-align: center;"><u>9</u>,<u>9</u></td>
+<td style="text-align: center;"><strong>9</strong>,<strong>9</strong></td>
 <td style="text-align: center;">5,1</td>
 <td style="text-align: center;">6,4</td>
 <td style="text-align: center;">3,3</td>
@@ -1123,46 +1257,55 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <td style="text-align: center;">3,1</td>
 <td style="text-align: center;">7,3</td>
 <td style="text-align: center;">1,7</td>
-<td style="text-align: center;">3,<u>9</u></td>
+<td style="text-align: center;">3,<strong>9</strong></td>
 <td style="text-align: center;">8,2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(C\)</span></td>
 <td style="text-align: center;">4,5</td>
-<td style="text-align: center;"><u>8</u>,7</td>
+<td style="text-align: center;"><strong>8</strong>,7</td>
 <td style="text-align: center;">2,4</td>
 <td style="text-align: center;">4,1</td>
-<td style="text-align: center;">2,<u>9</u></td>
+<td style="text-align: center;">2,<strong>9</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><span class="math inline">\(D\)</span></td>
 <td style="text-align: center;">3,2</td>
 <td style="text-align: center;">1,5</td>
-<td style="text-align: center;">3,<u>7</u></td>
-<td style="text-align: center;"><u>7</u>,<u>7</u></td>
-<td style="text-align: center;"><u>9</u>,1</td>
+<td style="text-align: center;">3,<strong>7</strong></td>
+<td style="text-align: center;"><strong>7</strong>,<strong>7</strong></td>
+<td style="text-align: center;"><strong>9</strong>,1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(E\)</span></td>
 <td style="text-align: center;">5,3</td>
-<td style="text-align: center;"><u>8</u>,3</td>
-<td style="text-align: center;"><u>7</u>,<u>6</u></td>
+<td style="text-align: center;"><strong>8</strong>,3</td>
+<td style="text-align: center;"><strong>7</strong>,<strong>6</strong></td>
 <td style="text-align: center;">3,5</td>
 <td style="text-align: center;">8,4</td>
 </tr>
 </tbody>
 </table>
-<p>Any cell where both values are underlined is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: <span class="math inline">\(\langle Aa \rangle\)</span>, <span class="math inline">\(\langle Dd \rangle\)</span>, <span class="math inline">\(\langle Ec \rangle\)</span>. I’ll leave finding the mixed strategy equilibria as an exercise for the interested reader.</p>
+</div>
+</figure>
+</div>
+<p>Any cell where both values are bolded is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: <span class="math inline">\(\langle Aa \rangle\)</span>, <span class="math inline">\(\langle Dd \rangle\)</span>, <span class="math inline">\(\langle Ec \rangle\)</span>. I’ll leave finding the mixed strategy equilibria as an exercise for the interested reader.</p>
 </section>
-<section id="finding-mixed-strategy-equilibria" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="finding-mixed-strategy-equilibria"><span class="header-section-number">3.9</span> Finding Mixed Strategy Equilibria</h2>
+<section id="sec-finding-mixed" class="level3">
+<h3 class="anchored" data-anchor-id="sec-finding-mixed">Finding Mixed Strategy Equilibria</h3>
 <p>It isn’t easy in general to find mixed strategy equilibria. But we can start by dividing the problem into two parts.</p>
 <ol type="1">
-<li><p>Finding the support for each player’s part of the equilibria.</p></li>
-<li><p>Finding the probability with which they play each part of their support.</p></li>
+<li>Finding the support for each player’s part of the equilibria.</li>
+<li>Finding the probability with which they play each part of their support.</li>
 </ol>
 <p>And it turns out, a bit surprisingly, that it is the first part of the problem that is harder in general. (Recall that the support of a mixed strategy is the set of pure strategies that have a positive probability of being played given that mixed strategy.) And while that isn’t an easy problem to solve in general, it isn’t something we need to worry about in very simple games. In games with just two options per player, then either there will be a pure strategy equilibria, or the mixed strategy Nash Equilibria will have all strategies in its support. Even if there are three strategies available per player, then it usually isn’t too hard to find the support for the mixed strategy equilibria by just noting that strongly dominated strategies cannot be part of an equilibria.</p>
-<p>We’ll start by considering the very abstractly defined game.</p>
+<p>We’ll start by considering the very abstractly defined game, as in <a href="#tbl-abstract-no-pure" class="quarto-xref">Table&nbsp;<span>3.19</span></a>.</p>
+<div id="tbl-abstract-no-pure" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abstract-no-pure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.19: An abstract game with no pure strategy equilibrium.
+</figcaption>
+<div aria-describedby="tbl-abstract-no-pure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1179,26 +1322,29 @@ E(D) &amp;= 0 \times \frac{1}{3} + 1 \times \frac{2}{3} \\
 <tr class="odd">
 <td rowspan="2" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(U\)</span></td>
-<td style="text-align: center;"><u>a</u>,b</td>
-<td style="text-align: center;">c,<u>d</u></td>
+<td style="text-align: center;"><strong>a</strong>,b</td>
+<td style="text-align: center;">c,<strong>d</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><span class="math inline">\(D\)</span></td>
-<td style="text-align: center;">e,<u>f</u></td>
-<td style="text-align: center;"><u>0</u>,0</td>
+<td style="text-align: center;">e,<strong>f</strong></td>
+<td style="text-align: center;"><strong>0</strong>,0</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Don’t make too much of the fact that I’ve put 0 for both players in the bottom right. Since utility scales are only defined up to affine transformation, adding a constant to each possible payout a player gets literally doesn’t change the game. So any game representation can be changed into an equivalent representation with 0 for each player in an arbitrarily chosen cell. We’ll make that cell be the bottom right, but it could be anywhere.</p>
-<p>But do notice the underlining. That has meaning. In particular, it means that all of the following must hold.</p>
+<p>But do notice the bolding. That has meaning. In particular, it means that all of the following must hold.</p>
 <ul>
-<li><p><span class="math inline">\(a &gt; e\)</span>, since <span class="math inline">\(a\)</span> is underlined and <span class="math inline">\(e\)</span> is not, and those are the choices if Col chooses <span class="math inline">\(L\)</span>.</p></li>
-<li><p><span class="math inline">\(0 &gt; c\)</span>, since <span class="math inline">\(0\)</span> is underlined (for Row) and <span class="math inline">\(c\)</span> is not, and those are the choices if Col chooses <span class="math inline">\(R\)</span>.</p></li>
-<li><p><span class="math inline">\(d &gt; b\)</span>, since <span class="math inline">\(d\)</span> is underlined and <span class="math inline">\(b\)</span> is not, and those are the choices if Row chooses <span class="math inline">\(U\)</span>.</p></li>
-<li><p><span class="math inline">\(f &gt; 0\)</span>, since <span class="math inline">\(f\)</span> is underlined and <span class="math inline">\(0\)</span> is not (for Col), and those are the choices if Row chooses <span class="math inline">\(D\)</span>.</p></li>
+<li><span class="math inline">\(a &gt; e\)</span>, since <span class="math inline">\(a\)</span> is bolded and <span class="math inline">\(e\)</span> is not, and those are the choices if Col chooses <span class="math inline">\(L\)</span>.</li>
+<li><span class="math inline">\(0 &gt; c\)</span>, since <span class="math inline">\(0\)</span> is bolded (for Row) and <span class="math inline">\(c\)</span> is not, and those are the choices if Col chooses <span class="math inline">\(R\)</span>.</li>
+<li><span class="math inline">\(d &gt; b\)</span>, since <span class="math inline">\(d\)</span> is bolded and <span class="math inline">\(b\)</span> is not, and those are the choices if Row chooses <span class="math inline">\(U\)</span>.</li>
+<li><span class="math inline">\(f &gt; 0\)</span>, since <span class="math inline">\(f\)</span> is bolded and <span class="math inline">\(0\)</span> is not (for Col), and those are the choices if Row chooses <span class="math inline">\(D\)</span>.</li>
 </ul>
-<p>Since there is no cell where both are underlined, there is no pure strategy equilibrium. So the equilibria must include at least one mixed strategy.</p>
-<p>Recall how we calculated the expected return <span class="math inline">\(E(M)\)</span> of the mixed strategy <span class="math inline">\(\langle x, L; 1-x, R\)</span>, given the expected returns of <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. It is</p>
+<p>Since there is no cell where both are bolded, there is no pure strategy equilibrium. So the equilibria must include at least one mixed strategy.</p>
+<p>Recall how we calculated the expected return <span class="math inline">\(E(M)\)</span> of the mixed strategy <span class="math inline">\(\langle x, L; 1-x, R\rangle\)</span>, given the expected returns of <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span>. It is</p>
 <p><span class="math display">\[\begin{equation*}
 E(M) = xE(L) + (1-x)E(R)
 \end{equation*}\]</span></p>
@@ -1211,16 +1357,16 @@ E(M) &amp;= xE(L) + (1-x)E(R) \\
 &amp;= E(L) + k(1-x)
 \end{align*}\]</span></p>
 <p>A similar bit of reasoning shows that <span class="math inline">\(E(M) = E(R) + kx\)</span>. Now if the strategy is genuinely mixed, then both <span class="math inline">\(x\)</span> and <span class="math inline">\(1-x\)</span> will be greater than 0. And so if <span class="math inline">\(k \neq 0\)</span>, then one of <span class="math inline">\(kx\)</span> and <span class="math inline">\(k(1-x)\)</span> will be positive. And if one of them is positive, then <span class="math inline">\(E(M)\)</span> will be less than one of <span class="math inline">\(E(L)\)</span> and <span class="math inline">\(E(R)\)</span>, so it won’t be a best response.</p>
-<p>So the only time when <span class="math inline">\(\langle x, L; 1-x, R\)</span> is a best response for Col is when <span class="math inline">\(E(L) = E(R)\)</span>. In that circumstance, all responses are best responses. In any other circumstance, one of the pure responses is best. So,</p>
+<p>So the only time when <span class="math inline">\(\langle x, L; 1-x, R\rangle\)</span> is a best response for Col is when <span class="math inline">\(E(L) = E(R)\)</span>. In that circumstance, all responses are best responses. In any other circumstance, one of the pure responses is best. So,</p>
 <ul>
-<li><p>If the equilibrium has Col playing a mixed strategy, then Row must play a strategy that makes Col’s expected returns from <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> equal.</p></li>
-<li><p>And that can only obtain if Row herself plays a mixed strategy.</p></li>
+<li>If the equilibrium has Col playing a mixed strategy, then Row must play a strategy that makes Col’s expected returns from <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> equal.</li>
+<li>And that can only obtain if Row herself plays a mixed strategy.</li>
 </ul>
 <p>I’ve done all this from Col’s perspective, but we could redo the argument from Row’s perspective to get a similar result; if a mixed strategy is to be best for Row, then Col must play the mixed strategy that makes each of Row’s pure strategies equally good.</p>
 <p>So now we have a recipe, or at least something like one, for finding the mixed strategy equilibria. Each player must choose a mixed strategy that makes the expected return of the other player’s pure strategies equal. So let’s assume that</p>
 <ul>
-<li><p>Row plays <span class="math inline">\(\langle U, x; D, 1-x \rangle\)</span>; and</p></li>
-<li><p>Col plays <span class="math inline">\(\langle L, y; R, 1-y \rangle\)</span></p></li>
+<li>Row plays <span class="math inline">\(\langle U, x; D, 1-x \rangle\)</span>; and</li>
+<li>Col plays <span class="math inline">\(\langle L, y; R, 1-y \rangle\)</span></li>
 </ul>
 <p>Then we need <span class="math inline">\(x\)</span> to be such that <span class="math inline">\(E(L) = E(R)\)</span>, and <span class="math inline">\(y\)</span> to be such that <span class="math inline">\(E(U) = E(D)\)</span>. So we can solve for each of these variables in turn.</p>
 <p><span class="math display">\[\begin{align*}
@@ -1242,7 +1388,13 @@ c &amp;= y(e + c - a) \\
 \frac{c}{e + c - a} &amp;= y
 \end{align*}\]</span></p>
 <p>So Col must play the mixed strategy <span class="math inline">\(\langle L, \frac{c}{e + c - a}; R, \frac{e-a}{e + c - a} \rangle\)</span> if there is to be an equilibrium. If she does, then Row’s expected return from playing either <span class="math inline">\(U\)</span>, or <span class="math inline">\(D\)</span>, or any mixture of them, will be <span class="math inline">\(\frac{ec}{e + c - a}\)</span>.</p>
-<p>There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn’t care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn’t want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. Here are the payoffs.</p>
+<p>There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn’t care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn’t want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. The payoffs are in <a href="#tbl-speeding" class="quarto-xref">Table&nbsp;<span>3.20</span></a>.</p>
+<div id="tbl-speeding" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-speeding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.20: The speeding game
+</figcaption>
+<div aria-describedby="tbl-speeding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1269,8 +1421,17 @@ c &amp;= y(e + c - a) \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The equilibrium of this game is that Col speeds with probability <span class="math inline">\(\frac{1}{11}\)</span>, and Row detects with probability <span class="math inline">\(\frac{1}{11}\)</span>, and each has an expected payoff of 0.</p>
-<p>Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like this.</p>
+<p>Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like <a href="#tbl-speeding-adj" class="quarto-xref">Table&nbsp;<span>3.21</span></a>.</p>
+<div id="tbl-speeding-adj" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-speeding-adj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.21: The speeding game, with raised fines
+</figcaption>
+<div aria-describedby="tbl-speeding-adj-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1297,11 +1458,20 @@ c &amp;= y(e + c - a) \\
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>If nothing else apart from the penalty for speeding, the rational response by police department Row is to reduce monitoring of speeding, and spend time on other crimes. After all, the new equilibrium is that Row detects with probability <span class="math inline">\(\frac{1}{21}\)</span>, and Col still speeds with probability <span class="math inline">\(\frac{1}{11}\)</span>. If there is a game in a mixed strategy equilibrium, and the result of any change to the payoffs will be to move it to a new equilibrium, then the only way to change Col’s behavior is to either create a new dominant strategy, or to change Row’s payoffs. Perhaps what the legislature should do here is to not just increase speeding fines, but to give the money to police departments - that would change the equilibrium of the game in a hurry.</p>
 </section>
-<section id="combining-strategies" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="combining-strategies"><span class="header-section-number">3.10</span> Combining Strategies</h2>
-<p>We’ll work out the equilibria for the following game.</p>
+<section id="sec-combining-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="sec-combining-strategies">Combining Strategies</h3>
+<p>We’ll work out the equilibria for <a href="#tbl-combining" class="quarto-xref">Table&nbsp;<span>3.22</span></a>.</p>
+<div id="tbl-combining" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-combining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.22: The example for <a href="#sec-combining-strategies" class="quarto-xref"><span>Section 3.6.4</span></a>
+</figcaption>
+<div aria-describedby="tbl-combining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1337,7 +1507,16 @@ c &amp;= y(e + c - a) \\
 </tr>
 </tbody>
 </table>
-<p>As a first step, we’ll underline the best responses, and see if any equilibria turn up that way.</p>
+</div>
+</figure>
+</div>
+<p>As a first step, we’ll bold the best responses, and see if any equilibria turn up that way.</p>
+<div id="tbl-combining-bold" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-combining-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.23: A version of <a href="#tbl-combining" class="quarto-xref">Table&nbsp;<span>3.22</span></a> with best responses bolded
+</figcaption>
+<div aria-describedby="tbl-combining-bold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1355,25 +1534,34 @@ c &amp;= y(e + c - a) \\
 <tr class="odd">
 <td rowspan="3" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(A\)</span></td>
-<td style="text-align: center;"><u>5</u>,0</td>
-<td style="text-align: center;">0,<u>1</u></td>
+<td style="text-align: center;"><strong>5</strong>,0</td>
+<td style="text-align: center;">0,<strong>1</strong></td>
 <td style="text-align: center;">1,-1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><span class="math inline">\(B\)</span></td>
-<td style="text-align: center;">0,<u>2</u></td>
-<td style="text-align: center;"><u>1</u>,0</td>
+<td style="text-align: center;">0,<strong>2</strong></td>
+<td style="text-align: center;"><strong>1</strong>,0</td>
 <td style="text-align: center;">2,1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(C\)</span></td>
-<td style="text-align: center;">3,<u>4</u></td>
+<td style="text-align: center;">3,<strong>4</strong></td>
 <td style="text-align: center;">-1,2</td>
-<td style="text-align: center;"><u>6</u>,3</td>
+<td style="text-align: center;"><strong>6</strong>,3</td>
 </tr>
 </tbody>
 </table>
-<p>That doesn’t look like it helps. Row doesn’t have any dominated strategies either. But Col does have a dominated strategy, since <span class="math inline">\(a\)</span> dominates <span class="math inline">\(c\)</span>. It doesn’t matter that <span class="math inline">\(c\)</span> might outperform <span class="math inline">\(b\)</span>; there is no reason to play <span class="math inline">\(c\)</span> since <span class="math inline">\(a\)</span> will always do 1 point better. So let’s delete that.</p>
+</div>
+</figure>
+</div>
+<p>The bolding in <a href="#tbl-combining-bold" class="quarto-xref">Table&nbsp;<span>3.23</span></a> doesn’t look like it helps. Row doesn’t have any dominated strategies either. But Col does have a dominated strategy, since <span class="math inline">\(a\)</span> dominates <span class="math inline">\(c\)</span>. It doesn’t matter that <span class="math inline">\(c\)</span> might outperform <span class="math inline">\(b\)</span>; there is no reason to play <span class="math inline">\(c\)</span> since <span class="math inline">\(a\)</span> will always do 1 point better. So let’s delete that, as in <a href="#tbl-combining-dom" class="quarto-xref">Table&nbsp;<span>3.24</span></a>.</p>
+<div id="tbl-combining-dom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-combining-dom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.24: A version of <a href="#tbl-combining-bold" class="quarto-xref">Table&nbsp;<span>3.23</span></a> with a dominated strategy deleted
+</figcaption>
+<div aria-describedby="tbl-combining-dom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1390,23 +1578,32 @@ c &amp;= y(e + c - a) \\
 <tr class="odd">
 <td rowspan="3" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(A\)</span></td>
-<td style="text-align: center;"><u>5</u>,0</td>
-<td style="text-align: center;">0,<u>1</u></td>
+<td style="text-align: center;"><strong>5</strong>,0</td>
+<td style="text-align: center;">0,<strong>1</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><span class="math inline">\(B\)</span></td>
-<td style="text-align: center;">0,<u>2</u></td>
-<td style="text-align: center;"><u>1</u>,0</td>
+<td style="text-align: center;">0,<strong>2</strong></td>
+<td style="text-align: center;"><strong>1</strong>,0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"><span class="math inline">\(C\)</span></td>
-<td style="text-align: center;">3,<u>4</u></td>
+<td style="text-align: center;">3,<strong>4</strong></td>
 <td style="text-align: center;">-1,2</td>
 </tr>
 </tbody>
 </table>
-<p>We don’t have to change the underlining, because a dominated strategy is never a best response.</p>
+</div>
+</figure>
+</div>
+<p>We don’t have to change the bolding, because a dominated strategy is never a best response.</p>
 <p>Now compare options <span class="math inline">\(A\)</span> and <span class="math inline">\(C\)</span>. If we rule out Col playing <span class="math inline">\(c\)</span>, it turns out there is never a reason for Row to play <span class="math inline">\(C\)</span> over <span class="math inline">\(A\)</span>. Option <span class="math inline">\(A\)</span> does better than <span class="math inline">\(C\)</span> whether Col plays <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span>. So let’s delete option <span class="math inline">\(C\)</span> as well.</p>
+<div id="tbl-combining-dom2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-combining-dom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.25: A version of <a href="#tbl-combining-dom" class="quarto-xref">Table&nbsp;<span>3.24</span></a> with a strategy deleted by iterated deletion
+</figcaption>
+<div aria-describedby="tbl-combining-dom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -1423,52 +1620,105 @@ c &amp;= y(e + c - a) \\
 <tr class="odd">
 <td rowspan="2" style="text-align: left;"><strong>Row</strong></td>
 <td style="text-align: right;"><span class="math inline">\(A\)</span></td>
-<td style="text-align: center;"><u>5</u>,0</td>
-<td style="text-align: center;">0,<u>1</u></td>
+<td style="text-align: center;"><strong>5</strong>,0</td>
+<td style="text-align: center;">0,<strong>1</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><span class="math inline">\(B\)</span></td>
-<td style="text-align: center;">0,<u>2</u></td>
-<td style="text-align: center;"><u>1</u>,0</td>
+<td style="text-align: center;">0,<strong>2</strong></td>
+<td style="text-align: center;"><strong>1</strong>,0</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>Now we have a familiar kind of game. Each player has two options, and there is no pure strategy equilibrium. The problem has reduced to the form of the problem we tackled in the previous subsection. The only equilibrium will be a mixed strategy equilibrium. And we find it by making each player leave the other indifferent between their options. I won’t repeat the algebra for finding it, but you can verify yourself that the following works.</p>
 <ul>
-<li><p>Row plays <span class="math inline">\(\langle A, \frac{2}{3}; B, \frac{1}{3} \rangle\)</span>.</p></li>
-<li><p>Col plays <span class="math inline">\(\langle a, \frac{1}{6}; b, \frac{5}{6} \rangle\)</span>.</p></li>
+<li>Row plays <span class="math inline">\(\langle A, \frac{2}{3}; B, \frac{1}{3} \rangle\)</span>.</li>
+<li>Col plays <span class="math inline">\(\langle a, \frac{1}{6}; b, \frac{5}{6} \rangle\)</span>.</li>
 </ul>
 <p>If you prefer to have the mixed strategies range over all of the options that were originally available, with the strategies outside the support getting probability 0, we can write the equilibrium of the game as.</p>
 <ul>
-<li><p>Row plays <span class="math inline">\(\langle A, \frac{2}{3}; B, \frac{1}{3}; C, 0 \rangle\)</span>.</p></li>
-<li><p>Col plays <span class="math inline">\(\langle a, \frac{1}{6}; b, \frac{5}{6}; c, 0 \rangle\)</span>.</p></li>
+<li>Row plays <span class="math inline">\(\langle A, \frac{2}{3}; B, \frac{1}{3}; C, 0 \rangle\)</span>.</li>
+<li>Col plays <span class="math inline">\(\langle a, \frac{1}{6}; b, \frac{5}{6}; c, 0 \rangle\)</span>.</li>
 </ul>
 </section>
-<section id="why-care-about-equilibria" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="why-care-about-equilibria"><span class="header-section-number">3.11</span> Why Care about Equilibria?</h2>
-<p>There is a philosophical question, alluded to at the end of Chapter 2 of the textbook, about why we should care about Nash equilibria. Thinking about the mixed strategy equilibria can make these questions particularly vivid.</p>
+</section>
+<section id="sec-why-care" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-why-care"><span class="header-section-number">3.7</span> Why Care about Equilibria?</h2>
+<p>There is a philosophical question about why we should care about Nash equilibria. Thinking about the mixed strategy equilibria can make these questions particularly vivid.</p>
 <p>Imagine I’m Col in one of the driving games from the last section. Why should I ever play a mixed strategy? Here is an argument that I should not.</p>
 <ul>
-<li><p>If police Row is playing the mixed strategy that brings the game into equilibrium, then my expected return from playing either Speed or Not Speed is 0. So I don’t have any incentive to play the particular mixed strategy that brings the game into equilibrium.</p></li>
-<li><p>Figuring out how to make it that I speed with probability <span class="math inline">\(\frac{1}{11}\)</span> seems like hard work, when it will have no positive return.</p></li>
-<li><p>If police Row is not playing the mixed strategy that brings the game into equilibrium, then one of the pure strategies open to me will have a higher expected return than playing the mixed strategy.</p></li>
+<li>If police Row is playing the mixed strategy that brings the game into equilibrium, then my expected return from playing either Speed or Not Speed is 0. So I don’t have any incentive to play the particular mixed strategy that brings the game into equilibrium.</li>
+<li>Figuring out how to make it that I speed with probability <span class="math inline">\(\frac{1}{11}\)</span> seems like hard work, when it will have no positive return.</li>
+<li>If police Row is not playing the mixed strategy that brings the game into equilibrium, then one of the pure strategies open to me will have a higher expected return than playing the mixed strategy.</li>
 </ul>
 <p>So either playing the mixed strategy will involve work for no gain, or it will actually lower my expected return compared to an available alternative. This isn’t seeming very promising. But we can imagine some circumstances when the mixed strategy would be more appealing. Here are three related circumstances where it seems useful.</p>
 <ol type="1">
-<li><p>Imagine that I’m too incompetent to make decisions for myself in games like this. You have to advise me. But the advice will be public; police Row will see it as well. Then the only advice you can rationally offer is that I should play the mixed strategy. Any other advice will backfire because the police will respond to it in ways that make it worthless.</p></li>
-<li><p>Imagine that my strategy will leak to the police, no matter what. That could be because I’m so incompetent that I need to rely on public advice, or it could be because the police have a way of reading my moves. And imagine that the police are in the same boat; their strategy will leak to me. Then we should each play the equilibrium strategy; it is immune to doing worse in light of leaks. That’s an implausible situation in most cases, but there is one special case worth considering.</p></li>
-<li><p>Imagine the game will be repeated so many times that eventually our strategies will become visible enough just from the record of our play. Then we are (eventually) back into the ‘leaked strategy’ situation. And in that situation, we should play equilibrium strategies.</p></li>
+<li>Imagine that I’m too incompetent to make decisions for myself in games like this. You have to advise me. But the advice will be public; police Row will see it as well. Then the only advice you can rationally offer is that I should play the mixed strategy. Any other advice will backfire because the police will respond to it in ways that make it worthless.</li>
+<li>Imagine that my strategy will leak to the police, no matter what. That could be because I’m so incompetent that I need to rely on public advice, or it could be because the police have a way of reading my moves. And imagine that the police are in the same boat; their strategy will leak to me. Then we should each play the equilibrium strategy; it is immune to doing worse in light of leaks. That’s an implausible situation in most cases, but there is one special case worth considering.</li>
+<li>Imagine the game will be repeated so many times that eventually our strategies will become visible enough just from the record of our play. Then we are (eventually) back into the ‘leaked strategy’ situation. And in that situation, we should play equilibrium strategies.</li>
 </ol>
 <p>Personally, I think it’s the last possibility that makes the concept of an equilibrium play so important. Equilibria (in one shot games) are interesting because they alone are sensible plays in repeated games.</p>
 <p>This matches up nicely with our intuitive judgments about games like the driving game. What would happen, intuitively, if one player deviated dramatically from the equilibrium in a one-shot game? The answer is that that player would probably do fine. If Col speeds, then they’ll probably get away with it. But think about what would happen (again intuitively) if a player repeated non-equilibrium play over a long period of time. I think it would end up being counterproductive. If Col speeds all the time, Row will adjust and catch them. If Row detects all the time, Col will slow down, but Row will end up wasting detecting resources. It’s in repeated games, that non-equilibrium play leads to disaster.</p>
-<p>Recall at the start of the chapter we said that it is hard to sometimes make sense of what it even means to play a mixed strategy outside of the context of a repeated game. The reasoning of the last paragraph is why I don’t find that worrying. Just like it is hard to define a mixed strategy in a genuinely one-shot game, it is hard to motivate such a strategy. Mixed strategies become easier to define in repeated games, and they become easier to motivate in those games too.</p>
+<p>Recall that in <a href="#sec-mixed-strategies" class="quarto-xref"><span>Section 3.1</span></a> we said that it is hard to sometimes make sense of what it even means to play a mixed strategy outside of the context of a repeated game. The reasoning of the last paragraph is why I don’t find that worrying. Just like it is hard to define a mixed strategy in a genuinely one-shot game, it is hard to motivate such a strategy. Mixed strategies become easier to define in repeated games, and they become easier to motivate in those games too.</p>
+</section>
+<section id="sec-what-is-a-mixed-strategy" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-what-is-a-mixed-strategy"><span class="header-section-number">3.8</span> What Is a Mixed Strategy?</h2>
+<p>Back in <a href="#sec-mixed-strategies" class="quarto-xref"><span>Section 3.1</span></a> we assumed that players have mixed strategies available, and noted that it is a tricky question what that assumption amounts to. We can now make that note much more precise.</p>
+<p>This is the feature of mixed equilibria that generates the difficulty. At a mixed equilibrium, every pure strategy in the support has the same expected return as the mixture itself. We use that fact to discover equilibria. The trick is to find the probabilities that make the <em>other</em> player indifferent. That means that at the equilibrium, a player has no reason at all to play the mixture rather than any of the strategies in its support. Playing <span class="math inline">\(U\)</span> for certain does exactly as well as playing <span class="math inline">\(\langle U, 0.5; D, 0.5 \rangle\)</span>, given what the other player is doing.</p>
+<p>For most pure strategy equilibria, abandoning the equilibrium makes you strictly worse off. (There are exceptions, and these create their own problems, but the normal case is that deviation has positive cost.) In a mixed equilibrium nothing pushes you towards the equilibrium mixture. The only thing your mixture accomplishes is keeping the other player indifferent, which is an odd thing for a self-interested agent to be aiming at.</p>
+<p>So the usual story about equilibrium, that each player is doing the best they can for themselves, does not explain why anyone would mix in the proportions the equilibrium specifies. So what does explain it? The different interpretations suggest different answers to this question. We’ll look at the three most important interpretations, though note that there are others, and that each of these three admits some internal variation.</p>
+<section id="objective-chance" class="level3">
+<h3 class="anchored" data-anchor-id="objective-chance">Objective Chance</h3>
+<p>On the first of our three interpretations, playing a mixed strategy is using a randomising device, and the probabilities are objective chances.</p>
+<p>This is the original reading. <span class="citation" data-cites="vonneumann1944">Neumann and Morgenstern (<a href="references.html#ref-vonneumann1944" role="doc-biblioref">1944</a>)</span> introduced mixtures precisely so that an opponent could not find out what you were going to do, and they meant you’re using a randomising device. This is the natural reading for games where one side is trying to keep their strategy hidden from the other. (Think about poker, or sports where deception is important, or a tax authority deciding who to audit.) In those cases, being predictable is what you most want to avoid. Professional athletes do come close to the predicted mixtures; there is a small empirical literature on tennis serves and penalty kicks.</p>
+<p>There are a few of reasons to not like this interpretation. One is that it’s a wide open empirical question whether there really are any randomising devices. The most common interpretations of modern physics are indeterministic, but some are deterministic. Another problem is that if there is indeterminism at the quantum level in physics, most people we describe as playing a mixed strategy are not actually using devices which are indeterministic in this quantum sense. And a third is that it doesn’t actually explain the puzzle we started with. Even if you have a randomising device, and you have reason to use it, you need a further reason to set it to the equilibrium probabilities. In equilibrium, you don’t have such a reason.</p>
+<p>There is a weaker version of the same thought that avoids the first two of these problems. What matters, one might say, is not that I actually use a randomiser, but that you cannot tell the difference between what I am doing and a chance process. On this version I might be running something perfectly deterministic; if you cannot model it, then as far as the game is concerned it is a mixture. Notice that this has quietly relocated the probability from my machinery to your ignorance, which makes it a step towards the epistemic reading rather than a version of this one. And it still doesn’t solve the explanatory problem. But it least it doesn’t make game theory sensitive to how quantum mechanics ends up.</p>
+</section>
+<section id="frequentist" class="level3">
+<h3 class="anchored" data-anchor-id="frequentist">Frequentist</h3>
+<p>On the second interpretation the mixture is not in anyone’s head. It is a long-run frequency. This is similar to the <em>frequentist</em> interpretation of probability, most associated with Hans <span class="citation" data-cites="reichenbach1949">Reichenbach (<a href="references.html#ref-reichenbach1949" role="doc-biblioref">1949</a>)</span>. Playing a mixture of 1/3 <span class="math inline">\(U\)</span> and 2/3 <span class="math inline">\(D\)</span> just means that if the game is repeated enough times, you will average towards 1/3 of your plays being <span class="math inline">\(U\)</span>, and 2/3 being <span class="math inline">\(D\)</span>. (There need to be some extra clauses to, to prevent playing <span class="math inline">\(U\)</span> exactly every third play. Just what those constraints should be, and why they are justified inside the frequentist framework, are quite delicate questions, but not ones we’ll deal with here.)</p>
+<p>The immediate problem is that you might not be playing the game repeatedly. We know from other games that when a game is repeated, sometimes that changes the strategy which one should play. A completely orthodox view is that one should defect in a one-shot Prisoners’ Dilemma, but cooperate (until the other party defects) in a repeated Prisoners’ Dilemma. The frequentist interpretation simply assumes that what we say about repeated games applies to the one-shot game, and that assumption is not, in general, true.</p>
+<p>There is a variant that avoids the problem by moving from one player to many. On the <strong>population</strong> reading, the mixture describes a population rather than a person: some fraction of players are <span class="math inline">\(U\)</span>-types who always play <span class="math inline">\(U\)</span>, the rest are <span class="math inline">\(D\)</span>-types, and nobody randomises at all. The equilibrium becomes a fact about how the population is composed, and the interesting question is which compositions are stable. This is the entry point to evolutionary game theory, which we are not doing in this course. <span class="citation" data-cites="skyrms1996">Skyrms (<a href="references.html#ref-skyrms1996" role="doc-biblioref">1996</a>)</span> is where to go if you want to follow it up.</p>
+<p>There is also a variant which is a more radical departure from the textbooks, but I think not uncommon if you talk to economists informally. It’s that the presupposition of the question is wrong: just like the puzzle says, there is <em>zero</em> reason to mix in a one-shot game. On this view, the frequentist is right about the repeated game, and there is nothing systematic to say about the one-shot game. (Perhaps the rationalizability view, which we’ll come back to in <a href="04-other-equilibria.html#sec-rationalizability" class="quarto-xref"><span>Section 4.1</span></a>, is right.) Let’s set that aside, and stick with the assumption that the orthodox game theoretic account is right, and there is a reason to mix. This pushes us towards the last of the interpretations.</p>
+</section>
+<section id="epistemic" class="level3">
+<h3 class="anchored" data-anchor-id="epistemic">Epistemic</h3>
+<p>The third interpretation gives up on the idea that anyone randomises. It says the probabilities in mixed strategies are all about beliefs not about actions.</p>
+<p><span class="citation" data-cites="aumannbrandenburger1995">Aumann and Brandenburger (<a href="references.html#ref-aumannbrandenburger1995" role="doc-biblioref">1995</a>)</span> develop the strongest version of this idea. Row plays some pure strategy. The mixture attributed to Row is Col’s <em>belief</em> about what Row will do. Row’s indifference is then not a puzzle about Row’s motivation at all; it is a fact about Col’s uncertainty.</p>
+<p>This doesn’t just change what a mixed strategy is. It changes what an equilibrium is. On this view, an equilibrium is a series of beliefs about the parties that have the following two features. First, they are all true. Second, on the assumption that everyone shares these beliefs, everyone is maximizing expected ytility. On this view, the theorem to prove is that mutual knowledge of rationality and of the conjectures about what people are believing forces those conjectures into the pattern that Nash equilibrium describes. It also dissolves the indifference puzzle rather than answering it: there was never a decision to explain, because nobody was choosing a mixture.</p>
+<p>To the extent that contemporary philosophers talk about rational choice game theory (as distinct from evolutionary game theory), this seems to be the most popular interpretation. It’s certainly the interpretation which minimizes the gap between game theory and decision theory. But while this view is not without adherents in economics, indeed, Aumann won a Nobel Prize in part for his work on it, it is far from orthodoxy in economics.</p>
+</section>
+<section id="where-this-leaves-us" class="level3">
+<h3 class="anchored" data-anchor-id="where-this-leaves-us">Where This Leaves Us</h3>
+<p>The three readings disagree about where the probability lives: in a device, in a sequence of plays, or in someone’s beliefs. They also disagree about what an equilibrium is a claim about. The first makes it a claim about individual behaviour, the second about a series or a population, the third about states of information.</p>
+<p>There is a fourth answer, due to Harsanyi, which says the randomness is real but sits in the other player’s ignorance of your exact payoffs. We cannot state it properly yet, because it needs machinery we have not built. We will come back to it in <a href="06-bayesian-games.html" class="quarto-xref"><span>Chapter 6</span></a>.</p>
+<p>You do not have to choose between these interpretations. You do have to notice that “the players mix 50-50” is not yet a claim with a settled meaning.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-aumannbrandenburger1995" class="csl-entry" role="listitem">
+Aumann, Robert, and Adam Brandenburger. 1995. <span>“Epistemic Conditions for Nash Equilibrium.”</span> <em>Econometrica</em> 63 (5): 1161–80. <a href="https://doi.org/10.2307/2171725">https://doi.org/10.2307/2171725</a>.
+</div>
+<div id="ref-hotelling1929" class="csl-entry" role="listitem">
+Hotelling, Harold. 1929. <span>“Stability in Competition.”</span> <em>The Economic Journal</em> 39 (153): 41–57.
+</div>
 <div id="ref-nash1951" class="csl-entry" role="listitem">
 Nash, John. 1951. <span>“Non-Cooperative Games.”</span> <em>Annals of Mathematics</em> 54 (2): 286–95. <a href="https://doi.org/10.2307/1969529">https://doi.org/10.2307/1969529</a>.
 </div>
+<div id="ref-vonneumann1944" class="csl-entry" role="listitem">
+Neumann, John von, and Oskar Morgenstern. 1944. <em>Theory of Games and Economic Behavior</em>. Princeton University Press.
 </div>
+<div id="ref-reichenbach1949" class="csl-entry" role="listitem">
+Reichenbach, Hans. 1949. <em>The Theory of Probability: An Inquiry into the Logical and Mathematical Foundations of the Calculus of Probability</em>. 2nd ed. Translated by Ernest H. Hutten and Maria Reichenbach. University of California Press.
+</div>
+<div id="ref-skyrms1996" class="csl-entry" role="listitem">
+Skyrms, Brian. 1996. <em>Evolution of the Social Contract</em>. Cambridge University Press.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

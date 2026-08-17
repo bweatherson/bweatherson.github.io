@@ -53,70 +53,21 @@ format:
     documentclass: scrbook
     pdf-engine: xelatex
     keep-tex: true
-    # A 6x9 inch trim, which is what most scholarly monographs use. The point
-    # is the measure: 4.2in of EB Garamond at 11pt is about 68 characters a
-    # line, against roughly 95 for the old A4-with-1in-margins setting. Book
-    # measure is 65-70. Printing this on A4 or Letter leaves white space all
-    # round, which is the intended trade.
-    #
-    # inner < outer and top < bottom, which is the usual asymmetry: the wider
-    # outer margin is where the thumb goes, and a slightly heavy foot stops the
-    # block looking like it is sliding off the page. includehead puts the
-    # running head inside the top margin rather than above it, and
-    # heightrounded makes the text block a whole number of lines so that
-    # \raggedbottom has nothing to fudge.
-    geometry:
-      - paperwidth=6in
-      - paperheight=9in
-      - inner=0.85in
-      - outer=0.95in
-      - top=0.9in
-      - bottom=1.1in
-      - includehead
-      - heightrounded
-    fontsize: 11pt
+    geometry: margin=1in
     # EB Garamond Math is a custom build with the maths characters added; it
     # serves as both main and maths font. It has no bold or italic, so those
     # come from the stock EB Garamond faces.
     mainfont: "EB Garamond Math"
-    mathfont: "Garamond-Math"
     mainfontoptions:
       - BoldFont=EB Garamond SemiBold
       - ItalicFont=EB Garamond Italic
       - BoldItalicFont=EB Garamond SemiBold Italic
+    mathfont: "EB Garamond Math"
     number-sections: true
     number-depth: 2
     fig-cap-location: bottom
     include-in-header:
       text: |
-        % --- Fonts -------------------------------------------------------
-        % Two problems found by running pdffonts over the built book.
-        %
-        % 1. All maths was Latin Modern, not EB Garamond. The custom
-        %    EBGaramondMath.ttf has the glyphs (880 maths alphanumerics, the
-        %    angle brackets, sum, integral, geqslant) but no OpenType MATH
-        %    table, and unicode-math needs the table, not the glyphs: it reads
-        %    fraction-bar thickness, superscript drops and the big-operator
-        %    and extensible-delimiter variants from it. Without one it warns
-        %    and keeps its own default, Latin Modern Math. So the mathfont:
-        %    key has come out of this file, and the maths now uses
-        %    Garamond-Math, which is a real maths font built to accompany EB
-        %    Garamond. It ships with TeX Live under the OFL. Set through the
-        %    mathfont: key below, by family name, which is the form that works
-        %    in HoPF.tex.
-        % 2. All headings were Latin Modern Sans Bold, on 62 pages. That is
-        %    KOMA's default: scrbook sets sectioning in sans, and \setmainfont
-        %    only replaces the roman family, so the sans family was never
-        %    touched. disposition is KOMA's parent element for every
-        %    sectioning command and the table of contents, so this puts them
-        %    all back into EB Garamond, bold resolving to SemiBold.
-        \addtokomafont{disposition}{\rmfamily}
-
-        % A little extra leading. EB Garamond has a small x-height for its
-        % body size, so the default 1.2 baseline looks tight at this measure.
-        \usepackage{setspace}
-        \setstretch{1.05}
-
         \usepackage{nicefrac}
         \usepackage{microtype}
         \usepackage{booktabs}
@@ -149,8 +100,7 @@ format:
         \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
         \renewcommand{\sectionmark}[1]{\markright{#1}}
 
-        % 17pt suited the old wide measure; 12pt is about 1em here.
-        \setlength{\parindent}{12pt}
+        \setlength{\parindent}{17pt}
         \setlength{\parskip}{0ex plus 2ex minus 0ex}
 
         % More air above headings, and a guaranteed minimum. KOMA's defaults

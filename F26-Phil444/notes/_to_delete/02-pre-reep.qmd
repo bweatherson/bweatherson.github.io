@@ -173,7 +173,7 @@ Now we can apply Bayes theorem in its second form.
 &= \frac{0.8 \times 0.05}{0.08 \times 0.05 + 0.1 \times 0.95} \\
 &= \frac{0.04}{0.04 + 0.095} \\
 &= \frac{0.04}{0.135} \\
-&\approx 0.296
+&\approx& 0.296
 \end{align*}
 
 So in fact the probability of having the disease, conditional on having a positive test, is less than 0.3. So in that sense the test is quite unreliable.
@@ -182,9 +182,9 @@ This is actually a quite important point. The fact that the probability of $B$ g
 
 Confusing these two conditional probabilities is sometimes referred to as the *Prosecutors' fallacy*, though it's not clear how many actual prosecutors are guilty of it. The thought is that some prosecutors start with the premise that the probability of the defendant's blood (or DNA or whatever) matching the blood at the crime scene, conditional on the defendant being innocent, is 1 in a billion (or whatever it exactly is). They conclude that the probability of the defendant being innocent, conditional on their blood matching the crime scene, is about 1 in a billion. Because of derivations like the one we just saw, that is a clearly invalid move.
 
-A more striking real world example comes from the analysis of soccer carried out by [Charles Reep](https://en.wikipedia.org/wiki/Charles_Reep) and [Charles Hughes](https://en.wikipedia.org/wiki/Charles_Hughes_(football_manager)). (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes; Reep put the figure at around 80% [@wilson2008, p. 141]. His own account of the study is @reepbenjamin1968. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.
+A more striking real world example comes from the analysis of soccer carried out by [Charles Reep](https://en.wikipedia.org/wiki/Charles_Reep) and [Charles Hughes](https://en.wikipedia.org/wiki/Charles_Hughes_(football_manager)). (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.
 
-You may be able to spot the error in their reasoning already. The figure that makes it vivid is one Reep did not dwell on: in the games he recorded, 91.5% of moves involved three passes or fewer [@wilson2008, p. 141]. So the share of goals that came from short possessions was *lower* than the share of possessions that were short, which is the opposite of what you would expect if short possessions were the productive ones. To see why that matters, work through the problem with some numbers. (Those in @tbl-soccer are invented, and the split between medium and long is there to show a trend rather than to report one, but the overall proportions are close to what Reep found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in @tbl-soccer.
+You may be able to spot the error in their reasoning already, but if not let's work through a fictionalised version to see the problem. (The numbers I'm using are made up, though I think the scale roughly matches what Reep and Hughes found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in @tbl-soccer.
 
             Goal   No Goal
   -------- ------ ---------
@@ -319,14 +319,14 @@ Here is the first choice.
 - **1A**: \$1,000,000, guaranteed.
 - **1B**: a 1% chance of \$0, an 89% chance of \$1,000,000, and a 10% chance of \$5,000,000.
 
-Many people, I suspect most, take **1A**.^[The empirical evidence on the Allais paradox is actually a bit of a mess; see @blavatskyy2022 for a good overview. As I understand it, in these high stakes cases, this part at least is very standard. Of course, these are hypothetical choices; we don't run real experiments where we give away millions of dollars.] A guaranteed million is not worth risking for a one in ten shot at five, when the risk is walking away with nothing. That doesn't maximise expected dollars, but it's fine; as long as the marginal utility of the first million is sufficiently greater than the marginal utility of the next four million, **1A** could maximise expected utility.
+Many people, I suspect most, take **1A**. A guaranteed million is not worth risking for a one in ten shot at five, when the risk is walking away with nothing. That doesn't maximise expected dollars, but it's fine; as long as the marginal utility of the first million is sufficiently greater than the marginal utility of the next four million, **1A** could maximise expected utility.
 
 Here is the second.
 
 - **2A**: an 89% chance of \$0, and an 11% chance of \$1,000,000.
 - **2B**: a 90% chance of \$0, and a 10% chance of \$5,000,000.
 
-Now it seems fine to take **2B**, and many people do.^[Notably, as @blavatskyy2022 point out, it matters here whether **2A** is framed like it is here, as a 'flat' choice, or whether it is described as a compound lottery.] Crucially, many people who take **1A** take it. Why take **2B**? Well, you will almost certainly get nothing either way, so the extra 1% of risk looks cheap for the chance at five times the money.
+Now it seems fine to take **2B**, and many people do. Crucially, many people who take **1A** take it. Why take **2B**? Well, you will almost certainly get nothing either way, so the extra 1% of risk looks cheap for the chance at five times the money.
 
 Those two choices are inconsistent with expected utility theory. To see why, imagine the outcomes are settled by drawing one of a hundred numbered tickets, as shown in @tbl-allais.
 

@@ -230,4 +230,4 @@ The first step here lets us solve Prisoners' Dilemma. Since $Y$ dominates $X$, n
 
 In @tbl-dominance-example Column has no dominant strategy; what's best for them to play is a function of what Row plays. But Row does have a dominant strategy. Whatever Column does, they are better off playing Y. So we should assume they will play Y. And given they play Y, Column should also play Y. So the solution to the game again is that both players play Y.
 
-In later chapters, we'll look what happens when we iterate this idea. But first we need an introduction to probability theory.
+In later chapters, we'll look at what happens when we iterate this idea. But first we need an introduction to probability theory.

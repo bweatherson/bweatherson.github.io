@@ -257,13 +257,11 @@ The second game we started this section with is often called 'Battle of the Sexe
 
 The third coordination game I started the section with is called Stag Hunt. The idea behind the game goes back to @rousseau1755, although you can find similar examples in @hume1739. The general idea is that $A$ is some kind of cooperative action, and $B$ is a 'defecting' action. If players make the same selection, then they do well. If they both cooperate, they do better than if they both defect. But if they don't cooperate, it is better to defect than to cooperate.
 
-Rousseau's example was of a group of hunters out hunting a stag, each of whom sees a hare going by. If they leave the group, they will catch the hare for sure, and have something to eat, but the group hunting the stag will be left with a much lower probability of stag catching. Hume was more explicit than Rousseau that these games come up with both two player and many player versions. Here is a nice many player version. I've adapted it from a game Ben @polak2007 plays with his own class; the threshold is his, the payoffs are simplified.
+Rousseau's example was of a group of hunters out hunting a stag, each of whom sees a hare going by. If they leave the group, they will catch the hare for sure, and have something to eat, but the group hunting the stag will be left with a much lower probability of stag catching. Hume was more explicit than Rousseau that these games come up with both two player and many player versions. Here is a nice many player version (from Ben Polak's OpenYale lectures).
 
-::: {.callout-tip title="The Investment Game"}
-Everyone in the group has a choice between Investing and Not Investing. The payoff to anyone who doesn't invest is 0. If 90% or more of the group Invests, then everyone who Invests gains \$1. If less than 90% of the group Invests, then everyone who invests loses \$1.
-:::
+> Everyone in the group has a choice between Investing and Not Investing. The payoff to anyone who doesn't invest is 0. If 90% or more of the group Invests, then everyone who Invests gains \$1. If less than 90% of the group Invests, then everyone who invests loses \$1.
 
-Again, there are two Nash equilibria: everyone invests, and everyone does not invest. Hume's hypothesis was that in games like this, the cooperative move (in this case Investing) would be more likely in small groups than large groups. This is basically what happened in Polak's classes at Yale.
+Again, there are two Nash equilibria: everyone invests, and everyone does not invest. Hume's hypothesis was that in games like this, the cooperative move (in this case Investing) would be more likely in small groups than large groups. (Experiment: Try this out with groups of friends!)
 
 As well as the two pure strategy Nash equilibria in Stag Hunt, there is a mixed strategy Nash equilibria. We find it, as always, by finding the mixed strategy that makes the other player indifferent between their choices. So assume that Row plays $A$ with probability $x$. Then the expected return for Col from her two options is
 

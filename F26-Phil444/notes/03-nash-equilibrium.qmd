@@ -232,7 +232,7 @@ We aren't going to prove this, but for any game with bounded payouts, and finite
 
 It isn't easy in general to find Nash Equilibria. But let's start with some general approaches we can use.
 
-## Iterated Dominance {#sec-iterated-dominance}
+### Iterated Dominance {#sec-iterated-dominance}
 
 Strongly dominated strategies can't be part of an equilibrium. (I'll just use 'equilibrium' for 'Nash Equilibrium' in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can't be part of an equilibrium either. This idea can help us find the equilibrium in some games, such as @tbl-id-first.
 
@@ -266,7 +266,7 @@ We can use the idea of removing dominating strategies to illustrate some puzzlin
 
 > Two trucks have to choose where they will sell ice-cream on a particular beach. There are 11 locations to choose from, which we'll number 0, 1, ..., 9, 10. Spot 0 is at the left end of the beach, Spot 10 is at the right end of the beach, and the other spots are equally spaced in between. There are 10 people at each location. Each of them will buy ice-cream. If one truck is closer, they will buy ice-cream from that truck. If two trucks are equally close, then 5 of them will buy ice-cream from one truck, and 5 from the other. Each truck aims to maximise the amount of ice-cream it sells. Where should the trucks end up?
 
-Let's start by looking at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We'll call the players Row and Col, as usual, and just use the number $n$ for the strategy of choosing location $n$.
+Let's start by looking, in @tbl-ic-tl, at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We'll call the players Row and Col, as usual, and just use the number $n$ for the strategy of choosing location $n$.
 
 +:--------+--:+:-------:+:-------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                            |
@@ -280,9 +280,11 @@ Let's start by looking at a fragment of the payoff matrix. The payoffs are numbe
 | ...     |   |         |         |        |        |        |     |
 +---------+---+---------+---------+--------+--------+--------+-----+
 
+: The top-left corner of the ice cream game {#tbl-ic-tl}
+
 I'll leave it as an exercise to confirm that these numbers are indeed correct. Note that no matter what Col selects, Row is better off picking 1 than 0. If Col picks 0 or 1, she is a lot better off; she sells 45 more ice-creams. And if Col picks a higher number, she is a bit better off; she sells 5 more ice-creams. So picking 1 dominates picking 0.
 
-Let's look at the opposite corner of the matrix.
+Let's look, in @tbl-ic-br at the opposite corner of the matrix.
 
 +:--------+---:+:---:+:------:+:------:+:------:+:-------:+:-------:+
 |         |    | **Col**                                            |
@@ -296,13 +298,15 @@ Let's look at the opposite corner of the matrix.
 |         | 10 | ... | 25, 85 | 20, 80 | 15, 95 | 10, 100 | 55, 55  |
 +---------+----+-----+--------+--------+--------+---------+---------+
 
-Again, there should be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I'll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.
+: The bottom-right corner of the ice cream game {#tbl-ic-br}
+
+Again, there is be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I'll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.
 
 So there is a clear conclusion to be drawn from what we've said so far.
 
 - Spot 0 is dominated by Spot 1, and Spot 10 is dominated by Spot 9. So if Row is rational, she won't pick either of those spots. Since the game is symmetric, if Col is rational, she won't pick either of those spots either. Moreover, neither 0 nor 10 can be part of any equilibrium.
 
-Now let's turn to the comparison between Spot 1 and Spot 2. Again, we'll just look at a fragment of the matrix.
+Now let's turn, in @tbl-ic-tl-1d, to the comparison between Spot 1 and Spot 2, after we conclude that Row won't play 0. Again, we'll just look at a fragment of the matrix.
 
 +:--------+--:+:-------:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                                    |
@@ -318,9 +322,11 @@ Now let's turn to the comparison between Spot 1 and Spot 2. Again, we'll just lo
 | ...     |   |         |        |        |        |        |        |     |
 +---------+---+---------+--------+--------+--------+--------+--------+-----+
 
-The pattern is also clear. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 *fewer* ice-creams by picking 2 rather than 1. So picking 2 does *not* dominate picking 1.
+: The top-left corner of the ice cream game, after deleting 0 for Row {#tbl-ic-tl-1d}
 
-But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let's delete that dominated strategy. Here's what the top left corner of the game matrix looks like when we do that.
+Again, there's a pattern. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 *fewer* ice-creams by picking 2 rather than 1. So picking 2 does *not* dominate picking 1.
+
+But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let's delete that dominated strategy. @tbl-ic-tl-2d is what the top left corner of the game matrix looks like when we do that.
 
 +:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                          |
@@ -334,6 +340,8 @@ But note the only circumstance when picking 2 is worse than picking 1 is if Col 
 | ...     |   |        |        |        |        |        |     |
 +---------+---+--------+--------+--------+--------+--------+-----+
 
+: The top-left corner of the ice cream game, after deleting 0 for both players {#tbl-ic-tl-2d}
+
 And now it looks like picking 1 is dominated. This teaches us another lesson about the game.
 
 - If we 'delete' the option of picking either 0 or 10 for Col, then picking 2 dominates picking 1 for Row. In other words, if Row knows Col is rational, and hence won't pick a dominated option, then picking 2 dominates picking 1 for Row, relative to the space of epistemically possible moves in the game. For similar reasons, if Row knows Col is rational, then picking 8 dominates picking 9. And if Col knows Row is rational, then picking either 1 or 9 is dominated (by 2 and 8 respectively). And for similar reasons, neither 1 nor 9 can be part of an equilibrium strategy.
@@ -343,7 +351,7 @@ Summarising what we know so far,
 - If the players are rational, they won't pick 0 or 10.
 - If the players know the other player is rational, they also won't pick 1 or 9.
 
-Let's continue down the matrix. For simplicity, we'll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.
+Let's continue down the matrix, now with @tbl-ic-tl-3d. For simplicity, we'll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.
 
 +:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                          |
@@ -357,6 +365,8 @@ Let's continue down the matrix. For simplicity, we'll leave off columns 0 and 10
 | ...     |   |        |        |        |        |        |     |
 +---------+---+--------+--------+--------+--------+--------+-----+
 
+: The top-left corner after deleting 0 and 1 for Row, and 0 for Column {#tbl-ic-tl-3d}
+
 Picking 3 doesn't *quite* dominate picking 2. In most circumstances, Row does better by picking 3 rather than 2. But she does a little worse if Col picks 1. But wait! We just had an argument that Col shouldn't pick 1. Or, at least, if Col knows that Row is rational, she shouldn't pick 1. Let's assume that Col does know that Row is rational, and Row in turn knows that fact, so she can use it in reasoning. That means she knows Col won't pick 1. So she can delete it from consideration too. And once she does, picking 3 dominates picking 2, relative to the reduced space of epistemically possible outcomes.
 
 I haven't belaboured the point as much as in the previous paragraphs, but hopefully the following conclusion is clear.
@@ -365,13 +375,13 @@ I haven't belaboured the point as much as in the previous paragraphs, but hopefu
 
 And you can see where this is going. Once we rule out each player picking 2 or 8, then picking 4 dominates picking 3, so picking 3 should be ruled out. And picking 7 should be ruled out for symmetric reasons. But once 3 and 7 are ruled out, picking 5 dominates picking either 4 or 6. So both players will end up picking 5.
 
-And that is, in the standard economic textbooks, a nice explanation of why we see so much 'clustering' of shops. (For instance, why so often there are several gas stations on one corner, rather than spread over town.) Of course the full explanation of clustering is more complicated, but it is nice to see such a simple model deliver such a strong outcome.
+And that is, in the standard economic textbooks, a nice explanation of why we see so much 'clustering' of shops. For instance, starting with work by Harold @hotelling1929, this has been used to explain why there are several shops for one kind of good in one neighborhood, rather than spread over town. Of course the full explanation of clustering is more complicated, but it is nice to see such a simple model deliver such a strong outcome.
 
 This process is called the **Iterative Deletion of Dominated Strategies**. More precisely, what we've used here is the strategy of iteratively deleting **strongly** dominated strategies. This is a powerful technique for solving games that don't, at first glance, admit of any easy solution. If only one strategy pair remains after using this technique, that is the only equilibrium of the game.
 
 We'll return a bit to this point in what follows, but it's worth noting that in a one-shot version of this game, to get to the conclusion that each player should play 5, we had to use a number of very strong assumptions. We had to assume that each player is rational, that they know the other is rational, that they know that the other knows they are rational, and so on through six iterations. In principle, to justify iteratively deleting dominated strategies, we have to assume that there are arbitrarily many iterations of this idea that each player knows that the other player knows etc that they are rational.
 
-## Finding Best Responses {#sec-finding-best-responses}
+### Finding Best Responses {#sec-finding-best-responses}
 
 It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider @tbl-complicated.
 
@@ -393,7 +403,7 @@ It can be useful to mark explicitly what the best responses are to each possible
 
 : A complicated game {#tbl-complicated}
 
-We'll start by finding the best response for Row to each of Col's plays. We'll bold the payoff for Row that does best, assuming Col makes that choice. Here's how the table looks after we do that.
+We'll start by finding the best response for Row to each of Col's plays. We'll bold the payoff for Row that does best, assuming Col makes that choice. @tbl-complicated-bold shows what it looks like after we do that.
 
 +:--------+----:+:-------:+:-------:+:-------:+:-------:+:-------:+
 |         |     | **Col**                                         |
@@ -411,12 +421,9 @@ We'll start by finding the best response for Row to each of Col's plays. We'll b
 |         | $E$ | 5,3     | **8**,3 | **7**,6 | 3,5     | 8,4     |
 +---------+-----+---------+---------+---------+---------+---------+
 
+: A version of @tbl-complicated with Row's best responses bolded. {#tbl-complicated-bold}
 
-
-
-
-
-Note that under $b$, we bolded two possible payoffs. That's because they are tied for best, and best response is compatible with ties. Now we'll go through Col's options, finding the best response to each possible play by Row.
+Note that under $b$, we bolded two possible payoffs. That's because they are tied for best, and best response is compatible with ties. In @tbl-complicated-both-bold we also bold Col's best responses.
 
 +:--------+----:+:-----------:+:-------:+:-----------:+:-----------:+:-------:+
 |         |     | **Col**                                                     |
@@ -434,9 +441,11 @@ Note that under $b$, we bolded two possible payoffs. That's because they are tie
 |         | $E$ | 5,3         | **8**,3 | **7**,**6** | 3,5         | 8,4     |
 +---------+-----+-------------+---------+-------------+-------------+---------+
 
+: A version of @tbl-complicated with best responses for both players bolded. {#tbl-complicated-both-bold}
+
 Any cell where both values are bolded is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: $\langle Aa \rangle$, $\langle Dd \rangle$, $\langle Ec \rangle$. I'll leave finding the mixed strategy equilibria as an exercise for the interested reader.
 
-## Finding Mixed Strategy Equilibria {#sec-finding-mixed}
+### Finding Mixed Strategy Equilibria {#sec-finding-mixed}
 
 It isn't easy in general to find mixed strategy equilibria. But we can start by dividing the problem into two parts.
 
@@ -445,7 +454,7 @@ It isn't easy in general to find mixed strategy equilibria. But we can start by 
 
 And it turns out, a bit surprisingly, that it is the first part of the problem that is harder in general. (Recall that the support of a mixed strategy is the set of pure strategies that have a positive probability of being played given that mixed strategy.) And while that isn't an easy problem to solve in general, it isn't something we need to worry about in very simple games. In games with just two options per player, then either there will be a pure strategy equilibria, or the mixed strategy Nash Equilibria will have all strategies in its support. Even if there are three strategies available per player, then it usually isn't too hard to find the support for the mixed strategy equilibria by just noting that strongly dominated strategies cannot be part of an equilibria.
 
-We'll start by considering the very abstractly defined game.
+We'll start by considering the very abstractly defined game, as in @tbl-abstract-no-pure.
 
 +:--------+----:+:-------:+:-------:+
 |         |     | **Col**           |
@@ -456,6 +465,8 @@ We'll start by considering the very abstractly defined game.
 |         +-----+---------+---------+
 |         | $D$ | e,**f** | **0**,0 |
 +---------+-----+---------+---------+
+
+: An abstract game with no pure strategy equilibrium. {#tbl-abstract-no-pure}
 
 Don't make too much of the fact that I've put 0 for both players in the bottom right. Since utility scales are only defined up to affine transformation, adding a constant to each possible payout a player gets literally doesn't change the game. So any game representation can be changed into an equivalent representation with 0 for each player in an arbitrarily chosen cell. We'll make that cell be the bottom right, but it could be anywhere.
 
@@ -524,7 +535,7 @@ c &= y(e + c - a) \\
 
 So Col must play the mixed strategy $\langle L, \frac{c}{e + c - a}; R, \frac{e-a}{e + c - a} \rangle$ if there is to be an equilibrium. If she does, then Row's expected return from playing either $U$, or $D$, or any mixture of them, will be $\frac{ec}{e + c - a}$.
 
-There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn't care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn't want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. Here are the payoffs.
+There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn't care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn't want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. The payoffs are in @tbl-speeding.
 
 +:--------+-----:+:-------:+:-----:+
 |         |      | **Col**         |
@@ -536,9 +547,11 @@ There is something puzzling about this result. Imagine a version of the game whe
 |         | $ND$ | 0, 1    | 0, 0  |
 +---------+------+---------+-------+
 
+: The speeding game {#tbl-speeding}
+
 The equilibrium of this game is that Col speeds with probability $\frac{1}{11}$, and Row detects with probability $\frac{1}{11}$, and each has an expected payoff of 0.
 
-Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like this.
+Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like @tbl-speeding-adj.
 
 +:--------+-----:+:-------:+:-----:+
 |         |      | **Col**         |
@@ -550,11 +563,13 @@ Now what happens if the legislature decides that there is too much speeding, and
 |         | $ND$ | 0, 1    | 0, 0  |
 +---------+------+---------+-------+
 
+: The speeding game, with raised fines {#tbl-speeding-adj}
+
 If nothing else apart from the penalty for speeding, the rational response by police department Row is to reduce monitoring of speeding, and spend time on other crimes. After all, the new equilibrium is that Row detects with probability $\frac{1}{21}$, and Col still speeds with probability $\frac{1}{11}$. If there is a game in a mixed strategy equilibrium, and the result of any change to the payoffs will be to move it to a new equilibrium, then the only way to change Col's behavior is to either create a new dominant strategy, or to change Row's payoffs. Perhaps what the legislature should do here is to not just increase speeding fines, but to give the money to police departments - that would change the equilibrium of the game in a hurry.
 
-## Combining Strategies {#sec-combining-strategies}
+### Combining Strategies {#sec-combining-strategies}
 
-We'll work out the equilibria for the following game.
+We'll work out the equilibria for @tbl-combining.
 
 +:--------+----:+:---:+:----:+:----:+
 |         |     | **Col**           |
@@ -567,6 +582,8 @@ We'll work out the equilibria for the following game.
 |         +-----+-----+------+------+
 |         | $C$ | 3,4 | -1,2 | 6,3  |
 +---------+-----+-----+------+------+
+
+: The example for @sec-combining-strategies {#tbl-combining}
 
 As a first step, we'll bold the best responses, and see if any equilibria turn up that way.
 
@@ -582,7 +599,9 @@ As a first step, we'll bold the best responses, and see if any equilibria turn u
 |         | $C$ | 3,**4** | -1,2    | **6**,3 |
 +---------+-----+---------+---------+---------+
 
-That doesn't look like it helps. Row doesn't have any dominated strategies either. But Col does have a dominated strategy, since $a$ dominates $c$. It doesn't matter that $c$ might outperform $b$; there is no reason to play $c$ since $a$ will always do 1 point better. So let's delete that.
+: A version of @tbl-combining with best responses bolded {#tbl-combining-bold}
+
+The bolding in @tbl-combining-bold doesn't look like it helps. Row doesn't have any dominated strategies either. But Col does have a dominated strategy, since $a$ dominates $c$. It doesn't matter that $c$ might outperform $b$; there is no reason to play $c$ since $a$ will always do 1 point better. So let's delete that, as in @tbl-combining-dom.
 
 +:--------+----:+:-------:+:-------:+
 |         |     | **Col**           |
@@ -595,6 +614,8 @@ That doesn't look like it helps. Row doesn't have any dominated strategies eithe
 |         +-----+---------+---------+
 |         | $C$ | 3,**4** | -1,2    |
 +---------+-----+---------+---------+
+
+: A version of @tbl-combining-bold with a dominated strategy deleted {#tbl-combining-dom}
 
 We don't have to change the bolding, because a dominated strategy is never a best response.
 
@@ -609,6 +630,8 @@ Now compare options $A$ and $C$. If we rule out Col playing $c$, it turns out th
 |         +-----+---------+---------+
 |         | $B$ | 0,**2** | **1**,0 |
 +---------+-----+---------+---------+
+
+: A version of @tbl-combining-dom with a strategy deleted by iterated deletion {#tbl-combining-dom2}
 
 Now we have a familiar kind of game. Each player has two options, and there is no pure strategy equilibrium. The problem has reduced to the form of the problem we tackled in the previous subsection. The only equilibrium will be a mixed strategy equilibrium. And we find it by making each player leave the other indifferent between their options. I won't repeat the algebra for finding it, but you can verify yourself that the following works.
 
@@ -664,7 +687,7 @@ There is a weaker version of the same thought that avoids the first two of these
 
 ### Frequentist
 
-On the second interpretation the mixture is not in anyone's head. It is a long-run frequency. This is similar to the *frequentist* interpretation of probability, most associated with Hans @Reichenbach1949. Playing a mixture of 1/3 $U$ and 2/3 $D$ just means that if the game is repeated enough times, you will average towards 1/3 of your plays being $U$, and 2/3 being $D$. (There need to be some extra clauses to, to prevent playing $U$ exactly every third play. Just what those constraints should be, and why they are justified inside the frequentist framework, are quite delicate questions, but not ones we'll deal with here.)
+On the second interpretation the mixture is not in anyone's head. It is a long-run frequency. This is similar to the *frequentist* interpretation of probability, most associated with Hans @reichenbach1949. Playing a mixture of 1/3 $U$ and 2/3 $D$ just means that if the game is repeated enough times, you will average towards 1/3 of your plays being $U$, and 2/3 being $D$. (There need to be some extra clauses to, to prevent playing $U$ exactly every third play. Just what those constraints should be, and why they are justified inside the frequentist framework, are quite delicate questions, but not ones we'll deal with here.)
 
 The immediate problem is that you might not be playing the game repeatedly. We know from other games that when a game is repeated, sometimes that changes the strategy which one should play. A completely orthodox view is that one should defect in a one-shot Prisoners' Dilemma, but cooperate (until the other party defects) in a repeated Prisoners' Dilemma. The frequentist interpretation simply assumes that what we say about repeated games applies to the one-shot game, and that assumption is not, in general, true.
 

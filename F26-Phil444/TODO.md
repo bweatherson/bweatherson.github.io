@@ -1,8 +1,8 @@
 # PHIL 444 TODO
 
-As of 8 August 2026.
+As of 12 August 2026. Status verified against what is actually on disk.
 
-Two deadlines govern everything here. **The book is due Monday 24 August**, 16
+Two deadlines govern everything here. **The book is due Monday 24 August**, 12
 days away, because it is a textbook and textbooks are ready before term rather
 than the night before the class that uses them. **Teaching starts Tuesday 1
 September**, and the syllabus has to be final by then. Everything else is paced
@@ -17,47 +17,75 @@ essay due Fri 18 Dec.
 
 ### Writing
 
-- [X] **Ellsberg.** The one item here with nothing drafted, so the largest
-      unknown in this section. Belongs at the end of chapter 2 with the new Allais
-      material.
+- [X] **Ellsberg.** Written as 2.9, tagged `sec-ellsberg`, with `tbl-ellsberg`
+      captioned and cross-referenced from the text.
 - [X] **Read the new Allais material** in chapter 2, and delete the two DRAFT
-      callouts. It sits at the end of the chapter between the banner comments.
-- [ ] **Read and splice the centipede draft**, `notes/_new-centipede-ch5.md`.
-      Destination is 5.5, Problems with Backwards Induction.
-- [ ] **Read and splice the Spence and Akerlof draft**,
-      `notes/_new-spence-akerlof-ch6.md`, version 2. Goes at the end of chapter 6,
-      after 6.9. Three suggested edits to existing 6.8 prose are at the foot of
-      that file and have not been applied.
+      callouts. Both callouts and the banner comments are gone.
+- [X] **Read and splice the centipede draft.** Now 5.6, tagged `sec-centipede`.
+- [X] **Read and splice the Spence and Akerlof draft.** Now four sections at the
+      end of chapter 6. Three follow-ups below.
+- [ ] **Strip the editorial apparatus out of chapter 6.** The whole draft file went
+      in, not just the prose. Lines 271 to 581 currently carry the version-2 banner
+      comment, the two DRAFT callouts, and the entire block headed "SEPARATE ITEM:
+      EDITS TO EXISTING 6.8" with its three `###` subsections and the bibtex
+      snippet. That block was written to be read and thrown away, and it will
+      render in the book as it stands.
+- [ ] **Tag the three new chapter 6 headings.** The College Wage Premium, Does the
+      Signalling Model Fit? and Akerlof and the Market for Lemons have no
+      `{#sec-...}` id. Spence has one.
+- [ ] **Decide on the three suggested 6.8 edits**, none of which is applied.
+      "Dullard" and "dull students" are still in 6.8. More pressing, the old
+      closing paragraph at line 201 is intact, so the age-gradient argument and the
+      verdict on it now appear twice in the chapter, once at 201 and once in Does
+      the Signalling Model Fit?, and the earlier one pre-empts the later.
 
 ### References
 
-- [ ] **Bib entries for Allais 1953, Savage 1954, Buchak 2013.** Named in the new
-      chapter 2 prose but not cited, because they are not in `references.bib`.
-- [ ] **Bib entry for Arteaga 2018.** One is ready to paste at the foot of the
-      Spence and Akerlof draft.
-- [ ] **Four `CHECK` entries** left in `notes/references.bib`.
-- [X] **`@leytonbrown2008` in section 1.2.** Leyton-Brown and Shoham is no longer
-      the course textbook. Keep the citation or replace it.
-- [X] **The OECD figures** in the new College Wage Premium section are from the
-      300-level slides, uncited, and unchecked. Either cite *Education at a
-      Glance* and verify them, or cut them. (FIXED: And we'd made a mistake; we'd written 164% meaning that the college wage is 164% of the high school wage. That's a premium of 64%, not 164%.)
+- [X] **Allais 1953 and Ellsberg 1961 are in `references.bib`.** Savage and Buchak
+      turned out not to be needed: neither name survives in chapter 2 now.
+- [ ] **Neither `Allais1953` nor `Ellsberg1961` is cited.** Both sections name them
+      in prose without an `@`, so the entries sit in the bib unused.
+- [X] **Bib entry for Arteaga 2018.**
+- [ ] **Scan the text for things that should be cited and are not.** The two known
+      cases are Allais and Ellsberg, but the new chapter 2 and chapter 6 material
+      names a good deal else in prose.
+- [ ] **Normalise citation keys to lowercase.** The bib has two vintages: 24
+      lowercase keys, all cited, and 8 capitalised ones, none cited, which are the
+      recent additions. `Allais1953`, `BenPorathDekel1992`, `Ellsberg1961`,
+      `Hume1739`, `Jevons1871`, `Reichenbach1949`, `Rousseau1755`, `Stalnaker1998`.
+- [ ] **Two duplicate bib entries.** `rousseau1755` at line 143 and `Rousseau1755`
+      at 284; `hume1739` at 149 and `Hume1739` at 274. The lowercase ones are the
+      cited pair. (`stalnaker1996` and `Stalnaker1998` look like genuinely
+      different works.)
+- [ ] **The `CHECK` comment is still at line 134** of `references.bib`, reading
+      "standard works, details from memory rather than verified". Either the
+      entries under it have been checked and the comment should go, or they have
+      not.
+- [ ] **`references-needed.md` is empty**, 0 bytes, timestamped 11 August. Whatever
+      was in it did not save.
+- [X] **`@leytonbrown2008`** is gone from the prose. The bib entry survives,
+      uncited, which is harmless.
+- [ ] **The OECD figures in chapter 6 are unchanged and still wrong.** The text at
+      line 337 still reads "the average premium for a bachelor's degree at around
+      140% of what a worker with upper secondary education alone makes, and the
+      figure for the United States at around 164%", which is exactly the
+      ratio-against-premium confusion. 140 on that OECD index is a premium of 40%,
+      and 164 is a premium of 64%. Still uncited to *Education at a Glance* as well.
 
 ### Production
 
-- [ ] **Chapter 3 table captions.** 12 of 25 done, 13 to go.
-- [X] **Caption decision for `tbl-allais`**, the new ticket table in chapter 2.
-- [X] **Run `sh tools/build-figures.sh`** on the Mac, so the 15 recovered figures
-      pick up EB Garamond Math. It has never been run there.
-- [X] **The book title.** Still *Game Theory and Social Choice*, which now
-      promises a half the book does not contain. Either it becomes *Game Theory*,
-      which means also changing how the syllabus refers to it, or it keeps the
-      course's name and the preface carries the explanation, which it currently
-      does.
-- [X] **Delete the spliced drafts**: `notes/_new-bayesian-section.md`,
-      `notes/_new-interpretations-ch3.md`,
-      `notes/_new-interpretations-ch3-top-replacement.md`. All three are already in
-      the chapters. `device_bash` cannot delete, so these have to be moved to
-      `_to_delete/` or removed by hand.
+- [X] **Chapter 3 table captions.** All 25 captioned.
+- [X] **Caption for `tbl-allais`.**
+- [X] **Run `sh tools/build-figures.sh`.** The SVGs were rebuilt on 9 August.
+- [X] **The book title.** Decided: it stays *Game Theory and Social Choice*. It is
+      a link to earlier versions of the notes that may still be in circulation, the
+      preface explains the scope, and the syllabus refers to it the same way.
+- [X] **Delete the spliced drafts.** The three named files are gone.
+- [ ] **Table captions in the other chapters**, ten in all: one in chapter 1 at
+      line 68, six in chapter 5 at lines 44, 70, 231, 261, 441 and 465, and three
+      in chapter 6 at lines 56, 68 and 464. Chapters 2, 3 and 4 are complete.
+- [ ] **Delete `notes/_new-centipede-ch5.md` and `notes/_new-spence-akerlof-ch6.md`.**
+      Both are now spliced, so both are dead weight. Move them to `_to_delete/`.
 
 ## The syllabus: final by Tuesday 1 September
 
@@ -80,6 +108,7 @@ essay due Fri 18 Dec.
 - [ ] **L9 has no recommended reading.** Bonanno has nothing on forward induction,
       so it is the only first-half lecture with nothing beside the notes. Accept or
       find something.
+- [ ] **Spence and Akerlof** Once we add some sections in to the text, add references to them to week 7 of the syllabus
 
 ## Rolling, from 1 September
 

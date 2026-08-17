@@ -10,3 +10,7 @@ Giacomo Bonanno's *Game Theory* [-@bonanno2024] is freely available online and i
 The notes began life in an older course, so the fit with what we are doing now is not exact. Where a section of the book is not on the schedule, it is there as background rather than as something you are expected to have read. (And the title of the book came from when it was meant to cover the whole of a course like this, not the first half.)
 
 A PDF of the whole book is linked in the sidebar for anyone who would rather read it in one piece.
+
+These notes arose from notes for various different courses (mostly at Michigan, but also at Rutgers and at St Andrews) over the years. I've received a lot of useful feedback on them, especially from faculty sitting in on the course at St Andrews, which has been incorporated into the notes. Before this term I ran the whole thing through Claude, to get advice on the prose and to see how it all fit together. It had many suggestions, both about the organisation and the prose, and about what needed to be added. I accepted a few of these suggestions in total, and many of them in part. It also chased down many of the references that I'd been cavalier about; I think I've double checked all of these, but I might have missed some.
+
+The book is produced in [Quarto](https://quarto.org), using HTML and PDF templates that Claude built.

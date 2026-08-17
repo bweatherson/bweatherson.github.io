@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -122,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./02-decision-theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-decision-theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -156,70 +175,42 @@ window.Quarto = {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Game Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basics of Game Theory</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-decision-theory.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-nash-equilibrium.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mixed Strategies and Nash Equilibrium</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-other-equilibria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Other Equilibrium Concepts</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-games-and-time.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Games and Time</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-bayesian-games.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Games</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Voting Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07-group-decisions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Group Decisions</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -236,20 +227,24 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#probability" id="toc-probability" class="nav-link active" data-scroll-target="#probability"><span class="header-section-number">2.1</span> Probability</a></li>
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</a></li>
-  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</a></li>
-  <li><a href="#expected-value" id="toc-expected-value" class="nav-link" data-scroll-target="#expected-value"><span class="header-section-number">2.4</span> Expected Value</a></li>
-  <li><a href="#orthodox-decision-theory" id="toc-orthodox-decision-theory" class="nav-link" data-scroll-target="#orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</a></li>
+  <li><a href="#sec-probability" id="toc-sec-probability" class="nav-link active" data-scroll-target="#sec-probability"><span class="header-section-number">2.1</span> Probability</a></li>
+  <li><a href="#sec-conditional-probability" id="toc-sec-conditional-probability" class="nav-link" data-scroll-target="#sec-conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</a></li>
+  <li><a href="#sec-bayes-theorem" id="toc-sec-bayes-theorem" class="nav-link" data-scroll-target="#sec-bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</a></li>
+  <li><a href="#sec-expected-value" id="toc-sec-expected-value" class="nav-link" data-scroll-target="#sec-expected-value"><span class="header-section-number">2.4</span> Expected Value</a></li>
+  <li><a href="#sec-orthodox-decision-theory" id="toc-sec-orthodox-decision-theory" class="nav-link" data-scroll-target="#sec-orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</a></li>
+  <li><a href="#sec-money-not-utility" id="toc-sec-money-not-utility" class="nav-link" data-scroll-target="#sec-money-not-utility"><span class="header-section-number">2.6</span> Money Is Not Utility</a></li>
+  <li><a href="#sec-allais" id="toc-sec-allais" class="nav-link" data-scroll-target="#sec-allais"><span class="header-section-number">2.7</span> The Allais Paradox</a></li>
+  <li><a href="#sec-ellsberg" id="toc-sec-ellsberg" class="nav-link" data-scroll-target="#sec-ellsberg"><span class="header-section-number">2.8</span> Ellsberg</a></li>
+  <li><a href="#sec-ch2-next-time" id="toc-sec-ch2-next-time" class="nav-link" data-scroll-target="#sec-ch2-next-time"><span class="header-section-number">2.9</span> For Next Time</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html">Game Theory</a></li><li class="breadcrumb-item"><a href="./02-decision-theory.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></h1>
+<h1 class="title"><span id="sec-decision-theory" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability and Decision Theory</span></span></h1>
 </div>
 
 
@@ -266,8 +261,8 @@ window.Quarto = {
 </header>
 
 
-<section id="probability" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="probability"><span class="header-section-number">2.1</span> Probability</h2>
+<section id="sec-probability" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-probability"><span class="header-section-number">2.1</span> Probability</h2>
 <p>We’ll start by going over the notion of probability that is used in decision theory. The best way to think about probability functions is by thinking about <strong>measure</strong> functions. Intuitively, a measure function is a non-negative <strong>additive</strong> function. That is, it is a function which only takes non-negative values, and where the value of a whole is equal to the sum of the value of the (non-overlapping) parts. In principle the domain of a measure function could be the size of any set, but we’ll only consider functions with finite domains for now.</p>
 <p>Such functions are frequently used in the real world. Consider, for instance, the functions from regions to their population and land mass. <a href="#tbl-uk-geography" class="quarto-xref">Table&nbsp;<span>2.1</span></a> lists the (very approximate) population and land mass for England, Scotland, Wales and Northern Ireland.</p>
 <div id="tbl-uk-geography" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -358,7 +353,7 @@ Table&nbsp;2.2: A normalised verison of <a href="#tbl-uk-geography" class="quart
 </div>
 </figure>
 </div>
-<p>The way we turn the regular measure function into a normalised measure is by dividing each value on the earlier table by the value of whole. So the land mass of England is (about) 50,000 mi<span class="math inline">\(^2\)</span>, and the land mass of the UK is (about) 93,000 mi<span class="math inline">\(^2\)</span>, and <span class="math inline">\(\nicefrac{50,000}{93,000}\)</span> is about 0.54. So that’s why we right 0.54 in the top right cell of the normalised measure table.</p>
+<p>The way we turn the regular measure function into a normalised measure is by dividing each value in <a href="#tbl-uk-geography" class="quarto-xref">Table&nbsp;<span>2.1</span></a> by the value of whole. So the land mass of England is (about) 50,000 mi<span class="math inline">\(^2\)</span>, and the land mass of the UK is (about) 93,000 mi<span class="math inline">\(^2\)</span>, and <span class="math inline">\(\nicefrac{50,000}{93,000}\)</span> is about 0.54. So that’s why we right 0.54 in the top right cell of the normalised measure table.</p>
 <p>The last notion we need is that of a possibility space, or more formally, a <strong>field</strong> of propositions. Although these terms might be unfamiliar, the notion should be very familiar; it is just what we represent with a truth table. We will identify, for these purposes, propositions with sets of possible worlds. Then a field of propositions is a set of propositions such that whenever <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are in the set, so are <span class="math inline">\(\neg A\)</span> and <span class="math inline">\(A \wedge B\)</span>. This is, of course, just what we see with truth tables. Whenever you can represent two propositions on a truth table, you can represent their conjunction and each of their negations. Just like with truth-tables, we’ll only consider finite fields. It’s possible to extend this to cover any set-sized partition of possibility space, but we’ll ignore such complications for now.</p>
 <p>A <strong>Probability function</strong> is just a normalised measure on a possibility space. That is, it is a function satisfying these two conditions, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are any propositions, and <span class="math inline">\(T\)</span> is a logical truth.</p>
 <ul>
@@ -368,8 +363,8 @@ Table&nbsp;2.2: A normalised verison of <a href="#tbl-uk-geography" class="quart
 <p>We normally suppose that any rational agent has <strong>credences</strong> over the space of (salient) epistemic possibilities, and these credences form a probability function.</p>
 <p>In any finite field of propositions, there will be some <strong>atoms</strong>. These are propositions such that no stronger consistent proposition is in the field. (Some, but not all, infinite fields are atomic.) We will use these atoms a lot. I’ll use the variable <span class="math inline">\(w\)</span> to range over atoms, reminding us that for practical purposes, atoms behave a lot like <em>worlds</em>. They aren’t worlds, of course; they only settle the truth values of a handful of propositions. But they are divisions of possibility space that are maximally precise for present purposes. That is, they are being treated as worlds. On a pragmatist approach to modality, there’s no more to being a world than to be treated as a world in the right circumstances, and thinking about probability encourages, I think, such a pragmatist approach.</p>
 </section>
-<section id="conditional-probability" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</h2>
+<section id="sec-conditional-probability" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-conditional-probability"><span class="header-section-number">2.2</span> Conditional Probability</h2>
 <p>So far we’ve talked simply about the probability of various propositions. But sometimes we’re not interested in the absolute probability of a proposition, we’re interested in its <strong>conditional</strong> probability. That is, we’re interested in the probability of the proposition <em>assuming</em> or <em>conditional on</em> some other proposition obtaining.</p>
 <p>It isn’t too hard to visualise how conditional probability works if we think of a possibility space simply as a truth table, so a measure over a possibility space is simply a measure over on the truth table. <a href="#tbl-tt-first" class="quarto-xref">Table&nbsp;<span>2.3</span></a> how we might represent a simple probability function, defined over the Boolean combinations of three propositions, if we’re thinking about things this way.</p>
 <div id="tbl-tt-first" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -599,9 +594,9 @@ Table&nbsp;2.5: What happens to <a href="#tbl-tt-second" class="quarto-xref">Tab
 &amp;= 0.88
 \end{align*}\]</span></p>
 </section>
-<section id="bayes-theorem" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</h2>
-<p>This is a bit of a digression from what we’re really focussing on in game theory, but it’s important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the ‘inverse’ direction to what we are interested in. That is, if we want to know <span class="math inline">\(\Pr(A | B)\)</span>, it might be much easier to discover <span class="math inline">\(\Pr(B | A)\)</span>. In these cases, we use Bayes Theorem to get the right result. I’ll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent.</p>
+<section id="sec-bayes-theorem" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-bayes-theorem"><span class="header-section-number">2.3</span> Bayes Theorem</h2>
+<p>This is a bit of a digression from what we’re really focussing on in game theory, but it’s important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the ‘inverse’ direction to what we are interested in. That is, if we want to know <span class="math inline">\(\Pr(A | B)\)</span>, it might be much easier to discover <span class="math inline">\(\Pr(B | A)\)</span>. In these cases, we use Bayes Theorem to get the right result.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> I’ll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent.</p>
 <p><span class="math display">\[\begin{align*}
 \Pr(A|B) &amp;= \frac{\Pr(B|A) \Pr(A)}{\Pr(B)} \\
 &amp;= \frac{\Pr(B|A) \Pr(A)}{\Pr(B|A)Pr(A) + \Pr(B|\neg A)Pr(\neg A)}
@@ -643,13 +638,13 @@ Table&nbsp;2.5: What happens to <a href="#tbl-tt-second" class="quarto-xref">Tab
 &amp;= \frac{0.8 \times 0.05}{0.08 \times 0.05 + 0.1 \times 0.95} \\
 &amp;= \frac{0.04}{0.04 + 0.095} \\
 &amp;= \frac{0.04}{0.135} \\
-&amp;\approx&amp; 0.296
+&amp;\approx 0.296
 \end{align*}\]</span></p>
 <p>So in fact the probability of having the disease, conditional on having a positive test, is less than 0.3. So in that sense the test is quite unreliable.</p>
 <p>This is actually a quite important point. The fact that the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span> is quite high does not mean that the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is equally high. By tweaking the percentages in the example I gave you, you can come up with cases where the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span> is arbitrarily high, even 1, while the probability of <span class="math inline">\(A\)</span> given <span class="math inline">\(B\)</span> is arbitrarily low.</p>
 <p>Confusing these two conditional probabilities is sometimes referred to as the <em>Prosecutors’ fallacy</em>, though it’s not clear how many actual prosecutors are guilty of it. The thought is that some prosecutors start with the premise that the probability of the defendant’s blood (or DNA or whatever) matching the blood at the crime scene, conditional on the defendant being innocent, is 1 in a billion (or whatever it exactly is). They conclude that the probability of the defendant being innocent, conditional on their blood matching the crime scene, is about 1 in a billion. Because of derivations like the one we just saw, that is a clearly invalid move.</p>
-<p>A more striking real world example comes from the analysis of soccer carried out by Charles Reep and Charles Hughes. (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.</p>
-<p>You may be able to spot the error in their reasoning already, but if not let’s work through a fictionalised version to see the problem. (The numbers I’m using are made up, though I think the scale roughly matches what Reep and Hughes found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a>.</p>
+<p>A more striking real world example comes from the analysis of soccer carried out by <a href="https://en.wikipedia.org/wiki/Charles_Reep">Charles Reep</a> and <a href="https://en.wikipedia.org/wiki/Charles_Hughes_(football_manager)">Charles Hughes</a>. (Reep and Hughes worked separately, but they reached similar conclusions by similar means.) They watched many games, and tracked each of the possessions (meaning a period of time where one team has control of the ball). They counted how many passes took place in each possession, and whether the possession resulted in a goal. They noted that the vast majority of the goals came from very short possessions, ones involving three or fewer passes; Reep put the figure at around 80% <span class="citation" data-cites="wilson2008">(<a href="references.html#ref-wilson2008" role="doc-biblioref">Wilson 2008, 141</a>)</span>. His own account of the study is <span class="citation" data-cites="reepbenjamin1968">Reep and Benjamin (<a href="references.html#ref-reepbenjamin1968" role="doc-biblioref">1968</a>)</span>. From this they concluded that soccer teams should be direct; kicking the ball to forwards as soon as possible to try to score from a short possession. Hughes became technical director of the Football Association in England, where he spread this idea of how to play soccer across the country.</p>
+<p>You may be able to spot the error in their reasoning already. The figure that makes it vivid is one Reep did not dwell on: in the games he recorded, 91.5% of moves involved three passes or fewer <span class="citation" data-cites="wilson2008">(<a href="references.html#ref-wilson2008" role="doc-biblioref">Wilson 2008, 141</a>)</span>. So the share of goals that came from short possessions was <em>lower</em> than the share of possessions that were short, which is the opposite of what you would expect if short possessions were the productive ones. To see why that matters, work through the problem with some numbers. (Those in <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a> are invented, and the split between medium and long is there to show a trend rather than to report one, but the overall proportions are close to what Reep found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the data in <a href="#tbl-soccer" class="quarto-xref">Table&nbsp;<span>2.6</span></a>.</p>
 <div id="tbl-soccer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-soccer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -727,8 +722,8 @@ Table&nbsp;2.7: A version of <a href="#tbl-soccer" class="quarto-xref">Table&nbs
 </div>
 <p>The longer a possession is, the higher the frequency that it ends in a goal. I’m not sure in real soccer it is as dramatic as the numbers I gave you. (And in fact at high levels of soccer not nearly this high a percentage of possessions end in goals.) But I am confident that (at least at high levels, at most times in the history of soccer) the broad pattern I’ve outlined here is correct. Most goals come from short possessions, but short possessions lead to fewer goals, on average, than long possessions. Anyone who has taken a probability class should know that this suggests aiming for longer possessions rather than shorter ones, but apparently the England hierarchy didn’t take that lesson for several decades.</p>
 </section>
-<section id="expected-value" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="expected-value"><span class="header-section-number">2.4</span> Expected Value</h2>
+<section id="sec-expected-value" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-expected-value"><span class="header-section-number">2.4</span> Expected Value</h2>
 <p>One very convenient notion to define using a probability function is that of an <strong>expected value</strong>. Say that a <strong>random variable</strong> is any function from possibilities to real numbers. We usually designate random variables with capital letters. So expressions like <span class="math inline">\(X=x\)</span>, which you’ll often see in probability textbooks, means that the random variable <span class="math inline">\(X\)</span> takes real value <span class="math inline">\(x\)</span>.</p>
 <p>The expected value of a random variable is calculated using the following formula.</p>
 <p><span class="math display">\[\begin{equation*}
@@ -759,17 +754,246 @@ E(X) -E(Y) &amp;= E(X - Y) \\
 \end{align*}\]</span></p>
 <p>Often we know more about the difference between two expected values than we do about the absolute value of either. For instance, if we are comparing the expected values of taking and declining a small bet, we can figure out which action has a higher expected value without figuring out the expected value of either, which presumably depends on all sorts of facts about how our life might (probably) go. But as long as we can work out the difference in expected value between the two acts conditional on each <span class="math inline">\(p_i\)</span>, and the probability of each <span class="math inline">\(p_i\)</span>, we can work out at least which has a higher expected value, and by how much.</p>
 </section>
-<section id="orthodox-decision-theory" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</h2>
+<section id="sec-orthodox-decision-theory" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-orthodox-decision-theory"><span class="header-section-number">2.5</span> Orthodox Decision Theory</h2>
 <p>Given all that, it is fairly easy to summarise orthodox decision theory.</p>
 <ul>
 <li>Rational agents have a credence function over salient alternatives that is identical to some probability function <span class="math inline">\(\Pr\)</span>.</li>
 <li>Rational agents also have a real-valued utility function <span class="math inline">\(U\)</span> over salient outcomes.</li>
 <li>The rational action for such an agent to do is the action that maximises <strong>expected</strong> utility, i.e., maximises the expected value of <span class="math inline">\(U\)</span> relative to that function <span class="math inline">\(\Pr\)</span>.</li>
 </ul>
+</section>
+<section id="sec-money-not-utility" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sec-money-not-utility"><span class="header-section-number">2.6</span> Money Is Not Utility</h2>
+<p><a href="01-basics.html" class="quarto-xref"><span>Chapter 1</span></a> separated a player’s payout from their utility, and said that we would normally specify games using the latter. This section is about why that separation matters, because the difference between money and utility plays several different explanatory roles.</p>
+<p>Getting $2x is not twice as good as getting $x. Getting $2x is like getting $x, and then getting another $x when you are already $x richer, and the second $x does you less good than the first did. This what is known as the <strong>declining marginal utility</strong> of money. The <strong>marginal</strong> utility of money is the margin between the utility you had before and after getting that money. A core thought of economic theory since the 1870s is that marginal utility is the core explanation of action; absolute utility is either non-existent or unimportant.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> And the marginal utility of money falls, i.e., declines, the more of it you have.</p>
+<p>Two claims that sound quite different both fall out of this. You are better off taking a million dollars than a fifty-fifty shot at two million. And a million dollars changes your life more than it changes a billionaire’s. The orthodox view (and we’ll see reasons that not everyone buys this when we get to <a href="#sec-allais" class="quarto-xref"><span>Section 2.7</span></a>) is that these are just two features of the same thing, that money has a declining marginal utility.</p>
+<p>If we graph utility against wealth, declining marginal utility fixes two things about the shape. The curve slopes upward, because more money is better than less. And it bends downward; it is concave.</p>
+<p>Here is a crude model. Let utility be the square root of net wealth in dollars, and take three equal steps of $300.</p>
+<ul>
+<li>Utility at $100 is <span class="math inline">\(\sqrt{100} = 10\)</span>.</li>
+<li>Utility at $400 is <span class="math inline">\(\sqrt{400} = 20\)</span>.</li>
+<li>Utility at $700 is <span class="math inline">\(\sqrt{700} \approx 26.46\)</span>.</li>
+<li>Utility at $1000 is <span class="math inline">\(\sqrt{1000} \approx 31.62\)</span>.</li>
+</ul>
+<p>The same $300 buys 10 units of utility, then 6.46, then 5.17. Put the other wayround, equal gains in utility take larger and larger amounts of money.</p>
+<p>For wealth above a thousand dollars or so, a logarithm is a more plausible model than a square root. Let utility be <span class="math inline">\(\log_{10}\)</span> of net wealth.</p>
+<ul>
+<li>Utility at $10,000 is 4.</li>
+<li>Utility at $100,000 is 5.</li>
+<li>Utility at $1,000,000 is 6.</li>
+</ul>
+<p><em>Multiplying</em> your wealth by ten <em>adds</em> one to your utility. The relation between dollars and utility is not just nonlinear, it is dramatically so.</p>
+<p>That has consequences that are easy to miss. Take someone whose net wealth is $100,000, so their utility is 5, and offer them a bet that pays $900,000 if it wins and costs $90,000 if it loses, on the flip of a fair coin.</p>
+<p><span class="math display">\[\begin{align*}
+E(U(\text{bet})) &amp;= \nicefrac{1}{2} \times \log_{10}(1{,}000{,}000) + \nicefrac{1}{2} \times \log_{10}(10{,}000) \\
+&amp;= \nicefrac{1}{2} \times 6 + \nicefrac{1}{2} \times 4 \\
+&amp;= 5
+\end{align*}\]</span></p>
+<p>The bet has exactly the expected utility of doing nothing, so they should be indifferent, even though its expected dollar return is $405,000.</p>
+<p>Now shrink the prize to $800,000, leaving everything else alone.</p>
+<p><span class="math display">\[\begin{align*}
+E(U(\text{bet})) &amp;= \nicefrac{1}{2} \times \log_{10}(900{,}000) + \nicefrac{1}{2} \times \log_{10}(10{,}000) \\
+&amp;\approx \nicefrac{1}{2} \times 5.954 + \nicefrac{1}{2} \times 4 \\
+&amp;\approx 4.977
+\end{align*}\]</span></p>
+<p>That is below the utility of the status quo, so they should decline, and the expected dollar return is still $355,000. Expected dollars and expected utility do not merely differ in size. They can point in opposite directions. This fact explains why there is an insurance industry; an insurance contract (from the consumer’s perspective) typically has a negative expected dollar return, and a positive expected utility return.</p>
+</section>
+<section id="sec-allais" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sec-allais"><span class="header-section-number">2.7</span> The Allais Paradox</h2>
+<p>Some people have the intuition that expected utility theory doesn’t sufficiently account for the preference people have for avoiding risk. After all, we routinely turn down bets with a positive expected dollar return. The orthodox reply (which I think is completely right, for what it’s worth) is that these preferences over individual bets (when they are rational) can be explained by the declining marginal utility of money, plus the view that rationality requires maximising expected utility. No matter what bets people turn down, if we want to rationalise them, we can by positing a steeper declining marginal utility.</p>
+<p>It turns out, as Maurice <span class="citation" data-cites="allais1953">Allais (<a href="references.html#ref-allais1953" role="doc-biblioref">1953</a>)</span> showed<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, that the theory does have some striking predictions not for individual betting dispositions, but for <em>pairs</em> of betting dispositions. He came up with a pair of binary choices, and showed that there was no way for expected utility theory to explain why one attractive pair of dispositions to choose could be rationalised.</p>
+<p>Here is the first choice.</p>
+<ul>
+<li><strong>1A</strong>: $1,000,000, guaranteed.</li>
+<li><strong>1B</strong>: a 1% chance of $0, an 89% chance of $1,000,000, and a 10% chance of $5,000,000.</li>
+</ul>
+<p>Many people, I suspect most, take <strong>1A</strong>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> A guaranteed million is not worth risking for a one in ten shot at five, when the risk is walking away with nothing. That doesn’t maximise expected dollars, but it’s fine; as long as the marginal utility of the first million is sufficiently greater than the marginal utility of the next four million, <strong>1A</strong> could maximise expected utility.</p>
+<p>Here is the second.</p>
+<ul>
+<li><strong>2A</strong>: an 89% chance of $0, and an 11% chance of $1,000,000.</li>
+<li><strong>2B</strong>: a 90% chance of $0, and a 10% chance of $5,000,000.</li>
+</ul>
+<p>Now it seems fine to take <strong>2B</strong>, and many people do.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Crucially, many people who take <strong>1A</strong> take it. Why take <strong>2B</strong>? Well, you will almost certainly get nothing either way, so the extra 1% of risk looks cheap for the chance at five times the money.</p>
+<p>Those two choices are inconsistent with expected utility theory. To see why, imagine the outcomes are settled by drawing one of a hundred numbered tickets, as shown in <a href="#tbl-allais" class="quarto-xref">Table&nbsp;<span>2.8</span></a>.</p>
+<div id="tbl-allais" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-allais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.8: The Allais choices, laid out over a hundred tickets
+</figcaption>
+<div aria-describedby="tbl-allais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Ticket 1</strong></th>
+<th><strong>Tickets 2-11</strong></th>
+<th><strong>Tickets 12-100</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1A</strong></td>
+<td>$1M</td>
+<td>$1M</td>
+<td>$1M</td>
+</tr>
+<tr class="even">
+<td><strong>1B</strong></td>
+<td>$0</td>
+<td>$5M</td>
+<td>$1M</td>
+</tr>
+<tr class="odd">
+<td><strong>2A</strong></td>
+<td>$1M</td>
+<td>$1M</td>
+<td>$0</td>
+</tr>
+<tr class="even">
+<td><strong>2B</strong></td>
+<td>$0</td>
+<td>$5M</td>
+<td>$0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Look at the last column. Within each pair, the two options pay the same thing if a ticket from 12 to 100 comes up. So that column cannot bear on either choice. Delete it, and what is left of <strong>1A</strong> against <strong>1B</strong> is <em>exactly the same</em> what is left of <strong>2A</strong> against <strong>2B</strong>.</p>
+<p>The algebra says the same thing. Write <span class="math inline">\(x\)</span> for <span class="math inline">\(U(\$5\text{M})\)</span>, <span class="math inline">\(y\)</span> for <span class="math inline">\(U(\$1\text{M})\)</span> and <span class="math inline">\(z\)</span> for <span class="math inline">\(U(\$0)\)</span>. Preferring <strong>1A</strong> to <strong>1B</strong> means</p>
+<p><span class="math display">\[\begin{equation*}
+y &gt; 0.01z + 0.89y + 0.10x
+\end{equation*}\]</span></p>
+<p>which rearranges to</p>
+<p><span class="math display">\[\begin{equation*}
+0.11y - 0.10x - 0.01z &gt; 0
+\end{equation*}\]</span></p>
+<p>And the difference between the two options in the second choice is</p>
+<p><span class="math display">\[\begin{align*}
+E(U(2A)) - E(U(2B)) &amp;= (0.11y + 0.89z) - (0.10x + 0.90z) \\
+&amp;= 0.11y - 0.10x - 0.01z
+\end{align*}\]</span></p>
+<p>which is the same expression. So anyone who prefers <strong>1A</strong> to <strong>1B</strong> is committed to preferring <strong>2A</strong> to <strong>2B</strong>, whatever their utilities for money happen to be. Taking <strong>1A</strong> and <strong>2B</strong> is not a sign of unusual attitudes to risk. It is inconsistent with expected utility theory. If you think <strong>1A</strong> and <strong>2B</strong> are rational, you think that expected utility theory is wrong.</p>
+</section>
+<section id="sec-ellsberg" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="sec-ellsberg"><span class="header-section-number">2.8</span> Ellsberg</h2>
+<p>Around the same time, a similar challenge to expected utility theory was formulated by <a href="https://en.wikipedia.org/wiki/Daniel_Ellsberg">Daniel Ellsberg</a>. Ellsberg is a fascinating figure; his Wikipedia page lists seven <em>films</em> that his story has a non-trivial part in. We’re going to discuss something he discovered quite early in life, before the work that made him famous. How related it is to that later work is an interesting question; Ellsberg himself always said it was.</p>
+<p>Like Allais, <span class="citation" data-cites="ellsberg1961">Ellsberg (<a href="references.html#ref-ellsberg1961" role="doc-biblioref">1961</a>)</span> discussed a pair of choices. Just as before, Ellsberg showed that while an expected utility theorist could explain either choice that the typical subject made, they could not explain both. The choices concern an urn that has 90 marbles in it. The subject is told that 30 marbles are red, and the other 60 are a mix of black and yellow. But they are not told what the mixture is. They will be offered a choice between two bets, which have the same return, say $10 if you win, and $0 if you lose. All the bets turn on which marble is drawn from the urn at its next draw.</p>
+<p>Here is the first choice.</p>
+<ul>
+<li><strong>1A</strong>: You win if the marble is red, and lose otherwise.</li>
+<li><strong>1B</strong>: You win if the marble is black, and lose otherwise.</li>
+</ul>
+<p>Many people, I suspect most, take <strong>1A</strong>. They prefer knowing they have a 1/3 chance to not knowing what their odds are. That’s actually fine; theory doesn’t disagree.</p>
+<p>Here is the second.</p>
+<ul>
+<li><strong>2A</strong>: You win if the marble is red or yellow, and lose otherwise.</li>
+<li><strong>2B</strong>: You win if the marble is black or yellow, and lose otherwise.</li>
+</ul>
+<p>Now most people prefer <strong>2B</strong>. They prefer knowing that they have a 2/3 chance of winning, to the unknown odds with <strong>2A</strong>. Ellsberg’s argument is that there is no way for standard expected utility theory to explain both preferences.</p>
+<p>At some level, the problem is the same as in the Allais paradox. <a href="#tbl-ellsberg" class="quarto-xref">Table&nbsp;<span>2.9</span></a> is how the table looks if we draw the two of them together.</p>
+<div id="tbl-ellsberg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ellsberg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.9: The Ellsberg choices, laid out together
+</figcaption>
+<div aria-describedby="tbl-ellsberg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Red</strong></th>
+<th><strong>Black</strong></th>
+<th><strong>Yellow</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1A</strong></td>
+<td>Win</td>
+<td>Lose</td>
+<td>Lose</td>
+</tr>
+<tr class="even">
+<td><strong>1B</strong></td>
+<td>Lose</td>
+<td>Win</td>
+<td>Lose</td>
+</tr>
+<tr class="odd">
+<td><strong>2A</strong></td>
+<td>Win</td>
+<td>Lose</td>
+<td>Win</td>
+</tr>
+<tr class="even">
+<td><strong>2B</strong></td>
+<td>$0</td>
+<td>Win</td>
+<td>Win</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Here’s what both choices have in common. In both choices, there’s a column where you get the same result whether you choose <strong>A</strong> or <strong>B</strong>. That’s the right hand column in each. The pair <strong>1A</strong>/<strong>2B</strong> violates this principle.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Value of Irrelevant Alternatives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Value of Irrelevant Alternatives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider any choice between lotteries <strong>A</strong> and <strong>B</strong> where there is some possibility where the two options return the same amount, and you prefer <strong>A</strong> to <strong>B</strong>. Changing the lottery simply by changing that common amount, without making any other changes, shouldn’t change your preferences. All that matters it that you get the same amount in that outcome, not what that ‘same amount’ is.</p>
+</div>
+</div>
+<p>This is a special case of what is known as the <strong>Sure Thing Principle</strong>. Both of these are consequences of the expected utility framework.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> And both the Allais and Ellsberg paradoxes show that what I’m calling <strong>Value of Irrelevant Alternatives</strong> is sometimes counterintuitive.</p>
+<p>But while the two paradoxes target the same principle of expected utility theory, they suggest different modifications to it. The Allais paradox suggests that we are wrong to say that all attitudes to risk are accounted for by declining marginal utility. The Ellsberg paradox suggests that we are wrong to act as if everyone has a probability function in their head. Think about how you’d do a version of the algebraic argument that <strong>1A</strong>/<strong>2B</strong> is inconsistent in the Ellsberg case.</p>
+<p>Here’s the most natural way to do this. By assumption, everyone has a probability for every important possibility in their head. Assume the chooser assigns probability <span class="math inline">\(y\)</span> to the drawn marble being yellow. The probability of <strong>1A</strong> winning is 1/3, and the probability of <strong>1B</strong> winning is 2/3-<span class="math inline">\(y\)</span>, so if they prefer <strong>1A</strong> to <strong>1B</strong>, it follows that <span class="math inline">\(y\)</span> is greater than 1/3. The probability of <strong>2A</strong> winning is 1/3+<span class="math inline">\(y\)</span>, and the probability of <strong>2B</strong> winning is 2/3. So <span class="math inline">\(y\)</span> is less than 1/3, contradicting the claim that it is greater.</p>
+<p>The response that Ellsberg and others gave to this argument is not to question the algebra, or to question the appeal to expected utility. It’s to question the very assumption that there is such a thing as <span class="math inline">\(y\)</span>. Or, in some versions, to question the assumption that it is a <em>number</em>. In <a href="06-bayesian-games.html" class="quarto-xref"><span>Chapter 6</span></a>, we’ll come back to some game theoretic reasoning that also presupposes that things like <em>the probability that the marble is yellow</em> exist, and whether we might want to question that assumption.</p>
+</section>
+<section id="sec-ch2-next-time" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="sec-ch2-next-time"><span class="header-section-number">2.9</span> For Next Time</h2>
 <p>Next time we’ll start with an application of those ideas that leads to the most central concept in game theory.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-allais1953" class="csl-entry" role="listitem">
+Allais, Maurice. 1953. <span>“Le Comportement de l’homme Rationnel Devant Le Risque: Critique Des Postulats Et Axiomes de l’<span>É</span>cole Am<span>é</span>ricaine.”</span> <em>Econometrica</em> 21 (4): 503–46. <a href="https://doi.org/10.2307/1907921">https://doi.org/10.2307/1907921</a>.
+</div>
+<div id="ref-blavatskyy2022" class="csl-entry" role="listitem">
+Blavatskyy, Pavlo, Andreas Ortmann, and Valentyn Panchenko. 2022. <span>“On the Experimental Robustness of the Allais Paradox.”</span> <em>American Economic Journal: Microeconomics</em> 14 (1): 143–63. <a href="https://doi.org/10.1257/mic.20190153">https://doi.org/10.1257/mic.20190153</a>.
+</div>
+<div id="ref-ellsberg1961" class="csl-entry" role="listitem">
+Ellsberg, Daniel. 1961. <span>“Risk, Ambiguity, and the Savage Axioms.”</span> <em>The Quarterly Journal of Economics</em> 75 (4): 643–69. <a href="https://doi.org/10.2307/1884324">https://doi.org/10.2307/1884324</a>.
+</div>
+<div id="ref-jevons1871" class="csl-entry" role="listitem">
+Jevons, W. Stanley. 1871. <em>The Theory of Political Economy</em>. Macmillan; Co.
+</div>
+<div id="ref-reepbenjamin1968" class="csl-entry" role="listitem">
+Reep, Charles, and Bernard Benjamin. 1968. <span>“Skill and Chance in Association Football.”</span> <em>Journal of the Royal Statistical Society, Series A</em> 131 (4): 581–85. <a href="https://doi.org/10.2307/2343726">https://doi.org/10.2307/2343726</a>.
+</div>
+<div id="ref-wilson2008" class="csl-entry" role="listitem">
+Wilson, Jonathan. 2008. <em>Inverting the Pyramid: The History of Football Tactics</em>. Orion.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Bayes Theory is named after the <a href="https://en.wikipedia.org/wiki/Thomas_Bayes">Reverend Thomas Bayes</a>, an 18th century statistician and nonconformist minister.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Like many things, the importance of marginal utility seems to have been independently discovered by many people at once. The philosophy connection here is that one of the independent discoverers was William Stanley <span class="citation" data-cites="jevons1871">Jevons (<a href="references.html#ref-jevons1871" role="doc-biblioref">1871</a>)</span>. I’d like to think he came up with the idea while working in Australia in the 1850s, which would make this one of the earliest Australian contributions to Anglophone philosophy. But as far as I know, there is literally zero evidence for that timeline.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://en.wikipedia.org/wiki/Maurice_Allais">Allais</a> was a French economist. He won the 1988 Nobel, though not primarily for the result that he’s most famous for in the Anglophone world, i.e., this paradox.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The empirical evidence on the Allais paradox is actually a bit of a mess; see <span class="citation" data-cites="blavatskyy2022">Blavatskyy et al. (<a href="references.html#ref-blavatskyy2022" role="doc-biblioref">2022</a>)</span> for a good overview. As I understand it, in these high stakes cases, this part at least is very standard. Of course, these are hypothetical choices; we don’t run real experiments where we give away millions of dollars.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Notably, as <span class="citation" data-cites="blavatskyy2022">Blavatskyy et al. (<a href="references.html#ref-blavatskyy2022" role="doc-biblioref">2022</a>)</span> point out, it matters here whether <strong>2A</strong> is framed like it is here, as a ‘flat’ choice, or whether it is described as a compound lottery.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This arguably understates things. One prominent argument for the expected utility framework takes the Sure Thing Principle as a premise, and argues that anyone who satisfies it, and some other principles, is in effect an expected utility maximiser. We’re not going to go into this, but if you’re interested, look up work on <em>representation theorems</em>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
