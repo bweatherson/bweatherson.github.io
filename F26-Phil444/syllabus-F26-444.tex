@@ -25,8 +25,9 @@
 \usepackage{lmodern}
 \ifPDFTeX\else
   % xetex/luatex font selection
-  \setmainfont[]{Atkinson Hyperlegible}
-  \setmathfont[]{STIX Two Math}
+  \setmainfont[BoldFont=EB Garamond SemiBold,ItalicFont=EB Garamond
+Italic,BoldItalicFont=EB Garamond SemiBold Italic]{EB Garamond Math}
+  \setmathfont[]{EB Garamond Math}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -164,6 +165,10 @@
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
 \hypersetup{
   pdftitle={PHIL 444: Game Theory and Social Choice},
   pdfauthor={Brian Weatherson},
@@ -185,9 +190,6 @@
 \textbf{Lead Instructor}: Brian Weatherson\\
 \textbf{Email}: weath@umich.edu\\
 \textbf{Web}: canvas.umich.edu\\
-\textbf{Office Hours}: TBD\\
-\textbf{Discussion Section Leader}: TBD\\
-\textbf{Email}: TBD\\
 \textbf{Office Hours}: TBD
 
 ~
@@ -200,20 +202,21 @@
   This course examines two philosophical questions about choice in
   social settings.
 \item
-  The first half is on game theory: what is rational choice when the
-  unknowns are the actions of other rational agents?
+  The first half is on game theory, with a special focus on what we can
+  rationally do when all we know is that everyone involved is rational,
+  and what does this tell us about rationality?
 \item
   The second half works through Amartya Sen's \emph{Collective Choice
   and Social Welfare} (2017 expanded edition): what does it mean for a
   group to choose, and how can individual judgments be combined into
   collective ones?
 \item
-  The mathematics is more demanding than a typical philosophy course but
-  does not require calculus. The level is roughly that of formal work in
-  a philosophy journal.
+  There will be more mathematics than in a typical philosophy course,
+  but less than in an economics course covering this material. In
+  particular, there will be no calculus.
 \item
-  Assessment consists of four short assignments (10\% each), two essays
-  (25\% each), and discussion section participation (10\%).
+  Assessment consists of two essays (25\% each), eight quizzes with the
+  best six counting for 40\% in total, and class participation (10\%).
 \end{itemize}
 
 \section{Course Description}\label{course-description}
@@ -227,24 +230,24 @@ actions of other rational agents who are reasoning about you. Standard
 expected-utility theory does not pin down behavior in such settings. We
 work through the central solution concepts of game theory (Nash
 equilibrium, rationalizability, subgame perfection, perfect Bayesian
-equilibrium) and ask what philosophical claims each one rests on. The
-thread builds toward signaling games and equilibrium refinements, the
-beer-quiche example and the Cho-Kreps intuitive criterion, with
-applications to lemons markets and job-market signaling.
+equilibrium) and ask what philosophical claims each one rests on. At the
+end we discuss signaling games and refinements of equilibrium concepts,
+the beer-quiche example and the Cho-Kreps intuitive criterion, and two
+famous applications of these games: used car markets and job-market
+signaling.
 
-The second half asks what it means for a group to choose. Individually
-rational preferences do not always combine into a coherent group
-preference: this is the lesson of Arrow's theorem, of Sen's Paretian
-liberal, and of related impossibility results. Working from Sen's
-\emph{Collective Choice and Social Welfare} (2017 expanded edition), we
-study the formalism behind these results and the philosophical responses
-Sen develops, including his work on interpersonal comparison, justice,
-rights, and the limits of welfarism.
+The second half asks what it means for a group to choose. Working from
+Sen's \emph{Collective Choice and Social Welfare} (2017 expanded
+edition), we study the formalism behind results like Arrow's famous
+impossibility theorem and the philosophical responses Sen develops,
+including his work on interpersonal comparison, justice, rights, and the
+limits of welfarism.
 
 The unifying theme is that individual rationality does not extend
 cleanly to social settings. Game theory and social choice theory are two
-interestingly different ways of seeing how, and what philosophers have
-made of it.
+related, but interestingly distinct, ways of seeing how social settings
+create new complications. We will look at what philosophers, political
+scientists, and economists, have made of these complications.
 
 \section{Required Materials}\label{required-materials}
 
@@ -255,28 +258,40 @@ The required text is:
 \item
   Amartya Sen, \emph{Collective Choice and Social Welfare: An Expanded
   Edition} (Harvard University Press, 2017). Available electronically
-  through the University of Michigan library.
+  through the University of Michigan library. (Hereafter called CCSW.)
 \end{itemize}
 
-Game theory readings will be a mix of lecture notes, classic papers
-(Akerlof on lemons, Spence on job-market signaling, Cho and Kreps on the
-intuitive criterion), and selected chapters from a textbook to be
-confirmed before the semester begins. All readings will be made
-available through Canvas or the course website.
+The main reading for the first half is my own lecture notes, \emph{Game
+Theory and Social Choice}, free at
+\url{https://bweatherson.github.io/F26-Phil444-site/notes/},
+supplemented by three classic papers (Akerlof on lemons, Spence on
+job-market signalling, Cho and Kreps on the intuitive criterion).
+Giacomo Bonanno's \emph{Game Theory}, also free, is a good second voice
+if you'd like something other than my lectures and my notes. Very
+usefully, it comes with worked solutions to every exercise. It's
+available at
+\url{https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf}.
+Section numbers in the schedule refer to that file, which is the third
+edition. If you just Google it you might find earlier editions, which
+have slightly different numbers. (ArXiV, for instance, just has the
+second edition.)
+
+There will be some supplementary readings in the second half, which will
+be linked, but the priority is CCSW. All readings will be made available
+through Canvas or the course website.
 
 \section{Course Requirements}\label{course-requirements}
 
 \begin{itemize}
 \tightlist
 \item
-  There will be 4 short assignments, each worth 10\% of the grade
+  There will be 2 essays, each worth 25\% of the grade, one for each
+  half of the course.
 \item
-  There will be 2 essays, each worth 25\% of the grade.
+  There will be 8 quizzes over the semester. Your best 6 results count,
+  and together they are worth 40\% of the grade.
 \item
-  Lecture participation will not be graded, and we won't take attendance
-  here. But 10\% of the grade is for discussion section participation
-  (and any other assignments the discussion section leader chooses to
-  include).
+  10\% of the grade is for participation in class.
 \end{itemize}
 
 \section{Summary of Grading System}\label{summary-of-grading-system}
@@ -285,11 +300,11 @@ available through Canvas or the course website.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Short assignments - 4 assignments, 10\% each: 40\%
-\item
   Essays - 2 essays, 25\% each: 50\%
 \item
-  Discussion section participation. (10\%)
+  Quizzes - best 6 of 8: 40\%
+\item
+  Class participation: 10\%
 \end{enumerate}
 
 \section{Canvas}\label{canvas}
@@ -303,7 +318,7 @@ other, and with me.
 
 There is also a github site for the course which contains more
 documents, and it is at
-\url{https://bweatherson.github.io/F26-Phil444_site/}.
+\url{https://bweatherson.github.io/F26-Phil444-site/}.
 
 \pagebreak
 
@@ -312,8 +327,44 @@ documents, and it is at
 Readings should be done before the scheduled class. Lectures 1-14 cover
 game theory; Lectures 15-28 cover social choice theory, working through
 Sen's \emph{Collective Choice and Social Welfare} (cited below as CCSW).
-Game-theory readings are placeholders pending final selection of
-supporting materials.
+``Notes'' below refers to my lecture notes, \emph{Game Theory and Social
+Choice}, at \url{https://bweatherson.github.io/F26-Phil444-site/notes/}.
+
+CCSW alternates between chapters and starred chapters. The starred
+chapters are more mathematical. Sen says in the preface that the
+unstarred chapters can be read on their own, and we're \emph{mostly}
+going to follow him. We will mostly be using the unstarred chapers as
+reqiured reading, and the starred ones as recommended, and I'll go over
+the key proofs. But we won't \emph{always} to this. In some cases the
+formalism is the point of what we're studying, and in those cases we'll
+be focussing on the starred chapters. `Recommended' here really does
+mean \emph{recommended}; if you're struggling with any of the quizzes,
+then looking through Sen's presentation of the formal work may very well
+help.
+
+In general (and I think this is true for every class), if you are doing
+an essay on a topic, the recommended readings should be treated as
+\emph{required}. If you choose to write on something, I expect you to be
+on top of both the prose version of the topic, and the mathematical
+version. In part two, this will be easy to follow, since Sen is very
+good about separating out these versions.
+
+The plan for the second half is not set in stone. This is a seminar
+working through a book, and I think the best practice for classes like
+that is to let the class itself determine the pace. I've made a best
+guess at what speed we'll work at, but it's just that, a best guess. If
+we need more time for something than I've guessed, we'll take more time.
+
+The order will not change. There is a plan for how later parts build on
+earlier parts, even within the Choose Your Own Adventure structure of
+CCSW. If we don't get to stuff, it comes out of the end.
+
+Changes to a week's reading will be posted on Canvas by the Friday
+before. If nothing is posted, what is below stands.
+
+Quizzes cover the material through the previous class meeting, whatever
+that turned out to be, rather than whatever this schedule says it should
+have been.
 
 \subsection{Week 1: Decision and Strategic
 Settings}\label{week-1-decision-and-strategic-settings}
@@ -321,17 +372,20 @@ Settings}\label{week-1-decision-and-strategic-settings}
 \subsubsection{Tuesday, September 01 (Lecture
 1)}\label{tuesday-september-01-lecture-1}
 
-\textbf{Topic}: Course overview; the puzzle of strategic rationality.
-When the unknowns are the actions of other rational agents, decision
-theory under uncertainty needs help. \textbf{Reading}: None.
-
-\textbf{NOTE}: No discussion section this week.
+\textbf{Topic}: Course overview and the two organizing questions.
+\textbf{Reading}: None.
 
 \subsubsection{Thursday, September 03 (Lecture
 2)}\label{thursday-september-03-lecture-2}
 
-\textbf{Topic}: Decision theory recap; expected utility under parametric
-uncertainty versus strategic uncertainty. \textbf{Reading}: TBD.
+\textbf{Topic}: Decision theory under risk and uncertainty: expected
+utility, Allais and Ellsberg. The formal contrast with strategic
+settings.\\
+\textbf{Reading}: Notes, 2.4-2.5 (Expected Value; Orthodox Decision
+Theory).\\
+\textbf{Recommended}: Notes, 2.1-2.3, if you want the probability
+revision. Bonanno, 5.1-5.3, for a more careful statement of the von
+Neumann-Morgenstern axioms.
 
 \subsection{Week 2: Strategic Form
 Games}\label{week-2-strategic-form-games}
@@ -340,12 +394,21 @@ Games}\label{week-2-strategic-form-games}
 3)}\label{tuesday-september-08-lecture-3}
 
 \textbf{Topic}: Strategic form games; dominance and iterated elimination
-of dominated strategies. \textbf{Reading}: TBD.
+of dominated strategies.\\
+\textbf{Reading}: Notes, Ch 1 (Basics of Game Theory).1.10.\\
+\textbf{Recommended}: Bonanno, Ch 2 (Ordinal Games in Strategic Form),
+2.1-2.2 and 2.5, which keeps the two iterated deletion procedures
+carefully apart.
 
 \subsubsection{Thursday, September 10 (Lecture
 4)}\label{thursday-september-10-lecture-4}
 
-\textbf{Topic}: Nash equilibrium. \textbf{Reading}: TBD.
+\textbf{Topic}: Nash equilibrium.\\
+\textbf{Reading}: Notes, 3.1-3.6.2 (Mixed Strategies through Finding
+Best Responses).\\
+\textbf{Recommended}: Bonanno, 2.6 (Nash equilibrium).
+
+\textbf{Quiz}: Quiz 1 on Canvas, due Friday, September 11.
 
 \subsection{Week 3: Mixed Strategies and
 Rationalizability}\label{week-3-mixed-strategies-and-rationalizability}
@@ -354,58 +417,94 @@ Rationalizability}\label{week-3-mixed-strategies-and-rationalizability}
 5)}\label{tuesday-september-15-lecture-5}
 
 \textbf{Topic}: Mixed strategies and the interpretation problem (Aumann;
-Harsanyi purification). \textbf{Reading}: TBD.
+Harsanyi purification).\\
+\textbf{Reading}: Notes, 3.6.3-3.8 (Finding Mixed Strategy Equilibria
+through What Is a Mixed Strategy?).\\
+\textbf{Recommended}: Bonanno, Ch 6 (Strategic-form Games), 6.1-6.3.
 
 \subsubsection{Thursday, September 17 (Lecture
 6)}\label{thursday-september-17-lecture-6}
 
-\textbf{Topic}: Rationalizability; common knowledge of rationality.
-\textbf{Reading}: TBD.
+\textbf{Topic}: Rationalizability; common knowledge of rationality.\\
+\textbf{Reading}: Notes, 4.1 (Rationalizability).\\
+\textbf{Recommended}: Bonanno, 6.4 (Strict dominance and
+rationalizability), and Ch 10 (Rationality), 10.1-10.3. Ch 8 (Common
+Knowledge) gives a more careful epistemic justification of
+rationalizability.
+
+\textbf{Quiz}: Quiz 2 on Canvas, due Friday, September 18.
 
 \subsection{Week 4: Dynamic Games}\label{week-4-dynamic-games}
 
 \subsubsection{Tuesday, September 22 (Lecture
 7)}\label{tuesday-september-22-lecture-7}
 
-\textbf{Topic}: Extensive form games; subgame perfection.
-\textbf{Reading}: TBD.
+\textbf{Topic}: Extensive form games; subgame perfection.\\
+\textbf{Reading}: Notes, 5.1-5.4 (Normal Form and Extensive Form through
+Subgame Perfect Equilibrium).\\
+\textbf{Recommended}: Bonanno, 3.1-3.3; 4.1-4.4; and 7.2, which redoes
+subgame perfection once payoffs are cardinal.
 
 \subsubsection{Thursday, September 24 (Lecture
 8)}\label{thursday-september-24-lecture-8}
 
-\textbf{Topic}: Backward induction; the centipede paradox.
-\textbf{Reading}: TBD.
+\textbf{Topic}: Backward induction; the centipede paradox.\\
+\textbf{Reading}: Notes, 5.5 (Problems with Backwards Induction).\\
+\textbf{Recommended}: Bonanno, 3.2 and 3.4; 7.3 (Problems with the
+notion of subgame-perfect equilibrium); 10.4 (Common knowledge of
+rationality in extensive-form games).
 
-\textbf{Assignment}: First short assignment due Friday, September 25 at
-5pm.
+\textbf{Quiz}: Quiz 3 on Canvas, due Friday, September 25.
 
-\subsection{Week 5: Bayesian Games}\label{week-5-bayesian-games}
+\subsection{Week 5: Forward Induction and Bayesian
+Games}\label{week-5-forward-induction-and-bayesian-games}
 
 \subsubsection{Tuesday, September 29 (Lecture
 9)}\label{tuesday-september-29-lecture-9}
 
-\textbf{Topic}: Bayesian games; types and incomplete information.
-\textbf{Reading}: TBD.
+\textbf{Topic}: Forward induction. Van Damme's burning-money game;
+reasoning about what kind of player would have made an off-path move.\\
+\textbf{Reading}: Notes, 5.6 (Money Burning Game).\\
+\textbf{Recommended}: Elchanan Ben-Porath and Eddie Dekel, ``Signaling
+future actions and the potential for sacrifice'', \emph{Journal of
+Economic Theory} 57 (1992): 36-51.
+\url{https://doi.org/10.1016/S0022-0531(05)80039-0}
 
 \subsubsection{Thursday, October 01 (Lecture
 10)}\label{thursday-october-01-lecture-10}
 
-\textbf{Topic}: Bayesian Nash equilibrium. \textbf{Reading}: TBD.
+\textbf{Topic}: Bayesian games and Bayesian Nash equilibrium. Types,
+incomplete information, and Nash equilibrium applied to type-conditional
+strategies.\\
+\textbf{Reading}: Notes, 6.1-6.5 (Two Kinds of Ignorance through
+Purification).\\
+\textbf{Recommended}: Bonanno, Ch 14 (Static Games), 14.1-14.3, and Ch
+16 (The Type-Space Approach), 16.1-16.2. Also 9.5 (Harsanyi consistency
+of beliefs), which is our common prior assumption under another name.
 
 \subsection{Week 6: Signaling Games}\label{week-6-signaling-games}
 
 \subsubsection{Tuesday, October 06 (Lecture
 11)}\label{tuesday-october-06-lecture-11}
 
-\textbf{Topic}: Signaling games; perfect Bayesian equilibrium.
-\textbf{Reading}: TBD.
+\textbf{Topic}: Signaling games; perfect Bayesian equilibrium.\\
+\textbf{Reading}: Notes, 6.6-6.8 (Perfect Bayesian Equilibrium through
+Signaling without Cooperation).\\
+\textbf{Recommended}: Bonanno, 13.1-13.3, and 15.1 (One-sided incomplete
+information).
 
 \subsubsection{Thursday, October 08 (Lecture
 12)}\label{thursday-october-08-lecture-12}
 
-\textbf{Topic}: The beer-quiche game; the intuitive criterion.
-\textbf{Reading}: In-Koo Cho and David M. Kreps, ``Signaling Games and
-Stable Equilibria'' (1987).
+\textbf{Topic}: The beer-quiche game; the intuitive criterion.\\
+\textbf{Reading}: Notes, 6.9 (The Intuitive Criterion). In-Koo Cho and
+David M. Kreps, ``Signaling Games and Stable Equilibria'',
+\emph{Quarterly Journal of Economics} 102 (1987): 179-221.
+\url{https://www.jstor.org/stable/1885060}\\
+\textbf{Recommended}: Bonanno, Ch 12 (Sequential Equilibrium). He does
+not cover the intuitive criterion, but this is a similar idea.
+
+\textbf{Quiz}: Quiz 4 on Canvas, due Friday, October 09.
 
 \subsection{Week 7: Asymmetric
 Information}\label{week-7-asymmetric-information}
@@ -413,17 +512,19 @@ Information}\label{week-7-asymmetric-information}
 \subsubsection{Tuesday, October 13 (Lecture
 13)}\label{tuesday-october-13-lecture-13}
 
-\textbf{Topic}: Spence on job-market signaling. \textbf{Reading}:
-Michael Spence, ``Job Market Signaling'' (1973).
+\textbf{Topic}: Spence on job-market signaling.\\
+\textbf{Reading}: Michael Spence, ``Job Market Signaling'',
+\emph{Quarterly Journal of Economics} 87 (1973): 355-374.
+\url{https://www.jstor.org/stable/1882010}
 
 \subsubsection{Thursday, October 15 (Lecture
 14)}\label{thursday-october-15-lecture-14}
 
-\textbf{Topic}: Akerlof on lemons (rigorous treatment).
-\textbf{Reading}: George Akerlof, ``The Market for Lemons'' (1970).
-
-\textbf{Assignment}: Second short assignment due Friday, October 16 at
-5pm.
+\textbf{Topic}: Akerlof on lemons.\\
+\textbf{Reading}: George A. Akerlof, ``The Market for `Lemons': Quality
+Uncertainty and the Market Mechanism'', \emph{Quarterly Journal of
+Economics} 84 (1970): 488-500.
+\url{https://www.jstor.org/stable/1879431}
 
 \subsection{Week 8: Transition}\label{week-8-transition}
 
@@ -434,134 +535,164 @@ No class -- Fall Study Break (October 19-20).
 \subsubsection{Thursday, October 22 (Lecture
 15)}\label{thursday-october-22-lecture-15}
 
-\textbf{Topic}: Transition from strategic rationality to collective
-choice. Sen's framing of the social choice problem. \textbf{Reading}:
-CCSW: New Introduction (2017); Ch 1 (Introduction); Ch A1 (Enlightenment
-and Impossibility).
+\textbf{Topic}: Introduction to CCSW.\\
+\textbf{Reading}: CCSW: Ch 1 (Introduction); Ch A1 (Enlightenment and
+Impossibility).\\
+\textbf{Recommended}: CCSW: New Introduction (2017). This is a really
+helpful overview about what the book is trying to do, and why it
+includes \emph{these} topics.
 
 \subsection{Week 9: Foundations}\label{week-9-foundations}
 
 \subsubsection{Tuesday, October 27 (Lecture
 16)}\label{tuesday-october-27-lecture-16}
 
-\textbf{Topic}: Preference relations; unanimity; collective choice rules
-and Pareto comparisons. \textbf{Reading}: CCSW: Ch 1* (Preference
-Relations); Ch 2 (Unanimity); Ch 2* (Collective Choice Rules and Pareto
-Comparisons).
+\textbf{Topic}: The formal apparatus we'll use.\\
+\textbf{Reading}: CCSW: Ch 2 (Unanimity); Ch 2* (Collective Choice Rules
+and Pareto Comparisons), section 2\emph{1 only.\\
+\textbf{Recommended}: CCSW: Ch 1} (Preference Relations). This is a
+\emph{really} helpful overview of the terminology; you might want to
+build a `cheat sheet' of key terms from it.
 
 \subsubsection{Thursday, October 29 (Lecture
 17)}\label{thursday-october-29-lecture-17}
 
-\textbf{Topic}: Collective rationality; social welfare functions.
-\textbf{Reading}: CCSW: Ch 3 (Collective Rationality); Ch 3* (Social
-Welfare Functions).
+\textbf{Topic}: Arrow's theorem, with a focus on why three options are
+needed.\\
+\textbf{Reading}: CCSW: Ch 3 (Collective Rationality).\\
+\textbf{Recommended}: CCSW: Ch 3* (Social Welfare Functions); Ch 5
+(Values and Choice); Ch 5* (Anonymity, Neutrality and Responsiveness).
 
 \textbf{Essay}: First essay due Friday, October 30 at 5pm.
 
-\subsection{Week 10: Arrow and Sen's
-Response}\label{week-10-arrow-and-sens-response}
+\subsection{Week 10: Arrow's Theorem, and the First
+Escape}\label{week-10-arrows-theorem-and-the-first-escape}
 
 \subsubsection{Tuesday, November 03 (Lecture
 18)}\label{tuesday-november-03-lecture-18}
 
-\textbf{Topic}: Arrow's theorem and proof. \textbf{Reading}: CCSW: Ch 3*
-(continued); Ch A1* (Social Preference).
+\textbf{Topic}: Sen's proof of Arrow's Theorem.\\
+\textbf{Reading}: CCSW: Ch A1* (Social Preference), to p.~288.\\
+\textbf{Recommended}: CCSW: Ch 3* (Social Welfare Functions).
 
 \subsubsection{Thursday, November 05 (Lecture
 19)}\label{thursday-november-05-lecture-19}
 
-\textbf{Topic}: Choice versus orderings; social decision functions.
-\textbf{Reading}: CCSW: Ch 4 (Choice Versus Orderings); Ch 4* (Social
-Decision Functions).
+\textbf{Topic}: Views which reject Universal Domain, in particular the
+single-peakedness assumption\\
+\textbf{Reading}: CCSW: Ch 10 (Majority Choice and Related Systems).\\
+\textbf{Recommended}: CCSW: Ch 10* (Restricted Preferences and Rational
+Choice).
 
-\subsection{Week 11: Conditions and the Liberal
-Paradox}\label{week-11-conditions-and-the-liberal-paradox}
+\textbf{Quiz}: Quiz 5, on Canvas, due Friday, November 06.
+
+\subsection{Week 11: Two More Escapes}\label{week-11-two-more-escapes}
 
 \subsubsection{Tuesday, November 10 (Lecture
 20)}\label{tuesday-november-10-lecture-20}
 
-\textbf{Topic}: Values and choice; anonymity, neutrality,
-responsiveness. \textbf{Reading}: CCSW: Ch 5 (Values and Choice); Ch 5*
-(Anonymity, Neutrality and Responsiveness).
+\textbf{Topic}: Views which reject Collective Rationality, with a focus
+on Gibbard's oligarchy result.\\
+\textbf{Reading}: CCSW: Ch A1* (Social Preference), pp.~289-293; Ch 4
+(Choice Versus Orderings); Ch A2 (Rationality and Consistency).\\
+\textbf{Recommended}: CCSW: Ch 4* (Social Decision Functions); Ch A2*
+(Problems of Social Choice).
 
 \subsubsection{Thursday, November 12 (Lecture
 21)}\label{thursday-november-12-lecture-21}
 
-\textbf{Topic}: Conflicts and dilemmas; the Paretian liberal.
-\textbf{Reading}: CCSW: Ch 6 (Conflicts and Dilemmas); Ch 6* (The
-Liberal Paradox).
+\textbf{Topic}: Third escape: use more than preferences.\\
+\textbf{Reading}: CCSW: Ch 7 (Interpersonal Aggregation and
+Comparability).\\
+\textbf{Recommended}: CCSW: Ch 7* (Aggregation Quasi-Orderings); Ch 8
+(Cardinality With or Without Comparability).
 
-\textbf{Assignment}: Third short assignment due Friday, November 13 at
-5pm.
+\textbf{Quiz}: Quiz 6, on Canvas, due Friday, November 13.
 
-\subsection{Week 12: Interpersonal
-Comparison}\label{week-12-interpersonal-comparison}
+\subsection{Week 12: Strategy and
+Liberty}\label{week-12-strategy-and-liberty}
 
 \subsubsection{Tuesday, November 17 (Lecture
 22)}\label{tuesday-november-17-lecture-22}
 
-\textbf{Topic}: Interpersonal aggregation and comparability.
-\textbf{Reading}: CCSW: Ch 7 (Interpersonal Aggregation and
-Comparability); Ch 7* (Aggregation Quasi-Orderings).
+\textbf{Topic}: Strategic manipulation, up to the Gibbard-Satterthwaite
+theorem. (This brings game theory back into social choice theory.)\\
+\textbf{Reading}: Amartya Sen, ``The Possibility of Social Choice'',
+\emph{American Economic Review} 89 (1999): 349-378.
+\url{https://www.aeaweb.org/articles?id=10.1257/aer.89.3.349}\\
+\textbf{Recommended}: Allan Gibbard, ``Manipulation of Voting Schemes: A
+General Result'', \emph{Econometrica} 41 (1973): 587-601.
+\url{https://www.jstor.org/stable/1914083}
 
 \subsubsection{Thursday, November 19 (Lecture
 23)}\label{thursday-november-19-lecture-23}
 
-\textbf{Topic}: Cardinality with or without comparability.
-\textbf{Reading}: CCSW: Ch 8 (Cardinality With or Without
-Comparability); Ch 8* (Bargains and Social Welfare Functions).
+\textbf{Topic}: Sen's liberal paradox.\\
+\textbf{Reading}: CCSW: Ch 6 (Conflicts and Dilemmas); Ch 6* (The
+Liberal Paradox).\\
+\textbf{Recommended}: Amartya Sen, ``The Impossibility of a Paretian
+Liberal'', \emph{Journal of Political Economy} 78 (1970): 152-157.
+\url{https://doi.org/10.1086/259614}
 
-\subsection{Week 13: Equity and
-Justice}\label{week-13-equity-and-justice}
+\textbf{Quiz}: Quiz 7, on Canvas, due Friday, November 20.
+
+\subsection{Week 13: Rights}\label{week-13-rights}
 
 \subsubsection{Tuesday, November 24 (Lecture
 24)}\label{tuesday-november-24-lecture-24}
 
-\textbf{Topic}: Equity and justice; impersonality. \textbf{Reading}:
-CCSW: Ch 9 (Equity and Justice); Ch 9* (Impersonality and Collective
-Quasi-Orderings).
+\textbf{Topic}: Rights and social choice. Sen's later response to his
+own paradox.\\
+\textbf{Reading}: CCSW: Ch A5 (The Idea of Rights).\\
+\textbf{Recommended}: CCSW: Ch A5* (Rights and Social Choice).
 
 \subsubsection{Thursday, November 26}\label{thursday-november-26}
 
 No class -- Thanksgiving recess (November 25-27).
 
-\subsection{Week 14: Domain Restrictions and Modern
-Revisitations}\label{week-14-domain-restrictions-and-modern-revisitations}
+\subsection{Week 14: Equity, Justice,
+Capability}\label{week-14-equity-justice-capability}
 
 \subsubsection{Tuesday, December 01 (Lecture
 25)}\label{tuesday-december-01-lecture-25}
 
-\textbf{Topic}: Majority choice; restricted preferences and rational
-choice. \textbf{Reading}: CCSW: Ch 10 (Majority Choice and Related
-Systems); Ch 10* (Restricted Preferences and Rational Choice).
+\textbf{Topic}: Equity and justice. The weak equity axiom, and the
+limits of welfarism.\\
+\textbf{Reading}: CCSW: Ch 9 (Equity and Justice).\\
+\textbf{Recommended}: CCSW: Ch 9* (Impersonality and Collective
+Quasi-Orderings); Ch A3 (Justice and Equity).
 
 \subsubsection{Thursday, December 03 (Lecture
 26)}\label{thursday-december-03-lecture-26}
 
-\textbf{Topic}: Justice and equity in the expanded edition; social
-welfare evaluation. \textbf{Reading}: CCSW: Ch A3 (Justice and Equity);
-Ch A3* (Social Welfare Evaluation).
+\textbf{Topic}: The capability approach. \textbf{Reading}: Amartya Sen,
+``Equality of What?'', Tanner Lecture on Human Values, Stanford
+University, 22 May 1979; reprinted in \emph{Choice, Welfare and
+Measurement}.
+\url{https://tannerlectures.org/lectures/equality-of-what/}\\
+\textbf{Recommended}: CCSW: Ch A3* (Social Welfare Evaluation). Martha
+Nussbaum, ``Capabilities as Fundamental Entitlements: Sen and Social
+Justice'', \emph{Feminist Economics} 9 (2003): 33-59.
+\url{https://doi.org/10.1080/1354570022000077926}
 
-\textbf{Assignment}: Fourth short assignment due Friday, December 04 at
-5pm.
+\textbf{Quiz}: Quiz 8, on Canvas, due Friday, December 04.
 
-\subsection{Week 15: Democracy, Rights,
-Reasoning}\label{week-15-democracy-rights-reasoning}
+\subsection{Week 15: Democracy and Public
+Reasoning}\label{week-15-democracy-and-public-reasoning}
 
 \subsubsection{Tuesday, December 08 (Lecture
 27)}\label{tuesday-december-08-lecture-27}
 
-\textbf{Topic}: Democracy and public engagement; the idea of rights and
-social choice. \textbf{Reading}: CCSW: Ch A4 (Democracy and Public
-Engagement); Ch A4* (Votes and Majorities); Ch A5 (The Idea of Rights);
-Ch A5* (Rights and Social Choice).
+\textbf{Topic}: Democracy and public engagement. \textbf{Reading}: CCSW:
+Ch A4 (Democracy and Public Engagement).\\
+\textbf{Recommended}: CCSW: Ch A4* (Votes and Majorities).
 
 \subsubsection{Thursday, December 10 (Lecture
 28)}\label{thursday-december-10-lecture-28}
 
-\textbf{Topic}: Reasoning and social decisions; course wrap.
-\textbf{Reading}: CCSW: Ch A6 (Reasoning and Social Decisions); Ch 11
-(Theory and Practice).
+\textbf{Topic}: Reasoning and social decisions. \textbf{Reading}: CCSW:
+Ch A6 (Reasoning and Social Decisions).\\
+\textbf{Recommended}: CCSW: Ch 11 (Theory and Practice).
 
 \textbf{FINAL ESSAY}: Due Friday, December 18 at 5pm.
 
@@ -584,6 +715,29 @@ of two people, you are affirming that each person did a fair share of
 the work. (Note that when you're submitting work on Canvas, you have to
 each submit the paper, even if it is co-authored. That way Canvas knows
 that everyone has turned in work.)
+
+This is a 400-level course, so I don't want to be as heavy-handed with
+enforcement as in a big lecture course. But still we have some basic
+ground rules.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Acknowledge all assistance that you got. Note that this is something
+  Sen does somewhat briefly in the original Preface to CCSW, and at much
+  greater length in the revised version.
+\item
+  Don't get any assistance from an LLM that you wouldn't be happy to get
+  from a human. List precisely what help you do get from LLMs, and keep
+  a record of all interactions. (Don't use anyone else's account.)
+\item
+  When I say the work is `your own', I mean that if someone asked you
+  about any sentence in it, you could answer two questions: \emph{What
+  does this mean?} and \emph{Why did you say this?}. If I suspect you
+  are turning in work that is not your own, I'll be very disappointed,
+  and the first step will be to ask you those two questions.
+\end{enumerate}
 
 You should also be familiar with the academic integrity policies of the
 College of Literature, Science \& the Arts at the University of

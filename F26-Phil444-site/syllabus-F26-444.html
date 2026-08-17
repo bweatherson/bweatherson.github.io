@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brian Weatherson">
+
+<title>PHIL 444: Game Theory and Social Choice</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-axe/axe.min.js"></script>
+<script src="site_libs/quarto-axe/axe-check.js" type="module"></script>
+<script id="quarto-axe-checker-options" type="text/plain">dHJ1ZQ==</script>
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-560bf257b14697055ea88cb8e0d913ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link active" data-scroll-target="#key-points">Key Points</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#required-materials" id="toc-required-materials" class="nav-link" data-scroll-target="#required-materials">Required Materials</a></li>
+  <li><a href="#course-requirements" id="toc-course-requirements" class="nav-link" data-scroll-target="#course-requirements">Course Requirements</a></li>
+  <li><a href="#summary-of-grading-system" id="toc-summary-of-grading-system" class="nav-link" data-scroll-target="#summary-of-grading-system">Summary of Grading System</a></li>
+  <li><a href="#canvas" id="toc-canvas" class="nav-link" data-scroll-target="#canvas">Canvas</a></li>
+  <li><a href="#class-schedule" id="toc-class-schedule" class="nav-link" data-scroll-target="#class-schedule">Class Schedule</a>
+  <ul class="collapse">
+  <li><a href="#week-1-decision-and-strategic-settings" id="toc-week-1-decision-and-strategic-settings" class="nav-link" data-scroll-target="#week-1-decision-and-strategic-settings">Week 1: Decision and Strategic Settings</a></li>
+  <li><a href="#week-2-strategic-form-games" id="toc-week-2-strategic-form-games" class="nav-link" data-scroll-target="#week-2-strategic-form-games">Week 2: Strategic Form Games</a></li>
+  <li><a href="#week-3-mixed-strategies-and-rationalizability" id="toc-week-3-mixed-strategies-and-rationalizability" class="nav-link" data-scroll-target="#week-3-mixed-strategies-and-rationalizability">Week 3: Mixed Strategies and Rationalizability</a></li>
+  <li><a href="#week-4-dynamic-games" id="toc-week-4-dynamic-games" class="nav-link" data-scroll-target="#week-4-dynamic-games">Week 4: Dynamic Games</a></li>
+  <li><a href="#week-5-forward-induction-and-bayesian-games" id="toc-week-5-forward-induction-and-bayesian-games" class="nav-link" data-scroll-target="#week-5-forward-induction-and-bayesian-games">Week 5: Forward Induction and Bayesian Games</a></li>
+  <li><a href="#week-6-signaling-games" id="toc-week-6-signaling-games" class="nav-link" data-scroll-target="#week-6-signaling-games">Week 6: Signaling Games</a></li>
+  <li><a href="#week-7-asymmetric-information" id="toc-week-7-asymmetric-information" class="nav-link" data-scroll-target="#week-7-asymmetric-information">Week 7: Asymmetric Information</a></li>
+  <li><a href="#week-8-transition" id="toc-week-8-transition" class="nav-link" data-scroll-target="#week-8-transition">Week 8: Transition</a></li>
+  <li><a href="#week-9-foundations" id="toc-week-9-foundations" class="nav-link" data-scroll-target="#week-9-foundations">Week 9: Foundations</a></li>
+  <li><a href="#week-10-arrows-theorem-and-the-first-escape" id="toc-week-10-arrows-theorem-and-the-first-escape" class="nav-link" data-scroll-target="#week-10-arrows-theorem-and-the-first-escape">Week 10: Arrow’s Theorem, and the First Escape</a></li>
+  <li><a href="#week-11-two-more-escapes" id="toc-week-11-two-more-escapes" class="nav-link" data-scroll-target="#week-11-two-more-escapes">Week 11: Two More Escapes</a></li>
+  <li><a href="#week-12-strategy-and-liberty" id="toc-week-12-strategy-and-liberty" class="nav-link" data-scroll-target="#week-12-strategy-and-liberty">Week 12: Strategy and Liberty</a></li>
+  <li><a href="#week-13-rights" id="toc-week-13-rights" class="nav-link" data-scroll-target="#week-13-rights">Week 13: Rights</a></li>
+  <li><a href="#week-14-equity-justice-capability" id="toc-week-14-equity-justice-capability" class="nav-link" data-scroll-target="#week-14-equity-justice-capability">Week 14: Equity, Justice, Capability</a></li>
+  <li><a href="#week-15-democracy-and-public-reasoning" id="toc-week-15-democracy-and-public-reasoning" class="nav-link" data-scroll-target="#week-15-democracy-and-public-reasoning">Week 15: Democracy and Public Reasoning</a></li>
+  </ul></li>
+  <li><a href="#plagiarism" id="toc-plagiarism" class="nav-link" data-scroll-target="#plagiarism">Plagiarism</a></li>
+  <li><a href="#disability" id="toc-disability" class="nav-link" data-scroll-target="#disability">Disability</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="syllabus-F26-444.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li><li><a href="syllabus-F26-444.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PHIL 444: Game Theory and Social Choice</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brian Weatherson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Fall 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="line-block"><strong>Lead Instructor</strong>: Brian Weatherson<br>
+<strong>Email</strong>: weath@umich.edu<br>
+<strong>Web</strong>: canvas.umich.edu<br>
+<strong>Office Hours</strong>: TBD</div>
+<p>&nbsp;</p>
+<section id="key-points" class="level2">
+<h2 class="anchored" data-anchor-id="key-points">Key Points</h2>
+<ul>
+<li>This course examines two philosophical questions about choice in social settings.</li>
+<li>The first half is on game theory, with a special focus on what we can rationally do when all we know is that everyone involved is rational, and what does this tell us about rationality?</li>
+<li>The second half works through Amartya Sen’s <em>Collective Choice and Social Welfare</em> (2017 expanded edition): what does it mean for a group to choose, and how can individual judgments be combined into collective ones?</li>
+<li>There will be more mathematics than in a typical philosophy course, but less than in an economics course covering this material. In particular, there will be no calculus.</li>
+<li>Assessment consists of two essays (25% each), eight quizzes with the best six counting for 40% in total, and class participation (10%).</li>
+</ul>
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>This course examines two philosophical questions about choice in social settings.</p>
+<p>The first half asks what rational choice looks like when the unknowns are not natural events (the weather, the bus arrival time) but the actions of other rational agents who are reasoning about you. Standard expected-utility theory does not pin down behavior in such settings. We work through the central solution concepts of game theory (Nash equilibrium, rationalizability, subgame perfection, perfect Bayesian equilibrium) and ask what philosophical claims each one rests on. At the end we discuss signaling games and refinements of equilibrium concepts, the beer-quiche example and the Cho-Kreps intuitive criterion, and two famous applications of these games: used car markets and job-market signaling.</p>
+<p>The second half asks what it means for a group to choose. Working from Sen’s <em>Collective Choice and Social Welfare</em> (2017 expanded edition), we study the formalism behind results like Arrow’s famous impossibility theorem and the philosophical responses Sen develops, including his work on interpersonal comparison, justice, rights, and the limits of welfarism.</p>
+<p>The unifying theme is that individual rationality does not extend cleanly to social settings. Game theory and social choice theory are two related, but interestingly distinct, ways of seeing how social settings create new complications. We will look at what philosophers, political scientists, and economists, have made of these complications.</p>
+</section>
+<section id="required-materials" class="level2">
+<h2 class="anchored" data-anchor-id="required-materials">Required Materials</h2>
+<p>The required text is:</p>
+<ul>
+<li>Amartya Sen, <em>Collective Choice and Social Welfare: An Expanded Edition</em> (Harvard University Press, 2017). Available electronically through the University of Michigan library. (Hereafter called CCSW.)</li>
+</ul>
+<p>The main reading for the first half is my own lecture notes, <em>Game Theory and Social Choice</em>, free at <a href="https://bweatherson.github.io/F26-Phil444-site/notes/" class="uri">https://bweatherson.github.io/F26-Phil444-site/notes/</a>, supplemented by three classic papers (Akerlof on lemons, Spence on job-market signalling, Cho and Kreps on the intuitive criterion). Giacomo Bonanno’s <em>Game Theory</em>, also free, is a good second voice if you’d like something other than my lectures and my notes. Very usefully, it comes with worked solutions to every exercise. It’s available at <a href="https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf" class="uri">https://faculty.econ.ucdavis.edu/faculty/bonanno/PDF/GT_book.pdf</a>. Section numbers in the schedule refer to that file, which is the third edition. If you just Google it you might find earlier editions, which have slightly different numbers. (ArXiV, for instance, just has the second edition.)</p>
+<p>There will be some supplementary readings in the second half, which will be linked, but the priority is CCSW. All readings will be made available through Canvas or the course website.</p>
+</section>
+<section id="course-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="course-requirements">Course Requirements</h2>
+<ul>
+<li>There will be 2 essays, each worth 25% of the grade, one for each half of the course.</li>
+<li>There will be 8 quizzes over the semester. Your best 6 results count, and together they are worth 40% of the grade.</li>
+<li>10% of the grade is for participation in class.</li>
+</ul>
+</section>
+<section id="summary-of-grading-system" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-grading-system">Summary of Grading System</h2>
+<ol type="1">
+<li>Essays - 2 essays, 25% each: 50%</li>
+<li>Quizzes - best 6 of 8: 40%</li>
+<li>Class participation: 10%</li>
+</ol>
+</section>
+<section id="canvas" class="level2">
+<h2 class="anchored" data-anchor-id="canvas">Canvas</h2>
+<p>There is a Canvas site for this course, which can be accessed from <a href="https://canvas.umich.edu" class="uri">https://canvas.umich.edu</a>. Course documents will be available from this site. Please make sure that you can access this site. Consult the site regularly for announcements, including changes to the course schedule. And there are many tools on the site to communicate with each other, and with me.</p>
+<p>There is also a github site for the course which contains more documents, and it is at <a href="https://bweatherson.github.io/F26-Phil444-site/" class="uri">https://bweatherson.github.io/F26-Phil444-site/</a>.</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="class-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="class-schedule">Class Schedule</h2>
+<p>Readings should be done before the scheduled class. Lectures 1-14 cover game theory; Lectures 15-28 cover social choice theory, working through Sen’s <em>Collective Choice and Social Welfare</em> (cited below as CCSW). “Notes” below refers to my lecture notes, <em>Game Theory and Social Choice</em>, at <a href="https://bweatherson.github.io/F26-Phil444-site/notes/" class="uri">https://bweatherson.github.io/F26-Phil444-site/notes/</a>.</p>
+<p>CCSW alternates between chapters and starred chapters. The starred chapters are more mathematical. Sen says in the preface that the unstarred chapters can be read on their own, and we’re <em>mostly</em> going to follow him. We will mostly be using the unstarred chapers as reqiured reading, and the starred ones as recommended, and I’ll go over the key proofs. But we won’t <em>always</em> to this. In some cases the formalism is the point of what we’re studying, and in those cases we’ll be focussing on the starred chapters. ‘Recommended’ here really does mean <em>recommended</em>; if you’re struggling with any of the quizzes, then looking through Sen’s presentation of the formal work may very well help.</p>
+<p>In general (and I think this is true for every class), if you are doing an essay on a topic, the recommended readings should be treated as <em>required</em>. If you choose to write on something, I expect you to be on top of both the prose version of the topic, and the mathematical version. In part two, this will be easy to follow, since Sen is very good about separating out these versions.</p>
+<p>The plan for the second half is not set in stone. This is a seminar working through a book, and I think the best practice for classes like that is to let the class itself determine the pace. I’ve made a best guess at what speed we’ll work at, but it’s just that, a best guess. If we need more time for something than I’ve guessed, we’ll take more time.</p>
+<p>The order will not change. There is a plan for how later parts build on earlier parts, even within the Choose Your Own Adventure structure of CCSW. If we don’t get to stuff, it comes out of the end.</p>
+<p>Changes to a week’s reading will be posted on Canvas by the Friday before. If nothing is posted, what is below stands.</p>
+<p>Quizzes cover the material through the previous class meeting, whatever that turned out to be, rather than whatever this schedule says it should have been.</p>
+<section id="week-1-decision-and-strategic-settings" class="level3">
+<h3 class="anchored" data-anchor-id="week-1-decision-and-strategic-settings">Week 1: Decision and Strategic Settings</h3>
+<section id="tuesday-september-01-lecture-1" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-september-01-lecture-1">Tuesday, September 01 (Lecture&nbsp;1)</h4>
+<p><strong>Topic</strong>: Course overview and the two organizing questions.<br>
+<strong>Reading</strong>: None.</p>
+</section>
+<section id="thursday-september-03-lecture-2" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-september-03-lecture-2">Thursday, September 03 (Lecture&nbsp;2)</h4>
+<p><strong>Topic</strong>: Decision theory under risk and uncertainty: expected utility, Allais and Ellsberg. The formal contrast with strategic settings.<br>
+<strong>Reading</strong>: Notes, 2.4-2.5 (Expected Value; Orthodox Decision Theory).<br>
+<strong>Recommended</strong>: Notes, 2.1-2.3, if you want the probability revision. Bonanno, 5.1-5.3, for a more careful statement of the von Neumann-Morgenstern axioms.</p>
+</section>
+</section>
+<section id="week-2-strategic-form-games" class="level3">
+<h3 class="anchored" data-anchor-id="week-2-strategic-form-games">Week 2: Strategic Form Games</h3>
+<section id="tuesday-september-08-lecture-3" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-september-08-lecture-3">Tuesday, September 08 (Lecture&nbsp;3)</h4>
+<p><strong>Topic</strong>: Strategic form games; dominance and iterated elimination of dominated strategies.<br>
+<strong>Reading</strong>: Notes, Ch&nbsp;1 (Basics of Game Theory).1.10.<br>
+<strong>Recommended</strong>: Bonanno, Ch&nbsp;2 (Ordinal Games in Strategic Form), 2.1-2.2 and 2.5, which keeps the two iterated deletion procedures carefully apart.</p>
+</section>
+<section id="thursday-september-10-lecture-4" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-september-10-lecture-4">Thursday, September 10 (Lecture&nbsp;4)</h4>
+<p><strong>Topic</strong>: Nash equilibrium.<br>
+<strong>Reading</strong>: Notes, 3.1-3.6.2 (Mixed Strategies through Finding Best Responses).<br>
+<strong>Recommended</strong>: Bonanno, 2.6 (Nash equilibrium).</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;1 on Canvas, due Friday, September 11.</p>
+</section>
+</section>
+<section id="week-3-mixed-strategies-and-rationalizability" class="level3">
+<h3 class="anchored" data-anchor-id="week-3-mixed-strategies-and-rationalizability">Week 3: Mixed Strategies and Rationalizability</h3>
+<section id="tuesday-september-15-lecture-5" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-september-15-lecture-5">Tuesday, September 15 (Lecture&nbsp;5)</h4>
+<p><strong>Topic</strong>: Mixed strategies and the interpretation problem (Aumann; Harsanyi purification).<br>
+<strong>Reading</strong>: Notes, 3.6.3-3.8 (Finding Mixed Strategy Equilibria through What Is a Mixed Strategy?).<br>
+<strong>Recommended</strong>: Bonanno, Ch&nbsp;6 (Strategic-form Games), 6.1-6.3.</p>
+</section>
+<section id="thursday-september-17-lecture-6" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-september-17-lecture-6">Thursday, September 17 (Lecture&nbsp;6)</h4>
+<p><strong>Topic</strong>: Rationalizability; common knowledge of rationality.<br>
+<strong>Reading</strong>: Notes, 4.1 (Rationalizability).<br>
+<strong>Recommended</strong>: Bonanno, 6.4 (Strict dominance and rationalizability), and Ch&nbsp;10 (Rationality), 10.1-10.3. Ch&nbsp;8 (Common Knowledge) gives a more careful epistemic justification of rationalizability.</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;2 on Canvas, due Friday, September 18.</p>
+</section>
+</section>
+<section id="week-4-dynamic-games" class="level3">
+<h3 class="anchored" data-anchor-id="week-4-dynamic-games">Week 4: Dynamic Games</h3>
+<section id="tuesday-september-22-lecture-7" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-september-22-lecture-7">Tuesday, September 22 (Lecture&nbsp;7)</h4>
+<p><strong>Topic</strong>: Extensive form games; subgame perfection.<br>
+<strong>Reading</strong>: Notes, 5.1-5.4 (Normal Form and Extensive Form through Subgame Perfect Equilibrium).<br>
+<strong>Recommended</strong>: Bonanno, 3.1-3.3; 4.1-4.4; and 7.2, which redoes subgame perfection once payoffs are cardinal.</p>
+</section>
+<section id="thursday-september-24-lecture-8" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-september-24-lecture-8">Thursday, September 24 (Lecture&nbsp;8)</h4>
+<p><strong>Topic</strong>: Backward induction; the centipede paradox.<br>
+<strong>Reading</strong>: Notes, 5.5 (Problems with Backwards Induction).<br>
+<strong>Recommended</strong>: Bonanno, 3.2 and 3.4; 7.3 (Problems with the notion of subgame-perfect equilibrium); 10.4 (Common knowledge of rationality in extensive-form games).</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;3 on Canvas, due Friday, September 25.</p>
+</section>
+</section>
+<section id="week-5-forward-induction-and-bayesian-games" class="level3">
+<h3 class="anchored" data-anchor-id="week-5-forward-induction-and-bayesian-games">Week 5: Forward Induction and Bayesian Games</h3>
+<section id="tuesday-september-29-lecture-9" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-september-29-lecture-9">Tuesday, September 29 (Lecture&nbsp;9)</h4>
+<p><strong>Topic</strong>: Forward induction. Van Damme’s burning-money game; reasoning about what kind of player would have made an off-path move.<br>
+<strong>Reading</strong>: Notes, 5.6 (Money Burning Game).<br>
+<strong>Recommended</strong>: Elchanan Ben-Porath and Eddie Dekel, “Signaling future actions and the potential for sacrifice”, <em>Journal of Economic Theory</em> 57 (1992): 36-51. <a href="https://doi.org/10.1016/S0022-0531(05)80039-0" class="uri">https://doi.org/10.1016/S0022-0531(05)80039-0</a></p>
+</section>
+<section id="thursday-october-01-lecture-10" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-october-01-lecture-10">Thursday, October 01 (Lecture&nbsp;10)</h4>
+<p><strong>Topic</strong>: Bayesian games and Bayesian Nash equilibrium. Types, incomplete information, and Nash equilibrium applied to type-conditional strategies.<br>
+<strong>Reading</strong>: Notes, 6.1-6.5 (Two Kinds of Ignorance through Purification).<br>
+<strong>Recommended</strong>: Bonanno, Ch&nbsp;14 (Static Games), 14.1-14.3, and Ch&nbsp;16 (The Type-Space Approach), 16.1-16.2. Also 9.5 (Harsanyi consistency of beliefs), which is our common prior assumption under another name.</p>
+</section>
+</section>
+<section id="week-6-signaling-games" class="level3">
+<h3 class="anchored" data-anchor-id="week-6-signaling-games">Week 6: Signaling Games</h3>
+<section id="tuesday-october-06-lecture-11" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-october-06-lecture-11">Tuesday, October 06 (Lecture&nbsp;11)</h4>
+<p><strong>Topic</strong>: Signaling games; perfect Bayesian equilibrium.<br>
+<strong>Reading</strong>: Notes, 6.6-6.8 (Perfect Bayesian Equilibrium through Signaling without Cooperation).<br>
+<strong>Recommended</strong>: Bonanno, 13.1-13.3, and 15.1 (One-sided incomplete information).</p>
+</section>
+<section id="thursday-october-08-lecture-12" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-october-08-lecture-12">Thursday, October 08 (Lecture&nbsp;12)</h4>
+<p><strong>Topic</strong>: The beer-quiche game; the intuitive criterion.<br>
+<strong>Reading</strong>: Notes, 6.9 (The Intuitive Criterion). In-Koo Cho and David M. Kreps, “Signaling Games and Stable Equilibria”, <em>Quarterly Journal of Economics</em> 102 (1987): 179-221. <a href="https://www.jstor.org/stable/1885060" class="uri">https://www.jstor.org/stable/1885060</a><br>
+<strong>Recommended</strong>: Bonanno, Ch&nbsp;12 (Sequential Equilibrium). He does not cover the intuitive criterion, but this is a similar idea.</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;4 on Canvas, due Friday, October 09.</p>
+</section>
+</section>
+<section id="week-7-asymmetric-information" class="level3">
+<h3 class="anchored" data-anchor-id="week-7-asymmetric-information">Week 7: Asymmetric Information</h3>
+<section id="tuesday-october-13-lecture-13" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-october-13-lecture-13">Tuesday, October 13 (Lecture&nbsp;13)</h4>
+<p><strong>Topic</strong>: Spence on job-market signaling.<br>
+<strong>Reading</strong>: Michael Spence, “Job Market Signaling”, <em>Quarterly Journal of Economics</em> 87 (1973): 355-374. <a href="https://www.jstor.org/stable/1882010" class="uri">https://www.jstor.org/stable/1882010</a></p>
+</section>
+<section id="thursday-october-15-lecture-14" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-october-15-lecture-14">Thursday, October 15 (Lecture&nbsp;14)</h4>
+<p><strong>Topic</strong>: Akerlof on lemons.<br>
+<strong>Reading</strong>: George A. Akerlof, “The Market for ‘Lemons’: Quality Uncertainty and the Market Mechanism”, <em>Quarterly Journal of Economics</em> 84 (1970): 488-500. <a href="https://www.jstor.org/stable/1879431" class="uri">https://www.jstor.org/stable/1879431</a></p>
+</section>
+</section>
+<section id="week-8-transition" class="level3">
+<h3 class="anchored" data-anchor-id="week-8-transition">Week 8: Transition</h3>
+<section id="tuesday-october-20" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-october-20">Tuesday, October 20</h4>
+<p>No class – Fall Study Break (October 19-20).</p>
+</section>
+<section id="thursday-october-22-lecture-15" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-october-22-lecture-15">Thursday, October 22 (Lecture&nbsp;15)</h4>
+<p><strong>Topic</strong>: Introduction to CCSW.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;1 (Introduction); Ch&nbsp;A1 (Enlightenment and Impossibility).<br>
+<strong>Recommended</strong>: CCSW: New Introduction (2017). This is a really helpful overview about what the book is trying to do, and why it includes <em>these</em> topics.</p>
+</section>
+</section>
+<section id="week-9-foundations" class="level3">
+<h3 class="anchored" data-anchor-id="week-9-foundations">Week 9: Foundations</h3>
+<section id="tuesday-october-27-lecture-16" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-october-27-lecture-16">Tuesday, October 27 (Lecture&nbsp;16)</h4>
+<p><strong>Topic</strong>: The formal apparatus we’ll use.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;2 (Unanimity); Ch&nbsp;2* (Collective Choice Rules and Pareto Comparisons), section 2<em>1 only.<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;1</em> (Preference Relations). This is a <em>really</em> helpful overview of the terminology; you might want to build a ‘cheat sheet’ of key terms from it.</p>
+</section>
+<section id="thursday-october-29-lecture-17" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-october-29-lecture-17">Thursday, October 29 (Lecture&nbsp;17)</h4>
+<p><strong>Topic</strong>: Arrow’s theorem, with a focus on why three options are needed.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;3 (Collective Rationality).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;3* (Social Welfare Functions); Ch&nbsp;5 (Values and Choice); Ch&nbsp;5* (Anonymity, Neutrality and Responsiveness).</p>
+<p><strong>Essay</strong>: First essay due Friday, October 30 at 5pm.</p>
+</section>
+</section>
+<section id="week-10-arrows-theorem-and-the-first-escape" class="level3">
+<h3 class="anchored" data-anchor-id="week-10-arrows-theorem-and-the-first-escape">Week 10: Arrow’s Theorem, and the First Escape</h3>
+<section id="tuesday-november-03-lecture-18" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-november-03-lecture-18">Tuesday, November 03 (Lecture&nbsp;18)</h4>
+<p><strong>Topic</strong>: Sen’s proof of Arrow’s Theorem.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;A1* (Social Preference), to p.&nbsp;288.<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;3* (Social Welfare Functions).</p>
+</section>
+<section id="thursday-november-05-lecture-19" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-november-05-lecture-19">Thursday, November 05 (Lecture&nbsp;19)</h4>
+<p><strong>Topic</strong>: Views which reject Universal Domain, in particular the single-peakedness assumption<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;10 (Majority Choice and Related Systems).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;10* (Restricted Preferences and Rational Choice).</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;5, on Canvas, due Friday, November 06.</p>
+</section>
+</section>
+<section id="week-11-two-more-escapes" class="level3">
+<h3 class="anchored" data-anchor-id="week-11-two-more-escapes">Week 11: Two More Escapes</h3>
+<section id="tuesday-november-10-lecture-20" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-november-10-lecture-20">Tuesday, November 10 (Lecture&nbsp;20)</h4>
+<p><strong>Topic</strong>: Views which reject Collective Rationality, with a focus on Gibbard’s oligarchy result.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;A1* (Social Preference), pp.&nbsp;289-293; Ch&nbsp;4 (Choice Versus Orderings); Ch&nbsp;A2 (Rationality and Consistency).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;4* (Social Decision Functions); Ch&nbsp;A2* (Problems of Social Choice).</p>
+</section>
+<section id="thursday-november-12-lecture-21" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-november-12-lecture-21">Thursday, November 12 (Lecture&nbsp;21)</h4>
+<p><strong>Topic</strong>: Third escape: use more than preferences.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;7 (Interpersonal Aggregation and Comparability).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;7* (Aggregation Quasi-Orderings); Ch&nbsp;8 (Cardinality With or Without Comparability).</p>
+<p><strong>Quiz</strong>: Quiz&nbsp;6, on Canvas, due Friday, November 13.</p>
+</section>
+</section>
+<section id="week-12-strategy-and-liberty" class="level3">
+<h3 class="anchored" data-anchor-id="week-12-strategy-and-liberty">Week 12: Strategy and Liberty</h3>
+<section id="tuesday-november-17-lecture-22" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-november-17-lecture-22">Tuesday, November 17 (Lecture&nbsp;22)</h4>
+<p><strong>Topic</strong>: Strategic manipulation, up to the Gibbard-Satterthwaite theorem. (This brings game theory back into social choice theory.)<br>
+<strong>Reading</strong>: Amartya Sen, “The Possibility of Social Choice”, <em>American Economic Review</em> 89 (1999): 349-378. <a href="https://www.aeaweb.org/articles?id=10.1257/aer.89.3.349" class="uri">https://www.aeaweb.org/articles?id=10.1257/aer.89.3.349</a><br>
+<strong>Recommended</strong>: Allan Gibbard, “Manipulation of Voting Schemes: A General Result”, <em>Econometrica</em> 41 (1973): 587-601. <a href="https://www.jstor.org/stable/1914083" class="uri">https://www.jstor.org/stable/1914083</a></p>
+</section>
+<section id="thursday-november-19-lecture-23" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-november-19-lecture-23">Thursday, November 19 (Lecture&nbsp;23)</h4>
+<p><strong>Topic</strong>: Sen’s liberal paradox.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;6 (Conflicts and Dilemmas); Ch&nbsp;6* (The Liberal Paradox).<br>
+<strong>Recommended</strong>: Amartya Sen, “The Impossibility of a Paretian Liberal”, <em>Journal of Political Economy</em> 78 (1970): 152-157. <a href="https://doi.org/10.1086/259614" class="uri">https://doi.org/10.1086/259614</a></p>
+<p><strong>Quiz</strong>: Quiz&nbsp;7, on Canvas, due Friday, November 20.</p>
+</section>
+</section>
+<section id="week-13-rights" class="level3">
+<h3 class="anchored" data-anchor-id="week-13-rights">Week 13: Rights</h3>
+<section id="tuesday-november-24-lecture-24" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-november-24-lecture-24">Tuesday, November 24 (Lecture&nbsp;24)</h4>
+<p><strong>Topic</strong>: Rights and social choice. Sen’s later response to his own paradox.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;A5 (The Idea of Rights).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;A5* (Rights and Social Choice).</p>
+</section>
+<section id="thursday-november-26" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-november-26">Thursday, November 26</h4>
+<p>No class – Thanksgiving recess (November 25-27).</p>
+</section>
+</section>
+<section id="week-14-equity-justice-capability" class="level3">
+<h3 class="anchored" data-anchor-id="week-14-equity-justice-capability">Week 14: Equity, Justice, Capability</h3>
+<section id="tuesday-december-01-lecture-25" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-december-01-lecture-25">Tuesday, December 01 (Lecture&nbsp;25)</h4>
+<p><strong>Topic</strong>: Equity and justice. The weak equity axiom, and the limits of welfarism.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;9 (Equity and Justice).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;9* (Impersonality and Collective Quasi-Orderings); Ch&nbsp;A3 (Justice and Equity).</p>
+</section>
+<section id="thursday-december-03-lecture-26" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-december-03-lecture-26">Thursday, December 03 (Lecture&nbsp;26)</h4>
+<p><strong>Topic</strong>: The capability approach.<br>
+<strong>Reading</strong>: Amartya Sen, “Equality of What?”, Tanner Lecture on Human Values, Stanford University, 22 May 1979; reprinted in <em>Choice, Welfare and Measurement</em>. <a href="https://tannerlectures.org/lectures/equality-of-what/" class="uri">https://tannerlectures.org/lectures/equality-of-what/</a><br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;A3* (Social Welfare Evaluation). Martha Nussbaum, “Capabilities as Fundamental Entitlements: Sen and Social Justice”, <em>Feminist Economics</em> 9 (2003): 33-59. <a href="https://doi.org/10.1080/1354570022000077926" class="uri">https://doi.org/10.1080/1354570022000077926</a></p>
+<p><strong>Quiz</strong>: Quiz&nbsp;8, on Canvas, due Friday, December 04.</p>
+</section>
+</section>
+<section id="week-15-democracy-and-public-reasoning" class="level3">
+<h3 class="anchored" data-anchor-id="week-15-democracy-and-public-reasoning">Week 15: Democracy and Public Reasoning</h3>
+<section id="tuesday-december-08-lecture-27" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-december-08-lecture-27">Tuesday, December 08 (Lecture&nbsp;27)</h4>
+<p><strong>Topic</strong>: Democracy and public engagement.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;A4 (Democracy and Public Engagement).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;A4* (Votes and Majorities).</p>
+</section>
+<section id="thursday-december-10-lecture-28" class="level4">
+<h4 class="anchored" data-anchor-id="thursday-december-10-lecture-28">Thursday, December 10 (Lecture&nbsp;28)</h4>
+<p><strong>Topic</strong>: Reasoning and social decisions.<br>
+<strong>Reading</strong>: CCSW: Ch&nbsp;A6 (Reasoning and Social Decisions).<br>
+<strong>Recommended</strong>: CCSW: Ch&nbsp;11 (Theory and Practice).</p>
+<p><strong>FINAL ESSAY</strong>: Due Friday, December 18 at 5pm.</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+</section>
+<section id="plagiarism" class="level2">
+<h2 class="anchored" data-anchor-id="plagiarism">Plagiarism</h2>
+<p>Although team-work, and even co-authorship, is encouraged, plagiarism is strictly prohibited. You are responsible for making sure that none of your work is plagiarized. Be sure to cite work that you use, both direct quotations and paraphrased ideas. Any citation method that is tolerably clear is permitted, but if you’d like a good description of a citation scheme that works well in philosophy, look at <a href="http://bit.ly/VDhRJ4" class="uri">http://bit.ly/VDhRJ4</a>.</p>
+<p>You are encouraged to discuss the course material, including assignments, with your classmates, but all written work that you hand in under your own name must be your own. If work is handed is as the work of two people, you are affirming that each person did a fair share of the work. (Note that when you’re submitting work on Canvas, you have to each submit the paper, even if it is co-authored. That way Canvas knows that everyone has turned in work.)</p>
+<p>This is a 400-level course, so I don’t want to be as heavy-handed with enforcement as in a big lecture course. But still we have some basic ground rules.</p>
+<ol type="1">
+<li>Acknowledge all assistance that you got. Note that this is something Sen does somewhat briefly in the original Preface to CCSW, and at much greater length in the revised version.</li>
+<li>Don’t get any assistance from an LLM that you wouldn’t be happy to get from a human. List precisely what help you do get from LLMs, and keep a record of all interactions. (Don’t use anyone else’s account.)</li>
+<li>When I say the work is ‘your own’, I mean that if someone asked you about any sentence in it, you could answer two questions: <em>What does this mean?</em> and <em>Why did you say this?</em>. If I suspect you are turning in work that is not your own, I’ll be very disappointed, and the first step will be to ask you those two questions.</li>
+</ol>
+<p>You should also be familiar with the academic integrity policies of the College of Literature, Science &amp; the Arts at the University of Michigan, which are available here: <a href="http://www.lsa.umich.edu/academicintegrity/" class="uri">http://www.lsa.umich.edu/academicintegrity/</a>. Violations of these policies will be reported to the Office of the Assistant Dean for Student Academic Affairs, and sanctioned with a course grade of F.</p>
+</section>
+<section id="disability" class="level2">
+<h2 class="anchored" data-anchor-id="disability">Disability</h2>
+<p>The University of Michigan abides by the Americans with Disabilities Act of 1990, Section 504 of the Rehabilitation Act of 1973, and other applicable federal and state laws that prohibit discrimination on the basis of disability, which mandate that reasonable accommodations be provided for qualified students with disabilities.</p>
+<p>If you have a disability, and may require some type of instructional and/or examination accommodation, please contact me early in the semester. If you have not already done so, you will also need to register with the Office of Services for Students with Disabilities. The office is located at G664 Haven Hall.</p>
+<p>For more information on disability services at the University of Michigan, go to <a href="http://ssd.umich.edu" class="uri">http://ssd.umich.edu</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
