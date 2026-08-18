@@ -39,13 +39,15 @@ Saying that utilities are real numbers has two implications for their structure.
 
 First, any two utilities are comparable. Either the first is greater, or the second is greater, or the two are equal.
 
-Second, this ratio has to be finite, as long as $u(a) > u(b) > u(c)$.
+Second, the following ratio has to be finite, as long as $u(a) > u(b) > u(c)$.
 
 $$
 \frac{u(a) - u(b)}{u(b) - u(c)}
 $$
 
 ## Utility
+
+The only thing we use utilities for is asking which act has the highest expected utility. Absolute utilities do not do any work, only comparisons between utilities. If you changed the utility of all outcomes by a constant, *nothing would change*.
 
 One slight oddity of this way of thinking about utilities is that utility level **zero** is not of any particular significance.
 
@@ -185,6 +187,10 @@ There is the probability of winning with reinforcements, and the probability of 
 
 In philosophy, the main way people react to this is by **changing the formula** for expected value.
 
+Or, more precisely, the main way*s* that people react to this is by changing the formula, for there are two main suggestions for what change we should make.
+
+. . .
+
 One approach, called **Evidential Decision Theory**, says that instead of $\Pr(S)$, you should use $\Pr(S | A)$.
 
 Another approach, sometimes called **Causal Decision Theory** (though that name is used for many different theories), says that you should use $\Pr(A \rightarrow S)$, for some understanding of $\rightarrow$.
@@ -195,11 +201,11 @@ In game theory, the standard way to handle this problem is to put a **constraint
 
 In particular, it's only a properly formed problem if the acts and the states are causally independent.
 
-This basically ends up being a version of Causal Decision Theory, though perhaps not exactly the same version.
+This basically ends up being a version of Causal Decision Theory, though perhaps not exactly the same version. (Just how close to true this 'basically' claim is turns out, I think, to be an enormous question; not one we'll address here.)
 
 ## Newcomb's Problem
 
-Famously, these two views about how to handle the Henry V problem come apart in the case called **Newcomb's Problem** (named after the physicist who introduced it to philosophers).
+I introduced two possible changes to the expected value formula to handle the Henry V problem. They say the same thing to Henry, _Don't attack!_, but they say different things in the case called **Newcomb's Problem** (named after the physicist who introduced it to philosophers).
 
 :::{.callout-note appearance="minimal"}
 Human will be presented with two boxes, and will be told they can either take one box, the left one, or two boxes (i.e., both of them). The right hand box has \$1,000 in it. The left hand box won't be opened until a decision is made. A demon, who is very good at predictions, has predicted human's choice. If Demon predicted human would take 1 box, \$1,000,000 was put in the left box. If Demon predicted human would take 2 boxes, nothing was put in the left box.
@@ -222,13 +228,127 @@ We're *not* going to resolve this problem here. I just want you to note three th
 
 # Some Puzzles
 
-## Allais Paradox
+## The Allais Paradox {#sec-allais}
 
-## Ellsberg Paradox
+- In the expected utility formula, there is no place for the intuitive preference for safe outcomes over risky outcomes.
+- The orthodox view, which I share, is that this is accounted for entirely in the mapping between physical outcomes and utilities.
+- But there is a famous argument, due to the French economist (and 1998 Nobel Prize winner) Maurice Allais that this can't do the job.
 
-## Infinite Puzzles
+## A Pair of Choices
 
-## St Petersburg Paradox
+Allais imagines someone making two pairwise choices. Here is the first choice.
+
+- **1A**: \$1,000,000, guaranteed.
+- **1B**: a 1% chance of \$0, an 89% chance of \$1,000,000, and a 10% chance of \$5,000,000.
+
+. . .
+
+How many people think it's at least rationally permissible to take **1A**?
+
+## A Pair of Choices
+
+Here is the second choice.
+
+- **2A**: an 89% chance of \$0, and an 11% chance of \$1,000,000.
+- **2B**: a 90% chance of \$0, and a 10% chance of \$5,000,000.
+
+. . .
+
+How many people think it's at least rationally permissible to take **2B**?
+
+. . .
+
+How many people think it's both rationally permissible to take **1A** over **1B**, and to take **2B** over **2A**?
+
+## Allais' Argument
+
+1. It is rationally permissible to take **1A** over **1B**, and to take **2B** over **2A**.
+2. According to expected utility theory, it is not rationally permissible to take **1A** over **1B**, and to take **2B** over **2A**.
+3. Therefore, expected utility theory is wrong.
+
+. . .
+
+Can anyone see what the argument for premise 2 is?
+
+## The Argument for Premise 2
+
+Write $x$ for $U(\$5\text{M})$, $y$ for $U(\$1\text{M})$ and $z$ for $U(\$0)$. Preferring **1A** to **1B** means 
+
+\begin{align*}
+&nbsp; y &> 0.01z + 0.89y + 0.10x
+&\therefore 0.11y - 0.10x - 0.01z &> 0
+\end{equation*}
+
+Preferring **2B** to **2A** means
+
+\begin{align*}
+E(U(2A)) - E(U(2B)) &= (0.11y + 0.89z) - (0.10x + 0.90z) &< 0\\
+&\therefore 0.11y - 0.10x - 0.01z &<0
+\end{align*}
+
+## Ellsberg {#sec-ellsberg}
+
+- An American, Daniel Ellsberg, who went on to play a famous role in the anti-Vietnam war movement, developed a similar example, also involving a pair of pairwise choices.
+- An urn has 90 marbles in it. 
+- The subject is told that 30 marbles are red, and the other 60 are a mix of black and yellow. 
+- They are not told what the mixture is. 
+- They will be offered a choice between two bets, which have the same return, say \$10 if you win, and \$0 if you lose. 
+
+## Ellsberg's Pair of Choices
+
+Here is the first choice.
+
+- **1A**: You win if the marble is red, and lose otherwise.
+- **1B**: You win if the marble is black, and lose otherwise.
+
+. . .
+
+How many people think it's at least rationally permissible to take **1A**?
+
+## Ellsberg's Pair of Choices
+
+Here is the second pair
+
+- **2A**: You win if the marble is red or yellow, and lose otherwise.
+- **2B**: You win if the marble is black or yellow, and lose otherwise.
+
+How many people think it's at least rationally permissible to take **2B**?
+
+. . .
+
+How many people think it's both rationally permissible to take **1A** over **1B**, and to take **2B** over **2A**?
+
+## Varieties of Sure Thing
+
+::: {.callout-tip title="Value of Irrelevant Alternatives"}
+Consider any choice between lotteries **A** and **B** where there is some possibility where the two options return the same amount, and you prefer **A** to **B**. Changing the lottery simply by changing that common amount, without making any other changes, shouldn't change your preferences. All that matters it that you get the same amount in that outcome, not what that 'same amount' is.
+:::
+
+The intuitions that both Allais and Ellsberg are trying to draw out imply that this principle is *false*.
+
+## Differences Between the Arguments
+
+- The Allais paradox suggests that we are wrong to say that all attitudes to risk are accounted for by declining marginal utility. 
+- The Ellsberg paradox suggests that we are wrong to act as if everyone has a probability function in their head. 
+
+. . .
+
+Think about how you'd do a version of the algebraic argument that **1A**/**2B** is inconsistent in the Ellsberg case.
+
+## Ellsberg and Numerical Probability
+
+- In expected utility, theory everyone has a probability for every important possibility in their head. 
+- Assume the chooser assigns probability $y$ to the drawn marble being yellow. 
+- The probability of **1A** winning is 1/3, and the probability of **1B** winning is 2/3-$y$, so if they prefer **1A** to **1B**, it follows that $y$ is greater than 1/3. 
+- The probability of **2A** winning is 1/3+$y$, and the probability of **2B** winning is 2/3. So $y$ is less than 1/3, contradicting the claim that it is greater.
+
+## Imprecise Probability
+
+- The response that Ellsberg and others gave to this argument is not to question the algebra, or to question the appeal to expected utility. 
+- It's to question the very assumption that there is such a thing as $y$. 
+- Or, in some versions, to question the assumption that it is a *number*. 
+- The modern version of this is the theory of _imprecise probability_, and several people in the UM philosophy department, most notably Jim Joyce, have developed versions of this approach.
+
 
 # Dynamic Choice
 

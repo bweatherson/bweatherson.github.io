@@ -82,5 +82,19 @@
     "title": "Philosophy 444 - Fall 2026",
     "section": "Instructions for Slides",
     "text": "Instructions for Slides\nThe slides are built using revealjs. To move around them, the four key things to know are:\n\nLeft and right arrows move between sections.\nUp and down arrows move between slides within a section.\nIf you move the cursor to the top left corner a three-bar menu appears. Click on it and you can move between any slides.\nOr simply use space bar to advance one slide forward at any time."
+  },
+  {
+    "objectID": "slides/02.html#sec-allais",
+    "href": "slides/02.html#sec-allais",
+    "title": "Game Theory and Social Choice",
+    "section": "The Allais Paradox",
+    "text": "The Allais Paradox\n\nIn the expected utility formula, there is no place for the intuitive preference for safe outcomes over risky outcomes.\nThe orthodox view, which I share, is that this is accounted for entirely in the mapping between physical outcomes and utilities.\nBut there is a famous argument, due to the French economist (and 1998 Nobel Prize winner) Maurice Allais that this can’t do the job."
+  },
+  {
+    "objectID": "slides/02.html#sec-ellsberg",
+    "href": "slides/02.html#sec-ellsberg",
+    "title": "Game Theory and Social Choice",
+    "section": "Ellsberg",
+    "text": "Ellsberg\n\nAn American, Daniel Ellsberg, who went on to play a famous role in the anti-Vietnam war movement, developed a similar example, also involving a pair of pairwise choices.\nAn urn has 90 marbles in it.\nThe subject is told that 30 marbles are red, and the other 60 are a mix of black and yellow.\nThey are not told what the mixture is.\nThey will be offered a choice between two bets, which have the same return, say $10 if you win, and $0 if you lose."
   }
 ]

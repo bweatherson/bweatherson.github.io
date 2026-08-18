@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Brian Weatherson">
-  <meta name="dcterms.date" content="2026-09-06">
+  <meta name="dcterms.date" content="2026-09-03">
   <title>Game Theory and Social Choice</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -139,12 +142,12 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Brian Weatherson 
+Brian Weatherson
 </div>
 </div>
 </div>
 
-  <p class="date">2026-09-06</p>
+  <p class="date">2026-09-03</p>
 </section>
 <section>
 <section class="title-slide slide level1 center">
@@ -160,7 +163,7 @@ Brian Weatherson
 <li class="fragment">Payoffs</li>
 </ol>
 <div class="fragment">
-<p>The aim is identify which acts are worth choosing.</p>
+<p>The aim is to identify which acts are worth choosing.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -176,13 +179,14 @@ Brian Weatherson
 <p>Even still, it’s not obvious why payoffs should be real numbers.</p>
 <p>Saying that utilities are real numbers has two implications for their structure.</p>
 <p>First, any two utilities are comparable. Either the first is greater, or the second is greater, or the two are equal.</p>
-<p>Second, this ratio has to be finite, as long as <span class="math inline">\(u(a) &gt; u(b) &gt; u(c)\)</span>.</p>
+<p>Second, the following ratio has to be finite, as long as <span class="math inline">\(u(a) &gt; u(b) &gt; u(c)\)</span>.</p>
 <p><span class="math display">\[
 \frac{u(a) - u(b)}{u(b) - u(c)}
 \]</span></p>
 </section>
 <section class="slide level2">
 <h2>Utility</h2>
+<p>The only thing we use utilities for is asking which act has the highest expected utility. Absolute utilities do not do any work, only comparisons between utilities. If you changed the utility of all outcomes by a constant, <em>nothing would change</em>.</p>
 <p>One slight oddity of this way of thinking about utilities is that utility level <strong>zero</strong> is not of any particular significance.</p>
 <p>All that’s going to matter are differences between utilities, and ratios of these differences.</p>
 <p>By default, we’ll set 0 as the utility of the status quo, but that’s just a convention with no content.</p>
@@ -195,7 +199,7 @@ Brian Weatherson
 \begin{align*}
 &amp;\Pr(\top) = 1 \\
 &amp;\Pr(\bot) = 0 \\
-&amp;\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = Pr(A) + Pr(B)
+&amp;\text{If }\neg(A \wedge B) \text { is a theorem then }\Pr(A \vee B) = \Pr(A) + \Pr(B)
 \end{align*}
 \]</span></p>
 </section>
@@ -214,7 +218,7 @@ Brian Weatherson
 <h2>Conditionalisation</h2>
 <p>Probabilities change with evidence. The usual rule for how they change is called <strong>conditionalisation</strong>. It says that probabilities should update as follows.</p>
 <p><span class="math display">\[
-\Pr_E(H) = Pr(H | E)
+\Pr_E(H) = \Pr(H | E)
 \]</span></p>
 <p>In words, the probability of hypothesis <span class="math inline">\(H\)</span> after getting evidence <span class="math inline">\(E\)</span> is the old conditional probability of <span class="math inline">\(H\)</span> given <span class="math inline">\(E\)</span>.</p>
 <div class="fragment">
@@ -348,18 +352,21 @@ E(R) &amp;= wa_3 + (1-w)a_4
 <section class="slide level2">
 <h2>A Puzzle about Causation</h2>
 <p>In philosophy, the main way people react to this is by <strong>changing the formula</strong> for expected value.</p>
+<p>Or, more precisely, the main way<em>s</em> that people react to this is by changing the formula, for there are two main suggestions for what change we should make.</p>
+<div class="fragment">
 <p>One approach, called <strong>Evidential Decision Theory</strong>, says that instead of <span class="math inline">\(\Pr(S)\)</span>, you should use <span class="math inline">\(\Pr(S | A)\)</span>.</p>
 <p>Another approach, sometimes called <strong>Causal Decision Theory</strong> (though that name is used for many different theories), says that you should use <span class="math inline">\(\Pr(A \rightarrow S)\)</span>, for some understanding of <span class="math inline">\(\rightarrow\)</span>.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>A Puzzle about Causation</h2>
 <p>In game theory, the standard way to handle this problem is to put a <strong>constraint on what counts as a state</strong>.</p>
 <p>In particular, it’s only a properly formed problem if the acts and the states are causally independent.</p>
-<p>This basically ends up being a version of Causal Decision Theory, though perhaps not exactly the same version.</p>
+<p>This basically ends up being a version of Causal Decision Theory, though perhaps not exactly the same version. (Just how close to true this ‘basically’ claim is turns out, I think, to be an enormous question; not one we’ll address here.)</p>
 </section>
 <section class="slide level2">
 <h2>Newcomb’s Problem</h2>
-<p>Famously, these two views about how to handle the Henry V problem come apart in the case called <strong>Newcomb’s Problem</strong> (named after the physicist who introduced it to philosophers).</p>
+<p>I introduced two possible changes to the expected value formula to handle the Henry V problem. They say the same thing to Henry, <em>Don’t attack!</em>, but they say different things in the case called <strong>Newcomb’s Problem</strong> (named after the physicist who introduced it to philosophers).</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
@@ -382,8 +389,152 @@ E(R) &amp;= wa_3 + (1-w)a_4
 <ol type="1">
 <li class="fragment">If you calculate expected utilities with conditional probabilities, you get the 1 box, Evidential, theory. If you use probabilities of (subjunctive) conditionals, you get the 2 box, Causal, theory.</li>
 <li class="fragment">Insisting on acts and states being causally separate and then using the simple theory for expected utility also leads to the 2 box answer.</li>
-<li class="fragment">This is all going to be related to what we say about Prisoners’ Dilemma.</li>
+<li class="fragment">This is all going to be related to what we say about Prisoner’s Dilemma.</li>
 </ol>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Some Puzzles</h1>
+
+</section>
+<section id="sec-allais" class="slide level2">
+<h2>The Allais Paradox</h2>
+<ul>
+<li class="fragment">In the expected utility formula, there is no place for the intuitive preference for safe outcomes over risky outcomes.</li>
+<li class="fragment">The orthodox view, which I share, is that this is accounted for entirely in the mapping between physical outcomes and utilities.</li>
+<li class="fragment">But there is a famous argument, due to the French economist (and 1998 Nobel Prize winner) Maurice Allais that this can’t do the job.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>A Pair of Choices</h2>
+<p>Allais imagines someone making two pairwise choices. Here is the first choice.</p>
+<ul>
+<li class="fragment"><strong>1A</strong>: $1,000,000, guaranteed.</li>
+<li class="fragment"><strong>1B</strong>: a 1% chance of $0, an 89% chance of $1,000,000, and a 10% chance of $5,000,000.</li>
+</ul>
+<div class="fragment">
+<p>How many people think it’s at least rationally permissible to take <strong>1A</strong>?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Pair of Choices</h2>
+<p>Here is the second choice.</p>
+<ul>
+<li class="fragment"><strong>2A</strong>: an 89% chance of $0, and an 11% chance of $1,000,000.</li>
+<li class="fragment"><strong>2B</strong>: a 90% chance of $0, and a 10% chance of $5,000,000.</li>
+</ul>
+<div class="fragment">
+<p>How many people think it’s at least rationally permissible to take <strong>2B</strong>?</p>
+</div>
+<div class="fragment">
+<p>How many people think it’s both rationally permissible to take <strong>1A</strong> over <strong>1B</strong>, and to take <strong>2B</strong> over <strong>2A</strong>?</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Allais’ Argument</h2>
+<ol type="1">
+<li class="fragment">It is rationally permissible to take <strong>1A</strong> over <strong>1B</strong>, and to take <strong>2B</strong> over <strong>2A</strong>.</li>
+<li class="fragment">According to expected utility theory, it is not rationally permissible to take <strong>1A</strong> over <strong>1B</strong>, and to take <strong>2B</strong> over <strong>2A</strong>.</li>
+<li class="fragment">Therefore, expected utility theory is wrong.</li>
+</ol>
+<div class="fragment">
+<p>Can anyone see what the argument for premise 2 is?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Argument for Premise 2</h2>
+<p>Write <span class="math inline">\(x\)</span> for <span class="math inline">\(U(\$5\text{M})\)</span>, <span class="math inline">\(y\)</span> for <span class="math inline">\(U(\$1\text{M})\)</span> and <span class="math inline">\(z\)</span> for <span class="math inline">\(U(\$0)\)</span>. Preferring <strong>1A</strong> to <strong>1B</strong> means</p>
+<p><span class="math display">\[\begin{align*}
+&amp;nbsp; y &amp;&gt; 0.01z + 0.89y + 0.10x
+&amp;\therefore 0.11y - 0.10x - 0.01z &amp;&gt; 0
+\end{equation*}
+
+Preferring **2B** to **2A** means
+
+\begin{align*}
+E(U(2A)) - E(U(2B)) &amp;= (0.11y + 0.89z) - (0.10x + 0.90z) &amp;&lt; 0\\
+&amp;\therefore 0.11y - 0.10x - 0.01z &amp;&lt;0
+\end{align*}\]</span></p>
+</section>
+<section id="sec-ellsberg" class="slide level2">
+<h2>Ellsberg</h2>
+<ul>
+<li class="fragment">An American, Daniel Ellsberg, who went on to play a famous role in the anti-Vietnam war movement, developed a similar example, also involving a pair of pairwise choices.</li>
+<li class="fragment">An urn has 90 marbles in it.</li>
+<li class="fragment">The subject is told that 30 marbles are red, and the other 60 are a mix of black and yellow.</li>
+<li class="fragment">They are not told what the mixture is.</li>
+<li class="fragment">They will be offered a choice between two bets, which have the same return, say $10 if you win, and $0 if you lose.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Ellsberg’s Pair of Choices</h2>
+<p>Here is the first choice.</p>
+<ul>
+<li class="fragment"><strong>1A</strong>: You win if the marble is red, and lose otherwise.</li>
+<li class="fragment"><strong>1B</strong>: You win if the marble is black, and lose otherwise.</li>
+</ul>
+<div class="fragment">
+<p>How many people think it’s at least rationally permissible to take <strong>1A</strong>?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Ellsberg’s Pair of Choices</h2>
+<p>Here is the second pair</p>
+<ul>
+<li class="fragment"><strong>2A</strong>: You win if the marble is red or yellow, and lose otherwise.</li>
+<li class="fragment"><strong>2B</strong>: You win if the marble is black or yellow, and lose otherwise.</li>
+</ul>
+<p>How many people think it’s at least rationally permissible to take <strong>2B</strong>?</p>
+<div class="fragment">
+<p>How many people think it’s both rationally permissible to take <strong>1A</strong> over <strong>1B</strong>, and to take <strong>2B</strong> over <strong>2A</strong>?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Varieties of Sure Thing</h2>
+<div title="Value of Irrelevant Alternatives">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Value of Irrelevant Alternatives</strong></p>
+</div>
+<div class="callout-content">
+<p>Consider any choice between lotteries <strong>A</strong> and <strong>B</strong> where there is some possibility where the two options return the same amount, and you prefer <strong>A</strong> to <strong>B</strong>. Changing the lottery simply by changing that common amount, without making any other changes, shouldn’t change your preferences. All that matters it that you get the same amount in that outcome, not what that ‘same amount’ is.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The intuitions that both Allais and Ellsberg are trying to draw out imply that this principle is <em>false</em>.</p>
+</section>
+<section class="slide level2">
+<h2>Differences Between the Arguments</h2>
+<ul>
+<li class="fragment">The Allais paradox suggests that we are wrong to say that all attitudes to risk are accounted for by declining marginal utility.</li>
+<li class="fragment">The Ellsberg paradox suggests that we are wrong to act as if everyone has a probability function in their head.</li>
+</ul>
+<div class="fragment">
+<p>Think about how you’d do a version of the algebraic argument that <strong>1A</strong>/<strong>2B</strong> is inconsistent in the Ellsberg case.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Ellsberg and Numerical Probability</h2>
+<ul>
+<li class="fragment">In expected utility, theory everyone has a probability for every important possibility in their head.</li>
+<li class="fragment">Assume the chooser assigns probability <span class="math inline">\(y\)</span> to the drawn marble being yellow.</li>
+<li class="fragment">The probability of <strong>1A</strong> winning is 1/3, and the probability of <strong>1B</strong> winning is 2/3-<span class="math inline">\(y\)</span>, so if they prefer <strong>1A</strong> to <strong>1B</strong>, it follows that <span class="math inline">\(y\)</span> is greater than 1/3.</li>
+<li class="fragment">The probability of <strong>2A</strong> winning is 1/3+<span class="math inline">\(y\)</span>, and the probability of <strong>2B</strong> winning is 2/3. So <span class="math inline">\(y\)</span> is less than 1/3, contradicting the claim that it is greater.</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Imprecise Probability</h2>
+<ul>
+<li class="fragment">The response that Ellsberg and others gave to this argument is not to question the algebra, or to question the appeal to expected utility.</li>
+<li class="fragment">It’s to question the very assumption that there is such a thing as <span class="math inline">\(y\)</span>.</li>
+<li class="fragment">Or, in some versions, to question the assumption that it is a <em>number</em>.</li>
+<li class="fragment">The modern version of this is the theory of <em>imprecise probability</em>, and several people in the UM philosophy department, most notably Jim Joyce, have developed versions of this approach.</li>
+</ul>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -407,7 +558,7 @@ E(R) &amp;= wa_3 + (1-w)a_4
 <h2>A Third Approach</h2>
 <p>There is a much less popular third approach, called <strong>conservative</strong> choice. It has two components.</p>
 <ul>
-<li class="fragment">Like the resolute theory, is says that one should pick a strategy at the start which makes sense and stick with it.</li>
+<li class="fragment">Like the resolute theory, it says that one should pick a strategy at the start which makes sense and stick with it.</li>
 <li class="fragment">Like the sophisticated theory, it says that this theory should continue to make sense at each subsequent node. It does not say this choice has to be <strong>best</strong>, just that it has to be <strong>permissible</strong>.</li>
 <li class="fragment">Equivalently, it adds to the sophisticated theory the view that one must know what one will do at later nodes, not just that one will be rational.</li>
 </ul>
@@ -762,7 +913,7 @@ In decision theory, there is no way to solve this problem, because there are no 
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444_site");
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

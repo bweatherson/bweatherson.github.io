@@ -3,18 +3,21 @@ title: "Of the Liberty of Thought and Discussion"
 subtitle: "Two extracts from Chapter 2 of _On Liberty_"
 author: "John Stuart Mill and Harriet Taylor Mill"
 format:
-  pdf:
-    pdf-engine: xelatex
-    geometry: margin=1in
+  # Typst rather than LaTeX so the PDF comes out tagged, which is what Canvas's
+  # accessibility checker wants. Matches the syllabus and the 444 documents.
+  typst:
+    keep-typ: true
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    mainfont: "EB Garamond"
     fontsize: 12pt
-    mainfont: "EB Garamond Math"
-    mainfontoptions:
-      - BoldFont=EB Garamond SemiBold
-      - ItalicFont=EB Garamond Italic
-      - BoldItalicFont=EB Garamond SemiBold Italic
     include-in-header:
       text: |
-        \linespread{1.06}
+        // Open the leading a little; this is meant to be read at length.
+        // Roughly what \linespread{1.1} was doing under xelatex.
+        #set par(leading: 0.72em)
   html:
     theme: cosmo
     toc: false
@@ -63,10 +66,8 @@ It is necessary to consider separately these two hypotheses, each of which has a
 
 First: the opinion which it is attempted to suppress by authority may possibly be true. Those who desire to suppress it, of course deny its truth; but they are not infallible. They have no authority to decide the question for all mankind, and exclude every other person from the means of judging. To refuse a hearing to an opinion, because they are sure that it is false, is to assume that *their* certainty is the same thing as *absolute* certainty. All silencing of discussion is an assumption of infallibility. Its condemnation may be allowed to rest on this common argument, not the worse for being common.
 
-::: {.center data-latex=""}
 *[Mill and Taylor Mill argue the first two grounds at length, over some fourteen
 thousand words. The chapter closes by drawing all four together.]*
-:::
 
 ### II. The four grounds
 

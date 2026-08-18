@@ -3,18 +3,21 @@ title: "What Utilitarianism Is"
 subtitle: "Start of Chapter 2 of *Utilitarianism*"
 author: "John Stuart Mill"
 format:
-  pdf:
-    pdf-engine: xelatex
-    geometry: margin=1.1in
+  # Typst rather than LaTeX so the PDF comes out tagged, which is what Canvas's
+  # accessibility checker wants. Matches the syllabus and the 444 documents.
+  typst:
+    keep-typ: true
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    mainfont: "EB Garamond"
     fontsize: 12pt
-    mainfont: "EB Garamond Math"
-    mainfontoptions:
-      - BoldFont=EB Garamond SemiBold
-      - ItalicFont=EB Garamond Italic
-      - BoldItalicFont=EB Garamond SemiBold Italic
     include-in-header:
       text: |
-        \linespread{1.1}
+        // Open the leading a little; this is meant to be read at length.
+        // Roughly what \linespread{1.1} was doing under xelatex.
+        #set par(leading: 0.72em)
   html:
     theme: cosmo
     toc: false
@@ -23,7 +26,7 @@ format:
 **Phil 101, Class 15.** Read this before class. It is about 1,350 words.
 
 **About these extracts.** Mill's *Utilitarianism* appeared in 1863. Printed here are
-the first five pargraphs from the second chapter. Mill states his theory, and then responds to the objection that a theory built on pleasure is fit only for pigs. The chapter carries on for about another eight thousand words, answering further
+the first five paragraphs from the second chapter. Mill states his theory, and then responds to the objection that a theory built on pleasure is fit only for pigs. The chapter carries on for about another eight thousand words, answering further
 objections. You are not asked to read those, though you are welcome to.
 
 The text comes from Project Gutenberg's edition of *Utilitarianism*, eBook 11224,
