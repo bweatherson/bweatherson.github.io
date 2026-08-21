@@ -41,15 +41,15 @@ A long chain of deletions uses many layers of "I know that you know that I know.
 
 ## Iterated Knowledge
 
-:::: {.columns}
+:::: {layout="[45,55]"}
 
-::: {.column width="45%"}
+::: {}
 
 ![A vintage steam train](steam_train.jpg)
 
 :::
 
-::: {.column width="55%"}
+::: {}
 
 The dirty faces puzzle is a famous way to illustrate just how strong iterated mutual knowledge of rationality is.
 
@@ -279,9 +279,9 @@ This sounds like a similar concept to strict dominance, but it behaves very diff
 
 Consider a three-player game where players get 1 each at (U, L, F), and 0 each everywhere else.
 
-:::: {.columns}
+:::: {layout="[50,50]"}
 
-::: {.column width="50%"}
+::: {}
 
 |       | L         | R         |
 |------:|:---------:|:---------:|
@@ -292,7 +292,7 @@ Consider a three-player game where players get 1 each at (U, L, F), and 0 each e
 
 :::
 
-::: {.column width="50%"}
+::: {}
 
 |       | L         | R         |
 |------:|:---------:|:---------:|
@@ -325,9 +325,9 @@ So iterated weak dominance **eliminates Nash equilibria**. Should it?
 
 Now consider the dual: players get 1 each everywhere except (D, R, B), where they get 0.
 
-:::: {.columns}
+:::: {layout="[50,50]"}
 
-::: {.column width="50%"}
+::: {}
 
 |       | L         | R         |
 |------:|:---------:|:---------:|
@@ -338,7 +338,7 @@ Now consider the dual: players get 1 each everywhere except (D, R, B), where the
 
 :::
 
-::: {.column width="50%"}
+::: {}
 
 |       | L         | R         |
 |------:|:---------:|:---------:|

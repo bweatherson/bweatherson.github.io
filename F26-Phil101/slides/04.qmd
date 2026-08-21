@@ -9,9 +9,17 @@ date: "Fall 2026"
 
 ## Last time
 
-We looked at three ways of reasoning past the evidence, and found a case that they are all versions of one: you take the hypothesis that best explains what you have seen, and you back it.
+We split processing into the safe half and the risky half. Tuesday was about the safe half. Today is the other one.
 
-The ravens were the simple case. Every raven on record has been black, so the next one will be black.
+## One way of learning from the past
+
+There are various ways of reaching past what you have seen. The plainest is to spot a run and expect it to continue.
+
+Every raven on record has been black, so the next one will be black. That move has a name, **enumerative induction**, and it is the one we will work with.
+
+. . .
+
+Whether it is really distinct from the other candidates, and whether the list of candidates is complete, are good questions we are going to walk straight past.
 
 ## An old worry
 
@@ -112,6 +120,10 @@ Nothing in the data picks one out. The choice comes from how the system was buil
 . . .
 
 Practitioners call that inductive bias, and treat it as a design decision rather than a discovery. Goodman's riddle is the reason it has to be one.
+
+. . .
+
+This is the debt from Tuesday. A Bayesian system has to start somewhere, and the starting point is neither something perception delivered nor something processing worked out. Grue is what that starting point is doing.
 
 ## Where this leaves us
 

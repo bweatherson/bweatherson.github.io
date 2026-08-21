@@ -1,146 +1,198 @@
 ---
-title: "Risky Inferences: Induction, Analogy, Explanation"
+title: "Two Parts of a Mind"
 subtitle: "Phil 101 · Day 3"
 author: "Brian Weatherson"
 date: "Fall 2026"
 ---
 
-# From safe to risky
+# A picture of a learning system
 
-## Last Thursday
+## Two parts
 
-In the deduction game, a verdict was allowed only when the clues forced it. The conclusion was already sitting inside what you were given.
+Here is about the simplest picture of a thing that learns.
 
-. . .
+- **Perception** takes things in from the world.
+- **Processing** does something with what came in.
 
-We ended on the price of that. A valid argument never hands you anything that was not, in some form, already in the premises.
+Information enters at one end, gets worked on, and beliefs come out the other.
 
-## So what do you do
+## The division of labour
 
-To learn something new about the world, you have to draw a conclusion that runs past your evidence, and so might be wrong.
+Each part has one job.
 
-Inferences of that kind are the subject of today.
+Perception does not reason. It delivers.
 
-## Three risky moves
-
-We will look at three ways of reasoning past the evidence:
-
-- enumerative induction
-- argument from analogy
-- inference to the best explanation
-
-By the end there is a case that the first two are versions of the third.
-
-# Enumerative induction
-
-## From some to all
-
-You observe a run of cases and project the pattern onto the ones you have not seen.
-
-Every raven anyone has recorded has been black, so the next raven will be black, and perhaps all of them are.
+Processing does not look. It works on whatever it was handed.
 
 . . .
 
-The premises can be true and the conclusion false. The inference is risky by design.
+That tidiness is what makes the picture attractive, and it is also what we will spend the rest of today poking at.
 
-## The leap is the point
+## Why start here
 
-Nothing in the black ravens you have seen forces a colour on the raven you have not. The move from seen to unseen is a leap.
+Almost every view we meet this term is a modification of this picture: adding a part, splitting a part, or denying that the parts come apart.
 
-We make it all the time, and mostly it pays. Why it pays is a question we press on Thursday.
+So it is worth having in view, including the reasons to doubt it.
 
-# Argument from analogy
+# The picture is not just ours
 
-## From like to like
+## Bayesian machinery
 
-Two things are alike in several respects, so they are probably alike in one more.
+Very roughly, this is the shape of a Bayesian system.
 
-A new drug cured the disease in mice. Mice and humans share the relevant biology, so the drug may cure it in humans.
-
-. . .
-
-The whole weight of the inference rests on whether the similarities are the ones that matter.
-
-# Inference to the best explanation
-
-## From clues to cause
-
-You have some facts to account for. You ask which hypothesis, if it were true, would best explain them, and you conclude that it is true.
-
-This is the detective's move, which is why you read a detective.
-
-## Holmes at the pool
-
-In the pages you read, Holmes reaches the scene and changes:
-
-> Sherlock Holmes was transformed when he was hot upon such a scent as this... his nostrils seemed to dilate with a purely animal lust for the chase.
-
-He crawls over the ground with a lens, reading the trampled grass.
-
-## Two jobs, not one
-
-Watch him work in two stages.
-
-At the pool he gathers: the lens, the ash, the prints in the grass. That is observation.
-
-Back at the carriage he announces a tall, left-handed man who limps, wears thick-soled shooting boots, and smokes Indian cigars. That is inference.
+You start with some assignment of confidence. Evidence arrives. A rule tells you how to change your confidence in the light of it.
 
 . . .
 
-Holmes names the pair himself, earlier in the story than the part you read:
+Evidence coming in is the perception half. The updating rule is the processing half. The rule never gathers anything, and the evidence never reasons.
+
+## Machine learning, with hedges
+
+The picture is not foreign to a good deal of contemporary machine learning either, where something turns inputs into a representation and something else computes over the representation.
+
+The analogy is loose and you should not lean on it hard. But the two-part shape recurs, which is a reason to take it seriously and a reason to ask what it leaves out.
+
+# You can see the join in Holmes
+
+## The reading
+
+The two pages you read are a single scene, and they divide exactly down this line.
+
+First he gathers. Then he concludes.
+
+## Gathering
+
+> Sherlock Holmes was transformed when he was hot upon such a scent as this. Men who had only known the quiet thinker and logician of Baker Street would have failed to recognise him.
+
+He crawls over the ground with a lens. He is fast, silent, and not talking to anybody.
+
+## The tell
+
+Notice what Doyle does there. The two parts are not just doing different work; they *look* different from outside.
+
+> his nostrils seemed to dilate with a purely animal lust for the chase
+
+The quiet logician of Baker Street is the other mode. Same man, different behaviour, and Watson can tell which one is running.
+
+## Concluding
+
+Back at the carriage the animal is gone and the expositor is back:
+
+> Is a tall man, left-handed, limps with the right leg, wears thick-soled shooting-boots and a grey cloak, smokes Indian cigars, uses a cigar-holder, and carries a blunt pen-knife in his pocket.
+
+Nothing new comes in during that speech. He is working on what he already has.
+
+## He names the two himself
+
+Earlier in the story, before the part you read:
 
 > I only quote this as a trivial example of observation and inference. Therein lies my métier.
 
-## What he calls it
-
-Elsewhere Holmes calls his method deduction. It is no such thing.
-
-None of what he announces at the carriage is forced by the marks on the ground. A shorter man in borrowed boots is consistent with every print. Holmes backs his account because it fits the marks better than any rival does, not because the marks leave no alternative.
+Observation and inference. Perception and processing.
 
 . . .
 
-That is inference to the best explanation, wearing a famous disguise.
+He is describing our diagram, seventy years before anybody drew it.
 
-## Why the best, and not merely one
+# Reasons to doubt it
 
-Earlier, on the train, Watson says the facts of the case look obvious. Holmes:
+## Where might it go wrong
 
-> There is nothing more deceptive than an obvious fact.
+Three places, and we will take them in order.
 
-The work is not finding an explanation. It is finding the one that beats its rivals, which means taking the trouble to line up rivals worth beating.
+- Something might be neither perception nor processing.
+- Processing might not be one thing.
+- The line between the two might not be sharp.
 
-# Pulling the three together
+## Something that is neither
 
-## One move underneath
+Suppose some of what you know did not come in through the senses and was not worked out from what did.
 
-Gilbert Harman's suggestion is that the other two are inference to the best explanation in plainer clothes.
+That is the old idea of **innate ideas**: knowledge you arrive with. Plato has Meno's slave boy produce geometry he was never taught. Descartes thinks some ideas are stamped in. Chomsky argues no child hears enough language to explain what they end up knowing.
 
-Take the ravens. Calling "all ravens are black" the best explanation of the run you have seen is what licenses the jump to the next one. The mice work the same way, with shared biology as the best explanation of the shared cure.
+## The same worry, in the machinery
+
+The Bayesian version is sharper, and it is not historical at all.
+
+Before any evidence arrives, the system has to start somewhere. That starting point is not something perception delivered, and it is not something processing computed.
 
 . . .
 
-You need not accept this to use it. It is a way of seeing what the three have in common.
+Hold on to that. It comes back with a vengeance on Thursday.
 
-## What they share
+# Processing is not one thing
 
-Each one reaches past the evidence to something the evidence does not force. That reach is what makes them useful, and what makes them fallible.
+## Split it
 
-Holmes's whole art lives in that gap, between the marks on the ground and the man who left them.
+The obvious first cut is the one you have already met.
 
-# Reading
+- **Deduction**, where the conclusion is already settled by what you have.
+- **Induction**, where you reach past what you have to something new.
 
-## For today
+Tuesday was entirely deduction. The clues forced the verdicts, and finding them added nothing.
 
-Required:
+## Deduction is safe and gives nothing new
 
-> Arthur Conan Doyle, "The Boscombe Valley Mystery," in *The Adventures of Sherlock Holmes*, from "Sherlock Holmes was transformed" to "these may be enough to aid us in our search."
+That sounds like a complaint, and partly it is. But safety buys two things worth having.
 
-The two passages quoted above that fall outside those pages, the métier line and the line about obvious facts, come earlier in the story. Both are on the slides in full, so you have lost nothing by not having read them.
+## One: arguments chain
 
-Recommended: the rest of the story.
+Valid steps compose. Put a thousand together and the conclusion is as good as the premises.
 
-## Where this leaves us
+Modern machines chain billions of steps. If each step were merely very reliable rather than valid, a tiny error rate would compound until the output was worthless.
 
-Every inference today began from something given: ravens already seen, results already in, marks already on the ground.
+. . .
 
-On Thursday we ask what happens when even a spotless run of evidence fails to pin the answer down. That is the grue problem.
+Deduction is the only kind of inference you can do that much of and still trust the end.
+
+## Two: you can check the form
+
+A valid argument is valid because of its shape, not its subject.
+
+So you can check it without understanding it. Something that has no idea what the sentences mean can still verify that the reasoning has the right form.
+
+That is what makes proof-checking software possible, and it is why deduction is the part of reasoning we have been able to hand over.
+
+## And you could cut further
+
+Deduction and induction is a first cut, not the last one.
+
+Is memory a third thing, or storage attached to the other two? Is taking somebody's word for it a way of processing, or a second way of taking things in?
+
+. . .
+
+We spend three weeks on that second question later in the term.
+
+# Maybe the line is not sharp
+
+## Cognitive penetration
+
+The picture assumes perception hands over its results without caring what you already think.
+
+Some philosophers and psychologists deny this. The claim is that what you believe, expect or want can shape what you actually see, not merely what you conclude from it.
+
+## Why it matters, and why we stop here
+
+If it is right, the diagram does not just need more boxes. The arrow runs both ways, and perception stops being an independent check on what you believe.
+
+. . .
+
+The debate is live and technical: Susanna Siegel and Nicholas Silins on one side of it, Chaz Firestone and Brian Scholl arguing in *Behavioral and Brain Sciences* that cognition does not affect perception at all.
+
+We are not doing it in this course. You should know it exists, and that our tidy picture is contested at its foundation.
+
+# Where this goes
+
+## What we have
+
+A two-part picture, three ways of doubting it, and one part now split into the safe half and the risky half.
+
+## Thursday
+
+We take the risky half seriously and ask the obvious question about it.
+
+You have seen a thousand ravens and every one was black. What exactly entitles you to anything about the next one?
+
+. . .
+
+The answer is stranger than it looks.

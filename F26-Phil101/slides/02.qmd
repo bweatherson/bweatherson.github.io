@@ -1,122 +1,255 @@
 ---
-title: "Who Did It? Deduction and What Follows"
+title: "Arguments"
 subtitle: "Phil 101 · Day 2"
 author: "Brian Weatherson"
 date: "Fall 2026"
 ---
 
-# Playing first
+# Logic Games
 
-## Today is mostly you
+## Clues by Sam
 
-We are going to spend most of this class playing a game. It is on the course site, it runs in a browser, and it takes no setting up.
+::: {layout="[40,60]"}
 
-Play it, then we will talk about what you were doing while you played.
+::: {}
+![Clues by Sam](../images/cbs.jpg){fig-alt="Screenshot of a Clues by Sam game"}
+:::
 
-## Who Did It?
+::: {}
+Over the summer, I spent more time than I'd like to admit solving the puzzles at [cluesbysam.com](https://cluesbysam.com). 
 
-A board of people. Every one of them is either guilty or innocent, and there is no third option.
+The trick is to use clues to figure out which of the 20 people (or occasionally animals) shown on a grid like this are criminals, and which are innocent.
+:::
 
-You get a list of clues. Every clue on the list is true.
+:::
 
-. . .
 
-Your job is to say, for each person, which they are.
+## The promise on the box
 
-# The rules
+The site makes a promise about the game.
 
-## The clues
-
-The clues come in a few shapes:
-
-- exactly two of these five are guilty
-- at most one of Bea's neighbours is guilty
-- at least one of Dana's neighbours is guilty
-- Gil and Kit have the same verdict
-- Cory and Fay have different verdicts
-
-Neighbours include the diagonal ones.
-
-## The one rule that matters
-
-You may only mark someone when the clues force it.
-
-Looking likely is not enough, and neither is looking likely by a lot. The standard is that there is no consistent way to fill in the board that has them the other way.
+> You never need to guess.
 
 . . .
 
-Every puzzle here can be finished under that rule. You never have to guess.
+That's what makes this a *logic* game; from what's revealed to you, you can always figure out *something*. You are never stuck, and can always work out someone's status as criminal/innocent.
 
-## Four puzzles
+## What the promise means
 
-There is a warm-up, a worked example that will step you through its own solution, and two harder ones.
+Actually there are three promises here:
 
-Start with the warm-up. Use the worked example when you want to see the reasoning laid out. The challenges are there if you finish early.
-
-## Go
-
-Fifteen minutes. Work with the person next to you if you like; saying your reasoning out loud to someone is the fastest way to find out whether it holds.
-
-# What you were doing
-
-## Forced
-
-When you marked someone guilty, you were not reporting a hunch. You had established that every way of filling in the rest of the board consistent with the clues has them guilty.
-
-That is a strong thing to have shown, and it is what "forced" means here.
-
-## Suppose the opposite
-
-Most of you found the same trick without being taught it. To settle whether Amir is guilty, suppose he is innocent, follow that supposition until it contradicts a clue, and conclude he is not innocent after all.
-
-Philosophers call this *reductio ad absurdum*, reduction to absurdity. It is one of the oldest moves in the subject and you reinvented it in about four minutes.
-
-## Chains
-
-The hard puzzles are hard because no single clue settles anything. You need two or three of them together before the first verdict falls out, and that verdict is what makes the next one available.
-
-A long argument is a chain of short ones. That is all a proof ever is.
-
-# Validity
-
-## The word for it
-
-An argument is **valid** when the truth of the premises guarantees the truth of the conclusion. There is no consistent way for the premises to be true and the conclusion false.
-
-Every verdict you were entitled to today came at the end of a valid argument from the clues.
-
-## Two things worth separating
-
-Validity is about the connection between premises and conclusion. It says nothing about whether the premises are true.
-
-"All cats are reptiles; Ira is a cat; so Ira is a reptile" is valid and its conclusion is false. The game handed you true premises, which is why validity was enough to get you the truth.
+1. Everything you are told is true.
+2. At every stage in the game, you can make another move, where that means saying (with certainty) the status of another person.
+3. If you keep making these moves, you'll eventually fill in the board.
 
 . . .
 
-Outside the game nobody hands you clues and certifies them. Hold that thought; we come back to it in about a fortnight.
-
-## The good news
-
-A valid argument from true premises cannot let you down. Deduction is the safest thing we have.
-
-# The catch
-
-## Safety has a price
-
-Look at what you proved today. Every verdict was already settled by the clues before you started. You worked out what you had; you did not learn anything the clues did not contain.
+So for each person there is a chain of reasoning from the clues to the answer. Your job is to find it.
 
 . . .
 
-That is the deal deduction offers. Total reliability, and nothing new.
+What do we mean by 'chain' here? That's the topic for today.
 
-## Which is a problem
+# Arguments
 
-Almost everything you want to know is not sitting inside what you already have. Whether the bridge is out. Whether the drug works. Who left the footprints.
+## Two kinds of arguments
 
-To get any of that you have to reason in a way that could go wrong.
+Sometimes an argument is two people disagreeing loudly. E.g., "We all left because Ted and Bill were having a loud argument about Odysseus."
 
-## For Tuesday
+Sometimes it is one person giving reasons for a view. E.g., "Chris argued that Odysseus was the kind of figure who was responsible for the Bronze Age Collapse."
 
-Read the two pages of Conan Doyle listed on the syllabus, from "Sherlock Holmes was transformed" to "these may be enough to aid us in our search."
+. . .
 
-Watch what Holmes does with the ground, and then what he does with what he found there. Those are two different jobs, and Tuesday is about the second one.
+We mean the second; whenever we mean an argument, we mean someone putting something forward with reasons.
+
+## The parts of an argument
+
+An argument is a set of claims offered in support of another claim.
+
+- The claims doing the supporting are the **premises**.
+- The claim they support is the **conclusion**.
+
+## From many, one
+
+An argument can have one premise, or two, or twenty.
+
+It has exactly one conclusion.^[Two caveats that you might want to discuss more. Sometimes an argument will have _intermediate_ conclusions, things which follow from earlier premises, and get used for later reasoning. And sometimes the speaker will draw two conclusions from the same premises. We'll treat each of these as multiple arguments, and keep the 'single conclusion' constraint in place.] 
+
+## Arguments in natural language
+
+There are good but not perfect guides to which parts of speech relate to which parts of an argument.
+
+- Premises often follow *because*, *since*, *for*, *after all*.
+- Conclusions often follow *so*, *therefore*, *thus*, *hence*, *consequently*.
+
+. . .
+
+The conclusion can come first, last, or in the middle. Word order is not any guide. In fact, a really common thing in speech is to announce your 'conclusion' first, and then tell people why you think it. These connective words are not perfect, but they are a better guide than word order.
+
+# Assessing Arguments
+
+## Two ways to fail
+
+Somebody offering an argument is doing two things at once: putting up premises, and claiming those premises support the conclusion.
+
+So there are two ways to fail. The premises can be false. 
+
+Or they can be true and still not support the conclusion.
+
+. . .
+
+For today, we're not going to care much about false premises; we'll just talk about support.
+
+## No support at all
+
+1. Today is Thursday.
+2. Ann Arbor is in Michigan.
+3. So this course has twenty-eight lectures.
+
+. . .
+
+The premises are true and the conclusion is true, and the premises give you **no reason whatsoever** to believe it.
+
+## Some support
+
+1. Most philosophy classes at UM have fewer than one hundred students.
+2. This is a philosophy class at UM.
+3. So this class has fewer than one hundred students.
+
+. . .
+
+Now the premises do bear on the conclusion. If they were true, _and they are_, they give you some reason to believe the conclusion.
+
+. . .
+
+But you are living in the exception. The premises can be true and the conclusion false, and in this case they are.
+
+## Guaranteed support
+
+1. Every philosophy class at UM has fewer than five hundred students.
+2. This is a philosophy class at UM.
+3. So this class has fewer than five hundred students.
+
+. . .
+
+There is now **no way** for the premises to be true and the conclusion false. The premises **guarantee** the conclusion.
+
+That's not to say the conclusion couldn't be false; those premises could fail. Maybe this course will be so popular that next year I'll have more students than Intro Psych. But the premises have to fail for the conclusion to fail.
+
+## Validity
+
+An argument is **valid** when the truth of the premises guarantees the truth of the conclusion.
+
+Equivalently, and often easier to use: it is impossible for all the premises to be true and the conclusion false.
+
+. . .
+
+Validity says nothing about whether the premises are true. "All cats are verbs; President Grasso is a cat; so President Grasso is a verb." is valid.
+
+## Soundness
+
+A valid argument with true premises is **sound**.
+
+An argument that is invalid, or that has a false premise, is unsound.
+
+. . .
+
+Note that these definitions for 'valid' and 'sound' are _stipulative_. I'm not claiming to tell you how the words work in ordinary English. Rather, I'm telling you how _we_ are going to use them.
+
+# Logic Games Revisited
+
+## The rule of the game
+
+You may mark somebody only when the clues **guarantee** you are right.
+
+. . .
+
+Thgat is, you may write down a verdict only when there is a valid argument from the clues to that verdict.
+
+## Your Turn
+
+## Clues by Sam
+
+::: {layout="[40,60]"}
+
+::: {}
+![Link to <https://bweatherson.github.io/F26-Phil101-site/logic-game/deduction.html>](../images/logic_game_qr.png){fig-alt="QR code linking to the address in the caption"}
+:::
+
+::: {}
+Open the warm-up puzzle at this link.
+
+The clues are all true, and the answer is always reachable. If you find yourself guessing, you have not found the argument yet.
+
+Work with the person beside you. Saying the reasoning out loud is the fastest way to learn whether it holds. We'll allow ten minutes for this. See if you can do the "Warm Up" and, if you have time, the "Challenge"
+:::
+
+:::
+
+
+# Two important moves
+
+## Spelling out the reasoning
+
+Most of what you did was counting. A clue says exactly three of these five, you know two of them are innocent, and the rest follows.
+
+But two other moves were in there, and they turn up everywhere in philosophy. They are worth having names for.
+
+## Move one: reductio
+
+Make a supposition. See what follows from it. If you derive something inconsistent with what you already know, or two things inconsisten with each other, conclude that the supposition was false.
+
+. . .
+
+- Suppose *P*.
+- Derive a contradiction.
+- Conclude *not-P*.
+
+. . .
+
+Its full name is *reductio ad absurdum*, reduction to absurdity.
+
+## Reductio in practice
+
+From the warm-up. Two of its clues:
+
+> At most 1 of Bea's neighbours (including diagonals) is guilty.
+> Exactly 3 of Dana, Evan, Fay, Gil, and Ira are criminals.
+
+. . .
+
+Bea's neighbours are Amir, Cory, Dana, Evan and Fay.
+
+. . .
+
+Suppose Amir is guilty. He is one of Bea's neighbours, so by the first clue none of the others is, and Dana, Evan and Fay are all innocent. But then the second clue needs three guilty people out of Gil and Ira alone.
+
+That cannot happen. So Amir is innocent.
+
+## Move two: argument by cases
+
+Sometimes you cannot settle a question, and it turns out not to matter. You can see that something else would follow no matter what it was.
+
+. . .
+
+- Suppose *P*. Derive *Q*.
+- Suppose *not-P*. Derive *Q*.
+- Since *P* is either true or false, conclude *Q*.
+
+. . .
+
+You reach *Q* without ever finding out about *P*.
+
+# Play again
+
+## Challenge II
+
+Open Challenge II. It is larger and it does not fall to counting alone.
+
+When you get stuck, look for using one or other of these rules. 
+
+# Going forward
+
+## Next time
+
+Every argument today was valid. But sometimes good arguments are not valid, and next Tuesday we'll start talking about why that is.

@@ -85,9 +85,9 @@ These could be something material (e.g., money, years of freedom), or anything t
 
 If we have three players, the usual approach is to have a set of tables, one for each move player 3 could have.
 
-:::: {.columns}
+:::: {layout="[50,50]"}
 
-::: {.column width="50%"}
+::: {}
 
 |       | C       | D       |
 |------:|:-------:|:-------:|
@@ -98,7 +98,7 @@ If we have three players, the usual approach is to have a set of tables, one for
 
 :::
 
-::: {.column width="50%"}
+::: {}
 
 |       | C       | D       |
 |------:|:-------:|:-------:|
@@ -341,9 +341,9 @@ This game has a unique solution. Both trucks park at **spot 3**.
 
 ## A Three Player Version
 
-:::: {.columns}
+:::: {layout="[50,50]"}
 
-::: {.column width="50%"}
+::: {}
 
 |       | L       | R       |
 |------:|:-------:|:-------:|
@@ -354,7 +354,7 @@ This game has a unique solution. Both trucks park at **spot 3**.
 
 :::
 
-::: {.column width="50%"}
+::: {}
 
 |       | L       | R       |
 |------:|:-------:|:-------:|

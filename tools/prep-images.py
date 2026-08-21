@@ -25,6 +25,11 @@ Why 1600: a reveal.js slide renders well under that logically, so 1600px covers
 a full-bleed image on a 1080p projector with room to spare. Going higher costs
 bytes twice over, because the site keeps a copy and every PDF embeds another.
 
+Why JPEG and not WebP: the Typst that Quarto bundles rejects WebP outright with
+"unknown image format", so a WebP deck renders to HTML and fails to PDF. JPEG is
+about twice the size and works in both. Images with transparency go to PNG, since
+JPEG has no alpha channel.
+
 Requires Pillow:  pip install pillow
 """
 
@@ -39,10 +44,11 @@ except ImportError:
     sys.exit("This needs Pillow. Install it with:  pip install pillow")
 
 RASTER = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".webp"}
+# WebP is accepted as an INPUT but never written as output; see the note above.
 VECTOR = {".svg"}
 # A committed raster image wider than this, or heavier than this, gets flagged.
 CHECK_MAX_WIDTH = 2000
-CHECK_MAX_BYTES = 600 * 1024
+CHECK_MAX_BYTES = 900 * 1024
 
 
 def fmt(n):
@@ -83,7 +89,18 @@ def build(course_dir, max_width, quality, force):
             problems.append(f"{f.name}: not an image type this script handles")
             continue
 
-        target = out / (f.stem + ".webp")
+        # JPEG unless the image needs an alpha channel, in which case PNG.
+        # Never WebP: Quarto's bundled Typst cannot read it.
+        with Image.open(f) as probe:
+            # An alpha channel that is fully opaque does not need preserving.
+            # Screenshots are routinely saved RGBA with nothing transparent in
+            # them, and sending those to PNG costs several times what JPEG does.
+            needs_alpha = False
+            if probe.mode in ("RGBA", "LA", "PA") or (
+                    probe.mode == "P" and "transparency" in probe.info):
+                a = probe.convert("RGBA").getchannel("A").getextrema()
+                needs_alpha = a[0] < 255
+        target = out / (f.stem + (".png" if needs_alpha else ".jpg"))
         if not force and target.exists() and target.stat().st_mtime >= f.stat().st_mtime:
             skipped += 1
             continue
@@ -100,7 +117,11 @@ def build(course_dir, max_width, quality, force):
                     im.thumbnail((max_width, max_width), Image.LANCZOS)
 
                 # save with no EXIF / ICC baggage
-                im.save(target, "WEBP", quality=quality, method=6)
+                if target.suffix == ".png":
+                    im.save(target, "PNG", optimize=True)
+                else:
+                    im.convert("RGB").save(target, "JPEG", quality=quality,
+                                           optimize=True, progressive=True)
         except Exception as e:
             problems.append(f"{f.name}: {e}")
             continue
@@ -157,6 +178,10 @@ def check(course_dir, max_width):
                 w, h = im.size
         except Exception as e:
             flagged.append(f"{rel}: could not read ({e})")
+            continue
+
+        if ext == ".webp":
+            flagged.append(f"{rel}: WebP will fail the Typst render — rebuild it as .jpg")
             continue
 
         if max(w, h) > CHECK_MAX_WIDTH:
