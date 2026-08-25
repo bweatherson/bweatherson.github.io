@@ -416,7 +416,7 @@ body_background_color:
 white
 )
 ]
-#strong[Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Office Hours]: TBD \ #strong[Lectures]: Tuesday and Thursday, 9:00--9:50, room TBD \ #strong[Discussion sections]: Twice weekly, 50 minutes, times and rooms TBD \ #strong[Web]: canvas.umich.edu and #link("https://bweatherson.github.io/F26-Phil101-site/")
+#strong[Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Office Hours]: Tuesday, 1.45-3.45pm, 2207 Angell Hall \ #strong[Lectures]: Tuesday and Thursday, 9:00--9:50, Angell Hall, Auditorium C \ #strong[Discussion sections]: Twice weekly, 50 minutes, times and rooms vary \ #strong[Web]: canvas.umich.edu and #link("https://bweatherson.github.io/F26-Phil101-site/")
 
 ~
 
@@ -425,14 +425,14 @@ white
 - This course is an introduction to philosophy through a set of connected questions: how we ought to reason, when a belief is rational, what minds and persons are, and what we owe each other.
 - No background is assumed. Most readings are short, and all of them are free.
 - The course meets twice a week for lecture and twice a week for discussion section. Attendance at both matters, and a good deal of the assessment happens in the room.
-- Assessment is spread across many small pieces rather than concentrated in a few large ones. Nothing worth more than 3% falls due before the sixth week.
+- Assessment is spread across many small pieces rather than concentrated in a few large ones. Nothing worth more than 3% is due before the sixth week.
 - There is one essay, worth 25%, and it comes at the end of a sequence designed to teach you how to write it.
 
 = Course Description
 <course-description>
 Philosophy starts from questions that are easy to ask and hard to answer. This course takes a handful of them and works through what has been said in reply, from classical India and ancient Greece to work published in the last few years.
 
-We begin with reasoning. What makes an argument a good one, what separates the inferences that are safe from the ones that pay, and why does a run of evidence never quite settle what comes next?
+We begin with reasoning. What makes an argument a good one, what separates the inferences that are safe from the ones that should not be made, and why does a run of evidence never quite settle what comes next?
 
 The second unit asks when a belief is rational. We'll start with the question of when perceptual beliefs are rational, and then move onto other cases. A particular focus will be beliefs formed via testimony. This raises both theoretical questions, what makes a belief formed via testimony rational, and practical questions, in a world like this, who should we trust?
 

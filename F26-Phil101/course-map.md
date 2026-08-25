@@ -79,3 +79,58 @@ Calendar fit: the Fall break still lands exactly at the mind-to-ethics seam. Tha
 Deliberately left out: philosophy of religion (replaced by law and politics, with miracles kept and moved into the testimony class), free will, and the meaning-of-life topics. The buffer is a single slack day at 28; expect units to grow.
 
 Parked in planning, not yet placed: the 2026 "old debates, new instances" asides (kept varied across technologies, not all LLMs), and two take-home discussion questions, belief versus representation (end of mind) and the identity conditions of an AI (end of personal identity).
+
+## Orderings considered and rejected
+
+Keep this list going. The same suggestions come round again, and the reasons
+against them are not visible from the schedule itself.
+
+### Moving the self next to mind
+
+Raised by a GSI, August 2026. The proposal was to shift 22 and 23, personal
+identity, up next to the mind unit, so they sit with consciousness and dualism
+instead of after welfare.
+
+The case for it is good, and worth conceding when it comes round again. Locke's
+forensic person at 23 is a direct answer to the same-soul-same-person view that
+Descartes sets up at 13, and those two classes are nine lectures apart. The
+teleporter and fission cases at 22 run on intuitions about consciousness built at
+11 and 12, which then sit unused for a month.
+
+It still does not work, and the reason is the assessment calendar rather than the
+storyline.
+
+Ethics and welfare is 15 to 21, Thursday 22 October to Thursday 12 November. The
+essay is on that block, the question goes out Friday 6 November, and it is due
+Monday 23 November. Put the self at 15 and 16 and ethics and welfare becomes 17 to
+23, finishing Thursday 19 November. The essay would then fall four days after the
+last lecture on its own material, with the question already three weeks old.
+Module Quiz 3 breaks in the same move, since it opens after the last day of its
+block: it would shift from 12 November to 19 November and land in the same days as
+the essay. That is the clash the calendar already avoided once, when Module Quiz 2
+was pushed to 1 November.
+
+There is no room in front of the break either. Lectures 1 to 14 are full, and the
+mind unit cannot be cut into, because Short Answer 2 is pinned to 10 to 12 and
+Module Quiz 2 to 10 to 14.
+
+The essay date will not absorb it. It is Monday 23 November so that marking runs
+30 November to 11 December, clear of the recess, and essays come back before the
+examination. Moving it later loses one or the other.
+
+So the move means redesigning the writing sequence, not resequencing two lectures.
+
+Two further things argue for leaving the order alone. The final examination's
+short-answer section is aimed at 22 to 28, because once the essay moved to
+November that stretch carries almost nothing else, and personal identity is the
+most exam-friendly material in it. The teleporter and fission cases suit a
+thirty-minute written answer better than punishment or free speech do. Moving the
+self to October thins the one part of the tail that was doing that job. And 23
+hands to 24: law and politics opens because the self unit ends on the person as
+whoever can be held responsible, and without that Crito starts cold out of
+welfare.
+
+What to do instead: pay for the continuity with forward references rather than a
+move. Flag it at the end of 14, when Elisabeth has just made trouble for
+Descartes, and cash it at the top of 22. That is the same device the 20 to 21 seam
+uses, and it costs two slides.

@@ -390,7 +390,7 @@
   doc,
 )
 
-#strong[Lead Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Web]: canvas.umich.edu \ #strong[Office Hours]: TBD
+#strong[Lead Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Web]: canvas.umich.edu \ #strong[Office Hours]: Tuesday, 1.45-3.45, Angell Hall 2207 \ #strong[Classes]: Tuesday, Thursday, 4-5.20, East Quad, room B852
 
 ~
 

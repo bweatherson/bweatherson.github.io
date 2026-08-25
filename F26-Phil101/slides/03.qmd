@@ -1,5 +1,5 @@
 ---
-title: "Two Parts of a Mind"
+title: "Models of Learning"
 subtitle: "Phil 101 · Day 3"
 author: "Brian Weatherson"
 date: "Fall 2026"
@@ -9,56 +9,66 @@ date: "Fall 2026"
 
 ## Two parts
 
-Here is about the simplest picture of a thing that learns.
+Here a really simple picture of a learning system, including potentially human learners.
 
+- The system has two parts: a **perceptual** part and a **processing** part.
 - **Perception** takes things in from the world.
 - **Processing** does something with what came in.
+
+. . .
 
 Information enters at one end, gets worked on, and beliefs come out the other.
 
 ## The division of labour
 
-Each part has one job.
+On the strongest version of this model, the two parts are completely isolated.
 
-Perception does not reason. It delivers.
-
-Processing does not look. It works on whatever it was handed.
+- Perception does not reason; it is a passive absorption of information.
+- Processing does not detect the world; it waits for information then acts on it.
 
 . . .
 
-That tidiness is what makes the picture attractive, and it is also what we will spend the rest of today poking at.
+It's hopefully clear that we need both these parts. What's less clear is whether
+
+- They exhaust what we need, or
+- They can't be analysed further, or
+- They need to be isolated.
 
 ## Why start here
 
-Almost every view we meet this term is a modification of this picture: adding a part, splitting a part, or denying that the parts come apart.
+Still, it's a really attractive, simple picture of how learning systems (again, including us) work.
 
-So it is worth having in view, including the reasons to doubt it.
+Even for systems that don't meet this picture, we'll often understand them by contrast with this picture.
+
+So it is worth having it in view.
 
 # The picture is not just ours
 
 ## Bayesian machinery
 
-Very roughly, this is the shape of a Bayesian system.
+I'm not going to go into the details of what this means, some of you will already know and if you don't the details don't matter, but broadly Bayesian pictures of the mind basically fit this model.
 
-You start with some assignment of confidence. Evidence arrives. A rule tells you how to change your confidence in the light of it.
+The system is adjusted by the exogenous input of *evidence*, and there is a preferred rule for how to deal with evidence.
 
-. . .
-
-Evidence coming in is the perception half. The updating rule is the processing half. The rule never gathers anything, and the evidence never reasons.
+These systems are _very_ popular in contemporary academic work, both as models for how to build artificial learning systems, and as models for how natural learning systems (like us) work.
 
 ## Machine learning, with hedges
 
-The picture is not foreign to a good deal of contemporary machine learning either, where something turns inputs into a representation and something else computes over the representation.
+Even machine learning systems that aren't Bayesian still often follow more or less this approach.
 
-The analogy is loose and you should not lean on it hard. But the two-part shape recurs, which is a reason to take it seriously and a reason to ask what it leaves out.
+There is a part of the system that receives information from the external world, and a part that does something with that information.
 
-# You can see the join in Holmes
+. . .
 
-## The reading
+In order to make the view less cartoon-ish, let's note one qualification on it. Sometimes the processing part can determine what the perceiving part looks at. You *think* about where to turn your eyes. But then your eyes just see things.
 
-The two pages you read are a single scene, and they divide exactly down this line.
+# Holmes
 
-First he gathers. Then he concludes.
+## The master detective
+
+I assigned this as the first reading because it's a really vivid depiction of a system that has these two parts.
+
+Holmes first gathers evidence, then he concludes.
 
 ## Gathering
 
@@ -66,13 +76,13 @@ First he gathers. Then he concludes.
 
 He crawls over the ground with a lens. He is fast, silent, and not talking to anybody.
 
-## The tell
+. . .
 
-Notice what Doyle does there. The two parts are not just doing different work; they *look* different from outside.
+Notice what Doyle does there. He's hitting you over the head with the thought that The two parts are not just doing different work; they *look* different from outside.
+
+. . .
 
 > his nostrils seemed to dilate with a purely animal lust for the chase
-
-The quiet logician of Baker Street is the other mode. Same man, different behaviour, and Watson can tell which one is running.
 
 ## Concluding
 
@@ -80,78 +90,94 @@ Back at the carriage the animal is gone and the expositor is back:
 
 > Is a tall man, left-handed, limps with the right leg, wears thick-soled shooting-boots and a grey cloak, smokes Indian cigars, uses a cigar-holder, and carries a blunt pen-knife in his pocket.
 
-Nothing new comes in during that speech. He is working on what he already has.
+Holmes doesn't collect any new evidence here; he just processes what he has
 
-## He names the two himself
+## Holmes's own description
 
-Earlier in the story, before the part you read:
+Earlier in the story, he describes his method as:
 
 > I only quote this as a trivial example of observation and inference. Therein lies my métier.
 
-Observation and inference. Perception and processing.
+For "Observation" and "inference", we could just say "perception" and "processing".
 
 . . .
 
-He is describing our diagram, seventy years before anybody drew it.
+Historically, this picture doesn't get cleanly stated in the philosophy/psychology/cognitive science literature until some decades after this, but it's clearly here in popular culture.
 
-# Reasons to doubt it
+# Illusions
+
+## Why believe the split
+
+I've said that this model of learning is simple, and that a famous writer of detective stories used it over a century ago.
+
+These aren't the most conclusive reasons. Can we do better?
+
+. . .
+
+Here's one reason to think something like it is right - it explains the possibility of optical illusions.
+
+## The checkershadow (by Edward H. Adelson, 1995)
+
+![A and B are the same shade](../images/Checker_shadow_illusion.svg){fig-alt="What looks like a chessboard with a cylinder casting a shadow."}
+
+## Adelson's checkershadow deconstructed
+
+![Merging A and B (via Wikipedia)](../images/Optical_illusion_greysquares.gif){fig-alt="A gif constructing the previous slide."}
+
+## Perception and reason
+
+In an illusion, your lying eyes keep telling you things you know aren't true.
+
+If you had a unified perception-processing system, that would be a strange outcome.
+
+But if your perceptual system runs on its own logic, independent of what you know, it makes sense that this would sometimes happen.
+
+# Doubting the Simple Model
 
 ## Where might it go wrong
 
-Three places, and we will take them in order.
+We'll go over three reasons that you might not like the model.
 
 - Something might be neither perception nor processing.
 - Processing might not be one thing.
 - The line between the two might not be sharp.
 
-## Something that is neither
+## Neither
 
-Suppose some of what you know did not come in through the senses and was not worked out from what did.
+Suppose you are born knowing some things about the world. These are called **innate ideas**, and whether humans are born with knowledge is a running debate for thousands of years.
 
-That is the old idea of **innate ideas**: knowledge you arrive with. Plato has Meno's slave boy produce geometry he was never taught. Descartes thinks some ideas are stamped in. Chomsky argues no child hears enough language to explain what they end up knowing.
+- Plato argues (in *Meno*) that reflections on how geometric proof show we have innate knowledge of geometry.
+- Descartes picks up on this and argues that we can't avoid scepticism with some innate knowledge.
+- Noam Chomsky argues that we have innate knowledge of basic principles of language.
+- Modern experimentalists argue that newborns have innate knowledge of how human faces look.
 
-## The same worry, in the machinery
+## Mathematical versions
 
-The Bayesian version is sharper, and it is not historical at all.
+Modern machine learning systems don't start with _nothing_.
 
-Before any evidence arrives, the system has to start somewhere. That starting point is not something perception delivered, and it is not something processing computed.
+Whether what they start with can be called innate knowledge is tricky. We'll come back to this on Thursday.
 
-. . .
+## Splitting up processing
 
-Hold on to that. It comes back with a vengeance on Thursday.
-
-# Processing is not one thing
-
-## Split it
-
-The obvious first cut is the one you have already met.
+There are some natural subdivisions within 'processing'.
 
 - **Deduction**, where the conclusion is already settled by what you have.
 - **Induction**, where you reach past what you have to something new.
 
-Tuesday was entirely deduction. The clues forced the verdicts, and finding them added nothing.
+Last Thursday was entirely deduction. The clues **forced** the verdicts. That's not what detective work is normally like.
 
-## Deduction is safe and gives nothing new
+## Two properties of deduction
 
-That sounds like a complaint, and partly it is. But safety buys two things worth having.
-
-## One: arguments chain
-
-Valid steps compose. Put a thousand together and the conclusion is as good as the premises.
-
-Modern machines chain billions of steps. If each step were merely very reliable rather than valid, a tiny error rate would compound until the output was worthless.
+1. Deductive arguments **chain**. In a deductive argument, if the premises are true, the conclusions have to be true. That stays true even if you do billions of steps. That matters because these days, we have machines that do perform billions of steps.
+2. The validity of a deductive argument can be checked by looking at its **form**. You can know that the argument "All blickets are cromulent, this is a blicket, so this is cromulent" is valid without knowing what a blicket is, or what it means to be cromulent.
 
 . . .
 
-Deduction is the only kind of inference you can do that much of and still trust the end.
+The second is also relevant to machine learning. It means that things can use deduction without having understanding. And in fact we built machines that could do deductions decades before we built machines that came close to understanding things.
 
-## Two: you can check the form
+## Induction
 
-A valid argument is valid because of its shape, not its subject.
-
-So you can check it without understanding it. Something that has no idea what the sentences mean can still verify that the reasoning has the right form.
-
-That is what makes proof-checking software possible, and it is why deduction is the part of reasoning we have been able to hand over.
+Holmes talks about 
 
 ## And you could cut further
 

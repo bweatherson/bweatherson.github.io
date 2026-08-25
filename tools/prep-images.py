@@ -30,6 +30,12 @@ Why JPEG and not WebP: the Typst that Quarto bundles rejects WebP outright with
 about twice the size and works in both. Images with transparency go to PNG, since
 JPEG has no alpha channel.
 
+Why GIF is copied and not converted: re-encoding an animated GIF would flatten it
+to a single frame. Quarto's Typst does accept GIF, and embeds the first frame, so
+an animated GIF animates in HTML and shows its opening frame in the PDF. Because
+the file is copied rather than resized, a GIF has to be the size you want before
+it goes into _originals/.
+
 Requires Pillow:  pip install pillow
 """
 
@@ -46,6 +52,9 @@ except ImportError:
 RASTER = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".webp"}
 # WebP is accepted as an INPUT but never written as output; see the note above.
 VECTOR = {".svg"}
+COPIED = {".gif"}
+# Copied through byte for byte, like vectors, because re-encoding would destroy
+# the animation. Nothing here gets resized, so size it before it goes in.
 # A committed raster image wider than this, or heavier than this, gets flagged.
 CHECK_MAX_WIDTH = 2000
 CHECK_MAX_BYTES = 900 * 1024
@@ -75,11 +84,12 @@ def build(course_dir, max_width, quality, force):
             continue
         ext = f.suffix.lower()
 
-        if ext in VECTOR:
+        if ext in VECTOR or ext in COPIED:
             target = out / f.name
             if force or not target.exists() or f.stat().st_mtime > target.stat().st_mtime:
                 shutil.copy2(f, target)
-                print(f"  copied  {f.name}  (vector, left alone)")
+                why = "vector" if ext in VECTOR else "animation preserved"
+                print(f"  copied  {f.name}  ({why}, left alone)")
                 made += 1
             else:
                 skipped += 1
@@ -160,7 +170,7 @@ def check(course_dir, max_width):
         if "_originals" in f.parts:
             continue  # not committed, not our problem
         ext = f.suffix.lower()
-        if ext not in RASTER and ext not in VECTOR:
+        if ext not in RASTER and ext not in VECTOR and ext not in COPIED:
             continue
 
         size = f.stat().st_size
@@ -171,6 +181,25 @@ def check(course_dir, max_width):
         if ext in VECTOR:
             if size > CHECK_MAX_BYTES:
                 flagged.append(f"{rel}: SVG is {fmt(size)}, unusually heavy for a vector")
+            continue
+
+        if ext in COPIED:
+            try:
+                with Image.open(f) as im:
+                    w, h = im.size
+                    frames = getattr(im, "n_frames", 1)
+            except Exception as e:
+                flagged.append(f"{rel}: could not read ({e})")
+                continue
+            where = f"{w}x{h}, {frames} frame{'' if frames == 1 else 's'}"
+            # This file is never rebuilt by the script, so say so rather than
+            # telling anyone to re-run build and expect it to shrink.
+            if max(w, h) > CHECK_MAX_WIDTH:
+                flagged.append(f"{rel}: {where}, longest edge over {CHECK_MAX_WIDTH}px — "
+                               f"copied unchanged, so resize it before it goes in _originals/")
+            elif size > CHECK_MAX_BYTES:
+                flagged.append(f"{rel}: {fmt(size)} at {where} — heavy; "
+                               f"drop frames or run it through gifsicle -O3")
             continue
 
         try:
