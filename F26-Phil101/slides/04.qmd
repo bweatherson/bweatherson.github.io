@@ -7,53 +7,120 @@ date: "Fall 2026"
 
 # Where we are
 
-## Last time
+## Recap
 
-We split processing into the safe half and the risky half. Tuesday was about the safe half. Today is the other one.
+Start with a toy model of a system that learns about the world. It has two parts:
 
-## One way of learning from the past
-
-There are various ways of reaching past what you have seen. The plainest is to spot a run and expect it to continue.
-
-Every raven on record has been black, so the next one will be black. That move has a name, **enumerative induction**, and it is the one we will work with.
+1. A part that **perceives**.
+2. A part that **processes** the information that perception delivers.
 
 . . .
 
-Whether it is really distinct from the other candidates, and whether the list of candidates is complete, are good questions we are going to walk straight past.
-
-## An old worry
-
-Hume asked why that move is any good at all. What entitles you to think the unobserved will resemble the observed? Any argument for it seems to help itself to the very thing in question.
-
-That is a real problem, and it is not today's.
-
-## Today's is worse
-
-Nelson Goodman granted Hume's move for the sake of argument. Suppose projecting a pattern from the seen onto the unseen is fine.
+We noted that there are reasons to think that really good learning systems, like us, might either (a) have other features, or (b) have a not-so-sharp boundary between the two parts. Set those thoughts aside for now.
 
 . . .
 
-His question: which pattern?
+We also noted that it makes sense to split the processing part in turn in two, into **safe** and **risky** processing.
+
+## Safe and Risky
+
+There are terms that we use for each of these.
+
+Deductive reasoning
+:    Safe reasoning, where the truth of the inputs, the **premises**, guarantees the truth of the conclusion. The arguments that have this struture are called **valid**.
+
+Inductive reasoning
+:    Risky reasoning, where the truth of the inputs makes it **reasonable** to believe the conclusion, but does not quite guarantee it.
+
+## Forms of risky processing
+
+We also mentioned two kinds of risky processing, though note that this is **not** meant to be exhaustive.
+
+Explanationist
+:    We know some things, possibly by perception. There is only one sensible explanation of these things, so we infer that's true.
+
+Enumerative induction
+:    There is a pattern we've seen recur again and again. The evidence is that the first part of the pattern, so we expect the second part of the pattern to follow.
+
+. . .
+
+'Follow' here can be temporally follow, as when we infer from the rain that the streets will be wet. But it need not be, as when we infer from the rain that there are clouds in the sky.
+
+## Subject and predicate
+
+To make this talk more precise, it helps to have a little bit more terminology.
+
+Simple sentences in English, and I think basically every other language, can be divided into a _subject_, who or what the sentence is about, and a _predicate_, which says something about the subject.
+
+We're going to focus on simple subject-predicate sentences where the subject is a _name_, like 'Brian', or perhaps a demonstrative like 'That'.
+
+In English, and again many other natural languages, names are capitalized, and predicates are not. And subjects typically come first.
+
+## Subject and predicate
+
+The most common kind of formal language used in philosophy (and many other fields), reverses all of this.
+
+- Names are written in lower case. When there aren't many names, we just use single letters for them, like 'a'.
+- Predicates are written as capital letters, again often single letters like 'F'.
+- And predicates come first, so a simple sentence might be 'Fa'.
+- If 'a' is a name for Alfred, and 'F' means 'is a frog', then 'Fa' means 'Alfred is a frog'.
+
+## Enumerative Induction
+
+The main reason I'm introducing all this is to make it easier to talk about a formal model for inductive learning.
+
+1. I've seen lots of things that are _F_, in lots of places, and they've all been _G_.
+2. _Fa_
+3. Therefore, _Ga_.
+
+## Two benefits of safe inference
+
+When I did the safe/risky distinction last time, I mentioned two benefits of the safe inferences.
+
+1. Because they are safe, they can be chained. Enumerative induction does sometimes go wrong, and if you chain enough of them, you're sure to run into the bad case.
+2. We have ways of teaching computers to make the safe inferences. It's harder to teach them to make the risky ones.
+
+. . .
+
+Now point 2 might be intuitive when it comes to explanations; how do you train a computer to tell what explanation is sensible? (Perhaps, it turns out, you build an LLM.)
+
+But doesn't enumerative induction look pretty _formal_? Computers can tell when you're using the same predicate over and over again.
 
 # Grue
 
+## Nelson Goodman
+
+::: {layout="[40,60]"}
+
+::: {}
+![Nelson Goodman (1906-1998), via Wikipedia](../images/nelson_goodman.jpg){fig-alt="Photo of Nelson Goodman"}
+:::
+
+::: {}
+Nelson Goodman, who spent most of his career at Harvard, showed that there was a puzzle about induction which turns out to complicate many theories about it.
+
+I'm going to focus on the challenge it raises for how to automate inductive reasoning, but it raises many related problems.
+:::
+
+:::
+
 ## A new word
 
-Take a predicate we do not have a word for, and give it one.
+He starts by defining a new term: **grue**. 
 
-Something is **grue** when it is examined before 10 December 2026 and is green, or is not examined before then and is blue.
+Slightly updating Goodman's definition, say something is **grue** when it is examined before 10 December 2026 and is green, or is not examined before then and is blue.
 
-That is the whole definition. It is odd, but it is perfectly precise.
+That's a bit weird, but it makes sense I think.
 
 ## Every emerald you have ever heard of
 
-Every emerald anyone has examined has been green. That is your evidence.
+Every emerald anyone has examined has been **green**. That looks like pretty good evidence that the next emerald that's examined will also be green.
 
 . . .
 
-Notice that every one of those emeralds is also grue. They were examined before December, and they were green, which is exactly what being grue requires of them.
+Notice that every one of those emeralds is also **grue**. They were examined before 10 December 2026, and they were green, which is exactly what being grue requires of them.
 
-The evidence for "all emeralds are green" and the evidence for "all emeralds are grue" is the same evidence. Not similar. The same.
+The evidence for "the first emerald examined on 10 December 2026 will be green" and the evidence for "the first emerald examined on 10 December 2026 will be grue" is the same evidence. 
 
 ## Two hypotheses, one body of evidence
 
