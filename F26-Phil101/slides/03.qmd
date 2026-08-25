@@ -19,7 +19,7 @@ Here a really simple picture of a learning system, including potentially human l
 
 Information enters at one end, gets worked on, and beliefs come out the other.
 
-## The division of labour
+## The division of labor
 
 On the strongest version of this model, the two parts are completely isolated.
 
@@ -42,7 +42,7 @@ Even for systems that don't meet this picture, we'll often understand them by co
 
 So it is worth having it in view.
 
-# The picture is not just ours
+# Uses of this picture
 
 ## Bayesian machinery
 
@@ -78,7 +78,7 @@ He crawls over the ground with a lens. He is fast, silent, and not talking to an
 
 . . .
 
-Notice what Doyle does there. He's hitting you over the head with the thought that The two parts are not just doing different work; they *look* different from outside.
+Notice what Doyle does there. He's hitting you over the head with the thought that the two parts are not just doing different work; they *look* different from outside.
 
 . . .
 
@@ -90,7 +90,7 @@ Back at the carriage the animal is gone and the expositor is back:
 
 > Is a tall man, left-handed, limps with the right leg, wears thick-soled shooting-boots and a grey cloak, smokes Indian cigars, uses a cigar-holder, and carries a blunt pen-knife in his pocket.
 
-Holmes doesn't collect any new evidence here; he just processes what he has
+Holmes doesn't collect any new evidence here; he just processes what he has.
 
 ## Holmes's own description
 
@@ -164,7 +164,9 @@ There are some natural subdivisions within 'processing'.
 - **Deduction**, where the conclusion is already settled by what you have.
 - **Induction**, where you reach past what you have to something new.
 
-Last Thursday was entirely deduction. The clues **forced** the verdicts. That's not what detective work is normally like.
+. . .
+
+Last Thursday we focussed on deduction. The clues **forced** the verdicts. That's not what detective work is normally like.
 
 ## Two properties of deduction
 
@@ -177,48 +179,95 @@ The second is also relevant to machine learning. It means that things can use de
 
 ## Induction
 
-Holmes talks about 
+Holmes talks about *deducing* who the killer is, but he's using the term somewhat differently to how we use it, and arguably incorrecting.
 
-## And you could cut further
+Holmes tends to use one of the following two kinds of arguments.
+
+## Inference to the best explanation
+
+1. Here are the facts.
+2. The only sensible explanation of the facts is that $P$ is true.
+3. So, $P$ is true.
+
+## Enumerative induction
+
+1. Here are the facts.
+2. I've seen this pattern a lot, and in every case I've seen, $P$ is true.
+3. So, $P$ is true.
+
+## Two Features
+
+- These are good rules, but they are **fallible**. If you use them a billion times, you're bound to fail.
+- These are very hard to *automate*. Getting a machine to tell which explanation is *sensible* is really hard; even getting to judge patterns is tricky, though in the last few years we've gotten much better at that.
+
+## Further cuts
 
 Deduction and induction is a first cut, not the last one.
 
-Is memory a third thing, or storage attached to the other two? Is taking somebody's word for it a way of processing, or a second way of taking things in?
+Is memory a third thing, or storage attached to the other two? Is taking somebody's word for it a way of processing, or a second way of taking things in, or something that should be a separate category?
 
 . . .
 
-We spend three weeks on that second question later in the term.
+We're going to briefly touch on memory, and we're going to talk about testimony a lot.
 
-# Maybe the line is not sharp
+# Crossing the categories
 
 ## Cognitive penetration
 
 The picture assumes perception hands over its results without caring what you already think.
 
-Some philosophers and psychologists deny this. The claim is that what you believe, expect or want can shape what you actually see, not merely what you conclude from it.
-
-## Why it matters, and why we stop here
-
-If it is right, the diagram does not just need more boxes. The arrow runs both ways, and perception stops being an independent check on what you believe.
+As noted above, the existence of illusions is *some* evidence for this.
 
 . . .
 
-The debate is live and technical: Susanna Siegel and Nicholas Silins on one side of it, Chaz Firestone and Brian Scholl arguing in *Behavioral and Brain Sciences* that cognition does not affect perception at all.
+But it isn't universally accepted. In both philosophy and psychology, there is important research arguing against the 'clean division' model.
 
-We are not doing it in this course. You should know it exists, and that our tidy picture is contested at its foundation.
+The claim is that what you believe, expect or want can shape what you actually **see**, not merely what you conclude from it.
 
-# Where this goes
+## Why it matters
+
+Here's one kind of evidence that has influenced the debate, and is obviously of considerable practical importance.
+
+Create (ideally in Photoshop so you can control the specifics) a picture of an adult man holding something black and slightly larger than his hand.
+
+Show it to an (American) experimental subject, briefly, and ask them to say whether the thing is a gun.
+
+. . .
+
+At least across subjects, if you show a bunch of people a bunch of these pictures, with some of the pictures being duplicates except for the skin color of the man, you get a correlation between skin color and whether the person judges that it is a gun.
+
+## Analysis
+
+The canonical study on this is "The police officer's dilemma: Using ethnicity to disambiguate potentially threatening individuals." by Joshua Correll, Bernadette Park, Charles M. Judd, and Bernd Wittenbrink from 2002, and there are lots of versions of it you can find now if you look around.
+
+The hard question, one you can find philosophers, psychologists, and cognitive scientists on both sides of, is whether results like this are best explained by either:
+
+1. Saying that beliefs about who is likely to be carrying a gun influence how the scene **looks**; or
+2. Saying that how the commonly perceived scene is **processed** is influenced by these background beliefs.
+
+. . .
+
+This isn't something we're going to cover in 101, but if you're interested in research on topics like this, there are going to be many chances to learn about it across multiple departments at UM.
+
+# Going Forward
 
 ## What we have
 
-A two-part picture, three ways of doubting it, and one part now split into the safe half and the risky half.
+We started with a simple, but not completely implausible, picture about how minds, or learning systems generally, work.
+
+1. They take in things from the world.
+2. They process the things they take in.
+
+. . .
+
+We noted that there are useful reasons to split the 'processing' side into safe and risky processing.
 
 ## Thursday
 
-We take the risky half seriously and ask the obvious question about it.
+We look at a really simple version of the 'risky' side, one that at first doesn't seem *that* risky.
 
 You have seen a thousand ravens and every one was black. What exactly entitles you to anything about the next one?
 
 . . .
 
-The answer is stranger than it looks.
+The answer is more complicated than it looks.

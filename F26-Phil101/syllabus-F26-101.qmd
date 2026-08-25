@@ -1,7 +1,7 @@
 ---
 title: 'PHIL 101: Introduction to Philosophy'
 author: "Brian Weatherson"
-date: "Fall 2026"
+subtitle: "Fall 2026"
 format:
   # Typst rather than LaTeX, for one reason: Typst 0.14 emits tagged PDFs by
   # default, and Canvas's accessibility checker objects to the untagged PDFs
@@ -65,18 +65,18 @@ advdate <- function(obj, adv) {
 }
 ```
 
-::: {.callout-important}
+<!-- ::: {.callout-important}
 ## Draft for discussion with GSIs
 
 This version is for the pre-term meeting, not for students. The last section records what is still open. Delete that section, and this box, before the student version goes out.
-:::
+::: -->
 
 | **Instructor**: Brian Weatherson
 | **Email**: weath@umich.edu
 | **Office Hours**: Tuesday, 1.45-3.45pm, 2207 Angell Hall
 | **Lectures**: Tuesday and Thursday, 9:00–9:50, Angell Hall, Auditorium C
 | **Discussion sections**: Twice weekly, 50 minutes, times and rooms vary
-| **Web**: canvas.umich.edu and <https://bweatherson.github.io/F26-Phil101-site/>
+| **Web**: <https://canvas.umich.edu> and <https://bweatherson.github.io/F26-Phil101-site/>
 
 &nbsp;
 
@@ -96,7 +96,7 @@ We begin with reasoning. What makes an argument a good one, what separates the i
 
 The second unit asks when a belief is rational. We'll start with the question of when perceptual beliefs are rational, and then move onto other cases. A particular focus will be beliefs formed via testimony. This raises both theoretical questions, what makes a belief formed via testimony rational, and practical questions, in a world like this, who should we trust?
 
-The middle of the course is about minds. The big question here is one of the oldest in philosophy: what is the relationship between minds and bodies. We'll get to that by looking again at perception, and in particular thinking about the conscious aspects of perception, what it _feels like_ to perceive the world the way we do.
+The middle of the course is about minds. The big question here is one of the oldest in philosophy: what is the relationship between minds and bodies? We'll get to that by looking again at perception, and in particular thinking about the conscious aspects of perception, what it _feels like_ to perceive the world the way we do.
 
 The rest of the course is about value. What makes an action right, what makes a life go well, what makes you the same person you were at five, and what a state may and may not do to you. We end on free speech, which sends us back to where we started, since the case for free speech is a claim about how a group of people reasons its way to the truth.
 
@@ -122,13 +122,13 @@ You will need an iClicker or the iClicker app for this course, since reading qui
 
 **Reading quizzes.** Two or three questions in lecture on that day's reading. These should be trivial _if you've done the reading_. Quizzes run on **twenty** of the days that carry a reading and the best **fifteen** count, so five missed days cost you nothing and need no explanation.
 
-**Discussion section.** Twenty per cent of the grade is earned in section. Part of it is Short Answer 1, described below. **WE NEED TO DISCUSS WHAT GOES HERE BEFORE DISTRIBUTING TO THE STUDENTS**
+**Discussion section.** Twenty per cent of the grade is earned in section. Part of this is Short Answer 1, described below, and there will be other assessment tasks that your GSIs will discuss with you.
 
-**Module quizzes.** Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up, and they are weighted accordingly.
+**Module quizzes.** Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up.
 
-**Short Answer 1.** Three short questions on the first block of the course, written by hand in section in the week of `r advdate(mon, 6)`. About thirty minutes. This is the first piece of writing anyone reads.
+**Short Answer 1.** Three short questions on the first block of the course, written by hand in section in the week of `r advdate(mon, 6)`. About thirty minutes. This is the first piece of writing you turn in.
 
-**Short Answer 2.** Five questions on Lectures 10 to 12, done at home, due Friday 23 October. They walk you through the moves a philosophy essay makes, and are practice for the essay.
+**Short Answer 2.** Five questions on Lectures 10 to 12, done outside class time, and due Friday 23 October. They walk you through the moves a philosophy essay makes, and are practice for the essay.
 
 **Essay.** About 1,200 words on a question in ethics or welfare, due Monday 23 November. The essay should have a similar structure to Short Answer 2. We will get comments back to you on Short Answer 2 well before this is due.
 
@@ -142,8 +142,6 @@ In practice, we have the following two rules on *everything* written that you tu
 
 1. There must be an *acknowledgments* section where you record all the help you got, from friends, family, books, computers, etc. You should overshare here; it's fine to get lots of help, and as long as the result is your own work, we aren't going to worry what help you got. One exception to this: if  if you do use any online tools (that includes search engines, now that they have language models built in) you must keep records of everything you ask them. Do not use anyone else's account, or any account you cannot access the history of, for any course-related purpose.
 2. For anything you write, you have to be able to answer two questions: _What did you mean by that?_ and _Why did you write that?_. That's what we mean by something being your own work; you can explain and defend it.
-
-**NOTE FOR GSIs - THIS IS IMPORTANT AND WILL BE SOMETHING YOU HAVE TO DO; WE SHOULD TALK ABOUT THE LOGISTICS OF THIS AND WHETHER IT CAN BE IMPROVED**
 
 To that end, we will frequently **audit** the turned in work. In practice, that means we'll ask the auditee (that might be you!) to explain, in person, what they meant by various claims, and why they wrote it. We will audit work that we think is suspicious, and we will also do some audits *at random*. If we audit you, this does not mean we think you cheated; it could be random. It's annoying for us, and I'm sure annoying for you, that we have to do this, but the evidence is that people turning in work which is not their own is a bit out of control.
 
@@ -173,7 +171,7 @@ We play a deduction game in class. No reading.
 
 ## Week 2: Risky Inference
 
-### `r advdate(tue, 2)` (Lecture 3) — Induction, analogy, and explanation
+### `r advdate(tue, 2)` (Lecture 3) — Two models of learning
 
 **Required**: Arthur Conan Doyle, ["The Boscombe Valley Mystery," in *The Adventures of Sherlock Holmes*](https://www.gutenberg.org/ebooks/1661) (Project Gutenberg). One passage only, about two pages: from "Sherlock Holmes was transformed when he was hot upon such a scent as this" to "There are several other indications, but these may be enough to aid us in our search." This isn't a philosophy paper, but we'll start with the philosophical presuppositions behind it.    
 **Recommended**: [The rest of the story](https://www.gutenberg.org/ebooks/1661).
@@ -185,10 +183,10 @@ We play a deduction game in class. No reading.
 
 ## Week 3: When Is a Belief Rational?
 
-### `r advdate(tue, 3)` (Lecture 5) — Perceptual evidence, and how many sources of knowledge there are
+### `r advdate(tue, 3)` (Lecture 5) — Epistemic foundations
 
 **Required**: Todd R. Long, ["Epistemic Justification: What is Rational Belief?"](https://1000wordphilosophy.com/2023/03/19/epistemic-justification/) (1000-Word Philosophy).    
-**Required**: Stephen Phillips and Anand Vaidya SEP, ["Epistemology in Classical Indian Philosophy"](https://plato.stanford.edu/entries/epistemology-india/#KnowKnowSour), SEP, **§1.1**.    
+**Required**: Stephen Phillips and Anand Vaidya, ["Epistemology in Classical Indian Philosophy"](https://plato.stanford.edu/entries/epistemology-india/#KnowKnowSour), SEP, **§1.1**.    
 **Recommended**: Ted Poston, ["Foundationalism"](https://iep.utm.edu/foundationalism-in-epistemology/), IEP, **§§1–2**.
 
 ### `r advdate(thu, 3)` (Lecture 6) — Memory and the forgotten source
@@ -198,7 +196,7 @@ We play a deduction game in class. No reading.
 
 ## Week 4: Believing Other People
 
-### `r advdate(tue, 4)` (Lecture 7) — Does testimony stand on its own?
+### `r advdate(tue, 4)` (Lecture 7) — Is testimony a separate source?
 
 **Required**: Dhirendra Mohan Datta, ["Testimony as a Method of Knowledge,"](https://www.jstor.org/stable/2249544)  *Mind* 36 (1927): 354–358. (Note you need to be on campus, or have a JSTOR account, for this one.)       
 **Recommended**: Dan Sperber et al., ["Epistemic Vigilance,"](https://www.dan.sperber.fr/wp-content/uploads/2010_clement-et-al_epistemic-vigilance.pdf) *Mind & Language* 25 (2010).
@@ -210,7 +208,7 @@ We play a deduction game in class. No reading.
 
 ## Week 5: Science, and the Mind
 
-### `r advdate(tue, 5)` (Lecture 9) — Why trust science, and how trust breaks
+### `r advdate(tue, 5)` (Lecture 9) — Social trust
 
 **Required**: C. Thi Nguyen, ["Escape the Echo Chamber"](https://aeon.co/essays/why-its-as-hard-to-escape-an-echo-chamber-as-it-is-to-flee-a-cult),  *Aeon*.    
 **Required**: Naomi Oreskes, ["Defending science in a post-fact era"](https://news.harvard.edu/gazette/story/2019/10/in-why-trust-science-naomi-oreskes-explains-why-the-process-of-proof-is-worth-trusting/),  *Harvard Gazette*, 2019. (The important part is the third question, about the 'five pillars'. The rest of the interview is **Recommended**.)
@@ -362,7 +360,7 @@ No reading. Bring questions.
 
 The final examination is in the University examination period, 14–21 December. The date and room will be posted once the University publishes the schedule.
 
-{{< pagebreak >}}
+<!-- {{< pagebreak >}}
 
 # Open for the GSI meeting
 
@@ -388,5 +386,5 @@ Then essay marking doesn't have as hard a deadline; ideally 2 weeks after it's t
 
 The stuff at the end isn't as crucial to the grading, because it only shows up on one quiz and an exam. That may result in some loss of enthusiasm. Now maybe that's fine; it's the end of term. And free speech normally gets enough enthusiasm anyway. And no matter what the grade, students over-index on the importance of the exam. But if you're worried, we could move some of the 20% to in class activities after the essay is due in.
 
-Short Answer 1 is meant to be in class, and this could cause accommodations complications. We should flag this early, and get on top of any issues. The same goes for any other in class writing assignments you want to do. Also, you might want to schedule a makeup slot - preferably one slot across all six sections, because out of 150 we will always have some crises.
+Short Answer 1 is meant to be in class, and this could cause accommodations complications. We should flag this early, and get on top of any issues. The same goes for any other in class writing assignments you want to do. Also, you might want to schedule a makeup slot - preferably one slot across all six sections, because out of 150 we will always have some crises. -->
 

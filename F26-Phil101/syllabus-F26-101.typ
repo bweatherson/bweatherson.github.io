@@ -362,7 +362,6 @@
 // the gaps between blocks, `below` to unstick a heading.
 #show heading.where(level: 2): set block(above: 2.0em, below: 0.9em)
 #show heading.where(level: 3): set block(above: 1.5em, below: 0.65em)
-#import "@preview/fontawesome:0.5.0": *
 #let brand-color = (:)
 #let brand-color-background = (:)
 #let brand-logo = (:)
@@ -376,12 +375,12 @@
 
 #show: doc => article(
   title: [PHIL 101: Introduction to Philosophy],
+  subtitle: [Fall 2026],
   authors: (
     ( name: [Brian Weatherson],
       affiliation: [],
       email: [] ),
     ),
-  date: [2026-01-01],
   font: ("EB Garamond",),
   fontsize: 11pt,
   heading-family: ("EB Garamond",),
@@ -390,33 +389,7 @@
   doc,
 )
 
-#block[
-#callout(
-body: 
-[
-This version is for the pre-term meeting, not for students. The last section records what is still open. Delete that section, and this box, before the student version goes out.
-
-]
-, 
-title: 
-[
-Draft for discussion with GSIs
-]
-, 
-background_color: 
-rgb("#f7dddc")
-, 
-icon_color: 
-rgb("#CC1914")
-, 
-icon: 
-fa-exclamation()
-, 
-body_background_color: 
-white
-)
-]
-#strong[Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Office Hours]: Tuesday, 1.45-3.45pm, 2207 Angell Hall \ #strong[Lectures]: Tuesday and Thursday, 9:00--9:50, Angell Hall, Auditorium C \ #strong[Discussion sections]: Twice weekly, 50 minutes, times and rooms vary \ #strong[Web]: canvas.umich.edu and #link("https://bweatherson.github.io/F26-Phil101-site/")
+#strong[Instructor]: Brian Weatherson \ #strong[Email]: weath\@umich.edu \ #strong[Office Hours]: Tuesday, 1.45-3.45pm, 2207 Angell Hall \ #strong[Lectures]: Tuesday and Thursday, 9:00--9:50, Angell Hall, Auditorium C \ #strong[Discussion sections]: Twice weekly, 50 minutes, times and rooms vary \ #strong[Web]: #link("https://canvas.umich.edu") and #link("https://bweatherson.github.io/F26-Phil101-site/")
 
 ~
 
@@ -436,7 +409,7 @@ We begin with reasoning. What makes an argument a good one, what separates the i
 
 The second unit asks when a belief is rational. We'll start with the question of when perceptual beliefs are rational, and then move onto other cases. A particular focus will be beliefs formed via testimony. This raises both theoretical questions, what makes a belief formed via testimony rational, and practical questions, in a world like this, who should we trust?
 
-The middle of the course is about minds. The big question here is one of the oldest in philosophy: what is the relationship between minds and bodies. We'll get to that by looking again at perception, and in particular thinking about the conscious aspects of perception, what it #emph[feels like] to perceive the world the way we do.
+The middle of the course is about minds. The big question here is one of the oldest in philosophy: what is the relationship between minds and bodies? We'll get to that by looking again at perception, and in particular thinking about the conscious aspects of perception, what it #emph[feels like] to perceive the world the way we do.
 
 The rest of the course is about value. What makes an action right, what makes a life go well, what makes you the same person you were at five, and what a state may and may not do to you. We end on free speech, which sends us back to where we started, since the case for free speech is a claim about how a group of people reasons its way to the truth.
 
@@ -465,13 +438,13 @@ You will need an iClicker or the iClicker app for this course, since reading qui
 )
 #strong[Reading quizzes.] Two or three questions in lecture on that day's reading. These should be trivial #emph[if you've done the reading]. Quizzes run on #strong[twenty] of the days that carry a reading and the best #strong[fifteen] count, so five missed days cost you nothing and need no explanation.
 
-#strong[Discussion section.] Twenty per cent of the grade is earned in section. Part of it is Short Answer 1, described below. #strong[WE NEED TO DISCUSS WHAT GOES HERE BEFORE DISTRIBUTING TO THE STUDENTS]
+#strong[Discussion section.] Twenty per cent of the grade is earned in section. Part of this is Short Answer 1, described below, and there will be other assessment tasks that your GSIs will discuss with you.
 
-#strong[Module quizzes.] Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up, and they are weighted accordingly.
+#strong[Module quizzes.] Four short open-book multiple-choice quizzes, taken on Canvas, one at the end of each block of the course. These are there to help you keep up.
 
-#strong[Short Answer 1.] Three short questions on the first block of the course, written by hand in section in the week of Monday, October 05. About thirty minutes. This is the first piece of writing anyone reads.
+#strong[Short Answer 1.] Three short questions on the first block of the course, written by hand in section in the week of Monday, October 05. About thirty minutes. This is the first piece of writing you turn in.
 
-#strong[Short Answer 2.] Five questions on Lectures 10 to 12, done at home, due Friday 23 October. They walk you through the moves a philosophy essay makes, and are practice for the essay.
+#strong[Short Answer 2.] Five questions on Lectures 10 to 12, done outside class time, and due Friday 23 October. They walk you through the moves a philosophy essay makes, and are practice for the essay.
 
 #strong[Essay.] About 1,200 words on a question in ethics or welfare, due Monday 23 November. The essay should have a similar structure to Short Answer 2. We will get comments back to you on Short Answer 2 well before this is due.
 
@@ -485,8 +458,6 @@ In practice, we have the following two rules on #emph[everything] written that y
 
 + There must be an #emph[acknowledgments] section where you record all the help you got, from friends, family, books, computers, etc. You should overshare here; it's fine to get lots of help, and as long as the result is your own work, we aren't going to worry what help you got. One exception to this: if if you do use any online tools (that includes search engines, now that they have language models built in) you must keep records of everything you ask them. Do not use anyone else's account, or any account you cannot access the history of, for any course-related purpose.
 + For anything you write, you have to be able to answer two questions: #emph[What did you mean by that?] and #emph[Why did you write that?]. That's what we mean by something being your own work; you can explain and defend it.
-
-#strong[NOTE FOR GSIs - THIS IS IMPORTANT AND WILL BE SOMETHING YOU HAVE TO DO; WE SHOULD TALK ABOUT THE LOGISTICS OF THIS AND WHETHER IT CAN BE IMPROVED]
 
 To that end, we will frequently #strong[audit] the turned in work. In practice, that means we'll ask the auditee (that might be you!) to explain, in person, what they meant by various claims, and why they wrote it. We will audit work that we think is suspicious, and we will also do some audits #emph[at random]. If we audit you, this does not mean we think you cheated; it could be random. It's annoying for us, and I'm sure annoying for you, that we have to do this, but the evidence is that people turning in work which is not their own is a bit out of control.
 
@@ -515,8 +486,8 @@ We play a deduction game in class. No reading.
 
 == Week 2: Risky Inference
 <week-2-risky-inference>
-=== Tuesday, September 08 (Lecture 3) --- Induction, analogy, and explanation
-<tuesday-september-08-lecture-3-induction-analogy-and-explanation>
+=== Tuesday, September 08 (Lecture 3) --- Two models of learning
+<tuesday-september-08-lecture-3-two-models-of-learning>
 #strong[Required]: Arthur Conan Doyle, #link("https://www.gutenberg.org/ebooks/1661")["The Boscombe Valley Mystery," in #emph[The Adventures of Sherlock Holmes]] (Project Gutenberg). One passage only, about two pages: from "Sherlock Holmes was transformed when he was hot upon such a scent as this" to "There are several other indications, but these may be enough to aid us in our search." This isn't a philosophy paper, but we'll start with the philosophical presuppositions behind it. \ #strong[Recommended]: #link("https://www.gutenberg.org/ebooks/1661")[The rest of the story].
 
 === Thursday, September 10 (Lecture 4) --- Grue
@@ -525,9 +496,9 @@ We play a deduction game in class. No reading.
 
 == Week 3: When Is a Belief Rational?
 <week-3-when-is-a-belief-rational>
-=== Tuesday, September 15 (Lecture 5) --- Perceptual evidence, and how many sources of knowledge there are
-<tuesday-september-15-lecture-5-perceptual-evidence-and-how-many-sources-of-knowledge-there-are>
-#strong[Required]: Todd R. Long, #link("https://1000wordphilosophy.com/2023/03/19/epistemic-justification/")["Epistemic Justification: What is Rational Belief?"] (1000-Word Philosophy). \ #strong[Required]: Stephen Phillips and Anand Vaidya SEP, #link("https://plato.stanford.edu/entries/epistemology-india/#KnowKnowSour")["Epistemology in Classical Indian Philosophy"], SEP, #strong[§1.1]. \ #strong[Recommended]: Ted Poston, #link("https://iep.utm.edu/foundationalism-in-epistemology/")["Foundationalism"], IEP, #strong[§§1--2].
+=== Tuesday, September 15 (Lecture 5) --- Epistemic foundations
+<tuesday-september-15-lecture-5-epistemic-foundations>
+#strong[Required]: Todd R. Long, #link("https://1000wordphilosophy.com/2023/03/19/epistemic-justification/")["Epistemic Justification: What is Rational Belief?"] (1000-Word Philosophy). \ #strong[Required]: Stephen Phillips and Anand Vaidya, #link("https://plato.stanford.edu/entries/epistemology-india/#KnowKnowSour")["Epistemology in Classical Indian Philosophy"], SEP, #strong[§1.1]. \ #strong[Recommended]: Ted Poston, #link("https://iep.utm.edu/foundationalism-in-epistemology/")["Foundationalism"], IEP, #strong[§§1--2].
 
 === Thursday, September 17 (Lecture 6) --- Memory and the forgotten source
 <thursday-september-17-lecture-6-memory-and-the-forgotten-source>
@@ -535,8 +506,8 @@ We play a deduction game in class. No reading.
 
 == Week 4: Believing Other People
 <week-4-believing-other-people>
-=== Tuesday, September 22 (Lecture 7) --- Does testimony stand on its own?
-<tuesday-september-22-lecture-7-does-testimony-stand-on-its-own>
+=== Tuesday, September 22 (Lecture 7) --- Is testimony a separate source?
+<tuesday-september-22-lecture-7-is-testimony-a-separate-source>
 #strong[Required]: Dhirendra Mohan Datta, #link("https://www.jstor.org/stable/2249544")["Testimony as a Method of Knowledge,"] #emph[Mind] 36 (1927): 354--358. (Note you need to be on campus, or have a JSTOR account, for this one.) \ #strong[Recommended]: Dan Sperber et al., #link("https://www.dan.sperber.fr/wp-content/uploads/2010_clement-et-al_epistemic-vigilance.pdf")["Epistemic Vigilance,"] #emph[Mind & Language] 25 (2010).
 
 === Thursday, September 24 (Lecture 8) --- Whom do you trust?
@@ -545,8 +516,8 @@ We play a deduction game in class. No reading.
 
 == Week 5: Science, and the Mind
 <week-5-science-and-the-mind>
-=== Tuesday, September 29 (Lecture 9) --- Why trust science, and how trust breaks
-<tuesday-september-29-lecture-9-why-trust-science-and-how-trust-breaks>
+=== Tuesday, September 29 (Lecture 9) --- Social trust
+<tuesday-september-29-lecture-9-social-trust>
 #strong[Required]: C. Thi Nguyen, #link("https://aeon.co/essays/why-its-as-hard-to-escape-an-echo-chamber-as-it-is-to-flee-a-cult")["Escape the Echo Chamber"], #emph[Aeon]. \ #strong[Required]: Naomi Oreskes, #link("https://news.harvard.edu/gazette/story/2019/10/in-why-trust-science-naomi-oreskes-explains-why-the-process-of-proof-is-worth-trusting/")["Defending science in a post-fact era"], #emph[Harvard Gazette], 2019. (The important part is the third question, about the 'five pillars'. The rest of the interview is #strong[Recommended]\.)
 
 #emph[Module Quiz 1 (Lectures 1--9) opens after class, due Sunday.] (NOTE FOR GSIs; should I just post the questions earlier?)
@@ -668,30 +639,3 @@ We play a deduction game in class. No reading.
 No reading. Bring questions.
 
 The final examination is in the University examination period, 14--21 December. The date and room will be posted once the University publishes the schedule.
-
-#pagebreak()
-= Open for the GSI meeting
-<open-for-the-gsi-meeting>
-#emph[This section is not for students. Delete it before the syllabus goes out.]
-
-== The section component
-<the-section-component>
-We should decide what to do with the 20%. That's a lot for you, but on the other hand, it gives you plenty of things to do in class, and two classes a week is a lot to prep. So I think we should go with something like
-
-+ Short Answer 1 \~8%
-+ Presentations on readings \~6%
-+ Participation \~6%
-
-But we can alter point 2, or add something else. I think it would #emph[probably] be best to be uniform across the sections, but I'm willing to be talked out of it.
-
-== Consequences of the November essay deadline
-<consequences-of-the-november-essay-deadline>
-The essay is due Monday 23 November so that marked essays go back before the examination.
-
-Short Answer 2 is marked across two weeks, 23 October to 6 November. That's an important deadline to hit, because the students should use the feedback from in in essay 1. Also, this should get #emph[more] feedback than either short answer 1 or frankly the essay. (And definitely more than the exam.)
-
-Then essay marking doesn't have as hard a deadline; ideally 2 weeks after it's turned in, but a bit of slippage here isn't the end of the world.
-
-The stuff at the end isn't as crucial to the grading, because it only shows up on one quiz and an exam. That may result in some loss of enthusiasm. Now maybe that's fine; it's the end of term. And free speech normally gets enough enthusiasm anyway. And no matter what the grade, students over-index on the importance of the exam. But if you're worried, we could move some of the 20% to in class activities after the essay is due in.
-
-Short Answer 1 is meant to be in class, and this could cause accommodations complications. We should flag this early, and get on top of any issues. The same goes for any other in class writing assignments you want to do. Also, you might want to schedule a makeup slot - preferably one slot across all six sections, because out of 150 we will always have some crises.
