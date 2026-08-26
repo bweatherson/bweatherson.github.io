@@ -477,7 +477,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 <thursday-september-10-lecture-4>
 #strong[Topic]: Nash equilibrium. \ #strong[Reading]: Notes, 3.1-3.6.2 (Mixed Strategies through Finding Best Responses). \ #strong[Recommended]: Bonanno, 2.6 (Nash equilibrium).
 
-#strong[Quiz]: Quiz~1 on Canvas, due Friday, September 11.
+#strong[Quiz]: Quiz~1 on Canvas, due Friday, September 11 at 5pm.
 
 == Week 3: Mixed Strategies and Rationalizability
 <week-3-mixed-strategies-and-rationalizability>
@@ -489,7 +489,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 <thursday-september-17-lecture-6>
 #strong[Topic]: Rationalizability; common knowledge of rationality. \ #strong[Reading]: Notes, 4.1 (Rationalizability). \ #strong[Recommended]: Bonanno, 6.4 (Strict dominance and rationalizability), and Ch~10 (Rationality), 10.1-10.3. Ch~8 (Common Knowledge) gives a more careful epistemic justification of rationalizability.
 
-#strong[Quiz]: Quiz~2 on Canvas, due Friday, September 18.
+#strong[Quiz]: Quiz~2 on Canvas, due Friday, September 18 at 5pm.
 
 == Week 4: Dynamic Games
 <week-4-dynamic-games>
@@ -501,7 +501,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 <thursday-september-24-lecture-8>
 #strong[Topic]: Backward induction; the centipede paradox. \ #strong[Reading]: Notes, 5.5 (Problems with Backwards Induction). \ #strong[Recommended]: Bonanno, 3.2 and 3.4; 7.3 (Problems with the notion of subgame-perfect equilibrium); 10.4 (Common knowledge of rationality in extensive-form games).
 
-#strong[Quiz]: Quiz~3 on Canvas, due Friday, September 25.
+#strong[Quiz]: Quiz~3 on Canvas, due Friday, September 25 at 5pm.
 
 == Week 5: Forward Induction and Bayesian Games
 <week-5-forward-induction-and-bayesian-games>
@@ -523,7 +523,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 <thursday-october-08-lecture-12>
 #strong[Topic]: The beer-quiche game; the intuitive criterion. \ #strong[Reading]: Notes, 6.9 (The Intuitive Criterion). In-Koo Cho and David M. Kreps, "Signaling Games and Stable Equilibria", #emph[Quarterly Journal of Economics] 102 (1987): 179-221. #link("https://www.jstor.org/stable/1885060") \ #strong[Recommended]: Bonanno, Ch~12 (Sequential Equilibrium). He does not cover the intuitive criterion, but this is a similar idea.
 
-#strong[Quiz]: Quiz~4 on Canvas, due Friday, October 09.
+#strong[Quiz]: Quiz~4 on Canvas, due Friday, October 09 at 5pm.
 
 == Week 7: Asymmetric Information
 <week-7-asymmetric-information>
@@ -567,7 +567,7 @@ No class -- Fall Study Break (October 19-20).
 <thursday-november-05-lecture-19>
 #strong[Topic]: Views which reject Universal Domain, in particular the single-peakedness assumption \ #strong[Reading]: CCSW: Ch~10 (Majority Choice and Related Systems). \ #strong[Recommended]: CCSW: Ch~10\* (Restricted Preferences and Rational Choice).
 
-#strong[Quiz]: Quiz~5, on Canvas, due Friday, November 06.
+#strong[Quiz]: Quiz~5, on Canvas, due Friday, November 06 at 5pm.
 
 == Week 11: Two More Escapes
 <week-11-two-more-escapes>
@@ -579,7 +579,7 @@ No class -- Fall Study Break (October 19-20).
 <thursday-november-12-lecture-21>
 #strong[Topic]: Third escape: use more than preferences. \ #strong[Reading]: CCSW: Ch~7 (Interpersonal Aggregation and Comparability). \ #strong[Recommended]: CCSW: Ch~7\* (Aggregation Quasi-Orderings); Ch~8 (Cardinality With or Without Comparability).
 
-#strong[Quiz]: Quiz~6, on Canvas, due Friday, November 13.
+#strong[Quiz]: Quiz~6, on Canvas, due Friday, November 13 at 5pm.
 
 == Week 12: Strategy and Liberty
 <week-12-strategy-and-liberty>
@@ -591,7 +591,7 @@ No class -- Fall Study Break (October 19-20).
 <thursday-november-19-lecture-23>
 #strong[Topic]: Sen's liberal paradox. \ #strong[Reading]: CCSW: Ch~6 (Conflicts and Dilemmas); Ch~6\* (The Liberal Paradox). \ #strong[Recommended]: Amartya Sen, "The Impossibility of a Paretian Liberal", #emph[Journal of Political Economy] 78 (1970): 152-157. #link("https://doi.org/10.1086/259614")
 
-#strong[Quiz]: Quiz~7, on Canvas, due Friday, November 20.
+#strong[Quiz]: Quiz~7, on Canvas, due Friday, November 20 at 5pm.
 
 == Week 13: Rights
 <week-13-rights>
@@ -613,7 +613,7 @@ No class -- Thanksgiving recess (November 25-27).
 <thursday-december-03-lecture-26>
 #strong[Topic]: The capability approach. \ #strong[Reading]: Amartya Sen, "Equality of What?", Tanner Lecture on Human Values, Stanford University, 22 May 1979; reprinted in #emph[Choice, Welfare and Measurement]. #link("https://tannerlectures.org/lectures/equality-of-what/") \ #strong[Recommended]: CCSW: Ch~A3\* (Social Welfare Evaluation). Martha Nussbaum, "Capabilities as Fundamental Entitlements: Sen and Social Justice", #emph[Feminist Economics] 9 (2003): 33-59. #link("https://doi.org/10.1080/1354570022000077926")
 
-#strong[Quiz]: Quiz~8, on Canvas, due Friday, December 04.
+#strong[Quiz]: Quiz~8, on Canvas, due Friday, December 04 at 5pm.
 
 == Week 15: Democracy and Public Reasoning
 <week-15-democracy-and-public-reasoning>
