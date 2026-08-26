@@ -93,7 +93,7 @@ But doesn't enumerative induction look pretty _formal_? Computers can tell when 
 ::: {layout="[40,60]"}
 
 ::: {}
-![Nelson Goodman (1906-1998), via Wikipedia](../images/nelson_goodman.jpg){fig-alt="Photo of Nelson Goodman"}
+![Nelson Goodman (1906-1998), via Wikipedia](../images/Nelson_Goodman.jpg){fig-alt="Photo of Nelson Goodman"}
 :::
 
 ::: {}
@@ -124,11 +124,11 @@ The evidence for "the first emerald examined on 10 December 2026 will be green" 
 
 ## Two hypotheses, one body of evidence
 
-So take an emerald still in the ground, to be dug up next year.
+So take an emerald still in the ground, to be dug up next year. Call it Emmie.
 
-If all emeralds are green, it will be green.
+Enumerative induction on 'green' suggests we have a compelling reason to believe Emmie is green, because all emeralds we've seen are green.
 
-If all emeralds are grue, it will be blue, because it was not examined before December.
+Enumerative induction on 'grue' suggests we have a compelling reason to believe Emmie is grue, and hence blue, because all emeralds we've seen are grue.
 
 . . .
 
@@ -136,11 +136,28 @@ Your evidence supports both hypotheses equally well, and they disagree about wha
 
 ## The riddle, stated
 
-Evidence confirms hypotheses. But every body of evidence confirms hypotheses that contradict each other about the next case.
+Our evidence isn't contradictory, so it can't support both _Emmie is green_ and _Emmie is blue_.
 
-So evidence alone cannot be what tells you what to expect. Something else is doing that work, and Goodman's question is what.
+So which one does it support?
 
-# Two ways out that do not work
+. . .
+
+And why?
+
+## Back to the argument
+
+It's like the argument was really 
+
+1. I've seen lots of things that are _F_, in lots of places, and they've all been _G_.
+2. _Fa_
+3. _F_ is one of the good predicates, like 'green', not one of the bad ones, like 'grue'.
+4. Therefore, _Ga_.
+
+. . .
+
+But how do we know 3? How do we teach it to machines? And what does it even _mean_?
+
+# Some ways
 
 ## "Grue is about time, and green isn't"
 
@@ -154,64 +171,62 @@ Now describe green using only grue and bleen. Something is green when it is exam
 
 From inside the grue vocabulary, it is green that carries the date.
 
-## "Nobody actually thinks that way"
+## "Grue is about time, and green isn't"
 
-True, and that is the point rather than an answer to it.
+Also, if you put in rules against using time-sensitive predicates in induction, you're going to have a hard time learning when it is and isn't awful to find a parking spot around campus.
 
-We do project green and we do not project grue, and the question was never whether we do. It is what makes us right to.
+All the predicates you want to use there are about time.
 
-# What Goodman says
+## "Something more fundamental explains why it is green"
 
-## Entrenchment
-
-Goodman's own answer is that "green" has a history. It has been projected successfully by a great many people over a long time, and "grue" has not. He calls this entrenchment.
+This is probably true.
 
 . . .
 
-Note what this is and is not. It describes which predicates we have in fact come to trust. Whether that track record makes them the right ones to trust is a further question, and Goodman is not especially reassuring about it.
+But there are two problems.
 
-## The shape of the result
+1. Ancient people, who didn't know that colors aren't fundamental, still need a response to the argument.
+2. Once you've seen the recipe for creating 'grue'-some predicates, you can run it for 'schmavity' (rather than 'gravity') or whatever is fundamental.
 
-Whatever the answer turns out to be, the shape is fixed. A run of evidence, however long and however clean, does not on its own fix what comes next.
+## "We think about green, grue is a philosopher's invention"
 
-You bring something to the evidence. A prior sense of which patterns are the real ones and which are gerrymandered. Without it, the evidence is silent.
+This has two complications.
+
+1. It is surprising if our practices make induction rational, rather than the rationality of induction validating our practices.
+2. Do we in fact think about green. As Ludwig Wittgenstein pointed out around the same time (in slightly different words), saying just how our word "green" means green rather than grue recreates the same problem.
+
+## "Nobody actually talks that way"
+
+That's true, but does it solve the problem?
+
+Do conventions about language really settle what it is rational to believe? Maybe, but that would be really surprising? Are different conclusions justified for people speaking different languages?
+
+. . .
+
+This is close to Goodman's own answer. 'Green' is embedded in our practices, including our linguistic practices. People with different practices should do different things.
 
 # The machine version
 
-## The same hole, at scale
+## Building better bots
 
-A system that learns from examples faces this exactly. Show it a million green emeralds and it still has to settle which generalisation it is making, because the examples are equally consistent with generalisations that diverge afterwards.
+A system that learns from examples faces this exactly. Show it a million green/grue emeralds and it still has to decide whether to expect green or grue emeralds going forward.
 
-Nothing in the data picks one out. The choice comes from how the system was built, in what it was already disposed to notice.
-
-. . .
-
-Practitioners call that inductive bias, and treat it as a design decision rather than a discovery. Goodman's riddle is the reason it has to be one.
+Nothing in the data picks one out. The choice comes from how the system was built. This is a processing choice which can't be made on the basis of data.
 
 . . .
 
-This is the debt from Tuesday. A Bayesian system has to start somewhere, and the starting point is neither something perception delivered nor something processing worked out. Grue is what that starting point is doing.
+This is sometimes called inductive bias. Crucially it's a design decision. Goodman's puzzle shows why it has to be a design decision. You have to pick a language, either one with green or one with grue, before you start processing evidence.
 
-## Where this leaves us
+## Building better bots
 
-The hard part of learning from evidence was never gathering the evidence. It is the judgment about which patterns in it to trust, and that judgment cannot itself come from the evidence.
+This is the other half of why building machines that do inductive learning is so much harder than building machines that do deductive reasoning.
 
-Keep that. It comes back when we ask which people to trust, and why.
+Deductive arguments are language-neutral; if some reasons guarantee a conclusion, the translations of the reasons guarantee the translation of the conclusion.
 
-# Reading
-
-## For today
-
-Required:
-
-> Jonathan Weisberg, "The Grue Paradox," in *Odds & Ends*, ch. C.
-
-Recommended:
-
-> Sven Neth, "Goodman's New Riddle of Induction Explained in Words of One Syllable."
+Inductive arguments don't *look* like that. We have to pick a language for our machines. For better or worse, we seem to have picked _English_. That's a choice, and one that the grue puzzle shows may have consequences.
 
 ## Next week
 
-We move from how to reason to when a belief is rational, starting with the case that looks easiest. You saw something yourself.
+We move from how to reason to when a belief is rational, starting with the case that looks easiest. You look out, and you simply see that something's true, and that's what you start with.
 
 Whether that is as solid as it sounds is Tuesday's question.
