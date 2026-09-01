@@ -4,6 +4,13 @@ about:
     template: solana
 ---
 
+# Contents
+
+- [Syllabus](#syllabus)
+- [Course Materials](#course-materials)
+- [Readings](#readings)
+- [Lectures](#lectures)
+
 # Syllabus
 
 - [Syllabus](syllabus-F26-101.html)
@@ -123,7 +130,7 @@ Where a reading names a section, read that section only. The encyclopedia entrie
 
 : Slides go up shortly before each class {tbl-colwidths="[10,12,50,14,14]"}
 
-## Instructions for Slides
+### Instructions for Slides
 
 The slides are built using [revealjs](https://revealjs.com). To move around them, the four key things to know are:
 
