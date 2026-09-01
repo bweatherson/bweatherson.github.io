@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Brian Weatherson">
   <meta name="dcterms.date" content="2026-09-10">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -134,12 +137,12 @@
 
 <section class="quarto-title-block center">
   <h1 class="title">Game Theory and Social Choice</h1>
-  <p class="subtitle">Lecture 4: Nash Equilibrium and the Limits of Dominance</p>
+  <p class="subtitle">Lecture 4: Nash Equilibrium</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Brian Weatherson 
+Brian Weatherson
 </div>
 </div>
 </div>
@@ -179,18 +182,23 @@ Brian Weatherson
 </section>
 <section class="slide level2">
 <h2>Iterated Knowledge</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
+<div class="quarto-layout-panel" data-layout="[45,55]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 45.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="steam_train.jpg"></p>
 <figcaption>A vintage steam train</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:55%;">
-<p>The dirty faces puzzle is a clean way to see just how strong iterated mutual knowledge of rationality is.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 55.0%;justify-content: flex-start;">
+<p>The dirty faces puzzle is a famous way to illustrate just how strong iterated mutual knowledge of rationality is.</p>
 <p>Three logicians are on an old steam train. Each could have a smudge on their face from the soot.</p>
-</div></div>
+<p>In fact, they all have smudges, though they can only see the others.</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Dirty Faces</h2>
@@ -203,9 +211,7 @@ Brian Weatherson
 </div>
 </div>
 <p>Each logician can see the others’ faces, but not their own, so this doesn’t look like an interesting <em>announcement</em>.</p>
-</section>
-<section class="slide level2">
-<h2>Dirty Faces</h2>
+<div class="fragment">
 <p>The conductor periodically asks:</p>
 <div class="callout callout-note no-icon callout-style-simple">
 <div class="callout-body">
@@ -215,6 +221,7 @@ Brian Weatherson
 </div>
 </div>
 <p>Suppose, in fact, all three of them have smudges.</p>
+</div>
 </section>
 <section class="slide level2">
 <h2>Round One</h2>
@@ -253,17 +260,20 @@ Brian Weatherson
 </div>
 </section>
 <section class="slide level2">
-<h2>What the Puzzle Shows</h2>
+<h2>Lessons</h2>
 <p>Each successive round of “no one says yes” gives the logicians a new piece of information.</p>
 <div class="fragment">
-<p>But it only does so if each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on, to a depth that grows with the number of rounds.</p>
+<p>But it only given a bunch of assumptions. Each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on. And that ‘and so on’ covers more and more as the number of players gets larger.</p>
 </div>
-<div class="fragment">
-<p>This is exactly the structure that IESDS leans on. Each round of deletion uses one more layer of “I know that you know that…” about rationality. Long IESDS arguments make very strong assumptions.</p>
-</div>
-<div class="fragment">
-<p>(There are also genuine paradoxes about common knowledge of rationality, especially in dynamic games. We will come back to those.)</p>
-</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>LEssons</h2>
+<p>There are two things to take away from the puzzle.</p>
+<ol type="1">
+<li class="fragment">These long reasoning chains start to look implausible as they get long enough.</li>
+<li class="fragment">The standard assumption of <strong>common knowledge</strong> of rationality is really strong. In the puzzle, it isn’t common knowledge that even one person has a smudge, even though they can both see two smudges. That’s why the announcement makes a difference.</li>
+</ol>
+<p>This is the structure that IESDS uses. Each round of deletion uses one more layer of “I know that you know that…” about rationality. Long IESDS arguments make very strong assumptions.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -272,16 +282,16 @@ Brian Weatherson
 </section>
 <section class="slide level2">
 <h2>Best Response</h2>
-<p>A <strong>best response</strong> for player <span class="math inline">\(i\)</span> to what the other players do is a strategy that gets player <span class="math inline">\(i\)</span> the highest possible payoff, given those other strategies.</p>
+<p>A <strong>best response</strong> for player <span class="math inline">\(i\)</span> to what the other players do is a strategy that gets player <span class="math inline">\(i\)</span> the highest possible payoff, holding fixed what the other players do.</p>
 <div class="fragment">
-<p>If two strategies tie for the highest payoff, both count as best responses. There can be more than one.</p>
+<p>If two or more strategies tie for the highest payoff, both count as best responses.</p>
+<p>This is terrible terminology, but we’re stuck with it; it should really be <strong>at least tied for best response</strong>, but I guess that’s not so snappy.</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Notation: Bold the Best</h2>
 <p>We will mark best responses by bolding the relevant payoff.</p>
 <div class="fragment">
-<p>Take a simple coordination game:</p>
 <div id="tbl-br-coord" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-br-coord-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -314,11 +324,15 @@ Table&nbsp;1: A coordination game with best responses marked
 </div>
 </div>
 <div class="fragment">
-<p>Read Row’s payoff in the (U, L) cell: it is bold, so U is Row’s best response when Column plays L. Read Column’s payoff in the (U, L) cell: it is also bold, so L is Column’s best response when Row plays U.</p>
+<p>Look at Row’s payoff in the (U, L) cell. I’ve bolded it because <strong>U</strong> is Row’s best response to Column playing <strong>L</strong>.</p>
+</div>
+<div class="fragment">
+<p>I’ve also bolded Column’s response in that cell, because <strong>L</strong> is the best response to <strong>U</strong>.</p>
+<p>The two facts marked by these two boldings are <em>different</em>, and they can come apart.</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>A Best-Response Walk-Through</h2>
+<h2>A Simple Game</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -354,11 +368,11 @@ Table&nbsp;1: A coordination game with best responses marked
 </div>
 </section>
 <section class="slide level2">
-<h2>Same Game, Marked Up</h2>
+<h2>Same Game with Markup</h2>
 <div id="tbl-no-pure-ne" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-no-pure-ne-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Best responses marked. No cell has both bolded.
+Table&nbsp;2: Best responses marked.
 </figcaption>
 <div aria-describedby="tbl-no-pure-ne-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
@@ -385,6 +399,7 @@ Table&nbsp;2: Best responses marked. No cell has both bolded.
 </div>
 </figure>
 </div>
+<p>Note in this game, <strong>no</strong> cell has both responses marked. There is no outcome (on the table) that is a best response for both players.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -424,15 +439,26 @@ Table&nbsp;2: Best responses marked. No cell has both bolded.
 <div class="fragment">
 <p>There are two Nash equilibria: (U, L) and (D, R). Both cells have every payoff bolded.</p>
 </div>
-<div class="fragment">
-<p>This raises a question we will come back to: when a game has more than one Nash equilibrium, what (if anything) tells us which one to expect?</p>
-</div>
 </section>
-<section class="slide level2">
-<h2>A Reminder</h2>
-<p>The game I just walked through, with payoffs 3-0, 0-1, 1-2, 2-1, had <strong>no</strong> cell with both payoffs bolded.</p>
+<section class="slide level2 scrollable">
+<h2>Nash and Game Play</h2>
+<p>Here’s another rule for play in games:</p>
+<div class="callout callout-important no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Only play strategies that are part of a Nash equilibrium.</p>
+</div>
+</div>
+</div>
 <div class="fragment">
-<p>So that game has no Nash equilibrium in pure strategies at all. Some games are like this. We’ll see what to do about them next time.</p>
+<p>This raises two natural questions:</p>
+<ol type="1">
+<li class="fragment">What should you do in games like this where there are two equilibria?</li>
+<li class="fragment">What should you do in games like the one we saw earlier where there are <strong>no</strong> cells with both values bolded, and no (pure strategy) Nash equilibria.</li>
+</ol>
+</div>
+<div class="fragment">
+<p>We’ll come back to Q2 next time.</p>
 </div>
 </section></section>
 <section>
@@ -465,8 +491,9 @@ Table&nbsp;2: Best responses marked. No cell has both bolded.
 <section class="slide level2">
 <h2>A Three-Player Coordination Game</h2>
 <p>Consider a three-player game where players get 1 each at (U, L, F), and 0 each everywhere else.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-puz1-f" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-puz1-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -497,7 +524,8 @@ Table&nbsp;3: P3 plays F
 </div>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-puz1-b" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-puz1-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -528,7 +556,9 @@ Table&nbsp;4: P3 plays B
 </div>
 </figure>
 </div>
-</div></div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Puzzle One: Equilibria Eliminated</h2>
@@ -546,8 +576,9 @@ Table&nbsp;4: P3 plays B
 <section class="slide level2">
 <h2>A Different Three-Player Game</h2>
 <p>Now consider the dual: players get 1 each everywhere except (D, R, B), where they get 0.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-puz2-f" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-puz2-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -578,7 +609,8 @@ Table&nbsp;5: P3 plays F
 </div>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-puz2-b" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-puz2-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -609,7 +641,9 @@ Table&nbsp;6: P3 plays B
 </div>
 </figure>
 </div>
-</div></div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 <h2>Puzzle Two: Why Bother?</h2>
@@ -621,7 +655,7 @@ Table&nbsp;6: P3 plays B
 <p>But look at the game. Almost every cell pays 1. If the players have ended up at, say, (U, R, B), they are all getting 1 already. None of them has an incentive to switch, because switching alone keeps you at 1.</p>
 </div>
 <div class="fragment">
-<p>Why should anyone bother to follow weak dominance reasoning here? It tells them to move when there is no payoff reason to move. The only “reason” is to avoid (D, R, B) — but if everyone is reasoning that way, no one would have gone there in the first place.</p>
+<p>Why should anyone bother to follow weak dominance reasoning here? It tells them to move when there is no payoff reason to move. The only “reason” is to avoid (D, R, B). But if everyone is reasoning that way, no one would have gone there in the first place.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -727,7 +761,7 @@ Table&nbsp;7: A game where order will turn out to matter
 <ul>
 <li>Best response and Nash equilibrium give us a much cleaner way to talk about what rational play might look like in a game.</li>
 <li>Some games have one Nash equilibrium, some have many, some have none.</li>
-<li>Strict dominance is well-behaved as a solution method: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.</li>
+<li>Strict dominance is well-behaved: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.</li>
 <li>Weak dominance is messier. It eliminates strategies that are part of Nash equilibria, it recommends moves with no payoff reason behind them, and it depends on deletion order.</li>
 </ul>
 </section>
@@ -735,7 +769,7 @@ Table&nbsp;7: A game where order will turn out to matter
 <h2>Next Time</h2>
 <p>For the game we saw earlier with no pure Nash equilibrium, we need something new: <strong>mixed strategies</strong>.</p>
 <div class="fragment">
-<p>We’ll introduce them, work out how to compute mixed-strategy equilibria, and then raise a famous puzzle about what mixed strategies even mean. That puzzle will come back later in the course, when we have more tools to address it.</p>
+<p>We’ll introduce them, work out how to compute mixed-strategy equilibria, and then raise a famous puzzle about what mixed strategies even mean. That puzzle will come back later in the course, when we’ve introduced more tools to address it.</p>
 
 
 </div>
@@ -1026,7 +1060,7 @@ Table&nbsp;7: A game where order will turn out to matter
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444_site");
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

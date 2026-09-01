@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Brian Weatherson">
   <meta name="dcterms.date" content="2026-09-08">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -139,7 +142,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Brian Weatherson 
+Brian Weatherson
 </div>
 </div>
 </div>
@@ -170,7 +173,7 @@ Brian Weatherson
 </section>
 <section class="slide level2">
 <h2>Simplifying Assumptions</h2>
-<p>Those two examples have two things in common that we’ll want to eventually drop.</p>
+<p>Those two examples have three things in common that we’ll want to eventually drop.</p>
 <ul>
 <li class="fragment">They are <strong>two-player games</strong>.</li>
 <li class="fragment">They are <strong>zero-sum</strong>.</li>
@@ -266,8 +269,9 @@ Table&nbsp;1: The Prisoner’s Dilemma
 <section class="slide level2">
 <h2>Payoff Matrix</h2>
 <p>If we have three players, the usual approach is to have a set of tables, one for each move player 3 could have.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-3p-c" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3p-c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -298,7 +302,8 @@ Table&nbsp;2: P3 does C
 </div>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-3p-d" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-3p-d-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -329,7 +334,9 @@ Table&nbsp;3: P3 does D
 </div>
 </figure>
 </div>
-</div></div>
+</div>
+</div>
+</div>
 <p>We can’t do three dimensions on slides, so we have one table for if P3 plays <strong>C</strong>, and another table for if they play <strong>D</strong>.</p>
 </section>
 <section class="slide level2 scrollable">
@@ -633,7 +640,7 @@ Table&nbsp;7: Iterated dominance example
 </div>
 </section>
 <section class="slide level2">
-<h2>Iterated Elimation</h2>
+<h2>Iterated Elimination</h2>
 <p>The thought here is that we can sometimes get to a solution of a game by going through and eliminating dominated strategies.</p>
 <ul>
 <li class="fragment">Because dominance is defined in terms of quantification over remaining strategies, this elimination can make more strategies dominated.</li>
@@ -766,8 +773,9 @@ Table&nbsp;7: Iterated dominance example
 </section>
 <section class="slide level2">
 <h2>A Three Player Version</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-iesds-f" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-iesds-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -798,7 +806,8 @@ Table&nbsp;8: P3 plays F
 </div>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div id="tbl-iesds-b" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-tbl">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-iesds-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -829,7 +838,9 @@ Table&nbsp;9: P3 plays B
 </div>
 </figure>
 </div>
-</div></div>
+</div>
+</div>
+</div>
 <div class="fragment">
 <p>This can be solved by first deleting <strong>B</strong> (for back) for P3, then deleting <strong>R</strong> for P2, then deleting <strong>U</strong> for P1. (It’s worth verifying all these steps!)</p>
 </div>
@@ -1127,7 +1138,7 @@ Table&nbsp;9: P3 plays B
         }
           var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
           var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444_site");
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
           var isInternal = (href) => {
               return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }

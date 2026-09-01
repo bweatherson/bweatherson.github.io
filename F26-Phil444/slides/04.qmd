@@ -1,6 +1,6 @@
 ---
 title: "Game Theory and Social Choice"
-subtitle: "Lecture 4: Nash Equilibrium and the Limits of Dominance"
+subtitle: "Lecture 4: Nash Equilibrium"
 author: "Brian Weatherson"
 date: "September 10, 2026"
 ---
@@ -125,15 +125,15 @@ Now each logician reasons further:
 
 All three say yes.
 
-## What the Puzzle Shows
+## Lessons
 
 Each successive round of "no one says yes" gives the logicians a new piece of information.
 
 . . .
 
-But it only does so if each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on, to a depth that grows with the number of rounds.
+But it only given a bunch of assumptions. Each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on. And that 'and so on' covers more and more as the number of players gets larger.
 
-## What the Puzzle Shows
+## LEssons
 
 There are two things to take away from the puzzle.
 
@@ -173,11 +173,11 @@ Look at Row's payoff in the (U, L) cell. I've bolded it because **U** is Row's b
 
 . . .
 
-I've *also* bolded Column's response in that cell, because **L** is the best response to **U**. 
+I've also bolded Column's response in that cell, because **L** is the best response to **U**. 
 
 The two facts marked by these two boldings are *different*, and they can come apart.
 
-## A Best-Response Walk-Through
+## A Simple Game
 
 |         | L     | R     |
 |--------:|:-----:|:-----:|
@@ -200,7 +200,7 @@ What's Column's best response to U? Column's payoffs in row U are 0 and 1. So R.
 
 What's Column's best response to D? Payoffs are 2 and 1. So L.
 
-## Same Game, Marked Up
+## Same Game with Markup
 
 |         | L         | R         |
 |--------:|:---------:|:---------:|
@@ -448,7 +448,7 @@ Iterated weak dominance is **path-dependent** in a way iterated strict dominance
 ::: {.nonincremental}
 - Best response and Nash equilibrium give us a much cleaner way to talk about what rational play might look like in a game.
 - Some games have one Nash equilibrium, some have many, some have none.
-- Strict dominance is well-behaved as a solution method: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.
+- Strict dominance is well-behaved: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.
 - Weak dominance is messier. It eliminates strategies that are part of Nash equilibria, it recommends moves with no payoff reason behind them, and it depends on deletion order.
 :::
 
@@ -458,4 +458,4 @@ For the game we saw earlier with no pure Nash equilibrium, we need something new
 
 . . .
 
-We'll introduce them, work out how to compute mixed-strategy equilibria, and then raise a famous puzzle about what mixed strategies even mean. That puzzle will come back later in the course, when we have more tools to address it.
+We'll introduce them, work out how to compute mixed-strategy equilibria, and then raise a famous puzzle about what mixed strategies even mean. That puzzle will come back later in the course, when we've introduced more tools to address it.
