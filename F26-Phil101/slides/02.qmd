@@ -16,7 +16,9 @@ date: "2026-09-03"
 :::
 
 ::: {}
-Over the summer, I spent more time than I'd like to admit solving the puzzles at [cluesbysam.com](https://cluesbysam.com). 
+Over the summer, I spent more time than I'd like to admit solving the puzzles at
+
+> [cluesbysam.com](https://cluesbysam.com). 
 
 The trick is to use clues to figure out which of the 20 people (or occasionally animals) shown on a grid like this are criminals, and which are innocent.
 :::
@@ -48,13 +50,15 @@ So for each person there is a chain of reasoning from the clues to the answer. Y
 
 . . .
 
-What do we mean by 'chain' here? That's the topic for today.
+What do we mean by 'chain' here? That's what I'll try to make a bit clearer today.
 
 # Arguments
 
 ## Two kinds of arguments
 
 Sometimes an argument is two people disagreeing loudly. E.g., "We all left because Ted and Bill were having a loud argument about Odysseus."
+
+. . .
 
 Sometimes it is one person giving reasons for a view. E.g., "Chris argued that Odysseus was the kind of figure who was responsible for the Bronze Age Collapse."
 
@@ -75,6 +79,12 @@ An argument can have one premise, or two, or twenty.
 
 It has exactly one conclusion.^[Two caveats that you might want to discuss more. Sometimes an argument will have _intermediate_ conclusions, things which follow from earlier premises, and get used for later reasoning. And sometimes the speaker will draw two conclusions from the same premises. We'll treat each of these as multiple arguments, and keep the 'single conclusion' constraint in place.] 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 ## Arguments in natural language
 
 There are good but not perfect guides to which parts of speech relate to which parts of an argument.
@@ -84,7 +94,7 @@ There are good but not perfect guides to which parts of speech relate to which p
 
 . . .
 
-The conclusion can come first, last, or in the middle. Word order is not any guide. In fact, a really common thing in speech is to announce your 'conclusion' first, and then tell people why you think it. These connective words are not perfect, but they are a better guide than word order.
+The conclusion can come first, last, or in the middle. Word order is not a good guide. In fact, a really common thing in speech is to announce your 'conclusion' first, and then tell people why you think it. These connective words are not perfect, but they are a better guide than word order.
 
 # Assessing Arguments
 
@@ -168,7 +178,7 @@ Thgat is, you may write down a verdict only when there is a valid argument from 
 
 ## Your Turn
 
-## Clues by Sam
+## Our Clues Game
 
 ::: {layout="[40,60]"}
 
@@ -193,7 +203,9 @@ Work with the person beside you. Saying the reasoning out loud is the fastest wa
 
 Most of what you did was counting. A clue says exactly three of these five, you know two of them are innocent, and the rest follows.
 
-But two other moves were in there, and they turn up everywhere in philosophy. They are worth having names for.
+But two other moves were in there, and they turn up everywhere in philosophy. 
+
+Let's introduce them more carefully, with some fancy names.
 
 ## Move one: reductio
 
@@ -222,7 +234,7 @@ Bea's neighbours are Amir, Cory, Dana, Evan and Fay.
 
 . . .
 
-Suppose Amir is guilty. He is one of Bea's neighbours, so by the first clue none of the others is, and Dana, Evan and Fay are all innocent. But then the second clue needs three guilty people out of Gil and Ira alone.
+Suppose Amir is guilty. He is one of Bea's neighbours, so by the first clue none of the others is guilty, i.e., Dana, Evan and Fay are all innocent. But then the second clue needs three guilty people out of Gil and Ira alone.
 
 That cannot happen. So Amir is innocent.
 
