@@ -1171,11 +1171,11 @@ In games where the players only have two choices to pick from, the difference be
 +---------+-----+-----+-----+-----+
 |         |     | $a$ | $b$ | $c$ |
 +---------+-----+-----+-----+-----+
-| **Row** | $A$ | 3,0 | 0,3 | 2,2 |
+| **Row** | $A$ | 3,0 | 0,3 | 0,2 |
 |         +-----+-----+-----+-----+
-|         | $B$ | 0,3 | 3,0 | 2,2 |
+|         | $B$ | 0,3 | 3,0 | 0,2 |
 |         +-----+-----+-----+-----+
-|         | $C$ | 2,2 | 2,2 | 2,2 |
+|         | $C$ | 2,0 | 2,0 | 2,2 |
 +---------+-----+-----+-----+-----+
 
 In both games, there is a unique Nash equilibrium, $Cc$. But all strategies are rationalizable. Note that $A$ is a best response to $a$, which is a best response to $B$, which is a best response to $b$, which is a best response to $A$. Once you have a cycle like this, every member of the cycle is rationalizable. But there is no mixed strategy Nash equilibrium with those pure strategies as supports. For reasons that should be familiar by now, the only mixed strategy equilibrium that would be available is for each player to play a 50/50 split between their first two options. But if one player plays that mixed strategy, the other player has a return of 1.5 if they reciprocate, and a return of 2 if they play the third option. So there is only one equilibrium, pure or mixed, for the game, while all options are rationalizable.

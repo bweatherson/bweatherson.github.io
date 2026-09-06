@@ -502,7 +502,7 @@ We play a deduction game in class. No reading.
 
 === Thursday, September 17 (Lecture 6) --- Memory and the forgotten source
 <thursday-september-17-lecture-6-memory-and-the-forgotten-source>
-#strong[Required]: Matthew Frise, #link("https://plato.stanford.edu/entries/memory-episprob/#PresGene")["Epistemological Problems of Memory"], SEP, #strong[§2.4]. \ #strong[Recommended]: Lisa K. Fazio et al., #link("https://www.apa.org/pubs/journals/features/xge-0000098.pdf")["Knowledge Does Not Protect Against Illusory Truth."]
+#strong[Required]: Matthew Frise, #link("https://plato.stanford.edu/entries/memory-episprob/#PresGene")["Epistemological Problems of Memory"], SEP, #strong[§2.4]. \ #strong[Recommended]: Lisa K. Fazio et al., #link("https://www.apa.org/pubs/journals/features/xge-0000098.pdf")["Knowledge Does Not Protect Against Illusory Truth."], Nilanjan Das, #link("https://onlinelibrary.wiley.com/doi/10.1111/phpr.70130")["Udayana on Learning through Memory,"] #emph[Philosophy and Phenomenological Research]. (Note you need to be on campus, or logged in through the library, for this one.)
 
 == Week 4: Believing Other People
 <week-4-believing-other-people>

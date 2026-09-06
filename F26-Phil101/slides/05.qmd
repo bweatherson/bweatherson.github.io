@@ -1,105 +1,289 @@
 ---
-title: "How Many Sources of Knowledge?"
+title: "Epistemic Foundations"
 subtitle: "Phil 101 · Day 5"
 author: "Brian Weatherson"
 date: "2026-09-15"
 ---
 
-# What feeds an inference
+# Where we are
 
-## Where we are
+## Recap
 
-Grue left us with a problem. A run of evidence, however clean, does not on its own fix what comes next. Inference needs something fed in from outside.
+Last week we talked about this model of learning.
 
-So the question for today is a plain one: what feeds it?
-
-## The game gave you a gift
-
-In the deduction game the clues were handed to you, and they were true. That is the only reason you never had to guess.
+1. Something **perceives** the external world.
+2. Something **processes** what perception delivers.
 
 . . .
 
-Nothing outside the game works like that. No one hands you clues that are both given and guaranteed. So where do real clues come from?
+And we split the processing into **safe** processing, where the premises guarantee the conclusion, and **risky** processing, where they don't.
 
-## Back to Holmes
+## What Grue showed
 
-We watched Holmes observe and infer. Look again at where his information actually comes from:
+Thursday's puzzle was about the risky half. There isn't a simple rule getting from your past evidence to what will happen in the future. 
 
-- a telegram summons him to the case
-- the newspaper prints the inquest, and he reads the son's statement on the train
-- Miss Turner comes to the inn and tells him about her father
-- Lestrade passes on what the police have found
+You need to make some substantive assumptions about what's a real feature of the world, and that's not easy to automate.
 
 . . .
 
-His own eyes meet the evidence for the first time only at the pool. The rest he is working from because someone told him.
+Today we change the question. Last week was *how should you reason from what you have*; this week *when is what you have any good?*
 
-## The third thing
+## The easy case
 
-Believing something because someone told you has a name. It is testimony.
-
-It sits awkwardly beside the other two. You did not see it for yourself, and you did not work it out. You took someone's word.
-
-# An old question
-
-## How many sources are there?
-
-Long before Hume, philosophers in India asked just this and gave it a name. A pramāṇa is a source of knowledge, a way a true belief can be properly arrived at. The argument was over how many there are.
-
-## The ladder
-
-- the Cārvāka materialists allow one: perception
-- the Buddhist logicians allow two: perception and inference
-- the Nyāya school allows four: perception, inference, comparison, and testimony
-- later schools press on, reaching six
+You look out the window. You see that it's raining. You believe it's raining.
 
 . . .
 
-The four-source list adds two things the two-source list lacks: comparison, and the one that will occupy us, testimony.
+Here are two questions about this:
 
-## A word on comparison
+1. What goes on under the hood when you do this?
+2. Why is the resulting belief justified, if indeed it is?
 
-Comparison is the unfamiliar one. The stock example: you are told that a wild ox is much like a cow, you later meet the animal in the forest, and you know at once which kind it is.
+# Justification
 
-That is the analogy from Day 3 put to a narrow job, fixing what a new word picks out by its likeness to something you already know.
+## The word
 
-## The model you have been using
+We'll use **justified** as our generic term for beliefs that are good to have.
 
-Our own tradition mostly settled on the two: perception and inference. You have spent the week living inside that picture.
+We won't distinguish it from *reasonable*, *rational*, *sensible*, or other similar terms.
 
-The game was inference. Holmes was perception feeding inference. Neither left room for testimony as a source in its own right.
+Maybe there are differences between these terms, language rarely includes precise synonyms, but we'll leave those differences for another course.
 
-# Is testimony its own source?
+## Two ways to have a reason
 
-## The question
+Here's one intuitive thought: Justified beliefs are those backed by **reasons**.
 
-Set perception and inference on one side. Does testimony belong beside them as a third source, or does it fold into them, so that you perceive the words and then infer that they are true?
+Todd Long, in the reading, separates two things that both get called reasons.
 
-We take that up in full next class. First, why it is worth the trouble.
+Epistemic reason
+:    A consideration that makes the belief **likely to be true**.
 
-## Why it matters
+Practical reason
+:    A consideration that makes you **better off** for holding it.
 
-Strip testimony out and look at what survives in what you know.
+## Telling them apart
 
-Nearly all of history, the sciences, and geography reached you on someone's word, and so did most of what you treat as your own memory of early childhood. If testimony is not a way of knowing, most of your knowledge is not knowledge after all.
+Nomy Arpaly, a philosopher at Brown, illustrates the difference with this story.
 
-## An old argument, an unlikely place
+A person has received a worrying diagnosis, and their doctor has run a lot of tests, they are now meeting to discuss them.
 
-The dispute is not new. In 1927 an Indian philosopher, Dhirendra Mohan Datta, argued the case in *Mind*, putting the Nyāya side to his Cambridge contemporaries.
+- Patient: Is there any reason to hope?
+- Doctor: Yes.
+- Patient: Great, what do the tests show?
+- Doctor: Oh the tests were not good, but patients who are hopeful have better outcomes, so you should remain hopeful for that reason.
 
-We read him next class. Today, get the lay of the land.
+## Which one we care about
 
-## Reading
+The patient here should be rather upset with the doctor; she's changed the subject.
 
-For the map of the Indian debate, its schools, its sources, and the arguments between them:
+When we ask whether there are reasons to believe something, or even think it not impossible, we are looking for reasons that make it likely to be true.
 
-> "Epistemology in Classical Indian Philosophy," *Stanford Encyclopedia of Philosophy*.
-> plato.stanford.edu/entries/epistemology-india
+**Epistemology** is about those reasons, and that's our focus here.
 
-## Where this goes
+# The regress
 
-Next class, the question head on. Does testimony stand on its own feet? The reductionist says no, and we will see how hard that is to make stick.
+## Questions that come naturally to children
+
+For any belief you have, even one as simple as *It's raining*, a child can (and for some children, often does) ask this question:
 
 . . .
 
-Further out sit the questions it opens. Whom to trust when you cannot check for yourself. How to weigh experts who disagree. Why we lean on science. And the hardest report of all, that a miracle occurred.
+> *Why do you believe that?*
+
+. . . 
+
+You answer with some reason. But, and here's the catch, they can ask it again.
+
+## Three ways it can go
+
+Ask enough times and there are only three things that can happen.
+
+1. It never stops. The chain of reasons runs on forever.
+2. It comes back on itself. You end up citing something you already used.
+3. It stops. You hit something you believe, but not on the basis of anything further.
+
+. . .
+
+Each of these looks bad. This badness has been recognised as a problem, at least back to Roman times, for our justification.
+
+## The first two
+
+Call the first **infinitism**: as long as every step has a justification, you're good, even if the chain goes on forever. The obvious complaint is that you are finite. You have not had infinitely many thoughts and you're not going to.
+
+. . .
+
+Call the second **coherentism**: your beliefs support each other and nothing is foundational. The obvious complaint is that circular reasoning is a paradigm of what we call *irrational*. Also, how coherent my mind is looks like a *global* property of my mind, so it applies equally to all my beliefs. But I have some beliefs that are sensible, and some that are stupid.
+
+## It stops
+
+Call this **foundationalism**. Some beliefs are justified, but not by other beliefs. Everything else rests on them.
+
+:::: {.callout-note title="Poston"}
+Foundationalists maintain that some beliefs are properly basic and that the rest of one's beliefs inherit their epistemic status (knowledge or justification) in virtue of receiving proper support from the basic beliefs.
+::::
+
+## The two kinds of belief
+
+Basic
+:    Justified, but not by any other belief you hold.
+
+Non-basic
+:    Justified by other beliefs, ultimately by basic ones.
+
+. . .
+
+Foundationalism is the view that the structure of justified belief has this shape.
+
+## What could be basic?
+
+The natural first answer, for creatures like us, is **perception**.
+
+We see that it's raining, and that's the regress stopper.
+
+Let's look at this further.
+
+# Perception as Basic
+
+## Descartes's demand
+
+If these things are the foundation, they store all the supports and all the plumbing and everything else, they better be sturdy.
+
+What we'll call **Classical foundationalism** requires basic beliefs to be infallible, or indubitable, or incorrigible. Something you cannot be wrong about, or cannot doubt, or cannot be corrected on. (Or maybe all three of these)
+
+René Descartes is the most famous defender of this kind of view, and we'll come back to him.
+
+## Does perception pass?
+
+So: is *It's raining* something you cannot be wrong about?
+
+. . .
+
+No. The problem is perception gets things wrong.
+
+## Visual Illusions
+
+![A and B are the same shade](../images/Checker_shadow_illusion.svg){fig-alt="A checkerboard with a cylinder casting a shadow, with squares A and B marked."}
+
+## iClicker
+
+OK, time to test the iClicker software. Here's a very quick poll. (By 'poll' I mean you get points just for answering. But this is a test week, so there aren't points anyway!)
+
+**Which square is actually darker?**
+
+A.  It's A
+B.  It's B
+C.  They're the same color, they just look different.
+
+## Why are we back to illusions?
+
+On Day 3 this was evidence *for* the two-part model. The fact that perception makes mistakes is a reason to think it is a separate system to processing.
+
+. . .
+
+Today it's a problem. If perception makes mistakes, and it just delivers the starting points, then the whole system might be rotten.
+
+## The retreat inwards
+
+There is a standard move here.
+
+What's basic isn't *square A is darker than square B*, but rather *square A looks darker to me*.
+
+## Two Problems
+
+1. Perhaps there could be illusions about how you *feel*. This is tricky, but perhaps possible.
+2. It's the wrong *kind* of thing.
+
+. . .
+
+If my starting points are facts about what's going on inside my head, I need a reason to draw inferences from this to the outside world, and the attempts to do this have not been spectacular successes.
+
+. . .
+
+There is also a problem about how evidence is shareable on this picture, which will be in the background when we get to testimony.
+
+
+## Modest foundationalism
+
+The other option is to ask less.
+
+:::: {.callout-note title="Poston"}
+Modest foundationalism permits basic beliefs that are fallible, corrigible, or dubitable.
+::::
+
+Basic beliefs can be wrong. They just have to be good enough to build on. That's Long's **fallibilism**: a belief can be justified and still be false.
+
+This raises many more puzzles, but let's set it aside and turn to something more practical.
+
+# How many sources?
+
+## What's basic?
+
+In the last section I discussed this claim:
+
+- Perception delivers basic beliefs, ones that are justified but not in virtue of something else.
+
+. . .
+
+Even if that's correct, it raises many more questions.
+
+1. Is _perception_ a single source, or should we divide it up. Perhaps we should divide it into Aristotle's five senses (vision, hearing, taste, touch, smell), or into something more modern.
+2. Are there any other basic sources?
+
+## Examples
+
+- Is memory a third thing, or storage attached to the other two?
+- Is taking somebody's word for it a way of processing, a second way of taking things in, or something else?
+
+## Pramāṇa
+
+We've mainly been talking about European and American philosophers so far, but until recently there was very little in this 'Western' (more precisely Mediterranean/North Atlantic) tradition on this question.
+
+But this question was really important to South Asian philosophy for a long time.^[Possibly 'Indian philosophy' would be a better name here, but I don't want to leave the impression that this was all done by people living inside the present-day borders of India.]
+
+A **pramāṇa** is a means of knowledge.^[A more literal translation might be 'proof', but 'means of knowledge' is closer to what we're interested in.]
+
+&nbsp;
+
+&nbsp;
+
+## How many?
+
+There were several **schools** of philosophy in South Asia. That's not unusual, this kind of division is common in lots of traditions, both as something that philosophers themselves use, and as something historians impose to make sense of a messy field.
+
+What's distinctive here is that often what defined the different schools were disputes about how many pramāṇa there are, and what they are.
+
+## Candidates
+
+- Perception
+- Inference
+- Analogy, understood as distinct from narrowly logical inference
+- Testimony
+- Derivation from circumstances, roughly inference to sensible explanation
+- Inference from non-perception, e.g., I don't see an elephant so there is no elephant here.
+
+## What's at stake
+
+If a school didn't endorse a method, that might mean one of two things.
+
+1. They didn't trust it at all. Some of the riskier ones, like 'derivation from circumstances' were treated this way.
+2. They didn't think it was a *distinct* method. So maybe it does work, but it's just an application of other methods.
+
+. . .
+
+The more austere schools, like the ones that defended the view that gets picked up in Sherlock Holmes and many modern applications that it's just perception plus inference, often aim to show that the other methods are just applications of these two.
+
+# Going forward
+
+## Thursday
+
+Memory, which is the odd one out on every list we've seen.
+
+You are carrying around a very large number of beliefs, and for almost none of them can you say where you got them. Thursday's question is whether they're any good.
+
+. . .
+
+Then testimony next Tuesday. In 1927 an Indian philosopher, Dhirendra Mohan Datta^[The name on the article was 'Dhirendron Mohon Datta', but I'm very confident it's the person who primarily published as 'Dhirendra Mohan Datta'. I don't know if the journal erred, or he changed the preferred way of presenting his name in English between 1927 and his more famous later works.] published a paper in *Mind* (the leading English philosophy journal) arguing that testimony is a distinct source. This is a characteristic view of the Nyāya school, and his arguments draw heavily from that tradition.
+
+&nbsp;
+
+&nbsp;

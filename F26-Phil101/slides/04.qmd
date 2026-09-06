@@ -16,7 +16,7 @@ Start with a toy model of a system that learns about the world. It has two parts
 
 . . .
 
-We noted that there are reasons to think that really good learning systems, like us, might either (a) have other features, or (b) have a not-so-sharp boundary between the two parts. Set those thoughts aside for now.
+We noted that there are reasons to think that really good learning systems, like us, might either (a) have other features, or (b) have a not-so-sharp boundary between the two parts. Bracket that for now, though we'll certainly come back to it.
 
 . . .
 
@@ -122,7 +122,7 @@ Notice that every one of those emeralds is also **grue**. They were examined bef
 
 The evidence for "the first emerald examined on 10 December 2026 will be green" and the evidence for "the first emerald examined on 10 December 2026 will be grue" is the same evidence. 
 
-## Two hypotheses, one body of evidence
+## Two hypotheses, each alike in evidence
 
 So take an emerald still in the ground, to be dug up next year. Call it Emmie.
 
@@ -132,11 +132,11 @@ Enumerative induction on 'grue' suggests we have a compelling reason to believe 
 
 . . .
 
-Your evidence supports both hypotheses equally well, and they disagree about what you will find.
+The evidence supports both hypotheses equally well, and they disagree about what we will find.
 
-## The riddle, stated
+## The riddle
 
-Our evidence isn't contradictory, so it can't support both _Emmie is green_ and _Emmie is blue_.
+Our evidence isn't contradictory, so it can't strongly support both _Emmie is green_ and _Emmie is blue_.
 
 So which one does it support?
 
@@ -157,19 +157,19 @@ It's like the argument was really
 
 But how do we know 3? How do we teach it to machines? And what does it even _mean_?
 
-# Some ways
+# What is a 'good' Predicate?
 
 ## "Grue is about time, and green isn't"
 
 The natural complaint is that grue smuggles a date into its definition, and respectable predicates do not do that.
 
-Goodman's reply is to define one more word. Something is **bleen** when it is examined before December and is blue, or is not examined before then and is green.
+Goodman's reply is to define one more word. Something is **bleen** when it is examined before 10 December 2026 and is blue, or is not examined before then and is green.
 
 . . .
 
 Now describe green using only grue and bleen. Something is green when it is examined before December and grue, or is not examined before then and bleen.
 
-From inside the grue vocabulary, it is green that carries the date.
+If you're a grue/bleen speacker, to you green has a date in it.
 
 ## "Grue is about time, and green isn't"
 
@@ -192,18 +192,18 @@ But there are two problems.
 
 This has two complications.
 
-1. It is surprising if our practices make induction rational, rather than the rationality of induction validating our practices.
-2. Do we in fact think about green. As Ludwig Wittgenstein pointed out around the same time (in slightly different words), saying just how our word "green" means green rather than grue recreates the same problem.
+1. It is surprising if our thoughts make induction rational, rather than the rationality of induction validating our thoughts.
+2. Do we in fact think about green? As Ludwig Wittgenstein pointed out around the same time (in slightly different words), saying just how our word "green" means green rather than grue recreates the same problem.
 
 ## "Nobody actually talks that way"
 
-That's true, but does it solve the problem?
+That's true, and it is roughly Goodman's answer, but does it solve the problem?
 
 Do conventions about language really settle what it is rational to believe? Maybe, but that would be really surprising? Are different conclusions justified for people speaking different languages?
 
 . . .
 
-This is close to Goodman's own answer. 'Green' is embedded in our practices, including our linguistic practices. People with different practices should do different things.
+Still, this is roughly what Goodman said. 'Green' is embedded in our practices, including our linguistic practices. People with different practices should do different things.
 
 # The machine version
 
@@ -221,12 +221,28 @@ This is sometimes called inductive bias. Crucially it's a design decision. Goodm
 
 This is the other half of why building machines that do inductive learning is so much harder than building machines that do deductive reasoning.
 
-Deductive arguments are language-neutral; if some reasons guarantee a conclusion, the translations of the reasons guarantee the translation of the conclusion.
+Deductive arguments are language-neutral; if some reasons guarantee a conclusion, the translations of the reasons guarantee the translation of the conclusion. You can train a machine to play Clues by Sam without it knowing what the words for the professions mean.
 
-Inductive arguments don't *look* like that. We have to pick a language for our machines. For better or worse, we seem to have picked _English_. That's a choice, and one that the grue puzzle shows may have consequences.
+Inductive arguments don't *look* like that. We have to pick a language for our machines. For better or worse, we seem to have picked _English_. (The chatbots can chat along in other languages, but they seem most comfortable in English.) That's a choice, and one that the grue puzzle shows may have consequences.
 
 ## Next week
 
 We move from how to reason to when a belief is rational, starting with the case that looks easiest. You look out, and you simply see that something's true, and that's what you start with.
 
 Whether that is as solid as it sounds is Tuesday's question.
+
+## Before we start Tuesday
+
+From Tuesday, lectures include some questions answered on iClicker.
+
+- Get the iClicker student app, or a remote.
+- **Sign up with your umich.edu address**, or it won't match the roster.
+- Find Philosophy 101 in your course list before Tuesday.
+
+. . .
+
+Tuesday and Thursday are practice; they won't go into the grade.
+
+. . .
+
+If it doesn't work for you on Tuesday, that's useful information and I'd like to hear it. Hopefully we can fix the bugs before we start things for grades.

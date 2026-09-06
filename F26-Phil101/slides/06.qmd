@@ -1,112 +1,277 @@
 ---
-title: "Evidence and the Senses II: What Memory Keeps"
+title: "Memory and the Forgotten Source"
 subtitle: "Phil 101 · Day 6"
 author: "Brian Weatherson"
 date: "2026-09-17"
 ---
 
-# What the senses leave behind
+# Where we are
 
-## Last time
+## Recap
 
-We set up the evidentialist picture. Your beliefs answer to your evidence, and perception is the clearest case of first-hand evidence, the kind you check for yourself.
+Tuesday we asked when a belief is any good, and ran into a famous regress.
+
+- Reasons need reasons, and there are only three ways that can end.
+- Foundationalists say it stops, at **basic** beliefs.
+- Which leaves the question of what's down there, and that's the question of how many **sources** there are.
+- We mentioned that in the tradition that cared most about this question, the answers ranged from 1 to 6.
+
+## Memory
+
+Let's continue our trek through the possible sources of knowledge by looking at something we use *all the time*: Memory.
 
 . . .
 
-But perception is gone in a moment. What you actually carry around, and act on, is the residue: what you remember.
+In the reading from Tuesday, Todd Long lists six sources of justification, and memory is the second one, sitting between perception and testimony as though it obviously belongs there.
 
-## Memory keeps less than you'd think
+Is that right?
 
-A fact about memory, from the lab and from a second's introspection alike: it stores contents, not sources.
+# Is memory a source?
 
-You remember that the heart has four chambers. You do not remember where you learned it, from whom, or whether the source was any good.
+## The case against
+
+One of the most detailed discussions we have of memory in South Asian philosophy is by a later writer from the Nyāya school, Udayana. (Probably 10th-11th centuries C.E.)
+
+The older Nyāya texts had listed four four ways of acquiring knowledge: perception, inference, analogy, testimony. Note that memory isn't one of these four.
 
 . . .
 
-It keeps even less than the content, but set that aside for today.
+So if you're defending the school, you should have an answer to why memory isn't.
 
-## So you are carrying a lot of orphans
+Udayana's answer is a fairly natural one. Memory is **dependent**. Your current knowledge 'via memory' has to have been via something else in the first place.
 
-The result is a head full of beliefs whose origins you have lost. You know a great many things and could not say, for almost any of them, how you came to know them.
+## Does memory reproduce or reconstruct
 
-Most of the time that is fine. Sometimes it is the whole problem.
+Udayana took memory to be a repository, like a library. You put some things in, and hopefully later you can get them back out.
+
+Books in the library don't grow new pages, and memory doesn't produce anything either.
+
+. . .
+
+So you can't **learn** by recollection. At most you can **recover** things you previously had.
+
+## The other side
+
+Jaina epistemologists didn't accept this, and pressed cases like the following.
+
+:::: {.callout-note title="Das"}
+Yesterday I saw my coffee mug on the table. This morning, half asleep, I'm searching the cupboards for it. Then I remember: that mug was on the table.
+::::
+
+. . .
+
+Something was learned there, and recollection is what did it. Ten seconds ago you didn't know where to look.
+
+## Preservationism and Generativism
+
+Preservationism
+:    Memory can at best **preserve** justification from other sources. It cannot **generate** justification.
+
+Generativism
+:    Memory can **generate** justification. There can be justification that wasn't there before and that memory itself supplies.
+
+## Preservationism and Generativism.
+
+These are both theories about how memory **justifies**, but they are tied to claims about what memory is.
+
+. . .
+
+The preservationist picture goes well with the idea that memory is a **storehouse**, or a **library**.
+
+It accumulates and keeps information that arrived from somewhere else. It doesn't add anything.
+
+This is a very natural picture of memory, basically the default. But it might not be right.
 
 # The forgotten source
 
-## A case you will recognize
+## An iClicker Question
 
-Years ago you picked some claim up from a poor source: a half-read headline, a confident friend who turned out to be wrong, a guess you made under pressure.
-
-You long ago forgot where it came from. Now you simply believe it, and it feels like something you know.
+I'm going to give everyone full points for this, this isn't a history class, but I want us to think about how we know things.
 
 . . .
 
-This is not a thought experiment. It is most of what sits in anyone's head.
+To the best of your knowledge, who was the third President of the United States.
 
-## The puzzle
+A.  John Adams
+B.  Thomas Jefferson
+C.  James Madison
+D.  Abraham Lincoln
 
-Put it as cleanly as we can. Almost all of your belief-forming methods are reliable; one of them is not. You formed the belief that p by the unreliable one, and then forgot that you had.
+## A second question
 
-Today you have a memory that p, and nothing else.
+Can you remember when and where you learned the answer to that question?
 
-Are you justified in believing p?
+A.  Yes
+B.  No
 
-## It pulls two ways
+## My gamble
 
-No. The belief came from a bad method and never picked up any new support along the way. Bad in, bad out.
+A non-trivial number of you will have answered B both times.
 
-Yes. Your memories are mostly of reliable things, so any given remembered belief is a fair bet, and the bad origin is gone. Forgetting laundered it.
-
-## The fork, without the jargon
-
-The two answers grade the belief by different things. One looks back at where it came from. The other looks at how trustworthy your memory is in general.
-
-Both have a real pull, and that is the puzzle. You do not need a theory of justification to feel it.
-
-# Why this one earns its place
-
-## It is how being wrong sticks
-
-This is no curiosity. It is the mechanism behind a good deal of what we get wrong.
-
-You meet a shaky claim, you discount it, you forget the source, you keep the claim. Months later it has shed its doubts and feels like plain fact. Psychologists call the rising pull of a discounted message, once its source falls away, the sleeper effect.
+You'll know something, but you won't know how you know it.
 
 . . .
 
-There is a blunter cousin. Sheer repetition alone makes a claim feel true, even one you know better than to believe. That is the illusory truth effect, and Lisa Fazio's work on it is in the optional reading; we will come back to it.
+This isn't some weird case. We love weird cases in philosophy, and we'll see plenty of them in this course. But this is a *normal* case.
+
+## First puzzle for the preservationist view
+
+On this picture, you'd think you would remember who the third President was by remembering learning who the third President was.
+
+We can totally imagine creatures whose minds do work that way.
+
+But that's not how *we* work.
+
+## Second puzzle for the preservationist view
+
+Imagine that you're really good at belief management. You almost never form false beliefs, or irrational beliefs.
+
+But just one day, just once, you did, and came to believe some proposition *p*.
 
 . . .
 
-A scrolling feed runs both at once: content in, source gone, and the same lines again tomorrow.
+It was long ago and you've forgotten the experience.
 
-# Memory and testimony are one puzzle
+Now someone asks you whether *p* is true, and when you consult your memory, while you have no recollection of how or why you have *p* stored there, you do, so you confidently answer *yes*.
 
-## Where do the orphans come from?
+## Two views on justification
 
-Ask where forgotten-source beliefs actually start. Almost every one is forgotten testimony. Someone told you, or wrote it down; you kept the claim and lost the speaker.
+Is this answer justified?
 
 . . .
 
-So "may I trust a memory whose source I have lost" and "is testimony a way of knowing" are not two questions. Memory is where testimony goes to lose its source.
+**No.** The belief came from a bad method and never picked up any support along the way. Nothing happened in the interim except forgetting, and forgetting doesn't make you *more* justified.
 
-## Which sets up next time
+. . .
 
-You trust your forgotten-source memories constantly, and you have no choice about it. But once you do, it is hard to turn to a living speaker and demand they prove their reliability before you will believe a word.
+**Yes.** Your memory is, in general, a reliable thing. A belief you find in there is a fair bet. The bad origin is gone and can't hurt you now.
 
-That is the pressure point for next time, when we ask whether testimony stands on its own.
+## Two views on justification
 
-## Reading
+The two answers are grading the belief by different things.
 
-Required:
+One looks **backwards**, at where the belief came from. The other looks at **memory itself**, and how trustworthy it is in general.
 
-> "Epistemological Problems of Memory," *Stanford Encyclopedia of Philosophy*, §2.4 (Preservationism and Generativism).
+. . .
 
-Recommended:
+Both have a real pull. You don't need a theory of justification to feel it, which is a good sign that it's a live problem rather than a manufactured one.
 
-> Lisa K. Fazio et al., "Knowledge Does Not Protect Against Illusory Truth."
+# Preservationism
 
-## Loose end (optional)
+## A useful distinction
 
-Even deduction leans on this. Once a proof runs longer than you can hold in mind at once, you accept the conclusion because you remember checking each step, not because you are surveying the whole thing now.
+Frise makes a helpful distinction here that's easy to miss.
 
-Even the safest knowledge is not free of memory.
+Anti-generativism
+:    Memory cannot **create** justification that wasn't there.
+
+The historical thesis
+:    A belief that enters memory with justification **keeps** it.
+
+## Why it matters
+
+It could be true that the second is true while the first is false.
+
+That's what you would think if you thought (a) whenever memories are fully preserved, they keep their status, but (b) in cases like the forgotten source, they acquire the justification of typical memory beliefs.
+
+. . .
+
+In this case it still seems weird, forgetting basically launders the past mistake. But it might be better than the alternatives.
+
+# Memory is not a library
+
+## A third question
+
+I'm going to read you a list of words. Just listen; don't write anything down.
+
+. . .
+
+I'm going to do some very quick iClicker polls. Again, these aren't for grades; we're just testing something.
+
+I want you to answer these *quickly*, and don't talk to your neighbors.
+
+::: {.notes}
+Read at about one word per second, no emphasis:
+
+bed, rest, awake, tired, dream, wake, snooze, blanket,
+doze, slumber, snore, nap, peace, yawn, drowsy
+
+Do NOT say the word "sleep".
+:::
+
+
+
+## Was this word on the list?
+
+**blanket**
+
+A.  Yes
+B.  No
+
+## Was this word on the list?
+
+**sleep**
+
+A.  Yes
+B.  No
+
+## Was this word on the list?
+
+**coffee**
+
+A.  Yes
+B.  No
+
+## What just happened
+
+Blanket was on the list. Coffee obviously wasn't.
+
+. . .
+
+**Sleep was not on the list either.** Every word on it was *about* sleep, but I never *said* it.
+
+. . .
+
+Let's look at what results we got. (I can't write this up in advance; I don't know the number!)
+
+. . .
+
+In the standard version of this experiment, people falsely recall the missing word about as often as they correctly recall the words that really were there. And asked whether they *remember* hearing it or merely find it familiar, most say they remember.
+
+## Against the storehouse model
+
+Libraries do not grow books nobody shelved, and books on the shelf do not rewrite themselves because of a question the librarian was asked.
+
+. . .
+
+It looks like memory is **reconstructive**, not merely reproductive. It builds something plausible from what it has, and what it has includes patterns, and later prompts.
+
+## Storehouses and preservation
+
+Now you could say the following, indeed I find this somewhat tempting.
+
+- Sure, sure, human memory is a mess, and doesn't look like the library/storehouse model.
+- But it **should**. That's what **good** memory looks like.
+- The function of memory is to preserve, and the fact that it doesn't always do great at that function is psychologically interesting, but doesn't tell us anything about justification.
+
+. . .
+
+But obviously if you thought the storehouse model was obviously right, therefore preservationism is true, you have to make *some* change.
+
+# Going forward
+
+## A loose end
+
+Even the safest possible reasoning, deduction, inherits some of these problems.
+
+In a mathematical argument any longer than a few steps, you need to **remember** the earlier lines.
+
+Any concerns about memory should make you nervous about mathematics.
+
+Indeed, Descartes (who we'll come back to a few times) was in no small part motivated by this worry, and produced a very idiosyncratic theory of mathematical knowledge to deal with it. (Roughly, if you're the right kind of Christian you know that God wouldn't let you have false mathematical memories, and that provides the missing support. This convinced approximately no one.)that stands entirely clear of it.
+
+## Tuesday
+
+We'll start talking about testimony, where this time the Nyāya are on the side where it is a distinctive source.
+
+We'll look at Datta's 1927 paper essentially presenting the argument, dressed up in a way that English readers can follow it. And we'll compare his view to the view that testimonial knowledge reduces to perception plus processing.

@@ -1,3 +1,31 @@
+---
+title: "PHIL 444: Game Theory and Social Choice"
+subtitle: "Lecture Notes"
+author: "Brian Weatherson"
+date: "Fall 2026"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    number-depth: 3
+    date-format: "[Fall] YYYY"
+  pdf:
+    keep-tex: true
+    pdf-engine: xelatex
+    geometry: margin=1in
+    mainfont: Atkinson Hyperlegible
+    mathfont: STIX Two Math
+    number-sections: true
+    number-depth: 3
+    fig-cap-location: bottom
+    date-format: "[Fall] YYYY"
+    include-in-header:
+      text: |
+        \linespread{1.05}
+---
+
 # Game Theory
 
 ## Basics of Game Theory
@@ -18,7 +46,6 @@ For these reasons, when we are discussing simultaneous move games, we will often
 
 Here is a representation of an important kind of two player simultaneous move game.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -28,7 +55,6 @@ Here is a representation of an important kind of two player simultaneous move ga
 |         +---+------+------+
 |         | Y | 5, 0 | 1, 1 |
 +---------+---+------+------+
-:::
 
 Each player, Row and Col, has two options: X and Y. The payoffs, given their moves, are as follows:
 
@@ -68,7 +94,6 @@ We'll start with a very simple class of games: 2 player simultaneous move games 
 
 We've already seen a version of this game.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -78,11 +103,9 @@ We've already seen a version of this game.
 |         +---+------+------+
 |         | Y | 5, 0 | 1, 1 |
 +---------+---+------+------+
-:::
 
 The general form of the game is given here, assuming $a > b > c > d$, and $2b > a + d$.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -92,7 +115,6 @@ The general form of the game is given here, assuming $a > b > c > d$, and $2b > 
 |         +---+------+------+
 |         | Y | a, d | c, c |
 +---------+---+------+------+
-:::
 
 One characteristic of the game is that for each player, playing $Y$ is better than playing $X$ no matter what the other person does. That is, playing $Y$ **dominates** playing $X$; it is better no matter what. But, and this is what gives the game its distinctive character, it is better for both players if they both play $X$ than if they both play $Y$. (And in a repeated game it is better to always play $X$ than to alternate between the outcomes where players make opposite moves.) It is an interesting way to think about modeling situations where there are rewards to cooperation, but incentives to individualist behavior.
 
@@ -100,7 +122,6 @@ One characteristic of the game is that for each player, playing $Y$ is better th
 
 The next game we'll look at is called Stag Hunt. We'll again do a version with commonly used numbers, then the general version.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -110,11 +131,9 @@ The next game we'll look at is called Stag Hunt. We'll again do a version with c
 |         +---+------+------+
 |         | Y | 4, 0 | 2, 2 |
 +---------+---+------+------+
-:::
 
 The general version has $a > b > c > d$ and $b + c > a + d$
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -124,7 +143,6 @@ The general version has $a > b > c > d$ and $b + c > a + d$
 |         +---+------+------+
 |         | Y | b, d | c, c |
 +---------+---+------+------+
-:::
 
 Here the best outcome for all parties is the cooperative one. But if a player has no idea what the other player will do, and thinks it is 50/50 whether they will do the cooperative thing, then their best bet is to not cooperate.
 
@@ -134,7 +152,6 @@ The cute story behind this game comes from the eighteenth century political phil
 
 I don't particularly like the name of this one, but it is common enough that you probably should know it.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -144,11 +161,9 @@ I don't particularly like the name of this one, but it is common enough that you
 |         +---+------+------+
 |         | Y | 0, 0 | 1, 2 |
 +---------+---+------+------+
-:::
 
 Here's the general version, with $a > b > c$,
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -158,7 +173,6 @@ Here's the general version, with $a > b > c$,
 |         +---+------+------+
 |         | Y | c, c | b, a |
 +---------+---+------+------+
-:::
 
 The thought is that both parties prefer coordination - making the same pick - to doing different things. But they differ on what they would like to coordinate on; Row would like to coordinate on X, and Column would like to coordinate on Y. The name comes from the version of the game where Row and Column are husband and wife, and X and Y are stereotypically male/female things to prefer doing. You can probably fill in your own example here.
 
@@ -166,7 +180,6 @@ The thought is that both parties prefer coordination - making the same pick - to
 
 Our last game is not for the faint of heart.
 
-::: center
 +:--------+--:+:----------:+:-----:+
 |         |   | **Col**            |
 +---------+---+------------+-------+
@@ -176,7 +189,6 @@ Our last game is not for the faint of heart.
 |         +---+------------+-------+
 |         | Y | -1, 1      | 0, 0  |
 +---------+---+------------+-------+
-:::
 
 The idea comes from a James Dean movie. Two cars are lined up facing each other at the end of a long straight. They start driving at each other. The drivers can either stay on the road (that's X), or swerve to the right (that's Y). If they both stay on the road, they die in a fiery inferno. If one swerves and the other stays, the one who stays wins the game, and the other loses. If they both swerve, the game is a draw.
 
@@ -212,15 +224,12 @@ $$\begin{equation*}
 
 Here is one simple way to make progress on a game.
 
-::: enumerate*
-Assume that no player will play a strongly dominated strategy.
+1. Assume that no player will play a strongly dominated strategy.
 
-Assume that every player will make a rational choice given that no player will play a dominated strategy.
-:::
+1. Assume that every player will make a rational choice given that no player will play a dominated strategy.
 
 The first step here lets us solve Prisoners' Dilemma. Since $Y$ dominates $X$, neither player will play $X$. So the solution to the game is that both players play $Y$. Here is another game that isn't solved by the first step, but is solved by the second step.
 
-::: center
 +:--------+--:+:----:+:----:+
 |         |   | **Col**     |
 +---------+---+------+------+
@@ -230,7 +239,6 @@ The first step here lets us solve Prisoners' Dilemma. Since $Y$ dominates $X$, n
 |         +---+------+------+
 |         | Y | 0, 0 | 1, 1 |
 +---------+---+------+------+
-:::
 
 Here Column has no dominant strategy; what's best for them to play is a function of what Row plays. But Row does have a dominant strategy. Whatever Column does, they are better off playing Y. So we should assume they will play Y. And given they play Y, Column should also play Y. So the solution to the game again is that both players play Y.
 
@@ -244,7 +252,6 @@ We'll start by going over the notion of probability that is used in decision the
 
 Such functions are frequently used in the real world. Consider, for instance, the functions from regions to their population and land mass. This table lists the (very approximate) population and land mass for England, Scotland, Wales and Northern Ireland.
 
-::: center
   ------------------ ------------ -----------------------
                       Population         Land Mass
                       (Millions)   (Thousands of mi$^2$)
@@ -253,13 +260,11 @@ Such functions are frequently used in the real world. Consider, for instance, th
                Wales      3                  8
     Northern Ireland      2                  5
   ------------------ ------------ -----------------------
-:::
 
 The nice thing about tables like this is that they give you a lot of information implicitly. You don't need a separate table to tell you that the combined population of England and Scotland is 55 million, or that the combined land mass of England and Wales is 58,000 square miles. Those (approximate) facts follow from the facts listed on the table, as well as the fact that populations and land masses are additive. Once you know the population of the parts, you know the population of the whole.
 
 The next notion we need is that of a **normalised** measure function. A normalisted measure is a measure where every function takes the value assigned to the largest whole is 1. We often use this notion when talking about proportions. Here is a table listing, again approximately, the portion of the UK population and land mass in each of the four countries.
 
-::: center
   ------------------ -------------- --------------
                        Population     Land Mass
                       (Proportion)   (Proportion)
@@ -268,7 +273,6 @@ The next notion we need is that of a **normalised** measure function. A normalis
                Wales      0.05           0.09
     Northern Ireland      0.03           0.05
   ------------------ -------------- --------------
-:::
 
 The way we turn the regular measure function into a normalised measure is by dividing each value on the earlier table by the value of whole. So the land mass of England is (about) 50,000 mi$^2$, and the land mass of the UK is (about) 93,000 mi$^2$, and $\nicefrac{50,000}{93,000}$ is about 0.54. So that's why we right 0.54 in the top right cell of the normalised measure table.
 
@@ -290,7 +294,6 @@ So far we've talked simply about the probability of various propositions. But so
 
 It isn't too hard to visualise how conditional probability works if we think of a possibility space simply as a truth table, so a measure over a possibility space is simply a measure over on the truth table. Here's how we might represent a simple probability function, defined over the Boolean combinations of three propositions, if we're thinking about things this way.
 
-::: center
    $p$   $q$   $r$  
   ----- ----- ----- --------
     T     T     T    0.0008
@@ -301,7 +304,6 @@ It isn't too hard to visualise how conditional probability works if we think of 
     F     T     F    0.001
     F     F     T     0.01
     F     F     F     0.1
-:::
 
 The way to read the table is that each row defines a world. The characteristics of the world are just the truth values of three salient propositions: $p, q, r$. If T is shown underneath the name of a proposition, that means the proposition is true in the world, and if an F is shown, it mans the proposition is false. So the third line is the world where $p$ and $r$ are true, and $q$ is false. To the right of the vertical line is the probability of that world. We can work out the probability of any proposition that is true at multiple worlds by adding up the probabilities of the worlds where it is true. So $\Pr(q) = 0.0008 + 0.008 + 0.0002 + 0.001 = 0.01$.
 
@@ -311,7 +313,6 @@ $$\begin{equation*}
 Pr(A|B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
 \end{equation*}$$ Assume now that we're trying to find the conditional probability of $p$ given $q$ in the above table. We could do this in two different ways. First, we could set the probability of any line where $q$ is false to 0. So we will get the following table.
 
-::: center
    $p$   $q$   $r$  
   ----- ----- ----- --------
     T     T     T    0.0008
@@ -322,11 +323,9 @@ Pr(A|B) = \frac{\Pr(A \wedge B)}{\Pr(B)}
     F     T     F    0.001
     F     F     T      0
     F     F     F      0
-:::
 
 The numbers don't sum to 1 any more. They sum to 0.01. So we need to divide everything by 0.01. It's sometimes easier to conceptualise this as multiplying by $\nicefrac{1}{\Pr(q)}$, i.e. by multiplying by 100. Then we'll end up with:
 
-::: center
    $p$   $q$   $r$  
   ----- ----- ----- ------
     T     T     T    0.08
@@ -337,35 +336,34 @@ The numbers don't sum to 1 any more. They sum to 0.01. So we need to divide ever
     F     T     F    0.1
     F     F     T     0
     F     F     F     0
-:::
 
 And since $p$ is true on the top two lines, the 'new' probability of $p$ is 0.88. That is, the conditional probability of $p$ given $q$ is 0.88. As we were writing things above, $\Pr(p | q) = 0.88$.
 
-Alternatively we could just use the formula given above. Just adding up rows gives us the following numbers. $$\begin{eqnarray*}
+Alternatively we could just use the formula given above. Just adding up rows gives us the following numbers. $$\begin{align*}
 \Pr(p \wedge q) &=& 0.0008 + 0.008 = 0.0088 \\
 \Pr(q) &=& 0.0008 + 0.008 + 0.0002 + 0.001 = 0.01
-\end{eqnarray*}$$ Then we can apply the formula. $$\begin{eqnarray*}
+\end{align*}$$ Then we can apply the formula. $$\begin{align*}
 \Pr(p | q) &=& \frac{\Pr(p \wedge q)}{\Pr(q)} \\
 &=& \frac{0.0088}{0.01} \\
 &=& 0.88
-\end{eqnarray*}$$
+\end{align*}$$
 
 ### Bayes Theorem
 
-This is a bit of a digression from what we're really focussing on in game theory, but it's important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the 'inverse' direction to what we are interested in. That is, if we want to know $\Pr(A | B)$, it might be much easier to discover $\Pr(B | A)$. In these cases, we use Bayes Theorem to get the right result. I'll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent. $$\begin{eqnarray*}
+This is a bit of a digression from what we're really focussing on in game theory, but it's important for understanding how conditional probabilities work. It is often easier to calculate conditional probabilities in the 'inverse' direction to what we are interested in. That is, if we want to know $\Pr(A | B)$, it might be much easier to discover $\Pr(B | A)$. In these cases, we use Bayes Theorem to get the right result. I'll state Bayes Theorem in two distinct ways, then show that the two ways are ultimately equivalent. $$\begin{align*}
 \Pr(A|B) &=& \frac{\Pr(B|A) \Pr(A)}{\Pr(B)} \\
 &=& \frac{\Pr(B|A) \Pr(A)}{\Pr(B|A)Pr(A) + \Pr(B|\neg A)Pr(\neg A)}
-\end{eqnarray*}$$ These are equivalent because $\Pr(B) = \Pr(B|A)Pr(A) + \Pr(B|\neg A)\Pr(\neg A)$. Since this is an independently interesting result, it's worth going through the proof of it. First note that $$\begin{eqnarray*}
+\end{align*}$$ These are equivalent because $\Pr(B) = \Pr(B|A)Pr(A) + \Pr(B|\neg A)\Pr(\neg A)$. Since this is an independently interesting result, it's worth going through the proof of it. First note that $$\begin{align*}
 \Pr(B|A)\Pr(A) &=& \frac{\Pr(A \wedge B)}{\Pr(A)} \Pr(A) \\
 &=& \Pr(A \wedge B) \\
 \\
 \Pr(B|\neg A)\Pr(\neg A) &=& \frac{\Pr(\neg A \wedge B)}{\Pr\neg (A)} \Pr(\neg A) \\
 &=& \Pr(\neg A \wedge B)
-\end{eqnarray*}$$ Adding those two together we get $$\begin{eqnarray*}
+\end{align*}$$ Adding those two together we get $$\begin{align*}
 \Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A) &=& \Pr(A \wedge B) + \Pr(\neg A \wedge B) \\
 &=& \Pr((A \wedge B) \vee (\neg A \wedge B)) \\
 &=& \Pr(B)
-\end{eqnarray*}$$ The second line uses the fact that $A \wedge B$ and $\neg A \wedge B$ are inconsistent. And the third line uses the fact that $(A \wedge B) \vee (\neg A \wedge B)$ is equivalent to $A$. So we get a nice result, one that we'll have occasion to use a bit in what follows. $$\begin{equation*}
+\end{align*}$$ The second line uses the fact that $A \wedge B$ and $\neg A \wedge B$ are inconsistent. And the third line uses the fact that $(A \wedge B) \vee (\neg A \wedge B)$ is equivalent to $A$. So we get a nice result, one that we'll have occasion to use a bit in what follows. $$\begin{equation*}
 \Pr(B) = \Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A)
 \end{equation*}$$ So the two forms of Bayes Theorem are the same. We'll often find ourselves in a position to use the second form.
 
@@ -385,13 +383,13 @@ So in some sense, the test is fairly reliable. It usually returns a positive res
 
 - $\Pr(B | \neg A) = 0.1$
 
-Now we can apply Bayes theorem in its second form. $$\begin{eqnarray*}
+Now we can apply Bayes theorem in its second form. $$\begin{align*}
 \Pr(A|B) &=& \frac{\Pr(B|A) \Pr(A)}{\Pr(B|A)\Pr(A) + \Pr(B|\neg A)\Pr(\neg A)} \\
 &=& \frac{0.8 \times 0.05}{0.08 \times 0.05 + 0.1 \times 0.95} \\
 &=& \frac{0.04}{0.04 + 0.095} \\
 &=& \frac{0.04}{0.135} \\
 &\approx& 0.296
-\end{eqnarray*}$$ So in fact the probability of having the disease, conditional on having a positive test, is less than 0.3. So in that sense the test is quite unreliable.
+\end{align*}$$ So in fact the probability of having the disease, conditional on having a positive test, is less than 0.3. So in that sense the test is quite unreliable.
 
 This is actually a quite important point. The fact that the probability of $B$ given $A$ is quite high does not mean that the probability of $A$ given $B$ is equally high. By tweaking the percentages in the example I gave you, you can come up with cases where the probability of $B$ given $A$ is arbitrarily high, even 1, while the probability of $A$ given $B$ is arbitrarily low.
 
@@ -401,23 +399,19 @@ A more striking real world example comes from the analysis of soccer carried out
 
 You may be able to spot the error in their reasoning already, but if not let's work through a fictionalised version to see the problem. (The numbers I'm using are made up, though I think the scale roughly matches what Reep and Hughes found.) Divide all possessions into short (1-3 passes), medium (4-7 passes) and long (8+ passes). Imagine that we observed a bunch of games, and recorded the following data.
 
-::: center
             Goal   No Goal
   -------- ------ ---------
      Short   78      822
     Medium   12      48
       Long   10      30
-:::
 
 As you can see, most goals come from short possessions. But you shouldn't get excited by finding your team has had a short possession; over 90% of short possessions go nowhere. On the other hand, medium to long possessions often end in goals. Let's add another column to make this clear.
 
-::: center
             Goal   No Goal   Success %
   -------- ------ --------- -----------
      Short   78      822        8.7
     Medium   12      48         20
       Long   10      30         25
-:::
 
 The longer a possession is, the higher the frequency that it ends in a goal. I'm not sure in real soccer it is as dramatic as the numbers I gave you. But I am sure that (at least at high levels, at most times in the history of soccer) the broad pattern I've outlined here is correct. Most goals come from short possessions, but short possessions lead to fewer goals, on average, than long possessions. Anyone who has taken a probability class should know that this suggests aiming for longer possessions rather than shorter ones, but apparently the England hierarchy didn't take that lesson for several decades.
 
@@ -506,7 +500,6 @@ A strategy $s$ is a **best response** for player $x$ iff there is some probabili
 
 Let's look at an example of this. So far we've used the same names for the options that Row and Column have available. But we'll start to look at asymmetric games, so it helps to use asymmetric terminology. We'll use $U$, for Up, $M$ for Middle, and $D$, for Down, for Row's options, and $L$ for Left, and $R$ for Right, for Column's options.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -518,7 +511,6 @@ Let's look at an example of this. So far we've used the same names for the optio
 |         +-----+------+------+
 |         | $D$ | 0, 0 | 3, 0 |
 +---------+-----+------+------+
-:::
 
 We will just look at things from the perspective of Row. What we want to show is that all three of the possible moves here are best responses. We will write $E(X) = x$ to mean that the expected value of strategy $X$ is $x$.
 
@@ -530,7 +522,6 @@ It's very plausible that agents should play best responses. If a move is not a b
 
 Any strongly dominated option will never be a best response. That's because whatever strategy strongly dominates it will have a higher expected return no matter what the probabilities are. But a weakly dominated response can be a best response. That's because we've defined best responses to allow that something can be a best response when something else ties it. So in the following example, $D$ is weakly dominated by $U$, but it is a best response given $\Pr(R) = 1$.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -540,11 +531,9 @@ Any strongly dominated option will never be a best response. That's because what
 |         +-----+------+------+
 |         | $D$ | 0, 0 | 0, 0 |
 +---------+-----+------+------+
-:::
 
 What about the other direction? If something is not dominated, does that mean it is a best response? It turns out the answer to this question is a little more complicated. Start with this game.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -556,7 +545,6 @@ What about the other direction? If something is not dominated, does that mean it
 |         +-----+------+------+
 |         | $D$ | 0, 0 | 3, 0 |
 +---------+-----+------+------+
-:::
 
 In this game, $M$ is not dominated by either $U$ or $D$. After all, if Col plays $L$, then $M$ beats $D$. And if Col plays $R$ then $M$ beats $D$.
 
@@ -572,7 +560,6 @@ So in no circumstance is $M$ best. It is not a best response.
 
 But on second thought, perhaps it is dominated. Let's add a row to the table for the mixed strategy $\langle U, 0.5; D, 0.5 \rangle$. We'll add this to the table, and note in the table its expected value.
 
-::: center
 +:--------+---------------------------------:+:------:+:------:+
 |         |                                  | **Col**         |
 +---------+----------------------------------+--------+--------+
@@ -586,13 +573,11 @@ But on second thought, perhaps it is dominated. Let's add a row to the table for
 |         +----------------------------------+--------+--------+
 |         | $\langle U, 0.5; D, 0.5 \rangle$ | 1.5, 0 | 1.5, 0 |
 +---------+----------------------------------+--------+--------+
-:::
 
 And note that $\langle U, 0.5; D, 0.5 \rangle$ dominates $M$; whatever Col plays, that mixed strategy has a higher expected return than $M$.
 
 If we change the payout to $M$ so that it isn't dominated, it becomes a best response. So recall the version of the game where the payout from $M$ from a guaranteed 1 to a guaranteed 2. I've reprinted that here with the mixed strategy made explicit.
 
-::: center
 +:--------+---------------------------------:+:------:+:------:+
 |         |                                  | **Col**         |
 +---------+----------------------------------+--------+--------+
@@ -606,7 +591,6 @@ If we change the payout to $M$ so that it isn't dominated, it becomes a best res
 |         +----------------------------------+--------+--------+
 |         | $\langle U, 0.5; D, 0.5 \rangle$ | 1.5, 0 | 1.5, 0 |
 +---------+----------------------------------+--------+--------+
-:::
 
 Now $M$ is not dominated. Indeed, it dominates $\langle U, 0.5; D, 0.5 \rangle$. And as we saw above it is also a best response. If Row thinks it is 50/50 whether Col plays $L$ or $R$, then $M$ has the highest expected return.
 
@@ -614,7 +598,6 @@ Now $M$ is not dominated. Indeed, it dominates $\langle U, 0.5; D, 0.5 \rangle$.
 
 It seems very plausible that one should only play best responses. But not all best responses are worth playing. Some best responses are pretty hard to justify when playing against a rational opponent. Consider the following game from Row's perspective.
 
-::: center
 +:--------+----:+:----:+:-----:+
 |         |     | **Col**      |
 +---------+-----+------+-------+
@@ -624,13 +607,11 @@ It seems very plausible that one should only play best responses. But not all be
 |         +-----+------+-------+
 |         | $D$ | 0, 5 | 2, -5 |
 +---------+-----+------+-------+
-:::
 
 In this game, $D$ is a best response. It does best if Col chooses $R$. But why would Col do that? Col gets 5 for sure if she chooses $L$, and -5 for sure if she chooses $R$. Assuming the weakest possible rationality constraint on Col, she won't choose a sure loss over a sure gain. So given that, Row should choose $U$.
 
 Now we could have shown that with just considering domination; indeed domination by pure strategies.The following example is a little more complex.
 
-::: center
 +:--------+----:+:----:+:----:+:----:+
 |         |     | **Col**            |
 +---------+-----+------+------+------+
@@ -640,7 +621,6 @@ Now we could have shown that with just considering domination; indeed domination
 |         +-----+------+------+------+
 |         | $D$ | 0, 0 | 1, 1 | 0, 3 |
 +---------+-----+------+------+------+
-:::
 
 In this game neither player has a dominated move, as long as we restrict ourselves to pure strategies. And, from Row's perspective, thinking about best responses doesn't help either. $U$ is a best response if Col is going to play $L$ or $R$ with probability at least 0.5, and $D$ is best response if Col is going to play $m$ with probability at least 0.5.
 
@@ -670,7 +650,6 @@ The 'Nash' in Nash Equilibrium is in honour of John Nash, who developed the con
 
 Consider the following game:
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -680,7 +659,6 @@ Consider the following game:
 |         +-----+------+------+
 |         | $D$ | 0, 4 | 1, 0 |
 +---------+-----+------+------+
-:::
 
 Any of the pure strategies is a best response. Indeed, any of them are iterated best responses. So is all we can say about the game that anything goes? Most game theorists disagree with that claim. They say that once we consider mixed strategies, there is a distinctive solution to the game. Consider the following pair of strategies:
 
@@ -722,7 +700,6 @@ As the textbook notes, it isn't easy in general to find Nash Equilibria. But let
 
 Strongly dominated strategies can't be part of an equilibrium. (I'll just use 'equilibrium' for 'Nash Equilibrium' in this section, as is common in game theory texts.) So strategies that only make sense if they other player plays a dominated strategy can't be part of an equilibrium either. This idea can help us find the equilibrium in some games.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -732,11 +709,9 @@ Strongly dominated strategies can't be part of an equilibrium. (I'll just use 'e
 |         +-----+------+------+
 |         | $D$ | 0, 0 | 3, 6 |
 +---------+-----+------+------+
-:::
 
 Neither of Col's strategies is dominated. Col wants to choose whatever Row chooses. But look at the game from Row's perspective. Here there is a strongly dominating strategy, namely choosing $U$. So $D$ cannot be part of any equilbria. Indeed, if we assume that Row is rational, and so won't play strongly dominated strategies, it is really as if the strategy isn't even there. From that perspective, the table really looks like this.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -744,7 +719,6 @@ Neither of Col's strategies is dominated. Col wants to choose whatever Row choos
 +---------+-----+------+------+
 | **Row** | $U$ | 1, 2 | 5, 0 |
 +---------+-----+------+------+
-:::
 
 Now in this game there is a dominating strategy for Col, namely $L$. So the only equilibrium of the game is $\langle U, L \rangle$. And it seems that those are the only rational strategies for the players, assuming they each know the other to be rational.
 
@@ -754,7 +728,6 @@ We can use the idea of removing dominating strategies to illustrate some puzzlin
 
 Let's start by looking at a fragment of the payoff matrix. The payoffs are numbers of ice-creams sold. We'll call the players Row and Col, as usual, and just use the number $n$ for the strategy of choosing location $n$.
 
-::: center
 +:--------+--:+:-------:+:-------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                            |
 +---------+---+---------+---------+--------+--------+--------+-----+
@@ -766,13 +739,11 @@ Let's start by looking at a fragment of the payoff matrix. The payoffs are numbe
 +---------+---+---------+---------+--------+--------+--------+-----+
 | ...     |   |         |         |        |        |        |     |
 +---------+---+---------+---------+--------+--------+--------+-----+
-:::
 
 I'll leave it as an exercise to confirm that these numbers are indeed correct. Note that no matter what Col selects, Row is better off picking 1 than 0. If Col picks 0 or 1, she is a lot better off; she sells 45 more ice-creams. And if Col picks a higher number, she is a bit better off; she sells 5 more ice-creams. So picking 1 dominates picking 0.
 
 Let's look at the opposite corner of the matrix.
 
-::: center
 +:--------+---:+:---:+:------:+:------:+:------:+:-------:+:-------:+
 |         |    | **Col**                                            |
 +---------+----+-----+--------+--------+--------+---------+---------+
@@ -784,7 +755,6 @@ Let's look at the opposite corner of the matrix.
 |         +----+-----+--------+--------+--------+---------+---------+
 |         | 10 | ... | 25, 85 | 20, 80 | 15, 95 | 10, 100 | 55, 55  |
 +---------+----+-----+--------+--------+--------+---------+---------+
-:::
 
 Again, there should be a pattern. No matter what Col does, Row is better off picking 9 than 10. In most cases, this leads to selling 5 more ice-creams. If Col also picks 9 or 10, then picking 9 gives Row a big advantage. The argument here was obviously symmetric to the argument about picking 0 or picking 1, so I'll stop concentrating on what happens when both players select high numbers, and focus from here on the low numbers.
 
@@ -794,7 +764,6 @@ So there is a clear conclusion to be drawn from what we've said so far.
 
 Now let's turn to the comparison between Spot 1 and Spot 2. Again, we'll just look at a fragment of the matrix.
 
-::: center
 +:--------+--:+:-------:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                                    |
 +---------+---+---------+--------+--------+--------+--------+--------+-----+
@@ -808,13 +777,11 @@ Now let's turn to the comparison between Spot 1 and Spot 2. Again, we'll just lo
 +---------+---+---------+--------+--------+--------+--------+--------+-----+
 | ...     |   |         |        |        |        |        |        |     |
 +---------+---+---------+--------+--------+--------+--------+--------+-----+
-:::
 
 The pattern is also clear. If Col selects any number above 2, then Row sells 5 more ice-creams by picking 2 rather than 1. If Col selects either 1 or 2, then Row sells 35 more ice-creams by picking 2 rather than 1. But if Col selects 0, then Row sells 5 *fewer* ice-creams by picking 2 rather than 1. So picking 2 does *not* dominate picking 1.
 
 But note the only circumstance when picking 2 is worse than picking 1 is if Col picks 0. And picking 0 is, for Col, a strongly dominated strategy. So picking 2 is sure to do better than picking 1 if Col does not play a strongly dominated strategy. So let's delete that dominated strategy. Here's what the top left corner of the game matrix looks like when we do that.
 
-::: center
 +:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                          |
 +---------+---+--------+--------+--------+--------+--------+-----+
@@ -826,7 +793,6 @@ But note the only circumstance when picking 2 is worse than picking 1 is if Col 
 +---------+---+--------+--------+--------+--------+--------+-----+
 | ...     |   |        |        |        |        |        |     |
 +---------+---+--------+--------+--------+--------+--------+-----+
-:::
 
 And now it looks like picking 1 is dominated. This teaches us another lesson about the game.
 
@@ -840,7 +806,6 @@ Summarising what we know so far,
 
 Let's continue down the matrix. For simplicity, we'll leave off columns 0 and 10, since they are dominated, and we have deleted those as possible options.
 
-::: center
 +:--------+--:+:------:+:------:+:------:+:------:+:------:+:---:+
 |         |   | **Col**                                          |
 +---------+---+--------+--------+--------+--------+--------+-----+
@@ -852,7 +817,6 @@ Let's continue down the matrix. For simplicity, we'll leave off columns 0 and 10
 +---------+---+--------+--------+--------+--------+--------+-----+
 | ...     |   |        |        |        |        |        |     |
 +---------+---+--------+--------+--------+--------+--------+-----+
-:::
 
 Picking 3 doesn't *quite* dominate picking 2. In most circumstances, Row does better by picking 3 rather than 2. But she does a little worse if Col picks 1. But wait! We just had an argument that Col shouldn't pick 1. Or, at least, if Col knows that Row is rational, she shouldn't pick 1. Let's assume that Col does know that Row is rational, and Row in turn knows that fact, so she can use it in reasoning. That means she knows Col won't pick 1. So she can delete it from consideration too. And once she does, picking 3 dominates picking 2, relative to the reduced space of epistemically possible outcomes.
 
@@ -872,7 +836,6 @@ We'll return a bit to this point in what follows, but it's worth noting that in 
 
 It can be useful to mark explicitly what the best responses are to each possible play by the other player. In a two-player game, that can sometimes lead to turning up Nash equilibria. Even when it does not, it can give you a hint about what the support for a mixed strategy equilibria could be. To see an example of this, consider the following game.
 
-::: center
 +:--------+----:+:---:+:---:+:---:+:---:+:---:+
 |         |     | **Col**                     |
 +---------+-----+-----+-----+-----+-----+-----+
@@ -888,11 +851,9 @@ It can be useful to mark explicitly what the best responses are to each possible
 |         +-----+-----+-----+-----+-----+-----+
 |         | $E$ | 5,3 | 8,3 | 7,6 | 3,5 | 8,4 |
 +---------+-----+-----+-----+-----+-----+-----+
-:::
 
 We'll start by finding the best response for Row to each of Col's plays. We'll underline the payoff for Row that does best, assuming Col makes that choice. Here's how the table looks after we do that.
 
-::: center
 +:--------+----:+:-----------------:+:-----------------:+:-----------------:+:-----------------:+:-----------------:+
 |         |     | **Col**                                                                                           |
 +---------+-----+-------------------+-------------------+-------------------+-------------------+-------------------+
@@ -908,11 +869,9 @@ We'll start by finding the best response for Row to each of Col's plays. We'll u
 |         +-----+-------------------+-------------------+-------------------+-------------------+-------------------+
 |         | $E$ | 5,3               | [8]{.underline},3 | [7]{.underline},6 | 3,5               | 8,4               |
 +---------+-----+-------------------+-------------------+-------------------+-------------------+-------------------+
-:::
 
 Note that under $b$, we underlined two possible payoffs. That's because they are tied for best, and best response is compatible with ties. Now we'll go through Col's options, finding the best response to each possible play by Row.
 
-::: center
 +:--------+----:+:-------------------------------:+:-----------------:+:-------------------------------:+:-------------------------------:+:-----------------:+
 |         |     | **Col**                                                                                                                                     |
 +---------+-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
@@ -928,7 +887,6 @@ Note that under $b$, we underlined two possible payoffs. That's because they are
 |         +-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
 |         | $E$ | 5,3                             | [8]{.underline},3 | [7]{.underline},[6]{.underline} | 3,5                             | 8,4               |
 +---------+-----+---------------------------------+-------------------+---------------------------------+---------------------------------+-------------------+
-:::
 
 Any cell where both values are underlined is an equilibrium; neither player can improve their lot by unilaterally changing their play. And we can see there are three pure strategy equilibria here: $\langle Aa \rangle$, $\langle Dd \rangle$, $\langle Ec \rangle$. I'll leave finding the mixed strategy equilibria as an exercise for the interested reader.
 
@@ -936,17 +894,14 @@ Any cell where both values are underlined is an equilibrium; neither player can 
 
 It isn't easy in general to find mixed strategy equilibria. But we can start by dividing the problem into two parts.
 
-::: enumerate*
-Finding the support for each player's part of the equilibria.
+1. Finding the support for each player's part of the equilibria.
 
-Finding the probability with which they play each part of their support.
-:::
+1. Finding the probability with which they play each part of their support.
 
 And it turns out, a bit surprisingly, that it is the first part of the problem that is harder in general. (Recall that the support of a mixed strategy is the set of pure strategies that have a positive probability of being played given that mixed strategy.) And while that isn't an easy problem to solve in general, it isn't something we need to worry about in very simple games. In games with just two options per player, then either there will be a pure strategy equilibria, or the mixed strategy Nash Equilibria will have all strategies in its support. Even if there are three strategies available per player, then it usually isn't too hard to find the support for the mixed strategy equilibria by just noting that strongly dominated strategies cannot be part of an equilibria.
 
 We'll start by considering the very abstractly defined game.
 
-::: center
 +:--------+----:+:-----------------:+:-----------------:+
 |         |     | **Col**                               |
 +---------+-----+-------------------+-------------------+
@@ -956,7 +911,6 @@ We'll start by considering the very abstractly defined game.
 |         +-----+-------------------+-------------------+
 |         | $D$ | e,[f]{.underline} | [0]{.underline},0 |
 +---------+-----+-------------------+-------------------+
-:::
 
 Don't make too much of the fact that I've put 0 for both players in the bottom right. Since utility scales are only defined up to affine transformation, adding a constant to each possible payout a player gets literally doesn't change the game. So any game representation can be changed into an equivalent representation with 0 for each player in an arbitrarily chosen cell. We'll make that cell be the bottom right, but it could be anywhere.
 
@@ -1024,7 +978,6 @@ c &= y(e + c - a) \\
 
 There is something puzzling about this result. Imagine a version of the game where Col is a driver, and Row a police officer. Col doesn't care much about the law, or the safety of other users of the road. Col just wants to get where they are going as fast as possible, but really doesn't want a speeding ticket. Row wants to catch speeding motorists, but it is costly to engage in detection work. Col has a choice, Speed or Not Speed. Row has a different choice, Detect or Not Detect. Here are the payoffs.
 
-::: center
 +:--------+-----:+:-------:+:-----:+
 |         |      | **Col**         |
 +---------+------+---------+-------+
@@ -1034,13 +987,11 @@ There is something puzzling about this result. Imagine a version of the game whe
 |         +------+---------+-------+
 |         | $ND$ | 0, 1    | 0, 0  |
 +---------+------+---------+-------+
-:::
 
 The equilibrium of this game is that Col speeds with probability $\frac{1}{11}$, and Row detects with probability $\frac{1}{11}$, and each has an expected payoff of 0.
 
 Now what happens if the legislature decides that there is too much speeding, and doubles the fine for speeding. Now the payoff table looks like this.
 
-::: center
 +:--------+-----:+:-------:+:-----:+
 |         |      | **Col**         |
 +---------+------+---------+-------+
@@ -1050,7 +1001,6 @@ Now what happens if the legislature decides that there is too much speeding, and
 |         +------+---------+-------+
 |         | $ND$ | 0, 1    | 0, 0  |
 +---------+------+---------+-------+
-:::
 
 If nothing else apart from the penalty for speeding, the rational response by police department Row is to reduce monitoring of speeding, and spend time on other crimes. After all, the new equilibrium is that Row detects with probability $\frac{1}{21}$, and Col still speeds with probability $\frac{1}{11}$. If there is a game in a mixed strategy equilibrium, and the result of any change to the payoffs will be to move it to a new equilibrium, then the only way to change Col's behavior is to either create a new dominant strategy, or to change Row's payoffs. Perhaps what the legislature should do here is to not just increase speeding fines, but to give the money to police departments - that would change the equilibrium of the game in a hurry.
 
@@ -1058,7 +1008,6 @@ If nothing else apart from the penalty for speeding, the rational response by po
 
 We'll work out the equilibria for the following game.
 
-::: center
 +:--------+----:+:---:+:----:+:----:+
 |         |     | **Col**           |
 +---------+-----+-----+------+------+
@@ -1070,11 +1019,9 @@ We'll work out the equilibria for the following game.
 |         +-----+-----+------+------+
 |         | $C$ | 3,4 | -1,2 | 6,3  |
 +---------+-----+-----+------+------+
-:::
 
 As a first step, we'll underline the best responses, and see if any equilibria turn up that way.
 
-::: center
 +:--------+----:+:-----------------:+:-----------------:+:-----------------:+
 |         |     | **Col**                                                   |
 +---------+-----+-------------------+-------------------+-------------------+
@@ -1086,11 +1033,9 @@ As a first step, we'll underline the best responses, and see if any equilibria t
 |         +-----+-------------------+-------------------+-------------------+
 |         | $C$ | 3,[4]{.underline} | -1,2              | [6]{.underline},3 |
 +---------+-----+-------------------+-------------------+-------------------+
-:::
 
 That doesn't look like it helps. Row doesn't have any dominated strategies either. But Col does have a dominated strategy, since $a$ dominates $c$. It doesn't matter that $c$ might outperform $b$; there is no reason to play $c$ since $a$ will always do 1 point better. So let's delete that.
 
-::: center
 +:--------+----:+:-----------------:+:-----------------:+
 |         |     | **Col**                               |
 +---------+-----+-------------------+-------------------+
@@ -1102,13 +1047,11 @@ That doesn't look like it helps. Row doesn't have any dominated strategies eithe
 |         +-----+-------------------+-------------------+
 |         | $C$ | 3,[4]{.underline} | -1,2              |
 +---------+-----+-------------------+-------------------+
-:::
 
 We don't have to change the underlining, because a dominated strategy is never a best response.
 
 Now compare options $A$ and $C$. If we rule out Col playing $c$, it turns out there is never a reason for Row to play $C$ over $A$. Option $A$ does better than $C$ whether Col plays $a$ or $b$. So let's delete option $C$ as well.
 
-::: center
 +:--------+----:+:-----------------:+:-----------------:+
 |         |     | **Col**                               |
 +---------+-----+-------------------+-------------------+
@@ -1118,7 +1061,6 @@ Now compare options $A$ and $C$. If we rule out Col playing $c$, it turns out th
 |         +-----+-------------------+-------------------+
 |         | $B$ | 0,[2]{.underline} | [1]{.underline},0 |
 +---------+-----+-------------------+-------------------+
-:::
 
 Now we have a familiar kind of game. Each player has two options, and there is no pure strategy equilibrium. The problem has reduced to the form of the problem we tackled in the previous subsection. The only equilibrium will be a mixed strategy equilibrium. And we find it by making each player leave the other indifferent between their options. I won't repeat the algebra for finding it, but you can verify yourself that the following works.
 
@@ -1146,13 +1088,11 @@ Imagine I'm Col in one of the driving games from the last section. Why should I 
 
 So either playing the mixed strategy will involve work for no gain, or it will actually lower my expected return compared to an available alternative. This isn't seeming very promising. But we can imagine some circumstances when the mixed strategy would be more appealing. Here are three related circumstances where it seems useful.
 
-::: enumerate*
-Imagine that I'm too incompetent to make decisions for myself in games like this. You have to advise me. But the advice will be public; police Row will see it as well. Then the only advice you can rationally offer is that I should play the mixed strategy. Any other advice will backfire because the police will respond to it in ways that make it worthless.
+1. Imagine that I'm too incompetent to make decisions for myself in games like this. You have to advise me. But the advice will be public; police Row will see it as well. Then the only advice you can rationally offer is that I should play the mixed strategy. Any other advice will backfire because the police will respond to it in ways that make it worthless.
 
-Imagine that my strategy will leak to the police, no matter what. That could be because I'm so incompetent that I need to rely on public advice, or it could be because the police have a way of reading my moves. And imagine that the police are in the same boat; their strategy will leak to me. Then we should each play the equilibrium strategy; it is immune to doing worse in light of leaks. That's an implausible situation in most cases, but there is one special case worth considering.
+1. Imagine that my strategy will leak to the police, no matter what. That could be because I'm so incompetent that I need to rely on public advice, or it could be because the police have a way of reading my moves. And imagine that the police are in the same boat; their strategy will leak to me. Then we should each play the equilibrium strategy; it is immune to doing worse in light of leaks. That's an implausible situation in most cases, but there is one special case worth considering.
 
-Imagine the game will be repeated so many times that eventually our strategies will become visible enough just from the record of our play. Then we are (eventually) back into the 'leaked strategy' situation. And in that situation, we should play equilibrium strategies.
-:::
+1. Imagine the game will be repeated so many times that eventually our strategies will become visible enough just from the record of our play. Then we are (eventually) back into the 'leaked strategy' situation. And in that situation, we should play equilibrium strategies.
 
 Personally, I think it's the last possibility that makes the concept of an equilibrium play so important. Equilibria (in one shot games) are interesting because they alone are sensible plays in repeated games.
 
@@ -1176,7 +1116,6 @@ A class of strategies is rationalizable if:
 
 This is strictly weaker than the notion of a Nash equilibrium. Note that for any Nash equilibrium, the class consisting of just the strategies that form the equilibrium will be rationalizable, so every member of the class will be rationalizable. But some strategies that are not part of any Nash equilibrium are rationalizable. Consider, for example, this game (which is similar to some we've looked at in the previous chapter).
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -1186,17 +1125,14 @@ This is strictly weaker than the notion of a Nash equilibrium. Note that for any
 |         +-----+------+------+
 |         | $B$ | 0,1  | 1, 0 |
 +---------+-----+------+------+
-:::
 
 There is a unique Nash equilibrium for the game. Row plays $\langle A, 0.5; B, 0.5 \rangle$, and Col plays $\langle a, \frac{1}{6}; b, \frac{5}{6} \rangle$. But any strategy whatsoever, including all mixtures, is rationalizable. For any strategy you like, for either player, there is some opposing strategy it is a best response to.
 
 Now compare the following two claims about rationality and game playing.
 
-::: enumerate*
-Rational players always play some part of a Nash equilibrium strategy.
+1. Rational players always play some part of a Nash equilibrium strategy.
 
-Rational players always play rationalizable strategies.
-:::
+1. Rational players always play rationalizable strategies.
 
 These two theories make different assessments of the game I just described. Principle 1 says that rationality rules out all but 1 strategy for each player. Principle 2 says anything goes. Which of them get it right?
 
@@ -1206,13 +1142,11 @@ But in a one shot game it is harder to say what is correct. There is a nice argu
 
 The argument of the last paragraph is perfectly general. In any game where the only Nash equilibrium is a mixed strategy equilibrium, the following principles cannot all be true.
 
-::: enumerate*
-Only strategies that are part of Nash equilibria are rational, and all players know this.
+1. Only strategies that are part of Nash equilibria are rational, and all players know this.
 
-All players are rational, and all players know this.
+1. All players are rational, and all players know this.
 
-Any strategy that is known to have the same expected return as a rational strategy can be rationally played.
-:::
+1. Any strategy that is known to have the same expected return as a rational strategy can be rationally played.
 
 By (A) and (B), the other player will play a mixed strategy. But as we've seen, this will mean that every strategy in the support for one's own mixed strategy will have equal expected return. And by (C), that means that the pure strategies are just as rational as the mixed strategies. But that contradicts the assumption in (A) that only mixed strategies are rational.
 
@@ -1220,7 +1154,6 @@ Conventional wisdom in game theory texts is that (C) fails. Principle 2 says tha
 
 In games where the players only have two choices to pick from, the difference between the Principles comes down to whether it is obligatory to randomize, or whether it is permissible to play one of the pure strategies from the support of the mixed strategy Nash equilibrium. This not a trivial question to even have intuitions about, because it is tied up with the metaphysics of what a mixed strategy is. But in three way choices there can be more separation between the two principles. Consider either of the following games.
 
-::: center
 +:--------+----:+:---:+:---:+:---:+
 |         |     | **Col**         |
 +---------+-----+-----+-----+-----+
@@ -1232,21 +1165,18 @@ In games where the players only have two choices to pick from, the difference be
 |         +-----+-----+-----+-----+
 |         | $C$ | 2,0 | 2,0 | 1,1 |
 +---------+-----+-----+-----+-----+
-:::
 
-::: center
 +:--------+----:+:---:+:---:+:---:+
 |         |     | **Col**         |
 +---------+-----+-----+-----+-----+
 |         |     | $a$ | $b$ | $c$ |
 +---------+-----+-----+-----+-----+
-| **Row** | $A$ | 3,0 | 0,3 | 0,2 |
+| **Row** | $A$ | 3,0 | 0,3 | 2,2 |
 |         +-----+-----+-----+-----+
-|         | $B$ | 0,3 | 3,0 | 0,2 |
+|         | $B$ | 0,3 | 3,0 | 2,2 |
 |         +-----+-----+-----+-----+
-|         | $C$ | 2,0 | 2,0 | 2,2 |
+|         | $C$ | 2,2 | 2,2 | 2,2 |
 +---------+-----+-----+-----+-----+
-:::
 
 In both games, there is a unique Nash equilibrium, $Cc$. But all strategies are rationalizable. Note that $A$ is a best response to $a$, which is a best response to $B$, which is a best response to $b$, which is a best response to $A$. Once you have a cycle like this, every member of the cycle is rationalizable. But there is no mixed strategy Nash equilibrium with those pure strategies as supports. For reasons that should be familiar by now, the only mixed strategy equilibrium that would be available is for each player to play a 50/50 split between their first two options. But if one player plays that mixed strategy, the other player has a return of 1.5 if they reciprocate, and a return of 2 if they play the third option. So there is only one equilibrium, pure or mixed, for the game, while all options are rationalizable.
 
@@ -1258,7 +1188,6 @@ To get Nash equilibrium, we have to assume that every player has a way of lettin
 
 Start with a game where we might want such a coordination. Imagine that Row and Col are drivers, approaching an intersection at right angles. Each of them has a choice to go (written as G/g), or stop (written as S/s). They would each prefer to get through the intersection faster. But the other person going and them stopping isn't terrible; there is no crash and the intersection is cleared. And both going is a disaster. So we can approximate the game table as this. (In reality it's more like a many move game, but this is a first approximation.)
 
-::: center
 +:--------+----:+:----:+:-----:+
 |         |     | **Col**      |
 +---------+-----+------+-------+
@@ -1268,7 +1197,6 @@ Start with a game where we might want such a coordination. Imagine that Row and 
 |         +-----+------+-------+
 |         | $S$ | 9,10 | 8, 8  |
 +---------+-----+------+-------+
-:::
 
 The game has two pure strategy equilibria, $Gs$ and $Sg$. It also has a rather annoying mixed strategy equilibria, where each player plays goes with probability $\nicefrac{2}{11}$, and stays otherwise, and they crash about 3% of the time.
 
@@ -1280,7 +1208,6 @@ This is not completely unlike how we actually solve these problems in real life.
 
 In this case, the coin flip is the best symmetric strategy that we can have. But that is to some extent a feature of the values. I won't try to do a just so story to make the following table make sense, but imagine that players faced the following option. (Perhaps it comes about if they really dislike waiting at lights while the other person goes through.)
 
-::: center
 +:--------+----:+:----:+:-----:+
 |         |     | **Col**      |
 +---------+-----+------+-------+
@@ -1290,7 +1217,6 @@ In this case, the coin flip is the best symmetric strategy that we can have. But
 |         +-----+------+-------+
 |         | $S$ | 7,10 | 9, 9  |
 +---------+-----+------+-------+
-:::
 
 The Nash equilibria don't change much with this change. And the correlated equilibrium of the previous problem still works. That is, the solution: flip a coin in public, if Heads, Row goes, if Tails, Col goes, is still an equilibrium. Each player has an incentive to do their part in the equilibrium once they see the coin. But there is a yet better equilibrium available.
 
@@ -1302,7 +1228,6 @@ Let's take stock. A **correlated equilibrium** is a way of randomly choosing ins
 
 Given a correlated equilibrium, we can work out the expected return to each player. We do this, as always, by working out their probability of getting each outcome, multiplying the probability by the utility of that outcome, and adding up. We can also find the correlated equilibrium that maximises expected returns, but that takes some more time. Let's look again at the previous table.
 
-::: center
 +:--------+----:+:----:+:-----:+
 |         |     | **Col**      |
 +---------+-----+------+-------+
@@ -1312,7 +1237,6 @@ Given a correlated equilibrium, we can work out the expected return to each play
 |         +-----+------+-------+
 |         | $S$ | 7,10 | 9, 9  |
 +---------+-----+------+-------+
-:::
 
 First, let's work out the mixed strategy equilibrium for this game. We want to find a probability for Row to Go that makes Col indifferent between going and staying. Let that probability be $x$. Then we have all the following lines being equivalent.
 
@@ -1377,7 +1301,6 @@ The existence of games with nice correlated equilibria shows that this intuitive
 
 Many games have multiple equilibria. In such cases, it is interesting to work through the means by which one equilibrium rather than another may end up being chosen. Consider, for instance, the following three games (two of which we've seen before).
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -1387,9 +1310,7 @@ Many games have multiple equilibria. In such cases, it is interesting to work th
 |         +-----+------+------+
 |         | $B$ | 0,0  | 1,1  |
 +---------+-----+------+------+
-:::
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -1399,9 +1320,7 @@ Many games have multiple equilibria. In such cases, it is interesting to work th
 |         +-----+------+------+
 |         | $B$ | 0,0  | 1,2  |
 +---------+-----+------+------+
-:::
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -1411,7 +1330,6 @@ Many games have multiple equilibria. In such cases, it is interesting to work th
 |         +-----+------+------+
 |         | $B$ | 4,0  | 2,2  |
 +---------+-----+------+------+
-:::
 
 In each case, both $Aa$ and $Bb$ are Nash equilibria.
 
@@ -1421,93 +1339,13 @@ In such an abstract presentation of game, it is hard to see how we could select 
 
 > $A$ and $B$ have to select, without communicating, one of the following nine figures. They each get a reward iff they select the same figure.
 >
-> :::: center
-> ::: picture
-> (140,140)
->
-> (0, 0)(0, 1)40 (0, 0)(1, 0)40 (40, 0)(0, 1)40 (0, 40)(1, 0)40
->
-> (50, 0)(0, 1)40 (50, 0)(1, 0)40 (90, 0)(0, 1)40 (50, 40)(1, 0)40
->
-> (100, 0)(0, 1)40 (100, 0)(1, 0)40 (140, 0)(0, 1)40 (100, 40)(1, 0)40
->
-> (0, 50)(0, 1)40 (0, 50)(1, 0)40 (40, 50)(0, 1)40 (0, 90)(1, 0)40
->
-> (50, 50)(0, 1)40 (50, 50)(1, 0)40 (90, 50)(0, 1)40 (50, 90)(1, 0)40
->
-> (100, 50)(0, 1)40 (100, 50)(1, 0)40 (140, 50)(0, 1)40 (100, 90)(1, 0)40
->
-> (0, 100)(0, 1)40 (0, 100)(1, 0)40 (40, 100)(0, 1)40 (0, 140)(1, 0)40
->
-> (50, 100)(0, 1)40 (50, 100)(1, 0)40 (90, 100)(0, 1)40 (50, 140)(1, 0)40
->
-> (100, 100)(0, 1)40 (100, 100)(1, 0)40 (140, 100)(0, 1)40 (100, 140)(1, 0)40
->
-> (20, 116)(0, 0)\[b\]1
->
-> (70, 116)(0, 0)\[b\]2
->
-> (120, 116)(0, 0)\[b\]3
->
-> (20, 66)(0, 0)\[b\]4
->
-> (70, 66)(0, 0)\[b\]5
->
-> (120, 66)(0, 0)\[b\]6
->
-> (20, 16)(0, 0)\[b\]7
->
-> (70, 16)(0, 0)\[b\]8
->
-> (120, 16)(0, 0)\[b\]9
-> :::
-> ::::
+> **[Figure to be redrawn: nine shapes, one salient. Source: `figures/src/focal-point-1.tex`]**
 
 It's not obvious what they should do there, but compare the situation our players face in the following game.
 
 > $A$ and $B$ have to select, without communicating, one of the following nine figures. They each get a reward iff they select the same figure.
 >
-> :::: center
-> ::: picture
-> (140,140)
->
-> (0, 0)(0, 1)40 (0, 0)(1, 0)40 (40, 0)(0, 1)40 (0, 40)(1, 0)40
->
-> (70, 20)
->
-> (100, 0)(0, 1)40 (100, 0)(1, 0)40 (140, 0)(0, 1)40 (100, 40)(1, 0)40
->
-> (0, 50)(0, 1)40 (0, 50)(1, 0)40 (40, 50)(0, 1)40 (0, 90)(1, 0)40
->
-> (50, 50)(0, 1)40 (50, 50)(1, 0)40 (90, 50)(0, 1)40 (50, 90)(1, 0)40
->
-> (100, 50)(0, 1)40 (100, 50)(1, 0)40 (140, 50)(0, 1)40 (100, 90)(1, 0)40
->
-> (0, 100)(0, 1)40 (0, 100)(1, 0)40 (40, 100)(0, 1)40 (0, 140)(1, 0)40
->
-> (50, 100)(0, 1)40 (50, 100)(1, 0)40 (90, 100)(0, 1)40 (50, 140)(1, 0)40
->
-> (100, 100)(0, 1)40 (100, 100)(1, 0)40 (140, 100)(0, 1)40 (100, 140)(1, 0)40
->
-> (20, 116)(0, 0)\[b\]1
->
-> (70, 116)(0, 0)\[b\]2
->
-> (120, 116)(0, 0)\[b\]3
->
-> (20, 66)(0, 0)\[b\]4
->
-> (70, 66)(0, 0)\[b\]5
->
-> (120, 66)(0, 0)\[b\]6
->
-> (20, 16)(0, 0)\[b\]7
->
-> (70, 16)(0, 0)\[b\]8
->
-> (120, 16)(0, 0)\[b\]9
-> :::
-> ::::
+> **[Figure to be redrawn: nine shapes, one salient. Source: `figures/src/focal-point-2.tex`]**
 
 We could run experiments to test this, but intuitively, players will do better at the second game than the first. That's because in the second game, they have a focal point to select; one of the options stands out from the crowd.
 
@@ -1549,7 +1387,6 @@ For simple two-player, two-option games like we've been looking at, all of this 
 
 Neither the simple Meeting game nor Battle of the Sexes have a risk-dominant equilibrium. An asymmetric Meeting game, however, does. Here is one example.
 
-::: center
 +:--------+----:+:----:+:----:+
 |         |     | **Col**     |
 +---------+-----+------+------+
@@ -1559,7 +1396,6 @@ Neither the simple Meeting game nor Battle of the Sexes have a risk-dominant equ
 |         +-----+------+------+
 |         | $B$ | 0,0  | 1,1  |
 +---------+-----+------+------+
-:::
 
 In this case $Aa$ is both Pareto-dominant and risk-dominant. Given that, we might expect that both players would choose $A$. (What if an option is Pareto-dominated, and risk-dominated, but focal? Should it be chosen then? Perhaps; the Eiffel Tower isn't easy to get to, or particularly pleasant once you're there, but seems to be chosen in the Paris version of Schelling's meetup game because of its focality.)
 
@@ -1580,74 +1416,25 @@ Before we go on, it's worth thinking about how you would play this game from eac
 
 ### Normal Form and Extensive Form
 
-Figure [5.1](#FiveGameChart){reference-type="ref" reference="FiveGameChart"} is the **extensive form** representation of **Five**. We will use $W$ to denote that $A$ wins, and $L$ to denote that $B$ wins.
+@fig-five is the **extensive form** representation of **Five**. We will use $W$ to denote that $A$ wins, and $L$ to denote that $B$ wins.
 
-<figure id="FiveGameChart" data-latex-placement="t">
-<div class="center">
-<div class="picture">
-<p>(350, 150)</p>
-<p>(175, 0)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (175, 12)(173, 13)<span>(-2, 1)<span>69</span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(70, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (70, 82) (70, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(50, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (70, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(90, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span></p>
-<p>(55, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(85, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(140, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (140, 82) (140, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(120, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (140, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(160, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(115, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(155, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(210, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (210, 82) (210, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(190, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (210, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(230, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(195, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(225, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(280, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (280, 82) (280, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(260, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span> (280, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(300, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span></p>
-<p>(265, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(295, 95)<span>(0, 0)[b]<span>2</span></span></p>
-</div>
-</div>
-<figcaption><strong>Five</strong></figcaption>
-</figure>
+::: {#fig-five .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/five.tex`
+
+Five
+:::
 
 To read what's going on here, start at the node that isn't filled in, which in this case is the node at the bottom of the tree. The first move is made by $A$. She chooses to play either 1 or 2. If she plays 1, we go to the left of the chart, and now $B$ has a choice. She plays either 1 or 2, and now again $A$ has a choice. As it turns out, $A$ has the same choice to make whatever $B$ does, though there is nothing essential to this. This is just a two-player game, though there is also nothing essential to this. We could easily have let it be the case that a third player moved at this point. Or we could have made it that who moved at this point depended on which move $B$ had made. The extensive form representation allows for a lot of flexibility in this respect.
 
 At the top of the diagram is a record of who won. In the more general form, we would put the payoffs to each player here. But when we have a simple zero-sum game, it is easier to just record the payoffs to one player. You should check that the description of who wins and loses in each situation is right. In each case, $A$ wins if 2 is played twice, and 1 once.
 
-The extensive form representation form is very convenient for turn taking games. But you might think that it is much less convenient for games where players move simultaneously, as in Prisoners' Dilemma. But it turns out that we can represent that as well, through a small notational innovation. Figure [5.9](#PDEForm){reference-type="ref" reference="PDEForm"} is the game tree for Prisoners' Dilemma.
+The extensive form representation form is very convenient for turn taking games. But you might think that it is much less convenient for games where players move simultaneously, as in Prisoners' Dilemma. But it turns out that we can represent that as well, through a small notational innovation. @fig-pd-tree is the game tree for Prisoners' Dilemma.
 
-<figure id="PDEForm" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 110)</p>
-<p>(175, 0)<span>(0, 0)[b]<span>P1</span></span> (175, 12)(173, 13)<span>(-2, 1)<span>69</span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>A</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>B</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span>P2</span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(70, 85)<span>(0, 0)[b]<span>(1, 1)</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(140, 85)<span>(0, 0)[b]<span>(5, 0)</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span>A</span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span>B</span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span>P2</span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(210, 85)<span>(0, 0)[b]<span>(0, 5)</span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(280, 85)<span>(0, 0)[b]<span>(3, 3)</span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span>A</span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span>B</span></span></p>
-<p>(105,47)(5, 0)<span>28</span><span>(1, 0)<span>3</span></span></p>
-</div>
-</div>
-<figcaption>Prisoners’ Dilemma</figcaption>
-</figure>
+::: {#fig-pd-tree .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/pd-tree.tex`
+
+Prisoners' Dilemma
+:::
 
 The crucial thing here is the dashed line between the two nodes where P2 (short for Player 2) moves. What this means is that P2 doesn't know which of these nodes she is at when she moves. We normally assume that a player knows what moves are available to her. So we normally only put this kind of dashed line in when it connects two nodes at which the same player moves, and the available moves are the same. When we put in notation like this, we say that the nodes that are connected form an **information set**. If we don't mark anything, we assume that a node is in a degenerate information set, one that only contains itself.
 
@@ -1659,7 +1446,6 @@ These representations using graphs are knows as **extensive form** representatio
 
 Let's do this for the **Five**. A strategy for $A$ has three variables. It must specify what she does at the first move, what she does at the second move if $B$ plays 1, and what she does at the second move if $B$ plays 2. (We're assuming here that $A$ will play what she decides to play at the first move. It's possible to drop that assumption, but it results in much more complexity.) So we'll describe $A$'s strategy as $\alpha \beta \gamma$, where $\alpha$ is her move to begin with, $\beta$ is what she does if $B$ plays 1, and $\gamma$ is what she does if $B$ plays 2. A strategy for $B$ needs to only have two variables: what to do if $A$ plays 1, and what to do if $A$ plays 2. So we'll notate her strategy as $\delta \epsilon$, where $\delta$ is what she does if $A$ plays 1, and $\epsilon$ is what she does if $A$ plays 2. So $A$ has 8 possible strategies, and $B$ has 4 possible strategies. Let's record the giant table listing the outcomes if they play each of those strategies.
 
-::: center
 +:----+----:+:---:+:---:+:---:+:---:+
 |     |     | $B$                   |
 +-----+-----+-----+-----+-----+-----+
@@ -1681,13 +1467,11 @@ Let's do this for the **Five**. A strategy for $A$ has three variables. It must 
 |     +-----+-----+-----+-----+-----+
 |     | 222 | $W$ | $L$ | $W$ | $L$ |
 +-----+-----+-----+-----+-----+-----+
-:::
 
 There is something quite dramatic about this representation. We can see what $A$ should play. If her strategy is 221, then whatever strategy $B$ plays, $A$ wins. So she should play that; it is a (weakly) dominant strategy. This isn't completely obvious from the extended form graph.
 
 Here's a related fact. Note that there are only 8 outcomes of the extended form game, but 32 cells in the table. Each outcome on the tree is represented by multiple cells of the table. Let's say we changed the game so that it finishes in a draw, represented by $D$, if the numbers picked sum to 3. That just requires changing one thing on the graph; the $L$ in the top-left corner has to be changed to a $D$. But it requires making many changes to the table.
 
-::: center
 +:----+----:+:---:+:---:+:---:+:---:+
 |     |     | $B$                   |
 +-----+-----+-----+-----+-----+-----+
@@ -1709,7 +1493,6 @@ Here's a related fact. Note that there are only 8 outcomes of the extended form 
 |     +-----+-----+-----+-----+-----+
 |     | 222 | $W$ | $L$ | $W$ | $L$ |
 +-----+-----+-----+-----+-----+-----+
-:::
 
 In part because of this fact, i.e., because every change to the value assignment in the extensive form requires making many changes in the values on the normal form, it isn't a coincidence that there's a row containing nothing but $W$. The following claim about our game can be proved.
 
@@ -1729,48 +1512,25 @@ So let's assume she does that. Let's assume, that is, that $A$ does play her bes
 
 - If $A$ plays 2, and $B$ plays 2, $A$ will follow with 1.
 
-Moreover, once we make this assumption there is, in effect, one fewer step in the game. Once $B$ moves, the outcome is determined. So let's redraw the game using that assumption, and just listing payoffs after the second move. This will be Figure [5.3](#FiveGameChartSecondVersion){reference-type="ref" reference="FiveGameChartSecondVersion"}
+Moreover, once we make this assumption there is, in effect, one fewer step in the game. Once $B$ moves, the outcome is determined. So let's redraw the game using that assumption, and just listing payoffs after the second move. This will be @fig-five-2
 
-<figure id="FiveGameChartSecondVersion" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 100)</p>
-<p>(175, 0)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (175, 12)(173, 13)<span>(-2, 1)<span>69</span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(70, 85)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(140, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(210, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(280, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span>2</span></span></p>
-</div>
-</div>
-<figcaption><strong>Five</strong> with last move assumed</figcaption>
-</figure>
+::: {#fig-five-2 .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/five-2.tex`
+
+Five with last move assumed
+:::
 
 Now we can make the same assumption about $B$. Assume that $B$ will simply make her best move in this (reduced) game. Since $B$ wins if $A$ loses, $B$'s best move is to get to $L$. This assumption then, gives us just one extra constraint.
 
 - If $A$ plays 1, $B$ will follow with 1.
 
-And, once again, we can replace $B$'s actual movement with a payoff of the game under the assumption that $B$ makes the rational move. This gives us an even simpler representation of the game that we see in Figure [5.4](#FiveGameChartThirdVersion){reference-type="ref" reference="FiveGameChartThirdVersion"}.
+And, once again, we can replace $B$'s actual movement with a payoff of the game under the assumption that $B$ makes the rational move. This gives us an even simpler representation of the game that we see in @fig-five-3.
 
-<figure id="FiveGameChartThirdVersion" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 65) (175, 12) (175, 0)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (173, 13)<span>(-2, 1)<span>69</span></span></p>
-<p>(105, 50)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(245, 50)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>2</span></span></p>
-</div>
-</div>
-<figcaption><strong>Five</strong> with last two moves assumed</figcaption>
-</figure>
+::: {#fig-five-3 .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/five-3.tex`
+
+Five with last two moves assumed
+:::
 
 And from this version of the game, we can draw two more conclusions, assuming $A$ is rational.
 
@@ -1782,71 +1542,23 @@ Let's put all of that together. We know $A$ will start with 2, so her strategy w
 
 Note that the use of backwards induction here hides a multitude of assumptions. We have to assume each player is rational, and each player knows that, and each player knows that, and so on for at least as many iterations as there are steps in the game. If we didn't have those assumptions, it wouldn't be right to simply replace a huge tree with a single outcome. Moreover, we have to make those assumptions be very modally robust.
 
-We can see this with a slight variant of the game. Let's say this time that the left two outcomes are $D$. So the graph looks like Figure [5.5](#RevisedFiveGameChart){reference-type="ref" reference="RevisedFiveGameChart"}.
+We can see this with a slight variant of the game. Let's say this time that the left two outcomes are $D$. So the graph looks like @fig-five-rev.
 
-<figure id="RevisedFiveGameChart" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 150)</p>
-<p>(175, 0)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (175, 12)(173, 13)<span>(-2, 1)<span>69</span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(70, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (70, 82) (70, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(50, 125)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span> (70, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(90, 125)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(55, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(85, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(140, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (140, 82) (140, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(120, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (140, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(160, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(115, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(155, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(210, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (210, 82) (210, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(190, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span> (210, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(230, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(195, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(225, 95)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(280, 70)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (280, 82) (280, 82)<span>(-1, 2)<span>20</span></span></p>
-<p>(260, 125)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span> (280, 82)<span>(1, 2)<span>20</span></span></p>
-<p>(300, 125)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span></p>
-<p>(265, 95)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(295, 95)<span>(0, 0)[b]<span>2</span></span></p>
-</div>
-</div>
-<figcaption><strong>Five</strong><span class="math inline"><sup>′′</sup></span></figcaption>
-</figure>
+::: {#fig-five-rev .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/five-rev.tex`
 
-Now we assume that $A$ makes the optimal move at the last step, so we can replace the top row of outcomes with the outcome that would happen if $A$ moves optimally. This gets us Figure [5.6](#RevisedFiveGameChartReduced){reference-type="ref" reference="RevisedFiveGameChartReduced"}.
+Five''
+:::
 
-<figure id="RevisedFiveGameChartReduced" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 100)</p>
-<p>(175, 0)<span>(0, 0)[b]<span><span class="math inline"><em>A</em></span></span></span> (175, 12)(173, 13)<span>(-2, 1)<span>69</span></span> (177, 13)<span>(2, 1)<span>69</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(70, 85)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(140, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(210, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(280, 85)<span>(0, 0)[b]<span><span class="math inline"><em>W</em></span></span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span>2</span></span></p>
-</div>
-</div>
-<figcaption><strong>Five</strong><span class="math inline"><sup>′′</sup></span> with last move assumed</figcaption>
-</figure>
+Now we assume that $A$ makes the optimal move at the last step, so we can replace the top row of outcomes with the outcome that would happen if $A$ moves optimally. This gets us @fig-five-rev-2.
 
-Now assume that $A$ plays 1 on the first round, then $B$ has to move. From [5.6](#RevisedFiveGameChartReduced){reference-type="ref" reference="RevisedFiveGameChartReduced"} it looks like $B$ has an easy choice to make. If she plays 1, she gets a draw, if she plays 2, then $A$ wins, i.e., she loses. Since drawing is better than losing, she should play 1 and take the draw.
+::: {#fig-five-rev-2 .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/five-rev-2.tex`
+
+Five'' with last move assumed
+:::
+
+Now assume that $A$ plays 1 on the first round, then $B$ has to move. From @fig-five-rev-2 it looks like $B$ has an easy choice to make. If she plays 1, she gets a draw, if she plays 2, then $A$ wins, i.e., she loses. Since drawing is better than losing, she should play 1 and take the draw.
 
 But why think that playing 2 will lead to $A$ winning? The argument that it did depending on assuming $A$ is perfectly rational. And assuming $B$ is in a position to make this choice, that seems like an unlikely assumption. After all, if $A$ were perfectly rational, she'd have chosen 2, and given herself a chance to force a win.
 
@@ -1916,35 +1628,18 @@ In the case of checkers, we know what the value of the game is. It is a draw. Th
 
 ### Subgame Perfect Equilibrium
 
-Consider the following little game. The two players, call them Player I and Player II, have a choice between two options, call them Good and Bad. The game is a sequential move game; first Player I moves then Player II moves. Each player gets 1 if they choose Good and 0 if they choose Bad. We will refer to this game as **Easy Game**. Its game tree is figure [5.7](#EasyGameTree){reference-type="ref" reference="EasyGameTree"}.
+Consider the following little game. The two players, call them Player I and Player II, have a choice between two options, call them Good and Bad. The game is a sequential move game; first Player I moves then Player II moves. Each player gets 1 if they choose Good and 0 if they choose Bad. We will refer to this game as **Easy Game**. Its game tree is @fig-easy-game.
 
-<figure id="EasyGameTree" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 110)</p>
-<p>(175, 0)<span>(0, 0)[b]<span>I</span></span> (175, 12) (175, 12)<span>(-2, 1)<span>70</span></span> (175, 12)<span>(2, 1)<span>70</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span><span class="math inline"><em>G</em></span></span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span>II</span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(70, 85)<span>(0, 0)[b]<span>(1, 1)</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(140, 85)<span>(0, 0)[b]<span>(1, 0)</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span><span class="math inline"><em>g</em></span></span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span><span class="math inline"><em>b</em></span></span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span>II</span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(210, 85)<span>(0, 0)[b]<span>(0, 1)</span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(280, 85)<span>(0, 0)[b]<span>(0, 0)</span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span><span class="math inline"><em>g</em></span></span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span><span class="math inline"><em>b</em></span></span></span></p>
-</div>
-</div>
-<figcaption><strong>Easy Game</strong></figcaption>
-</figure>
+::: {#fig-easy-game .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/easy-game.tex`
+
+Easy Game
+:::
 
 A strategy for Player I in **Easy Game** is just a choice of one option, Good or Bad. A strategy for Player II is a little more complicated. She has to choose both what to do if Player I chooses Good, and what to do if Player II chooses Bad. We'll write her strategy as $\alpha \beta$, where $\alpha$ is what she does if Player I chooses Good, and $\beta$ is what she does if Player II chooses Bad. (We will often use this kind of notation in what follows. Wherever it is potentially ambiguous, I'll try to explain it. But the notation is very common in works on game theory, and it is worth knowing.)
 
 The most obvious Nash equilibrium of the game is that Player I chooses Good, and Player II chooses Good whatever Player I does. But there is another Nash equilibrium, as looking at the strategic form of the game reveals. We'll put Player I on the row and Player II on the column. (We'll also do this from now on unless there is a reason to do otherwise.)
 
-::: center
 +:---------+--:+:----:+:--------:+:----:+:----:+
 |          |   | Player II                     |
 +----------+---+------+----------+------+------+
@@ -1954,7 +1649,6 @@ The most obvious Nash equilibrium of the game is that Player I chooses Good, and
 |          +---+------+----------+------+------+
 |          | B | 0, 1 | 0, 0     | 0, 1 | 0, 0 |
 +----------+---+------+----------+------+------+
-:::
 
 Look at the cell that I've bolded, where Player I plays Good, and Player II plays Good, Bad. That's a Nash equilibrium. Neither player can improve their outcome, given what the other player plays. But it is a very odd Nash equilibrium. It would be very odd for Player II to play this, since it risks getting 0 when they can guarantee getting 1.
 
@@ -1966,33 +1660,16 @@ Say that a strategy pair is a **subgame perfect equilibrium** when it is a Nash 
 
 When we solve extensive form games by backwards induction, we not only find Nash equilibria, but subgame perfect equilibria. Solving this game by backwards induction would reveal that Player II would choose Good wherever she ends up, and then Player I will play Good at the first move. And the only subgame perfect equilibrium of the game is that Player I plays Good, and Player II plays Good, Good.
 
-The stakes here don't seem to high, since the ruled out Nash equilibrium has the same payout as the subgame perfect equilibrium. But that need not be the case. Sometimes the equilibrium that is not subgame perfect is an **incredible threat**. We mean *incredible* here in the literal sense of not credible. In the spirit of this, let's consider a game I'll call **Incredible**. Its game tree is figure [5.8](#IncredibleGameTree){reference-type="ref" reference="IncredibleGameTree"}.
+The stakes here don't seem to high, since the ruled out Nash equilibrium has the same payout as the subgame perfect equilibrium. But that need not be the case. Sometimes the equilibrium that is not subgame perfect is an **incredible threat**. We mean *incredible* here in the literal sense of not credible. In the spirit of this, let's consider a game I'll call **Incredible**. Its game tree is @fig-incredible.
 
-<figure id="IncredibleGameTree" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(350, 110)</p>
-<p>(175, 0)<span>(0, 0)[b]<span>I</span></span> (175, 12) (175, 12)<span>(-2, 1)<span>70</span></span> (175, 12)<span>(2, 1)<span>70</span></span></p>
-<p>(135, 20)<span>(0, 0)[b]<span>L</span></span></p>
-<p>(215, 20)<span>(0, 0)[b]<span>R</span></span></p>
-<p>(105, 35)<span>(0, 0)[b]<span>II</span></span> (105, 47) (105, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(70, 85)<span>(0, 0)[b]<span>(4, 3)</span></span> (105, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(140, 85)<span>(0, 0)[b]<span>(1, 4)</span></span></p>
-<p>(80, 55)<span>(0, 0)[b]<span><span class="math inline"><em>g</em></span></span></span></p>
-<p>(130, 55)<span>(0, 0)[b]<span><span class="math inline"><em>b</em></span></span></span></p>
-<p>(245, 35)<span>(0, 0)[b]<span>II</span></span> (245, 47) (245, 47)<span>(-1, 1)<span>35</span></span></p>
-<p>(210, 85)<span>(0, 0)[b]<span>(3, 2)</span></span> (245, 47)<span>(1, 1)<span>35</span></span></p>
-<p>(280, 85)<span>(0, 0)[b]<span>(0, 0)</span></span></p>
-<p>(220, 55)<span>(0, 0)[b]<span><span class="math inline"><em>g</em></span></span></span></p>
-<p>(270, 55)<span>(0, 0)[b]<span><span class="math inline"><em>b</em></span></span></span></p>
-</div>
-</div>
-<figcaption><strong>Incredible</strong></figcaption>
-</figure>
+::: {#fig-incredible .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/incredible.tex`
+
+Incredible
+:::
 
 Using backwards induction, we can see that the only subgame perfect equilibrium of the game is $Rbg$. That is, Player I plays $R$, and Player II is disposed to play $b$ if Player I plays Left, and $g$ if Player plays $R$. But writing out the able reveals another Nash equilibria.
 
-::: center
 +:---------+----:+:----:+:----:+:-------:+:-------:+
 |          |     | Player II                       |
 +----------+-----+------+------+---------+---------+
@@ -2002,7 +1679,6 @@ Using backwards induction, we can see that the only subgame perfect equilibrium 
 |          +-----+------+------+---------+---------+
 |          | $R$ | 3,2  | 0,0  | **3,2** | 0,0     |
 +----------+-----+------+------+---------+---------+
-:::
 
 I've bolded both the Nash equilibria. And note the one in the top right corner of the table. If Player II is committed to playing $bb$, then the best response Player I can make is to play $L$.
 
@@ -2014,30 +1690,11 @@ In the rest of this chapter, we'll look at reasons why this might be too strong 
 
 When each player only moves once, it is very plausible that each player should play their part of a subgame perfect equilibrium solution to the game. But this is less compelling when players have multiple moves. We can start to see why by looking at a game that the philosopher Robert Stalnaker has used in a few places to argue against backwards induction reasoning. Again, it is an extensive form game. We will call it **Cooperative Caterpillar**.
 
-<figure id="PDEForm" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(260, 100) (20, 80)<span>(1,0)<span>220</span></span></p>
-<p>(20, 80) (20, 80)<span>(0, -1)<span>60</span></span></p>
-<p>(20, 85)<span>(0, 0)[b]<span>I</span></span></p>
-<p>(60, 65)<span>(0, 0)[b]<span><span class="math inline"><em>A</em><sub>1</sub></span></span></span></p>
-<p>(28, 45)<span>(0, 0)[b]<span><span class="math inline"><em>D</em><sub>1</sub></span></span></span></p>
-<p>(20, 8)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(100, 80) (100, 80)<span>(0, -1)<span>60</span></span></p>
-<p>(100, 85)<span>(0, 0)[b]<span>II</span></span></p>
-<p>(140, 65)<span>(0, 0)[b]<span><span class="math inline"><em>a</em></span></span></span></p>
-<p>(108, 45)<span>(0, 0)[b]<span><span class="math inline"><em>d</em></span></span></span></p>
-<p>(100, 8)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(180, 80) (180, 80)<span>(0, -1)<span>60</span></span></p>
-<p>(180, 85)<span>(0, 0)[b]<span>I</span></span></p>
-<p>(220, 65)<span>(0, 0)[b]<span><span class="math inline"><em>A</em><sub>2</sub></span></span></span></p>
-<p>(188, 45)<span>(0, 0)[b]<span><span class="math inline"><em>D</em><sub>2</sub></span></span></span></p>
-<p>(180, 8)<span>(0, 0)[b]<span>0</span></span></p>
-<p>(248, 75)<span>(0, 0)[b]<span>3</span></span></p>
-</div>
-</div>
-<figcaption><strong>Cooperative Caterpillar</strong></figcaption>
-</figure>
+::: {#fig-caterpillar .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/caterpillar.tex`
+
+Cooperative Caterpillar
+:::
 
 The game starts in the upper-left corner. There are up to three moves, each of them Across or Down. As soon as one player moves Down, the game ends. It is a common interest game; each player gets the payout at the terminal node.
 
@@ -2073,7 +1730,6 @@ Stalnaker argues that many game theorists have tacitly confused indicative and s
 
 Elchanen Ben-Porath and Eddie Dekel suggested this variant to the Battle of the Sexes game. The variation is in two steps. First, we change the payouts for the basic game to the following. (Note that I'm using a lowercase letter for one of Row's options here; this is to distinguish the $d$ of down from the $D$ of Don't burn.)
 
-::: center
 +:---------+----:+:-----:+:-----:+
 |          |     | Player II     |
 +----------+-----+-------+-------+
@@ -2083,11 +1739,9 @@ Elchanen Ben-Porath and Eddie Dekel suggested this variant to the Battle of the 
 |          +-----+-------+-------+
 |          | $d$ | 0, 0  | 1, 4  |
 +----------+-----+-------+-------+
-:::
 
 Then we give Player I the option of publicly burning 2 utils before playing this game. We will use $D$ for Don't burn, and $B$ for burn. So actually each player has four choices. Player I has to choose both $D$ or $B$, then $u$ or $d$. Player 2 has to choose whether to play $l$ or $r$ in each of the two possibilities: first, when $D$ is played, second, when $B$ is played. We'll write $lr$ for the strategy of playing $l$ if $D$, and $r$ if $B$, and so on for the other strategies.
 
-::: center
 +:-------------+-----:+:-----:+:-----:+:-----:+:-----:+
 |              |      | **Player II**                 |
 +--------------+------+-------+-------+-------+-------+
@@ -2101,7 +1755,6 @@ Then we give Player I the option of publicly burning 2 utils before playing this
 |              +------+-------+-------+-------+-------+
 |              | $Bd$ | -2, 0 | -1, 4 | -2, 0 | -1, 4 |
 +--------------+------+-------+-------+-------+-------+
-:::
 
 Now we can analyse this game a couple of ways. First, we can go through eliminating weakly dominated strategies. Note that $Du$ strictly dominated $Bd$, so we can eliminate it. If $Bd$ is out, then $ll$ weakly dominates $lr$, and $rl$ weakly dominates $rr$. So we can eliminate $lr$ and $rr$. Now $Bu$ weakly dominates $Dd$, relative to the remaining options, so we can eliminate it. Given that just $Du$ and $Bu$ remain, $ll$ weakly dominates all options for Player II, so it is all that is left. And given that $ll$ is all that remains, $Du$ strongly dominates $Bu$. So the iterative deletion of weakly dominated strategies leaves us with $\langle Du, ll \rangle$ as the unique solution of the game.
 
@@ -2135,21 +1788,19 @@ Alternatively, we could look at the game from a strategic perspective. As we've 
 
 This is a little tricky to check since the strategic form of iterated Prisoners' Dilemma gets very complex very quickly. Let's just consider the three round version of the game. Already each player has 128 strategies to choose from. The choice of a strategy involves making 7 distinct choices:
 
-::: enumerate*
-What to do in the first round.
+1. What to do in the first round.
 
-What to do in the second round if the other player cooperates in the first round.
+1. What to do in the second round if the other player cooperates in the first round.
 
-What to do in the second round if the other player defects in the first round.
+1. What to do in the second round if the other player defects in the first round.
 
-What to do in the third round if the other player cooperates in each of the first two rounds.
+1. What to do in the third round if the other player cooperates in each of the first two rounds.
 
-What to do in the third round if the other player cooperates in the first round then defects in the second round.
+1. What to do in the third round if the other player cooperates in the first round then defects in the second round.
 
-What to do in the third round if the other player defects in the first round then cooperates in the second round.
+1. What to do in the third round if the other player defects in the first round then cooperates in the second round.
 
-What to do in the third round is the other player defects in each fo the first two rounds.
-:::
+1. What to do in the third round is the other player defects in each fo the first two rounds.
 
 Since these 7 choices are distinct, and the player has 2 choices at each point, there are $2^7 = 128$ possible strategies. So the strategic form of the table involves $128 \times 128 = 16384$ cells. Needless to say, we *won't* be putting that table here. (Though it isn't too hard to get a computer to draw the table for you. The four round game, where each player has $2^{15}$ choices, and there are over one billion cells in the decision table, requires more computing power!)
 
@@ -2159,7 +1810,6 @@ Let $\langle x_1x_2x_3x_4x_5x_6x_7 \rangle$ be any strategy that doesn't always 
 
 That cuts each player's choices down to 8. Let's do that table. We'll use $C$ and $c$ rather than 0, and $D$ and $d$ rather than 1, so it is easier to distinguish the two players' strategies. When we label the table, we'll leave off the trailing $D$s and $d$'s, since we assume players are defecting on the last round. We'll also leave off the 3 units the players each get in the last round. (In other words, this will look a lot like the table for a *two* round iterated Prisoners' Dilemma, but it is crucial that it is actually a three-round game.)
 
-::: center
 +:-------------+------:+:------:+:------:+:------:+:------:+:------:+:------:+:------:+:------:+
 |              |       | **Player II**                                                         |
 +--------------+-------+--------+--------+--------+--------+--------+--------+--------+--------+
@@ -2181,11 +1831,9 @@ That cuts each player's choices down to 8. Let's do that table. We'll use $C$ an
 |              +-------+--------+--------+--------+--------+--------+--------+--------+--------+
 |              | $DDD$ | 6, 6   | 6, 1   | 10, 0  | 6, 1   | 6, 1   | 2, 2   | 6, 1   | 2, 2   |
 +--------------+-------+--------+--------+--------+--------+--------+--------+--------+--------+
-:::
 
 In this game $CCC$ is *strongly* dominated by $CDD$, and $DCC$ is strongly dominated by $DDD$. Similarly $ccc$ and $dcc$ are strongly dominated. So let's delete them.
 
-::: center
 +:-------------+------:+:-----:+:-----:+:-----:+:-----:+:-----:+:-----:+
 |              |       | **Player II**                                 |
 +--------------+-------+-------+-------+-------+-------+-------+-------+
@@ -2203,7 +1851,6 @@ In this game $CCC$ is *strongly* dominated by $CDD$, and $DCC$ is strongly domin
 |              +-------+-------+-------+-------+-------+-------+-------+
 |              | $DDD$ | 6, 1  | 10, 0 | 6, 1  | 2, 2  | 6, 1  | 2, 2  |
 +--------------+-------+-------+-------+-------+-------+-------+-------+
-:::
 
 Note that each of these is a best response. In particular,
 
@@ -2245,33 +1892,11 @@ The core idea behind subgame perfect equilibrium was that we wanted to eliminat
 
 The same kind of consideration can arise in games where there aren't any subgames. For instance, consider the following game, which we'll call **Perfect**.
 
-<figure data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(200, 100) (100, 15)</p>
-<p>(100, 0)<span>(0, 0)[b]<span>1</span></span></p>
-<p>(100, 15)<span>(-2, 1)<span>70</span></span> (100, 15)<span>(0, 1)<span>35</span></span> (100, 15)<span>(2, 1)<span>70</span></span></p>
-<p>(60, 25)<span>(0, 0)[b]<span><span class="math inline"><em>L</em></span></span></span></p>
-<p>(108, 25)<span>(0, 0)[b]<span><span class="math inline"><em>M</em></span></span></span></p>
-<p>(140, 25)<span>(0, 0)[b]<span><span class="math inline"><em>R</em></span></span></span></p>
-<p>(30, 50)(4, 0)<span>18</span><span>(1, 0)<span>2</span></span></p>
-<p>(65, 55)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(30, 50) (100, 50)</p>
-<p>(30, 50)<span>(-1, 2)<span>20</span></span> (30, 50)<span>(1, 2)<span>20</span></span></p>
-<p>(100, 50)<span>(-1, 2)<span>20</span></span> (100, 50)<span>(1, 2)<span>20</span></span></p>
-<p>(15, 60)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(45, 60)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(85, 60)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(115, 60)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(10, 90)<span>(0, 0)[b]<span>(3, 1)</span></span></p>
-<p>(50, 90)<span>(0, 0)[b]<span>(0, 0)</span></span></p>
-<p>(80, 90)<span>(0, 0)[b]<span>(1, 1)</span></span></p>
-<p>(120, 90)<span>(0, 0)[b]<span>(0, 0)</span></span></p>
-<p>(170, 50)<span>(0, 0)[b]<span>(2, 2)</span></span></p>
-</div>
-</div>
-<figcaption><strong>Perfect</strong></figcaption>
-</figure>
+::: {#fig-perfect .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/perfect.tex`
+
+Perfect
+:::
 
 The game here is a little different to one we've seen so far. First Player 1 makes a move, either $L$, $M$ or $R$. If her move is $R$, the game ends, with the (2, 2) payout. If she moves $L$ or $M$, the game continues with a move by Player 2. But crucially, Player 2 does not know what move Player 1 made, so she does not know which node she is at. So there isn't a subgame here to start. Player 2 chooses $l$ or $r$, and then the game ends.
 
@@ -2279,15 +1904,13 @@ There are two Nash equilibria to **Perfect**. The obvious equilibrium is $Ll$. 
 
 This is just like the examples that we used to motivate subgame perfect equilibrium, but that concept doesn't help us here. So we need a new concept. The core idea is that each player should be modelled as a Bayesian expected utility maximiser. More formally, the following constraints are put on players.
 
-::: enumerate*
-At each point in the game, each player has a probability distribution over where they are in the game. These probability distributions are correct about the other players' actions. That is, if a player is playing a strategy $S$, everyone has probability 1 that they are playing $S$. If $S$ is a mixed strategy, this might involve having probabilities between 0 and 1 in propositions about which move the other player will make, but players have correct beliefs about other players' strategies.
+1. At each point in the game, each player has a probability distribution over where they are in the game. These probability distributions are correct about the other players' actions. That is, if a player is playing a strategy $S$, everyone has probability 1 that they are playing $S$. If $S$ is a mixed strategy, this might involve having probabilities between 0 and 1 in propositions about which move the other player will make, but players have correct beliefs about other players' strategies.
 
-No matter which node is reach, each player is disposed to maximise expected utility on arrival at that node.
+1. No matter which node is reach, each player is disposed to maximise expected utility on arrival at that node.
 
-When a player had a positive probability of arriving at a node, on reaching that node they update by conditionalisation.
+1. When a player had a positive probability of arriving at a node, on reaching that node they update by conditionalisation.
 
-When a player gave 0 probability to reaching a node (e.g., because the equilibrium being played did not include that node), they have some disposition or other to form a set of consistent beliefs at that node.
-:::
+1. When a player gave 0 probability to reaching a node (e.g., because the equilibrium being played did not include that node), they have some disposition or other to form a set of consistent beliefs at that node.
 
 The last constraint is very weak, but it does enough to eliminate the equilibrium $Rr$. The constraint implies that when Player 2 moves, she must have some probability distribution $\Pr$ such that there's an $x$ such that $\Pr(L) = x$ and $\Pr(M) = 1-x$. Whatever value $x$ takes, the expected utility of $l$ given $\Pr$ is 1, and the expected utility of $r$ is 0. So being disposed to play $r$ violates the second condition. So $Rr$ is not a Perfect Bayesian equilibrium.
 
@@ -2299,50 +1922,11 @@ Concepts like Perfect Bayesian equilibrium are useful for the broad class of ga
 
 We'll start, in game **Simple Signal** with a signaling game where the parties' interests are perfectly aligned.
 
-<figure data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(300, 300)</p>
-<p>(150, 150)</p>
-<p>(150, 138)<span>(0, 0)[b]<span><span class="math inline"><em>N</em></span></span></span></p>
-<p>(110, 155)<span>(0, 0)[b]<span><span class="math inline"><em>p</em></span></span></span></p>
-<p>(190, 155)<span>(0, 0)[b]<span><span class="math inline">1 − <em>p</em></span></span></span> (152, 150)<span>(1, 0)<span>71</span></span> (77, 150)<span>(1, 0)<span>71</span></span></p>
-<p>(75, 150)</p>
-<p>(65, 145)<span>(0, 0)[b]<span>1</span></span> (75, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(65, 180)<span>(0, 0)[b]<span><span class="math inline"><em>U</em></span></span></span> (75, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(65, 110)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(225, 150)</p>
-<p>(235, 145)<span>(0, 0)[b]<span>1</span></span> (225, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(235, 180)<span>(0, 0)[b]<span><span class="math inline"><em>U</em></span></span></span> (225, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(235, 110)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(75, 220)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 225)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 220) (75, 220)<span>(-1, 1)<span>50</span></span> (75, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(40, 240)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(110, 240)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(25, 275)<span>(0, 0)[b]<span>1, 1</span></span></p>
-<p>(125, 275)<span>(0, 0)[b]<span>0, 0</span></span></p>
-<p>(225, 220) (225, 220)<span>(-1, 1)<span>50</span></span> (225, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(190, 240)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(260, 240)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(175, 275)<span>(0, 0)[b]<span>0, 0</span></span></p>
-<p>(275, 275)<span>(0, 0)[b]<span>1, 1</span></span></p>
-<p>(75, 80)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 60)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 80) (75, 80)<span>(-1, -1)<span>50</span></span> (75, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(40, 50)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(110, 50)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(25, 10)<span>(0, 0)[b]<span>1, 1</span></span></p>
-<p>(125, 10)<span>(0, 0)[b]<span>0, 0</span></span></p>
-<p>(225, 80) (225, 80)<span>(-1, -1)<span>50</span></span> (225, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(190, 50)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(260, 50)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(175, 10)<span>(0, 0)[b]<span>0, 0</span></span></p>
-<p>(275, 10)<span>(0, 0)[b]<span>1, 1</span></span></p>
-</div>
-</div>
-<figcaption><strong>Simple Signal</strong></figcaption>
-</figure>
+::: {#fig-simple-signal .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/simple-signal.tex`
+
+Simple Signal
+:::
 
 As above, we use an empty disc to signal the initial node of the game tree. In this case, it is the node in the centre of the tree. The first move is made by Nature, again denoted as $N$. Nature assigns a type to Player 1; that is, she makes some proposition true, and reveals it to Player 1. Call that proposition $q$. We'll say that Nature moves left if $q$ is true, and right otherwise. We assume the probability (in some good sense of probability) of $q$ is $p$, and this is known before the start of the game. After Nature moves, Player 1 has to choose $U$p or $D$own. Player 2 is shown Player 1's choice, but not Nature's move. That's the effect of the horizontal dashed lines. If the game reaches one of the upper nodes, Player 2 doesn't know which one it is, and if it reaches one of the lower nodes, again Player 2 doesn't know which it is. Then Player 2 has a make a choice, here simply denoted as $l$eft or $r$ight.
 
@@ -2384,52 +1968,13 @@ In **College Signal** we make the following extra assumptions about the payoffs.
 
 - Hiring a bright student pays the employer 1, hiring a dull student costs the employer 1, and rejections have no cost or benefit.
 
-The resulting game tree is shown in [6.1](#SignalCollegeTree){reference-type="ref" reference="SignalCollegeTree"}. In this game, dull students never prefer to go to college, since even the lure of a job doesn't make up for the pain of actually having to study. So a rational strategy for Player 1 will never be of the form $\alpha U$, since for dull students, college is a dominated option, being dominated by $\alpha D$. But whether bright students should go to college is a trickier question. That is, it is trickier to say whether the right strategy for Player 1 is $UD$ or $DD$, which are the two strategies consistent with eliminating the strictly dominated strategies. (Remember that strictly dominated strategies cannot be part of a Nash equilibrium.)
+The resulting game tree is shown in @fig-college-signal. In this game, dull students never prefer to go to college, since even the lure of a job doesn't make up for the pain of actually having to study. So a rational strategy for Player 1 will never be of the form $\alpha U$, since for dull students, college is a dominated option, being dominated by $\alpha D$. But whether bright students should go to college is a trickier question. That is, it is trickier to say whether the right strategy for Player 1 is $UD$ or $DD$, which are the two strategies consistent with eliminating the strictly dominated strategies. (Remember that strictly dominated strategies cannot be part of a Nash equilibrium.)
 
-<figure id="SignalCollegeTree" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(300, 300)</p>
-<p>(150, 150)</p>
-<p>(150, 138)<span>(0, 0)[b]<span><span class="math inline"><em>N</em></span></span></span></p>
-<p>(110, 155)<span>(0, 0)[b]<span><span class="math inline"><em>p</em></span></span></span></p>
-<p>(190, 155)<span>(0, 0)[b]<span><span class="math inline">1 − <em>p</em></span></span></span> (152, 150)<span>(1, 0)<span>71</span></span> (77, 150)<span>(1, 0)<span>71</span></span></p>
-<p>(75, 150)</p>
-<p>(65, 145)<span>(0, 0)[b]<span>1</span></span> (75, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(65, 180)<span>(0, 0)[b]<span><span class="math inline"><em>U</em></span></span></span> (75, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(65, 110)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(225, 150)</p>
-<p>(235, 145)<span>(0, 0)[b]<span>1</span></span> (225, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(235, 180)<span>(0, 0)[b]<span><span class="math inline"><em>U</em></span></span></span> (225, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(235, 110)<span>(0, 0)[b]<span><span class="math inline"><em>D</em></span></span></span></p>
-<p>(75, 220)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 225)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 220) (75, 220)<span>(-1, 1)<span>50</span></span> (75, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(40, 240)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(110, 240)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(25, 275)<span>(0, 0)[b]<span>3, 1</span></span></p>
-<p>(125, 275)<span>(0, 0)[b]<span>-1, 0</span></span></p>
-<p>(225, 220) (225, 220)<span>(-1, 1)<span>50</span></span> (225, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(190, 240)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(260, 240)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(175, 275)<span>(0, 0)[b]<span>-1, -1</span></span></p>
-<p>(275, 275)<span>(0, 0)[b]<span>-5, 0</span></span></p>
-<p>(75, 80)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 60)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 80) (75, 80)<span>(-1, -1)<span>50</span></span> (75, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(40, 50)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(110, 50)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(25, 10)<span>(0, 0)[b]<span>4, 1</span></span></p>
-<p>(125, 10)<span>(0, 0)[b]<span>0, 0</span></span></p>
-<p>(225, 80) (225, 80)<span>(-1, -1)<span>50</span></span> (225, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(190, 50)<span>(0, 0)[b]<span><span class="math inline"><em>l</em></span></span></span></p>
-<p>(260, 50)<span>(0, 0)[b]<span><span class="math inline"><em>r</em></span></span></span></p>
-<p>(175, 10)<span>(0, 0)[b]<span>4, -1</span></span></p>
-<p>(275, 10)<span>(0, 0)[b]<span>0, 0</span></span></p>
-</div>
-</div>
-<figcaption><strong>College Signal</strong></figcaption>
-</figure>
+::: {#fig-college-signal .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/college-signal.tex`
+
+College Signal
+:::
 
 First, consider the case where $p < \nicefrac{1}{2}$. In that case, if Player 1 plays $DD$, then Player 2 gets $2p-1$ from playing either $ll$ or $rl$, and 0 from playing $lr$ or $rr$. So she should play one of the latter two options. If she plays $rr$, then $DD$ is a best response, since when employers aren't going to hire, students prefer to go to the beach. So there is one **pooling** equilibrium, namely $\langle DD, rr \rangle$. But what if Player 2 plays $lr$. Then Player 1's best response is $UD$, since bright students prefer college conditional on it leading to a job. So there is also a **separating** equilibrium, namely $\langle UD, lr \rangle$. The employer prefers that equilibrium, since her payoff is now $p$ rather than 0. And students prefer it, since their payoff is $3p$ rather than 0. So if we assume that people will end up at Pareto-dominant outcomes, we have reason to think that bright students, and only bright students, will go to college, and employers will hire college students, and only college students. And all this is true despite there being no advantage whatsoever to going to college in terms of how good an employee one will be.
 
@@ -2443,7 +1988,7 @@ But now note what an odd update strategy this is for Player 2. She has to assume
 
 ### The Intuitive Criterion
 
-The tree in [6.2](#SignalCanadianTree){reference-type="ref" reference="SignalCanadianTree"} represents **Canadian Signal**, which is also a guessing game. The usual statement of it involves all sorts of unfortunate stereotypes about the type of men who have quiche and/or beer for breakfast, and I'm underwhelmed by it. So I'll run with an example that relies on different stereotypes.
+The tree in @fig-canadian-signal represents **Canadian Signal**, which is also a guessing game. The usual statement of it involves all sorts of unfortunate stereotypes about the type of men who have quiche and/or beer for breakfast, and I'm underwhelmed by it. So I'll run with an example that relies on different stereotypes.
 
 A North American tourist is in a bar. 60% of the North Americans who pass through that bar are from Canada, the other 40% are from the US. (This is a little implausible for most parts of the world, but maybe it is very cold climate bar. In Cho and Kreps' version the split is 90/10 not 60/40, but all that matters is which side of 50/50 it is.) The tourist, call her Player 1, knows her nationality, although the barman doesn't. The tourist can ask for the bar TV to be turned to hockey or to baseball, and she knows once she does that the barman will guess at her nationality. (The barman might also try to rely on her accent, but she has a fairly neutral upper-Midwest/central Canada accent.) Here are the tourist's preferences.
 
@@ -2455,50 +2000,11 @@ A North American tourist is in a bar. 60% of the North Americans who pass throug
 
 The barman's preferences are simpler; he prefers to make true guesses to false guesses about the tourist's nationality. All of this is common knowledge. So the decision tree is given below. In this tree, $B$ means asking for baseball, $H$ means asking for hockey, $a$ means guessing the tourist is from the USA, $c$ means guessing she is from Canada.
 
-<figure id="SignalCanadianTree" data-latex-placement="ht">
-<div class="center">
-<div class="picture">
-<p>(300, 300)</p>
-<p>(150, 150)</p>
-<p>(150, 138)<span>(0, 0)[b]<span><span class="math inline"><em>N</em></span></span></span></p>
-<p>(110, 155)<span>(0, 0)[b]<span><span class="math inline">0.6</span></span></span></p>
-<p>(190, 155)<span>(0, 0)[b]<span><span class="math inline">0.4</span></span></span> (152, 150)<span>(1, 0)<span>71</span></span> (77, 150)<span>(1, 0)<span>71</span></span></p>
-<p>(75, 150)</p>
-<p>(65, 145)<span>(0, 0)[b]<span>1</span></span> (75, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(65, 180)<span>(0, 0)[b]<span><span class="math inline"><em>H</em></span></span></span> (75, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(65, 110)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span></p>
-<p>(225, 150)</p>
-<p>(235, 145)<span>(0, 0)[b]<span>1</span></span> (225, 152)<span>(0, 1)<span>68</span></span></p>
-<p>(235, 180)<span>(0, 0)[b]<span><span class="math inline"><em>H</em></span></span></span> (225, 148)<span>(0, -1)<span>68</span></span></p>
-<p>(235, 110)<span>(0, 0)[b]<span><span class="math inline"><em>B</em></span></span></span></p>
-<p>(75, 220)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 225)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 220) (75, 220)<span>(-1, 1)<span>50</span></span> (75, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(40, 240)<span>(0, 0)[b]<span><span class="math inline"><em>c</em></span></span></span></p>
-<p>(110, 240)<span>(0, 0)[b]<span><span class="math inline"><em>a</em></span></span></span></p>
-<p>(25, 275)<span>(0, 0)[b]<span>3, 1</span></span></p>
-<p>(125, 275)<span>(0, 0)[b]<span>1, -1</span></span></p>
-<p>(225, 220) (225, 220)<span>(-1, 1)<span>50</span></span> (225, 220)<span>(1, 1)<span>50</span></span></p>
-<p>(190, 240)<span>(0, 0)[b]<span><span class="math inline"><em>c</em></span></span></span></p>
-<p>(260, 240)<span>(0, 0)[b]<span><span class="math inline"><em>a</em></span></span></span></p>
-<p>(175, 275)<span>(0, 0)[b]<span>2, -1</span></span></p>
-<p>(275, 275)<span>(0, 0)[b]<span>0, 1</span></span></p>
-<p>(75, 80)(12, 0)<span>13</span><span>(1, 0)<span>6</span></span></p>
-<p>(150, 60)<span>(0, 0)[b]<span>2</span></span></p>
-<p>(75, 80) (75, 80)<span>(-1, -1)<span>50</span></span> (75, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(40, 50)<span>(0, 0)[b]<span><span class="math inline"><em>c</em></span></span></span></p>
-<p>(110, 50)<span>(0, 0)[b]<span><span class="math inline"><em>a</em></span></span></span></p>
-<p>(25, 10)<span>(0, 0)[b]<span>2, 1</span></span></p>
-<p>(125, 10)<span>(0, 0)[b]<span>0, -1</span></span></p>
-<p>(225, 80) (225, 80)<span>(-1, -1)<span>50</span></span> (225, 80)<span>(1, -1)<span>50</span></span></p>
-<p>(190, 50)<span>(0, 0)[b]<span><span class="math inline"><em>c</em></span></span></span></p>
-<p>(260, 50)<span>(0, 0)[b]<span><span class="math inline"><em>a</em></span></span></span></p>
-<p>(175, 10)<span>(0, 0)[b]<span>3, -1</span></span></p>
-<p>(275, 10)<span>(0, 0)[b]<span>1, 1</span></span></p>
-</div>
-</div>
-<figcaption><strong>Canadian Signal</strong></figcaption>
-</figure>
+::: {#fig-canadian-signal .tree-placeholder}
+> **Game tree to be redrawn.** Source: `figures/src/canadian-signal.tex`
+
+Canadian Signal
+:::
 
 There are two Nash equilibria for this game. One is $\langle HH, ca \rangle$; everyone asks for hockey, and the barman guesses Canadian if hockey, American if baseball. It isn't too hard to check this is an equilibrium. The Canadian gets her best outcome, so it is clearly an equilibrium for her. The American gets the second-best outcome, but asking for baseball would lead to a worse outcome. And given that everyone asks for hockey, the best the barman can do is go with the prior probabilities, and that means guessing Canadian. It is easy to see how to extend this to a perfect Bayesian equilibrium; simply posit that conditional on baseball being asked for, the probability that the tourist is American is greater than $\nicefrac{1}{2}$.
 
@@ -2588,14 +2094,12 @@ But both of these voting systems seem to put a lot of weight on the various frie
 
 In the college sport polls, the voters don't rank every team, only the top $n$, but we can imagine doing just that. So let's have each of our friends rank the restaurants in order, and we'll give 4 points to each restaurant that is ranked first, 3 to each second place, etc. The points that each friend awards are given by the following table.
 
-::: center
            $F_1$   $F_2$   $F_3$   $F_4$   $F_5$   $F_6$   $F_7$   Total
   ------- ------- ------- ------- ------- ------- ------- ------- -------
     $R_1$    4       4       4       1       1       1       1      16
     $R_2$    1       3       3       4       4       2       2      19
     $R_3$    3       2       2       3       3       4       3      20
     $R_4$    2       1       1       2       2       3       4      15
-:::
 
 Now we have yet a different choice. By this method, $R_3$ comes out as the best option. This voting method is sometimes called the Borda count. The nice advantage of it is that it lets all preferences, not just first preferences, count. Note that previously we didn't look at all at the preferences of the first three friends, beside noting that $R_1$ is their first choice. Note also that $R_3$ is no one's least favourite option, and is many people's second best choice. These seem to make it a decent choice for the group, and it is these facts that the Borda count is picking up on.
 
@@ -2603,14 +2107,12 @@ But there is something odd about the Borda count. Sometimes when we prefer one r
 
 That's what happens if we use 'range voting'. Under this method, we get each voter to give each option a score, say a number between 0 and 10, and then add up all the scores. This is, approximately, what's used in various sporting competitions that involve judges, such as gymnastics or diving. In those sports there is often some provision for eliminating the extreme scores, but we won't be borrowing that feature of the system. Instead, we'll just get each friend to give each restaurant a score out of 10, and add up the scores. Here is how the numbers fall out.
 
-::: center
            $F_1$   $F_2$   $F_3$   $F_4$   $F_5$   $F_6$   $F_7$   Total
   ------- ------- ------- ------- ------- ------- ------- ------- -------
     $R_1$   10      10      10       5       5       5       0      45
     $R_2$    7       9       9      10      10       7       1      53
     $R_3$    9       8       8       9       9      10       2      55
     $R_4$    8       7       7       8       8       9      10      57
-:::
 
 Now $R_4$ is the choice! But note that the friends' individual preferences have not changed throughout. The way each friend would have voted in the previous 'elections' is entirely determined by their scores as given in this table. But using four different methods for aggregating preferences, we ended up with four different decisions for where to go for dinner.
 
@@ -2682,26 +2184,22 @@ Unfortunately, we've now got ourselves into an impossible situation. Arrow's the
 
 We can see why three option cases are a problem by considering one very simple example. Say there are three voters, $V_1, V_2, V_3$ and three choices $A, B, C$. The agent's rankings are given in the table below. (The column under each voter lists the choices from their first preference, on top, to their least favourite option, on the bottom.)
 
-::: center
   ------- ------- -------
    $V_1$   $V_2$   $V_3$
     $A$     $B$     $C$
     $B$     $C$     $A$
     $C$     $A$     $B$
   ------- ------- -------
-:::
 
 If we just look at the $A/B$ comparison, $A$ looks pretty good. After all, 2 out of 3 voters prefer $A$ to $B$. But if we look at the $B/C$ comparison, $B$ looks pretty good. After all, 2 out of 3 voters prefer $B$ to $C$. So perhaps we should say $A$ is best, $B$ second best and $C$ worst. But wait! If we just look at the $C/A$ comparison, $C$ looks pretty good. After all, 2 out of 3 voters prefer $C$ to $A$.
 
 It might seem like one natural response here is to say that the three options should be tied. The group preference ranking should just be that $A =_G B =_G = C$. But note what happens if we say that and accept independence of irrelevant alternatives. If we eliminate option $C$, then we shouldn't change the group's ranking of $A$ and $B$. That's what independence of irrelevant alternatives says. So now we'll be left with the following rankings.
 
-::: center
   ------- ------- -------
    $V_1$   $V_2$   $V_3$
     $A$     $B$     $A$
     $B$     $A$     $B$
   ------- ------- -------
-:::
 
 By independence of irrelevant alternatives, we should still have $A =_G B$. But 2 out of 3 voters wanted $A$ over $B$. The one voter who preferred $B$ to $A$ is making it that the group ranks them equally. That's a long way from making them a dictator, but it's our first sign that our constraints give excessive power to one voter. One other thing the case shows is that we can't have the following three conditions on our ranking function.
 
@@ -2715,14 +2213,12 @@ I noted after the example that $V_2$ has quite a lot of power. Their preference 
 
 Unfortunately, the consensus method described here violates transitivity, so doesn't even produce a group preference ordering in the formal sense we're interested in. Consider the following distribution of preferences.
 
-::: center
   ------- ------- -------
    $V_1$   $V_2$   $V_3$
     $A$     $A$     $B$
     $B$     $C$     $A$
     $C$     $B$     $C$
   ------- ------- -------
-:::
 
 Everyone prefers $A$ to $C$, so by unanimity, $A >_G C$. But there is no consensus over the $A/B$ comparison. Two people prefer $A$ to $B$, but one person prefers $B$ to $A$. And there is no consensus over the $B/C$ comparison. Two people prefer $B$ to $C$, but one person prefers $C$ to $B$. So if we're saying the group is indifferent between any two options over which there is no consensus, then we have to say that $A =_G B$, and $B =_G C$. By transitivity, it follows that $A =_G C$, contradicting our earlier conclusion that $A >_G C$.
 
@@ -2738,14 +2234,12 @@ To see this, assume that it isn't true. So there are some options $A$ and $C$ su
 
 This is a rather odd conclusion I think. Imagine that we have four voters with the following preferences.
 
-::: center
   ------- ------- ------- -------
    $V_1$   $V_2$   $V_3$   $V_4$
     $B$     $B$     $A$     $C$
     $A$     $C$     $C$     $A$
     $C$     $A$     $B$     $B$
   ------- ------- ------- -------
-:::
 
 By what we've proven so far, $B$ has to come out either best or worst in the group's rankings. But which should it be? Since half the people love $B$, and half hate it, it seems it should get a middling ranking. One lesson of this is that independence of irrelevant alternatives is a very strong condition, one that we might want to question.
 
@@ -2757,13 +2251,11 @@ We won't go through the rest, but the proof continues by showing that that perso
 
 The Arrow Impossibility Theorem shows that we can't have everything that we want in a voting system. In particular, we can't have a voting system that takes as inputs the preferences of each voter, and outputs a preference ordering of the group that satisfies these three constraints.
 
-::: enumerate*
-**Unanimity**: If everyone prefers $A$ to $B$, then the group prefers $A$ to $B$.
+1. **Unanimity**: If everyone prefers $A$ to $B$, then the group prefers $A$ to $B$.
 
-**Independence of Irrelevant Alternatives**: If nobody changes their mind about the relative ordering of $A$ and $B$, then the group can't change its mind about the relative ordering of $A$ and $B$.
+1. **Independence of Irrelevant Alternatives**: If nobody changes their mind about the relative ordering of $A$ and $B$, then the group can't change its mind about the relative ordering of $A$ and $B$.
 
-**No Dictators**: For each voter, it is possible that the group's ranking will be different to their ranking
-:::
+1. **No Dictators**: For each voter, it is possible that the group's ranking will be different to their ranking
 
 Any voting system either won't be a function in the sense that we're interested in for Arrow's Theorem, or will violate some of those constraints. (Or both.) But still there could be better or worse voting systems. Indeed, there are many voting systems in use around the world, and serious debate about which is best. In these notes we'll look at the pros and cons of a few different voting systems.
 
@@ -2777,13 +2269,11 @@ By far the most common method used in America, and throughout much of the rest o
 
 Plurality voting clearly does not satisfy the independence of irrelevant alternatives condition. We can see this if we imagine that the voting distribution starts off with the table on the left, and ends with the table on the right. (The three candidates are $A$, $B$ and $C$, with the numbers at the top of each column representing the percentage of voters who have the preference ordering listed below it.)
 
-::: center
         40%         35%   25%      40%   35%   25%
   ---------------- ----- ----- -- ----- ----- -----
    1-3 (r)5-7 $A$   $B$   $C$      $A$   $B$   $B$
         $B$         $A$   $B$      $B$   $A$   $C$
         $C$         $C$   $A$      $C$   $C$   $A$
-:::
 
 All that happens as we go from left-to-right is that some people who previously favoured $C$ over $B$, come to favour $B$ over $C$. Yet this change, which is completely independent of how anyone feels about $A$, is sufficient for $B$ to go from losing the election 40-35 to winning the election 60-40.
 
@@ -2809,7 +2299,6 @@ The idea is that there are, in general, two elections. At the first election, if
 
 This doesn't entirely deal with the problem of a spoiler candidate having an outsized effect on the election, but it makes such cases a little harder to produce. For instance, imagine that there are four candidates, and the arrangement of votes is as follows.
 
-::: center
   ----- ----- ----- -----
    35%   30%   20%   15%
    $A$   $B$   $C$   $D$
@@ -2817,18 +2306,15 @@ This doesn't entirely deal with the problem of a spoiler candidate having an out
    $C$   $C$   $B$   $B$
    $D$   $A$   $A$   $A$
   ----- ----- ----- -----
-:::
 
 In a plurality election, $A$ will win with only 35% of the vote.[^2] In a runoff election, the runoff will be between $A$ and $B$, and presumably $B$ will win, since 65% of the voters prefer $B$ to $A$. But look what happens if $D$ drops out of the election, or all of $D$'s supporters decide to vote more strategically.
 
-::: center
   ----- ----- ----- -----
    35%   30%   20%   15%
    $A$   $B$   $C$   $C$
    $B$   $C$   $B$   $B$
    $C$   $A$   $A$   $A$
   ----- ----- ----- -----
-:::
 
 Now the runoff is between $C$ and $A$, and $C$ will win. $D$ being a candidate means that the candidate most like $D$, namely $C$, loses a race they could have won.
 
@@ -2844,25 +2330,21 @@ When the votes are being counted, the first thing that is done is to count how m
 
 This avoids the particular problem we discussed about runoff voting. In that case, $D$ would have been eliminated at the first round, and $D$'s votes would all have flowed to $C$. That would have moved $C$ about $B$, eliminating $B$. Then with $B$'s preferences, $C$ would have won the election comfortably. But it doesn't remove all problems. In particular, it leads to an odd kind of strategic voting possibility. The following situation does arise, though rarely. Imagine the voters are split the following way.
 
-::: center
   ----- ----- -----
    45%   28%   27%
    $A$   $B$   $C$
    $B$   $A$   $B$
    $C$   $C$   $A$
   ----- ----- -----
-:::
 
 As things stand, $C$ will be eliminated. And when $C$ is eliminated, all of $C$'s votes will be transferred to $B$, leading to $B$ winning. Now imagine that a few of $A$'s voters change the way they vote, voting for $C$ instead of their preferred candidate $A$, so now the votes look like this.
 
-::: center
   ----- ----- ----- -----
    43%   28%   27%   2%
    $A$   $B$   $C$   $C$
    $B$   $A$   $B$   $A$
    $C$   $C$   $A$   $B$
   ----- ----- ----- -----
-:::
 
 Now $C$ has more votes than $B$, so $B$ will be eliminated. But $B$'s voters have $A$ as their second choice, so now $A$ will get all the new votes, and $A$ will easily win. Some theorists think that this possibility for strategic voting is a sign that instant runoff voting is flawed.
 
@@ -2902,13 +2384,11 @@ But arguably approval voting is easier on the voter. The voter can use a ballot 
 
 One striking thing about approval voting is that it is not a function from voter preferences to group preferences. Hence it is not subject to the Arrow Impossibility Theorem. It isn't such a function because the voters have to not only rank the candidates, they have to decide where on their ranking they will 'draw the line' between candidates that they will vote for, and candidates that they will not vote for. Consider the following two sets of voters. In each case candidates are listed from first preference to last preference, with stars indicating which candidates the voters vote for.
 
-::: center
          40%         35%    25%       40%    35%    25%
   ----------------- ------ ------ -- ------ ------ ------
    1-3 (r)5-7 $*A$   $*B$   $*C$      $*A$   $*B$   $*C$
          $B$         $A$    $B$       $B$    $A$    $*B$
          $C$         $C$    $A$       $C$    $C$    $A$
-:::
 
 In the election on the left-hand-side, no voter takes advantage of approval voting to vote for more than one candidate. So $A$ wins with 40% of the vote. In the election on the right-hand-side, no one's preferences change. But the 25% who prefer $C$ also decide to vote for $B$. So now $B$ has 60% of the voters voting for them, as compared to 40% for $A$ and 25% for $C$, so $B$ wins.
 

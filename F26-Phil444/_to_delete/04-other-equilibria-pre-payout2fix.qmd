@@ -69,11 +69,11 @@ In games where the players only have two choices to pick from, the difference be
 +---------+-----+-----+-----+-----+
 |         |     | $a$ | $b$ | $c$ |
 +---------+-----+-----+-----+-----+
-| **Row** | $A$ | 3,0 | 0,3 | 0,2 |
+| **Row** | $A$ | 3,0 | 0,3 | 2,2 |
 |         +-----+-----+-----+-----+
-|         | $B$ | 0,3 | 3,0 | 0,2 |
+|         | $B$ | 0,3 | 3,0 | 2,2 |
 |         +-----+-----+-----+-----+
-|         | $C$ | 2,0 | 2,0 | 2,2 |
+|         | $C$ | 2,2 | 2,2 | 2,2 |
 +---------+-----+-----+-----+-----+
 
 : A version of @tbl-rat-payout-1 with the pure strategy equilibrium raised to 2 {#tbl-rat-payout-2}
