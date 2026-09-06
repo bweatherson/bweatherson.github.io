@@ -274,17 +274,21 @@ Can anyone see what the argument for premise 2 is?
 
 Write $x$ for $U(\$5\text{M})$, $y$ for $U(\$1\text{M})$ and $z$ for $U(\$0)$. Preferring **1A** to **1B** means 
 
+$$
 \begin{align*}
-&nbsp; y &> 0.01z + 0.89y + 0.10x
+y &> 0.01z + 0.89y + 0.10x \\
 &\therefore 0.11y - 0.10x - 0.01z &> 0
-\end{equation*}
+\end{align*}
+$$
 
 Preferring **2B** to **2A** means
 
+$$
 \begin{align*}
 E(U(2A)) - E(U(2B)) &= (0.11y + 0.89z) - (0.10x + 0.90z) &< 0\\
-&\therefore 0.11y - 0.10x - 0.01z &<0
+\therefore 0.11y - 0.10x - 0.01z &<0
 \end{align*}
+$$
 
 ## Ellsberg {#sec-ellsberg}
 
@@ -311,6 +315,8 @@ Here is the second pair
 
 - **2A**: You win if the marble is red or yellow, and lose otherwise.
 - **2B**: You win if the marble is black or yellow, and lose otherwise.
+
+. . .
 
 How many people think it's at least rationally permissible to take **2B**?
 
