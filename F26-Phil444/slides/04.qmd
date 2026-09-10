@@ -133,14 +133,16 @@ Each successive round of "no one says yes" gives the logicians a new piece of in
 
 But it only given a bunch of assumptions. Each logician trusts the others to be reasoning perfectly, and trusts that the others trust each other to be reasoning perfectly, and so on. And that 'and so on' covers more and more as the number of players gets larger.
 
-## LEssons
+## Lessons
 
 There are two things to take away from the puzzle.
 
 1. These long reasoning chains start to look implausible as they get long enough.
 2. The standard assumption of **common knowledge** of rationality is really strong. In the puzzle, it isn't common knowledge that even one person has a smudge, even though they can both see two smudges. That's why the announcement makes a difference.
 
-This is the structure that IESDS uses. Each round of deletion uses one more layer of "I know that you know that..." about rationality. Long IESDS arguments make very strong assumptions.
+. . .
+
+This is the structure that IESDS uses. Each round of deletion uses one more layer of "I know that you know that..." about rationality. Long IESDS arguments make **very** strong assumptions.
 
 # Best Responses
 
@@ -446,9 +448,9 @@ Iterated weak dominance is **path-dependent** in a way iterated strict dominance
 ## Summary of Where We've Got To
 
 ::: {.nonincremental}
-- Best response and Nash equilibrium give us a much cleaner way to talk about what rational play might look like in a game.
-- Some games have one Nash equilibrium, some have many, some have none.
-- Strict dominance is well-behaved: any order of deletion gives the same answer, and the surviving cells include all Nash equilibria.
+- Best response and Nash equilibrium give us useful concepts for talking about what rational play might look like in a game.
+- Some games have one (pure strategy) Nash equilibrium, some have many, some have none.
+- Strict dominance is well-behaved in two respects. First, any order of deletion gives the same answer. Second, the surviving cells include all Nash equilibria.
 - Weak dominance is messier. It eliminates strategies that are part of Nash equilibria, it recommends moves with no payoff reason behind them, and it depends on deletion order.
 :::
 
