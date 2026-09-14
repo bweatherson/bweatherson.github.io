@@ -1,136 +1,316 @@
 ---
-title: "Does Testimony Stand on Its Own?"
+title: "Is Testimony a Separate Source?"
 subtitle: "Phil 101 · Day 7"
 author: "Brian Weatherson"
 date: "2026-09-22"
 ---
 
-# The question, again
+# Where we are
 
-## Last time
+## Recap
 
-We set perception and inference on one side and asked where testimony goes. Is it a third source, or does it fold into the other two?
+We've been working through a list of candidate sources of knowledge.
 
-. . .
+- Perception looked like the obvious place for the regress to stop.
+- Memory turned out to be the odd one out. Udayana's argument was that it's **dependent**: it hands back what something else put in.
+- That left the biggest item on the list untouched.
 
-Today we take the reducing view seriously, lean on it, and see what is left standing.
+## Today
 
-# Reductionism
-
-## It is just perception and inference
-
-The reductionist says testimony is not basic. Someone tells you the bridge is out. You hear the words, which is perception, and you conclude they are true, which is inference, because people of that sort, on roads of that sort, have been right before.
-
-Your belief rests on perception and an inference from the speaker's reliability. Testimony adds no new way of knowing.
-
-## Why hold it
-
-The view is tidy. It keeps the list of sources short, and it makes trust earn its place. You believe a speaker because you have evidence that speakers like this are reliable, and not otherwise.
-
-Hume reasons this way about reports of miracles, setting the testimony against everything the rest of experience tells us.
-
-# Two criticisms
-
-## The plan
-
-Two objections do most of the damage. The first says the reductionist can never get started. The second says the standard it sets is too harsh, and would sink perception along with testimony.
-
-# First: you cannot get started
-
-## We do not actually infer
-
-Watch yourself take in what people say. You believe it straight off, unless something trips an alarm. You do not stop to build an argument from the speaker's track record.
-
-Datta quotes Montague on the point:
-
-> Man is a suggestible animal and tends to believe what is said to him unless he has some positive reason for doubting the honesty or competence of his informant.
-
-## The well runs dry
-
-Suppose belief did wait on an inference from past reliability. Where would the evidence come from?
-
-You would need a stock of cases checked for yourself, with no one's word taken. But almost everything you know about speakers, roads, and bridges arrived by testimony in the first place. The inference has nothing of its own to stand on.
-
-# Second: the standard is too harsh
-
-## Two questions, kept apart
-
-Datta's key move is to pull apart two things the reductionist runs together:
-
-- where the content of a belief comes from
-- how its truth gets checked
-
-Testimony can be the source of the content even when the checking is done by some other route.
-
-## In his words
-
-> The attempt to reduce testimony to inference is based on a confusion between the source of a knowledge and the source of the knowledge of its validity.
-
-You learn from a friend that he is glad. His words are the source of that fact. An inference might confirm that he is truthful, but it says nothing about his being glad. That came from him.
-
-## Turn it on perception
-
-The reductionist demands that real knowledge be checkable by some other method. Datta turns the demand around.
-
-> If testimony ceases to be a source of knowledge because the truth of it has to be ascertained through inference, why should not even perception cease to be a source of knowledge?
-
-Perceptions mislead too, and we check them against further perceptions. By the reductionist's own rule, perception would reduce as well. The rule proves too much.
-
-# Where that leaves the debate
-
-## Anti-reductionism
-
-Put the two criticisms together. We trust without inferring, and the demand that would disqualify testimony would disqualify the rest. So testimony looks like a source in its own right, level with perception and inference.
-
-This is the Nyāya view Datta defends, and roughly the one much later writers worked their way back to.
-
-# But are we just dupes?
-
-## The gullibility worry
-
-If we trust by default, we look like easy marks. A great deal of testimony is mistaken, and some of it is built to fool us. A theory that has us swallowing whatever we are told cannot be right either.
-
-# Epistemic vigilance
-
-## Trust, but filtered
-
-Sperber, Mercier, and their colleagues in Paris offer a way through. We are neither blank trusters nor blanket doubters. We run a set of quiet checks as we listen:
-
-- on the source: is this person competent, and do they mean me well?
-- on the content: does this sit with what I already have good reason to believe?
-
-Default trust is where we start, but it passes through a filter.
-
-## What the filter buys
-
-This keeps both halves of the picture. We can learn from each other, which is the whole point of testimony, without lying at the mercy of every liar.
-
-The trust is real, and so is the guard. That is how testimony can be basic without making us fools.
-
-# The machine version
-
-## A job we cannot yet hand off
-
-Vigilance is so ordinary that we hardly notice doing it. Building it is another matter.
-
-A system that takes in testimony at scale, trained on whatever it is fed, has no steady grip on whether a source can be trusted or whether a claim hangs together. The check a child runs without trying is something we do not know how to engineer.
+Testimony. Believing something because somebody told you.
 
 . . .
 
-It is the shape from the grue week once more. The hard part was never the storing. It is the prior judgment about what to trust.
+The question is the one we asked about memory, and the answer is going to come out the other way.
 
-# Reading
+## Still not on iClicker?
 
-## For next time
+::: {layout="[40,60]"}
 
-> Dhirendra Mohan Datta, "Testimony as a Method of Knowledge," *Mind* 36 (1927): 354–358.
+::: {}
+![Add Phil 101 to your iClicker account](../images/iclicker_qr.png){fig-alt="QR code linking to https://join.iclicker.com/XYGS, which adds Phil 101 to your iClicker account."}
+:::
 
-Five pages, and decades ahead of its field.
+::: {}
+Last week was practice. Scan that, or go to [join.iclicker.com/XYGS](https://join.iclicker.com/XYGS).
 
-If you want the vigilance idea first-hand: Sperber et al., "Epistemic Vigilance," *Mind & Language* 25 (2010).
+Sign in with your umich.edu address, or your answers won't match the roster.
 
-## Where we land
+If it still won't work, see me or a GSI after class rather than hoping.
+:::
 
-Testimony stands on its own feet, but vigilant feet. You trust, and you watch.
+:::
 
-Next we follow that out: whom to trust when you cannot check, and how to weigh experts who disagree.
+## Where did you learn it?
+
+The Earth goes around the Sun. How do you know?
+
+A.  I worked it out
+B.  I observed it myself
+C.  Somebody told me, or I read it
+D.  I have no idea how I know
+
+. . .
+
+Hold on to your answer.
+
+## Why that matters
+
+Almost nothing you know about the world came to you the way B suggests.
+
+History, geography, science, your own date of birth, what your friends did last weekend. Somebody told you, or wrote it down.
+
+. . .
+
+And after Thursday, you know what happened to a lot of the *somebodies*. They've fallen off.
+
+# The ordinary answer
+
+## Testimony reduces
+
+Here's the view Datta is arguing against, and he says it's the one "with which everybody is familiar".
+
+Testimony isn't a source of knowledge in its own right. What happens is:
+
+1. You **perceive** some words.
+2. You **infer** that they're true, because speakers of that kind, in situations of that kind, are usually right.
+
+. . .
+
+So testimony is perception plus inference. Nothing new on the list.
+
+## Why you might like it
+
+It's tidy. The list of sources stays short.
+
+It also makes trust *earn* its place. You believe a speaker because you have evidence about speakers, not because believing people is just what we do.
+
+# Datta's first objection
+
+## That isn't what happens
+
+Datta's opening move is not about what's rational. It's about what actually goes on.
+
+. . .
+
+:::: {.callout-note title="Datta, p. 354"}
+Belief in one's statement does not wait to be established by inference. On the contrary we believe implicitly in the truth of what we hear, unless we have positive grounds for doubt or disbelief.
+::::
+
+## Montague agrees
+
+Datta quotes a writer on the other side of the debate making the same observation.
+
+:::: {.callout-note title="Montague, quoted by Datta"}
+Man is a suggestible animal and tends to believe what is said to him unless he has some positive reason for doubting the honesty or competence of his informant.
+::::
+
+. . .
+
+Watch yourself next time somebody tells you something. You don't run the inference. You just believe them.
+
+## The reductionist retreats
+
+This objection can be absorbed, and Datta says so himself. The reductionist can change the claim from a psychological one to a normative one.
+
+. . .
+
+Fine, people are suggestible and lazy, and believe without checking. But they're *often misled*, so they **shouldn't**.
+
+Real knowledge is the kind whose truth has been logically established. Mere psychological belief, as Russell would put it, isn't logical certainty.
+
+## Where that leaves us
+
+So the claim is now: a belief from testimony only counts as knowledge once its truth has been ascertained some other way.
+
+. . .
+
+That sounds strict and responsible. Datta's reply is that it's *too* strict, and that it takes perception down with it.
+
+# Two questions, kept apart
+
+## The diagnosis
+
+Datta thinks the whole dispute rests on running together two different questions.
+
+:::: {.callout-note title="Datta, p. 355"}
+(1) How the content of a knowledge is obtained.
+
+(2) How that content is ascertained to be true.
+::::
+
+The first is about knowledge of facts. The second is about knowledge of *validity*.
+
+## The glad friend
+
+Here's his example.
+
+A friend tells you he's glad. You might work out, by inference, that he's honest and so his statement is true.
+
+. . .
+
+But that inference doesn't tell you he's glad. It tells you his statement is reliable. Where the actual information came from is him.
+
+. . .
+
+So even when an inference does the checking, testimony did the **telling**.
+
+## Said properly
+
+:::: {.callout-note title="Datta, p. 355"}
+It is clear then that the attempt to reduce testimony to inference is based on a confusion between the source of a knowledge and the source of the knowledge of the validity of that knowledge.
+::::
+
+# Turning it on perception
+
+## The same demand, applied elsewhere
+
+Now Datta runs the reductionist's own standard against perception.
+
+You see something in the distance and take it to be a man. You might doubt it. How would you check?
+
+. . .
+
+You could walk closer and look again. Or you could ask somebody who has been closer.
+
+## So perception reduces too
+
+:::: {.callout-note title="Datta, p. 355"}
+And if testimony ceases to be a source of knowledge because the truth of it has to be ascertained through inference, why should not even perception cease to be a source of knowledge?
+::::
+
+. . .
+
+The rule proves too much. Apply it evenly and there are no sources left at all.
+
+# Is testimony independent?
+
+## The second line of attack
+
+Suppose we grant that testimony gives knowledge. There's still a further claim: it's a *secondary* source, not an independent one.
+
+Montague's version is that testimony is legitimate, but "neither ultimate nor independent".
+
+## Testimony is like memory
+
+Here's the argument, and it should sound familiar from Thursday.
+
+Memory isn't an independent source, because it's only a **repetition** of something already obtained by perception. Testimony is the same: a repetition of what the speaker already knew.
+
+. . .
+
+Datta thinks this is a confusion, and pulling it apart is the best thing in the paper.
+
+## Who is the knower?
+
+:::: {.callout-note title="Datta, p. 356"}
+Memory is a source of knowledge to the person who himself obtained that knowledge through some other source. So memory may be a repetition. Testimony is a source of knowledge not to the speaker himself, who has got that knowledge already, but to the hearer who had not that knowledge before.
+::::
+
+. . .
+
+Memory recycles within one head. Testimony moves knowledge between heads.
+
+For the person on the receiving end it isn't a repetition of anything. It's new.
+
+## Why this matters for us
+
+This is exactly why Thursday's argument doesn't transfer.
+
+Udayana's case against memory was that it's dependent, that nothing comes out that didn't go in. That's true of memory *for a single person*.
+
+. . .
+
+But the hearer never had it. Whatever testimony is doing, it isn't handing you back your own deposit.
+
+## But it needs perception
+
+The other independence argument: to get testimony you have to hear words, so testimony depends on perception.
+
+. . .
+
+Datta grants it, and then points out that perception gives you only word-sounds. It tells you nothing about the facts.
+
+And everything else has dependencies too. Perception without memory and synthesis would be bare sensation. Inference needs data, which has to come from somewhere.
+
+. . .
+
+If those still count as independent sources, so does this one.
+
+# What a piece of knowledge is
+
+## Not one simple thing
+
+The nicest idea in the paper is a picture of how knowledge actually gets assembled.
+
+:::: {.callout-note title="Datta, p. 357"}
+What ordinarily appears to us to be a single piece of knowledge is not really a simple thing: it is a complex process, the different elements of which may be derived from different sources.
+::::
+
+## Named after the new part
+
+When you see a table, memory supplies the concept *table*. Perception supplies *this one, here*. We call the whole thing a perception, because the new bit came in through the eyes.
+
+. . .
+
+When somebody tells you something, perception supplies the noises. Testimony supplies the facts. The new bit came in through the telling, so we call it testimony.
+
+. . .
+
+Every piece of knowledge is a team effort. We name it after whoever did the part that mattered.
+
+# Hearing is believing
+
+## One case with no room for doubt
+
+Datta closes with a case I think is genuinely clever.
+
+Somebody says "There's a tiger in the jungle." You can doubt that.
+
+. . .
+
+But somebody says "Come here", or asks "Where did you go?"
+
+You now know that a command was given, or a question asked. There's nothing there to be wrong about.
+
+. . .
+
+Hearing, in that case, just is believing. No external certification available, and none needed.
+
+# But are we dupes?
+
+## The worry
+
+If we believe by default, we look like easy marks.
+
+Plenty of testimony is false, and some of it is built to fool you. A theory on which we swallow whatever we're told can't be right either.
+
+## Vigilance
+
+Dan Sperber and colleagues argue we're neither blank trusters nor blanket doubters. We run quiet checks while we listen, in two directions.
+
+Source
+:    Is this person **competent**, and do they **mean me well**? Those fail separately, and for different reasons.
+
+Content
+:    Does this **hang together** with what I already have good reason to believe?
+
+## Not the opposite of trust
+
+Their line is that vigilance is the opposite of *blind* trust, not the opposite of trust.
+
+. . .
+
+Their analogy: walking through a crowd, you trust people not to walk into you, and you watch where they're going. The trust is real and so is the watching. Neither one is doing all the work.
+
+. . .
+
+So testimony can be a source in its own right without that making us fools.
+
+# Going forward
+
+## Thursday
+
+Once you grant that trust is the default, the interesting question stops being *should I trust anyone* and becomes *whom*.
+
+We read Elizabeth Anderson on how someone who isn't an expert is supposed to assess what experts say. That's the practical version of today's problem, and it's harder than it looks.

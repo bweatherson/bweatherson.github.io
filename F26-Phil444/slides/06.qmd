@@ -5,7 +5,7 @@ author: "Brian Weatherson"
 date: "September 17, 2026"
 ---
 
-# What Rationality Alone Gives You
+# Rationality and Solution Concepts
 
 ## Where We Left Off
 
@@ -13,27 +13,30 @@ Nash equilibrium says each player is playing a best response to what the others 
 
 . . .
 
-That is two claims bundled together. Each player is **rational**, and each player's beliefs about the others are **correct**.
+There are two claims here about what is going on in equilibrium.
+
+1. Each player is **rational**, 
+2. Each player's beliefs about the others are **correct**.
 
 . . .
 
-Rationality we can defend. Where does the second one come from?
+Rationality is a natural assumption, but correctness is weird.
 
 ## Two Assumptions
 
-Nobody hands the players a copy of the equilibrium before the game starts.
+If there is only one equilibrium, it's easy to see why we get correctness: they figure it out.
 
 . . .
 
-In the games we have solved, we found the equilibrium by doing the algebra ourselves, and then assumed the players had found it too.
+But in games where there are many, how do they know which equilibrium to choose?
 
 . . .
 
-Today's question: if all we assume is that everyone is rational, and everyone knows everyone is rational, and so on up, what can we conclude?
+Let's see what happens if we drop the correctness assumption and ask what we can conclude just from common knowledge of rationality.
 
-## The Answer, In Advance
+## Spoiler
 
-Much less than Nash equilibrium.
+The answer is much less than Nash equilibrium.
 
 . . .
 
@@ -41,17 +44,19 @@ What common knowledge of rationality delivers is a weaker notion, **rationalizab
 
 . . .
 
-Every Nash equilibrium strategy is rationalizable. Plenty of rationalizable strategies are in no Nash equilibrium at all.
+Every Nash equilibrium strategy is rationalizable. The converse is not true; many rationalizable outcomes are not equilibria.
 
 # Rationalizability
 
-## Best Responses, Again
+## Best Responses
 
-A strategy is a **best response** to a belief about what the other player will do if nothing else does better against that belief.
+Recall a strategy is a **best response** to a belief about what the other player will do if nothing else does better against that belief.
 
 . . .
 
-We met a version of this in the notes at 3.3, under the name 'iterated best response'. Now we state it properly.
+In the notes we started to iterate this, talking about strategies which are not just best responses, but best responses to best responses, and best responses to best responses to best responses etc.
+
+Let's state that more carefully.
 
 ## The Definition
 
@@ -65,11 +70,11 @@ A **strategy** is rationalizable if it belongs to some rationalizable class.
 
 . . .
 
-Note what is doing the work. The class has to support itself.
+The class has to support itself.
 
-## Why the Circularity is the Point
+## Circularity
 
-It looks circular, and it is, but that is a feature.
+It looks circular, and in a sense it is, but this is a feature not a bug.
 
 . . .
 
@@ -81,11 +86,11 @@ And then you can be asked to defend expecting $t$. And you can answer: because t
 
 . . .
 
-A class is rationalizable when the chain of defences never has to leave the class. Nobody is ever asked to justify a belief they cannot justify.
+A class is rationalizable when the chain of defences never has to leave the class. Every belief at every step of the chain is justified.
 
 ## What This Rules Out
 
-Not much, in some games. But not nothing.
+Some things, but less than Nash.
 
 . . .
 
@@ -97,13 +102,7 @@ In fact, in a two-player game, the rationalizable strategies are exactly the one
 
 . . .
 
-With one wrinkle: a strategy counts as dominated if some **mixture** beats it, not just if another pure strategy does. Last week's machinery earns its keep here.
-
-. . .
-
-So Lecture 3's technique and today's concept are the same thing seen from two sides.
-
-# Where the Two Come Apart
+Actually, this is literally true but a bit more complicated than it might sound. A strategy counts as dominated if some **mixture** beats it, not just if another pure strategy does.
 
 ## Every Nash Strategy is Rationalizable
 
@@ -115,7 +114,7 @@ Each is a best response to the others, by the definition of equilibrium. So the 
 
 . . .
 
-That direction is easy. The interesting direction is the other one.
+That direction is easy. 
 
 ## A Game With No Pure Equilibrium
 
@@ -128,7 +127,7 @@ That direction is easy. The interesting direction is the other one.
 
 . . .
 
-No cell has both payoffs bolded, so there is no pure strategy equilibrium. Familiar territory.
+No cell has both payoffs bolded, so there is no pure strategy equilibrium.
 
 ## The Equilibrium
 
@@ -144,7 +143,7 @@ Row's expected payoff is $\frac{5}{6}$; Column's is $\frac{1}{2}$.
 
 . . .
 
-So Principle 1, that rational players play their part of a Nash equilibrium, says there is exactly one rational thing for each player to do.
+So if rational players play their part of a Nash equilibrium, there is exactly one rational thing for each player to do.
 
 ## But Everything is Rationalizable
 
@@ -152,7 +151,7 @@ Look at the bolding again. $A$ is a best response to $a$. And $a$ is a best resp
 
 . . .
 
-That is a closed cycle. So $\{A, B\}$ and $\{a, b\}$ form a rationalizable class.
+That is a loop, a closed cycle, so $\{A, B\}$ and $\{a, b\}$ form a rationalizable class.
 
 . . .
 
@@ -171,9 +170,9 @@ On @tbl-rat-no-pure, Principle 1 rules out all but one strategy per player. Prin
 
 Which is right?
 
-# Is Nash Self-Undermining?
+# Defending Nash
 
-## The Repeated Case is Easy
+## Repeated Game
 
 If the game is played many times, Principle 1 looks right.
 
@@ -191,7 +190,7 @@ Here is an argument that Principle 1 undermines itself.
 
 . . .
 
-Assume the only rational thing to do is play the equilibrium strategy. So Row flips a coin.
+Assume the only rational thing to do is play the equilibrium strategy, so Row flips a coin.
 
 . . .
 
@@ -199,9 +198,9 @@ Column knows what rationality is, so Column knows Row will flip a coin.
 
 . . .
 
-But now Column is not playing a game. Column is facing a decision problem against a known chance device.
+But now Column is facing a decision problem against a known chance device.
 
-## The Sting
+## Solving that Decision Problem
 
 Against Row's coin flip, every one of Column's options has the same expected return.
 
@@ -211,7 +210,7 @@ So every option is equally rational. So Column can rationally do anything.
 
 . . .
 
-Which is exactly what Principle 2 says, and exactly what Principle 1 denied.
+Which is exactly what Principle 2 says, and what Principle 1 denied.
 
 ## Stated Generally
 
@@ -231,7 +230,7 @@ By (A) and (B), the other player will play a mixed strategy.
 
 . . .
 
-But then every strategy in the support of your own mixture has equal expected return. We proved that last week; it is how we found the mixture.
+But then every strategy that you give positive probability to playing has equal expected return. (That's how we find mixed strategy equilibria.)
 
 . . .
 
@@ -247,19 +246,18 @@ Principle 2 says that **(A)** fails.
 
 . . .
 
-I am not going to take a stand. What I want you to see is that there is a genuine clash between the idea that Nash equilibria have a special role in rational choice, and the principle that rational agents maximise expected utility.
+This is just a hard question, and for my money the answer to it turns on what we want game theory to **do**. In practice, philosophers often go with Principle 2 and economists go with Principle 1.
 
 # Three-Way Games
 
 ## Why Two Options Hide the Difference
 
-With two choices each, the argument between the Principles comes down to a narrow question. Is randomising **obligatory**, or is playing a pure strategy from the support **permissible**?
+With two choices each, the argument between the Principles comes down to a narrow question. 
+
+Is randomising **obligatory**, or is playing a pure strategy from the support **permissible**?
 
 . . .
 
-That is hard to have intuitions about, because it is tangled up with the metaphysics of mixed strategies from last week.
-
-. . .
 
 With three choices, the two come apart much further.
 
@@ -287,7 +285,7 @@ So $A$, $B$, $a$ and $b$ are all rationalizable, even though none of them appear
 
 ## And No Mixed Equilibrium Either
 
-You might expect a mixed equilibrium over those four strategies. There isn't one.
+You might expect a mixed equilibrium over those four strategies (i.e., $A$, $B$, $a$ and $b$). But there isn't one.
 
 . . .
 
@@ -295,15 +293,15 @@ The only candidate is each player splitting 50/50 between their first two option
 
 . . .
 
-But against that, reciprocating returns $1.5$, while the third option returns $2$. So both players defect to the third option, and the candidate collapses.
+But if the other player is mixing, both players prefer the third option, getting 2, rather than mixing and getting 1.5.
 
 . . .
 
-One equilibrium, pure or mixed. All nine strategies rationalizable.
+There really is only equilibrium, pure or mixed, but everything is rationalizable.
 
 ## Now Raise the Stakes
 
-The same game, with the equilibrium payoff raised from 1 to 2.
+Let's change that equilibrium payout to 2.
 
 |         | a         | b         | c            |
 |--------:|:---------:|:---------:|:------------:|
@@ -315,7 +313,7 @@ The same game, with the equilibrium payoff raised from 1 to 2.
 
 . . .
 
-Again $Cc$ is the unique equilibrium. Again everything is rationalizable.
+Again $Cc$ is the unique equilibrium, but everything is rationalizable.
 
 ## Does Your Intuition Move?
 
@@ -323,27 +321,23 @@ In both games, playing $A$ or $B$ is rationalizable and is not part of any equil
 
 . . .
 
-For what it is worth, my intuition says that playing $A$ or $B$ is rational when the alternative is an equilibrium paying 1, and not when the alternative is a guaranteed 2.
-
-. . .
-
-But that is an intuition about payoffs, not about rationality, and the two games are identical in every structural respect.
+Do you think that what you could plausibly play differs between the games?
 
 ## Where That Leaves Us
 
-We wanted the cases to settle which Principle is right. They do not.
+Could it ever be rational, under common knowledge of rationality, to play $A$ or $B$ in either of these games?
 
 . . .
 
-What they do is make the stakes vivid. Could it ever be rational, under common knowledge of rationality, to play $A$ or $B$ in either of these games?
+If yes, Nash equilibrium is not what rationality requires. 
 
 . . .
 
-If yes, Nash equilibrium is not what rationality requires. If no, we need to say what rules it out, given that every step of the defence checks out.
+If no, we need to say what rules it out, given that there is an internally coherent jujstification for it.
 
 ## Next Time
 
-Everything so far has been simultaneous. Both players move at once, or may as well have.
+Everything so far has been simultaneous. Both players move at once, or at least before knowing what the others do.
 
 . . .
 

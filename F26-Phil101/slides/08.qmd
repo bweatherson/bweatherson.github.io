@@ -5,84 +5,263 @@ author: "Brian Weatherson"
 date: "2026-09-24"
 ---
 
-# From watching to depending
+# Where we are
 
 ## Last time
 
-Testimony turned out to be a source in its own right, though a guarded one. You trust by default, and you keep a quiet watch on the source and the content.
+Datta's conclusion was that testimony is a source of knowledge in its own right, as independent and as ultimate as perception or inference.
 
 . . .
 
-That watch works while you can size a person up. It runs out fast.
+And Sperber's answer to the gullibility worry was that we filter as we listen. We check the **source**, and we check the **content**.
 
-## The strangers you rely on
+## The trouble with that
 
-Almost nothing you believe about the world came from someone you could vet. The size of an atom, the age of the universe, the safety of a drug: you hold it on the word of experts you will never meet.
+Those checks assume you can size somebody up.
 
-So the real question is not whether to trust testimony. It is how to judge the people you have no choice but to depend on.
-
-# Depending on what you can't check
-
-## You cannot redo the work
-
-To check the climate science yourself you would need years of training you do not have. The same goes for the vaccine, the bridge, the diagnosis.
-
-This is not a personal failing. No one has the hours to become expert in everything, so all of us lean on others for nearly all of what we know.
-
-## Testimony all the way in
-
-John Hardwig pointed out that even scientists are in this spot. A big experiment runs on a team where no one member understands all the evidence, so each takes the others' results on trust.
-
-So you are back to trust, only now the speaker is a stranger with a doctorate whom even her colleagues cannot fully check.
-
-## The bind
-
-You cannot assess the science. You still have to decide what to believe, and sometimes what to do about it.
-
-If you cannot judge the work, what can you judge?
-
-# Judge the scientists, not the science
-
-## A Michigan answer
-
-Elizabeth Anderson, who teaches philosophy here, has the cleanest reply. You stop trying to grade the research, and you assess the researchers instead.
-
-That is a second-order judgment, about people and institutions rather than about the science itself, and it is one you are equipped to make.
-
-## What to look for
-
-Anderson points to three things an ordinary person can check with no more than schooling and a search engine:
-
-- expertise: are they trained and credentialed in the field they are speaking on?
-- honesty: is there a record of fraud, hidden funding, or past deception?
-- responsibility: do they answer their critics and put their work up for scrutiny?
-
-## The point of the list
-
-None of this asks you to follow the science. It asks you to read a record, trace who paid for what, and see whether someone hides from challenge or invites it.
-
-The judgment shifts from the claim to the claimant, where a layperson can actually stand.
-
-## You are doing it now
-
-This is your own position in this room. You are taking a course largely on my say-so.
+You can tell whether your roommate is a reliable narrator of last night. You have years of data.
 
 . . .
 
-So run Anderson's checks on me, and on her. Her office is a short walk from this one. The criteria point straight back at the people teaching them to you.
+Now try it on a climate scientist.
 
-# When the experts split
+# The problem
 
-## A harder case
+## You cannot check the work
 
-The checks work best when the trustworthy experts agree. When credentialed, honest, careful people land on opposite sides, second-order judgment gets harder.
+To assess the climate modelling yourself you would need years of training. Same for the vaccine trial, the bridge inspection, the diagnosis.
 
-That is where we go next: what a consensus is worth, and how one can be faked.
+This isn't a personal failing. Nobody has the hours to become expert in everything, which is the whole reason testimony exists.
 
-## Reading
+## But you still have to decide
 
-Required:
+You have to decide whether to get the vaccine. Collectively, we have to decide what to do about emissions.
 
-> Elizabeth Anderson, "Democracy, Public Policy, and Lay Assessments of Scientific Testimony," *Episteme* (2011), §2 (pp. 145–149).
+. . .
 
-Recommended: the rest of that paper, and SEP, "The Social Dimensions of Scientific Knowledge," §2 ("Big Science, Trust, and Authority").
+So here's the bind. The people whose word you need are strangers whose work you cannot evaluate.
+
+If you can't judge the science, what *can* you judge?
+
+# Anderson's answer
+
+## Judge the scientists instead
+
+Elizabeth Anderson, who teaches philosophy here at Michigan, has the cleanest answer I know.
+
+:::: {.callout-note title="Anderson, p. 145"}
+Most laypersons cannot directly judge the merits of most scientific claims. Instead, they mostly judge what to believe by judging whom to believe.
+::::
+
+. . .
+
+That's a **second-order** judgment. Not about the science, but about the people making claims about it.
+
+## The bar she sets herself
+
+This only helps if ordinary people can actually do it. So Anderson is strict about what she's allowed to assume.
+
+She takes "ordinary education" to mean no more than a high school education, including how to search the web. And "ready access" means the web, and nothing behind a paywall.
+
+. . .
+
+No university library, no training. If the criteria need more than that, they've failed.
+
+## Three questions
+
+Anderson says trustworthiness turns on three assessments.
+
+Expertise
+:    Is this person **in a position to know**? Do they have access to the evidence and the skills to evaluate it?
+
+Honesty
+:    Are they disposed to **communicate honestly** what they believe, and not to mislead by reporting only some of it?
+
+Epistemic responsibility
+:    Are they **responsive** to evidence and arguments that others raise against them?
+
+# Expertise
+
+## A ladder, not a line
+
+Anderson's point about expertise is that it comes in degrees, and the degrees are public.
+
+Her list runs from laypersons at the bottom, through people with a science degree in some *other* field, through PhDs outside the field, PhDs inside it, then:
+
+- researchers actively publishing in the field
+- researchers whose work others in the field build on
+- leaders: elected to academies, winners of the major prizes
+
+. . .
+
+The weight you owe someone rises as you go down, and Anderson says it rises **steeply** at the last three.
+
+## What that rules out
+
+A physicist with strong views about immunology is somewhere near the middle of that ladder, not the top.
+
+Anderson notes that for a technical subject like climate science, someone with only a bachelor's degree or a PhD in an unrelated field has a *low* level of expertise.
+
+. . .
+
+All of which you can check without understanding any immunology. Biographical and publication information is on the web.
+
+## You are not nothing
+
+One thing to be clear about. Anderson isn't saying laypeople should shut up.
+
+She thinks ordinary people often have **situated knowledge** that bears on scientific questions, and that value judgments play a real role in applied science.
+
+:::: {.callout-note title="Anderson, p. 146"}
+Scientists have no special expertise on these value judgments; in a democratic society ordinary people are entitled to criticize scientific theories for failing to incorporate certain values – or for incorporating bad values.
+::::
+
+# Honesty
+
+## What discredits someone
+
+Anderson's list of things that cast doubt on honesty:
+
+- conflicts of interest, such as funding from someone with a stake in the answer
+- a record of dishonesty: plagiarism, faked data, citing research that doesn't say what they claim
+- misleading statements: cherry-picked data, misused statistics, quotations out of context
+- persistently misrepresenting opponents, or falsely accusing them of dishonesty
+
+. . .
+
+She concedes some dishonesty is hard for a layperson to spot. But funding sources and a history of retractions are a search away.
+
+# Epistemic responsibility
+
+## Dogmatic and arrogant
+
+This is the criterion Anderson works hardest, and it's the one I'd most like you to take away.
+
+Dogmatic
+:    Persisting in a claim while ignoring counterevidence and counterarguments from people with relevant expertise.
+
+Arrogant
+:    Advancing those claims as things others should believe **on your say-so**, while refusing accountability.
+
+. . .
+
+Neither is trustworthy. The dogmatist gives you no reason to think their claims track any evidence. The arrogant person is claiming an authority they haven't earned.
+
+## Signs of evasion
+
+What does irresponsibility look like from outside?
+
+- refusing to share data, or to give methods in enough detail for anyone to replicate the work
+- taking the argument to the press or to politicians before making it to experts
+- repeating claims that have been publicly refuted, without answering the refutation
+
+. . .
+
+That last one has a name, and it's the sharpest tool in the paper.
+
+## Dialogic irrationality
+
+:::: {.callout-note title="Anderson, p. 147"}
+Dialogic irrationality: continuing to repeat claims after they have been publicly refuted by others, without responding to the refutations.
+::::
+
+# The whale
+
+## Anderson's example
+
+Here is an exchange of the kind she has in mind. Abridged, from page 148.
+
+- **Denialist**: There are no examples of transitional fossils between one species and another.
+- **Paleontologist**: Consider the whale. We have a line of fossils starting from the four-legged *Sinonyx*, through *Pakicetus*, *Ambulocetus*, *Rodhocetus*, *Basilosaurus* and *Dorudon*, before we get to modern toothed whales — a gradual loss of hind limbs, and the nostrils migrating to the top of the head to form a blowhole.
+- **Denialist**: There are no examples of transitional fossils between one species and another.
+
+## What you just did
+
+You have no idea whether *Rodhocetus* is a transitional fossil. You didn't need to.
+
+:::: {.callout-note title="Anderson, p. 148"}
+His response does not even have the *form* of a rational response – a point that can be grasped without being able to directly assess the *content* of the response.
+::::
+
+## The contrast
+
+Now suppose the denialist had said this instead:
+
+> *Ambulocetus* and *Rodhocetus* cannot be transitional fossils to modern whales, because they are reptiles.
+
+. . .
+
+That is almost certainly false. But it has the **form** of a rational response, so the charge of dialogic irrationality doesn't stick.
+
+. . .
+
+Which tells you what the criterion is and isn't. It's not a test of who's right. It's a test of whether somebody is still in the conversation.
+
+## An honest limit
+
+Anderson is careful here, and so should we be.
+
+Scientists cannot be expected to answer every alternative theory anybody proposes; they'd never do anything else.
+
+. . .
+
+So the criterion only applies where you can check that a dialogue was actually joined. Silence isn't evasion if nobody was asked.
+
+# A quick check
+
+## Which test does she fail?
+
+A researcher publishes a result. She won't release her data. She published it in a journal she edits. Her funding is from a company that sells the treatment.
+
+**Which of Anderson's three checks has she failed?**
+
+A.  Expertise
+B.  Honesty
+C.  Epistemic responsibility
+D.  More than one of these
+
+# Consensus
+
+## When they agree
+
+The criteria so far tell you whom to trust. Anderson's last question is what to do when you've found them.
+
+Disagreement at the frontier is normal, and she thinks it's *good* — science works better when the people doing it come at problems differently.
+
+. . .
+
+:::: {.callout-note title="Anderson, p. 149"}
+Before a consensus, the best course for laypersons is to suspend judgment.
+::::
+
+## And after
+
+Once a consensus of trustworthy experts is consolidated, she says you should accept it — even against a handful of dissenters, and even if a few people in the consensus turn out to have erred or cheated.
+
+. . .
+
+Three things count as evidence that a consensus exists: surveys and meta-analyses of the literature, surveys of the trustworthy experts, and consensus reports from bodies like the National Academy of Sciences.
+
+# Turning it around
+
+## Run it on me
+
+You are taking this course substantially on my say-so, and you cannot check most of what I tell you.
+
+. . .
+
+So apply the criteria. What am I trained in, and is today's topic inside it? Do I tell you when I'm out of my depth? When somebody in this room objects, do I answer them or repeat myself?
+
+. . .
+
+Anderson's office is a short walk from this one. Run them on her too.
+
+# Going forward
+
+## Tuesday
+
+The criteria assume the institutions are working — that peer review filters, that consensus reports mean something.
+
+. . .
+
+Next we ask what happens when that machinery is deliberately attacked, and how you tell a real disagreement from a manufactured one.
