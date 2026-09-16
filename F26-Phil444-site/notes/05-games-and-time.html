@@ -459,11 +459,11 @@ Figure&nbsp;5.2: Prisoners’ Dilemma
 <p>The way to think through games like <strong>Five</strong> is by working from top to bottom. <span class="math inline">\(A\)</span> moves last. Once we get to the point of the last move, there is no tactical decision making needed. <span class="math inline">\(A\)</span> knows what payoff she gets from each move, and she simply will take the highest payoff (assuming rationality).</p>
 <p>So let’s assume she does that. Let’s assume, that is, that <span class="math inline">\(A\)</span> does play her best strategy. Then we know three things about what will happen in the game.</p>
 <ul>
-<li><p>If <span class="math inline">\(A\)</span> plays 1, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 2.</p></li>
-<li><p>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 1, <span class="math inline">\(A\)</span> will follow with 2.</p></li>
-<li><p>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 1.</p></li>
+<li>If <span class="math inline">\(A\)</span> plays 1, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 2.</li>
+<li>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 1, <span class="math inline">\(A\)</span> will follow with 2.</li>
+<li>If <span class="math inline">\(A\)</span> plays 2, and <span class="math inline">\(B\)</span> plays 2, <span class="math inline">\(A\)</span> will follow with 1.</li>
 </ul>
-<p>Moreover, once we make this assumption there is, in effect, one fewer step in the game. Once <span class="math inline">\(B\)</span> moves, the outcome is determined. So let’s redraw the game using that assumption, and just listing payoffs after the second move. This will be <a href="#fig-five-2" class="quarto-xref">Figure&nbsp;<span>5.3</span></a></p>
+<p>Moreover, once we make this assumption there is, in effect, one fewer step in the game. Once <span class="math inline">\(B\)</span> moves, the outcome is determined. So let’s redraw the game using that assumption, and just listing payoffs after the second move. This will be <a href="#fig-five-2" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>.</p>
 <div id="fig-five-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five, with the last move assumed">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-five-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -491,8 +491,8 @@ Figure&nbsp;5.4: Five with last two moves assumed
 </div>
 <p>And from this version of the game, we can draw two more conclusions, assuming <span class="math inline">\(A\)</span> is rational.</p>
 <ul>
-<li><p><span class="math inline">\(A\)</span> will play 2 at the first move.</p></li>
-<li><p><span class="math inline">\(A\)</span> will win.</p></li>
+<li><span class="math inline">\(A\)</span> will play 2 at the first move.</li>
+<li><span class="math inline">\(A\)</span> will win.</li>
 </ul>
 <p>Let’s put all of that together. We know <span class="math inline">\(A\)</span> will start with 2, so her strategy will be of the form <span class="math inline">\(2 \beta \gamma\)</span>. We also know that <span class="math inline">\(B\)</span> doesn’t care which strategy she chooses at that point, so we can’t make any further reductions. But we do know that if <span class="math inline">\(A\)</span> plays 2 and <span class="math inline">\(B\)</span> plays 1, <span class="math inline">\(A\)</span> will follow with 2. So <span class="math inline">\(A\)</span>’s strategy will be of the form <span class="math inline">\(2 2 \gamma\)</span>. And we know that if <span class="math inline">\(A\)</span> plays 2 and <span class="math inline">\(B\)</span> plays 2, then <span class="math inline">\(A\)</span> will play 1. So <span class="math inline">\(A\)</span>’s strategy will be 221, as we saw on the table.</p>
 <p>Note that the use of backwards induction here hides a multitude of assumptions. We have to assume each player is rational, and each player knows that, and each player knows that, and so on for at least as many iterations as there are steps in the game. If we didn’t have those assumptions, it wouldn’t be right to simply replace a huge tree with a single outcome. Moreover, we have to make those assumptions be very modally robust.</p>
@@ -522,6 +522,26 @@ Figure&nbsp;5.6: Five’’ with last move assumed
 <p>But why think that playing 2 will lead to <span class="math inline">\(A\)</span> winning? The argument that it did depending on assuming <span class="math inline">\(A\)</span> is perfectly rational. And assuming <span class="math inline">\(B\)</span> is in a position to make this choice, that seems like an unlikely assumption. After all, if <span class="math inline">\(A\)</span> were perfectly rational, she’d have chosen 2, and given herself a chance to force a win.</p>
 <p>Now you might think that even if <span class="math inline">\(A\)</span> isn’t perfectly rational, it still is crazy to leave her with an easy winning move. And that’s probably a sufficient reason for <span class="math inline">\(B\)</span> to accept the draw, i.e., play 1. But the argument that <span class="math inline">\(B\)</span> should regard playing 2 as equivalent to choosing defeat seems mistaken. <span class="math inline">\(B\)</span> knows that <span class="math inline">\(A\)</span> isn’t perfectly rational, and she shouldn’t assume perfect rationality from here on out.</p>
 <p>We will come back to this point, a lot, in subsequent discussions of backwards induction. Note that it is a point that doesn’t really arise in the context of normal form games. There we might wonder about whether common knowledge of rationality is a legitimate assumption at the <em>start</em> of the game. But once we’ve settled that, we don’t have a further issue to decide about whether it is still a legitimate assumption at later stages of the game.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercise: Last Counter">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Exercise: Last Counter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is another game to run backwards induction on. Some counters sit on a table. <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> take turns removing them, with <span class="math inline">\(A\)</span> moving first. On your turn you must take either one counter or two. Whoever takes the <strong>last</strong> counter loses.</p>
+<ol type="1">
+<li>Draw the extensive form for the game that starts with four counters. Note that, unlike <strong>Five</strong>, the branches are not all the same length, and some nodes offer only one move.</li>
+<li>Work out the normal form. Each player has four strategies, so it is a <span class="math inline">\(4 \times 4\)</span> table. How many distinct outcomes does the tree have, and how many cells does the table have?</li>
+<li>Solve the game by backwards induction. Who wins?</li>
+<li>Now do the same for five counters, and for six. What is the general pattern?</li>
+<li>Suppose the game starts with six counters and <span class="math inline">\(A\)</span> opens badly. <span class="math inline">\(B\)</span> now finds herself at a node that a perfectly rational <span class="math inline">\(A\)</span> would never have created. Does that matter for how <span class="math inline">\(B\)</span> should play from here? Compare the case of <strong>Five’’</strong> above.</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="sec-value-of-games" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="sec-value-of-games"><span class="header-section-number">5.3</span> Value of Games</h2>

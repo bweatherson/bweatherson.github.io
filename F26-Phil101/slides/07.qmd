@@ -1,5 +1,5 @@
 ---
-title: "Is Testimony a Separate Source?"
+title: "Testimony"
 subtitle: "Phil 101 · Day 7"
 author: "Brian Weatherson"
 date: "2026-09-22"
@@ -11,17 +11,9 @@ date: "2026-09-22"
 
 We've been working through a list of candidate sources of knowledge.
 
-- Perception looked like the obvious place for the regress to stop.
-- Memory turned out to be the odd one out. Udayana's argument was that it's **dependent**: it hands back what something else put in.
-- That left the biggest item on the list untouched.
-
-## Today
-
-Testimony. Believing something because somebody told you.
-
-. . .
-
-The question is the one we asked about memory, and the answer is going to come out the other way.
+- Perception looks like an obvious candidate, though it raises challenges about how you handle visual illusions.
+- Memory raises two big questions: is it dependent on prior knowledge, and can we gain justification by forgetting the details?
+- The next thing we'll consider is testimony, i.e., believing something because somebody told you.
 
 ## Still not on iClicker?
 
@@ -32,7 +24,7 @@ The question is the one we asked about memory, and the answer is going to come o
 :::
 
 ::: {}
-Last week was practice. Scan that, or go to [join.iclicker.com/XYGS](https://join.iclicker.com/XYGS).
+Scan that, or go to [join.iclicker.com/XYGS](https://join.iclicker.com/XYGS).
 
 Sign in with your umich.edu address, or your answers won't match the roster.
 
@@ -41,55 +33,56 @@ If it still won't work, see me or a GSI after class rather than hoping.
 
 :::
 
-## Where did you learn it?
+## POLL: Where did you learn it?
 
 The Earth goes around the Sun. How do you know?
 
 A.  I worked it out
 B.  I observed it myself
-C.  Somebody told me, or I read it
+C.  Somebody told me, either in person or in a book
 D.  I have no idea how I know
 
 . . .
 
-Hold on to your answer.
+We'll come back to the answers.
 
 ## Why that matters
 
-Almost nothing you know about the world came to you the way B suggests.
-
-History, geography, science, your own date of birth, what your friends did last weekend. Somebody told you, or wrote it down.
+I'm very sceptical of anyone who answered B!
 
 . . .
 
-And after Thursday, you know what happened to a lot of the *somebodies*. They've fallen off.
+For most facts in history, geography, science, etc, the main way you learn them is that somebody told you. (I'm using 'told' here to cover speaking and writing.)
 
-# The ordinary answer
+. . .
 
-## Testimony reduces
+Why is that a good way to get knowledge
+
+# Reductionism
+
+## Reductionism
 
 Here's the view Datta is arguing against, and he says it's the one "with which everybody is familiar".
 
-Testimony isn't a source of knowledge in its own right. What happens is:
+Testimony isn't a source of knowledge in its own right, rather it **reduces** to other familiar sources. What happens is:
 
 1. You **perceive** some words.
 2. You **infer** that they're true, because speakers of that kind, in situations of that kind, are usually right.
 
 . . .
 
-So testimony is perception plus inference. Nothing new on the list.
+So testimony is perception plus inference.
 
-## Why you might like it
+## Advantages
 
-It's tidy. The list of sources stays short.
-
-It also makes trust *earn* its place. You believe a speaker because you have evidence about speakers, not because believing people is just what we do.
+- It's simple; we don't have to posit anything new.
+- It avoids **gullibility**. The second step is doing some work at filtering out people we should not believe.
 
 # Datta's first objection
 
-## That isn't what happens
+## Observation
 
-Datta's opening move is not about what's rational. It's about what actually goes on.
+Datta's opening move is not about what we *should* do, but what we *actually* do.
 
 . . .
 
@@ -105,9 +98,13 @@ Datta quotes a writer on the other side of the debate making the same observatio
 Man is a suggestible animal and tends to believe what is said to him unless he has some positive reason for doubting the honesty or competence of his informant.
 ::::
 
-. . .
+## Recent empirical evidence
 
-Watch yourself next time somebody tells you something. You don't run the inference. You just believe them.
+If you present people with a bunch of statements while putting them under extra cognitive load, e.g., making them read some text while solving simple math problems, they believe much more of it.
+
+This is true even if you do over the top things like having the text come on the screen in red, and saying at the start of the experiment **Everything in red is false**.
+
+The conclusion some psychologists have drawn is that we accept what we're told *by default*, and have to do some work to not accept it.
 
 ## The reductionist retreats
 
@@ -115,23 +112,29 @@ This objection can be absorbed, and Datta says so himself. The reductionist can 
 
 . . .
 
-Fine, people are suggestible and lazy, and believe without checking. But they're *often misled*, so they **shouldn't**.
+Fine, people are suggestible and lazy, and believe without checking. But this is *bad*, it makes them *gullible*, so they **should not**.
 
-Real knowledge is the kind whose truth has been logically established. Mere psychological belief, as Russell would put it, isn't logical certainty.
+We're not in a psych lab here; we're trying to give people good advice. And *believe everything you're told* is awful advice.
 
 ## Where that leaves us
 
-So the claim is now: a belief from testimony only counts as knowledge once its truth has been ascertained some other way.
+Here's a better statement of what the reductionist can endorse:
+
+> A belief from testimony only counts as knowledge once its truth has been ascertained some other way.
 
 . . .
 
-That sounds strict and responsible. Datta's reply is that it's *too* strict, and that it takes perception down with it.
+That sounds nice and not very gullible. 
 
-# Two questions, kept apart
+. . .
+
+Datta's reply is that it's *too* strict, and that it takes perception down with it.
 
 ## The diagnosis
 
 Datta thinks the whole dispute rests on running together two different questions.
+
+## Two questions
 
 :::: {.callout-note title="Datta, p. 355"}
 (1) How the content of a knowledge is obtained.
@@ -139,13 +142,27 @@ Datta thinks the whole dispute rests on running together two different questions
 (2) How that content is ascertained to be true.
 ::::
 
-The first is about knowledge of facts. The second is about knowledge of *validity*.
+. . .
+
+The first is about **getting** a belief, the second about **checking** it; it's possible at least these are separate questions
+
+## Examples of the difference
+
+A stranger says the 5:15 bus is cancelled. 
+
+You have the content instantly, and no idea whether to believe it.
+
+. . .
+
+Alternatively, imagine someone you trust hands you a sealed envelope and tells you *everything in here is true*.
+
+The prior trust plus their assurance in effect does the checking before you even have the content.
 
 ## The glad friend
 
-Here's his example.
+Datta uses this example. 
 
-A friend tells you he's glad. You might work out, by inference, that he's honest and so his statement is true.
+A friend tells you he's glad. You might work out, by inference, that since he's honest his statement is true.
 
 . . .
 
@@ -155,25 +172,27 @@ But that inference doesn't tell you he's glad. It tells you his statement is rel
 
 So even when an inference does the checking, testimony did the **telling**.
 
-## Said properly
+## Datta's summary
 
 :::: {.callout-note title="Datta, p. 355"}
 It is clear then that the attempt to reduce testimony to inference is based on a confusion between the source of a knowledge and the source of the knowledge of the validity of that knowledge.
 ::::
 
-# Turning it on perception
+# Perception and testimony
 
-## The same demand, applied elsewhere
+## Equal standards argument
 
-Now Datta runs the reductionist's own standard against perception.
+Datta's best argument against the reductionist, I think, is that the reductionist doesn't consistently apply their own standards.
 
-You see something in the distance and take it to be a man. You might doubt it. How would you check?
+They hold testimony to a higher standard than they hold perception to.
+
+Take this example: You see something in the distance and take it to be a man. You might doubt it. How would you check?
 
 . . .
 
-You could walk closer and look again. Or you could ask somebody who has been closer.
+You could walk closer and look again. Or you could ask somebody who has been closer. In general, there is always the chance for a *checking* stage
 
-## So perception reduces too
+## Is perception a source?
 
 :::: {.callout-note title="Datta, p. 355"}
 And if testimony ceases to be a source of knowledge because the truth of it has to be ascertained through inference, why should not even perception cease to be a source of knowledge?
@@ -183,134 +202,121 @@ And if testimony ceases to be a source of knowledge because the truth of it has 
 
 The rule proves too much. Apply it evenly and there are no sources left at all.
 
+## Method
+
+The structure of the argument is as useful to focus on here as the argument itself. Here's what he is saying.
+
+1. The reductionist says that there is a reason to say that testimony is really something else, e.g., perception plus inference. The reason is that we check it.
+2. We sometimes check perception too. So if that's a reason to say testimony is something else, it's just as good a reason to say perception is really something else.
+3. But that's absurd! Perception is agreed on all sides to be a basic way of learning about the world.
+4. So the reductionist's alleged reason must be no reason at all.
+
+. . .
+
+This is similar to the *reductio* reasoning we discussed in logic games; reject something because assuming it creates a crisis elsewhere.
+
+
 # Is testimony independent?
 
 ## The second line of attack
 
-Suppose we grant that testimony gives knowledge. There's still a further claim: it's a *secondary* source, not an independent one.
+Here's a second reason to think testimony is not an independent source, one that resembles our earlier discussion of memory.
 
-Montague's version is that testimony is legitimate, but "neither ultimate nor independent".
+1. When you tell me that *p*, I only gain knowledge if you already knew that *p*.
+2. So, testimony cannot generate knowledge, it can only transfer it.
+3. So, testimony shouldn't count as a basic source of knowledge.
 
-## Testimony is like memory
+## Datta's First Response
 
-Here's the argument, and it should sound familiar from Thursday.
+This is the wrong level of detail. 
 
-Memory isn't an independent source, because it's only a **repetition** of something already obtained by perception. Testimony is the same: a repetition of what the speaker already knew.
+The question isn't how some abstract thing *knowledge* can be generated, it's how *I* can gain knowledge.
 
-. . .
+So the step from line 2 to line 3 is bad; what matters is whether testimony can generate knowledge *for a particular person*, and that's possible even on the transfer model.
 
-Datta thinks this is a confusion, and pulling it apart is the best thing in the paper.
+## Datta's Second Response
 
-## Who is the knower?
-
-:::: {.callout-note title="Datta, p. 356"}
-Memory is a source of knowledge to the person who himself obtained that knowledge through some other source. So memory may be a repetition. Testimony is a source of knowledge not to the speaker himself, who has got that knowledge already, but to the hearer who had not that knowledge before.
-::::
-
-. . .
-
-Memory recycles within one head. Testimony moves knowledge between heads.
-
-For the person on the receiving end it isn't a repetition of anything. It's new.
-
-## Why this matters for us
-
-This is exactly why Thursday's argument doesn't transfer.
-
-Udayana's case against memory was that it's dependent, that nothing comes out that didn't go in. That's true of memory *for a single person*.
-
-. . .
-
-But the hearer never had it. Whatever testimony is doing, it isn't handing you back your own deposit.
-
-## But it needs perception
-
-The other independence argument: to get testimony you have to hear words, so testimony depends on perception.
-
-. . .
-
-Datta grants it, and then points out that perception gives you only word-sounds. It tells you nothing about the facts.
-
-And everything else has dependencies too. Perception without memory and synthesis would be bare sensation. Inference needs data, which has to come from somewhere.
-
-. . .
-
-If those still count as independent sources, so does this one.
-
-# What a piece of knowledge is
-
-## Not one simple thing
-
-The nicest idea in the paper is a picture of how knowledge actually gets assembled.
+Outside of really toy cases, like looking straight at a cat and coming to believe there is a cat, all learning requires background.
 
 :::: {.callout-note title="Datta, p. 357"}
 What ordinarily appears to us to be a single piece of knowledge is not really a simple thing: it is a complex process, the different elements of which may be derived from different sources.
 ::::
 
-## Named after the new part
+## Datta's Second Response
+
+In normal cases, we say that the source of the knowledge is the last step.
 
 When you see a table, memory supplies the concept *table*. Perception supplies *this one, here*. We call the whole thing a perception, because the new bit came in through the eyes.
 
-. . .
+Even if cases of testimony require lots of background, it's fair to describe testimony as the source if it makes the last step.
 
-When somebody tells you something, perception supplies the noises. Testimony supplies the facts. The new bit came in through the telling, so we call it testimony.
+## A Modern Response
 
-. . .
+Jennifer Lackey, a philosopher at Northwestern, has a famous case designed to question the basic premise of this transfer argument.
 
-Every piece of knowledge is a team effort. We name it after whoever did the part that mattered.
+A high school teacher believes that creationism is true, but is committed to teaching the material that the students have to learn to pass their tests.
 
-# Hearing is believing
+So she tells her students "Humans descended from other primates", and other more detailed claims about evolution.
 
-## One case with no room for doubt
+## Lackey's Argument
 
-Datta closes with a case I think is genuinely clever.
+1. The students can learn that humans descended from other primates in class.
+2. If the students learn this, they learned it by testimony from their teacher.
+3. But the teacher does not know this, she doesn't even believe it.
+4. So, it's possible to come to know something on the basis of testimony from someone who doesn't know it.
 
-Somebody says "There's a tiger in the jungle." You can doubt that.
+# Easy checking
 
-. . .
+## Back to Datta's first argument
 
-But somebody says "Come here", or asks "Where did you go?"
+Datta started with a point about whether do in fact check.
 
-You now know that a command was given, or a question asked. There's nothing there to be wrong about.
+He didn't lean too much on this, because he was worried, reasonably, that it was a purely descriptive claim, not a claim about what we *ought* to do.
 
-. . .
+But modern anti-reductionists, people who like Datta think that testimony is a basic source, have sometimes wanted to lean more on it.
 
-Hearing, in that case, just is believing. No external certification available, and none needed.
+## Ought implies can
 
-# But are we dupes?
+Here's one way to put the argument:
 
-## The worry
-
-If we believe by default, we look like easy marks.
-
-Plenty of testimony is false, and some of it is built to fool you. A theory on which we swallow whatever we're told can't be right either.
+1. Whatever we ought to do, we can do.
+2. It's not just that we don't check everything we're told, we *could not* do this.
+3. So it can't be a rational requirement to check everything we're told.
 
 ## Vigilance
 
-Dan Sperber and colleagues argue we're neither blank trusters nor blanket doubters. We run quiet checks while we listen, in two directions.
+There's a very interesting response to this out of some philosophers and psychologists based in Paris. The key figures here are Dan Sperber and Hugo Mercier.
 
-Source
-:    Is this person **competent**, and do they **mean me well**? Those fail separately, and for different reasons.
+They say, partially on the basis of armchair reasoning and partially on the basis of lab testing, that we can check everything as long as the checks are *really simple*.
 
-Content
-:    Does this **hang together** with what I already have good reason to believe?
+## Vigilance
 
-## Not the opposite of trust
+For lots of things, the optimal way to avoid disaster is a two step process.
 
-Their line is that vigilance is the opposite of *blind* trust, not the opposite of trust.
-
-. . .
-
-Their analogy: walking through a crowd, you trust people not to walk into you, and you watch where they're going. The trust is real and so is the watching. Neither one is doing all the work.
+1. Every time something comes in, you decide *Do I need to worry about this?*. This process should be really cheap, and you live with lots of false positives as long as you avoid false negatives.
+2. If the answer ot the first question is yes, you spend resources checking it more thoroughly.
 
 . . .
 
-So testimony can be a source in its own right without that making us fools.
+Their thought is that humans (and groups of humans) use this two-part method all the time in lots of settings, and it's a really good method to use.
+
+. . .
+
+If we check incoming testimony this way, perhaps that's checking enough to avoid the anti-reductionist argument.
 
 # Going forward
 
 ## Thursday
 
-Once you grant that trust is the default, the interesting question stops being *should I trust anyone* and becomes *whom*.
+In practice, the reductionist and the anti-reductionist often don't disagree.
 
-We read Elizabeth Anderson on how someone who isn't an expert is supposed to assess what experts say. That's the practical version of today's problem, and it's harder than it looks.
+- The reductionist says everyone gets very quickly checked, and then we worry about people who are a bit suspect.
+- The anti-reductionist says that we believe people by default, but this can be overturned if we get reasons to doubt them.
+
+. . .
+
+Great - who is *a bit suspect* or who do we have *reasons to doubt*?
+
+. . .
+
+In particular, when someone purports to be **an expert** how do we run those checks? That's the question for Thursday.

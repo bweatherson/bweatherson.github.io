@@ -1,0 +1,476 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 7: Games in Time"
+author: "Brian Weatherson"
+date: "September 22, 2026"
+---
+
+# Games That Take Time
+
+## A Very Small Game
+
+::: {.callout-tip title="Last Counter"}
+Four counters sit on the table. $A$ and $B$ take turns removing counters, $A$ moving first. On your turn you must take one counter or two. Whoever takes the **last** counter loses.
+:::
+
+. . .
+
+Before we do anything formal: would you rather move first or second?
+
+## The Extensive Form
+
+![](figures/four.svg){alt="Extensive form of Last Counter starting from four counters, with W and L marking wins for A and B" fig-align="center" width="74%"}
+
+## Reading the Tree
+
+Start at the node that isn't filled in. Here that's at the bottom.
+
+. . .
+
+$A$ moves first, taking 1 or 2. Then $B$, and so on until the counters run out. The number on each branch is how many were taken.
+
+. . .
+
+At the top is who won. $W$ means $A$ wins, $L$ means $B$ wins. Since this is zero-sum, one label per outcome is enough.
+
+## Reading the Tree
+
+Two things worth noticing. The branches are not all the same length: the game can be over after two moves or run to four. And some nodes have a single branch out of them, because with one counter left there is nothing to decide.
+
+. . .
+
+We can generalise this beyond two players, or to games where who moves at a point of time is a function of which moves were made earlier; it's a fairly flexible form.
+
+## Simultaneous Moves, In a Tree
+
+We can even represent simultaneous move games this way.
+
+![](figures/pd-tree.svg){alt="Prisoners Dilemma in extensive form, with an information set" fig-align="center" width="58%"}
+
+## Information Sets
+
+The dashed line there means P2 does not know which of those two nodes they are at when they move. The connected nodes form an **information set**.
+
+. . .
+
+We only connect nodes where the same player moves and the same moves are available. 
+
+An unmarked node is in an information set of its own.
+
+. . .
+
+So we can draw simultaneous games as trees. Player 1 "moves first", but Player 2 learns nothing from it.
+
+## An Assumption In the Syntax
+
+Drawing lines between nodes, or a circle around the nodes like you see in some books, is only a good model of P2's uncertainty if make a really strong assumption.
+
+. . .
+
+It assumes that at any node in the set, the open nodes are the same.
+
+## Epistemic Possibility
+
+Say that node $y$ is possible at node $x$ if when a player is at $x$ they could be, for all they know, at $y$. In the form we're using, there's a line between $x$ and $y$, or a circle around them.
+
+The syntax forces the following two assumptions.
+
+Transitivity
+:    If $y$ is possible at $x$, and $z$ is possible at $y$, then $z$ is possible at $x$.
+
+Symmetry
+:    If $y$ is possible at $x$, then $x$ is possible at $y$.
+
+. . .
+
+Philosophers debate **Transitivity**, and almost uniformly reject **Symmetry**, but they are both accepted here.
+
+# Strategies 
+
+## Strategies
+
+A **strategy** is a plan for what to do in any circumstance whatsoever.
+
+. . .
+
+Not just "what I will do", but "what I would do at every node where I might have to move".
+
+. . .
+
+$A$ moves at four nodes: the opening, the node with two counters left, and two different nodes with one counter left. At a node with one counter left there is nothing to choose.
+
+. . .
+
+So $A$'s strategy has two free parts: her opening, and what to do if two counters are left when it's time to move again. Write it $\alpha\beta$.
+
+## Counting
+
+$B$ moves at three nodes, and again only two of them offer a choice: three counters left, or two. Write B's strategy as $\delta\epsilon$.
+
+. . .
+
+So each player has $2^2 = 4$ strategies. We'll basically ignore 'forced' modes here.
+
+. . .
+
+Note that $A$'s strategy specifies what to do after moves the strategy itself rules out.
+
+This turns out to matter, and it will not quite cause complications, but make it possible to state some complications.
+
+## The Normal Form
+
+|        | 11    | 12    | 21    | 22    |
+|-------:|:-----:|:-----:|:-----:|:-----:|
+| **11** | W     | W     | **L** | L     |
+| **12** | L     | L     | **L** | L     |
+| **21** | L     | W     | **L** | W     |
+| **22** | L     | W     | **L** | W     |
+
+: Last Counter in normal form, $A$'s rows against $B$'s columns {#tbl-four-normal}
+
+## What the Table Shows
+
+Look at $B$'s column 21: take 2 if three counters are left, take 1 if two are. Whatever $A$ does, $A$ loses.
+
+. . .
+
+Now look for a row of all $W$'s. There isn't one. $A$ has no winning strategy at all. Of course, if there is a column of all $L$'s, there couldn't be a row of all $W$'s.
+
+. . .
+
+So the *second* player wins this game. This is easier to see on the table than the tree.
+
+## What The Table Hides
+
+The tree has five outcomes. The table has sixteen cells.
+
+. . .
+
+Each outcome turns up several times. Change one outcome on the tree and you have to change many cells in the table.
+
+. . .
+
+Worse, $A$'s last two rows are identical. That's because strategies 21 and 22 differ only at a node that $A$'s own opening move makes unreachable.
+
+# Backwards Induction
+
+## Working From the End
+
+Start where there is nothing to decide.
+
+. . .
+
+If you face one counter, you must take it, and taking it loses. So whoever leaves exactly one counter has already won.
+
+. . .
+
+That settles three branches of the tree immediately.
+
+## One Step Back
+
+Now $A$'s one real late choice: two counters left, her move. Taking 1 leaves a single counter for $B$, so she wins. Taking 2 loses on the spot. She takes 1.
+
+. . .
+
+Redraw the game with everything after $B$'s move already settled.
+
+![](figures/four-2.svg){alt="Last Counter with the forced moves and A's last choice already settled" fig-align="center" width="64%"}
+
+## Two Steps Back
+
+Now do the same to $B$. $B$ wins when $A$ loses, so $B$ heads for $L$.
+
+. . .
+
+If $A$ opened with 1, three counters remain and $B$ takes 2. If $A$ opened with 2, two remain and $B$ takes 1. Either way, $B$ leaves one counter.
+
+![](figures/four-3.svg){alt="Last Counter with B's move settled as well, so both of A's openings lead to L" fig-align="center" width="48%"}
+
+## The Answer
+
+Both of $A$'s openings lead to $L$. $A$ cannot win.
+
+. . .
+
+$B$'s strategy is $21$ — leave exactly one counter — which is exactly the column of $L$s we found in the table.
+
+## Try It
+
+::: {.callout-note title="Exercise"}
+Play the same game with xix counters, same rules. Who wins, and what is the winning strategy?
+:::
+
+## Hard Question
+
+::: {.callout-note title="Discussion"}
+Then suppose $A$ opens badly from six. $B$ is now standing at a node that a perfectly rational $A$ would never have created. Should $B$ go on assuming that $A$ is rational?
+:::
+
+## Hidden Assumptions
+
+Backwards induction requires a lot of background.
+
+. . .
+
+Each player is rational. Each knows that. Each knows that the other knows it. And so on, for at least as many rounds as there are moves in the game.
+
+. . .
+
+Even more strongly, those assumptions have to be **modally robust**. 
+
+When we did the analysis, we started at nodes without asking how we got there, or whether we could have rationally got there. We acted like everyone would be rational there, and expect rationality, no matter what happened before that. This seems questionable.
+
+## A Different Game
+
+::: {.callout-tip title="Five"}
+$A$ moves, then $B$, then $A$ again. Each move announces 1 or 2. $A$ wins if the three numbers sum to 5; $B$ wins otherwise.
+:::
+
+. . .
+
+This one is worked through in full in the notes at 5.2, tree and normal form alike. I'm flagging it here to make a point about a variant of it.
+
+## The Variant
+
+Five, except that the two leftmost outcomes are draws rather than wins for $B$.
+
+![](figures/five-rev.svg){alt="The revised game Five-double-prime, in which the two leftmost outcomes are draws" fig-align="center" width="58%"}
+
+## The Problem
+
+Assume $A$ plays optimally at the last move, and the top row collapses.
+
+![](figures/five-rev-2.svg){alt="Five-double-prime, with the last move assumed" fig-align="center" width="54%"}
+
+. . .
+
+Suppose $A$ opens with 1. Now $B$ chooses. Playing 1 gets a draw; playing 2 lets $A$ win. So $B$ takes the draw.
+
+## But Why Believe That
+
+The claim that playing 2 leads to $A$ winning came from assuming $A$ is perfectly rational.
+
+. . .
+
+But if $A$ were perfectly rational, she would have opened with 2 and given herself a forced win.
+
+. . .
+
+$B$ is standing at a node that only gets reached if $A$ is **not** playing perfectly. Why should she keep assuming perfect rationality from here on?
+
+. . .
+
+Taking the draw is probably still wise. But the argument that playing 2 *is* choosing defeat looks broken.
+
+## Why This Matters
+
+In a normal form game, this never comes up. You never get evidence that the other player is an idiot before making your one and only move.
+
+. . .
+
+In a tree, how much confidence you have in the other player keeps coming up. This is a big deal.
+
+# The Value of a Game
+
+## The Setup
+
+Let's focus for a bit on games with the following features:
+
+- Alternating moves
+- The full history of the game is public, so no hidden moves
+- There is a known cap on how many moves are possible
+- Zero-sum
+
+. . .
+
+There are finitely many outcomes, so order them by $A$'s preferences. Say $A$'s least preferred outcome has value 0, the next 1, and so on.
+
+## Defining Value
+
+Define the **value** of a node recursively.
+
+. . .
+
+- A **terminal** node has the value of its payoff.
+- A node where $A$ chooses has the **greatest** value among the nodes she can move to.
+- A node where $B$ chooses has the **least** value among the nodes she can move to.
+
+. . .
+
+The **value of the game** is the value of the initial node. 
+
+This is an important application of backwards induction.
+
+## Subgames
+
+A **subgame** is what you get by treating some node as an initial node and keeping everything downstream.
+
+. . .
+
+The node has to be one where it is common knowledge that we have arrived. 
+
+So nodes inside a non-degenerate information set do not start subgames; you cannot play a game without knowing which game it is.
+
+. . .
+
+A subgame is a game, in the way a subset is a set.
+
+## Three Results
+
+1. The value of a game is the value of one of its terminal nodes.
+2. $A$ can guarantee an outcome **at least** the value of the game.
+3. $B$ can guarantee an outcome **at most** the value of the game.
+
+. . .
+
+All three go by induction on the length of the game. They are in the notes at 5.3.
+
+## What Follows
+
+Suppose rationality is common knowledge, and stays that way throughout.
+
+. . .
+
+Then the outcome will be exactly the value of the game. $A$ makes sure it is not lower, $B$ makes sure it is not higher.
+
+. . .
+
+So these games are, in a precise sense, already decided before anyone moves.
+
+## Chess and Checkers
+
+Both satisfy every condition on the list. The only one that isn't obvious is finiteness, but the draw rules ensure it. (Question for class: why is this so?)
+
+. . .
+
+Each ends in White win, Black win, or draw. So one of those three is the value.
+
+. . .
+
+For checkers we know: it's a draw, proved in 2007 by the Chinook project at the University of Alberta. The reference is in the notes at 5.3.
+
+. . .
+
+Chess is probably also a draw, but nobody has proved it, and given the size of the tree nobody is about to.
+
+# Subgame Perfect Equilibrium
+
+## Easy Game
+
+Player I moves, then Player II. Each gets 1 for choosing Good and 0 for choosing Bad.
+
+![](figures/easy-game.svg){alt="The Easy Game tree" fig-align="center" width="52%"}
+
+## Its Normal Form
+
+Player II's strategy is $\alpha\beta$: what she does if I plays Good, then what she does if I plays Bad.
+
+|       | gg   | gb       | bg   | bb   |
+|------:|:----:|:--------:|:----:|:----:|
+| **G** | 1, 1 | **1, 1** | 1, 0 | 1, 0 |
+| **B** | 0, 1 | 0, 0     | 0, 1 | 0, 0 |
+
+: Easy Game in normal form {#tbl-easy-normal}
+
+. . .
+
+There are two Nash equilibria: $G$ with $gg$, and the bolded one, $G$ with $gb$.
+
+## The Odd One
+
+$G$ with $gb$ is a Nash equilibrium. Neither player can do better given what the other does.
+
+. . .
+
+But it is strange. Player II is planning to take 0 at a node where 1 is freely available.
+
+. . .
+
+It is true that $gb$ is weakly dominated by $gg$. Keep that in mind; this is a version of the point we made earlier that Nash permits weakly dominated strategies.
+
+## Removing the Bad Equilibrium
+
+Look at the subgame starting at Player II's right-hand node.
+
+. . .
+
+It is not much of a game. Player I has no choices; Player II picks 1 or 0.
+
+. . .
+
+But it is a game, and in it, $b$ is **strictly** dominated. So $gb$ is not a Nash equilibrium of that subgame.
+
+## The Definition
+
+::: {.callout-tip title="Subgame Perfect Equilibrium"}
+A strategy pair is a **subgame perfect equilibrium** when it is a Nash equilibrium, and it is a Nash equilibrium of every subgame.
+:::
+
+. . .
+
+$G$ with $gb$ does not satisfy this test, because $b$ is not a Nash equilibrium of a subgame. 
+
+$G$ with $gg$ passes the test, and is the only one equilibrium of the game.
+
+. . .
+
+In perfect information games, backwards induction finds subgame perfect equilibria.
+
+## Different Outcome Equilibria
+
+In Easy Game the two equilibria pay the same, so nothing much turned on it. That need not happen.
+
+![](figures/incredible.svg){alt="The game Incredible, showing an incredible threat" fig-align="center" width="52%"}
+
+## Incredible
+
+|       | $gg$ | $gb$ | $bg$    | $bb$    |
+|------:|:----:|:----:|:-------:|:-------:|
+| **L** | 4,3  | 4,3  | 1,4     | **1,4** |
+| **R** | 3,2  | 0,0  | **3,2** | 0,0     |
+
+: Incredible in normal form {#tbl-incredible-normal}
+
+. . .
+
+There are two Nash equilibria, both bolded. Backwards induction gives $R$ with $bg$.
+
+. . .
+
+But let's talk about the other one, $L$ with $bb$.
+
+## The Incredible Threat
+
+If Player II is committed to $bb$, then Player I's best reply really is $L$.
+
+. . .
+
+So Player II would like Player I to believe she will play $b$ on the right.
+
+. . .
+
+But look at what that means when we play the game out. At the right-hand node she would be choosing 0 when 2 is right there.
+
+. . .
+
+Now in this equilibrium we never reach that node, so she never has to follow through. She's bluffing, and the bluff never gets called.
+
+## What We Are Requiring
+
+Subgame perfection says that is not good enough.
+
+. . .
+
+It requires players not merely to make choices that make sense, but to be **disposed** to make choices that make sense, everywhere, including at nodes that will never be reached.
+
+. . .
+
+That is a strong demand. But there is something plausible to the idea that we shouldn't accept bluffs like this, or what the literature calls **incredible threats**, or sometimes **non-credible threats**.
+
+## Next Time
+
+We have been assuming players keep reasoning correctly all the way down the tree.
+
+. . .
+
+Next time we'll ask what happens in the more realistic case where we quibble about that.

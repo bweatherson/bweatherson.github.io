@@ -4105,6 +4105,7 @@ play her best strategy. Then we know three things about what will happen
 in the game.
 
 \begin{itemize}
+\tightlist
 \item
   If \(A\) plays 1, and \(B\) plays 2, \(A\) will follow with 2.
 \item
@@ -4116,7 +4117,7 @@ in the game.
 Moreover, once we make this assumption there is, in effect, one fewer
 step in the game. Once \(B\) moves, the outcome is determined. So let's
 redraw the game using that assumption, and just listing payoffs after
-the second move. This will be Figure~\ref{fig-five-2}
+the second move. This will be Figure~\ref{fig-five-2}.
 
 \begin{figure}
 
@@ -4162,6 +4163,7 @@ And from this version of the game, we can draw two more conclusions,
 assuming \(A\) is rational.
 
 \begin{itemize}
+\tightlist
 \item
   \(A\) will play 2 at the first move.
 \item
@@ -4243,6 +4245,38 @@ common knowledge of rationality is a legitimate assumption at the
 \emph{start} of the game. But once we've settled that, we don't have a
 further issue to decide about whether it is still a legitimate
 assumption at later stages of the game.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Exercise: Last Counter}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Here is another game to run backwards induction on. Some counters sit on
+a table. \(A\) and \(B\) take turns removing them, with \(A\) moving
+first. On your turn you must take either one counter or two. Whoever
+takes the \textbf{last} counter loses.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Draw the extensive form for the game that starts with four counters.
+  Note that, unlike \textbf{Five}, the branches are not all the same
+  length, and some nodes offer only one move.
+\item
+  Work out the normal form. Each player has four strategies, so it is a
+  \(4 \times 4\) table. How many distinct outcomes does the tree have,
+  and how many cells does the table have?
+\item
+  Solve the game by backwards induction. Who wins?
+\item
+  Now do the same for five counters, and for six. What is the general
+  pattern?
+\item
+  Suppose the game starts with six counters and \(A\) opens badly. \(B\)
+  now finds herself at a node that a perfectly rational \(A\) would
+  never have created. Does that matter for how \(B\) should play from
+  here? Compare the case of \textbf{Five'\,'} above.
+\end{enumerate}
+
+\end{tcolorbox}
 
 \section{Value of Games}\label{sec-value-of-games}
 

@@ -1,0 +1,51 @@
+% Last Counter, four counters, misere play
+\begin{tikzpicture}[x=1pt, y=1pt, every node/.style={inner sep=1pt, font=\small}]
+  % root
+  \node[anchor=south] at (150,0) {$A$};
+  \draw (150,12) circle (2);
+  \draw (148.5,13.5) -- (81,46);
+  \draw (151.5,13.5) -- (249,46);
+  \node[anchor=south] at (105,26) {1};
+  \node[anchor=south] at (196,19.5) {2};
+  % B after A takes 1 (pile 3)
+  \node[anchor=south] at (80,35) {$B$};
+  \fill (80,47) circle (2);
+  \draw (80,47) -- (40,82);
+  \draw (80,47) -- (120,82);
+  \node[anchor=south] at (52,61) {1};
+  \node[anchor=south] at (109,61) {2};
+  % A after 1,1 (pile 2)
+  \node[anchor=south] at (40,70) {$A$};
+  \fill (40,47+35) circle (2);
+  \draw (40,82) -- (15,117);
+  \draw (40,82) -- (65,117);
+  \node[anchor=south] at (20,96) {1};
+  \node[anchor=south] at (62,96) {2};
+  \node[anchor=south] at (65,119) {$L$};
+  % B forced after 1,1,1 (pile 1)
+  \node[anchor=south] at (15,105) {$B$};
+  \fill (15,117) circle (2);
+  \draw (15,117) -- (15,152);
+  \node[anchor=west] at (17,132) {1};
+  \node[anchor=south] at (15,154) {$W$};
+  % A forced after 1,2 (pile 1)
+  \node[anchor=south] at (120,70) {$A$};
+  \fill (120,82) circle (2);
+  \draw (120,82) -- (120,117);
+  \node[anchor=west] at (122,97) {1};
+  \node[anchor=south] at (120,119) {$L$};
+  % B after A takes 2 (pile 2)
+  \node[anchor=south] at (250,35) {$B$};
+  \fill (250,47) circle (2);
+  \draw (250,47) -- (215,82);
+  \draw (250,47) -- (285,82);
+  \node[anchor=south] at (226,61) {1};
+  \node[anchor=south] at (272,61) {2};
+  \node[anchor=south] at (285,84) {$W$};
+  % A forced after 2,1 (pile 1)
+  \node[anchor=south] at (215,70) {$A$};
+  \fill (215,82) circle (2);
+  \draw (215,82) -- (215,117);
+  \node[anchor=west] at (217,97) {1};
+  \node[anchor=south] at (215,119) {$L$};
+\end{tikzpicture}
