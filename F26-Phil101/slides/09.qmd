@@ -1,74 +1,279 @@
 ---
-title: "Why Trust Science, and How Trust Breaks"
+title: "Social Trust"
 subtitle: "Phil 101 · Day 9"
 author: "Brian Weatherson"
 date: "2026-09-29"
 ---
 
+# Where we are
+
+## Recap
+
+Anderson suggested that we have a way of making sensible decisions about what to believe in fields we can't really follow: make judgments about the experts.
+
+- Are they **in a position to know**?
+- Are they **honest**?
+- Are they **responsive** to people who disagree with them?
+
+. . .
+
+When the trustworthy experts converge, that's good enough.
+
+## Follow up questions
+
+First: *why should a consensus of experts be worth anything in the first place?* Anderson tells you to look for one. She doesn't say what makes it reliable.
+
+. . .
+
+Second: what happens when the machinery that generates your trust gets turned against you?
+
+. . .
+
+These are related; one reason for being sceptical of a consensus of experts is that you think the machinery has already been turned against you.
+
+## A quick iClicker reading question
+
+From the Nguyen reading. Which is harder to get out of?
+
+A.  An epistemic bubble
+B.  An echo chamber
+C.  They're two names for the same thing
+
 # Why trust science
 
-## Where we are
+## Middle school science version
 
-You can judge experts without judging their work. Useful as that is, science is more than a heap of individual experts, and its authority does not rest on any one of them.
+Most people, asked why science is trustworthy, reach for the same thing: **the Scientific Method**. Not surprising; that's literally on the middle school syllabus in many places (including AA).
 
-## There is no method
+You know the basic picture: Observe, hypothesize, test, conclude. That gets you from data to theories, and it's all great.
 
-The usual story says science earns its trust by following the Method, a recipe that turns observation into truth. Naomi Oreskes argues there is no such recipe, and never was.
+. . .
 
-What science has instead is a process. A claim is handed to a community trained to attack it, and only what survives the attack is kept.
+Most people who look in detail at how modern science works are very sceptical that there is such a clean story.
 
-## Trust the scrutiny
+## It isn't one thing
 
-On this picture a result is trustworthy to the degree that it has met serious, varied criticism and held up.
+We looked at a small piece with Naomi Oreskes, who wrote a prominent book on modern science. Here's what she says about scientific method.
 
-The variety is doing real work. A group that shares one blind spot will miss the same things every time. A mixed group catches what any one member would let slide.
+:::: {.callout-note title="Oreskes"}
+Essentially my argument is: It isn't one thing.
+::::
 
-## Consensus as a signal
+Different sciences work differently. Geology doesn't run experiments the way chemistry does. Epidemiology can't randomize most of what it studies.
 
-This is why a consensus carries weight. A vote among experts does not make a claim true. What a settled agreement shows is that the claim has run the gauntlet and is still standing.
+. . .
 
-The trap is manufactured controversy, a staged quarrel got up to make a closed question look open. Telling the real argument from the staged one is most of the work.
+If there is one golden **Scientific Method** then we'd have to start asking which sciences follow it, because it can't be all of them, and then just trust those.
 
-# How trust breaks
+## Oreskes' alternative
 
-## Two ways to be cut off
+What the sciences have in common is a **social arrangement**.
 
-C. Thi Nguyen pulls apart two things people often lump together. One is easy to fix. The other is not.
+A claim gets handed to a community of people trained to attack it, who have professional incentives to succeed in those attacks, and only what survives that gets kept.
 
-## The epistemic bubble
+. . .
 
-A bubble is a gap. You have simply not been exposed to the other side, because of whom you follow and what your feed puts in front of you.
+You don't trust any one scientist. You trust that the people who tried to knock something down were willing and able to find any mistakes, and their non-discovery is good evidence.
 
-Bubbles pop on contact. Let the missing voices in and the bubble is gone.
+## Five pillars
 
-## The echo chamber
+:::: {.callout-note title="Oreskes"}
+I didn't start out thinking there would be five key elements, but that's where I got to: consensus, diversity, method, evidence, and values.
+::::
 
-A chamber is the harder case. Inside one you have been brought to distrust the outside actively, so its experts arrive pre-labelled as liars.
+Method here does not mean the One Scientific Method, and it isn't the whole story.
 
-Show a chamber the contrary evidence and it can grip harder, since the source was discredited for you in advance. Getting out tends to take a wholesale reset of whom you trust.
+## Diversity
 
-## What the chamber goes after
+This wasn't as much of a political buzz-word when Oreskes was writing 8-10 years ago! But you might worry about it for a couple of reasons.
 
-Notice its target. A chamber aims straight at Anderson's signals.
+1. Requiring diversity, even of opinions, sounds like politics not science.
+2. The aim is **consensus**; encouraging diverse opinions seems like it makes that harder.
 
-It issues its own credentials, stages its own consensus, and teaches you to read honesty as betrayal. The very cues you use to place your trust are the ones it captures.
+. . .
 
-# Where this leaves us
+The point is that we shold avoid blind spots. We shouldn't all be testing theories the same way, or for the same flaw.
 
-## The tour so far
+. . .
 
-We have followed knowledge from other people a long way: inference and its limits, testimony and whether it reduces, and trust scaled up to whole institutions.
+Criticism only works if the critics are different enough from each other to catch different errors. Homogeneity is **ineffective**.
 
-## The source we never questioned
+## Values
 
-One thing has sat under all of it, taken on faith since the first day. Perception. We leaned on it as the bedrock and never asked what it actually hands us.
+:::: {.callout-note title="Oreskes"}
+All people have values, and we always will have values... if you had scientists with no values, that would be truly scary.
+::::
 
-That is the next move, and it opens onto the mind.
+. . .
 
-## Reading
+The demand that science be value-free is not achievable, and Oreskes thinks it isn't even desirable. What you want is that the values are visible and open to challenge, like everything else.
 
-Required:
+## Consensus
 
-> C. Thi Nguyen, "Escape the Echo Chamber," *Aeon*.
+So here's why consensus is valuable. Theories that are the consensus view have run the gauntlet of criticisms, and lived to tell the tale.
 
-Recommended: Naomi Oreskes, "Defending science in a post-fact era" (*Harvard Gazette*, 2019), where she lays out her five pillars of trustworthy science.
+. . .
+
+If that's right, and you should never take anything like this at face value but I think it's not a terrible picture of how modern science works, it has two consequences.
+
+1. We now have an affirmative reason to believe in the consensus; it survived tough criticism.
+2. We have some pointers to when a consensus, or non-consensus, is **fake**.
+
+# Trust
+
+## Two bad outcomes
+
+C. Thi Nguyen thinks we use one phrase for two very different problems, and that the confusion makes us reach for a fix that can't work.
+
+Epistemic bubble
+:    An informational network from which relevant voices have been **excluded by omission**.
+
+Nobody did anything to you. You follow the people you follow, the feed shows what it shows, and some views simply never arrive.
+
+. . .
+
+Echo chamber
+:    A social structure from which other relevant voices have been **actively discredited**.
+
+Here somebody *has* done something. You've been brought to distrust the outside, so its experts turn up already labelled as liars or fools.
+
+## Why the difference matters
+
+The escape strategies are different in the two cases.
+
+. . .
+
+Bubbles are a gap, so exposure fills them.
+
+:::: {.callout-note title="Nguyen"}
+Epistemic bubbles are rather ramshackle; they go up easily, and they collapse easily, too. Echo chambers are far more pernicious and far more robust.
+::::
+
+## Escape from the chamber
+
+Here's the thing that makes chambers hard to get out of. Members have prepped responses to the other side.
+
+:::: {.callout-note title="Nguyen"}
+They read — but do not accept — mainstream and liberal news sources. They hear, but dismiss, outside voices.
+::::
+
+. . .
+
+So the standard remedy, get people out of their bubble, show them the other view, has been pre-emptively rejected.
+
+## Pre-emption
+
+The mechanism has a name. Endre Begby calls it **evidential pre-emption**.
+
+You're told in advance what the other side will say, and *why* they'll say it. So when they say it, they're doing exactly what you were warned they would do.
+
+. . .
+
+Nguyen illustrates this with a radio host from Past Times. Here's an invented case, closer to home.
+
+## Two channels
+
+Both of these are made up, and I'm not endorsing either.
+
+**Overclock** is a streamer. They say LLMs are the biggest thing since the printing press, and the people telling you otherwise are protecting their own jobs.
+
+**Slow Down** is a podcast. They say the big AI companies are a bubble built on other people's work, and the people telling you otherwise are paid to.
+
+## The warning comes first
+
+Note Each of them tells you, *before* you ever meet the other side, what the other side is going to say and why.
+
+- Overclock: *You'll hear professors say it can't really reason. They've said that about every tool that ever threatened them.*
+- Slow Down: *You'll hear researchers say it's nearly there. Every one of them holds equity.*
+
+. . .
+
+Now go and read the professor. Go and read the researcher.
+
+## The trap closes
+
+The professor says it can't really reason. Which is what you were told she would say.
+
+The researcher says it's nearly there. Which is what you were told he would say.
+
+. . .
+
+Whatever the outsider says, the insider called it first. Refutation arrives looking like confirmation, and the system eats its own counterevidence.
+
+## Why it works
+
+Notice that neither warning is a lie.
+
+Some academics really are threatened.^[Not me; I've never met a chatbot that can replicate my typos.] Some researchers really do hold equity.^[Also not me; my money is in boring index funds.] The warnings are plausible, and that is why they work.
+
+. . .
+
+The trick isn't inventing a conspiracy. It's handing you a story that the other side won't be able to disturb, because every piece of evidence has been accounted for in advance.
+
+## Bubbles and chambers
+
+If you'd simply never come across critical takes, you'd be in a **bubble**. Someone sends you a good take, you read it, you think again. Done.
+
+. . .
+
+If you've been told the critics are bought, you're in a **chamber**. Someone sends you the same good take, you check the author, you find she has a grant from a tech company, or works in a field that's losing jobs to AI, and you've got a reason to dismiss their work.
+
+## Getting out
+
+If the trouble is who you trust rather than what you've seen, no single piece of evidence can fix it.
+
+Nguyen's answer is a **social-epistemic reboot**: suspend the whole network of trust and rebuild it, rather than patching one belief.^[This was Descartes' dramatic solution for the problem that our senses sometimes deceive us. It's a little more plausible here.]
+
+. . .
+
+:::: {.callout-note title="Nguyen"}
+Black left the movement by, basically, performing a social reboot. He completely abandoned everything he'd believed in, and spent years building a new belief system from scratch.
+::::
+
+# Why chambers work
+
+A chamber issues its own credentials. It stages its own consensus. It teaches you to read a critic's honesty as proof of bad faith.
+
+. . .
+
+Those are Anderson's three most important criteria. The chamber doesn't try to stop you assessing trustworthiness. It tries to capture the assessment.
+
+## Capturing vigilance
+
+Sperber's answer to *aren't we all dupes* was that we run checks as we listen. Vigilance is what keeps you from being taken in.
+
+. . .
+
+:::: {.callout-note title="Nguyen"}
+Once you're in, the echo chamber's belief systems function as a trap, making future acts of intellectual vigilance only reinforce the echo chamber's worldview.
+::::
+
+. . .
+
+The thing that was meant to protect you is now making things worse. This isn't an easy problem!
+
+## iClicker Poll
+
+Pick something you're confident about. Could you say what would change your mind?
+
+A.  Yes, and I could name the specific evidence
+B.  Yes, but only vaguely
+C.  No, not really
+
+. . .
+
+Nobody sees your answer but you. The question is whether there's an answer at all.
+
+## Module Quiz 1
+
+Opens after class, on Lectures 1 to 9, due Sunday. Open book, multiple choice.
+
+It's worth 2.5%, so it's really more important as a check on how you're doing rather than a big part of the assessment
+
+## Thursday
+
+We've spent two weeks on knowledge that comes from other people, and it's time to return to the thing that's normally central to philosophical discussions of knowledge: perception.
+
+. . .
+
+We're doing it last because it's a good segue into the second unit of the course, on philosophical views about minds, and the long running debate about the relationship between mind and body.

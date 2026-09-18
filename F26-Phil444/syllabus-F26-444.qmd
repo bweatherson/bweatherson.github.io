@@ -165,7 +165,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(tue, 2)` (Lecture 3)
 
 **Topic**:    Strategic form games; dominance and iterated elimination of dominated strategies.    
-**Reading**:    Notes, Ch 1 (Basics of Game Theory).1.10.    
+**Reading**:    Notes, Ch 1 (Basics of Game Theory), 1.1-1.10.    
 **Recommended**:    Bonanno, Ch 2 (Ordinal Games in Strategic Form), 2.1-2.2 and 2.5, which keeps the two iterated deletion procedures carefully apart.
 
 ### `r advdate(thu, 2)` (Lecture 4)
@@ -203,7 +203,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(thu, 4)` (Lecture 8)
 
 **Topic**:    Backward induction; the centipede paradox.    
-**Reading**:    Notes, 5.5 (Problems with Backwards Induction).    
+**Reading**:    Notes, 5.5-5.6 (Problems with Backwards Induction; The Centipede).    
 **Recommended**:    Bonanno, 3.2 and 3.4; 7.3 (Problems with the notion of subgame-perfect equilibrium); 10.4 (Common knowledge of rationality in extensive-form games).
 
 **Quiz**:    Quiz 3 on Canvas, due `r advdate(fri, 4)` at 5pm.
@@ -213,7 +213,7 @@ Quizzes cover the material through the previous class meeting, whatever that tur
 ### `r advdate(tue, 5)` (Lecture 9)
 
 **Topic**:    Forward induction. Van Damme's burning-money game; reasoning about what kind of player would have made an off-path move.    
-**Reading**:    Notes, 5.6 (Money Burning Game).    
+**Reading**:    Notes, 5.7 (Money Burning Game).    
 **Recommended**:    Elchanan Ben-Porath and Eddie Dekel, "Signaling future actions and the potential for sacrifice", *Journal of Economic Theory* 57 (1992): 36-51. <https://doi.org/10.1016/S0022-0531(05)80039-0>
 
 ### `r advdate(thu, 5)` (Lecture 10)

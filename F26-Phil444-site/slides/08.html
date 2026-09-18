@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="Brian Weatherson">
+  <meta name="dcterms.date" content="2026-09-24">
+  <title>Game Theory and Social Choice</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-44b0e5eff8a4443f51d7949ecb1dfac9.css">
+  <link rel="stylesheet" href="custom_styles_css.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">Game Theory and Social Choice</h1>
+  <p class="subtitle">Lecture 8: Problems with Backwards Induction</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Brian Weatherson
+</div>
+</div>
+</div>
+
+  <p class="date">2026-09-24</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Cooperative Caterpillar</h1>
+
+</section>
+<section class="slide level2">
+<h2>Where We Left Off</h2>
+<p>Subgame perfection said that your dispositions must be sensible everywhere, even at off equilibrium points, and even at points ruled out by your moves.</p>
+<div class="fragment">
+<p>That is very strong, and the aim today is to raise some doubts about it.</p>
+</div>
+<div class="fragment">
+<p>The short version is that we’ll look first at some theoretical doubts about it, due to some prominent philosophers, and then look at some empirical reasons to doubt it, due to some prominent economists.</p>
+</div>
+<div class="fragment">
+<p>The two people we’ll be talking most about today are Robert Stalnaker, a philosopher we’ve already mentioned, and Reinhard Selten, the economist who first came up with a formal statement of subgame perfect equilibrium.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Game</h2>
+
+<img data-src="figures/caterpillar.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%" alt="The Cooperative Caterpillar, a three-node game where both players get the same payoff"><div class="fragment">
+<p>This is really simple. There are at most three moves. At each node the player goes Across or Down. As soon as someone goes Down, the game ends.</p>
+</div>
+<div class="fragment">
+<p>It is a <strong>common interest</strong> game. Both players get the number at the terminal node.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Game in words</h2>
+<p>Down at the first node: both get 2.</p>
+<div class="fragment">
+<p>Across, then down: both get 1.</p>
+</div>
+<div class="fragment">
+<p>Across, across, then down: both get 0.</p>
+</div>
+<div class="fragment">
+<p>Across all the way: both get 3.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Strategies</h2>
+<p>Only one path reaches each decision node, so a strategy is just a plan for each node where you might move.</p>
+<div class="fragment">
+<p>Player I moves at nodes 1 and 3, so her strategy is two capitals: <span class="math inline">\(A_1A_2\)</span>, <span class="math inline">\(A_1D_2\)</span>, <span class="math inline">\(D_1A_2\)</span>, <span class="math inline">\(D_1D_2\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Player II moves once, so his strategy is a single lower-case letter: <span class="math inline">\(a\)</span> or <span class="math inline">\(d\)</span>.</p>
+</div>
+<div class="fragment">
+<p>We’re doing this really slowly, because it is tricky to see exactly where the alleged slip up in reasoning happens.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Backwards Induction</h2>
+<p>At node 3, Player I compares <span class="math inline">\(A_2\)</span>, worth 3, with <span class="math inline">\(D_2\)</span>, worth 0. She plays <span class="math inline">\(A_2\)</span>. (I’ll generally make P1 female and P2 male, just to make the pronouns easier, in what follows.)</p>
+<div class="fragment">
+<p>Given that, at node 2 Player II compares <span class="math inline">\(a\)</span>, now worth 3, with <span class="math inline">\(d\)</span>, worth 1. He plays <span class="math inline">\(a\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Given that, at node 1 Player I compares <span class="math inline">\(A_1\)</span>, now worth 3, with <span class="math inline">\(D_1\)</span>, worth 2. She plays <span class="math inline">\(A_1\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Unique subgame perfect equilibrium: <span class="math inline">\(\langle A_1A_2, a \rangle\)</span>, and everyone gets 3. That is also the outcome almost anyone would play in a real-life version of this, so pretty good so far.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Normal Form</h2>
+<div id="tbl-caterpillar" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-caterpillar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Cooperative Caterpillar in normal form; both players get the listed number
+</figcaption>
+<div aria-describedby="tbl-caterpillar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(a\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(d\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(A_1A_2\)</span></td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(A_1D_2\)</span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(D_1A_2\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(D_1D_2\)</span></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+<h2>Three Equilibria</h2>
+<p>The three bolded cells are all Nash equilibria. Check one: in <span class="math inline">\(\langle D_1A_2, d \rangle\)</span>, Player I’s alternatives against <span class="math inline">\(d\)</span> are 1, 1 and 2, and Player II gets 2 whatever he does.</p>
+<div class="fragment">
+<p>Only the top one is subgame perfect. In the other two, Player II is planning to take 1 when 3 is on the table.</p>
+</div>
+<div class="fragment">
+<p>So subgame perfection really matters here. It tells you that precisely one of the three equilibria is going to be played when it’s common knowledge that both players are rational. The question is whether it’s entitled to.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Another Equilibrium</h2>
+<p>So let’s talk some more about the somewhat weird <span class="math inline">\(\langle D_1A_2, d \rangle\)</span> equilibrium.</p>
+<div class="fragment">
+<p>First, just check that I’m not lying, that it is really an equilibrium.</p>
+</div>
+<div class="fragment">
+<p>Given that Player I plays <span class="math inline">\(D_1\)</span>, Player II gets 2 no matter what he plans. So <span class="math inline">\(d\)</span> is a best response.</p>
+<p>Given that Player II plays <span class="math inline">\(d\)</span>, Player I compares 2 from <span class="math inline">\(D_1\)</span> with the 1 she gets by playing <span class="math inline">\(A_1\)</span> and letting him take. So <span class="math inline">\(D_1\)</span> is a best response.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Could Rational Players Get There?</h2>
+<p>Stalnaker says yes.</p>
+<div class="fragment">
+<p>Suppose each player knows the other is rational, and knows the other’s strategy.</p>
+</div>
+<div class="fragment">
+<p>Player I is easy. She takes 2 rather than the 1 she would get from going across, and she is disposed to take 3 rather than 0 if the game ever reaches node 3. Both choices are fine.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Player II Is Harder</h2>
+<p>The objection: a rational Player II who knows Player I is rational <strong>cannot</strong> plan to play <span class="math inline">\(d\)</span>.</p>
+<div class="fragment">
+<p>Because if Player I is rational she will play <span class="math inline">\(A_2\)</span> at node 3. And if she plays <span class="math inline">\(A_2\)</span>, then <span class="math inline">\(a\)</span> is worth 3 and <span class="math inline">\(d\)</span> is worth 1. So <span class="math inline">\(d\)</span> is indefensible.</p>
+</div>
+<div class="fragment">
+<p>That argument looks airtight. But maybe there’s a gap.</p>
+</div>
+<div class="fragment">
+<p>Here’s the big problem: we just said that rational Player I will play <span class="math inline">\(D_1\)</span>. But in this hypothesis, Player I plays <span class="math inline">\(A_1\)</span> before Player II has to move. So in this hypothesis, she is irrational, and Player II knows that. So Player II shouldn’t assume that she will be rational at the last node!</p>
+</div>
+<div class="fragment">
+<p>This objection is originally due to Robert Sugden (a very philosophical economist), and Philip Pettit (a philosopher who has worked with many economists). Stalnaker has a particular version of the objection.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Two Conditionals</h2>
+<ul>
+<li class="fragment">If Player I has the choice, she chooses <span class="math inline">\(A_2\)</span> over <span class="math inline">\(D_2\)</span>.</li>
+<li class="fragment">If Player I <em>were</em> to have the choice, she <em>would</em> choose <span class="math inline">\(A_2\)</span> over <span class="math inline">\(D_2\)</span>.</li>
+</ul>
+<div class="fragment">
+<p>The first is <strong>indicative</strong>, and Player II knows it is true.</p>
+</div>
+<div class="fragment">
+<p>The second is <strong>subjunctive</strong>, and he does <strong>not</strong> know it is true.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why That Subjunctive Fails</h2>
+<p>To reach node 3, Player I must first have played <span class="math inline">\(A_1\)</span>.</p>
+<div class="fragment">
+<p>Given that Player II plans to play <span class="math inline">\(d\)</span>, playing <span class="math inline">\(A_1\)</span> is irrational — it trades 2 for 1.</p>
+</div>
+<div class="fragment">
+<p>So node 3 is only reached by a player who has already blundered. People who make mistakes, make mistakes. So she might make another.</p>
+</div>
+<div class="fragment">
+<p>The argument for <span class="math inline">\(a\)</span> needed the subjunctive conditional, but Player II is only in a position to believe the indicative.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>An Analogy</h2>
+<p>These three beliefs are consistent:</p>
+<div class="fragment">
+<ul>
+<li class="fragment">Any perfectly rational being gets every question on the algebra exam right.</li>
+<li class="fragment">Alice is perfectly rational.</li>
+<li class="fragment">If Alice had got the second-hardest question wrong, she would have got the hardest one wrong too.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>You can believe someone is perfect and still have views about what they would be like if they weren’t.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What Stalnaker Concludes</h2>
+<p>Common knowledge of rationality does not license the backwards induction argument, because the argument quietly needs a subjunctive that common knowledge of rationality does not deliver.</p>
+<div class="fragment">
+<p>Note where this leaves us. The <em>answer</em> backwards induction gives in <strong>Cooperative Caterpillar</strong> is perfectly sensible. The <em>reasoning</em> is not.</p>
+</div>
+<div class="fragment">
+<p>So we cannot defend backwards induction by saying it works in practice even if the theory is shaky. Next we look at a game where it doesn’t work in practice either.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Stalnaker</h2>
+<p>Stalnaker’s official view is that you should end up at the 3 outcome in caterpillar, but not because of backwards induction.</p>
+<p>It’s rather because he thinks you should eliminate weakly dominated options, once. (Sometimes he thinks you can justify one more iteration of weakly dominated strategies.)</p>
+<p>For Player II, <span class="math inline">\(d\)</span> is weakly dominated on the original game, so that might be a reason not to play it.</p>
+<div class="fragment">
+<p>This reasoning would break down if we extended the game just a couple more moves. Let’s turn to that.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The Centipede</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Game</h2>
+<p>Due to Robert Rosenthal (1981), and called the centipede because of what the diagram looks like once you draw enough legs on it.</p>
+<div class="fragment">
+<p>Two players alternate. At each turn you can <strong>take</strong> the larger share of a growing pot, which ends the game, or <strong>pass</strong>, in which case the pot grows and the other player faces the same choice.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Four Legs</h2>
+
+<img data-src="figures/centipede.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:88.0%" alt="A centipede game with four decision nodes, alternating between Player I and Player II"><div class="fragment">
+<p>Down is take, right is pass. The pair below each node is what the two players get if the mover takes there; 6, 4 is what they get if nobody ever takes.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Two Things to Notice</h2>
+<p>The pot grows. Totals are 2, then 4, then 6, then 8, then 10. Passing always makes the pie bigger.</p>
+<div class="fragment">
+<p>But at every node, the mover does better by taking <em>now</em> than by taking one round later. Alice gets 2 at node 1 and only 1 if Bob takes at node 2.</p>
+</div>
+<div class="fragment">
+<p>That creates some problems if we believe in backwards induction.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Backwards Induction</h2>
+<p>At node 4, Bob compares taking, worth 5, with passing, worth 4. He takes.</p>
+<div class="fragment">
+<p>At node 3, Alice compares taking, worth 4, with passing, which leads to Bob taking and gets her 3. She takes.</p>
+</div>
+<div class="fragment">
+<p>At node 2, Bob compares 3 with the 2 he gets when Alice takes at node 3. He takes.</p>
+</div>
+<div class="fragment">
+<p>At node 1, Alice compares 2 with the 1 she gets when Bob takes at node 2. She takes.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Result</h2>
+<p>There is just one unique subgame perfect equilibrium: Alice takes immediately. They walk away with 2 and 0.</p>
+<div class="fragment">
+<p>And the length doesn’t help. Hopefully you see the algorithm for making the game arbitrarily long. But as long as there’s a known end point, the induction argument works.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why This Is Strange</h2>
+<p>No individual step is strange.</p>
+<div class="fragment">
+<p>Bob really should take rather than pass at the last node. It is fairly plausible that Alice should take at the second-to-last.</p>
+</div>
+<div class="fragment">
+<p>But add up enough plausible steps and you get something wildly implausible.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Not Just a Bad Outcome</h2>
+<p>The complaint is <strong>not</strong> that they end up worse off than they could have been.</p>
+<div class="fragment">
+<p>One-shot prisoners’ dilemma has that structure too, and the standard view (which I agree with) is that this is tragic not irrational.</p>
+</div>
+<div class="fragment">
+<p>There are two complaints:</p>
+<ol type="1">
+<li class="fragment">You absolutely do not see the immediate take result in studies; this isn’t empirically adequate.</li>
+<li class="fragment">There feels like there is an argument against taking.</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Off the Path</h2>
+<p>Suppose Alice passes at node 1. Now Bob has to move at a node backwards induction says is never reached.</p>
+<div class="fragment">
+<p>The argument for taking at node 2 ran through “Alice will take at node 3”, which was derived from Alice being rational, and more precisely being the kind of person who acts in accordance with backwards induction reasoning. (Maybe she is rational but thinks Bob is an idiot, so this is a stronger claim.)</p>
+</div>
+<div class="fragment">
+<p>But here’s one thing Bob knows for sure when he moves: Alice does not always act in accordance with backwards induction reasoning.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>Defending Backwards Induction</h2>
+<p>The standard move here is to say that Bob should believe the following.</p>
+<ol type="1">
+<li class="fragment">Alice made a performance error, essentially her hand slipped.</li>
+<li class="fragment">This is something that he should think is possible, but has probability 0.</li>
+<li class="fragment">Nevertheless, conditional on having reached <em>any</em> node in the tree off the SPE path, the probability that one or other player slipped is 1.</li>
+<li class="fragment">The fact that there have been slips does not increase the probability she will ‘slip’ again.</li>
+</ol>
+<div class="fragment">
+<p>Given all that, you should play the subgame perfect equilibrium, even in light of this argument.</p>
+</div>
+<div class="fragment">
+<p>I feel the infamous <em>Blank Stare Argument</em> is warranted at this point.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>An Empirical Footnote</h2>
+<p>When people play centipede in the lab, they mostly do not take at the first node. The classic study is McKelvey and Palfrey (1992).</p>
+<div class="fragment">
+<p>They pass for a while and take somewhere in the middle.</p>
+</div>
+<div class="fragment">
+<p>That settles nothing about what is rational. There are plenty of experiments where people do unambiguously irrational things.</p>
+</div>
+<div class="fragment">
+<p>But it should raise some doubts, and make us worried how useful this is for social scientific work.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The Chain Store</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Setup</h2>
+<div title="Chain Store">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Chain Store</strong></p>
+</div>
+<div class="callout-content">
+<p>A chain has a branch in each of twenty towns. In each town there is one potential competitor. The competitors decide in sequence, one town per period, and each of them sees what happened in the earlier towns.</p>
+<p>In each town the competitor chooses <strong>in</strong> or <strong>out</strong>. If they come in, the chain chooses to be <strong>cooperative</strong> or <strong>aggressive</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Payoffs</h2>
+<p>Per town, chain first:</p>
+<div class="fragment">
+<ul>
+<li class="fragment">Competitor stays <strong>out</strong>: 5, 1</li>
+<li class="fragment">Competitor comes <strong>in</strong>, chain <strong>cooperates</strong>: 2, 2</li>
+<li class="fragment">Competitor comes <strong>in</strong>, chain is <strong>aggressive</strong>: 0, 0</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Monopoly profits are great. Price wars, the aggressive move, are bad for everyone. Losing a monopoly without launching a price war is bad, but you can live with it.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>One Town</h2>
+<p>Suppose there were only one town. Then the game seems easy.</p>
+<div class="fragment">
+<p>Given entry, the chain compares 2 from cooperating with 0 from fighting. It cooperates.</p>
+</div>
+<div class="fragment">
+<p>Knowing that, the competitor compares 2 from entering with 1 from staying out. She enters.</p>
+</div>
+<div class="fragment">
+<p>Outcome: 2, 2. And note that fighting isn’t merely unwise here; it is worse for the chain in every case where the choice arises at all.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Twenty Towns</h2>
+<p>Period 20 is exactly the one-town game, because there is nothing after it. So fine, the incumbent swallows their pride and cooperates.</p>
+<div class="fragment">
+<p>Period 19: what the chain does now cannot change period 20, since we know how it plays. which is already settled. So period 19 is also the one-town game. Great, so the result is entry, cooperate.</p>
+</div>
+<div class="fragment">
+<p>If we keep working through the reasoning, we see that the unique subgame perfect equilibrium: <strong>every</strong> competitor enters, and the chain <strong>always</strong> cooperates.</p>
+</div>
+<div class="fragment">
+<p>The chain earns <span class="math inline">\(2 \times 20 = 40\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Obvious Alternative</h2>
+<p>Fight the first few. Make an example of them. Word gets around, and later competitors stay out. This may be <strong>morally</strong> questionable, but it is arguably preferable <strong>legally</strong>, and it sure seems <strong>prudent</strong>.</p>
+<div class="fragment">
+<p>Here’s a plausible model. If you fight in town 1, you’ll scare off people until the last couple of towns, when the backwards induction argument starts to feel a bit more reasonable. So let’s say you, the chain, get <span class="math inline">\(17 \times 5 = 85\)</span> from the deterred towns, plus 2 in each of the last three, where the induction seems plausible. That is 91.</p>
+</div>
+<div class="fragment">
+<p>Maybe that’s too optimistic. Maybe three people at the start see what you’re made of, and three at the end think the finish line is so close the argument is viable. Still, you get <span class="math inline">\(0 + (14 \times 5) + (3 \times 2) = 76\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Last I looked, <span class="math inline">\(76 &gt; 40\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Where the Argument Goes Wrong</h2>
+<p>The step at period 19 was: <em>what I do now cannot change period 20</em>, since we know what everyone will do.</p>
+<div class="fragment">
+<p>That is true of the <strong>payoffs</strong> in period 20. It is not clearly true of the <strong>beliefs</strong> the competitor in town 20 will hold when she gets there.</p>
+</div>
+<div class="fragment">
+<p>And beliefs are the entire point of fighting. Backwards induction treats what the later players think about you as fixed, but when we think about the game abstractly, it’s reputation effects that we first think about.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The History of Yhis Game</h2>
+<p>The concept of subgame perfect equilibrium is Selten’s. He introduced it in 1965, in German, in a paper on oligopoly. English-speaking economists mostly found out about the game through a later, English, paper in 1975.</p>
+<div class="fragment">
+<p>The chain store paradox is also Selten’s, from a paper in 1978.</p>
+</div>
+<div class="fragment">
+<p>I think it’s kind of cool to come up with the most vivid counterexample to a central, textbook, theory that you came up with. It’s hard to think of many cases in philosophy like this.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Selten’s Own Verdict</h2>
+<p>He thinks the induction argument is still good as far as it goes. But how it goes is that it shows what a certain <em>level</em> of decision, what he calls the <em>reasoning</em> level, should do. That’s all game theory ever does.</p>
+<div class="fragment">
+<p>But, he says, human decision also involves routine and imagination, and they tell us to be aggressive in the first rounds.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Where That Leaves Us</h2>
+<p>Backwards induction is a procedure, and it always terminates in finite games.</p>
+<div class="fragment">
+<p>The argument for following it needs a premise about what players would do at nodes they will never reach, and you need some <em>strange</em> assumptions to warrant that.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Next Time</h2>
+<p>Look at a theory, forward induction, where the players do learn from players’ past moves, in a very weird way.</p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>PHIL 444 | University of Michigan</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

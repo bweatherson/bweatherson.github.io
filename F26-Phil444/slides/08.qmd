@@ -1,0 +1,464 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 8: Problems with Backwards Induction"
+author: "Brian Weatherson"
+date: "September 24, 2026"
+---
+
+# Cooperative Caterpillar
+
+## Where We Left Off
+
+Subgame perfection said that your dispositions must be sensible everywhere, even at off equilibrium points, and even at points ruled out by your moves.
+
+. . .
+
+That is very strong, and the aim today is to raise some doubts about it.
+
+. . .
+
+The short version is that we'll look first at some theoretical doubts about it, due to some prominent philosophers, and then look at some empirical reasons to doubt it, due to some prominent economists.
+
+. . .
+
+The two people we'll be talking most about today are Robert Stalnaker, a philosopher we've already mentioned, and Reinhard Selten, the economist who first came up with a formal statement of subgame perfect equilibrium.
+
+
+## The Game
+
+![](figures/caterpillar.svg){alt="The Cooperative Caterpillar, a three-node game where both players get the same payoff" fig-align="center" width="70%"}
+
+. . .
+
+This is really simple. There are at most three moves. At each node the player goes Across or Down. As soon as someone goes Down, the game ends.
+
+. . .
+
+It is a **common interest** game. Both players get the number at the terminal node.
+
+## The Game in words
+
+Down at the first node: both get 2.
+
+. . .
+
+Across, then down: both get 1.
+
+. . .
+
+Across, across, then down: both get 0.
+
+. . .
+
+Across all the way: both get 3.
+
+## Strategies
+
+Only one path reaches each decision node, so a strategy is just a plan for each node where you might move.
+
+. . .
+
+Player I moves at nodes 1 and 3, so her strategy is two capitals: $A_1A_2$, $A_1D_2$, $D_1A_2$, $D_1D_2$.
+
+. . .
+
+Player II moves once, so his strategy is a single lower-case letter: $a$ or $d$.
+
+. . .
+
+We're doing this really slowly, because it is tricky to see exactly where the alleged slip up in reasoning happens.
+
+## Backwards Induction
+
+At node 3, Player I compares $A_2$, worth 3, with $D_2$, worth 0. She plays $A_2$. (I'll generally make P1 female and P2 male, just to make the pronouns easier, in what follows.)
+
+. . .
+
+Given that, at node 2 Player II compares $a$, now worth 3, with $d$, worth 1. He plays $a$.
+
+. . .
+
+Given that, at node 1 Player I compares $A_1$, now worth 3, with $D_1$, worth 2. She plays $A_1$.
+
+. . .
+
+Unique subgame perfect equilibrium: $\langle A_1A_2, a \rangle$, and everyone gets 3. That is also the outcome almost anyone would play in a real-life version of this, so pretty good so far.
+
+## The Normal Form
+
+|            | $a$   | $d$   |
+|-----------:|:-----:|:-----:|
+| $A_1A_2$   | **3** | 1     |
+| $A_1D_2$   | 0     | 1     |
+| $D_1A_2$   | 2     | **2** |
+| $D_1D_2$   | 2     | **2** |
+
+: Cooperative Caterpillar in normal form; both players get the listed number {#tbl-caterpillar}
+
+## Three Equilibria
+
+The three bolded cells are all Nash equilibria. Check one: in $\langle D_1A_2, d \rangle$, Player I's alternatives against $d$ are 1, 1 and 2, and Player II gets 2 whatever he does.
+
+. . .
+
+Only the top one is subgame perfect. In the other two, Player II is planning to take 1 when 3 is on the table.
+
+. . .
+
+So subgame perfection really matters here. It tells you that precisely one of the three equilibria is going to be played when it's common knowledge that both players are rational. The question is whether it's entitled to.
+
+## Another Equilibrium
+
+So let's talk some more about the somewhat weird $\langle D_1A_2, d \rangle$ equilibrium.
+
+. . .
+
+First, just check that I'm not lying, that it is really an equilibrium.
+
+. . .
+
+Given that Player I plays $D_1$, Player II gets 2 no matter what he plans. So $d$ is a best response.
+
+Given that Player II plays $d$, Player I compares 2 from $D_1$ with the 1 she gets by playing $A_1$ and letting him take. So $D_1$ is a best response.
+
+## Could Rational Players Get There?
+
+Stalnaker says yes.
+
+. . .
+
+Suppose each player knows the other is rational, and knows the other's strategy.
+
+. . .
+
+Player I is easy. She takes 2 rather than the 1 she would get from going across, and she is disposed to take 3 rather than 0 if the game ever reaches node 3. Both choices are fine.
+
+## Player II Is Harder
+
+The objection: a rational Player II who knows Player I is rational **cannot** plan to play $d$.
+
+. . .
+
+Because if Player I is rational she will play $A_2$ at node 3. And if she plays $A_2$, then $a$ is worth 3 and $d$ is worth 1. So $d$ is indefensible.
+
+. . .
+
+That argument looks airtight. But maybe there's a gap.
+
+. . .
+
+Here's the big problem: we just said that rational Player I will play $D_1$. But in this hypothesis, Player I plays $A_1$ before Player II has to move. So in this hypothesis, she is irrational, and Player II knows that. So Player II shouldn't assume that she will be rational at the last node!
+
+. . .
+
+This objection is originally due to Robert Sugden (a very philosophical economist), and Philip Pettit (a philosopher who has worked with many economists). Stalnaker has a particular version of the objection.
+
+## Two Conditionals
+
+- If Player I has the choice, she chooses $A_2$ over $D_2$.
+- If Player I *were* to have the choice, she *would* choose $A_2$ over $D_2$.
+
+. . .
+
+The first is **indicative**, and Player II knows it is true.
+
+. . .
+
+The second is **subjunctive**, and he does **not** know it is true.
+
+## Why That Subjunctive Fails
+
+To reach node 3, Player I must first have played $A_1$.
+
+. . .
+
+Given that Player II plans to play $d$, playing $A_1$ is irrational — it trades 2 for 1.
+
+. . .
+
+So node 3 is only reached by a player who has already blundered. People who make mistakes, make mistakes. So she might make another.
+
+. . .
+
+The argument for $a$ needed the subjunctive conditional, but Player II is only in a position to believe the indicative.
+
+## An Analogy
+
+These three beliefs are consistent:
+
+. . .
+
+- Any perfectly rational being gets every question on the algebra exam right.
+- Alice is perfectly rational.
+- If Alice had got the second-hardest question wrong, she would have got the hardest one wrong too.
+
+. . .
+
+You can believe someone is perfect and still have views about what they would be like if they weren't.
+
+## What Stalnaker Concludes
+
+Common knowledge of rationality does not license the backwards induction argument, because the argument quietly needs a subjunctive that common knowledge of rationality does not deliver.
+
+. . .
+
+Note where this leaves us. The *answer* backwards induction gives in **Cooperative Caterpillar** is perfectly sensible. The *reasoning* is not.
+
+. . .
+
+So we cannot defend backwards induction by saying it works in practice even if the theory is shaky. Next we look at a game where it doesn't work in practice either.
+
+## Stalnaker
+
+Stalnaker's official view is that you should end up at the 3 outcome in caterpillar, but not because of backwards induction.
+
+It's rather because he thinks you should eliminate weakly dominated options, once. (Sometimes he thinks you can justify one more iteration of weakly dominated strategies.)
+
+For Player II, $d$ is weakly dominated on the original game, so that might be a reason not to play it.
+
+. . .
+
+This reasoning would break down if we extended the game just a couple more moves. Let's turn to that.
+
+# The Centipede
+
+## The Game
+
+Due to Robert Rosenthal (1981), and called the centipede because of what the diagram looks like once you draw enough legs on it.
+
+. . .
+
+Two players alternate. At each turn you can **take** the larger share of a growing pot, which ends the game, or **pass**, in which case the pot grows and the other player faces the same choice.
+
+## Four Legs
+
+![](figures/centipede.svg){alt="A centipede game with four decision nodes, alternating between Player I and Player II" fig-align="center" width="88%"}
+
+. . .
+
+Down is take, right is pass. The pair below each node is what the two players get if the mover takes there; 6, 4 is what they get if nobody ever takes.
+
+## Two Things to Notice
+
+The pot grows. Totals are 2, then 4, then 6, then 8, then 10. Passing always makes the pie bigger.
+
+. . .
+
+But at every node, the mover does better by taking *now* than by taking one round later. Alice gets 2 at node 1 and only 1 if Bob takes at node 2.
+
+. . .
+
+That creates some problems if we believe in backwards induction.
+
+## Backwards Induction
+
+At node 4, Bob compares taking, worth 5, with passing, worth 4. He takes.
+
+. . .
+
+At node 3, Alice compares taking, worth 4, with passing, which leads to Bob taking and gets her 3. She takes.
+
+. . .
+
+At node 2, Bob compares 3 with the 2 he gets when Alice takes at node 3. He takes.
+
+. . .
+
+At node 1, Alice compares 2 with the 1 she gets when Bob takes at node 2. She takes.
+
+## The Result
+
+There is just one unique subgame perfect equilibrium: Alice takes immediately. They walk away with 2 and 0.
+
+
+. . .
+
+And the length doesn't help. Hopefully you see the algorithm for making the game arbitrarily long. But as long as there's a known end point, the induction argument works.
+
+## Why This Is Strange
+
+No individual step is strange.
+
+. . .
+
+Bob really should take rather than pass at the last node. It is fairly plausible that Alice should take at the second-to-last.
+
+. . .
+
+But add up enough plausible steps and you get something wildly implausible.
+
+## Not Just a Bad Outcome
+
+The complaint is **not** that they end up worse off than they could have been.
+
+. . .
+
+One-shot prisoners' dilemma has that structure too, and the standard view (which I agree with) is that this is tragic not irrational.
+
+. . .
+
+There are two complaints:
+
+1. You absolutely do not see the immediate take result in studies; this isn't empirically adequate.
+2. There feels like there is an argument against taking.
+
+## Off the Path
+
+Suppose Alice passes at node 1. Now Bob has to move at a node backwards induction says is never reached.
+
+. . .
+
+The argument for taking at node 2 ran through "Alice will take at node 3", which was derived from Alice being rational, and more precisely being the kind of person who acts in accordance with backwards induction reasoning. (Maybe she is rational but thinks Bob is an idiot, so this is a stronger claim.)
+
+. . .
+
+But here's one thing Bob knows for sure when he moves: Alice does not always act in accordance with backwards induction reasoning.
+
+## Defending Backwards Induction
+
+The standard move here is to say that Bob should believe the following.
+
+1. Alice made a performance error, essentially her hand slipped. 
+2. This is something that he should think is possible, but has probability 0. 
+3. Nevertheless, conditional on having reached *any* node in the tree off the SPE path, the probability that one or other player slipped is 1.
+4. The fact that there have been slips does not increase the probability she will 'slip' again.
+
+. . .
+
+Given all that, you should play the subgame perfect equilibrium, even in light of this argument.
+
+. . .
+
+I feel the infamous *Blank Stare Argument* is warranted at this point.
+
+## An Empirical Footnote
+
+When people play centipede in the lab, they mostly do not take at the first node. The classic study is McKelvey and Palfrey (1992).
+
+. . .
+
+They pass for a while and take somewhere in the middle.
+
+. . .
+
+That settles nothing about what is rational. There are plenty of experiments where people do unambiguously irrational things.
+
+. . .
+
+But it should raise some doubts, and make us worried how useful this is for social scientific work.
+
+# The Chain Store
+
+## The Setup
+
+::: {.callout-tip title="Chain Store"}
+A chain has a branch in each of twenty towns. In each town there is one potential competitor. The competitors decide in sequence, one town per period, and each of them sees what happened in the earlier towns.
+
+In each town the competitor chooses **in** or **out**. If they come in, the chain chooses to be **cooperative** or **aggressive**.
+:::
+
+## The Payoffs
+
+Per town, chain first:
+
+. . .
+
+- Competitor stays **out**: 5, 1
+- Competitor comes **in**, chain **cooperates**: 2, 2
+- Competitor comes **in**, chain is **aggressive**: 0, 0
+
+. . .
+
+Monopoly profits are great. Price wars, the aggressive move, are bad for everyone. Losing a monopoly without launching a price war is bad, but you can live with it.
+
+## One Town
+
+Suppose there were only one town. Then the game seems easy.
+
+. . .
+
+Given entry, the chain compares 2 from cooperating with 0 from fighting. It cooperates.
+
+. . .
+
+Knowing that, the competitor compares 2 from entering with 1 from staying out. She enters.
+
+. . .
+
+Outcome: 2, 2. And note that fighting isn't merely unwise here; it is worse for the chain in every case where the choice arises at all.
+
+## Twenty Towns
+
+Period 20 is exactly the one-town game, because there is nothing after it. So fine, the incumbent swallows their pride and cooperates.
+
+. . .
+
+Period 19: what the chain does now cannot change period 20, since we know how it plays. which is already settled. So period 19 is also the one-town game. Great, so the result is entry, cooperate.
+
+. . .
+
+If we keep working through the reasoning, we see that the unique subgame perfect equilibrium: **every** competitor enters, and the chain **always** cooperates.
+
+. . .
+
+The chain earns $2 \times 20 = 40$.
+
+## The Obvious Alternative
+
+Fight the first few. Make an example of them. Word gets around, and later competitors stay out. This may be **morally** questionable, but it is arguably preferable **legally**, and it sure seems **prudent**.
+
+. . .
+
+Here's a plausible model. If you fight in town 1, you'll scare off people until the last couple of towns, when the backwards induction argument starts to feel a bit more reasonable. So let's say you, the chain, get $17 \times 5 = 85$ from the deterred towns, plus 2 in each of the last three, where the induction seems plausible. That is 91.
+
+. . .
+
+Maybe that's too optimistic. Maybe three people at the start see what you're made of, and three at the end think the finish line is so close the argument is viable. Still, you get $0 + (14 \times 5) + (3 \times 2) = 76$.
+
+. . .
+
+Last I looked, $76 > 40$.
+
+## Where the Argument Goes Wrong
+
+The step at period 19 was: *what I do now cannot change period 20*, since we know what everyone will do.
+
+. . .
+
+That is true of the **payoffs** in period 20. It is not clearly true of the **beliefs** the competitor in town 20 will hold when she gets there.
+
+. . .
+
+And beliefs are the entire point of fighting. Backwards induction treats what the later players think about you as fixed, but when we think about the game abstractly, it's reputation effects that we first think about.
+
+## The History of Yhis Game
+
+The concept of subgame perfect equilibrium is Selten's. He introduced it in 1965, in German, in a paper on oligopoly. English-speaking economists mostly found out about the game through a later, English, paper in 1975.
+
+. . .
+
+The chain store paradox is also Selten's, from a paper in 1978.
+
+. . .
+
+I think it's kind of cool to come up with the most vivid counterexample to a central, textbook, theory that you came up with. It's hard to think of many cases in philosophy like this.
+
+## Selten's Own Verdict
+
+He thinks the induction argument is still good as far as it goes. But how it goes is that it shows what a certain *level* of decision, what he calls the *reasoning* level, should do. That's all game theory ever does.
+
+. . .
+
+But, he says, human decision also involves routine and imagination, and they tell us to be aggressive in the first rounds.
+
+## Where That Leaves Us
+
+Backwards induction is a procedure, and it always terminates in finite games.
+
+. . .
+
+The argument for following it needs a premise about what players would do at nodes they will never reach, and you need some *strange* assumptions to warrant that.
+
+## Next Time
+
+Look at a theory, forward induction, where the players do learn from players' past moves, in a very weird way.
