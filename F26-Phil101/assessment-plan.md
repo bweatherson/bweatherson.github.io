@@ -63,6 +63,31 @@ The cost is that Short Answer 2 cannot ask about the dualism classes, since they
 
 Module Quiz 2 shifts its due date to Sunday 1 November so it does not land in the same week as Short Answer 2.
 
+### What has to be ready beforehand
+
+The table above is the student-facing calendar. This is the other half: what has to exist before each of those dates, and who has to have done it. Written on 17 September, at the end of Day 6.
+
+**Before Day 7, Tuesday 22 September.** This is the first quiz that counts, so three things want settling first.
+
+*Whether students whose home college is not LSA are covered by the iClicker licence.* LSA belongs to the enterprise consortium, but its own documentation says students from other colleges may have to pay, and an intro course this size will have a lot of them. Up to Day 7 a student who could not log in lost nothing. From Day 7 they lose marks. Ask LSATechnologyServices@umich.edu.
+
+*How many quiz days there actually are.* Twenty-five lectures carry a required reading, and twenty-one of those fall on or after Day 7. The syllabus promises quizzes on twenty days with the best fifteen counting, so there is exactly one spare day in the whole term. Running a quiz on all twenty-one eligible days and counting the best fifteen over-delivers slightly on the promise and keeps the spare day; cutting to best fifteen of eighteen also fixes the arithmetic but makes the scheme harsher than the published version part-way through the term. Days 5 and 6 were announced to the class as practice and should not be counted retroactively.
+
+*What iClicker syncs to Canvas.* Since best-fifteen is computed in `tools/reading-quizzes.R`, iClicker probably should not write to the gradebook at all, rather than writing a number that is wrong all term and gets overwritten in December.
+
+**The GSI meeting is the critical path, and it wants to happen by Friday 26 September.** Short Answer 1 is written in section in the week of 5 October. Before it can run there has to be: three or four prompts, the engagement rubric, a worked marking example, the agreed menu for the 5% task, accommodation requirements checked, and one makeup slot booked across all six sections. Two of the three GSIs have never marked anything. None of that survives being done in the week it happens.
+
+**Then, in order.**
+
+| When | What | What has to be ready |
+|---|---|---|
+| Tue 29 Sep | Module Quiz 1 opens, due Sun 4 Oct | Questions on Days 1-9, written the week before |
+| Week of 5 Oct | Short Answer 1, in section | Everything from the GSI meeting above |
+| Thu 8 Oct | Short Answer 2 out, due Fri 23 Oct | Five prompts on Days 10-12 |
+| Thu 15 Oct | Module Quiz 2 opens, due Sun 1 Nov | Questions on Days 10-14 |
+
+**One dependency that is easy to miss.** Short Answer 2 is set on Days 10 to 12: perception, Nagel and Mary. Those three decks have to exist before 8 October, because the prompts come out of them. That puts three lecture-writing sessions inside the same three weeks as the GSI meeting and two sets of quiz questions.
+
 ## The tasks
 
 ### Reading quizzes (15%)
@@ -73,7 +98,7 @@ Run these on roughly twenty of the twenty-four lecture days that carry a reading
 
 At 15% this is the largest automatically-graded component, which is deliberate. It is also the one a student cannot outsource, since they have to be in the room.
 
-Two things to watch. At 9am with 150 students, clicker scores are partly an attendance measure, and proxy clicking is the standard failure. Whatever platform is used should be one that ties responses to the room. Second, Days 1, 2, and 28 carry no reading, and Day 3 currently has none assigned, so quizzing cannot begin before Day 4.
+Two things to watch. At 9am with 150 students, clicker scores are partly an attendance measure, and proxy clicking is the standard failure. Whatever platform is used should be one that ties responses to the room. Second, only Days 1, 2 and 28 carry no required reading, so twenty-five days are eligible. Days 5 and 6 were run as an ungraded soft launch, which leaves twenty-one eligible days from Day 7 onward.
 
 ### Discussion section (20%)
 
@@ -159,10 +184,10 @@ The honest position to take with the class is that the components which can be a
 
 ## Open items
 
-- Confirm the clicker platform and whether it ties responses to the room.
 - Settle the internal split of the 20% section component with the GSIs, and agree the engagement rubric and the menu for the 5% task.
 - Two of three GSIs are new to teaching: budget time for a rubric walkthrough, a worked marking example, and a post-first-batch calibration meeting.
 - Confirm the exam date and length once the University publishes the schedule, and confirm the short-answer questions can be drawn from Days 22 to 28.
 - Check accommodation requirements before fixing the Short Answer 1 section date.
 - Confirm the GSIs can return marked Short Answer 2 scripts by Friday 6 November. The date is not movable: the essay question goes out with them, and pushing it later eats the essay window rather than the marking window.
-- Decide the reading-quiz drop policy. Best 15 of about 20 gives five free absences, which is generous, but it also means a student sitting on fifteen strong scores by mid-November can skip the last three weeks at no cost. Best 15 of 18 closes that and is harsher on genuine illness. The final's short-answer section pointing at Days 22 to 28 is the other half of the answer.
+- Fix the reading-quiz denominator before Day 7. Twenty-one eligible days remain and the syllabus promises twenty quizzes, so there is one spare day for the term. Running all twenty-one and counting the best fifteen is the option that does not make the published scheme harsher. Best 15 of 20 also leaves a student sitting on fifteen strong scores by mid-November free to skip the last three weeks at no cost; the final's short-answer section pointing at Days 22 to 28 is the other half of the answer to that.
+- Settle whether students outside LSA are covered by the iClicker licence. Time-critical: graded quizzes begin Day 7.
