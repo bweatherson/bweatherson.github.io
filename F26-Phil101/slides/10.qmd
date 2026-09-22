@@ -1,0 +1,262 @@
+---
+title: "Perception Reconsidered"
+subtitle: "Phil 101 · Day 10"
+author: "Brian Weatherson"
+date: "2026-10-01"
+---
+
+# Where we are
+
+## Four weeks on one foundation
+
+Since Day 5 we've been leaning on perception.
+
+- It was where the regress stopped.
+- It was the thing testimony was supposed to reduce to, along with inference.
+- It was what Anderson's experts were ultimately reporting on.
+
+. . .
+
+Today we stop leaning on it and look at it.
+
+## A debt from Day 5
+
+When the checkershadow made trouble for foundationalism, we met a standard move:
+
+> What's basic isn't *square A is darker than square B*, but rather *square A looks darker to me*.
+
+. . .
+
+The cost was that your starting points became facts about what's going on inside your head, and you then need a way back out to the world.
+
+Today we take that move seriously, because Bertrand Russell did.
+
+# A creature with no senses
+
+## The flying man
+
+Before Russell, a thought experiment from Ibn Sīnā (Avicenna), writing in Persia in the early eleventh century.
+
+Imagine a man created all at once, fully formed. His eyes are covered. He's suspended in the air, with nothing touching him, and his limbs are held apart so they don't even touch each other.
+
+He perceives nothing at all.
+
+## Would he know he exists?
+
+Avicenna's answer is yes. He'd affirm his own existence without affirming that he has a body, or any part of one.
+
+. . .
+
+Hold on to this. It comes back on Day 13, when we ask what kind of thing you are.
+
+For today it marks the limit case. Everything else we'll talk about is what the senses add.
+
+# Russell's table
+
+## Is anything certain?
+
+:::: {.callout-note title="Russell, *The Problems of Philosophy*, ch. 1"}
+Is there any knowledge in the world which is so certain that no reasonable man could doubt it?
+::::
+
+. . .
+
+Russell's first candidate is the table he's sitting at. It looks oblong, brown and shiny. It feels smooth and cool and hard. Surely he knows that much.
+
+## Color
+
+Walk around the table and the color changes. The parts that reflect the light look much brighter than the rest. In the dark there's no color at all.
+
+:::: {.callout-note title="Russell"}
+But the other colours which appear under other conditions have just as good a right to be considered real; and therefore, to avoid favouritism, we are compelled to deny that, in itself, the table has any one particular colour.
+::::
+
+## Shape
+
+We say the table is rectangular. But from almost anywhere you stand, it looks as if it has two acute angles and two obtuse ones.
+
+:::: {.callout-note title="Russell"}
+The 'real' shape is not what we see; it is something inferred from what we see.
+::::
+
+. . .
+
+And texture goes the same way. The table looks smooth. Under a microscope it's all hills and valleys, and there's no obvious reason the microscope should lose the argument.
+
+## Russell's vocabulary
+
+:::: {.callout-note title="Russell"}
+Let us give the name of 'sense-data' to the things that are immediately known in sensation: such things as colours, sounds, smells, hardnesses, roughnesses, and so on.
+::::
+
+Sensation
+:    The experience of being immediately aware of something.
+
+Sense-data
+:    What you're immediately aware of: the colors, shapes and textures.
+
+Physical object
+:    The table, if there is one.
+
+## The two questions
+
+Once the table and what you see have come apart, Russell says two questions arise.
+
+:::: {.callout-note title="Russell"}
+(1) Is there a real table at all? (2) If so, what sort of object can it be?
+::::
+
+. . .
+
+Notice what's happened to Day 5's regress-stopper. It used to be *I see the table*. Now it's *I'm aware of some brown, shiny patches*, and the table is a conclusion.
+
+# The argument from illusion
+
+## A quick question
+
+You're looking at a white wall under strange lighting, and it looks yellow.
+
+**What are you aware of?**
+
+A.  A white wall
+B.  Something yellow, which isn't the wall
+C.  A white wall, which looks yellow
+D.  Strictly, nothing. There's just a way you're experiencing.
+
+. . .
+
+Hold on to your answer. Each option is somebody's theory.
+
+## The first half
+
+Russell's reasoning has been tidied up into what's called the **argument from illusion**. Here's the first half.
+
+1. In an illusion, it seems to you that something is yellow, although the wall you're looking at isn't.
+2. Whenever it seems to you that something is yellow, there really is something yellow that you're directly aware of.
+3. So in an illusion, what you're directly aware of isn't the wall.
+
+. . .
+
+Premise 2 has a name, the **Phenomenal Principle**. Remember it; everything turns on it.
+
+## The spreading step
+
+That only covers illusions. The second half spreads the conclusion.
+
+4. Illusions and ordinary perceptions can be exactly alike from the inside, so the same account should cover both.
+5. So even when things go right, what you're directly aware of isn't the wall.
+
+. . .
+
+Conclusion: you are never directly aware of ordinary objects. Only of sense-data.
+
+## Once more
+
+::: {layout="[40,60]"}
+
+::: {}
+![](../images/Checker_shadow_illusion.svg){fig-alt="A checkerboard with a cylinder casting a shadow, with squares A and B marked."}
+:::
+
+::: {}
+On Day 3 this was evidence that perception and processing are separate systems. On Day 5 it was a problem for foundationalism.
+
+Today it asks a new question. A and B are the same shade. So what is the *darker* thing you're aware of when you look at A?
+
+The sense-data theorist has an answer: a darker patch, which isn't the square.
+:::
+
+:::
+
+# What it costs
+
+## The veil
+
+If all you're ever directly aware of is sense-data, then the world sits behind them, like a scene behind a curtain you can never lift.
+
+. . .
+
+Everything you believe about tables, people and planets becomes an inference from patches of color to their causes.
+
+That's Day 5's cost in full. And, as we said then, the attempts to make that inference respectable have not been spectacular successes.
+
+## Private objects
+
+Your sense-data are yours. Nobody else can be aware of them.
+
+. . .
+
+So when the class and I look at the same table, we aren't sharing evidence. Each of us has our own private patches, and all we can compare is our reports about them.
+
+That quietly turns *all* shared evidence into testimony about private objects, which is a strange place to have ended up after three weeks defending testimony.
+
+## Strange objects
+
+And what are these things?
+
+The yellow patch isn't on the wall, which is white. Is it in your head? Your head isn't yellow either.
+
+. . .
+
+The sense-data theorist has answers. But it's fair to say the view buys certainty about what you're aware of by making what you're aware of very odd.
+
+# Two ways out
+
+## Reject premise 2
+
+The argument's weak point is the Phenomenal Principle: the claim that if something *seems* yellow, there must *be* something yellow.
+
+Two big rivals to the sense-data theory both deny it.
+
+## Representation
+
+On the first view, experience works like a description. Your experience **represents** the wall as yellow.
+
+. . .
+
+A false sentence about a yellow wall doesn't need a yellow wall to exist. It's just false.
+
+Likewise an illusion doesn't need a yellow object. It's an experience that gets things wrong. You're still aware of the wall, misrepresented.
+
+## Naive realism
+
+On the second view, you're simply aware of the wall itself, and **looking yellow** is something the wall does in that light, to a viewer like you.
+
+. . .
+
+Here's the neat part. Russell has already said it. The color, he wrote, is "something depending upon the table and the spectator and the way the light falls on the table."
+
+A naive realist agrees, and concludes that looks are relations between the table, the light and you. Nothing in that requires a private object.
+
+## Where that leaves the checkershadow
+
+Look back at the options from the question.
+
+- **B** is the sense-data theory: you're aware of a darker patch, which isn't the square.
+- **C** is where both rivals live: you're aware of the square, which looks darker.
+- **D** is a third rival we won't pursue, on which there's no object at all, just a way of experiencing.
+
+. . .
+
+Nobody picks **A** once they've seen the illusion. The disagreement is over B and C.
+
+# Going forward
+
+## Short Answer 2
+
+Today is one of the three topics for Short Answer 2, which goes out a week from today.
+
+The five moves it asks for line up with today almost exactly: state the view, give its best argument, give the most serious objection, give the reply, and say where you land.
+
+## This week
+
+- Module Quiz 1, on Lectures 1 to 9, is due on Sunday.
+- Short Answer 1 is written in section next week.
+
+## Tuesday
+
+Today asked what experience is *of*.
+
+. . .
+
+Tuesday asks what it's *like*, starting with a bat.
