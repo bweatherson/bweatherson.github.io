@@ -1,0 +1,376 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 10: Bayesian Games"
+author: "Brian Weatherson"
+date: "October 1, 2026"
+---
+
+# Two Kinds of Ignorance
+
+## What You Might Not Know
+
+When we introduced information sets, we said that  players were sometimes ignorant about what had already happened. They knew the game; they didn't know where they were in it.
+
+. . .
+
+That what game theorists call **imperfect information**.
+
+. . .
+
+There is a second thing you might not know. You might not know **what game you are in**.
+
+## What Game You Are In
+
+We're going to cheat a little bit here, perhaps more than a little.
+
+The way we talk will be a little ambiguous about what counts as a 'game'.
+
+In one very ordinary sense, what we'll do today is represent situations where you don't know what game you're in.
+
+. . .
+
+But in a more mathematical sense, this will still look like ignorance about prior moves.
+
+It just won't be ignorance about prior moves by human players; it will be ignorance of moves by Nature.
+
+## Incomplete Information
+
+You might not know the other player's payoffs, and so not know what they are trying to achieve.
+
+. . .
+
+With imperfect information you know the whole payoff table and don't know where you are in the tree. 
+
+With **incomplete** information you don't know the table.
+
+## Why This Is the Normal Case
+
+When you bargain over a used car, you don't know how much the seller values it.
+
+. . .
+
+When a firm decides whether to enter a market, it doesn't know the incumbent's costs.
+
+. . .
+
+When two states approach a crisis, neither knows how much the other is willing to lose.
+
+. . .
+
+Writing down a payoff table and assuming both players can see it is a dramatic idealisation, and it really undermines the usefulness of this as a modeling technique.
+
+## Harsanyi's Trick
+
+John Harsanyi's idea, from 1967, is to turn a game of incomplete information into one of imperfect information, reducing something to the previous problem,
+
+. . .
+
+Let the ignorance be about a **move** rather than about the game.
+
+. . .
+
+Add a player, **Nature**, who moves first, and whose move settles what the payoffs are. 
+
+Nature isn't *choosing*; it's a draw from a distribution that is common knowledge.
+
+## The Picture
+
+![](figures/nature.svg){alt="Nature moves first, choosing between two types, and Row cannot tell which branch has been taken" fig-align="center" width="46%"}
+
+. . .
+
+Nature moves. Typically we assume each player sees part of what Nature did, but not all of it. 
+
+What a player sees is their **type**.
+
+. . .
+
+Here Row sees nothing, so Row's two nodes are in one information set. So if what Nature is doing is assigning a type to Column, we'd use a diagram like this.
+
+## What a Type Can Encode
+
+In most of our examples a type just is a payoff function. But nothing turns on that.
+
+. . .
+
+A type could encode what abilities the player has, so which moves they can even make is a function of their type. (This is relevant in some signaling games.)
+
+. . .
+
+The language of 'types' suggests it should be a fact about the player, but this isn't necessary. If one player can see whether it's raining and the other can't, it's often useful to call the first player's type *rain* or *sun*.
+
+## A Bayesian Game
+
+A **Bayesian game** has:
+
+. . .
+
+- a set of players;
+- for each player, a set of actions;
+- for each player, a set of possible **types**;
+- a probability distribution over profiles of types, the **prior**;
+- for each player, a payoff function depending on everyone's actions and on their own type.
+
+## The Common Prior
+
+We assume the prior is common knowledge. This is the **common prior assumption**.
+
+. . .
+
+The players start out agreeing about how likely each type profile is, and disagree only because they have seen different draws.
+
+. . .
+
+Is this plausible? Probably not in general. It's worth thinking case by case about whether this is leading to weird predictions
+
+## How It Simplifies Our Analysis
+
+To understand these games, we just have to model the players as conditionalising the common prior on their own type.
+
+. . .
+
+That gives a probability distribution over the others' types, and everyone can know what it is. We get some common knowledge assumptions back, or close enough to back, really fast.
+
+# Bayesian Nash Equilibrium
+
+## Strategies, Again
+
+Remember, strategies are meant to be what a maximally intrusive coach, who wants to plan for *every* situation, would do. 
+
+So that includes a plan for what to do when it rains or shines, when you are miserly or generous, and in general whatever type you have.
+
+. . .
+
+A **strategy** in a Bayesian game is a function from that player's types to that player's actions.
+
+## Strategy Count
+
+If Col has two types, and two moves available whatever the type, Col has **four** strategies.
+
+. . .
+
+E.g., $X$ whatever happens; $Y$ whatever happens; $X$ if the first type and $Y$ if the second; $Y$ if the first and $X$ if the second.
+
+. . .
+
+Col only ever performs one action in any play. But the strategy has to be defined for the type Col didn't turn out to have, because Row's reasoning depends on it.
+
+. . .
+
+This is somewhat natural when the strategies are what to do given rain or shine; it's somewhat less natural when the strategies are what to do given this or that personality type.
+
+## The Definition
+
+A **Bayesian Nash equilibrium** is a profile of strategies such that each type of each player is choosing an action that maximises expected payoff, given the others' strategies and given the beliefs about the others' types you get by conditioning the prior on your own type.
+
+. . .
+
+Equivalently, and more cleanly: a Bayesian Nash equilibrium is a **Nash equilibrium of the imperfect information game Harsanyi's transformation produces**.
+
+## Not Yet Sequential
+
+BNE asks: given your type, and given what everyone else's types would do, is your action optimal?
+
+. . .
+
+It does not ask what you would believe, or do, at a point in the game you didn't expect to reach. We'll get to games like that in a bit, but for now we're looking at games that don't include one player moves and then another.
+
+. . .
+
+Once a player moves and another player watches, Nash stops being enough. The concept for that is Perfect Bayesian Equilibrium, we'll talk about it next time.
+
+# An Example
+
+## Sociable or Elusive
+
+Battle of the Sexes, with one change. Row still wants to meet Col. But Col might not want to meet Row. Col knows whether they do, but for Row, this is a mystery.
+
+. . .
+
+With probability $\frac{1}{2}$ Col is **sociable**, and wants to meet. With probability $\frac{1}{2}$ Col is **elusive**, and would rather be wherever Row isn't.
+
+. . .
+
+This is Col's *type*, so as always Col knows it and Row doesn't.
+
+## The Two Tables
+
+Sociable Col:
+
+|         |     | $X$   | $Y$   |
+|--------:|:---:|:-----:|:-----:|
+| **Row** | $X$ | 2, 1  | 0, 0  |
+|         | $Y$ | 0, 0  | 1, 2  |
+
+: Col wants to meet {#tbl-soc}
+
+Elusive Col:
+
+|         |     | $X$   | $Y$   |
+|--------:|:---:|:-----:|:-----:|
+| **Row** | $X$ | 2, 0  | 0, 2  |
+|         | $Y$ | 0, 1  | 1, 0  |
+
+: Col does not {#tbl-elu}
+
+## Col's Side
+
+Col has it relatively easy, because Col knows which table is real.
+
+. . .
+
+Sociable Col wants to match. If Row plays $X$, she gets 1 from $X$ and 0 from $Y$, so plays $X$. If Row plays $Y$, she gets 0 from $X$ and 2 from $Y$, so plays $Y$.
+
+. . .
+
+Elusive Col wants to mismatch. If Row plays $X$, she gets 0 from $X$ and 2 from $Y$, so plays $Y$. If Row plays $Y$, she plays $X$.
+
+## Row's Side
+
+Row has to average. Suppose Col's strategy is *$X$ if sociable, $Y$ if elusive*.
+
+. . .
+
+From Row's side that is $X$ half the time and $Y$ half the time.
+
+$$E(X) = \tfrac{1}{2} \times 2 + \tfrac{1}{2} \times 0 = 1$$
+
+$$E(Y) = \tfrac{1}{2} \times 0 + \tfrac{1}{2} \times 1 = \tfrac{1}{2}$$
+
+. . .
+
+So Row plays $X$.
+
+## Checking That This is Equilibrium
+
+Given that Row plays $X$, does sociable Col want to play $X$? Yes.
+
+. . .
+
+Also given that Row plays $X$, does elusive Col want to play $Y$? Yes.
+
+. . .
+
+It all works; each player likes their strategy given the other player's strategy.
+
+## Different Perspectives
+
+Col's two types do different things. That this might happen is why the machinery is interesting.
+
+. . .
+
+Externally, Row is facing one person. 
+
+From the inside, Row is facing a distribution over opponents, and has to pick an action that is good on average against it.
+
+## Different Perspectives
+
+Row's behaviour looks, from outside, exactly like behaviour in an ordinary game. Row picks $X$.
+
+. . .
+
+The incomplete information is not visible in what Row does, but in *why* Row does it, and in what Row would have done had the probabilities been different.
+
+## Varying the Prior
+
+Suppose Col is sociable with probability $p$.
+
+. . .
+
+Row's expected payoff from $X$ is $2p$; from $Y$ it is $1 - p$.
+
+. . .
+
+So this equilibrium survives just when $2p \geqslant 1 - p$, that is, when $p \geqslant \frac{1}{3}$.
+
+## Below a Third
+
+Below $\frac{1}{3}$ it collapses, and there is no pure strategy equilibrium at all.
+
+. . .
+
+Whatever Row does, if Col knows it, Col will probably be avoiding Row, and that's what Row doesn't want.
+
+Notice that there is no pure strategy equilibrium of @tbl-elu, and if that's probably the actual game, it isn't too surprising there is no pure strategy equilibrium.
+
+. . .
+
+So Row has to mix. I won't work through it, but the result is that Row plays $X$ a third of the time. 
+
+# Purification
+
+## Explaining Mixed Strategies
+
+A few classes back I left a problem open.
+
+. . .
+
+Mixed equilibria seem to require players to randomise, and it isn't clear why anyone would.
+
+. . .
+
+At a mixed equilibrium every pure strategy in the support does exactly as well as the mixture. The only thing your mixing accomplishes is keeping the **other** player indifferent, which is a strange thing to be aiming at.
+
+## Harsanyi's Answer
+
+The randomness is really ignorance about payoffs, not randomness in behaviour.
+
+. . .
+
+Take a game with a mixed equilibrium and no pure one. Now give each player a little private information: your payoff in some outcome is not, say, precisely $2$, it's really $2 + \delta$, where $\delta$ is drawn from $[-\epsilon, \epsilon]$ for tiny $\epsilon$, and only you see it.
+
+. . .
+
+That is a Bayesian game. Your type is your value of $\delta$.
+
+## Almost Nobody Randomises
+
+In the Bayesian equilibrium of the perturbed game, almost every type has a **strict** best reply. (By almost everybody, I mean with probability 1 you have a strict best reply.)
+
+. . .
+
+A player whose private draw tips her slightly towards one action simply takes it. We avoid having to either posit randomising devices, like coins, or players having weird dispositions to confuse the other party.
+
+. . .
+
+But the players' actions look random from the outside, because we can't see their types. The randomising by Nature is enough for the game to look like it is being played by players with random number generators in their heads.
+
+## The Theorem
+
+Harsanyi (1973): as $\epsilon$ shrinks to zero, those pure strategy equilibria converge to the mixed equilibrium of the original game.
+
+. . .
+
+The mixed equilibrium is a **limit of pure strategy Bayesian Nash equilibria of nearby games of incomplete information**.
+
+. . .
+
+If that's right, the interpretive problem dissolves. Nobody was randomising. The mixture was never a description of anyone's decision; it was a description of what the opponent could work out.
+
+## The Theorem
+
+I am really not going to prove this, for several reasons.
+
+One is that it requires talking about the probability of **distributions**, and we're going to try to use discrete probabilities wherever we can.
+
+Another is that I would just mess it up. But go and read Harsanyi if you're worried!
+
+## Does It Work?
+
+Two related worries.
+
+. . .
+
+First, the whole thing reasons from a sequence to its limit. That's a big jump, and not always justified.
+
+. . .
+
+Second,how much can we learn about a game by looking at *different* games, even neighbouring ones?
+
+. . .
+
+For what it's worth, "look at nearby games" has been enormously influential. Several of the concepts in the rest of this part of the course, including Subgame Perfect Equilibrium, are formally stated that way.
+
+## Next Time
+
+We'll look at one philosophically important use of these kinds of games with types: signaling games.

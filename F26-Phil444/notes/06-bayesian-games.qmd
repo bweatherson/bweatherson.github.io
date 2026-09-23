@@ -28,7 +28,7 @@ So a **Bayesian game** has:
 - a probability distribution over the profiles of types, called the **prior**;
 - for each player, a payoff function that depends on the actions of everyone and on their own type.
 
-We assume the prior is common knowledge. This is the **common prior assumption**, and without it we need a more complicated theory. One consequence of it is that the players start out agreeing about how likely each type profile is, and disagree only because they have seen different draws. That assumption is not always plausible in the cases the these tools are applied to, and it's often worth questioning on an application. For now, notice one useful theoretical simplification that this assumption gets us. Instead of thinking about a potentially infinite hierarchy of beleifs about beliefs, we can just use the conditional probabilities a player gets from the prior, given their own type, and everyone can compute those.
+We assume the prior is common knowledge. This is the **common prior assumption**, and without it we need a more complicated theory. One consequence of it is that the players start out agreeing about how likely each type profile is, and disagree only because they have seen different draws. That assumption is not always plausible in the cases these tools are applied to, and it's often worth questioning on an application. For now, notice one useful theoretical simplification that this assumption gets us. Instead of thinking about a potentially infinite hierarchy of beliefs about beliefs, we can just use the conditional probabilities a player gets from the prior, given their own type, and everyone can compute those.
 
 ## Bayesian Nash Equilibrium {#sec-bne}
 
@@ -74,7 +74,7 @@ If Col is elusive, Row's payoffs are unchanged, but Col's change.
 |         | Y | 0, 1 | 1, 0 |
 +---------+---+------+------+
 
-: A variant of @#tbl-familiar-bos where Col does not want to meet {#tbl-changed-bos}
+: A variant of @tbl-familiar-bos where Col does not want to meet {#tbl-changed-bos}
 
 In @tbl-changed-bos, look first at Col, who has it easy, because Col knows which table is 'real'.
 
@@ -98,7 +98,7 @@ Two things about this are worth spelling out in more detail.
 
 The first is that Col's two types do different things. The possibility of this happening is why the type system is interesting. Externally, Row is facing one person. But from the inside, from Row's perspective, they are facing a distribution over opponents, and has to pick an action that is good on average against it.
 
-The second is that Row's behaviour looks, from the outside, exactly like behaviour in an ordinary game. Row picks X and sticks with it. The incomplete information is not visible in what Row does. But it is visible in why Row does it, and in what Row would have done had the probabilities been different. Suppose Col were sociable with probability $p$ rather than $\nicefrac{1}{2}$. Then Row's expected payoff from X is $2p$ and from Y is $1-p$, so the equilibrium we just found survives exactly when $p \geqslant \frac{1}{3}$. Below that it falls apart, though something strange starts to happen. There is no pure strategy equilibrium when $p$ is below $frac{1}{3}$. Whatever Row does, if Col knows it, they will avoid Row, which Row doesn't want. So Row has to mix, playing X a third of the time, and Row and Col still find each other sometimes, by luck rather than design.
+The second is that Row's behaviour looks, from the outside, exactly like behaviour in an ordinary game. Row picks X and sticks with it. The incomplete information is not visible in what Row does. But it is visible in why Row does it, and in what Row would have done had the probabilities been different. Suppose Col were sociable with probability $p$ rather than $\nicefrac{1}{2}$. Then Row's expected payoff from X is $2p$ and from Y is $1-p$, so the equilibrium we just found survives exactly when $p \geqslant \frac{1}{3}$. Below that it falls apart, though something strange starts to happen. There is no pure strategy equilibrium when $p$ is below $\frac{1}{3}$. Whatever Row does, if Col knows it, they will avoid Row, which Row doesn't want. So Row has to mix, playing X a third of the time, and Row and Col still find each other sometimes, by luck rather than design.
 
 ## Purification {#sec-purification}
 
@@ -110,7 +110,7 @@ Harsanyi's response is that the randomness is really in ignorance of the payoffs
 
 In the Bayesian equilibrium of the perturbed game, almost every type has a strict best reply. A player whose private draw tips them slightly towards one action simply takes it. Almost no one randomises; almost every type plays a pure strategy. But an opponent who cannot see the draw cannot predict the action, and from the opponent's point of view the player's behaviour is a probability distribution over actions.
 
-Harsanyi's theorem [-@harsanyi1973] is that as $\epsilon$ shrinks to zero, that of pure strategies converges to the mixed equilibrium of the original game. The mixed equilibrium is the limit of pure strategy Bayesian Nash equilibria of nearby games of incomplete information.
+Harsanyi's theorem [-@harsanyi1973] is that as $\epsilon$ shrinks to zero, that sequence of pure strategy equilibria converges to the mixed equilibrium of the original game. The mixed equilibrium is the limit of pure strategy Bayesian Nash equilibria of nearby games of incomplete information.
 
 If that is right, the interpretive problem dissolves. Nobody was ever randomising. Each player was doing the strictly best thing their own private situation called for, and the mixture was never a description of anyone's decision. It was a description of what the other player could work out.
 

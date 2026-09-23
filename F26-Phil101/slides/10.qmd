@@ -17,7 +17,7 @@ When I first discussed perception, I noted that it had a problem with illusions,
 
 And I noted the downside of that move was that it meant your starting points were inside your head, and you'd need to find a way out.
 
-Today we return to that problem.
+Today we'll look at work that takes that problem seriously.
 
 ## Russell
 
@@ -39,7 +39,7 @@ Imprisoned for protesting WWI in 1916, and after that bounced between various ac
 
 :::
 
-## Russell
+## Ibn Sīnā 
 
 ::: {layout="[40, 60]"}
 
@@ -103,7 +103,7 @@ The 'real' shape is not what we see; it is something inferred from what we see.
 
 . . .
 
-And texture goes the same way. The table looks smooth. Under a microscope it's all hills and valleys, and there's no obvious reason to prefer the initial impression to the microscope.
+Texture goes the same way. The table looks smooth, but under a microscope it's all hills and valleys.
 
 ## Russell's vocabulary
 
@@ -120,7 +120,7 @@ Sense-data
 Physical object
 :    The table, if there is one.
 
-## The two questions
+## Two questions
 
 Once the table and what you see have come apart, Russell says two questions arise.
 
@@ -136,7 +136,7 @@ We'll come back to illusion in a second, but note that Russell here is really no
 
 # The argument from illusion
 
-## Once more
+## A quick question (POLL)
 
 ::: {layout="[40,60]"}
 
@@ -145,32 +145,18 @@ We'll come back to illusion in a second, but note that Russell here is really no
 :::
 
 ::: {}
-On Day 3 this was evidence that perception and processing are separate systems. On Day 5 it was a problem for foundationalism.
-
-Today it asks something new.
-
-A and B are the same shade. A looks darker.
-:::
-
-:::
-
-## A quick question (POLL)
-
-A and B are the same shade. A looks darker.
-
 **Is there anything here that is darker?**
 
 A.  Yes, square A is darker
 B.  Yes, something in my experience is darker, though neither square is
 C.  No, nothing is darker. A merely looks darker.
+:::
 
-. . .
+:::
 
-Hold on to your answer. You have just voted on a premise.
+## Argument from illusion
 
-## The first half
-
-Russell's reasoning has been tidied up into what's called the **argument from illusion**. Here's the first half.
+Russell's reasoning has been tidied up into what's nowadays called the **argument from illusion**. Here's how it starts.
 
 1. In an illusion, it seems to you that something is darker, although square A isn't darker than B.
 2. Whenever it seems to you that something is darker, there really is something darker that you're directly aware of.
@@ -178,68 +164,64 @@ Russell's reasoning has been tidied up into what's called the **argument from il
 
 . . .
 
-Premise 2 has a name, the **Phenomenal Principle**. Remember it; everything turns on it.
+Premise 2 has a name, the **Phenomenal Principle**, and it's somewhat controversial.
 
-## The spreading step
+## Argument from illusion (cont.)
 
-That only covers illusions. The second half spreads the conclusion.
+OK fine, something weird happens with illusions. Does this affect normal life? The second part of the argument says that it does.
 
 4. Illusions and ordinary perceptions can be exactly alike from the inside, so the same account should cover both.
 5. So even when things go right, what you're directly aware of isn't the square.
 
 . . .
 
-Conclusion: you are never directly aware of ordinary objects. Only of sense-data.
-
-# What it costs
+Conclusion: you *always* directly perceive sense-data, not ordinary objects.
 
 ## The veil
 
-If all you're ever directly aware of is sense-data, then the world sits behind them, like a scene behind a curtain you can never lift.
+If all you're ever directly aware of is sense-data, then the world sits behind them, like a scene behind a curtain.
 
 . . .
 
 Everything you believe about tables, people and planets becomes an inference from patches of color to their causes.
 
-That's Day 5's cost in full. And, as we said then, the attempts to make that inference respectable have not been spectacular successes.
+I flagged this as the downside back in class 5, and noted that the attempts to make that inference respectable have not been spectacular successes.
 
-## Private objects
+## Shared evidence (or not)
 
-Your sense-data are yours. Nobody else can be aware of them.
+Your sense-data are yours. Nobody else can be aware of them, and it's not even obvious how anyone else can know what they are like.
 
 . . .
 
-So when the class and I look at the same table, we aren't sharing evidence. Each of us has our own private patches, and all we can compare is our reports about them.
+When we all look at the same table, we aren't sharing evidence. Each of us has our own private patches, and all we can compare is our reports about them.
 
-That quietly turns *all* shared evidence into testimony about private objects, which is a strange place to have ended up after three weeks defending testimony.
+That turns *all* shared evidence into testimony about private objects.
 
 ## Strange objects
 
-And what are these things?
+What are these strange private objects?
 
-The darker patch isn't on the board, where the two squares are the same shade. Is it in your head? Nothing in your head is that shade of grey either.
+The darker patch isn't on the board, where the two squares are the same shade. Is it in your head? Nothing in your head is that shade of grey either. (At least, I don't think it is. But they do call it grey matter? Maybe I should be careful here before I make claims about neurology.)
 
 . . .
 
-The sense-data theorist has answers. But it's fair to say the view buys certainty about what you're aware of by making what you're aware of very odd.
+Just to flag something that we're going to fret about a bit, is there anything *physical*, anything that ordinary science discusses, that has that shade? It isn't clear; this view might suggest that ordinary perception involves things outside the domain of physical science.
 
-# Two ways out
+## An escape hatch: Reject premise 2
 
-## Reject premise 2
-
-The argument's weak point is the Phenomenal Principle: the claim that if something *seems* darker, there must *be* something darker.
+One natural spot to push at the argument is the Phenomenal Principle: the claim that if something *seems* darker, there must *be* something darker.
 
 Two big rivals to the sense-data theory both deny it.
 
 ## Representation
 
-On the first view, experience works like a description. Your experience **represents** square A as darker.
+On the first view, experience works like language. Your experience **represents** square A as darker.
 
 . . .
 
 A false sentence saying A is darker doesn't need a darker thing to exist. It's just false.
 
-Likewise an illusion doesn't need a darker object. It's an experience that gets things wrong. You're still aware of the square, misrepresented.
+Likewise an illusion doesn't need a darker object. It's an experience that gets things wrong. It's not true that anything A-related *is* darker than anything B-related, any more than the letter A has to be darker than the letter B in the sentence "A is darker than B".
 
 ## Naive realism
 
@@ -247,35 +229,29 @@ On the second view, you're simply aware of the square itself, and **looking dark
 
 . . .
 
-Here's the neat part. Russell has already said it. The color, he wrote, is "something depending upon the table and the spectator and the way the light falls on the table."
+Russell got really close to that view, although it wasn't what he intended. The color, he wrote, is "something depending upon the table and the spectator and the way the light falls on the table."
 
-A naive realist agrees, and concludes that looks are relations between the thing, the light and you. Which is exactly what the checkershadow is about: a cylinder, a shadow, and a square that looks how a square in shadow looks. Nothing there requires a private object.
+A naive realist agrees, and concludes that looks are relations between the thing, the light and you.
+
+There don't need to be private objects grounding these looks any more than there need to be private directional objects grounding the fact that I'm north of the table and you're west of it.
 
 ## What you voted on
 
 **B** is the Phenomenal Principle, premise 2. If something seems darker, then something darker is there.
 
-Take B, and the argument runs, and you get sense-data.
+Once you buy that, a lot of the escape routes from the argument close off.
 
 . . .
 
-**C** denies it, and that's where both of the rivals live. What they disagree with each other about is something else.
+**C** denies the Phenomenal Principle, and that's where both these rivals live. (They aren't the only rivals, but they are useful to start with.) What they disagree with each other about is something else.
 
 . . .
 
-**A** is worth a moment too. The squares are the same shade, so A is false. That it still gets votes is the illusion working on this room in real time.
+**A** I think is a straight-up denial that things like objective shades exist; not an unheard of position, but pretty radical. This might have been Democritus's position: "by convention sweet and by convention bitter, by convention hot, by convention cold, by convention color; but in reality atoms and void".
 
 . . .
 
-There's a fourth view we didn't put to a vote, on which there's no object of awareness at all, just a way of experiencing. It exists, and we're leaving it alone.
-
-# Going forward
-
-## Short Answer 2
-
-Today is one of the three topics for Short Answer 2, which goes out a week from today.
-
-The five moves it asks for line up with today almost exactly: state the view, give its best argument, give the most serious objection, give the reply, and say where you land.
+There are other views, including ones that deny that there is any content to how the picture looks, but those are enough options for now.
 
 ## This week
 
@@ -288,4 +264,4 @@ Today asked what experience is *of*.
 
 . . .
 
-Tuesday asks what it's *like*, starting with a bat.
+Tuesday asks what it's *like*, and asking how much experience differs between very different individuals, and between very different kinds of individuals.

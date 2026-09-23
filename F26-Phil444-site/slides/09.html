@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="Brian Weatherson">
+  <meta name="dcterms.date" content="2026-09-29">
+  <title>Game Theory and Social Choice</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-44b0e5eff8a4443f51d7949ecb1dfac9.css">
+  <link rel="stylesheet" href="custom_styles_css.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">Game Theory and Social Choice</h1>
+  <p class="subtitle">Lecture 9: Forward Induction</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Brian Weatherson
+</div>
+</div>
+</div>
+
+  <p class="date">2026-09-29</p>
+</section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Forward Induction</h1>
+
+</section>
+<section class="slide level2">
+<h2>Where We Left Off</h2>
+<p>Last time we ended with three things Bob could believe when Alice makes a move that backwards induction said she never would.</p>
+<div class="fragment">
+<p>Option 3 was that the move is a <strong>signal</strong>, that Alice is telling him something about how she intends to go on.</p>
+</div>
+<div class="fragment">
+<p>Today we’ll look at a view that takes this option really seriously.</p>
+<p>The idea is called <strong>forward induction</strong>, and it’s usually illustrated with a game of Ben-Porath and Dekel’s, from 1992.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Option Value</h2>
+<p>Here’s a boring and familiar point:</p>
+<div title="Option Value">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Option Value</strong></p>
+</div>
+<div class="callout-content">
+<p>It can be valuable to have the option to do something even if you are very confident you will not exercise that option.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Miles out of the money options trade on Wall St every day for non-zero values.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Option Value</h2>
+<p>Here’s the more surprising claim that proponents of forward induction make.</p>
+<div title="Option Value">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Option Value</strong></p>
+</div>
+<div class="callout-content">
+<p>It can be valuable to have the option to do something even if is common knowledge that you will not exercise that option.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This is <em>very controversial</em>, and I’m going to run over an argument for why I think it isn’t correct. But it is something that many economists (and I suspect some philosophers) believe.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>A Simple Opt-Out</h1>
+
+</section>
+<section class="slide level2">
+<h2>Stag Hunt, Slightly Adjusted</h2>
+<div title="The Hunt">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Hunt</strong></p>
+</div>
+<div class="callout-content">
+<p>Two hunters. A stag needs both of them and feeds both well. Rabbits you can catch alone.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tbl-hunt" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hunt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The hunt
+</figcaption>
+<div aria-describedby="tbl-hunt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">Stag</th>
+<th style="text-align: center;">Rabbit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Stag</strong></td>
+<td style="text-align: center;">10, 10</td>
+<td style="text-align: center;">0, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Rabbit</strong></td>
+<td style="text-align: center;">8, 0</td>
+<td style="text-align: center;">8, 8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+<h2>Two Equilibria</h2>
+<p>Both hunt stag, and both get 10.</p>
+<p>Both hunt rabbit, and both get 8.</p>
+<div class="fragment">
+<p>Stag is better for both, but Rabbit is safer.</p>
+</div>
+<div class="fragment">
+<p>Very intuitive, I think, that both options could be rational, though there are plenty of people who argue that one or other is uniquely rational. Still, assume with me for now that both are fine.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Option</h2>
+<p>Now, before the hunt, Player I is offered a day’s paid work. It pays <strong>9</strong>.</p>
+<p>If she takes it there is no stag hunt, and Player II goes rabbiting alone for 8.</p>
+<div class="fragment">
+<p>Nine sits strictly between the two equilibria: better than both-rabbit, worse than both-stag. If it’s higher than both, she takes the day’s work; if it’s lower than both, it’s a little hard to see what the point of taking the work is. But in the middle weird stuff happens.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Four Strategies</h2>
+<p>She can take the job, or turn up and hunt stag, or turn up and hunt rabbit. But remember strategies have to specify what to do <em>everywhere</em>, including nodes that are ruled out. So her strategy has to say what to do if she chooses to take the job then forgets to show up for work or something.</p>
+<div id="tbl-hunt-out" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hunt-out-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: The hunt with an outside option
+</figcaption>
+<div aria-describedby="tbl-hunt-out-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">II hunts stag</th>
+<th style="text-align: center;">II hunts rabbit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Job, stag</strong></td>
+<td style="text-align: center;">9, 8</td>
+<td style="text-align: center;">9, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Job, rabbit</strong></td>
+<td style="text-align: center;">9, 8</td>
+<td style="text-align: center;">9, 8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>In, stag</strong></td>
+<td style="text-align: center;">10, 10</td>
+<td style="text-align: center;">0, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>In, rabbit</strong></td>
+<td style="text-align: center;">8, 0</td>
+<td style="text-align: center;">8, 8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+<h2>Three Equilibria</h2>
+<p>Checking best responses dhows that there are three equilibria of the game.</p>
+<div id="tbl-hunt-out-best" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hunt-out-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: The hunt with an outside option and best responses marked
+</figcaption>
+<div aria-describedby="tbl-hunt-out-best-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;">II hunts stag</th>
+<th style="text-align: center;">II hunts rabbit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>Job, stag</strong></td>
+<td style="text-align: center;">9, <strong>8</strong></td>
+<td style="text-align: center;"><strong>9</strong>, <strong>8</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Job, rabbit</strong></td>
+<td style="text-align: center;">9, <strong>8</strong></td>
+<td style="text-align: center;"><strong>9</strong>, <strong>8</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>In, stag</strong></td>
+<td style="text-align: center;"><strong>10</strong>, 10</td>
+<td style="text-align: center;">0, 8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>In, rabbit</strong></td>
+<td style="text-align: center;">8, 0</td>
+<td style="text-align: center;">8, <strong>8</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+<h2>What Backwards Induction Says</h2>
+<p>It rules out the pair <strong>Job, stag</strong> and <strong>rabbit</strong>; the top-right corner of the table. That’s not an equilibria in the subgame where PI shows up.</p>
+<div class="fragment">
+<p>But the other two pairs are subgame perfect. This makes backwards induction tricky to apply, because there isn’t a unique outcome.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Dominance Argument</h2>
+<p>Look at the table again. <em>In, rabbit</em> pays 8 whatever Player II does.</p>
+<p>The job pays 9 whatever Player II does.</p>
+<div class="fragment">
+<p>The job <strong>strictly dominates</strong> turning up to hunt rabbit.</p>
+</div>
+<div class="fragment">
+<p>In the bare stag hunt, hunting rabbit was perfectly respectable. Put the job offer in front of it, and <em>turning up in order to hunt rabbit</em> is not.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Big Question</h2>
+<p>Given that <strong>In, rabbit</strong> is irrational, what can we say about what’s rational to do if you (as PI) somehow find yourself at work?</p>
+<div title="Today's Question">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Today’s Question</strong></p>
+</div>
+<div class="callout-content">
+<p>In this game, is it possible to infer that a Player I who shows up to hunt is going to hunt stag?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We’ll worry about this a bit, but hopefully you can see why the answer might be yes. Player 1 is rational. Any rational player who planned to hunt rabbit would have taken the job instead. So if Player 2 sees them turn down the job, can’t they deduce they will hunt stag?</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+<h2>If The Answer is Yes</h2>
+<p>Player II watches Player I turn up at dawn.</p>
+<div class="fragment">
+<p>She reasons: turning up to hunt rabbit is dominated by the job. So a rational Player I who turns up intends to hunt stag.</p>
+</div>
+<div class="fragment">
+<p>So Player II hunts stag. So turning up is worth 10, not 8. So Player I turns up, and hunts stag. They get 10, 10.</p>
+</div>
+<div class="fragment">
+<p>If the reasoning on this slide works, it shows that the <em>only</em> rational outcome of this game is the 10, 10 outcome. That’s true even though:</p>
+<ol type="1">
+<li class="fragment">The pair <em>Job, rabbit</em> and <em>rabbit</em> is both NE and SPE.</li>
+<li class="fragment">The only difference from standard Stag Hunt is we gave PI an option that everyone knows she should not, and will not, take.</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>What Just Happened</h2>
+<p>Nobody took the job. The reasoning shows why it couldn’t be taken.</p>
+<div class="fragment">
+<p>Its mere availability is what made stag-hunting rational. That is the strong Option Value claim from a few slides back.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Why “Forward”</h2>
+<p>Backwards induction reasons from the end of the tree to the start: what will happen later tells you what to do now.</p>
+<div class="fragment">
+<p>This goes the other way. What a player has already done tells you what she must be planning.</p>
+</div>
+<div class="fragment">
+<p>A move is treated as evidence about the plan behind it, rather than as noise.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Other SPE</h2>
+<p>Because it will be useful to have on the table, let’s spell out how the other SPE works.</p>
+<div class="fragment">
+<p>Player I takes the job, and both players were planning to hunt rabbit if the hunt went ahead.</p>
+</div>
+<div class="fragment">
+<p>Given that Player II would hunt rabbit, taking the job is right. And given that Player I takes the job, Player II’s plan costs her nothing. And if they both show up to hunt, they both make a move that makes sense in the context of Stag Hunt.</p>
+</div>
+<div class="fragment">
+<p>If the previous few slides were right, something has gone wrong here despite this being an equilibrium. We’ll come back to this.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Burning Money</h1>
+
+</section>
+<section class="slide level2">
+<h2>The More Famous Example</h2>
+<p>For the record, I think that this “Other SPE” is perfectly rational, though it’s <em>really unintuitive</em>.</p>
+<p>The more famous example of forward induction, the one that Ben-Porath and Dekel use, is much less intuitively clear.</p>
+<div class="fragment">
+<p>In the hunt, Player I <strong>turns up</strong>. Player II’s inference is about something that happened.</p>
+</div>
+<div class="fragment">
+<p>In this next game, the inference is about something that didn’t happen.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Start With a Familiar Game</h2>
+<p>Bach-Stravinsky, our standard asymmetric coordination game.</p>
+<div id="tbl-bpd-base" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bpd-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: The base game
+</figcaption>
+<div aria-describedby="tbl-bpd-base-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(l\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>I</strong></td>
+<td style="text-align: center;"><span class="math inline">\(u\)</span></td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">0, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"></td>
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">1, 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="fragment">
+<p>Two equilibria in pure strategies, one good for each of them. (There’s a mixed strategy equilibrium as well; just ignore it for today, I don’t think it does any work.)</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Strange Option</h2>
+<p>Before the game starts, Player I may, if she likes, <strong>publicly burn two utils</strong>.</p>
+<p>The usual illustration of this is that each util is $10, and before the B-S game PI is handed a lighter and told she’s got the right, standing here in front of everyone, to take a $20 note from her wallet and burn it to ashes. (We’ll make sure the smoke alarms don’t go off.)</p>
+<div class="fragment">
+<p>Nothing about the base game changes. She simply burns a $20 note for the pleasure of it, and for the signalling value of having us all see that she can.</p>
+</div>
+<div class="fragment">
+<p>Unlike the job offer, this option is pure loss. Whatever else happens in the game, she’s $20 worse off if she burns $20.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Counting Strategies</h2>
+<p>Player I chooses twice: burn or not, then up or down. Write <span class="math inline">\(D\)</span> for don’t burn, <span class="math inline">\(B\)</span> for burn. Her strategies are <span class="math inline">\(Du\)</span>, <span class="math inline">\(Dd\)</span>, <span class="math inline">\(Bu\)</span>, <span class="math inline">\(Bd\)</span>.</p>
+<div class="fragment">
+<p>Player II moves once, but has to cover both cases. So <span class="math inline">\(lr\)</span> means: play <span class="math inline">\(l\)</span> if she didn’t burn, <span class="math inline">\(r\)</span> if she did.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>A Fussy Point</h2>
+<p>Player I really has eight strategies, not four. Her plan has to cover the burn node and the no-burn node, whichever she takes.</p>
+<div class="fragment">
+<p>The eight-row table has the rows in duplicate pairs and gives exactly the same four equilibria, so I’m not going to write it out.</p>
+</div>
+<div class="fragment">
+<p>But this complication is going to matter; we’ll come back to it at the end.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Normal Form</h2>
+<div id="tbl-bpd-mb" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bpd-mb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: The money burning game
+</figcaption>
+<div aria-describedby="tbl-bpd-mb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><span class="math inline">\(ll\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(lr\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(rl\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(rr\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(Du\)</span></td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">4, 1</td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">0, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(Dd\)</span></td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">0, 0</td>
+<td style="text-align: center;">1, 4</td>
+<td style="text-align: center;">1, 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(Bu\)</span></td>
+<td style="text-align: center;">2, 1</td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">2, 1</td>
+<td style="text-align: center;">-2, 0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(Bd\)</span></td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">-1, 4</td>
+<td style="text-align: center;">-2, 0</td>
+<td style="text-align: center;">-1, 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="fragment">
+<p>Burning costs 2, so Player I’s bottom half is her top half minus 2.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Dominance</h2>
+<p>Same first move as in the hunt. <span class="math inline">\(Bd\)</span> is strictly dominated by <span class="math inline">\(Du\)</span>: <span class="math inline">\(-2\)</span> against 4, <span class="math inline">\(-1\)</span> against 4, <span class="math inline">\(-2\)</span> against 0, <span class="math inline">\(-1\)</span> against 0.</p>
+<div class="fragment">
+<p>Iterated deletion gets you all the way to one outcome. Delete <span class="math inline">\(Bd\)</span>, then <span class="math inline">\(lr\)</span> and <span class="math inline">\(rr\)</span> are weakly dominated, then <span class="math inline">\(Dd\)</span>, then <span class="math inline">\(rl\)</span>, and <span class="math inline">\(\langle Du, ll \rangle\)</span> is all that survives.</p>
+</div>
+<div class="fragment">
+<p>But note that there are weak dominance steps in the middle there, and that’s not something everyone buys.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Reading the Burn</h2>
+<p><span class="math inline">\(Bd\)</span> is obviously irrational: its best possible return is <span class="math inline">\(-1\)</span>, and both <span class="math inline">\(Du\)</span> and <span class="math inline">\(Dd\)</span> guarantee at least 0.</p>
+<div class="fragment">
+<p>So a rational player who burns must be playing <span class="math inline">\(Bu\)</span>. And that is common knowledge.</p>
+</div>
+<div class="fragment">
+<p>So if Player I burns, she knows Player II will know she is playing <span class="math inline">\(u\)</span>, and will answer with <span class="math inline">\(l\)</span>, because that returns 1 rather than 0.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>What Follows</h2>
+<p>So burning leads to 2, 1. Player I gets 2.</p>
+<div class="fragment">
+<p>But then <span class="math inline">\(Dd\)</span> is irrational, since it gets at most 1, and burning gets 2. So Player I plays <span class="math inline">\(Du\)</span> or <span class="math inline">\(Bu\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Either way she plays <span class="math inline">\(u\)</span>. So Player II plays <span class="math inline">\(l\)</span> in both cases, which is <span class="math inline">\(ll\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>The Punchline</h2>
+<p>And if Player II is playing <span class="math inline">\(ll\)</span>, Player I has no reason to burn. She plays <span class="math inline">\(Du\)</span> and takes 4.</p>
+<div class="fragment">
+<p>So the <em>possibility</em> of burning gets her the outcome she wants, without her ever burning anything.</p>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>The Crucial Conditional</h1>
+
+</section>
+<section class="slide level2">
+<h2>The Conditional Reasoning</h2>
+<p>Both arguments turned on something of this form:</p>
+<div class="fragment">
+<ul>
+<li class="fragment">If Player I is rational and plays <span class="math inline">\(B\)</span>, she will play <span class="math inline">\(Bu\)</span>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>But you might think that what the argument actually needs, as common knowledge, is this:</p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">If Player I is rational then, if she <em>were</em> to play <span class="math inline">\(B\)</span>, she <em>would</em> play <span class="math inline">\(Bu\)</span>.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Stalnaker’s Response</h2>
+<p>Robert Stalnaker argues that this is basically the same as caterpillar.</p>
+<div class="fragment">
+<p>If the forward induction argument is right, then burning is irrational. So if Player I were to burn, she would be doing something irrational.</p>
+</div>
+<div class="fragment">
+<p>And someone who does one irrational thing may be following an irrational strategy, of which <span class="math inline">\(Bd\)</span> is a part.</p>
+</div>
+<div class="fragment">
+<p>Note too that if <span class="math inline">\(Du\)</span> is optimal, playing <span class="math inline">\(d\)</span> after burning isn’t obviously crazy. It isn’t dominated by <span class="math inline">\(u\)</span> within that subgame.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Playing Out This Reasoning</h2>
+<p>If it isn’t true that Player I <em>would</em> play <span class="math inline">\(u\)</span> after burning, then Player II has no reason to answer with <span class="math inline">\(l\)</span>.</p>
+<div class="fragment">
+<p>And if she has no reason to answer with <span class="math inline">\(l\)</span>, there is no reason to think <span class="math inline">\(Bu\)</span> beats <span class="math inline">\(Dd\)</span>.</p>
+</div>
+<div class="fragment">
+<p>And if there is no reason to think that, there is no reason to expect <span class="math inline">\(ll\)</span>. So maybe <span class="math inline">\(Dd\)</span> is optimal for PI.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Back to the Hunt</h2>
+<p>Remember the equilibrium I ended the Hunting discussion with: she takes the job, and Player II was planning to hunt rabbit.</p>
+<div class="fragment">
+<p>That needs Player II to believe: <em>if she had turned up, she would have hunted rabbit</em>. It’s the same kind of subjunctive conditional.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>An Exercise</h2>
+<p>Stalnaker (1998) gives a positive model in which the players have common belief in rationality, and true beliefs about each other, and play <span class="math inline">\(\langle Bu, rl \rangle\)</span>.</p>
+<div class="fragment">
+<p>That is: she burns, and Player II is planning to punish her if she <em>doesn’t</em>.</p>
+</div>
+<div class="fragment">
+<p>Work out what Player II has to believe about the counterfactual for this to be rational.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Working It Out</h2>
+<p>Player II believes: <em>if Player I were not to burn, she would play <span class="math inline">\(d\)</span></em>.</p>
+<div class="fragment">
+<p>Given that, playing <span class="math inline">\(r\)</span> after <span class="math inline">\(D\)</span> is right — it gets her 4 rather than 0.</p>
+</div>
+<div class="fragment">
+<p>Given <em>that</em>, Player I’s non-burning options are worth 0 and 1, and burning is worth 2. So burning is rational.</p>
+</div>
+<div class="fragment">
+<p>Everyone has true beliefs and maximises, but they massively deviate from forward induction.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Eight Strategies</h2>
+<p>To even state this equilibrium, we need to return to the <strong>fussy point</strong> from earlier.</p>
+<p>That is, we need to specify what PI will do after the option she doesn’t take.</p>
+<p>This obviously doesn’t affect how the game actually plays out, but it does affect <em>what Player II believes</em>, and equilibria involve all true beliefs.</p>
+</section>
+<section class="slide level2">
+<h2>One More Equilibrium</h2>
+<p>There is also <span class="math inline">\(\langle Dd, rr \rangle\)</span>, which is simpler.</p>
+<div class="fragment">
+<p>Player II is certain Player I will play <span class="math inline">\(d\)</span>, and would keep that belief even if Player I burned. So she plays <span class="math inline">\(r\)</span> come what may, and gets her best outcome.</p>
+</div>
+<div class="fragment">
+<p>Given that certainty, <span class="math inline">\(Dd\)</span> is Player I’s best reply. So Player II’s belief is consistent with thinking Player I rational.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Next Time</h2>
+<p>We start looking at games where players don’t know what game they are in.</p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>PHIL 444 | University of Michigan</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/bweatherson\.github\.io\/F26-Phil444-site");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

@@ -107,7 +107,7 @@ The next game we'll look at is called Stag Hunt. We'll first do a version with c
 
 : A familiar version of Stag Hunt {#tbl-sh-standard}
 
-The general version, shown in @tbl-sh-abstract, has $a > b > c > d$ and $b + c > a + d$
+The general version, shown in @tbl-sh-abstract, has $a > b \geqslant c > d$ and $b + c > a + d$. The case where $b = c$ is allowed; that's the case where the rabbit hunter's return doesn't depend on what the other hunter is doing.
 
 +:--------+--:+:--------:+:--------:+
 |         |   | **Col**             |

@@ -1,0 +1,435 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 9: Forward Induction"
+author: "Brian Weatherson"
+date: "September 29, 2026"
+---
+
+# Forward Induction
+
+## Where We Left Off
+
+Last time we ended with three things Bob could believe when Alice makes a move that backwards induction said she never would.
+
+. . .
+
+Option 3 was that the move is a **signal**, that Alice is telling him something about how she intends to go on.
+
+. . .
+
+Today we'll look at a view that takes this option really seriously.
+
+The idea is called **forward induction**, and it's usually illustrated with a game of Ben-Porath and Dekel's, from 1992.
+
+## Option Value
+
+Here's a boring and familiar point:
+
+::: {.callout-tip title="Option Value"}
+It can be valuable to have the option to do something even if you are very confident you will not exercise that option.
+:::
+
+. . .
+
+Miles out of the money options trade on Wall St every day for non-zero values.
+
+## Option Value
+
+Here's the more surprising claim that proponents of forward induction make.
+
+::: {.callout-tip title="Option Value"}
+It can be valuable to have the option to do something even if is common knowledge that you will not exercise that option.
+:::
+
+. . .
+
+This is *very controversial*, and I'm going to run over an argument for why I think it isn't correct. But it is something that many economists (and I suspect some philosophers) believe.
+
+# A Simple Opt-Out
+
+## Stag Hunt, Slightly Adjusted
+
+::: {.callout-tip title="The Hunt"}
+Two hunters. A stag needs both of them and feeds both well. Rabbits you can catch alone.
+:::
+
+|            | Stag   | Rabbit |
+|-----------:|:------:|:------:|
+| **Stag**   | 10, 10 | 0, 8   |
+| **Rabbit** | 8, 0   | 8, 8   |
+
+: The hunt {#tbl-hunt}
+
+## Two Equilibria
+
+Both hunt stag, and both get 10. 
+
+Both hunt rabbit, and both get 8.
+
+. . .
+
+Stag is better for both, but Rabbit is safer.
+
+. . .
+
+Very intuitive, I think, that both options could be rational, though there are plenty of people who argue that one or other is uniquely rational. Still, assume with me for now that both are fine.
+
+## The Option
+
+Now, before the hunt, Player I is offered a day's paid work. It pays **9**. 
+
+If she takes it there is no stag hunt, and Player II goes rabbiting alone for 8.
+
+. . .
+
+Nine sits strictly between the two equilibria: better than both-rabbit, worse than both-stag. If it's higher than both, she takes the day's work; if it's lower than both, it's a little hard to see what the point of taking the work is. But in the middle weird stuff happens.
+
+## Four Strategies
+
+She can take the job, or turn up and hunt stag, or turn up and hunt rabbit. But remember strategies have to specify what to do *everywhere*, including nodes that are ruled out. So her strategy has to say what to do if she chooses to take the job then forgets to show up for work or something.
+
+|                | II hunts stag | II hunts rabbit |
+|---------------:|:-------------:|:---------------:|
+| **Job, stag**  | 9, 8          | 9, 8            |
+| **Job, rabbit**| 9, 8          | 9, 8            |
+| **In, stag**   | 10, 10        | 0, 8            |
+| **In, rabbit** | 8, 0          | 8, 8            |
+
+: The hunt with an outside option {#tbl-hunt-out}
+
+## Three Equilibria
+
+Checking best responses dhows that there are three equilibria of the game.
+
+|                | II hunts stag | II hunts rabbit |
+|---------------:|:-------------:|:---------------:|
+| **Job, stag**  | 9, **8**          | **9**, **8**            |
+| **Job, rabbit**| 9, **8**          | **9**, **8**            |
+| **In, stag**   | **10**, 10        | 0, 8            |
+| **In, rabbit** | 8, 0          | 8, **8**            |
+
+: The hunt with an outside option and best responses marked {#tbl-hunt-out-best}
+
+
+## What Backwards Induction Says
+
+It rules out the pair **Job, stag** and **rabbit**; the top-right corner of the table. That's not an equilibria in the subgame where PI shows up.
+
+. . .
+
+But the other two pairs are subgame perfect. This makes backwards induction tricky to apply, because there isn't a unique outcome.
+
+## A Dominance Argument
+
+Look at the table again. *In, rabbit* pays 8 whatever Player II does. 
+
+The job pays 9 whatever Player II does.
+
+. . .
+
+The job **strictly dominates** turning up to hunt rabbit.
+
+. . .
+
+In the bare stag hunt, hunting rabbit was perfectly respectable. Put the job offer in front of it, and *turning up in order to hunt rabbit* is not.
+
+## Big Question
+
+Given that **In, rabbit** is irrational, what can we say about what's rational to do if you (as PI) somehow find yourself at work?
+
+::: {.callout-tip title="Today's Question"}
+In this game, is it possible to infer that a Player I who shows up to hunt is going to hunt stag?
+:::
+
+. . .
+
+We'll worry about this a bit, but hopefully you can see why the answer might be yes. Player 1 is rational. Any rational player who planned to hunt rabbit would have taken the job instead. So if Player 2 sees them turn down the job, can't they deduce they will hunt stag?
+
+
+## If The Answer is Yes
+
+Player II watches Player I turn up at dawn.
+
+. . .
+
+She reasons: turning up to hunt rabbit is dominated by the job. So a rational Player I who turns up intends to hunt stag.
+
+. . .
+
+So Player II hunts stag. So turning up is worth 10, not 8. So Player I turns up, and hunts stag. They get 10, 10.
+
+. . .
+
+If the reasoning on this slide works, it shows that the *only* rational outcome of this game is the 10, 10 outcome. That's true even though:
+
+1. The pair *Job, rabbit* and *rabbit* is both NE and SPE.
+2. The only difference from standard Stag Hunt is we gave PI an option that everyone knows she should not, and will not, take.
+
+## What Just Happened
+
+Nobody took the job. The reasoning shows why it couldn't be taken.
+
+. . .
+
+Its mere availability is what made stag-hunting rational. That is the strong Option Value claim from a few slides back.
+
+## Why "Forward"
+
+Backwards induction reasons from the end of the tree to the start: what will happen later tells you what to do now.
+
+. . .
+
+This goes the other way. What a player has already done tells you what she must be planning.
+
+. . .
+
+A move is treated as evidence about the plan behind it, rather than as noise.
+
+## The Other SPE
+
+Because it will be useful to have on the table, let's spell out how the other SPE works.
+
+. . .
+
+Player I takes the job, and both players were planning to hunt rabbit if the hunt went ahead.
+
+. . .
+
+Given that Player II would hunt rabbit, taking the job is right. And given that Player I takes the job, Player II's plan costs her nothing. And if they both show up to hunt, they both make a move that makes sense in the context of Stag Hunt.
+
+. . .
+
+If the previous few slides were right, something has gone wrong here despite this being an equilibrium. We'll come back to this.
+
+# Burning Money
+
+## The More Famous Example
+
+For the record, I think that this "Other SPE" is perfectly rational, though it's *really unintuitive*.
+
+The more famous example of forward induction, the one that Ben-Porath and Dekel use, is much less intuitively clear.
+
+. . .
+
+In the hunt, Player I **turns up**. Player II's inference is about something that happened.
+
+. . .
+
+In this next game, the inference is about something that didn't happen.
+
+## Start With a Familiar Game
+
+Bach-Stravinsky, our standard asymmetric coordination game.
+
+|         |       | $l$   | $r$   |
+|--------:|:-----:|:-----:|:-----:|
+| **I**   | $u$   | 4, 1  | 0, 0  |
+|         | $d$   | 0, 0  | 1, 4  |
+
+: The base game {#tbl-bpd-base}
+
+. . .
+
+Two equilibria in pure strategies, one good for each of them. (There's a mixed strategy equilibrium as well; just ignore it for today, I don't think it does any work.)
+
+## A Strange Option
+
+Before the game starts, Player I may, if she likes, **publicly burn two utils**.
+
+The usual illustration of this is that each util is \$10, and before the B-S game PI is handed a lighter and told she's got the right, standing here in front of everyone, to take a $20 note from her wallet and burn it to ashes. (We'll make sure the smoke alarms don't go off.)
+
+. . .
+
+Nothing about the base game changes. She simply burns a $20 note for the pleasure of it, and for the signalling value of having us all see that she can.
+
+. . .
+
+Unlike the job offer, this option is pure loss. Whatever else happens in the game, she's $20 worse off if she burns $20.
+
+## Counting Strategies
+
+Player I chooses twice: burn or not, then up or down. Write $D$ for don't burn, $B$ for burn. Her strategies are $Du$, $Dd$, $Bu$, $Bd$.
+
+. . .
+
+Player II moves once, but has to cover both cases. So $lr$ means: play $l$ if she didn't burn, $r$ if she did.
+
+## A Fussy Point
+
+Player I really has eight strategies, not four. Her plan has to cover the burn node and the no-burn node, whichever she takes.
+
+. . .
+
+The eight-row table has the rows in duplicate pairs and gives exactly the same four equilibria, so I'm not going to write it out.
+
+. . .
+
+But this complication is going to matter; we'll come back to it at the end.
+
+
+## The Normal Form
+
+|          | $ll$   | $lr$   | $rl$   | $rr$   |
+|---------:|:------:|:------:|:------:|:------:|
+| $Du$     | 4, 1   | 4, 1   | 0, 0   | 0, 0   |
+| $Dd$     | 0, 0   | 0, 0   | 1, 4   | 1, 4   |
+| $Bu$     | 2, 1   | -2, 0  | 2, 1   | -2, 0  |
+| $Bd$     | -2, 0  | -1, 4  | -2, 0  | -1, 4  |
+
+: The money burning game {#tbl-bpd-mb}
+
+. . .
+
+Burning costs 2, so Player I's bottom half is her top half minus 2.
+
+## Dominance
+
+Same first move as in the hunt. $Bd$ is strictly dominated by $Du$: $-2$ against 4, $-1$ against 4, $-2$ against 0, $-1$ against 0.
+
+. . .
+
+Iterated deletion gets you all the way to one outcome. Delete $Bd$, then $lr$ and $rr$ are weakly dominated, then $Dd$, then $rl$, and $\langle Du, ll \rangle$ is all that survives.
+
+. . .
+
+But note that there are weak dominance steps in the middle there, and that's not something everyone buys.
+
+## Reading the Burn
+
+$Bd$ is obviously irrational: its best possible return is $-1$, and both $Du$ and $Dd$ guarantee at least 0.
+
+. . .
+
+So a rational player who burns must be playing $Bu$. And that is common knowledge.
+
+. . .
+
+So if Player I burns, she knows Player II will know she is playing $u$, and will answer with $l$, because that returns 1 rather than 0.
+
+## What Follows
+
+So burning leads to 2, 1. Player I gets 2.
+
+. . .
+
+But then $Dd$ is irrational, since it gets at most 1, and burning gets 2. So Player I plays $Du$ or $Bu$.
+
+. . .
+
+Either way she plays $u$. So Player II plays $l$ in both cases, which is $ll$.
+
+## The Punchline
+
+And if Player II is playing $ll$, Player I has no reason to burn. She plays $Du$ and takes 4.
+
+. . .
+
+So the *possibility* of burning gets her the outcome she wants, without her ever burning anything.
+
+# The Crucial Conditional
+
+## The Conditional Reasoning
+
+Both arguments turned on something of this form:
+
+. . .
+
+- If Player I is rational and plays $B$, she will play $Bu$.
+
+. . .
+
+But you might think that what the argument actually needs, as common knowledge, is this:
+
+. . .
+
+- If Player I is rational then, if she *were* to play $B$, she *would* play $Bu$.
+
+## Stalnaker's Response
+
+Robert Stalnaker argues that this is basically the same as caterpillar.
+
+. . .
+
+If the forward induction argument is right, then burning is irrational. So if Player I were to burn, she would be doing something irrational.
+
+. . .
+
+And someone who does one irrational thing may be following an irrational strategy, of which $Bd$ is a part.
+
+. . .
+
+Note too that if $Du$ is optimal, playing $d$ after burning isn't obviously crazy. It isn't dominated by $u$ within that subgame.
+
+## Playing Out This Reasoning
+
+If it isn't true that Player I *would* play $u$ after burning, then Player II has no reason to answer with $l$.
+
+. . .
+
+And if she has no reason to answer with $l$, there is no reason to think $Bu$ beats $Dd$.
+
+. . .
+
+And if there is no reason to think that, there is no reason to expect $ll$. So maybe $Dd$ is optimal for PI.
+
+## Back to the Hunt
+
+Remember the equilibrium I ended the Hunting discussion with: she takes the job, and Player II was planning to hunt rabbit.
+
+. . .
+
+That needs Player II to believe: *if she had turned up, she would have hunted rabbit*. It's the same kind of subjunctive conditional.
+
+
+## An Exercise
+
+Stalnaker (1998) gives a positive model in which the players have common belief in rationality, and true beliefs about each other, and play $\langle Bu, rl \rangle$.
+
+. . .
+
+That is: she burns, and Player II is planning to punish her if she *doesn't*.
+
+. . .
+
+Work out what Player II has to believe about the counterfactual for this to be rational.
+
+## Working It Out
+
+Player II believes: *if Player I were not to burn, she would play $d$*.
+
+. . .
+
+Given that, playing $r$ after $D$ is right — it gets her 4 rather than 0.
+
+. . .
+
+Given *that*, Player I's non-burning options are worth 0 and 1, and burning is worth 2. So burning is rational.
+
+. . .
+
+Everyone has true beliefs and maximises, but they massively deviate from forward induction.
+
+## Eight Strategies
+
+To even state this equilibrium, we need to return to the **fussy point** from earlier.
+
+That is, we need to specify what PI will do after the option she doesn't take.
+
+This obviously doesn't affect how the game actually plays out, but it does affect *what Player II believes*, and equilibria involve all true beliefs.
+
+## One More Equilibrium
+
+There is also $\langle Dd, rr \rangle$, which is simpler.
+
+. . .
+
+Player II is certain Player I will play $d$, and would keep that belief even if Player I burned. So she plays $r$ come what may, and gets her best outcome.
+
+. . .
+
+Given that certainty, $Dd$ is Player I's best reply. So Player II's belief is consistent with thinking Player I rational.
+
+
+## Next Time
+
+We start looking at games where players don't know what game they are in.
