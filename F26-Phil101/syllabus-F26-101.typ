@@ -520,10 +520,8 @@ We play a deduction game in class. No reading.
 <tuesday-september-29-lecture-9-social-trust>
 #strong[Required]: C. Thi Nguyen, #link("https://aeon.co/essays/why-its-as-hard-to-escape-an-echo-chamber-as-it-is-to-flee-a-cult")["Escape the Echo Chamber"], #emph[Aeon]. \ #strong[Required]: Naomi Oreskes, #link("https://news.harvard.edu/gazette/story/2019/10/in-why-trust-science-naomi-oreskes-explains-why-the-process-of-proof-is-worth-trusting/")["Defending science in a post-fact era"], #emph[Harvard Gazette], 2019. (The important part is the third question, about the 'five pillars'. The rest of the interview is #strong[Recommended]\.)
 
-#emph[Module Quiz 1 (Lectures 1--9) opens after class, due Sunday.] (NOTE FOR GSIs; should I just post the questions earlier?)
+#emph[Module Quiz 1 (Lectures 1--9) opens after class, due Sunday.] \#\#\# Thursday, October 01 (Lecture 10) --- Perception reconsidered
 
-=== Thursday, October 01 (Lecture 10) --- Perception reconsidered
-<thursday-october-01-lecture-10-perception-reconsidered>
 #strong[Required]: Bertrand Russell, #link("https://www.gutenberg.org/files/5827/5827-h/5827-h.htm")[#emph[The Problems of Philosophy]], ch.~1, "Appearance and Reality." \ #strong[Recommended]: Tim Crane and Craig French, #link("https://plato.stanford.edu/entries/perception-problem/")["The Problem of Perception"], SEP, "The Argument from Illusion", #strong[§2]. \ #strong[Recommended]: Paul Coates, #link("https://iep.utm.edu/sense-da/")["Sense-Data"], IEP.
 
 == Week 6: Consciousness

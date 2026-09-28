@@ -65,11 +65,7 @@ advdate <- function(obj, adv) {
 }
 ```
 
-<!-- ::: {.callout-important}
-## Draft for discussion with GSIs
 
-This version is for the pre-term meeting, not for students. The last section records what is still open. Delete that section, and this box, before the student version goes out.
-::: -->
 
 | **Instructor**: Brian Weatherson
 | **Email**: weath@umich.edu
@@ -213,8 +209,7 @@ We play a deduction game in class. No reading.
 **Required**: C. Thi Nguyen, ["Escape the Echo Chamber"](https://aeon.co/essays/why-its-as-hard-to-escape-an-echo-chamber-as-it-is-to-flee-a-cult),  *Aeon*.    
 **Required**: Naomi Oreskes, ["Defending science in a post-fact era"](https://news.harvard.edu/gazette/story/2019/10/in-why-trust-science-naomi-oreskes-explains-why-the-process-of-proof-is-worth-trusting/),  *Harvard Gazette*, 2019. (The important part is the third question, about the 'five pillars'. The rest of the interview is **Recommended**.)
 
-*Module Quiz 1 (Lectures 1–9) opens after class, due Sunday.* (NOTE FOR GSIs; should I just post the questions earlier?)
-
+*Module Quiz 1 (Lectures 1–9) opens after class, due Sunday.* 
 ### `r advdate(thu, 5)` (Lecture 10) — Perception reconsidered
 
 **Required**: Bertrand Russell, [*The Problems of Philosophy*](https://www.gutenberg.org/files/5827/5827-h/5827-h.htm), ch. 1, "Appearance and Reality."    
@@ -360,31 +355,5 @@ No reading. Bring questions.
 
 The final examination is in the University examination period, 14–21 December. The date and room will be posted once the University publishes the schedule.
 
-<!-- {{< pagebreak >}}
 
-# Open for the GSI meeting
-
-*This section is not for students. Delete it before the syllabus goes out.*
-
-## The section component
-
-We should decide what to do with the 20%. That's a lot for you, but on the other hand, it gives you plenty of things to do in class, and two classes a week is a lot to prep. So I think we should go with something like
-
-1. Short Answer 1 ~8%
-2. Presentations on readings ~6%
-3. Participation ~6%
-
-But we can alter point 2, or add something else. I think it would *probably* be best to be uniform across the sections, but I'm willing to be talked out of it.
-
-## Consequences of the November essay deadline
-
-The essay is due Monday 23 November so that marked essays go back before the examination. 
-
-Short Answer 2 is marked across two weeks, 23 October to 6 November. That's an important deadline to hit, because the students should use the feedback from in in essay 1. Also, this should get *more* feedback than either short answer 1 or frankly the essay. (And definitely more than the exam.)
-
-Then essay marking doesn't have as hard a deadline; ideally 2 weeks after it's turned in, but a bit of slippage here isn't the end of the world.
-
-The stuff at the end isn't as crucial to the grading, because it only shows up on one quiz and an exam. That may result in some loss of enthusiasm. Now maybe that's fine; it's the end of term. And free speech normally gets enough enthusiasm anyway. And no matter what the grade, students over-index on the importance of the exam. But if you're worried, we could move some of the 20% to in class activities after the essay is due in.
-
-Short Answer 1 is meant to be in class, and this could cause accommodations complications. We should flag this early, and get on top of any issues. The same goes for any other in class writing assignments you want to do. Also, you might want to schedule a makeup slot - preferably one slot across all six sections, because out of 150 we will always have some crises. -->
 

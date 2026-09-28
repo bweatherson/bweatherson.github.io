@@ -1,0 +1,297 @@
+---
+title: "The Hard Problem, and Mary"
+subtitle: "Phil 101 · Day 12"
+author: "Brian Weatherson"
+date: "2026-10-08"
+---
+
+# Where we are
+
+## Recap
+
+Tuesday was Nagel.
+
+- There's something it is like to be a bat.
+- We can't get at it by imagining, because imagination runs on our own stock.
+- Getting more objective takes you further from it, not closer.
+
+. . .
+
+And the conclusion was careful. Not that physicalism is false, but that we can't see how it could be true.
+
+## Today
+
+Two things.
+
+1. A name for the shape of that problem.
+2. An argument that tries to close it, and show that physicalism isn't merely hard to understand but false.
+
+# The hard problem
+
+## Easy and hard
+
+David Chalmers, in the mid-1990s, put a label on the distinction Nagel was circling.
+
+The **easy problems** are the ones about what the brain *does*. How it tells stimuli apart, integrates information, reports on its own states, focuses attention, controls behaviour.
+
+. . .
+
+"Easy" is relative. These are hundred-year research programmes. The point is that we know what an answer would look like: find the mechanism.
+
+## The hard problem
+
+The **hard problem** is why any of that should be accompanied by experience at all.
+
+. . .
+
+You could have the whole mechanism story --- discrimination, integration, report, control --- and still ask why it isn't all going on in the dark.
+
+## Why the labels earn their keep
+
+They tell you what a proposed solution has to do.
+
+If somebody explains how the brain distinguishes red light from green light and offers that as an explanation of colour experience, they have solved an easy problem and reported it as the hard one.
+
+. . .
+
+That isn't always a cheat. Maybe the easy problems are all there are. But you should be able to see which one has been answered.
+
+# Physicalism
+
+## The thesis
+
+:::: {.callout-note title="Kıymaz"}
+[P]hysicalism is the view that mental states, like beliefs, feelings and desires, are nothing over and above the physical states of the brain: we don't have souls or any non-physical features, and so all facts about our minds are, at bottom, physical facts.
+::::
+
+## What would refute it
+
+Find one fact about a mind that isn't a physical fact.
+
+. . .
+
+That's the target. Frank Jackson thought he had a way to hit it.
+
+Along the way you'll meet the word **qualia**: the qualitative feel of an experience, what makes seeing red different from seeing green from the inside. The singular is *quale*.
+
+# Mary
+
+## The room
+
+:::: {.callout-note title="Jackson"}
+Mary is confined to a black-and-white room, is educated through black-and-white books and through lectures relayed on black-and-white television.
+::::
+
+In there she becomes the world's leading expert on the physics and neuroscience of colour vision. Wavelengths, cone cells, opponent processing, the lot.
+
+. . .
+
+She knows every physical fact there is about what happens when somebody looks at a ripe tomato.
+
+## The release
+
+Then somebody opens the door.
+
+. . .
+
+She sees a tomato.
+
+. . .
+
+**Does she learn anything?**
+
+## A question (POLL)
+
+When Mary comes out and sees red for the first time, she
+
+A.  learns a new fact she didn't know before
+B.  learns no new fact, but gains a new ability
+C.  learns no new fact, but comes to know an old fact in a new way
+D.  learns nothing at all
+
+. . .
+
+Those four answers are the four positions in the literature, and we're going to take them in that order. So you've just picked a side.
+
+## The argument
+
+Jackson's own statement of it, from the 1986 paper:
+
+:::: {.callout-note title="Jackson"}
+(1)′ Mary (before her release) knows everything physical there is to know about other people.
+
+(2)′ Mary (before her release) does not know everything there is to know about other people (because she learns something about them on her release).
+
+Therefore,
+
+(3)′ There are truths about other people (and herself) which escape the physicalist story.
+::::
+
+## iClicker QUIZ
+
+In that argument, which line is true simply because of the way the case was described?
+
+A.  Line (1)′
+B.  Line (2)′
+C.  Line (3)′
+D.  Neither premise; both need defending
+
+## Check the form
+
+It's valid, and it's short. Two premises and a conclusion.
+
+The first premise is true by stipulation. We built the case that way; if you don't like it, you're refusing the thought experiment rather than answering it.
+
+. . .
+
+So everything rests on the second premise. And the second premise has exactly one thing holding it up: the sense that of course she learns something.
+
+. . .
+
+That isn't nothing. Intuitions like that are evidence. But notice how much weight is sitting on one of them.
+
+# Four ways out
+
+## A. She learns a new fact
+
+Take the argument at face value and physicalism is false. There are truths about experience that no amount of physics delivers.
+
+This was Jackson's own position in 1982 and 1986.
+
+:::: {.callout-note title="Jackson"}
+My claim is that the knowledge argument is a valid argument from highly plausible, though admittedly not demonstrable, premises to the conclusion that physicalism is false.
+::::
+
+## B. The ability hypothesis
+
+:::: {.callout-note title="Kıymaz"}
+Mary does learn something when she sees red, however, what she learns is not a new *fact*, but it is *know-how*; she just acquires new cognitive abilities.
+::::
+
+Due to David Lewis and Laurence Nemirow. What Mary picks up is the ability to recognise, imagine and remember the experience.
+
+## Why that would help
+
+Knowing how to ride a bicycle isn't a stock of facts about bicycles. You can have the whole physics of balance and still fall off.
+
+. . .
+
+If what Mary gains is like that, premise (2)′ is false. She knew all the facts. She just couldn't do something yet.
+
+## Jackson's reply
+
+He says this misdescribes what Mary is doing when she comes out.
+
+:::: {.callout-note title="Jackson"}
+What is immediately to the point is not the kind, manner, or type of knowledge Mary has, but what she knows.
+::::
+
+. . .
+
+His test case: Mary comes out, and wonders whether other people's experience of red is like hers. That's a question about how things are with other people. It isn't a question about what she can now do.
+
+## C. The acquaintance hypothesis
+
+:::: {.callout-note title="Kıymaz"}
+Mary doesn't learn a new truth but she gains nonfactual *acquaintance knowledge*... To know what it is like to experience a mental state is just to experience that mental state.
+::::
+
+Due to Earl Conee. Close to B, but what she gains isn't a skill. It's a relation to the experience itself.
+
+## D. Phenomenal concepts
+
+:::: {.callout-note title="Kıymaz"}
+[W]hat Mary learns upon seeing red is not a new truth, but a new way of apprehending a physical truth that she already knew.
+::::
+
+Same fact, new concept. She already knew that seeing a tomato involves such-and-such a neural state. Now she can also think about that very state as *this*.
+
+## The bill for D
+
+This is the most popular physicalist response, and it isn't free.
+
+It has to say what phenomenal concepts are, in physical terms, when the defining feature of one is that you can only acquire it by having the experience.
+
+. . .
+
+Kıymaz flags this as the open problem for the view, and it's fair to say it's still open.
+
+## E. She learns nothing at all
+
+The remaining option is to reject the intuition outright.
+
+Dennett and the Churchlands argue that genuinely complete physical knowledge is far more than any of us can picture, so our confidence about what Mary would say on coming out tells us about the limits of our imagination, not about Mary.
+
+. . .
+
+Put bluntly: you have never met anybody who knew *everything* physical, so your intuitions about what such a person would be surprised by are not worth much.
+
+## Where the poll landed
+
+**A** is Jackson's own view in 1986. **B** and **C** say she gains something that isn't a fact. **D** says she gains a new grip on an old fact. **E** says the case was never coherent enough to have an answer.
+
+. . .
+
+Every one of these is held by someone serious. What separates them is not the case. It's what you think knowledge is.
+
+## The twist
+
+Something worth knowing, which is rarer than it should be.
+
+Jackson changed his mind. By the late 1990s he had decided the knowledge argument fails, and became a physicalist.
+
+. . .
+
+Roughly, his reason was that taking the argument's conclusion seriously commits you to experiences that make no difference to anything you say or do --- including your saying that you have them. He decided that price was too high.
+
+# Zombies
+
+## One more case
+
+Chalmers's version of the same pressure point.
+
+A **philosophical zombie** is a thing physically identical to you, atom for atom, in a world with the same physical laws, which has no experience at all. Nothing it is like to be it.
+
+. . .
+
+It still says "oh, that's a lovely red", because saying that is a physical event with physical causes, and every physical cause is present.
+
+## What the case is for
+
+Nobody thinks zombies exist. The claim is only that the description is coherent --- that you can fully specify the physical facts and leave the question of experience open.
+
+. . .
+
+If that's right, the physical facts don't settle the experiential facts, and physicalism is false.
+
+## Connecting back
+
+Remember Tuesday's distinction between thinking and there being something it is like.
+
+A zombie is the clean case of the first without the second. It reasons, reports and plans exactly as you do, with nobody home.
+
+. . .
+
+Which is where we pick up on Tuesday, with the views that take all this to show minds are not physical things at all.
+
+# Going forward
+
+## Short Answer 2
+
+Out after class today, due Friday 23 October.
+
+Five prompts, on one case from the last three lectures: sense-data, the bat, or Mary. You choose the case.
+
+. . .
+
+The prompts walk you through the moves an essay makes. There's nothing hidden to discover; the work is in making each move clearly.
+
+## Tuesday
+
+We now have two arguments that something is missing from the physical story.
+
+. . .
+
+Tuesday we ask what the missing thing might be, and meet the view with the most direct answer: that minds simply aren't physical.
+
+We'll go back to Ibn Sīnā's flying man, and on to Descartes.
