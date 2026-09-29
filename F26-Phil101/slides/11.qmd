@@ -12,36 +12,44 @@ date: "2026-10-06"
 Thursday we asked what experience is *of*.
 
 - Russell's answer was **sense-data**: private objects you're immediately aware of.
-- One rival said experience **represents** the world, the way a sentence does.
-- The other said you're aware of the **thing itself**, and looking a certain way is something the thing does.
-
-. . .
-
-Three answers, one question. What is experience directed at?
+- The obvious alternative is **worldly objects**: when you look at a cat, you're immediately aware of the cat.
+- And there are other alternatives which say this is a false dichotomy, but let's stick with these two,
 
 ## A different question
 
-Today we change the question.
-
-Not what your experience is *of*, but what it is *like*.
+Today look not at what your experience is *of*, but at what it is *like*.
 
 . . .
 
-And then a harder one. How much can you find out about what somebody else's experience is like?
+And in the background, eventually the foreground, will be a question about how we know what the experience of other people, or other things, is like.
 
-## Thomas Nagel
+## Which one is pure green? (iClicker Poll)
 
-Thomas Nagel, born 1937, has spent most of his career at NYU.
+![](../images/unique-green-ladder.png){.nostretch fig-alt="Five green swatches, labelled A to E, running from a yellowish green to a blue-green, on a neutral grey background."}
 
-"What Is It Like to Be a Bat?" came out in 1974 and is one of the most cited papers in modern philosophy.
+By **pure green** I mean the one that is neither a bit yellowish nor a bit bluish, but just green.
+
+**A, B, C, D, or E?**
 
 . . .
 
-It's also one of the shortest and plainest, and those two facts are not unrelated.
+Don't confer. This is a poll, and we might differ.
 
-# Consciousness
+Also, if these all look the same color to you, pick one at random. In a group this size, it would be surprising if 100% of people can distinguish these.
 
-## The thing that makes it hard
+## Phenomenal Variation
+
+We could do more of these. How many of you find that coriander tastes like soap, or know someone for who this is true?
+
+. . .
+
+And this is just variation among members of a single species, in pretty similar environments. Across species, things are weirder.
+
+. . .
+
+"What Is It Like to Be a Bat?" is by Thoma Nagel, and American philosopher who has primarily worked at NYU. It came out in 1974 and is one of the most cited papers in modern philosophy. 
+
+## The thing that makes consciousness hard
 
 Nagel's complaint is that people writing on the mind-body problem keep making it look tractable, and that they manage this by leaving out the part that isn't.
 
@@ -49,9 +57,17 @@ Nagel's complaint is that people writing on the mind-body problem keep making it
 Consciousness is what makes the mind-body problem really intractable.
 ::::
 
-## What he means by it
+. . .
 
-Not self-awareness. Not intelligence. Not the ability to report on yourself.
+Remember, he's writing in 1974. Computers are becoming well established in military and industrial uses; they were central to the Apollo program. The idea that the mind might be some kind of computer is catching on, and making minds look intelligible.
+
+## What Nagel means by consciousness
+
+Crucially, by consciousness Nagel does not mean:
+
+- Self-awareness, at least in the sense of having representations of oneself, like a car with a fuel gauge;
+- The ability to make self-reports; or
+- Intelligence, at least in a minimal sense.
 
 :::: {.callout-note title="Nagel"}
 [F]undamentally an organism has conscious mental states if and only if there is something that it is like to be that organism---something it is like *for* the organism.
@@ -59,7 +75,7 @@ Not self-awareness. Not intelligence. Not the ability to report on yourself.
 
 . . .
 
-That last clause is load-bearing. Not something it is like *to us*, or from outside. Something it is like for the thing itself.
+That last clause does all the work; from the inside, there is something it is like to be that thing.
 
 ## A trap in the English
 
@@ -69,7 +85,7 @@ That last clause is load-bearing. Not something it is like *to us*, or from outs
 
 That's not the question, and the grammar misleads here. The "like" isn't comparative.
 
-The question is whether there is any way things seem from in there. Whether the lights are on.
+The question is whether there is any way things seem from in there. In the evocative phrase that's become standard, it's about whether "the lights are on", and "somebody's home".
 
 ## Why bats
 
@@ -79,9 +95,7 @@ I have chosen bats instead of wasps or flounders because if one travels too far 
 
 . . .
 
-Bats are mammals. Almost nobody wants to say there's nothing going on in there.
-
-But the way they find out about the world is nothing like ours.
+Bats are mammals. It would be weird if they didn't have an inner life. And it would be weird if their inner life, like ours, was not tied up with their perceptual system. But their perceptual system is really really different to ours.
 
 ## Sonar
 
@@ -102,7 +116,7 @@ D.  Bats are nocturnal, so their experience is more unlike ours
 
 ## Try it
 
-Imagine you have webbing on your arms. Imagine catching insects in your mouth. Imagine spending the day hanging upside down in an attic, and the night flying around in the dark.
+Imagine you have webbing on your arms. Imagine you primarily eat by catching insects in your mouth. (Maybe less of a stretch for some of us.) Imagine you spend your day hanging upside down in an attic, and your night flying around in the dark.
 
 . . .
 
@@ -118,17 +132,56 @@ Our own experience provides the basic material for our imagination, whose range 
 
 . . .
 
-You can add to what you've had, subtract from it, or rearrange it. What you can't do is start from somewhere else.
+Imagination tends to involve mixing and matching from perception. We have perceived horses, and perceived things with horns, so we can imagine horses with horns.
+
+What's harder to do with imagination is start with different building blocks to perception, rather than just rearrange the blocks in a different way.
 
 ## It isn't really about bats
 
 The bat is vivid, but the point is general, and it runs much closer to home.
 
-The same problem arises between a person blind from birth and a sighted person, and for all we know between any two of us.
+The same problem arises between people. It's really dramatic for people with different sensory capacities, but it arises even in the statistically common parts of the population.
+
+## Back to the swatches
+
+You didn't agree. (I'm gambling here; as I note on the next couple of slides, this is based on some real studies.)
 
 . . .
 
-And it runs in the other direction too. Intelligent bats might come to know far more about human brains than we ever will, and still be unable to form any conception of what it is like to be us.
+Why? Three natural options.
+
+1. The angles of the room and the lighting mean you saw different thing, like Russell walking around the table.
+2. You mean slightly different things by "yellowish" or "blueish".
+3. Your experiences of the same swatch differ.
+
+. . .
+
+The first one a lab can control for, and when it does, the disagreement stays.
+
+## How big the disagreement is
+
+Pool the published studies and settings for pure green vary across people with ordinary colour vision by about **55 nm** of wavelength, which is a really large.^[If you want more details, see, "The distribution of unique green wavelengths", *Journal of Vision* (2013).]
+
+To put that in context, for any one person, the gap between what they call pure green and what they call pure blue is not much more than 55nm.
+
+. . .
+
+It does seem this is a bigger range for green than other colors; if there's a good reason for that, I don't know it.
+
+But it is a pretty resilient finding that there is a lot of variation in what we call pure green.
+
+## Why?
+
+We can do this under very controlled conditions, not a lecture theatre, and remove the problem of different shading, and the result remains.
+
+Is this because:
+
+1. People mean different things by their words; or
+2. People have different experiences?
+
+. . .
+
+How could we possibly know? What would it even mean? This is a human level version of Nagel's problem.
 
 # Objectivity
 
@@ -138,11 +191,11 @@ And it runs in the other direction too. Intelligent bats might come to know far 
 [E]very subjective phenomenon is essentially connected with a single point of view, and it seems inevitable that an objective, physical theory will abandon that point of view.
 ::::
 
+This seems like a not bad statement of (a) what we mean by calling something subjective, and (b) the hope that the subjective views will get subsumed in a grander objective view. 
+
 ## The reversal
 
-This is the move that makes the paper more than a good example.
-
-Normally, getting more objective gets you *closer* to how things are. You drop your parochial vantage point and you see the thing as it is.
+Normally, getting more objective gets you *closer* to how things really are. 
 
 . . .
 
@@ -154,11 +207,16 @@ If the subjective character of experience is fully comprehensible only from one 
 
 Physics works by subtracting the point of view.
 
-Colour as you see it goes; wavelength stays. Warmth as you feel it goes; mean kinetic energy stays. Every step is a success, and every step drops something tied to being a particular perceiver in a particular place.
+- We replace talk of seen color with wavelengths.
+- We replace talk of felt warmth with mean kinetic energy.
 
 . . .
 
-The trouble is that the thing we're now trying to explain is exactly the bit that keeps getting dropped.
+These are good steps, we learn a lot by these replacements.
+
+. . .
+
+The trouble is that the thing we're trying to explain when we study consciousness is exactly the bit that keeps getting dropped.
 
 ## A quick question (POLL)
 
@@ -166,32 +224,32 @@ Suppose bat neuroscience is finished. Every neuron mapped, every process underst
 
 **Would we then know what it is like to be a bat?**
 
-A.  Yes. There'd be nothing left to know
-B.  No, and that shows the physical story leaves something out
-C.  No, but only because we couldn't *imagine* it. Nothing is left out of the story
-D.  The question has no answer
+A.  Yes. There'd be nothing left to know.
+B.  No, and that shows the physical story leaves something out.
+C.  No, but only because we couldn't *imagine* it. Nothing is left out of the story.
+D.  The question has no answer.
 
 . . .
 
-Hold on to your answer. B and C are the whole debate, and Thursday is about how to tell them apart.
+We'll come back to this on Thursday.
 
 ## What Nagel is not saying
-
-This is the part that gets misreported, including by people who like the conclusion.
 
 :::: {.callout-note title="Nagel"}
 It would be a mistake to conclude that physicalism must be false.
 ::::
 
+By physicalism, he means the doctrine that the whole world is made up of physical things instantiating physical properties. (This used to be called **materialism** until physics told us that matter wasn't particularly fundamental.) 
+
+Many philosophers have used arguments like Nagel's against physicalism.
+
 . . .
 
-His claim is weaker, and stranger. It's that we don't properly understand what physicalism is asserting, because *we do not at present have any conception of how it might be true*.
+Nagel's actual claim is weaker, and stranger. It's that we don't properly understand what physicalism is asserting, because *we do not at present have any conception of how it might be true*.
 
 ## Objective phenomenology
 
-He doesn't stop at the complaint. He sketches a programme.
-
-The idea is a way of describing experience that doesn't depend on being able to have it --- the way a person blind from birth can understand a great deal about what sighted people are up to.
+Nagel sketches a rather ambitious, optimistic, way forward; he envisages a way of describing experience that doesn't depend on being able to have it.
 
 :::: {.callout-note title="Nagel"}
 [A] phenomenology that is in this sense objective may permit questions about the physical basis of experience to assume a more intelligible form.
@@ -199,15 +257,15 @@ The idea is a way of describing experience that doesn't depend on being able to 
 
 . . .
 
-He does not say how to build one. Fifty years later, nor has anyone else.
+He does not say how to build one. I'm not sure anyone else has done better.
 
-# Thought and feeling
+## Thought and feeling
 
-## What the argument didn't need
+Nothing in the bat argument said bats are clever. 
 
-Notice what never came up.
+Nothing said they reason, or plan, or have concepts. 
 
-Nothing in the bat argument said bats are clever. Nothing said they reason, or plan, or have concepts. The argument works whether or not any of that is true.
+The argument works whether or not any of that is true.
 
 . . .
 
@@ -216,29 +274,27 @@ All it needed was that there's something it is like to be one.
 ## Two different things
 
 Thinking
-:    Whatever it is we do with our observations of the world, and with combinations of them. Reasoning, planning, inferring. Humans do it; thermostats don't.
+:    Whatever it is we do with our observations of the world, and with combinations of them, e.g., reasoning, planning, inferring. Humans think; thermostats don't.
 
 Consciousness
-:    There being something it is like, for the thing itself.
+:    There being something it is like, for the thing itself. There is something it is like to be human; nothing it is like to be a thermostat.
+
+## Thinking and Feeling
+
+Ordinary speech runs those two notions together, and so does a lot of the current argument about machines. 
+
+*Does it really think?* and *is there anything it's like to be it?* get asked as though they were the same question.
 
 . . .
 
-These are two concepts, not one. Any connection between them needs an argument, and nobody gets to slide from one to the other without giving one.
-
-## Why it's worth saying out loud
-
-Ordinary speech runs them together, and so does a lot of the current argument about machines. *Does it really think?* and *is there anything it's like to be it?* get asked as though they were the same question.
-
-. . .
-
-They're not. Keeping them apart is one of the things this unit is for, and we'll do it properly next Tuesday.
+They're really not. Maybe it will turn out as a matter of fact that there is something it is like to be something if and only if that thing thinks. But that's a bold claim that needs argument. We'll come back to it.
 
 # Going forward
 
 ## This week
 
 - Short Answer 1 is written in section this week.
-- Short Answer 2 goes out on Thursday, on Lectures 10 to 12.
+- Short Answer 2 goes out on Friday, on Lectures 10 to 12.
 
 ## Thursday
 

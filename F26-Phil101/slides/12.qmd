@@ -9,34 +9,59 @@ date: "2026-10-08"
 
 ## Recap
 
-Tuesday was Nagel.
+On Tuesday we tried to imagine being bats.
 
-- There's something it is like to be a bat.
-- We can't get at it by imagining, because imagination runs on our own stock.
-- Getting more objective takes you further from it, not closer.
+- There's something it is like to be a bat, there is something there to imagine.
+- But we can't imagine it.
+- The usual scientific trick, _be objective_, seems to make things worse.
 
 . . .
 
-And the conclusion was careful. Not that physicalism is false, but that we can't see how it could be true.
+Nagel himself concluded not that physicalism is false, but that we can't see how it *could* be true.
 
 ## Today
 
-Two things.
+We'll look at two Australian philosophers who have tried to turn that puzzle into an argument that physicalism is true.
 
-1. A name for the shape of that problem.
-2. An argument that tries to close it, and show that physicalism isn't merely hard to understand but false.
+We'll do things out of order, starting with the younger of the two philosophers, and we'll primarily look a distinction he draws between two problems about the mind.
+
+Then we'll look at a slightly older philosopher, who presented, almost in passing, a thought experiment that turned Nagel's worry into a full-blown argument against physicalism.
 
 # The hard problem
 
-## Easy and hard
+## David Chalmers
 
-David Chalmers, in the mid-1990s, put a label on the distinction Nagel was circling.
+::: {layout="[50, 50]"}
 
-The **easy problems** are the ones about what the brain *does*. How it tells stimuli apart, integrates information, reports on its own states, focuses attention, controls behaviour.
+::: {}
+![David Chalmers (1966-)](../images/chalmers.jpg){fig-alt="A portrait of David Chalmers."}
+
+. . .
+:::
+
+::: {}
+![A zombie](../images/zombie.jpg){fig-alt="A movie zombie."}
+:::
+
+:::
+
+## 
+
+## Easy and Hard Problems
+
+David Chalmers, in the mid-1990s, came up with a useful label for the problem Nagel was getting at.
+
+In philosophy of mind, the **easy problems** are the ones about what the brain *does*. These problems include:
+
+- How it tells stimuli apart, 
+- How it integrates information, 
+- How it reports on its own states, 
+- How it focuses attention, 
+- How it controls behavior.
 
 . . .
 
-"Easy" is relative. These are hundred-year research programmes. The point is that we know what an answer would look like: find the mechanism.
+"Easy" is relative. These are massive, massive problems, and especially for the last two, we're a *long* way from getting the answer. But it feels like going objective is the right way to go, and we're making progress.
 
 ## The hard problem
 
@@ -44,17 +69,25 @@ The **hard problem** is why any of that should be accompanied by experience at a
 
 . . .
 
-You could have the whole mechanism story --- discrimination, integration, report, control --- and still ask why it isn't all going on in the dark.
-
-## Why the labels earn their keep
-
-They tell you what a proposed solution has to do.
-
-If somebody explains how the brain distinguishes red light from green light and offers that as an explanation of colour experience, they have solved an easy problem and reported it as the hard one.
+Cameras and microphones and LIDARs take in information without having any experience. (I'm extremely confident of that, but remember knowledge here is hard.)
 
 . . .
 
-That isn't always a cheat. Maybe the easy problems are all there are. But you should be able to see which one has been answered.
+Some cars, most successfully I guess those that Waymo builds, integrate that information and use it to control behavior. But they're still not conscious. (I'm also confident of that, though I'm not sure what I'd say to someone who wasn't.)
+
+. . .
+
+We can imagine, says Chalmers, a **zombie** version of one of us that is exactly alike us on the outside *and the inside*, but which has no conscious experience.
+
+. . .
+
+Why aren't we zombies?
+
+## Why these labels
+
+They give you a clue to when someone is switching problems.
+
+If somebody explains how the brain distinguishes red light from green light and offers that as an explanation of colour experience, they have solved an easy problem and reported it as the hard one.
 
 # Physicalism
 
@@ -64,15 +97,26 @@ That isn't always a cheat. Maybe the easy problems are all there are. But you sh
 [P]hysicalism is the view that mental states, like beliefs, feelings and desires, are nothing over and above the physical states of the brain: we don't have souls or any non-physical features, and so all facts about our minds are, at bottom, physical facts.
 ::::
 
-## What would refute it
+This is false if there are any facts that are not physical facts.
 
-Find one fact about a mind that isn't a physical fact.
+## Frank Jackson
+
+::: {layout="[50, 50]"}
+
+::: {}
+![Frank Jackson (1943-)](../images/jackson.jpg){fig-alt="A portrait of Frank Jackson."}
 
 . . .
+:::
 
-That's the target. Frank Jackson thought he had a way to hit it.
+::: {}
+Frank Jackson has made contributions to just about every field of philosophy you will come across.
 
-Along the way you'll meet the word **qualia**: the qualitative feel of an experience, what makes seeing red different from seeing green from the inside. The singular is *quale*.
+But his most famous contribution, I believe the most cited paper written by an Australian academic, concerned an argument against physicalism and for dualism.
+:::
+
+:::
+
 
 # Mary
 
