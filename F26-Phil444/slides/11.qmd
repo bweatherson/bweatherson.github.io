@@ -1,0 +1,357 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 11: Signaling Games"
+author: "Brian Weatherson"
+date: "October 6, 2026"
+---
+
+# Perfect Bayesian Equilibrium
+
+## Where We Left Off
+
+We looked at games which had types, but which had no sequential moves. So Bayesian Nash equilibrium was enough.
+
+. . .
+
+Today players we'll look at games where players move in sequence, and see the moves. When we did that with deterministic games we needed to change our equilibrium notion.
+
+. . .
+
+We do here as well, but the change is not quite the same.
+
+## A Game With No Subgames
+
+![](figures/perfect.svg){alt="The game Perfect, in which Player 2 cannot tell whether Player 1 played L or M" fig-align="center" width="52%"}
+
+. . .
+
+Player 1 moves first: $L$, $M$ or $R$. If $R$, the game ends at 2, 2.
+
+. . .
+
+If $L$ or $M$, Player 2 moves. But while he knows she has to move, he doesn't know which of the open moves Player 1 did.
+
+## Two Nash Equilibria
+
+$\langle L, l \rangle$ is the obvious one. Player 1 gets 3, Player 2 gets 1, which is the most he can get given the right-hand branch is unused.
+
+. . .
+
+But $\langle R, r \rangle$ is also a Nash equilibrium. Player 2 gets 2, his best available; and given that he's playing $r$, Player 1's options are 0, 0 and 2, so $R$ is right.
+
+## Why That One Is Strange
+
+It rests on Player 2 being willing to play $r$ if he got a move.
+
+. . .
+
+But that's really a non-credible threat. If he gets to move, he'll know $l$ pays 1 and $r$ pays 0.
+
+
+## No Subgame To Perfect
+
+This is exactly the incredible-threat problem that motivated subgame perfection.
+
+. . .
+
+But subgame perfection won't help. We didn't go over this in the slides, but the technical definition of a subgame includes that it starts at a node where it's common knowledge you've arrived, and Player 2's two nodes are in one information set.
+
+. . .
+
+So there are no proper subgames in **Perfect**, and every Nash equilibrium is trivially subgame perfect. That's bad, because it's failing the task we were set.
+
+## Four Constraints
+
+New idea
+
+- Model each player as someone who is, at every point they could reach, a Bayesian expected utility maximiser.
+
+. . .
+
+1. At each point, each player has a probability distribution over where they are, and these are **correct about other players' strategies**.
+2. At every node, each player is disposed to maximise expected utility **on arrival**.
+3. When information comes in with some positive probability, update by conditionalisation.
+4. Where information comes in with 0, have **some** consistent beliefs or other.
+
+## What That Rules Out
+
+Condition 4 is extremely weak. It says almost nothing about what to think at a surprise.
+
+. . .
+
+But it says you must think *something*. It turns out for the game we've presented, that's enough.
+
+. . .
+
+Player 2 must have some $\Pr(L) = x$. For any $x$, the expected value of $l$ is 1 and of $r$ is 0. So being disposed to play $r$ violates condition 2.
+
+. . .
+
+$\langle R, r \rangle$ is not a perfect Bayesian equilibrium.
+
+## Where This Sits
+
+Every perfect Bayesian equilibrium is a Nash equilibrium. Not conversely, we just saw a counterexample.
+
+. . .
+
+If you guessed that condition 4 was too weak and this would lead to crisis, step right up to receive your prize.
+
+The prize is...
+
+# Signaling Games
+
+## The Shape
+
+Player 1 gets some information Player 2 doesn't have. Often it's information about herself, so we call it her **type**, but that's inessential.
+
+. . .
+
+Player 1 then moves. Player 2 sees the **move** but not the type. Then Player 2 moves.
+
+. . .
+
+We'll assume Player 1's options don't depend on her type, and Player 2's don't depend on Player 1's move. Both are losses of generality, and become relevant when people talk about 'honest signaling'; maybe we'll come back to this.
+
+## Simple Signal
+
+![](figures/simple-signal.svg){alt="A simple signalling game, with Nature moving first and Player 2 unable to observe Nature's move" fig-align="center" width="62%"}
+
+## Reading the Tree
+
+The empty disc in the centre is the start. Nature ($N$) moves first, making some proposition $q$ true or false, and telling Player 1.
+
+. . .
+
+Left is $q$, with probability $p$. Right is $\neg q$.
+
+. . .
+
+Player 1 then plays $U$ or $D$. Player 2 sees that, and the dashed lines say he sees only that. (Remember we're having female P1 and male P2). Then he plays $l$ or $r$.
+
+## Four Strategies Each
+
+Player 1 has to say what to do if $q$ and what to do if $\neg q$. Write it $\alpha\beta$. So P1 has four strategies.
+
+. . .
+
+Player 2 has to say what to do after $U$ and what to do after $D$. Write it $\gamma\delta$. Again, P2 has four strategies.
+
+. . .
+
+If he could see Nature's move as well as Player 1's, he'd have four decisions to make, and sixteen strategies. The strategy tables would be even more unweildly.
+
+## What the Payoffs Mean
+
+Both players get 1 if Player 2 plays $l$ exactly when $q$ is true, and 0 otherwise.
+
+. . .
+
+Read $l$ as forming the belief that $q$ and $r$ as forming the belief that $\neg q$. Then this is a pure communication game: everyone wins when Player 2 ends up believing the truth.
+
+. . .
+
+David Lewis (in _Convention_, essentially his PhD thesis) used games of this shape to argue that game theory has something to say about meaning. With $p = \frac{1}{2}$ it's symmetric, and this creates complications, so it's actually easier to start with $p = \frac{3}{5}$.
+
+## Separating Equilibria
+
+$\langle UD, lr \rangle$ and $\langle DU, rl \rangle$.
+
+. . .
+
+What Player 1 does depends on what Nature did, so her move carries the information, and Player 2 can decode it.
+
+. . .
+
+Both players get 1 for certain. Good work, good method, etc.
+
+## Pooling Equilibria
+
+$\langle UU, ll \rangle$ and $\langle DD, ll \rangle$.
+
+. . .
+
+Player 1 does the same thing whatever Nature did, so her move says nothing. Player 2 learns nothing and has to guess.
+
+. . .
+
+Since $\Pr(q) = \frac{3}{5} > \frac{1}{2}$, she guesses $l$. And since she's guessing regardless, Player 1 has no reason to do one thing rather than the other. It's an equilibrium, but it's not so good.
+
+## Babbling Equilibria
+
+Worse: Player 1 plays $UU$ with some probability $r$ and $DD$ otherwise, and Player 2 plays $ll$.
+
+. . .
+
+Player 1 is now randomising over which uninformative thing to say.
+
+. . .
+
+The signal is noise, and it's an equilibrium, because nobody can do better unilaterally. It's a situation where Player 1 and 2 speak different languages.
+
+## The Bad News
+
+All of these are perfect Bayesian equilibria.
+
+. . .
+
+For the separating ones, conditionalising on Player 1's move tells Player 2 exactly what to do.
+
+. . .
+
+For the pooling ones, all condition 4 demands is that Player 2's off-path beliefs keep $\Pr(q)$ above $\frac{1}{2}$, but since she can update any way she likes, that's easy.
+
+## Something To Say Anyway
+
+The separating equilibria are Pareto-dominant. Both players do better there than at any other equilibrium.
+
+. . .
+
+That's not a formal result, but it's a non-coincidental reason to expect them.
+
+. . .
+
+The formal work needs something narrower than perfect Bayesian equilibrium. To motivate it, a famous game.
+
+# College
+
+## The Story
+
+- Player 1 is a student, Player 2 an employer.
+- The student is **high** or **low** type, high with probability $p$. Nature tells the *student*; the employer knows only $p$ (plus whatever student does next).
+- The student goes to college ($U$) or to the beach ($D$).
+- The employer hires ($l$) or rejects ($r$).
+
+## The Payoffs
+
+Being hired is worth 4 to the student.
+
+. . .
+
+College rather than the beach costs the high type 1, and the low type 5; the idea is that college is much harder work if you're a low type.
+
+. . .
+
+The employer gets **no benefit from college as such**. Hiring a high type pays her 1, hiring a low type costs her 1, rejecting is 0.
+
+. . .
+
+That last assumption is the point of the model. College makes nobody better at the job.
+
+## The Tree
+
+![](figures/college-signal.svg){alt="The college signalling game, with high types on the left and low types on the right" fig-align="center" width="78%"}
+
+## Low Types Never Go
+
+College and hired is $-1$; beach and hired is 4. College and rejected is $-5$; beach and rejected is 0.
+
+. . .
+
+Beach wins both ways. For a low type, college is strictly dominated, and strictly dominated strategies aren't part of Nash equilibria.
+
+. . .
+
+So Player 1's strategy is never $\alpha U$. That leaves $UD$ and $DD$.
+
+## The Interesting Question
+
+So the question is whether *high* types go.
+
+. . .
+
+And that isn't settled by dominance, because it depends on what the employer does — which depends on what going to college tells her.
+
+. . .
+
+Take $p < \frac{1}{2}$ first: high types are rare.
+
+## Nobody Goes
+
+Suppose Player 1 plays $DD$. Then the employer only ever sees beach-goers, and hiring one pays $2p - 1$, which is negative.
+
+. . .
+
+So she rejects them: $lr$ or $rr$.
+
+. . .
+
+If she plays $rr$, i.e., never hire anyone, then beach is clearly right for the student. $\langle DD, rr \rangle$ is a **pooling** equilibrium. Everyone gets 0.
+
+## Or High Types Go
+
+But suppose she plays $lr$: hire the college-goers, reject the beach-goers.
+
+. . .
+
+Then the high type's best move is college, since college leads to a job. The low type still prefers the beach. So Player 1 plays $UD$.
+
+. . .
+
+$\langle UD, lr \rangle$ is a **separating** equilibrium. The employer now gets $p$ rather than 0, and the students get $3p$ rather than 0.
+
+## What That Model Says
+
+Both sides prefer the separating equilibrium, so there's a reason to expect it.
+
+. . .
+
+At it, high types and only high types go to college; employers hire college graduates and only college graduates.
+
+. . .
+
+And this happens even though college makes nobody a better worker. 
+
+. . .
+
+This raises a rather pressing empirical question: is this the model of the world we actually live in? Let's do some more math and come back to that.
+
+## Now Make High Types Common
+
+Let $p > \frac{1}{2}$.
+
+. . .
+
+If Player 1 plays $DD$, the employer's best response is now to hire beach-goers, since $2p - 1 > 0$.
+
+. . .
+
+And now something strange becomes available.
+
+## The Odd Equilibrium
+
+$\langle DD, rl \rangle$. Everyone goes to the beach, and the employer hires beach-goers **and only beach-goers**.
+
+. . .
+
+Is it Nash? Yes. Given $rl$, college gets you rejected, so beach dominates. And given $DD$, playing $rl$ gets the employer $2p-1$, which is the most available.
+
+. . .
+
+Is it perfect Bayesian? Also yes, with the right beliefs.
+
+## The Update Policy
+
+Given Player 1 plays $DD$, the probability anyone goes to college is 0. So condition 4 leaves the employer's belief about college-goers completely open.
+
+. . .
+
+Suppose she thinks a college-goer is low type with probability 1. Then rejecting them is rational.
+
+. . .
+
+Next time, we'll look at what people have said about why this is an implausible outcome of the game, and how to *refine* Perfect Bayesian Equilibrium to handle it.
+
+## Next Time
+
+**Beer for breakfast!**
+
+Some game theorists think we can put substantive constraints on off-path beliefs, and the one we'll look at says, roughly, that a deviation shouldn't be read as someone playing a dominated strategy.
+
+. . .
+
+That is the **intuitive criterion**, from Cho and Kreps in 1987. Here it kills $\langle DD, rl \rangle$ and nothing else.
+
+. . .
+
+We'll state it carefully, and apply it to the beer-quiche game.
