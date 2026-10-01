@@ -1,0 +1,352 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 13: Spence and the College Premium"
+author: "Brian Weatherson"
+date: "October 13, 2026"
+---
+
+# A Useless Signal
+
+## Where We Left Off
+
+Previously we were looking at a strange mathematical property of the college model; it had an unwanted equilibrium.
+
+But it was pretty clear it wasn't going to end up there, and thanks to Cho and Kreps we have a sort of idea about why.
+
+Given that, the math of the model works. Here's a model where (a) college provides no added value, but (b) smart kids to go college, and (c) college grads earn more money. 
+
+. . .
+
+The question for this week is whether the model describes anything that happens.
+
+## Its History
+
+**College Signal** is a simplified version of a model Spence published in 1973, as an account of the effects of education on the labour market. 
+
+It won him a share of a Nobel Prize, and it led to an ongoing debate about whether it truly represents the role of college.
+
+. . .
+
+The argument has never been about the mathematics, but about how close the model is to reality.
+
+## What the Model Assumes
+
+In the separating equilibrium, high types go to college, low types go to the beach, employers hire the graduates, and everyone behaves rationally.
+
+. . .
+
+But nobody learns anything. A high type is worth more to an employer, and would have been worth exactly as much with no college at all.
+
+. . .
+
+Hiring that student without the degree would even be a weak Pareto improvement, since college costs her something and buys her nothing.
+
+## Why It Works Anyway
+
+Productivity is fixed by type, which Nature settled before the game started. College doesn't change it.
+
+. . .
+
+What college does is cost less for a high type than a low type. That's what drives the result. Without that feature, the result fails.
+
+. . .
+
+So there is a way of setting the *price* of college such that it's a good deal for the high type and a bad deal for the low type. What reveals that you (literally you, since you're here in college) are high type is your willingness to pay the price.
+
+## Compare Simple Signal
+
+In **Simple Signal** the two players wanted the same thing, and a free signal did the job.
+
+. . .
+
+Lewis's example: the sexton in the Old North Church hangs one lantern if the English come by road and two if they come by water. 
+
+Two lanterns cost no more than one, and the system works. (Don't they cost a little more oil? Don't be fussy; we're modeling here not describing reality to the electron.)
+
+. . .
+
+Where interests diverge, it's much harder for free signals to work. 
+
+If college were free, everyone would go. 
+
+## Signals and College
+
+Actually, it's a little more subtle than that. The point about college being free is that it doesn't distinguish.
+
+We need the prices to be *different* for different people.
+
+And that means it has to be *costly* for the people being screened out.
+
+## Free College
+
+At this point, you might wonder whether this could possibly explain the college wage premium in countries where college does not cost any dollars.
+
+But the cost here isn't just financial.
+
+It's the unpleasantness of having to work away at all those assignments, and do all that reading.
+
+. . .
+
+And, I suspect, the original model also assumed that more low types would fail classes, and take longer to graduate, and even if the tuition doesn't kill you, the opportunity cost of not earning a wage is significant.
+
+## The Uncomfortable Question
+
+So, is college a sorting mechanism and nothing else? 
+
+A private gain with no social gain? 
+
+An expensive apparatus that leaves us collectively worse off?
+
+. . .
+
+Well, let's kick the tires on this a bit.
+
+## A Consistency Proof
+
+Graduates earn more. That is true in almost all economies we know of. (Some numbers will follow.)
+
+. . .
+
+What Spence's model shows is that this fact, on its own, is consistent with college teaching nobody anything.
+
+. . .
+
+Consistency isn't a high bar though. The model which says only high types are *admitted* into college, so the premium is a selection effect, is consistent with that fact as well. Let's poke around a bit more.
+
+# The Premium
+
+## The Fact To Be Explained
+
+In almost every rich country, people who finish a degree earn substantially more over a lifetime than people who do not.
+
+. . .
+
+Recent OECD figures put the average across a range of countries at 40% more than people who finished high school and stopped.
+
+. . .
+
+In the United States it is 64%, measured against people whose highest qualification is a high school degree or a diploma. Over a lifetime that is well over a million dollars, probably closer to two.
+
+## Three Explanations
+
+**Human capital.** College teaches things that are worth money, and the premium reflects the skills. Now when I say 'college' here, I mean everything you do; not just classes. One version of this theory says that you gain market-valuable skills at interacting with people from very different backgrounds.
+
+. . .
+
+**Selection.** Colleges admit people who were going to do well anyway. Graduates have much higher test scores than the general population, and perhaps that is the whole story.
+
+. . .
+
+**Signalling.** College is a hurdle that costs less to clear for exactly the people employers want.
+
+## Not a Competition
+
+These are not exclusive, and the real explanation probably involves all three.
+
+. . .
+
+But the proportions matter enormously. A world where human capital explains 80% looks nothing like a world where signalling does.
+
+. . .
+
+So let us ask what we would see if each were the whole story.
+
+## Two Predictions
+
+If it were all human capital, partial degrees should pay partial returns. Three years of a four-year degree ought to be worth roughly three quarters of the premium.
+
+. . .
+
+If it were all selection, the admission letter should be worth nearly as much as the diploma, since the letter is where the sorting happened.
+
+## The Sheepskin Effect
+
+Neither of these predictions is correct.
+
+People do not, as far as we can tell, get a wage premium for having an offer letter. (This *might* happen a bit in Silicon Valley, but it's really rare.)
+
+Also, have a degree doesn't get half the premium. The premium comes from *finishing* the degree.
+
+. . .
+
+This is embarrassing for the strongest version of the skill acquisition model, since you should be accruing skills each year.
+
+## Why the American Data
+
+The effect shows up most sharply in the United States, which has an unusually large population of people with some college and no degree.
+
+. . .
+
+Elsewhere that group is often too small to say much about. In the American data there are millions of them, and their advantage over high school graduates is slight.
+
+. . .
+
+More data would be welcome. But this much does tell against the purest version of the human capital story.
+
+## Two More Points in Favour of Signaling
+
+Premia vary surprisingly little between fields. A degree in medieval epistemology and a degree in accounting both open doors, and the difference between them is smaller than a pure skills story predicts.
+
+. . .
+
+And at a public university like this one, the lecture theatre doors are unlocked. Anyone can walk in. We are not overrun with people taking advantage of free lectures.
+
+## Problem One: Age
+
+Among workers in their late twenties the graduate advantage is real and moderate. 
+
+Among workers in their late forties it is much larger.
+
+. . .
+
+That is the wrong way round. 
+
+The whole apparatus rests on employers being unable to see a worker's type.
+
+. . .
+
+After twenty years of performance reviews, promotions, and colleagues' opinions, the type is not hidden. The signal should be losing value, and it is gaining.
+
+## What a Defender Says
+
+The premium at forty-five may reflect twenty years of sorting inside firms, rather than the degree. The degree got her through the first door and the career did the rest.
+
+. . .
+
+Or pay structures were set early, by contract or internal scale, and persisted.
+
+. . .
+
+Both are defensible. 
+
+But now one theory is explaining the fact away while the other predicts it.
+
+## Problem Two: The Cost Assumption
+
+The model needs college to cost the low type more than the high type, and the correlation has to be tight. 
+
+This single condition is what makes the separating equilibrium work.
+
+. . .
+
+Mostly the cost is not dollars. Scholarships and repeated courses move the literal price around, and none of that is worth two million dollars.
+
+. . .
+
+The cost is psychic. College is more pleasant for high types than for low types.
+
+## Who Actually Finds College Cheap
+
+So ask who pays the least psychic cost for being here. The students who enjoy the reading, enjoy the seminars, and are untroubled by exams.
+
+. . .
+
+Those traits are not the ones that make someone reliable under a deadline, or good with clients, or sound in practical judgement.
+
+. . .
+
+You can be excellent at a job that requires a degree and have found the degree painful. 
+
+You can be very happy in a library and a poor fit for most workplaces.
+
+## Why This Matters
+
+If the correlation between the cost of the degree and the value to the employer is loose, the model breaks. 
+
+Plenty of low types, from an employer's point of view, sail through college because they love it here.
+
+## Problem Three: Not Expensive Enough
+
+The premium is enormous. In the model everyone is rational, so we are being asked to believe that some people rationally turn down a million dollars because calculus was too unpleasant.
+
+. . .
+
+With almost everything an elective, not all of it can be that painful.
+
+## Can't, Rather Than Won't
+
+There is a variant worth considering. 
+
+In it, the difference between types is whether the degree is available at all, rather than how much it costs.
+
+. . .
+
+Biological signalling models often work this way: the costly signal is one that other animals cannot send, not one they decline to send.
+
+. . .
+
+That is still a signalling model, and it does not require a population of people who would refuse a million dollars to avoid a calculus class.
+
+## Can't, Rather Than Won't
+
+The way you draw that is by simply rubbing out the line in the game where low goes to college.
+
+I mentioned a few classes back that we can in principle set up the game so that different moves are available to different types.
+
+This is where this really comes in handy.
+
+. . .
+
+There is a *huge* debate in philosophy of biology about when it is appropriate to model a situation as one where an animal turns down an option and one where it isn't available, and I'm not going to get into it here, but just note that it's a branch of the debate.
+
+## A Natural Experiment
+
+If the hurdle is what matters, lowering it should not change the premium much. 
+
+Employers recalibrate, and a three-year degree comes to mean what a four-year degree meant.
+
+. . .
+
+If the skills are what matter, cutting the coursework should cut the premium.
+
+## Mixed Evidence From Degree Length
+
+Bachelor's degrees take three years in some countries and four in others, and the premium does not obviously track the difference. Though the United States has four-year degrees and a larger than average premium.
+
+. . .
+
+The Bologna reforms shortened degrees across much of Europe without eliminating the graduate premium. 
+
+Master's degrees have since become more expected, which looks like the hurdle moving rather than vanishing.
+
+## Arteaga on Los Andes
+
+The cleanest evidence runs the other way. Carolina Arteaga studied a 2006 reform at Universidad de los Andes in Colombia, which cut required coursework by about 20% in economics and about 14% in business.
+
+. . .
+
+Entering classes, test scores and graduation rates stayed put. So did the university, the degree title and the diploma. 
+
+So you could argue that the selection effect and the signalling effect are constant.
+
+## What Happened to Earnings
+
+Graduates after the reform earned about 16% less in economics and about 13% less in business.
+
+. . .
+
+They also did worse in recruitment and ended up at weaker firms.
+
+. . .
+
+Something in the missing courses was doing work the diploma was not doing.
+
+## Where That Leaves It
+
+All three mechanisms operate. A degree is partly a hurdle and partly an education, and especially at fancy schools who even gets to start the degree is correlated with earning potential.
+
+. . .
+
+What the model establishes is weaker than its popular versions suggest. It does not show that college teaches nothing.
+
+. . .
+
+It shows that a world in which college taught nothing could look, in broad outline, a great deal like ours.
+
+## Next Time
+
+Spence asks what the informed side can do about asymmetric information.
+
+. . .
+
+Akerlof asks what happens when they can do nothing at all, and the answer is that the market breaks.

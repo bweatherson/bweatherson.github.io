@@ -1,0 +1,384 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 14: Akerlof and the Market for Lemons"
+author: "Brian Weatherson"
+date: "October 15, 2026"
+---
+
+# The Used-Car Discount
+
+## Where We Left Off
+
+Spence asks what the informed side can do about asymmetric information. 
+
+The answer was: pay for a signal the other type won't pay for.
+
+. . .
+
+Akerlof asks what happens when they can do nothing at all.
+
+. . .
+
+His paper came out in 1970, and was one of the influences on Spence's paper. (In his Nobel lecture, Spence mentions his thesis advisor, Kenneth Arrow, encouraging him to read Akerlof's paper.)
+
+## A Fact That Needed Explaining
+
+For most of the twentieth century the used car market had a peculiar feature.
+
+. . .
+
+Cars lose value with age and mileage, and for most of a car's life that decline is reasonably smooth.
+
+. . .
+
+But there was a cliff at the start. Drive a new car off the lot and it lost a large chunk of its value at once, at least 10%, perhaps 20%. Everybody knew this. Nobody had a good account of why.
+
+## Akerlof's Idea
+
+Most cars are good. Some are duds, which in the language of the period are **lemons**.
+
+. . .
+
+A test drive, i.e., driving the car around the block a couple of times, doesn't reveal that it's a lemon. But a few weeks at home is enough to know.
+
+. . .
+
+So the seller knows and the buyer does not, and no amount of kicking the tyres or doing reasonable test drives fixes that.
+
+## A Very Simple Model
+
+Restrict attention to people who have a car and would, other things equal, like to sell it at the market price.
+
+. . .
+
+Assume half the cars are lemons. That is absurd, but it keeps the arithmetic clean.
+
+|              | **To seller** | **To buyer** |
+|-------------:|:-------------:|:------------:|
+| **Good car** | 100           | 120          |
+| **Lemon**    | 40            | 60           |
+
+: Values in the extreme version {#tbl-lemons}
+
+## If Everyone Could See
+
+Every car is worth more to a buyer than to its seller. A good car is worth 20 more, and so is a lemon.
+
+. . .
+
+So with full information every car changes hands, every sale produces a surplus of 20, and the market does what markets are supposed to do. Surplus value everywhere, everyone is happy, aren't markets great, all praise markets, etc.
+
+## What a Buyer Will Pay
+
+Now hide the quality. A buyer who thinks the odds are even values a random car at
+
+$$\frac{120 + 60}{2} = 90$$
+
+. . .
+
+So she will pay up to 90, and no more.
+
+## Who Sells at 90
+
+A good car is worth 100 to the person who owns it.
+
+. . .
+
+At 90, no owner of a good car sells.
+
+. . .
+
+So every car actually on the market is a lemon.
+
+## The Revision
+
+A buyer who works this out revises. A car on offer is worth 60 to her, since it is a lemon.
+
+. . .
+
+Buyers now offer at most 60. Lemon owners value their cars at 40, so they sell happily.
+
+## Where It Lands
+
+The market clears, in the sense that the cars offered get sold. Only lemons trade, at somewhere between 40 and 60.
+
+. . .
+
+Good cars never change hands.
+
+. . .
+
+Every one of those sales would have produced a surplus of 20, and none of them happens. Nobody behaved badly and nobody made a mistake.
+
+# How Fragile Is It
+
+## An Exercise
+
+Half lemons was chosen for arithmetic, not realism.
+
+. . .
+
+Let $\lambda$ be the fraction of lemons. Work out how large $\lambda$ has to be before the good cars leave the market.
+
+## Setting It Up
+
+A buyer who cannot tell them apart values a random car at
+
+$$\lambda \times 60 + (1 - \lambda) \times 120 = 120 - 60\lambda$$
+
+. . .
+
+Good cars stay on the market exactly when that is at least 100, which their owners could get by keeping them.
+
+## The Answer
+
+$$120 - 60\lambda \geqslant 100 \iff \lambda \leqslant \tfrac{1}{3}$$
+
+. . .
+
+Below a third, everything trades at $120 - 60\lambda$ and good owners are content. Above a third, the good cars withdraw and we unravel to lemons at 60.
+
+. . .
+
+At exactly a third the price is 100 and the good owner is indifferent.
+
+## What the Threshold Depends On
+
+The 20-point gap between what a car is worth to its owner and to a buyer is doing the work.
+
+. . .
+
+Make buyers value good cars at 150 rather than 120, and a random car at even odds is worth 105. Good cars stay, and the market survives a lemon rate that would otherwise have killed it.
+
+. . .
+
+Thin markets break more easily than lucrative ones.
+
+# Who Actually Sells
+
+## What We Have Not Explained
+
+The fact we started with was a **price**: a car loses something like 20% of its value the moment it is driven off the lot.
+
+. . .
+
+What the model has delivered so far is that good used cars do not sell at all. That is an absence, not a discount.
+
+. . .
+
+To get a price for a good used car, we need owners of good cars who will take less than 100.
+
+## A Second Split
+
+Sellers differ in more than one way. There is the car, and there is how badly they need to sell it.
+
+. . .
+
+Keep it binary, the way we kept quality binary. A seller is relaxed, or pressed: moving overseas, or needing the cash this month.
+
+. . .
+
+Two splits, four kinds of seller.
+
+## And We Can Drop the Absurd Part
+
+While we are here, we no longer need half the cars to be lemons. Take a hundred cars, of which 90 are good and 10 are lemons.
+
+. . .
+
+Of the 90 good cars, 80 belong to people who are happy with them and are not selling at any price a buyer would offer.
+
+. . .
+
+That leaves 20 cars whose owners might sell, and those divide four ways.
+
+## Four Kinds of Seller
+
+Buyers are unchanged: 120 for a good car, 60 for a lemon.
+
+| Seller             | Will accept | Cars |
+|-------------------:|:-----------:|:----:|
+| **Good, relaxed**  | 100         | 5    |
+| **Good, pressed**  | 70          | 5    |
+| **Lemon, relaxed** | 40          | 5    |
+| **Lemon, pressed** | 20          | 5    |
+
+: The twenty cars that might be sold {#tbl-lemons-motivated}
+
+## Where the Even Split Came From
+
+One car in ten is a lemon. One car in two *on the market* is a lemon.
+
+. . .
+
+Nobody assumed that. It came out of who bothers to sell: almost every lemon owner is a potential seller, and almost every good-car owner is not.
+
+. . .
+
+The composition of the market is already a selection effect, before any price has been named.
+
+## Finding the Price
+
+A price works when buyers break even on it: what they get on average is worth at least what they pay.
+
+. . .
+
+Try 100. All twenty sell, so the pool is half lemons and worth 90. Buyers lose 10 a car, so 100 is too high.
+
+. . .
+
+Try 80. Now the relaxed owner of a good car keeps her car, since 80 is below her 100. The other three sell.
+
+## Eighty Holds
+
+At 80 the pool is fifteen cars: five pressed good ones and ten lemons. One third of it is good.
+
+$$\frac{1}{3} \times 120 + \frac{2}{3} \times 60 = 80$$
+
+. . .
+
+Buyers break even exactly, so nobody has a reason to bid differently. Eighty is the price.
+
+## Now There Is a Discount
+
+A good car is worth 120 to a buyer, and on the used market it fetches 80.
+
+. . .
+
+That is a third off a good car, applied the moment it becomes a used car, which is the phenomenon we started with.
+
+. . .
+
+The people who accept it are the people who have to sell.
+
+## Who Leaves
+
+The relaxed owner of a good car withdraws. Her car is worth 100 to her and the market is offering 80.
+
+. . .
+
+That costs 100 of surplus: five cars at 20 each. Every other sale still happens.
+
+. . .
+
+The market shrinks and tilts, rather than collapsing.
+
+## A Better Fit
+
+The two-type model said good used cars never change hands, which is false.
+
+. . .
+
+This one says the used-car market exists, runs at a discount, and over-represents cars sold under pressure. That is roughly what we see.
+
+. . .
+
+And a car being up for sale is still evidence against it. The discount is what buyers demand in order to overcome that evidence.
+
+## How Big a Discount
+
+| Lemons among cars for sale | Price of a used car | Discount on a good car |
+|:--------------------------:|:-------------------:|:----------------------:|
+| 20%                        | 108                 | 10%                    |
+| 40%                        | 86                  | 29%                    |
+| 60%                        | 75                  | 38%                    |
+
+: The discount tracks the lemon rate in the market {#tbl-lemon-rates}
+
+. . .
+
+Read the direction, not the numbers. The prices sellers will accept were picked to keep the arithmetic clean.
+
+. . .
+
+Fewer lemons on the market, smaller discount. Below about a third, relaxed owners stay in and the discount nearly disappears.
+
+# Signalling Again
+
+## Offering It for Sale Is a Move
+
+Look at what the seller's decision has become.
+
+. . .
+
+Putting a car on the market is a signal, and what it signals is that you are the unfortunate owner of a lemon.
+
+. . .
+
+Nobody intends to send it. It gets sent anyway, because the willingness to sell at the going price is itself informative.
+
+## Two Halves of One Problem
+
+Spence was pushed towards his model after his advisors told him to read Akerlof. He tells the story in his Nobel lecture.
+
+. . .
+
+Those advisors included Thomas Schelling, who we met earlier, and Kenneth Arrow, who will occupy us at length after the break.
+
+. . .
+
+Spence shows what the informed side can do. Akerlof shows what goes wrong when it can do nothing.
+
+# Predicting the Fading
+
+## Two Conditions
+
+The model needs variation in manufacturing quality large enough to make lemons a serious worry.
+
+. . .
+
+And it needs a real information gap between buyer and seller.
+
+## Both Have Weakened
+
+Quality control is much better than it was. The cars coming off a line now resemble each other closely.
+
+. . .
+
+Vehicle history services and cheap independent inspections have narrowed the information gap, and manufacturer certification covers much of what is left.
+
+. . .
+
+The discount is now small.
+
+## Why That Matters
+
+Explaining a striking phenomenon is one thing.
+
+. . .
+
+Saying in advance which changes would make it go away, and then watching those changes arrive and the phenomenon fade, is a much stronger result. Not many models in economics manage it.
+
+# A Coda
+
+## Economists Disliked It
+
+When the paper first appeared, economists took it badly. The complaint was that Akerlof had abandoned rational choice explanation.
+
+. . .
+
+Look at what the agents in the model actually do. They have sensible priors, they update by conditionalisation, and then they maximise.
+
+. . .
+
+By the standards a philosopher would use, everybody in the model is perfectly rational.
+
+## Ignorance and Irrationality
+
+What is true is that the agents are not fully informed.
+
+. . .
+
+Economists have since mostly come round to the philosophers' way of putting it. Being ignorant is unfortunate, and it is not a failure of rationality.
+
+. . .
+
+The sociology of how the discipline reacted would make a good topic for a different course.
+
+## Next Time
+
+That is the game theory half of the course.
+
+. . .
+
+After the break we start on social choice, and the question changes from what individuals should do to what a group's preferences even are.

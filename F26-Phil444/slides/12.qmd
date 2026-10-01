@@ -1,0 +1,354 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 12: The Intuitive Criterion"
+author: "Brian Weatherson"
+date: "October 8, 2026"
+---
+
+# Canadian Signal
+
+## Where We Left Off
+
+Perfect Bayesian equilibrium put four constraints on players, and the fourth one was really weak. 
+
+If you reach a probability zero node, form some consistent beliefs, any consistent beliefs.
+
+. . .
+
+That weakness let the college game keep an equilibrium where employers hire beach-goers and reject graduates.
+
+. . .
+
+Today we look at one proposal for tightening it.
+
+## The Bar
+
+A North American tourist walks into a bar. Of the North Americans who pass through, 60% are Canadian and 40% are American.
+
+. . .
+
+She knows her own nationality. The barman does not, and her accent gives nothing away.
+
+. . .
+
+She can ask for the TV to be turned to hockey or to baseball. 
+
+She knows that once she asks, the barman will form a view about where she is from.
+
+## Her Preferences
+
+If she is American she has a weak preference for baseball. If she is Canadian she has a weak preference for hockey.
+
+. . .
+
+Either way she has a strong preference for being taken for a Canadian, stronger than her preference about the sport.
+
+. . .
+
+The barman wants to guess right. 
+
+All of this is common knowledge.
+
+## The Standard Version
+
+Cho and Kreps tell this with beer and quiche, and a set of stereotypes about which sort of man orders which for breakfast. You can do the translation easily enough.
+
+. . .
+
+Their split is 90/10 rather than 60/40. 
+
+All that matters is that the people in the bar have a prior above 0.5 in the direction the stranger wants.
+
+## The Tree
+
+![](figures/canadian-signal.svg){alt="The Canadian Signal game, with Canadians on the left and Americans on the right" fig-align="center" width="62%"}
+
+. . .
+
+$B$ is baseball, $H$ is hockey. For the barman, $a$ is guessing American and $c$ is guessing Canadian.
+
+## Reading the Payoffs
+
+The tourist gets 2 for being taken as Canadian, and 1 for the sport she prefers. 
+
+So her best outcome is 3 and her worst is 0.
+
+. . .
+
+A Canadian who asks for hockey and is taken for a Canadian gets 3. 
+
+An American who asks for baseball and is taken for a Canadian also gets 3.
+
+. . .
+
+The barman gets 1 for a correct guess and $-1$ for a wrong one.
+
+## Strategies
+
+Player 1's strategy says what she does if Canadian and what she does if American. We write his as $\alpha\beta$, in that order.
+
+. . .
+
+Player 2's strategy says what he guesses after hockey and what he guesses after baseball. We write his as $\gamma\delta$, in that order.
+
+. . .
+
+So $ca$ means: Canadian if hockey, American if baseball.
+
+## The Sensible Equilibrium
+
+$\langle HH, ca \rangle$. Everyone asks for hockey, and the barman reads hockey as Canadian.
+
+. . .
+
+The Canadian gets 3, her maximum. The American gets 2, and switching to baseball would get her 1, so she stays.
+
+. . .
+
+The barman sees hockey from everyone, so he learns nothing and falls back on the prior. 
+
+Since 0.6 exceeds a half, he guesses Canadian.
+
+## The Odd Equilibrium
+
+$\langle BB, ac \rangle$. Everyone asks for baseball, and the barman reads *baseball* as Canadian and hockey as American.
+
+. . .
+
+The American gets 3, her maximum. The Canadian gets 2; switching to hockey would have her taken for an American, which gets her 1.
+
+. . .
+
+And again the barman learns nothing from a request everyone makes, so guessing Canadian is right.
+
+## Why It Survives
+
+For this to be a perfect Bayesian equilibrium, the barman has to be maximising at the hockey node too, which nobody ever reaches.
+
+. . .
+
+It works provided that, conditional on hockey, his credence that she is American climbs above a half.
+
+. . .
+
+Nothing we have said forbids that. So the equilibrium exists. 
+
+But it's really strange.
+
+# Happy, Content, Unhappy
+
+## Outcomes
+
+Write an outcome as a pair $\langle P, N \rangle$: the players' moves together, and nature's move.
+
+. . .
+
+Fix $N$, and sort the players into three sorts.
+
+## The Three Sorts
+
+**Happy**: given $N$, no other combination of players' moves would do better for them. They are at their ceiling.
+
+. . .
+
+**Content**: not happy, but no alternative strategy of their own would do better, given what nature and everyone else would do.
+
+. . .
+
+**Unhappy**: neither of the above.
+
+## What the Concepts Say
+
+Nash equilibrium is the condition that nobody is unhappy.
+
+. . .
+
+So in any Nash equilibrium every player is happy or content, and the division between those two is doing no work yet.
+
+. . .
+
+The proposal is to put it to work on off-path beliefs.
+
+## The Weak Version
+
+> Suppose you are certain the combination $P$ will be played. Now condition on some other player playing $s'$, which is not what they play in $P$.
+>
+> If it is consistent with everything else you believe that $s'$ was played by someone who is merely *content* with the actual outcome, give probability 1 to that.
+
+. . .
+
+In short: when somebody deviates, assume it was one of the content players rather than one of the happy ones.
+
+## Why That Is Plausible
+
+Someone who is already at their ceiling has nothing to gain by wandering off.
+
+. . .
+
+Someone who is merely content has an incentive that is, at best, balanced. 
+
+A small change in circumstances flips them. (Maybe, like in Harsanyi's model, we weren't quite sure what their payoffs were.)
+
+. . .
+
+So if a deviation happens, the content player is the one who had a reason to make it.
+
+## Sorting the Bar
+
+Take the odd equilibrium, $\langle BB, ac \rangle$.
+
+. . .
+
+The American asks for baseball and is taken for a Canadian, which is 3. Given that she is American, nothing does better. She is happy.
+
+. . .
+
+The Canadian gets 2. Her ceiling is 3, which she would reach by asking for hockey and being believed. So she is not happy. Switching to hockey gets her 1, so she is content.
+
+## What the Barman Must Think
+
+A hockey request is a deviation. 
+
+By the criterion, the barman gives probability 1 to it coming from the content player.
+
+. . .
+
+The content player is the Canadian.
+
+. . .
+
+So he should respond to hockey by guessing Canadian, which is the opposite of what the odd equilibrium requires of him.
+
+## And Then It Unravels
+
+If hockey gets read as Canadian, the Canadian tourist does better by asking for hockey: 3 rather than 2.
+
+. . .
+
+So she is no longer content with baseball, and $\langle BB, ac \rangle$ is no longer an equilibrium at all.
+
+. . .
+
+The sensible equilibrium survives, since there the deviation story runs the other way.
+
+## Back to College
+
+The same move kills $\langle DD, rl \rangle$ from last time, where employers hired beach-goers and rejected graduates.
+
+. . .
+
+That equilibrium needed the employer to read a college degree as evidence of a low type. 
+
+But college is strictly dominated for a low type and merely unattractive for a high type.
+
+. . .
+
+So a deviation to college should be read as coming from a high type, and the employer should hire.
+
+## An Exercise
+
+The college game has a near neighbour of that equilibrium: $\langle DD, ll \rangle$, where everybody goes to the beach and the employer hires everybody.
+
+. . .
+
+Work out whether the criterion kills that one too.
+
+## Why It Doesn't
+
+At $\langle DD, ll \rangle$ the high type gets 4, which is her ceiling. The low type also gets 4, which is hers.
+
+. . .
+
+Both of them are happy. Neither is merely content.
+
+. . .
+
+So there is no content player for the barman, or here the employer, to pin the deviation on, and the criterion says nothing at all. $\langle DD, ll \rangle$ survives.
+
+## What That Tells Us
+
+The criterion only has traction where the players at a deviation differ in how badly they wanted it.
+
+. . .
+
+Where everyone is at their ceiling, it is silent, and we are back to condition 4 permitting anything.
+
+# The Full Version
+
+## Two Options Is a Special Case
+
+Where every player has two moves, the version above is equivalent to what Cho and Kreps actually wrote.
+
+. . .
+
+With three or more moves it is too blunt, because being happy is not a single verdict. 
+
+You can be happy to have avoided one alternative and only content to have avoided another.
+
+## Pairwise Instead
+
+So redo the categories as comparisons between $s$ and a particular alternative $s'$.
+
+. . .
+
+**Happy to have played $s$ rather than $s'$**: the payoff from $s$ beats every outcome $s'$ could have produced, given $N$.
+
+. . .
+
+**Content to have played $s$ rather than $s'$**: not happy in that sense, but $s$ does at least as well as $s'$ given $N$ and the other players' strategies.
+
+## Equilibrium Dominance
+
+When a player is happy to have played $s$ rather than $s'$, and $s$ belongs to an equilibrium outcome, Cho and Kreps call $s'$ **equilibrium-dominated**.
+
+. . .
+
+The full criterion then says: conditional on seeing $s'$, give probability 1 to its coming from someone who was merely content to avoid it, rather than someone for whom it was equilibrium-dominated.
+
+## Where the Difference Shows
+
+Suppose a player has moves $s_1$, $s_2$, $s_3$, and is type $t_1$ or $t_2$. In equilibrium both types play $s_1$.
+
+. . .
+
+Type $t_1$ is happy to have played $s_1$ rather than $s_2$, and merely content rather than $s_3$. Type $t_2$ is the other way round.
+
+. . .
+
+On the weak version both types are merely content overall, so nothing is ruled out. On the full version, seeing $s_2$ should convince you the player is $t_2$, and seeing $s_3$ should convince you she is $t_1$.
+
+## The Shape of a Refinement
+
+What the criterion constrains is a conditional credence, conditional on an event the agent gives probability zero.
+
+. . .
+
+Every refinement in this area has that shape, though they disagree about what the constraint should be.
+
+## A Large Literature
+
+Google Scholar has over five thousand citations for the Cho and Kreps paper, and this *kind* of response is common enough in the ones I've surveyed. (Concession: Not all 5000 of them.)
+
+. . .
+
+There are arguments that the criterion is too weak and arguments that it is too strong, and refinements running in both directions. But we'll stop here rather than digging into the refinement literature.
+
+## Back to Philosophy
+
+Updating on a proposition you had assigned probability zero is a problem philosophers have worried about, usually in the abstract.
+
+So there are all these papers recently on things like, a dart is thrown at a dartboard, and lands with precisely $\langle x, y\rangle$ coordinates; what is your updated credence on learning the true value for $x$.
+
+It's all a bit abstract, and the results are a bit of a mess.
+
+. . .
+
+Here is a literature that has worried about it with specific cases, specific proposals, and an agreed standard for when a proposal fails.
+
+On this particular question the economists have done more work than the philosophers.
+
+## Next Time
+
+We're leaving the math behind, and asking when the math models anything in the real world.
+
+In particular, we're going to look at Spence's model, and ask whether it is a plausible model of colleges as we actually find them.
