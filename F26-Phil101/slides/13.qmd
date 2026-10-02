@@ -9,23 +9,41 @@ date: "2026-10-13"
 
 ## Recap
 
-Three classes, three arguments that the physical story leaves something out.
+Over the last three classes, we saw three arguments that the purely physical story leaves something out.
 
-- Russell: what you're immediately aware of isn't the table.
-- Nagel: no amount of bat neuroscience tells you what it's like to be one.
+- Russell: What you're immediately aware of isn't the table, but your sensations of apparently perceiving the table.
+- Nagel: No amount of bat neuroscience tells you what it's like to be one.
 - Jackson: Mary knew all the physics and still learned something.
 
 . . .
 
-Each of them says something is missing. None of them says what the missing thing *is*.
+Each of them says something is missing. But what *is* this missing thing?
 
 ## Today
 
-Today we meet the view with the most direct answer to that question.
+Today we'll look at the natural answer to this question.
 
 . . .
 
-The missing thing is missing because minds aren't physical things at all.
+Minds aren't physical.
+
+What's missing is the non-physical aspect of minds.
+
+If you're religious, or spiritual, you might call this a soul.
+
+But it doesn't have to be.
+
+## Vital Forces
+
+Until not that long ago, i.e., through at least much of the 19th century, a very common view in bio-chemistry was that there was something chemically distinctive about living things.
+
+The label for this missing thing was the **vital force**, and the view was called **vitalism**.
+
+Note here we're talking about *living* things; no one was going around saying plants have souls.
+
+But they did think that the physics of inorganic matter was insufficient to explain how living things worked.
+
+That's not a remotely popular view nowadays, but it's worth keeping in mind as a parallel if you want a non-religious version of what kind of view dualism might be.
 
 # The flying man
 
@@ -40,12 +58,34 @@ The missing thing is missing because minds aren't physical things at all.
 ::: {}
 We met him on Day 10, and I said we'd come back when we asked what kind of thing the self might be.
 
-That's today.
+Time to ask that question!
 :::
 
 :::
 
-## The case
+## Our guide
+
+We're not reading Ibn Sīnā in the original; among other things I don't speak the right language!
+
+We're looking at a summary by Peter Adamson, a Notre Dame grad who now works in Munich.
+
+I'm only pausing over this because Adamson is, in my opinion, the best producer of philosophical works written for people who haven't already done a philosophy degree going around.
+
+## Podcasts
+
+Adamson's thesis was on Islamic philosophy, so he's a particularly good guide to Ibn Sīnā. But he's most famous for his podcast series:
+
+- [A History of Philosophy Without Any Gaps](https://historyofphilosophy.net/podcast/all-episodes)
+
+After he started on this, people pointed out that he was only focussing on work from Europe and West Asia, and this left some quite large gaps. So he now has three more co-authored series:
+
+- [A History of Philosophy in India](https://historyofphilosophy.net/podcast/india/origins/introduction-indian-philosophy), with Jonardon Ganeri.
+- [A History of Philosophy in China](https://historyofphilosophy.net/podcast/china/warring-states-period/dao), with Karyn Lai.
+- [A History of Africana Philosophy](https://historyofphilosophy.net/podcast/africana/precolonial-africa/africana-introduction), with Chike Jeffers.
+
+And he has many books from basically the scripts of these. All highly recommended.
+
+## Ibn Sīnā's core example
 
 :::: {.callout-note title="Adamson"}
 Imagine, he says, that a person is created by God in mid-air, in good condition but with his sight veiled and his limbs outstretched so that he is touching nothing, not even his own body. This person has no memories, having only just been created.
@@ -59,7 +99,9 @@ The flying man is aware of himself; he knows that he exists. But he is not aware
 
 . . .
 
-So there is something he knows about himself that he doesn't know about his body. And if that's right, he isn't his body.
+So there is something he knows about himself that he doesn't know about his body. 
+
+Therefore, he isn't his body.
 
 ## Note what isn't argued for
 
@@ -69,7 +111,7 @@ Avicenna does not attempt to *argue* that the flying man would know that he exis
 
 . . .
 
-Whether that's a weakness depends on whether you agree. Most people, asked, do.
+Is this a weakness? Probably not; most people think he would know he exists.
 
 ## iClicker QUIZ
 
@@ -82,25 +124,37 @@ D.  He has been stripped of his capacity to reason
 
 # The trouble with the argument
 
-## One objection, used twice
+## The big objection
 
-Adamson raises the problem himself, and it's worth getting clear on, because it comes back in ten minutes against a much more famous argument.
+We'll see this again and again in arguments about dualism, so it's important to have it on the table.
 
 :::: {.callout-note title="Adamson"}
 One can be conscious of a thing without being conscious of everything about it.
 ::::
 
-## Why that bites
+## Why that is a problem
 
-I know the person at the front of this room is your lecturer. I might not know he's the one who left the lights on in Angell Hall last night.
+Compare this argument.
+
+1. I know that the philosophy 101 lecturer is Brian.
+2. I don't know that the philosophy 101 lecturer is the only Australian on the philosophy faculty.
+3. So Brian is not the only Australian on the philosophy faculty.
 
 . . .
 
-It doesn't follow that your lecturer isn't that person.
+The premises could well be true, and the conclusion is actually false. (There are some Australian GSIs, and some Australians on the Cog Sci faculty, but I'm the only Australian *faculty* member in philosophy - at least as long as I keep losing arguments that we should hire more.)
 
-. . .
+## Objects and Descriptions
 
-Knowing about a thing under one description and not another tells you about descriptions. It doesn't by itself tell you there are two things.
+We tend to know things under descriptions.
+
+You might know something under one description, but not under the other.
+
+It doesn't follow that the object does not satisfy both descriptions.
+
+I can be both the person who is X, and the person who is Y, even if you know one of those things and not the other.
+
+The thing the flying man exists might be both the flying man himself, and the flying man's body, even if he knows one of those things and not the other.
 
 ## What's left
 
@@ -112,13 +166,15 @@ All Avicenna has really done is to throw down a challenge to his materialist opp
 
 . . .
 
-A challenge is less than a proof. It is not nothing.
+A challenge is less than a proof, but it is a spur to further research.
 
 # Descartes
 
 ## Six hundred years later
 
-Descartes runs an argument with the same shape, and it is the most discussed argument in the history of the subject.
+Descartes runs an argument with the same shape, and it is rather widely discussed.
+
+Descartes' most famous book is a very strange work called the *Meditations*, where he imagines a rather long inner monologue, where he tears his knowledge apart and tries to put it back together.
 
 By the end of the *Meditations* he thinks he has established two things he can be certain of: that he exists as a thinking thing, and that God exists and is no deceiver.
 
@@ -128,36 +184,37 @@ The second lets him trust whatever he perceives **clearly and distinctly**.
 
 ## The real distinction
 
-1. I clearly and distinctly understand my mind as a thinking, non-extended thing.
-2. I clearly and distinctly understand my body as an extended, non-thinking thing.
+1. I clearly and distinctly understand my mind as a thing that thinks, but it is no part of my understand of it that it is extended.
+2. I clearly and distinctly understand my body as a thing that is extended, but it is no part of my understanding of it that it thinks.
 3. Clear and distinct perception can be trusted.
 4. So the two can be separated, at least by God.
-
-. . .
-
 5. So my mind is really distinct from my body, and can exist without it.
 
 ## The same objection, again
 
-Line 4 is where the weight sits. Understanding A without understanding B is a fact about your understanding.
+Line 4 is the problem. Understanding A without understanding B is a fact about your understanding.
 
 . . .
 
-Getting from there to *A and B can come apart* needs the step that whatever you can clearly and distinctly conceive is possible.
+Getting from there to *A and B can come apart* needs a further step.
 
 . . .
 
-That is exactly the move we have just seen fail for the flying man. Descartes needs God to make it work, which tells you how much work it is doing.
+That is exactly the move we have just seen fail for the flying man. 
+
+Descartes's appeal to God doesn't obviously help here; we would need the further claim that it is no part of *God's* understanding of my mind that it is not extended.
 
 ## Not a sailor in a ship
 
-One thing Descartes is careful to deny. He is not saying you merely pilot your body from inside it.
+One thing Descartes is careful to deny. 
 
-The union is tighter than that: you don't *observe* that your body is damaged, you feel pain.
+He is not saying you merely pilot your body from inside it. You aren't sailing the good ship *your body*.
+
+The union is tighter than that. The sailor *observes* that her ship is damaged; you *feel* that your body is damaged.
 
 . . .
 
-Hold on to that, because it is about to cost him.
+This will create some problems for Descartes next time.
 
 # Varieties of dualism
 
@@ -181,15 +238,17 @@ There is one kind of stuff. It has two kinds of feature, and one of them isn't p
 
 ## Which one do you get?
 
-Nagel and Jackson, if they work, get you property dualism. Something about experience isn't captured physically.
+Nagel, Jackson and Chalmers, if their arguments work, get you property dualism. Something about experience isn't captured physically.
 
 . . .
 
-They don't get you a separable soul. For that you need the flying man or the real distinction, and those are the two arguments we have just watched struggle.
+They don't get you a separable soul. 
+
+For that you need the flying man or the real distinction, and those arguments are tougher to make work.
 
 # Thought and feeling, again
 
-## The distinction from Day 11
+## Thinking and feeling
 
 Thinking
 :    Whatever we do with observations of the world and combinations of them. Reasoning, planning, inferring.
@@ -199,7 +258,7 @@ Consciousness
 
 . . .
 
-I said these were two concepts, not one, and that any link between them needs an argument. Here's the argument, and here's who makes it.
+I said these were two concepts, not one, and that any link between them needs an argument. Here's one way to link them together.
 
 ## The grid
 
@@ -214,13 +273,13 @@ Descartes fills in the two corners and leaves the other two empty. Everything th
 
 ## Why he's entitled to that
 
-It isn't stubbornness. It follows from the view.
-
-If thought and consciousness are both modes of one mental substance, then whatever has either has both. Soul, or no soul.
+If thought and consciousness are both modes of one mental substance, then whatever has either has both. It either has a soul, and thinks and feels, or lacks one, and neither thinks nor feels.
 
 . . .
 
-Which means the diagonal is a consequence of **substance** dualism in particular. Give up the substance and you have given up the reason for it.
+Which means the diagonal is a consequence of **substance** dualism in particular. 
+
+Without that, it isn't clear why we should think everything lives on the diagonal.
 
 ## A quick question (POLL)
 
@@ -231,25 +290,18 @@ B.  Conscious but doesn't think — nothing could be like that
 C.  Both. Nothing occupies either
 D.  Neither. Both have occupants
 
-. . .
-
-You have met a candidate for one of them already, on Thursday.
 
 ## The occupants
 
-**Thinks, not conscious.** The zombie from last week is exactly this cell. So, less exotically, is blindsight, and so is all the processing below awareness we met back on Days 3 and 6.
+**Thinks, not conscious.** If Chalmers is right that zombies are possible, then they live in this cell. If humans can do subconscious processing that deserves to be called thought, we can think while we're not feeling things. Droids in sci-fi movies are often presented as living here. Much more contentiously, I wonder how close we are to modern robots, like Waymos, being here.
 
 . . .
 
-**Conscious, doesn't think.** A creature that feels pain and fear and nothing much else. Most people are readier to grant this one than to say what the cut-off is.
+**Conscious, doesn't think.** A creature that feels pain and fear and nothing much else. Some animal cognition experts hold that surprisingly few animals genuinely think; they may represent their environment and respond, but so does a Roomba. But nobody really denies that cats and dogs feel pain and fear.
 
-## The irony
+## The slide
 
-Almost nobody in this room is a substance dualist.
-
-. . .
-
-But the slide from *it thinks* to *it feels*, and back, is everywhere — not least in what people say about machines.
+The slide from *it thinks* to *it feels*, and back, is everywhere, especially  in what people say about machines.
 
 . . .
 
@@ -261,19 +313,22 @@ Descartes is often reported as holding that animals feel nothing at all, because
 
 . . .
 
-Whether that's a fair reading of him has been argued about for fifty years, so treat the slogan with care.^[John Cottingham, "'A Brute to the Brutes?': Descartes' Treatment of Animals," *Philosophy* 53 (1978).]
+Not all interpreters of Descartes agree with this interpretation, but it is pretty widespread.^[John Cottingham, "'A Brute to the Brutes?': Descartes' Treatment of Animals," *Philosophy* 53 (1978).]
 
 . . .
 
-What isn't in doubt is the pressure. Line up all three distinctions and the yelping dog has nothing going on. That is a cost, and we'll meet the bill again in the ethics unit.
+What's clear is that there's some pressure on his metaphysics to think this. He wants to line up these three things:
+
+1. Has a soul
+2. Thinks
+3. Feels
 
 # Going forward
 
 ## Thursday
 
-We have the case for dualism, and two arguments that don't quite close.
+We have the case for dualism, and some arguments that still have gaps.
 
 . . .
 
-Thursday is the case against, and it comes from a twenty-four-year-old princess who read the *Meditations* and asked Descartes one question he could not answer.
-
+Thursday is the case against, and the canonical statement of it comes from one of Descartes's earliest readers, who also happened to be a princess.
