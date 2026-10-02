@@ -1,0 +1,279 @@
+---
+title: "The Case Against Dualism"
+subtitle: "Phil 101 · Day 14"
+author: "Brian Weatherson"
+date: "2026-10-15"
+---
+
+# Where we are
+
+## Recap
+
+Tuesday we put the case for dualism.
+
+- The flying man: he knows he exists without knowing his body does.
+- The real distinction: I can clearly and distinctly conceive mind without body.
+- And a grid, with Descartes sitting on the diagonal.
+
+. . .
+
+Both arguments had the same weak joint: getting from what you can conceive to how things are.
+
+## Today
+
+Today is the case against, and it does not start from what we can conceive.
+
+. . .
+
+It starts from a much more concrete question. If your mind is not a physical thing, how does it move your arm?
+
+# Elisabeth
+
+## Elisabeth of Bohemia
+
+She was twenty-four. Her family were exiled royalty living in The Hague, her father having lost a kingdom and then died in somebody else's war.
+
+She read the *Meditations*, and in May 1643 she wrote to Descartes.
+
+. . .
+
+They corresponded for the rest of his life. He later dedicated the *Principles of Philosophy* to her.
+
+## The question
+
+:::: {.callout-note title="Elisabeth, 6 May 1643"}
+Given that the soul of a human being is only a *thinking* substance, how can it affect the bodily spirits, in order to bring about voluntary actions?
+::::
+
+## Why it is hard
+
+:::: {.callout-note title="Elisabeth"}
+It seems that how a thing moves depends solely on (i) how much it is pushed, (ii) the manner in which it is pushed, or (iii) the surface-texture and shape of the thing that pushes it. The first two of those require *contact* between the two things, and the third requires that the causally active thing be extended. Your notion of the soul entirely excludes extension, and it appears to me that an immaterial thing can't possibly *touch* anything else.
+::::
+
+## What makes it so good
+
+Notice she doesn't deny anything Descartes has argued for.
+
+She grants him the soul. She grants him that it thinks and isn't extended. She just asks him to say how it does the one thing he agrees it does.
+
+. . .
+
+And she uses *his own physics* to do it. Those three ways a thing can move are Descartes's.
+
+## iClicker QUIZ
+
+Elisabeth's objection turns on the claim that moving a body requires
+
+A.  a soul
+B.  contact, or else being extended
+C.  God's cooperation
+D.  the pineal gland
+
+# The reply
+
+## Three primitive notions
+
+Descartes answers that there are a few basic notions that everything else is built from. For body, **extension**. For the soul, **thought**. And then a third:
+
+:::: {.callout-note title="Descartes, 21 May 1643"}
+And finally, for the soul and the body together, only the notion of **their union**, on which depends the notion of the soul's power to move the body and the body's power to act on the soul.
+::::
+
+## And a rule
+
+:::: {.callout-note title="Descartes"}
+I observe next that all secure, disciplined human knowledge consists only in keeping these notions well apart from one another, and applying each of them only to the things that it is right for.
+::::
+
+. . .
+
+So: the union is basic. Asking how it works in terms of extension is applying the wrong notion, and you were bound to go wrong.
+
+## Is that an answer?
+
+It is at least a respectable move. Every theory has something it treats as basic and doesn't explain further.
+
+. . .
+
+But Elisabeth had asked *how*, and the answer is that how-questions don't apply here.
+
+# She doesn't let go
+
+## Pressing
+
+:::: {.callout-note title="Elisabeth, 10 June 1643"}
+But I've never been able to conceive of 'what is immaterial' in any way except as 'what is not material', and *that* can't enter into causal relations with matter!
+::::
+
+. . .
+
+:::: {.callout-note title="Elisabeth"}
+I would find it easier to concede matter and extension to the soul than to concede that an immaterial thing could move and be moved by a body.
+::::
+
+## That second line
+
+Read it again, because it is doing something clever.
+
+She is saying: if the price of making the interaction intelligible is giving the soul extension, she'll pay it.
+
+. . .
+
+Which is to say she would rather give up the dualism than give up the interaction. That is the modern physicalist's instinct, stated in 1643.
+
+## The admission
+
+:::: {.callout-note title="Descartes, 28 June 1643"}
+It seems to me that the human mind *can't* conceive the soul's distinctness from the body and its union with the body, conceiving them very clearly and both at the same time. That is because this requires one to conceive them as one single thing and at the same time as two things, which is contradictory.
+::::
+
+## Why that matters so much
+
+Descartes's whole argument for dualism ran on clear and distinct conception.
+
+. . .
+
+Here he concedes that the thing he needs — distinct substances in genuine union — is not something the human mind can clearly conceive at all.
+
+## The advice
+
+So what does he recommend?
+
+:::: {.callout-note title="Descartes"}
+What teaches us how to conceive the soul's union with the body is the ordinary course of life and conversation, and *not* meditating or studying things that exercise the imagination.
+::::
+
+. . .
+
+:::: {.callout-note title="Descartes"}
+I never spend more than a few hours a day in the thoughts involving the imagination, or more than a few hours a year on thoughts that involve the intellect alone.
+::::
+
+## A quick question (POLL)
+
+Descartes's final position is that the union is real, is known from ordinary life, and cannot be clearly conceived by the intellect.
+
+**Is that an answer to Elisabeth?**
+
+A.  Yes. Some things are basic, and demanding a mechanism is a bad demand
+B.  No. He has renamed the problem rather than solved it
+C.  No, and worse: it undercuts the argument that got him here
+D.  The question was never well posed
+
+# The modern version
+
+## Causal closure
+
+Elisabeth's worry has a descendant, and it is sharper now than it was in 1643.
+
+Physics looks **causally closed**: every physical event that has a cause has a sufficient physical cause.
+
+. . .
+
+Your arm going up is a physical event. If it already has a sufficient physical cause, then either the mind is one of the physical causes, or it is doing nothing.
+
+. . .
+
+Three hundred years of neuroscience have made the first disjunct more attractive, by steadily finding physical causes where they were wanted.
+
+# Physicalism
+
+## The identity theory
+
+:::: {.callout-note title="Berger"}
+Mental states are identical to---or the same things as---states of our brains.
+::::
+
+Not correlated with. Not caused by. The same thing, the way lightning is an electrical discharge and water is H~2~O.
+
+. . .
+
+Nobody discovered that by thinking about the word "lightning". It was a scientific finding, and the identity theorist expects pain to go the same way.
+
+## Why that answers Elisabeth
+
+If your decision to raise your arm just *is* a brain state, there is no gap for anything to cross.
+
+. . .
+
+The interaction problem was a problem about two things. Say there is one thing, and it goes away.
+
+## Multiple realizability
+
+The standard objection, due to Hilary Putnam:
+
+:::: {.callout-note title="Berger"}
+It seems our mental states are what philosophers call 'multiply realizable': different sorts of physical systems can all exhibit the same types of mental states.
+::::
+
+. . .
+
+An octopus has nothing much like our brain. If it can be in pain anyway, pain can't be identical to the human arrangement.
+
+## Functionalism
+
+:::: {.callout-note title="Berger"}
+Mental states should be understood in terms of their function, that is, their characteristic causes and effects.
+::::
+
+Pain is whatever is caused by damage and causes wincing and avoidance. In us it's neurons. In an octopus, something else. In a robot, maybe a circuit.
+
+. . .
+
+This is roughly the mainstream view, and it is why it's respectable to wonder whether a machine could think.
+
+## What it doesn't settle
+
+Functionalism tells you what it is for a state to be a *belief*, or a *decision*, rather well.
+
+. . .
+
+Ask it what it is for a state to feel like something and you are back at the hard problem. A functional duplicate with nothing going on inside is precisely the zombie from Day 12.
+
+. . .
+
+Which is why property dualism keeps its foothold: you can be a functionalist about thought and still think consciousness is left over.
+
+# Where the unit lands
+
+## The scorecard
+
+- Substance dualism explains the arguments from 10 to 12, and cannot say how a decision moves an arm.
+- Identity theory answers Elisabeth, and struggles with the octopus.
+- Functionalism answers the octopus, and hands you back Mary and the zombie.
+
+. . .
+
+Every position here is somebody's considered view, and every one of them is paying for something.
+
+## No tidy ending
+
+:::: {.callout-note title="Berger"}
+The mind-body problem thus remains one of the enduring puzzles of human thought.
+::::
+
+. . .
+
+What you should have is not an answer but a map: which moves cost what, and which questions a view is refusing rather than failing to answer.
+
+. . .
+
+That's worth more than a verdict, and it is the thing the essay in November will be testing.
+
+# Going forward
+
+## Dates
+
+- **Module Quiz 2** opens after class, on Lectures 10 to 14, due Sunday 1 November.
+- **Short Answer 2** is due Friday 23 October.
+- No class Tuesday: Fall Study Break.
+
+## When we come back
+
+Two weeks of mind, and the honest summary is that nobody has closed it.
+
+. . .
+
+We change subject on the 22nd. Having asked what kinds of things minds are, we start asking what we owe to the things that have them.
+
