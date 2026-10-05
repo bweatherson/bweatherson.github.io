@@ -88,6 +88,41 @@ The table above is the student-facing calendar. This is the other half: what has
 
 **One dependency that is easy to miss.** Short Answer 2 is set on Days 10 to 12: perception, Nagel and Mary. Those three decks have to exist before 8 October, because the prompts come out of them. That puts three lecture-writing sessions inside the same three weeks as the GSI meeting and two sets of quiz questions.
 
+### Status at Monday 5 October
+
+Banked: Module Quiz 1 ran and closed yesterday. Short Answer 1's questions are
+written (`quiz-1-questions.md`, four topics with three options each), and its
+marking scheme and worked examples are in `short-answer-1.md`. Decks 1 to 14 are
+drafted, which covers every lecture up to and including 15 October.
+
+| By when | What | State |
+|---|---|---|
+| This week | Short Answer 1 runs in section | Questions done. Logistics not recorded as done. |
+| **Thu 8 Oct** | **Short Answer 2 out** | **Not drafted. Three days.** |
+| Thu 15 Oct | Module Quiz 2 opens | Day 10 drafted (8 Russell questions). Days 11–14 not. |
+| Thu 22 Oct | Day 15 lectures, ethics unit opens | Deck not written. Study break is 19–20 Oct. |
+| Fri 6 Nov | SA2 feedback back, essay prompt out | Not drafted. Date not movable. |
+| Thu 12 Nov | Module Quiz 3 opens | Needs Days 15–21, none of which are written. |
+
+**The one that is easy to call done and isn't.** Short Answer 1 happens in
+section this week. Having the prompts is the smaller half. Still outstanding, or
+at least not written down anywhere: whether every section uses the same option or
+different ones, accommodations checked, a makeup slot booked across all six
+sections, and an agreement that the GSIs mark a common batch before marking the
+rest. The three options per topic are not matched for difficulty, so handing
+different ones to different sections adds a second source of between-section
+variance on top of three different markers.
+
+**Still open from the September list, now overdue.** The non-LSA iClicker licence
+question was flagged as time-critical before Day 7. Graded quizzes have since run
+on Days 7, 8, 9 and 10. If any student's home college is outside the consortium
+and they have not been able to log in, that is four scores that are not about the
+reading, and the fix has to be retrospective as well as forward.
+
+The reading-quiz denominator is also still unsettled: twenty-one eligible days
+against a published promise of twenty. It costs nothing to decide now and gets
+awkward to decide in December.
+
 ## The tasks
 
 ### Reading quizzes (15%)
@@ -184,10 +219,24 @@ The honest position to take with the class is that the components which can be a
 
 ## Open items
 
+Reviewed 5 October.
+
+**This week.**
+
+- Decide whether all six sections write the same Short Answer 1 option, and tell the GSIs which.
+- Check accommodation requirements. The plan was to do this before fixing the date; the date is now.
+- Book one makeup slot covering all six sections. Expect ten to fifteen absences.
+- Agree that each GSI marks the same twenty scripts and the three sets are compared before anyone marks the rest.
+
+**Overdue.**
+
+- Settle whether students outside LSA are covered by the iClicker licence. Four graded quiz days have now run. If anyone has been locked out, those scores need fixing retrospectively.
+- Fix the reading-quiz denominator. Twenty-one eligible days remain against a published promise of twenty. Running all twenty-one and counting the best fifteen is the option that does not make the published scheme harsher.
+- Turn off whatever iClicker writes to the Canvas gradebook, since best-fifteen is computed in `tools/reading-quizzes.R` and a wrong number sitting there all term is worse than no number.
+
+**Standing.**
+
 - Settle the internal split of the 20% section component with the GSIs, and agree the engagement rubric and the menu for the 5% task.
 - Two of three GSIs are new to teaching: budget time for a rubric walkthrough, a worked marking example, and a post-first-batch calibration meeting.
 - Confirm the exam date and length once the University publishes the schedule, and confirm the short-answer questions can be drawn from Days 22 to 28.
-- Check accommodation requirements before fixing the Short Answer 1 section date.
 - Confirm the GSIs can return marked Short Answer 2 scripts by Friday 6 November. The date is not movable: the essay question goes out with them, and pushing it later eats the essay window rather than the marking window.
-- Fix the reading-quiz denominator before Day 7. Twenty-one eligible days remain and the syllabus promises twenty quizzes, so there is one spare day for the term. Running all twenty-one and counting the best fifteen is the option that does not make the published scheme harsher. Best 15 of 20 also leaves a student sitting on fifteen strong scores by mid-November free to skip the last three weeks at no cost; the final's short-answer section pointing at Days 22 to 28 is the other half of the answer to that.
-- Settle whether students outside LSA are covered by the iClicker licence. Time-critical: graded quizzes begin Day 7.

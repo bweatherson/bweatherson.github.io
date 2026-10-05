@@ -1,17 +1,9 @@
 # PHIL 444 TODO
 
-As of 12 August 2026. Status verified against what is actually on disk.
-
-Two deadlines govern everything here. **The book is due Monday 24 August**, 12
-days away, because it is a textbook and textbooks are ready before term rather
-than the night before the class that uses them. **Teaching starts Tuesday 1
-September**, and the syllabus has to be final by then. Everything else is paced
-by the lecture it serves.
-
-Lecture dates for reference: L1 Tue 1 Sep, L2 Thu 3 Sep, L4 and Quiz 1 Thu 10 Sep,
-L6 Thu 17 Sep, L8 Thu 24 Sep, L13 Tue 13 Oct, L15 Thu 22 Oct, L16 Tue 27 Oct,
-essay 1 due Fri 30 Oct, L22 Tue 17 Nov, L25 Tue 1 Dec, L28 Thu 10 Dec, final
-essay due Fri 18 Dec.
+The **Assessment** section below was rewritten on Monday 5 October and is
+current. The two sections above it date from 12 August and have not been
+re-verified since; several items in them are known to be done. Defects in the
+book now live in `editorial-todo.md`.
 
 ## The book: everything due Monday 24 August
 
@@ -110,29 +102,52 @@ essay due Fri 18 Dec.
       find something.
 - [ ] **Spence and Akerlof** Once we add some sections in to the text, add references to them to week 7 of the syllabus
 
-## Rolling, from 1 September
+## Assessment
 
-- [ ] **Slides for L1 and L2**, before term starts. 01 and 02 exist; L2 needs
-      whatever Ellsberg turns into.
-- [ ] **Slides for L6 through L28.** 01 to 05 exist, so this is 23 decks at two a
-      week. The largest item on this list and the one most likely to be
-      underestimated.
-- [ ] **Eight quizzes.** Worth 40% of the grade, and nothing exists for any of
-      them. Quiz 1 is Thursday 10 September, and the rest fall at L6, L8, L12,
-      L19, L21, L23 and L24.
-- [ ] **Notation slide for L18.** A1* is 2017 and writes I-squared for
-      independence while distinguishing relational I from Arrow's choice-functional
-      I-A; Ch 3 and Ch 3* are 1970 and write plain I; the Pareto relation R-bar
-      from Ch 2* does not reappear in A1*.
+Status as of Monday 5 October. Quizzes 1 to 4 are written and have run. Decks 01
+to 14 exist, so the game theory half is covered.
 
-## Dated after term starts
+### The only urgent item
 
-- [ ] **First essay prompt**, well before Friday 30 October. Topics are meant to
-      draw on the recommended reading, so students need it early enough to choose
-      what to read. Realistically early October.
-- [ ] **Check the timing on L16 to L18** against the revised plan in
-      `course-notes.md`, before Tuesday 27 October. L16 was overloaded and has been
-      cut back; L18 should have around half an hour spare.
+- [ ] **First essay prompt.** Due Friday 30 October, which is 25 days away. The
+      syllabus tells students that if they write on a topic, the recommended
+      readings for it count as required, so the prompt has to reach them early
+      enough to choose a topic and then do that reading.
+
+      Target: out by Thursday 15 October, which is L14 and the last class before
+      the study break. That gives them the break plus two full weeks, and it means
+      they are not starting the essay in the same week Part II starts.
+
+      The essay covers the first half only, and the first half is now written, so
+      there is nothing left to wait for.
+
+### Not yet, and here is why
+
+- [ ] **Quiz 5**, due Friday 6 November. **Quiz 6**, due Friday 13 November.
+      **Quiz 7**, due Friday 20 November. **Quiz 8**, due Friday 4 December.
+
+      All four fall in Part II, and the syllabus promises two things that bear on
+      when to write them. The reading schedule for Part II is a defeasible
+      default, and quizzes cover "the material through the previous class meeting,
+      whatever that turned out to be, rather than whatever this schedule says it
+      should have been."
+
+      So a quiz 5 written now is written against a schedule that has been
+      announced as provisional. Drafting against Sen's chapters rather than
+      against lecture numbers would survive slippage; drafting against lectures
+      would not.
+
+      Earliest sensible moment for quiz 5 is after L17 (Thursday 29 October), once
+      the actual pace of Part II is visible. That is still a week before it is due.
+
+- [ ] **Second essay prompt.** Due Friday 18 December. Same reasoning as the
+      first: out by the end of November, which depends on knowing what Part II
+      actually covered.
+
+### Supporting work with dates attached
+
+- [ ] **Slides for L15 to L28.** Fourteen decks at two a week. L15 is Thursday 22
+      October, the first class after the break.
 - [ ] **Gibbard-Satterthwaite handout**, before Tuesday 17 November, distributed
       with the week 12 reading at the latest. Decided against an appendix to the
       book. G-S and Muller-Satterthwaite are not in CCSW, the Nobel lecture is
@@ -143,4 +158,27 @@ essay due Fri 18 Dec.
       range voting out of the course. Sen barely touches them. Since the handout is
       about voting rules as game forms, those rules are the natural examples for
       it, and one handout could carry both.
-- [ ] **Second essay prompt**, before Friday 18 December.
+- [ ] **Check the timing on L16 to L18** against the revised plan in
+      `course-notes.md`, before Tuesday 27 October. L16 was overloaded and has been
+      cut back; L18 should have around half an hour spare.
+- [ ] **Notation slide for L18.** A1* is 2017 and writes I-squared for
+      independence while distinguishing relational I from Arrow's choice-functional
+      I-A; Ch 3 and Ch 3* are 1970 and write plain I; the Pareto relation R-bar
+      from Ch 2* does not reappear in A1*.
+
+### Calendar
+
+| Date | What |
+|:-----|:-----|
+| Thu 15 Oct | L14, last class before the break. Essay 1 prompt out by here. |
+| Mon 19, Tue 20 Oct | Fall study break |
+| Thu 22 Oct | L15, Part II begins |
+| Fri 30 Oct | **Essay 1 due** |
+| Fri 6 Nov | Quiz 5 due |
+| Fri 13 Nov | Quiz 6 due |
+| Tue 17 Nov | L22, Gibbard-Satterthwaite. Handout out before this. |
+| Fri 20 Nov | Quiz 7 due |
+| Thu 26 Nov | No class, Thanksgiving |
+| Fri 4 Dec | Quiz 8 due |
+| Thu 10 Dec | L28, last class |
+| Fri 18 Dec | **Final essay due** |
