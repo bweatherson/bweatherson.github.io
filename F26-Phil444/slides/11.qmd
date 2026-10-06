@@ -115,7 +115,7 @@ We'll assume Player 1's options don't depend on her type, and Player 2's don't d
 
 ## Simple Signal
 
-![](figures/simple-signal.svg){alt="A simple signalling game, with Nature moving first and Player 2 unable to observe Nature's move" fig-align="center" width="62%" style="max-height: 84vh"}
+![](figures/simple-signal.svg){alt="A simple signalling game, with Nature moving first and Player 2 unable to observe Nature's move" fig-align="center" width="62%" style="max-height: 70vh"}
 
 ## Reading the Tree
 
@@ -240,7 +240,7 @@ That last assumption is the point of the model. College makes nobody better at t
 
 ## The Tree
 
-![](figures/college-signal.svg){alt="The college signalling game, with high types on the left and low types on the right" fig-align="center" width="78%" style="max-height: 84vh"}
+![](figures/college-signal.svg){alt="The college signalling game, with high types on the left and low types on the right" fig-align="center" width="78%" style="max-height: 70vh"}
 
 ## Low Types Never Go
 
