@@ -1,0 +1,95 @@
+---
+format:
+  typst:
+    papersize: us-letter
+    mainfont: "Adobe Garamond Pro"
+    fontsize: 12pt
+    margin:
+      x: 2.2cm
+      y: 1.8cm
+---
+
+```{=typst}
+// ---------------------------------------------------------------------------
+// Short Assignment 1. Four pages, one question per page, ruled for handwriting.
+//
+// The rules fill whatever space is left under the question, so you can reword a
+// question without re-counting lines. PAGE_H and MARGIN_Y must match the YAML
+// above; nothing else here depends on the page size.
+// ---------------------------------------------------------------------------
+
+#let LINE_GAP = 7.6mm        // college-ruled is about 7mm
+#let PAGE_H   = 11in
+#let MARGIN_Y = 1.8cm
+
+#let rule = line(
+  length: 100%,
+  stroke: (paint: luma(150), thickness: 0.4pt, dash: "densely-dotted"),
+)
+
+// A stack, not a loop with v(): block spacing would otherwise be added between
+// every rule on top of LINE_GAP, and the page silently overflows.
+#let ruled = {
+  v(5mm)
+  context {
+    // Measured after the gap above, so the slack isn't counted twice. A stack of
+    // n rules is (n-1) gaps tall, which leaves one gap of headroom at the foot.
+    let top = here().position().y
+    let n   = int((PAGE_H - MARGIN_Y - top) / LINE_GAP) + 1
+    stack(spacing: LINE_GAP, ..range(calc.max(n, 1)).map(_ => rule))
+  }
+}
+
+#let blank(w) = box(width: w, baseline: 2pt,
+  line(length: 100%, stroke: 0.5pt + luma(90)))
+
+#let pagetag(n) = {
+  set text(size: 9pt, fill: luma(100))
+  grid(columns: (1fr, auto),
+    [Name: #blank(6cm)],
+    align(right)[PHIL 101 · Short Assignment 1 · Extra pages],
+  )
+  v(2mm)
+}
+
+#let question(num, topic, body) = {
+  block(width: 100%, breakable: false)[
+    #text(weight: "bold", size: 12pt)[#num. #topic]
+    #v(1.5mm)
+    #body
+  ]
+  v(3mm)
+}
+
+// === PAGE 1 ================================================================
+
+#align(center)[
+  #text(size: 15pt, weight: "bold")[Philosophy 101 · Short Assignment 1]
+  #v(1mm)
+  #text(size: 10pt, fill: luma(90))[Written in section]
+]
+#v(3mm)
+
+// Sections meet on different days, so the date is written in rather than printed.
+#grid(columns: (1.15fr, 1fr, 0.75fr), gutter: 5mm,
+  [Name: #blank(4.3cm)],
+  [Section / GSI: #blank(2.9cm)],
+  [Question: #blank(1cm)],
+)
+/* #v(2mm)
+#line(length: 100%, stroke: 0.6pt + luma(120))
+#v(1.5mm) */
+
+#ruled
+
+#pagebreak()
+
+#grid(columns: (1.15fr, 1fr, 0.75fr), gutter: 5mm,
+  [Name: #blank(4.3cm)],
+  [Section / GSI: #blank(2.9cm)],
+  [Question: #blank(1cm)],
+)
+
+#ruled
+
+```

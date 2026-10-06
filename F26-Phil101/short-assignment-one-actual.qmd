@@ -1,0 +1,127 @@
+---
+format:
+  typst:
+    papersize: us-letter
+    mainfont: "Adobe Garamond Pro"
+    fontsize: 12pt
+    margin:
+      x: 2.2cm
+      y: 1.8cm
+---
+
+```{=typst}
+// ---------------------------------------------------------------------------
+// Short Assignment 1. Four pages, one question per page, ruled for handwriting.
+//
+// The rules fill whatever space is left under the question, so you can reword a
+// question without re-counting lines. PAGE_H and MARGIN_Y must match the YAML
+// above; nothing else here depends on the page size.
+// ---------------------------------------------------------------------------
+
+#let LINE_GAP = 7.6mm        // college-ruled is about 7mm
+#let PAGE_H   = 11in
+#let MARGIN_Y = 1.8cm
+
+#let rule = line(
+  length: 100%,
+  stroke: (paint: luma(150), thickness: 0.4pt, dash: "densely-dotted"),
+)
+
+// A stack, not a loop with v(): block spacing would otherwise be added between
+// every rule on top of LINE_GAP, and the page silently overflows.
+#let ruled = {
+  v(5mm)
+  context {
+    // Measured after the gap above, so the slack isn't counted twice. A stack of
+    // n rules is (n-1) gaps tall, which leaves one gap of headroom at the foot.
+    let top = here().position().y
+    let n   = int((PAGE_H - MARGIN_Y - top) / LINE_GAP) + 1
+    stack(spacing: LINE_GAP, ..range(calc.max(n, 1)).map(_ => rule))
+  }
+}
+
+#let blank(w) = box(width: w, baseline: 2pt,
+  line(length: 100%, stroke: 0.5pt + luma(90)))
+
+#let pagetag(n) = {
+  set text(size: 9pt, fill: luma(100))
+  grid(columns: (1fr, auto),
+    [Name: #blank(6cm)],
+    align(right)[PHIL 101 · Short Assignment 1 · Page #n of 4],
+  )
+  v(2mm)
+}
+
+#let question(num, topic, body) = {
+  block(width: 100%, breakable: false)[
+    #text(weight: "bold", size: 12pt)[#num. #topic]
+    #v(1.5mm)
+    #body
+  ]
+  v(3mm)
+}
+
+// === PAGE 1 ================================================================
+
+#align(center)[
+  #text(size: 15pt, weight: "bold")[Philosophy 101 · Short Assignment 1]
+  #v(1mm)
+  #text(size: 10pt, fill: luma(90))[Written in section]
+]
+#v(3mm)
+
+// Sections meet on different days, so the date is written in rather than printed.
+#grid(columns: (1.15fr, 1fr, 0.75fr), gutter: 5mm,
+  [Name: #blank(4.3cm)],
+  [Section / GSI: #blank(2.9cm)],
+  [Date: #blank(2.9cm)],
+)
+/* #v(2mm)
+#line(length: 100%, stroke: 0.6pt + luma(120))
+#v(1.5mm) */
+
+#text(size: 9.5pt, fill: luma(80))[
+  Four questions, one per page. Spend about eight minutes on each, so roughly 150
+  to 200 words, but it's totally fine to write more. Write on the lines; if you need more room, ask for more paper. Handwriting, spelling and crossings-out are not marked.
+]
+#v(3mm)
+```
+
+```{=typst}
+#question(1)[Memory][
+Jo believes that the Battle of Hastings was in 1066. She is right. She has believed it since she was small, and she cannot remember where she learned it or why she first believed it. Give the best reason for saying Jo's belief is justified, and the best reason for saying it is not. Then say which you find more convincing, and why.
+]
+#ruled
+
+#pagebreak()
+
+// === PAGE 2 ================================================================
+
+#pagetag(2)
+#question(2)[Testimony][
+Two people disagree about testimony. One has the view we called reductionism; they say you should believe what a stranger tells you only if you have some positive reason to think they are reliable. The other has the view we called anti-reductionism; they say you should believe them unless you have some positive reason to doubt them. Describe a situation in which these two give different advice. Then explain why the disagreement between them is narrower than it first looks.
+]
+#ruled
+
+#pagebreak()
+
+// === PAGE 3 ================================================================
+
+#pagetag(3)
+#question(3)[Anderson][
+Occasionally, the scientific community as a whole gets things wrong. For instance, for a long time the conventional wisdom was that stomach ulcers were caused by stress and stomach acid; the real reason was bacterial infection. What does Anderson's view recommend that ordinary people believe in these cases? Is this recommendation reasonable?
+]
+#ruled
+
+#pagebreak()
+
+// === PAGE 4 ================================================================
+
+#pagetag(4)
+#question(4)[Nguyen][
+Sam only ever encounters arguments for one side of a political question. He has never met a serious argument for the other side, and it has never occurred to him that there is one. Mia has met the arguments for the other side many times. She was told, long before she met them, that people who make those arguments are paid to make them, and she has found this to be true of several of them.
+
+Someone hands each of them a well-argued piece from the other side. Say what Nguyen would expect to happen in each case, and why the two cases come apart.
+]
+#ruled
+```
