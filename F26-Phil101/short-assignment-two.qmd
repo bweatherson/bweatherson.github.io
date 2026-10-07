@@ -11,82 +11,60 @@ format:
       y: 2.2cm
 ---
 
-# What this is
+# Overview
 
-Four short answers. Together they make the four moves that a philosophy essay
-makes, and in November you will make the same moves again, on different
-material, without the prompts.
+This is a short answer assignment that's practice for writing an essay. You'll answer four short answer questions. Collectively, your answers will be in the basic form of an essay. When we do essays in November, you'll hopefully go through the same steps without the prompts.
 
-You are **not** writing an essay this time. Answer the four questions
-separately, with the number above each one. They are graded separately, not as
-continuous prose, so you do not need to join them up or write an introduction.
+That said, this is **not** an essay. You're answering four questions. There are going to be four windows in Canvas to write the answers into. They are graded separately. You don't need to put an introduction or a conclusion around them. (Though hopefully once you've written your answers, you can see what kind of introduction and conclusion you would write.)
 
-**Pick one of the two options below and answer all four questions about it.**
-Do not do both. Neither option is the harder one.
+**Pick one of the two options below and answer all four questions about it.** You should be answering four questions here; not eight. You don't have to do both options. But do pick one option and stick to it.
 
 # The four questions
 
-1.  **State the view**, in your own words. What exactly is being claimed?
-    *About 150 words.*
+1.  **State the view**, in your own words. What exactly is it claiming? *About 150 words.*
 
-2.  **Give the strongest argument its defenders offer.** Not every argument —
-    the best one. Set it out so that someone who disagrees can see where to
-    push. *About 250 words.*
+2.  **Give the strongest argument its defenders offer.** Don't offer a barrage here; pick the argument you think is best and set it out. Ideally, make it visible where the possible points of disagreement are. *About 250 words.*
 
-3.  **State the objection you find most serious.** Again, the best one, not the
-    easiest to knock down. *About 250 words.*
+3.  **State the objection you find most serious.** Again, don't run through a barrage of objections; make one objection, and make it well.  *About 250 words.*
 
-4.  **Give the best reply available to the view's defender --- and then say
-    whether that reply succeeds.** *About 350 words.*
+4.  **Give the best reply available to the view's defender**. Also, **say whether and why you think that succeeds**. This is the hardest part, because it asks you to argue against yourself. In question 3 you were trying to make the objection as strong as you could. Here you have to take that same argument and find where it goes wrong. If you decide it doesn't go wrong anywhere, and the defender has no good answer, still say what the best of the bad lot of replies is, and why it doesn't work. What you shouldn't do is quietly make the objection weaker here than it was in question 3, so that the reply has an easier time of it. *About 350 words.*
 
-Roughly a thousand words in total. These are guides, not limits; an answer that
-does the job in fewer words is a better answer, not a worse one.
+That's about 1000 words in total. These are guides, not limits; and in some cases you can do the job crisply in fewer words. That's good, if you can manage it.
 
-Question 4 is where you say what you think, and it carries the most weight. An
-answer that stops after reporting the defender's reply has done three-quarters
-of the work. Either verdict can earn full marks. What is being marked is whether
-you give a reason.
+The range of acceptable answers gets broader as the questions go along. In question 1, there is more or less an objective fact about what the view says. But there's a range of good arguments for it, a bigger range of objections, and because there are multiple replies to each objection, you have many many choices by question 4. You are graded on how well you present the arguments, not on whether these are right or wrong, or whether they are the views we agree with. The questions have been chosen so that by question 4, there are many ways to take either side of the debate and get full marks. 
+
+~~~{=typst}
+#pagebreak()
+~~~
+
 
 # Option A: The knowledge argument
 
-**The view.** Physicalism is false. There are truths about experience that no
-amount of physical information captures.
+**The view.** Physicalism is false. There are truths about experience that no amount of physical information captures. This is Frank Jackson's conclusion in "What Mary Didn't Know," and his argument for it rests on the Mary case.
 
-This is Frank Jackson's conclusion in "What Mary Didn't Know," and the view we
-set out in lecture 12. Mary is the case that is supposed to show it.
+**Where to look.** The two readings for lecture 12. Jackson's paper gives the argument in his own words, and the three numbered lines in it are key to Q2. Kıymaz's "The Knowledge Argument Against Physicalism" sets out the standard responses one section at a time, and essential reading for Q3. He covers  the ability hypothesis (§1), the acquaintance hypothesis (§2), the phenomenal concept strategy (§3), and the objection that Mary learns nothing at all (§4).
 
-For question 3, the objections canvassed in the reading and in lecture were the
-ability hypothesis, the phenomenal concepts strategy, and the flat denial that
-Mary learns anything. You may use one of those or raise your own.
+We skipped acquiantance in class, but it's fine to use here if you think it's the best move. You can also raise objections of your own, though do tell us where you got it from if you got it from elsewhere.
 
-# Option B: Naive realism about perception
+# Option B: Representationalism about perception
 
-**The view.** When you look at something, you are directly aware of the object
-itself, not of some private intermediary. A thing's *looking* a certain way is a
-relation between that thing, the light, and you.
+**The view.** Perceptual experience represents the world as being a certain way, much as a sentence does. Looking at the checkerboard, your experience represents square A as darker than square B. Representations can be false; that's what happens in illusions. But nothing needs to be darker for the experience to represent the square as darker. At the end of lecture 10 this was flagged briefly as a rival to Russell's sense-data theory.
 
-This is the view we set out at the end of lecture 10, alongside the
-representational view, as a rival to Russell's sense-data theory.
+**A note on the name.** Philosophers also call this view *intentionalism*, and the encyclopedia entry below uses that name throughout rather than "representationalism". But it's the same view, just names that are more popular with different folks.
 
-For question 2, remember that the best case for this view is largely a case
-against its rival: the veil, the problem about shared evidence, and the question
-of what sort of objects sense-data would be. For question 3, the obvious
-objection is the argument from illusion, and its second premise in particular.
+**Where to look.** We really skimmed this in lecture, and Russell doesn't discuss it, so if you take this option three sections that were listed as recommended become required. All three are in Tim Crane and Craig French, ["The Problem of Perception"](https://plato.stanford.edu/entries/perception-problem/), in the *Stanford Encyclopedia of Philosophy*.
+
+- **§2.1, The Argument from Illusion.** This is what Q3 is about.
+- **§3.3.1, Intentionalism in Outline.** This will be really helpful for Q1.
+- **§3.3.4, Intentionalism and the Problem of Perception.** Your answer to Q4 should draw on this.
+
+You do not need the rest of §3.3.
+
+For Q2, the case for this view is mostly a case against its rival: the sense-data view we discussed. So the problems for sense-data, whether we have shared evidence, whether we can know about the world, what kind of objects sense-data are, are all available moves here. Paul Coates, ["Sense-Data"](https://iep.utm.edu/sense-da/), in the *Internet Encyclopedia of Philosophy*, sorts the objections into three kinds in §4. That's still recommended, but it's a natural place to start.
 
 # Practical matters
 
-Submit on Canvas as a PDF or Word file by **5pm on Friday 23 October**. Put your
-name and your section at the top.
+Submit on Canvas by **5pm on Friday 23 October**. 
 
-You do not need to do any reading beyond lectures 10 to 12 and the material
-assigned for them, and you do not need formal citations. "As Jackson puts it" or
-"in the lecture on Mary" is enough.
+Apart from the sections named under whichever option you pick, you do not need to read anything beyond lectures 10 to 12 and the material assigned for them, and you do not need formal citations. "As Jackson puts it" or "in the lecture on Mary" is enough. There will be a 0 point question asking you to list any assistance that you got. Include any relevant things you read, or any assistance you got (even with just proof-reading) here. It's fine to get assistance. This stuff is hard, and this isn't an exam on how you can do unassisted. But it's good manners, and good academic practice, to acknowledge your help.
 
-Feedback comes back on **Friday 6 November**, and the essay prompt goes out with
-it, because the essay asks you to do all of this again unaided.
-
-# The rules from day one still apply
-
-Document anything you use, acknowledge any help you get --- from people, books
-or machines --- as precisely as you can, and submit only work you can explain.
-You may be asked, in person, what a passage means and why you wrote it.

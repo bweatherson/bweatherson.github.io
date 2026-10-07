@@ -29,7 +29,16 @@ it is accurately reported, because the question says *most serious*.
 
 **Q4, reply and verdict (7 marks).** Two halves. The reply, which is reportage
 and should be the defender's best move rather than a weak one; and the verdict,
-which is theirs. **Both verdicts earn full marks.** What is marked is whether a
+which is theirs.
+
+The commonest way to fake this one is to restate the objection more weakly in Q4
+than in Q3, so that the reply has something easy to knock over. **Check Q4's
+version of the objection against Q3's.** That is the one place where you need
+both answers from the same script in front of you, so keep Q3 to hand while
+marking Q4 even though everything else is read question by question. A script
+whose objection has shrunk between the two has dodged the hard part, and the
+difficulty is the point: Q3 asked them to make the objection as strong as they
+could, and Q4 asks them to argue against their own work. **Both verdicts earn full marks.** What is marked is whether a
 reason appears, and whether the reason engages the reply they just gave rather
 than restating Q3. Say this to the GSIs explicitly: first-time graders read "say
 whether it succeeds" as concealing a right answer, and mark down students who
@@ -71,35 +80,39 @@ that leans on it has dodged the question.
 
 ---
 
-## Option B — naive realism
+## Option B — representationalism
 
-**Q1.** You are directly aware of the object; looking-some-way is a relation
-between the thing, the light and you. The contrast is with sense-data, and a
-script that only says "the opposite of Russell" has not stated a view.
+**Q1.** Experience represents the world as being a certain way, as a sentence
+does; representations can be false; an illusion is a false one, and nothing
+private needs to be darker. A script that only says "the opposite of Russell"
+has not stated a view. Note that the assigned SEP sections call this
+*intentionalism* — a script using that word is not confused.
 
-**Q2.** The case is largely negative, and that is legitimate here: sense-data put
-a veil between you and the world, so every ordinary belief becomes an inference
-from private patches; they make shared evidence impossible, since nobody can
-check another's sense-data, which turns every joint observation into testimony;
-and they are strange objects, with nothing physical bearing the relevant shade.
-Full marks for any two of those pressed properly. A script that adds Russell's
-own concession — that colour depends on the table, the spectator, and the way the
-light falls — has found the strongest card in the deck.
+**Q2.** Largely the negative case against sense-data: the veil, so that every
+ordinary belief becomes an inference from private patches; shared evidence, since
+nobody can check anyone else's sense-data, which turns every joint observation
+into testimony; and the strangeness of the objects, since nothing physical bears
+the relevant shade. Any two of those pressed properly is full marks. A script
+that has read the IEP and sorts the objections as phenomenological, coherence or
+epistemological has gone beyond what was asked and should be rewarded for it, not
+marked as the new standard.
 
-**Q3.** The argument from illusion, and the Phenomenal Principle in particular:
-if something looks darker, then there is something darker you are aware of. Full
-marks need premise 2 identified as the load-bearing one.
+**Q3.** The argument from illusion, with the Phenomenal Principle identified as
+the load-bearing premise. Full marks need premise 2 picked out specifically.
 
-**Q4.** The reply is to deny the Phenomenal Principle: nothing is darker, the
-square merely looks darker, and looks are relations rather than objects — no more
-needing a private bearer than my being north of the table needs a private
-direction. Good scripts will then press on hallucination, where there is no
-object at all for the relation to hold of. That is the standard pressure point
-and a script that finds it unaided is doing well.
+**Q4.** The reply is the sentence analogy from lecture, worked out at more length
+in SEP §3.3.4: a false sentence saying A is darker does not require a darker
+thing to exist, so a false experience does not either. On whether it succeeds,
+the two live pressure points are whether experience is really enough like
+language for the analogy to carry — an experience does not obviously divide into
+subject and predicate — and whether representing is all that is going on, given
+that an experience of red and a mere thought that something is red are both
+representations and do not seem at all alike. Pressing either, or defending
+against either, earns full marks.
 
-*Known wrong turn:* arguing that naive realism is right because illusions are
-rare. The checkershadow is not a malfunction and Russell's own case runs on
-ordinary variation, not deception.
+*Known wrong turn:* treating "it is a representation" as itself the answer,
+without saying why that dissolves the Phenomenal Principle. The work is done by
+representations being capable of falsity, not by the word.
 
 ---
 
