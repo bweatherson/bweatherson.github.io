@@ -1,0 +1,128 @@
+---
+title: "Essay One"
+subtitle: "Philosophy 444 · Due Friday 30 October · 25%"
+format:
+  typst:
+    papersize: us-letter
+    mainfont: "Adobe Garamond Pro"
+    fontsize: 11pt
+    margin:
+      x: 2.5cm
+      y: 2.2cm
+---
+
+# PHIL 444 — First Essay
+
+**Due:** Friday 30 October, 5pm, on Canvas.    
+**Length:** 2,000 to 2,500 words, not counting the bibliography.    
+**Worth:** 25% of the course grade.
+
+Answer **one** of the five questions below.
+
+## How these work
+
+Each question has two parts, and both are important.
+
+The first part is formal. It's relatively small, and overlaps with the class material. It's mostly there to make sure that we're all on the same page, and that you're talking about the model. **Set out this model, and any formal derivations asked for, explicitly**. State the payoffs, show which step is at issue, say what you've established. Don't just assume all this, even if the model is in the readings.
+
+When I say this is small, it's usually a longer part of the *prompt*, but it shouldn't be a long part of the *answer*.
+
+The second part is argumentative. This should be most of the paper, and it's what most of the grade turns on. This is ultimately a philosophy class, even if it sometimes gets lost in the formalism. The formalism is there to structure the arguments, and give them a precise target, not to substitite for them.
+
+Where a question draws on a lecture whose readings were listed as **Recommended** on the syllabus, those readings now count as required for you. They are named under each question.
+
+Co-authored papers are fine, in pairs. Both authors submit the paper separately on Canvas, and both of you are affirming that each did a fair share. A co-authored paper is held to the same length.
+
+If you would rather write on something else from the first half, email me a paragraph describing it by Friday 23 October and I will tell you whether it will work.
+
+If people are really stuck on these essays, as well as office hours, we'll set aside class time on Tuesday 27 October for questions about them.
+
+~~~{=typst}
+#pagebreak()
+~~~
+
+## 1. The Cost Assumption in the College Model
+
+The separating equilibrium in **College Signal** (notes §§6.8) needs college to be cheaper for the high type than the low type. In lecture 13 I argued that the psychic-cost reading of that assumption is doubtful: the students who find college pleasant, who enjoy the reading and the seminars and are untroubled by exams, are not obviously the students an employer wants.
+
+**The formal part.** In the version in the notes, being hired is worth 4, college costs the high type 1 and the low type 5, and the employer gains 1 from hiring a high type and loses 1 from hiring a low type. 
+
+1. Set out the four payoffs for each type, and verify that $\langle UD, lr\rangle$ is an equilibrium when $p < \frac{1}{2}$.
+2. Now leave everything else fixed and let college cost the low type $c$ rather than 5. Find the values of $c$ for which $\langle UD, lr \rangle$ survives.
+3. State in one sentence what your answer means in non-technical terms.
+
+You should find that the condition is not merely that college costs the low type *more*. It has to cost her at least as much as the job is worth to her.
+
+**The argument.** Is that condition believable? Lecture 13 estimated the American college premium at 64% of lifetime earnings, well over a million dollars. Your answer should engage with at least one of: the "can't rather than won't" variant, where the low type cannot finish rather than choosing not to; the possibility that the relevant cost is something other than the psychic cost of coursework; or the possibility that the model is fine and the objection misidentifies who the low types are.
+
+*Also required:* Spence (1973), and notes 6.10 and 6.12.
+
+---
+
+## 2. Two Models of the Used Car Market
+
+Akerlof's model as stated in the notes (6.13) predicts that good used cars never change hands. That prediction is false; even in the time Akerlof was writing about, there was a used car market, and good cars were in it. In lecture 14 I complicated the model, by splitting up sellers into relaxed and pressed, and the result was a market that existed, just that pressed sellers of good cars lost a lot of money. 
+
+**The formal part.** Buyers value a good car at 120 and a lemon at 60. Of a hundred cars, 90 are good and 10 are lemons, and 80 of the good ones belong to owners who will not sell at any price a buyer would offer.  The remaining twenty divide evenly: good and relaxed, who will accept 100; good and pressed, who will accept 70; lemon and relaxed, 40; lemon and pressed, 20.
+
+1. Verify that the market price is 80, and say which cars trade at it.
+2. Now raise the pressed good-car owner's reservation price (i.e., the price they would rather keep the car than sell) above 70, holding everything else fixed. Find the highest value it can take while good cars still trade, and say what the price becomes once it goes past that.
+3. Say which single number in the setup is doing the work, and why.
+
+**The argument.** You now have two models of the same market, one predicting collapse and one predicting a discount. Which conclusion should we draw? That the first model's prediction was an artefact of a simplification, so the real lesson survives intact? That the second model shows the collapse result was always too strong, but that the discount result is more resilient? Or that the exercise shows something about how much weight a model of this kind can bear? You should take a position, and your answer to part 2 of the formal questions should be doing work in it.
+
+*Also required:* Akerlof (1970).
+
+~~~{=typst}
+#pagebreak()
+~~~
+
+## 3. What Does Common Knowledge of Rationality License?
+
+In **Cooperative Caterpillar** (notes 5.5), backwards induction gives the answer almost everyone finds intuitive. Stalnaker's objection is that the reasoning does not get you there, because it needs a subjunctive conditional that common knowledge of rationality does not supply.
+
+**The formal part.**
+
+1. Write out the normal form of Cooperative Caterpillar. Player I has four strategies, Player II has two.
+2. Find all the Nash equilibria, and say which are subgame perfect.
+3. Identify the exact step in the backwards induction argument where the indicative conditional is replaced by the subjunctive one. Quote both.
+
+**The argument.** Stalnaker's objection leaves three responses open. Give up backwards induction as a norm; keep it, and argue the subjunctive is available after all; or keep it, and argue the subjunctive is not needed. Take one and defend it. If you take the second, you owe an account of where the subjunctive comes from, given that the node in question is reached only by a player who has already deviated from what rationality required.
+
+It is worth noticing that the equilibrium Stalnaker defends is one that subgame perfection rules out. Say whether that counts against him.
+
+*Also required:* Bonanno 7.3 and 10.4.
+
+---
+
+## 4. Why Does Forward Induction Seem to Work Sometimes?
+
+Forward induction looks compelling in the opt-out stag hunt from lecture 9 and strained in the **Money Burning Game** (notes 5.7). In lecture I suggested the difference is that in the first the key inference is about a move the player actually makes, and in the second it is about a move nobody ever makes.
+
+**The formal part.** In the opt-out game, two hunters can take a stag worth 10 each if both go for it, or hunt rabbit for 8 whatever the other does, and a hunter who goes for the stag alone gets 0. Before the hunt, Player I is offered a day's work paying 9.
+
+1. Write out the normal form. Player I has four strategies, not three; say why.
+2. Find the Nash equilibria, and say which survive subgame perfection.
+3. Do the same for the money burning game, using the table in 5.7, and say in each game which node the forward induction inference is about, and whether that node is reached in the equilibrium the argument recommends.
+
+**The argument.** Is the on-path/off-path difference doing normative work, or is it only making one argument feel better than the other? A good answer will say what, if anything, changes about the *status of the subjunctive conditional* depending on whether the move is made. You might also consider whether the difference between the two games is really about paths at all, rather than about the fact that the hunters' interests coincide and the money burners' do not.
+
+*Also required:* Ben-Porath and Dekel (1992).
+
+~~~{=typst}
+#pagebreak()
+~~~
+
+## 5. Is the Intuitive Criterion Good Epistemology?
+
+The intuitive criterion (notes 6.9) is a constraint on what to believe conditional on something you were certain would not happen. Economists have proposed a number of such constraints; philosophers not discussed this problem as much.
+
+**The formal part.**
+
+1. State the weak version of the criterion precisely, including the distinction between happy and content players.
+2. Show how it rules out $\langle BB, ac \rangle$ in **Canadian Signal**. Your  answer should say which player is happy, which is content, and what the barman is therefore required to believe on seeing a hockey request.
+3. Show that it does *not* rule out $\langle DD, ll \rangle$ in **College Signal** when $p > \frac{1}{2}$, and explain what the criterion needs that is missing in that case.
+
+**The argument.** Assess the criterion as a norm of belief revision, setting aside whether it picks out the equilibria we wanted. Is "assume the deviation came from whoever had least to lose by deviating" a plausible thing to require of a rational agent? Consider what it says about an agent who has to form a belief with no evidence at all, and whether the criterion is better understood as a constraint on belief or as a convention about how to read other people's behaviour. Part 3 of the formal work is relevant here: a criterion that falls silent exactly when everyone is doing as well as they could may be telling us something about what sort of principle it is.
+
+*Also required:* Cho and Kreps (1987), and Bonanno Ch 12.

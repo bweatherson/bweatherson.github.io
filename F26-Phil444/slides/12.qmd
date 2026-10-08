@@ -85,11 +85,11 @@ The barman gets 1 for a correct guess and $-1$ for a wrong one.
 
 ## Strategies
 
-Player 1's strategy says what she does if Canadian and what she does if American. We write his as $\alpha\beta$, in that order.
+Player 1's strategy says what she does if Canadian and what she does if American. We write this as $\alpha\beta$, in that order.
 
 . . .
 
-Player 2's strategy says what he guesses after hockey and what he guesses after baseball. We write his as $\gamma\delta$, in that order.
+Player 2's strategy says what he guesses after hockey and what he guesses after baseball. We write this as $\gamma\delta$, in that order.
 
 . . .
 
