@@ -66,13 +66,13 @@ Then we'll look at a slightly older philosopher, who presented, almost in passin
 ::: {layout="[50, 50]"}
 
 ::: {}
-![David Chalmers (1966-)](../images/chalmers.jpg){fig-alt="A portrait of David Chalmers."}
-
-. . .
+![David Chalmers (1966-)](../images/chalmers.jpg){.nostretch fig-alt="A portrait of David Chalmers." width="41%"}
 :::
 
 ::: {}
+:::: {.fragment}
 ![A zombie](../images/zombie.jpg){fig-alt="A movie zombie."}
+::::
 :::
 
 :::
@@ -193,10 +193,14 @@ Those four answers are the four positions in the literature, and we're going to 
 
 Jackson's own statement of it, from the 1986 paper:
 
+. . .
+
 :::: {.callout-note title="Jackson"}
 (1) Mary (before her release) knows everything physical there is to know about other people.
 
 (2) Mary (before her release) does not know everything there is to know about other people (because she learns something about them on her release).
+
+. . .
 
 Therefore,
 
