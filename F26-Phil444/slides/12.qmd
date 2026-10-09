@@ -231,47 +231,65 @@ So she is no longer content with baseball, and $\langle BB, ac \rangle$ is no lo
 
 The sensible equilibrium survives, since there the deviation story runs the other way.
 
-## Back to College
-
-The same move kills $\langle DD, rl \rangle$ from last time, where employers hired beach-goers and rejected graduates.
-
-. . .
-
-That equilibrium needed the employer to read a college degree as evidence of a low type. 
-
-But college is strictly dominated for a low type and merely unattractive for a high type.
-
-. . .
-
-So a deviation to college should be read as coming from a high type, and the employer should hire.
-
 ## An Exercise
 
-The college game has a near neighbour of that equilibrium: $\langle DD, ll \rangle$, where everybody goes to the beach and the employer hires everybody.
+Last time's odd equilibrium was $\langle DD, rl \rangle$, with $p > \frac{1}{2}$: everybody at the beach, and the employer hiring beach-goers and rejecting graduates.
 
 . . .
 
-Work out whether the criterion kills that one too.
+Does the criterion kill it?
 
-## Why It Doesn't
+## It Does Not
 
-At $\langle DD, ll \rangle$ the high type gets 4, which is her ceiling. The low type also gets 4, which is hers.
-
-. . .
-
-Both of them are happy. Neither is merely content.
+In that equilibrium the high type gets 4, and so does the low type.
 
 . . .
 
-So there is no content player for the barman, or here the employer, to pin the deviation on, and the criterion says nothing at all. $\langle DD, ll \rangle$ survives.
-
-## What That Tells Us
-
-The criterion only has traction where the players at a deviation differ in how badly they wanted it.
+Four is the most either type can get anywhere in the game. Both of them are happy, and neither is merely content.
 
 . . .
 
-Where everyone is at their ceiling, it is silent, and we are back to condition 4 permitting anything.
+So there is no content player to pin a deviation on, and the criterion says nothing at all. $\langle DD, rl \rangle$ survives it.
+
+## What Does Kill It
+
+A different and simpler constraint: don't read a deviation as coming from someone for whom it is strictly dominated.
+
+. . .
+
+College is strictly dominated for the low type. The worst the beach can do for her is 0, the best college can do is $-1$.
+
+. . .
+
+It is not dominated for the high type, whose best from college is 3 against a worst case of 0. So a degree has to be read as high, and the employer has to hire.
+
+## A Weakness
+
+$\langle DD, rl \rangle$ is exactly the sort of equilibrium a refinement ought to reject, and Cho & Kreps haven't rejected it.
+
+. . .
+
+The criterion works by comparing what you get in equilibrium with what you could get by deviating. Once $p > \frac{1}{2}$ the employer will hire an unsorted pool, so both types are already at their ceiling.
+
+. . .
+
+A criterion that compares payoffs has nothing left to compare.
+
+. . .
+
+This isn't an argument that they are *wrong*, but that their theory is *incomplete*.
+
+## Where It Does Work
+
+Drop $p$ below $\frac{1}{2}$ and take the pooling equilibrium $\langle DD, rr \rangle$: nobody goes, nobody is hired, everybody gets 0.
+
+. . .
+
+Now the types come apart. College could have got the high type 3, so she was only ever content to skip it. It could never have got the low type more than $-1$, so she is happy to have skipped it.
+
+. . .
+
+A degree must therefore be read as high, the employer hires, and the high type gets 3 rather than 0. The pooling equilibrium breaks, and the separating one survives.
 
 # The Full Version
 

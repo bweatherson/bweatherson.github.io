@@ -77,6 +77,14 @@ corrected to 40% and 64% and cited to `@OECD2025`. What is left is small.
 
 ---
 
+### Fixed 9 October
+
+The claim in 6.8 that the intuitive criterion rules out the odd college
+equilibrium was wrong, and so was the equivalence claim in 6.9. Both are now
+corrected, and 6.9 has the `<DD, rr>` case as the two-option counterexample. If
+anyone ever wants a reference for the point that the criterion is toothless when
+every type is already at its ceiling, it has not been looked for.
+
 ## Bibliography
 
 - **The `CHECK` comment at `references.bib` line 134** — "standard works, details
