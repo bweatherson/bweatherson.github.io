@@ -165,11 +165,30 @@ Neither of these predictions is correct.
 
 People do not, as far as we can tell, get a wage premium for having an offer letter. (This *might* happen a bit in Silicon Valley, but it's really rare.)
 
-Also, have a degree doesn't get half the premium. The premium comes from *finishing* the degree.
+And half a degree doesn't get you half the premium. The premium comes from *finishing* the degree.
+
+. . .
+
+| | Weekly | Over high school |
+|------------------------:|-------:|-----------------:|
+| High school diploma     | \$966   | |
+| Some college, no degree | \$1,062 | +\$96 |
+| Associate's degree      | \$1,135 | +\$169 |
+| Bachelor's degree       | \$1,578 | +\$612 |
+
+: US median weekly earnings, workers 25 and over, 2025 {#tbl-sheepskin}
+
+. . .
+
+Some college with no degree picks up \$96 of the \$612 gap, about a sixth of it. An associate's degree, which is less coursework than three years of a bachelor's, picks up \$169.
 
 . . .
 
 This is embarrassing for the strongest version of the skill acquisition model, since you should be accruing skills each year.
+
+. . .
+
+One caution. That middle category runs from one semester to three and a half years, so it is not a clean measure of "most of a degree". It is the best widely available number, and it is not the number we would most like to have.
 
 ## Why the American Data
 
@@ -183,19 +202,21 @@ Elsewhere that group is often too small to say much about. In the American data 
 
 More data would be welcome. But this much does tell against the purest version of the human capital story.
 
-## Two More Points in Favour of Signaling
+## Another Point in Favour of Signaling
 
-Premia vary surprisingly little between fields. A degree in medieval epistemology and a degree in accounting both open doors, and the difference between them is smaller than a pure skills story predicts.
-
-. . .
-
-And at a public university like this one, the lecture theatre doors are unlocked. Anyone can walk in. We are not overrun with people taking advantage of free lectures.
+At a public university like this one, the lecture theatre doors are unlocked. Anyone can walk in. We are not overrun with people taking advantage of free lectures.
 
 ## Problem One: Age
 
-Among workers in their late twenties the graduate advantage is real and moderate. 
+Among workers in their late twenties the graduate advantage is real and moderate. Among workers in their late forties it is much larger.
 
-Among workers in their late forties it is much larger.
+| Age   | High school | Bachelor's | Premium |
+|------:|------------:|-----------:|--------:|
+| 25-29 | \$38,800    | \$61,200   | 58% |
+| 35-39 | \$47,000    | \$83,100   | 77% |
+| 45-49 | \$50,700    | \$92,700   | 83% |
+
+: Median earnings, full-time year-round workers {#tbl-age-premium}
 
 . . .
 
