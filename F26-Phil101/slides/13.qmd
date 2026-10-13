@@ -7,7 +7,7 @@ date: "2026-10-13"
 
 # Where we are
 
-## Recap
+## Previously, on 101
 
 Over the last three classes, we saw three arguments that the purely physical story leaves something out.
 
@@ -39,6 +39,8 @@ Until not that long ago, i.e., through at least much of the 19th century, a very
 
 The label for this missing thing was the **vital force**, and the view was called **vitalism**.
 
+. . .
+
 Note here we're talking about *living* things; no one was going around saying plants have souls.
 
 But they did think that the physics of inorganic matter was insufficient to explain how living things worked.
@@ -65,7 +67,7 @@ Time to ask that question!
 
 ## Our guide
 
-We're not reading Ibn Sīnā in the original; among other things I don't speak the right language!
+We're not reading Ibn Sīnā in the original; among other things I don't speak the right language.
 
 We're looking at a summary by Peter Adamson, a Notre Dame grad who now works in Munich.
 
@@ -77,13 +79,17 @@ Adamson's thesis was on Islamic philosophy, so he's a particularly good guide to
 
 - [A History of Philosophy Without Any Gaps](https://historyofphilosophy.net/podcast/all-episodes)
 
+. . .
+
 After he started on this, people pointed out that he was only focussing on work from Europe and West Asia, and this left some quite large gaps. So he now has three more co-authored series:
 
 - [A History of Philosophy in India](https://historyofphilosophy.net/podcast/india/origins/introduction-indian-philosophy), with Jonardon Ganeri.
 - [A History of Philosophy in China](https://historyofphilosophy.net/podcast/china/warring-states-period/dao), with Karyn Lai.
 - [A History of Africana Philosophy](https://historyofphilosophy.net/podcast/africana/precolonial-africa/africana-introduction), with Chike Jeffers.
 
-And he has many books from basically the scripts of these. All highly recommended.
+. . .
+
+And he has many books from basically the scripts of these. All highly recommended. Indeed, if the only thing you take away from today are "I should look at these podcasts/books", that won't be my worst day lecturing.
 
 ## Ibn Sīnā's core example
 
@@ -136,9 +142,9 @@ One can be conscious of a thing without being conscious of everything about it.
 
 Compare this argument.
 
-1. I know that the philosophy 101 lecturer is Brian.
-2. I don't know that the philosophy 101 lecturer is the only Australian on the philosophy faculty.
-3. So Brian is not the only Australian on the philosophy faculty.
+1. I know that _the philosophy 101 lecturer_ is **Brian**.
+2. I don't know that _the philosophy 101 lecturer_ is **the only Australian on the philosophy faculty**.
+3. So **Brian** is not **the only Australian on the philosophy faculty**.
 
 . . .
 
@@ -152,7 +158,11 @@ You might know something under one description, but not under the other.
 
 It doesn't follow that the object does not satisfy both descriptions.
 
+. . .
+
 I can be both the person who is X, and the person who is Y, even if you know one of those things and not the other.
+
+. . .
 
 The thing the flying man exists might be both the flying man himself, and the flying man's body, even if he knows one of those things and not the other.
 
@@ -166,7 +176,7 @@ All Avicenna has really done is to throw down a challenge to his materialist opp
 
 . . .
 
-A challenge is less than a proof, but it is a spur to further research.
+A challenge is really not a proof, but it is a spur to further research.
 
 # Descartes
 
@@ -187,12 +197,12 @@ The second lets him trust whatever he perceives **clearly and distinctly**.
 1. I clearly and distinctly understand my mind as a thing that thinks, but it is no part of my understand of it that it is extended.
 2. I clearly and distinctly understand my body as a thing that is extended, but it is no part of my understanding of it that it thinks.
 3. Clear and distinct perception can be trusted.
-4. So the two can be separated, at least by God.
+4. So, the two can be separated, at least by God.
 5. So my mind is really distinct from my body, and can exist without it.
 
 ## The same objection, again
 
-Line 4 is the problem. Understanding A without understanding B is a fact about your understanding.
+The inference to line 4 is the problem. Understanding A without understanding B is a fact about your understanding.
 
 . . .
 
@@ -200,21 +210,9 @@ Getting from there to *A and B can come apart* needs a further step.
 
 . . .
 
-That is exactly the move we have just seen fail for the flying man. 
+That is just what we said was the problem with the flying man argument.
 
 Descartes's appeal to God doesn't obviously help here; we would need the further claim that it is no part of *God's* understanding of my mind that it is not extended.
-
-## Not a sailor in a ship
-
-One thing Descartes is careful to deny. 
-
-He is not saying you merely pilot your body from inside it. You aren't sailing the good ship *your body*.
-
-The union is tighter than that. The sailor *observes* that her ship is damaged; you *feel* that your body is damaged.
-
-. . .
-
-This will create some problems for Descartes next time.
 
 # Varieties of dualism
 
@@ -238,11 +236,11 @@ There is one kind of stuff. It has two kinds of feature, and one of them isn't p
 
 ## Which one do you get?
 
-Nagel, Jackson and Chalmers, if their arguments work, get you property dualism. Something about experience isn't captured physically.
+The arguments from Nagel, Jackson and Chalmers, if they work, get you **property** dualism. Something about experience isn't captured physically. (Compare the 19th century biological arguments for vitalism; they get you that plants have some properties that rocks lack, but not that plants have a distinct part, a soul, that rocks lack.)
 
 . . .
 
-They don't get you a separable soul. 
+They don't get you a separable soul. They don't get **substance** dualism.
 
 For that you need the flying man or the real distinction, and those arguments are tougher to make work.
 
@@ -262,7 +260,7 @@ I said these were two concepts, not one, and that any link between them needs an
 
 ## The grid
 
-|                       | **Conscious**        | **Not conscious** |
+|                       | Conscious            | Not conscious     |
 |-----------------------|----------------------|-------------------|
 | **Thinks**            | you, right now       | ?                 |
 | **Doesn't think**     | ?                    | a rock            |
@@ -285,8 +283,8 @@ Without that, it isn't clear why we should think everything lives on the diagona
 
 **Which of the two empty boxes is really empty?**
 
-A.  Thinks but isn't conscious — nothing could be like that
-B.  Conscious but doesn't think — nothing could be like that
+A.  Thinks but isn't conscious; nothing could be like that
+B.  Conscious but doesn't think; nothing could be like that
 C.  Both. Nothing occupies either
 D.  Neither. Both have occupants
 
@@ -297,7 +295,7 @@ D.  Neither. Both have occupants
 
 . . .
 
-**Conscious, doesn't think.** A creature that feels pain and fear and nothing much else. Some animal cognition experts hold that surprisingly few animals genuinely think; they may represent their environment and respond, but so does a Roomba. But nobody really denies that cats and dogs feel pain and fear.
+**Conscious, doesn't think.** A creature that feels pain and fear and nothing much else. Some animal cognition experts hold that surprisingly few animals genuinely think; they may represent their environment and respond, but so does a non-thinking Roomba. But nobody really denies that cats and dogs feel pain and fear.
 
 ## The slide
 
@@ -305,7 +303,7 @@ The slide from *it thinks* to *it feels*, and back, is everywhere, especially  i
 
 . . .
 
-That slide is a Cartesian conclusion. If you've dropped the Cartesian premise, you need some other reason for it, and there isn't an obvious one lying around.
+That slide works in Cartesian metaphysics, where bodies do nothing mental and souls do all the mental stuff. But if you've dropped the Cartesian metaphysics, you need some other reason for it, and there isn't an obvious one lying around.
 
 ## Animals
 
@@ -327,8 +325,8 @@ What's clear is that there's some pressure on his metaphysics to think this. He 
 
 ## Thursday
 
-We have the case for dualism, and some arguments that still have gaps.
+We have the case for dualism, and some arguments that still have gaps. (History of philosophy without any gaps does not mean history of philosophical _arguments_ that lack gaps.)
 
 . . .
 
-Thursday is the case against, and the canonical statement of it comes from one of Descartes's earliest readers, who also happened to be a princess.
+Thursday we'll start on the responses to these arguments, and the canonical statement of the most famous response comes from one of Descartes's earliest readers, who also happened to be a princess.

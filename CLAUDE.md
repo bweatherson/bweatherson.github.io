@@ -111,3 +111,26 @@ handles WebP, so testing outside Quarto will not reproduce this.
 `tools/prep-images.py` writes JPEG, or PNG when an image genuinely needs an alpha
 channel, and never WebP. `python3 tools/prep-images.py check --dir <course>`
 flags any committed `.webp` before it reaches a render.
+
+### Bold text vanishes inside a table header
+
+Both course themes style strong text and filled table headers separately:
+
+    .reveal strong { color: $primary-color; }
+    .reveal table th { background-color: $primary-color; color: white; }
+
+The `color: white` sits on the `<th>`, but `.reveal strong` puts the primary
+colour on the `<strong>` inside it, and the child wins. So a Markdown header row
+written as `| **Conscious** | **Not conscious** |` comes out #006699 on #006699
+and disappears. Body cells are unaffected, because their background is light, so
+what you see is a table whose header row has apparently gone missing.
+
+Both themes now carry:
+
+    .reveal table th strong,
+    .reveal table th em { color: inherit; }
+
+Two things worth remembering anyway. A `th` is already bold from the theme, so
+the `**` in a header row buys nothing and is better left out. And this only ever
+showed in HTML — the Typst side styles its own headers, so a PDF render will not
+reproduce it.

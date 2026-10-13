@@ -99,6 +99,15 @@ $font-size-root: 40px;
   font-weight: bold;
 }
 
+// Bold text inside a filled table header. `.reveal strong` above sets the
+// primary colour on the <strong> itself, which beats the `color: white` on the
+// <th>, so `**Heading**` came out #006699 on a #006699 background and vanished.
+// Body cells were fine, which is what made it look like a missing header row.
+.reveal table th strong,
+.reveal table th em {
+  color: inherit;
+}
+
 // Code styling
 .reveal pre {
   font-size: 0.7em;
