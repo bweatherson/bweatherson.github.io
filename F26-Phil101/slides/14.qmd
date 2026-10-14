@@ -7,16 +7,16 @@ date: "2026-10-15"
 
 # Where we are
 
-## Recap
+## Dualism
 
-Tuesday we put the case for dualism.
+Tuesday we set out two old and famous arguments for dualism.
 
 - The flying man: he knows he exists without knowing his body does.
-- The distinction: I can clearly and distinctly conceive mind without body.
+- Descartes's distinction: I can clearly and distinctly conceive mind without body.
 
 . . .
 
-Both arguments had the same problem: getting from what you can conceive, understand, or know to how things are.
+Both arguments had the same problem. They start with something about knowledge, and end with something about how things are, and that's messy because the principles you need fail in cases where you don't know about an identity.
 
 ## Today
 
@@ -30,7 +30,7 @@ If your mind is not a physical thing, how does it move your arm?
 
 At the time she started writing to Descartes, she was a twenty-four year old minor princess. 
 
-Her family were exiled royalty living in The Hague, her father having lost a kingdom, or at least a principality, and then died in a war.
+Her family were exiled royalty living in The Hague. Her father had lost a kingdom, or at least a principality, and then died in a war.
 
 She read the *Meditations*, and in May 1643 she wrote to Descartes.
 
@@ -56,13 +56,11 @@ It seems that how a thing moves depends solely on (i) how much it is pushed, (ii
 
 ## The structure of her argument
 
-Notice she doesn't deny anything Descartes has argued for.
+She doesn't deny anything Descartes has argued for. Indeed she grants, at least for the sake of argument, that there are souls.
 
-She grants, at least for the sake of argument, that there are souls.
+. . .
 
-She also grants that it thinks and isn't extended. 
-
-She just asks him to say how it does the one thing he agrees it does.
+She also grants that it thinks and isn't extended. She just asks him to say how it does this.
 
 . . .
 
@@ -83,17 +81,19 @@ D.  the pineal gland
 
 Descartes answers that there are a few basic notions that everything else is built from. 
 
-For body, **extension**. 
+For material things, bodies, the basic notion is **extension**. 
 
-For the soul, **thought**. 
+For immaterial things, souls, the basic notion is **thought**. 
 
-And then a third:
+. . .
+
+And then he adds a somewhat harder to understand third:
 
 :::: {.callout-note title="Descartes, 21 May 1643"}
 And finally, for the soul and the body together, only the notion of **their union**, on which depends the notion of the soul's power to move the body and the body's power to act on the soul.
 ::::
 
-## And a rule
+## Descartes' Reply
 
 :::: {.callout-note title="Descartes"}
 I observe next that all secure, disciplined human knowledge consists only in keeping these notions well apart from one another, and applying each of them only to the things that it is right for.
@@ -101,9 +101,9 @@ I observe next that all secure, disciplined human knowledge consists only in kee
 
 . . .
 
-That is, the union of mind and body is basic. 
+That is, the union of mind and body is basic, and not to be understood in terms of properties of minds or properties of bodies.
 
-Asking how it works in terms of extension is applying the wrong notion, and you were bound to go wrong.
+Asking how it works in terms of extension, or thought, is applying the wrong notion, and you were bound to go wrong.
 
 ## Is that an answer?
 
@@ -170,17 +170,6 @@ I never spend more than a few hours a day in the thoughts involving the imaginat
 
 We're getting very close to Descartes telling Elisabeth to not worry her pretty little head about it!
 
-## A quick question (POLL)
-
-Descartes's final position is that the union is real, is known from ordinary life, and cannot be clearly conceived by the intellect.
-
-**Is that an answer to Elisabeth?**
-
-A.  Yes. Some things are basic, and demanding a mechanism is a bad demand
-B.  No. He has renamed the problem rather than solved it
-C.  No, and worse: it undercuts the argument that got him here
-D.  The question was never well posed
-
 # The modern version
 
 ## Causal closure
@@ -195,7 +184,7 @@ If it already has a sufficient physical cause, then either the mind is one of th
 
 . . .
 
-Three hundred years of neuroscience have made the first disjunct more attractive, by steadily finding physical causes where they were wanted.
+Three hundred years of science have made the first disjunct more attractive, by steadily finding physical causes where they were wanted. Again, think about how we used to think we needed some special new force, the vital force, to explain how living things grow, and now we think this isn't needed.
 
 # Physicalism
 
@@ -205,13 +194,15 @@ Three hundred years of neuroscience have made the first disjunct more attractive
 Mental states are identical to---or the same things as---states of our brains.
 ::::
 
-Minds aren't caused by bodies, or correlated with bodies; they are bodies.
+Minds aren't caused by bodies, or correlated with bodies. Rather, they **are** bodies.
 
 The identity here is like the identity between lightning and electrical discharge or water and H~2~O.
 
 . . .
 
-Nobody discovered that by thinking about the word "lightning", or imagining what kinds of lightning were possible.
+We could know that lightning struck without knowing that there was an electrical discharge, but that wouldn't prove that the identity claim is wrong.
+
+Can we clearly and distinctly perceive lightning without electrical discharge, or water without H~2~O? Maybe!
 
 It was a scientific finding, and the identity theorist expects pain to go the same way.
 
@@ -221,13 +212,11 @@ If your decision to raise your arm just *is* a brain state, there is no gap for 
 
 . . .
 
-The interaction problem was a problem about how two things play well together. 
-
-If they are just one thing, that's not a problem.
+The interaction problem was a problem about how two things, material bodies and immaterial minds, play well together. If they are just one thing, that's not a problem.
 
 ## Multiple realizability
 
-The standard objection, due to Hilary Putnam:
+There is a common objection to the identity theory, what's called the multiple reailizability objection.
 
 :::: {.callout-note title="Berger"}
 It seems our mental states are what philosophers call 'multiply realizable': different sorts of physical systems can all exhibit the same types of mental states.
@@ -245,7 +234,7 @@ Mental states should be understood in terms of their function, that is, their ch
 
 Pain is whatever is caused by damage and causes wincing and avoidance. 
 
-In us it's neurons. In an octopus, it's something else. In a robot, *maybe* a circuit.
+In us it's neurons. In an octopus, it's something else. In a robot, *maybe* a circuit. (Or more likely not; do we really think robots feel pain?)
 
 . . .
 
@@ -279,7 +268,7 @@ All the views have costs, and like Elisabeth suggested, the best move next might
 
 . . .
 
-Every position here is somebody's considered view, and every one of them is has a downside.
+Every position here is somebody's considered view, and there are notable downsides to each.
 
 ## No tidy ending
 
