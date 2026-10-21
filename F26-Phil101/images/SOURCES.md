@@ -33,7 +33,7 @@ usually teach the point better.
 
 | File | What it is | Source | Accession / ID | Status |
 |---|---|---|---|---|
-| *example.webp* | *Portrait of Elisabeth of Bohemia, Gerrit van Honthorst, 1642* | *Rijksmuseum* | *SK-A-1234* | *Public domain* |
+| `mill.jpg` | Photographic portrait of John Stuart Mill, c. 1870 | Wikimedia Commons | `File:John Stuart Mill by London Stereoscopic Company, c1870.jpg` | Public domain — published c. 1870. Confirm the licence box on the file page. |
 
 <!--
 Add a row per image. Delete the example when the first real entry goes in.

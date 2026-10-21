@@ -1,0 +1,321 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 15: What a Group Chooses"
+author: "Brian Weatherson"
+date: "October 22, 2026"
+---
+
+# What This Half Is About
+
+## A Different Question
+
+For fourteen lectures the question was what a rational agent should do when the other unknowns are rational agents.
+
+. . .
+
+Now the question is what it means for a *group* to choose, and whether a group can have preferences at all.
+
+## Some of the Questions
+
+From Sen's own list of what the field covers:
+
+. . .
+
+- When does majority rule give consistent answers?
+- How do we judge how well a society is doing, given that its members want different things?
+- How do we make room for rights and liberties while still counting everyone's preferences?
+- How do we measure poverty across people whose predicaments differ?
+- How do we value a public good like the environment, or protection from an epidemic?
+
+## And Beyond That
+
+Work that is not strictly social choice theory but has been shaped by it: the causes and prevention of famines, the forms and consequences of gender inequality.
+
+. . .
+
+And a theory of justice, which is where Sen went next.
+
+. . .
+
+The thought that this is a narrow technical field about voting procedures is one the book is trying to defeat.
+
+## Early Origins
+
+The questions are old. Aristotle in Greece and Kautilya in India, both in the fourth century BC, both writing about how a society decides.
+
+. . .
+
+The formal discipline is younger, and dates from around the French Revolution. Borda in 1781, Condorcet in 1785.
+
+. . .
+
+Condorcet admired Turgot as the first statesman who "deigned to treat the people as a society of reasonable beings", and attacked Necker for "exaggerating the stupidity of people".
+
+## It Did Not Go Well
+
+The Revolution produced the Terror. Condorcet, one of the people who had thought hardest about how a society might reason its way to agreement, took his own life when it became likely that others would do it for him.
+
+. . .
+
+Sen's line: "Problems of social choice did not, in this case, receive an intellectual resolution."
+
+## Condorcet's Paradox
+
+Three people, three options.
+
+. . .
+
+- Person 1 ranks $x$, then $y$, then $z$
+- Person 2 ranks $y$, then $z$, then $x$
+- Person 3 ranks $z$, then $x$, then $y$
+
+. . .
+
+By majority vote $x$ beats $y$, $y$ beats $z$, and $z$ beats $x$. Each by two votes to one.
+
+. . .
+
+Every option is beaten by something. There is no winner, and the social ranking is not even consistent.
+
+## Where We Are Headed
+
+That paradox is from 1785. The general version is Arrow's impossibility theorem, from 1950, and it arrives in chapter 3.
+
+. . .
+
+Most of the rest of the book is about the ways out of it, and about whether the theorem is really a result about voting at all.
+
+# Sen's Project
+
+## What the Book Is Not
+
+> There is something in common between singing romantic songs about an abstract motherland and doing optimization exercises with an arbitrary objective function for a society. While both the activities are worthy, and certainly both are frequently performed, this book, I fear, will not be concerned with either.
+
+## The Target
+
+One could hold that a society is an entity independent of the people in it, with a personality and preferences of its own.
+
+. . .
+
+Sen's view of that: "Anyone who finds his fulfilment in this assumption is entirely welcome to it, and this book must bore him."
+
+. . .
+
+He quotes Marx, who is on his side here. "What is to be avoided above all is the re-establishing of 'Society' as an abstraction vis-a-vis the individual."
+
+## Two Kinds of Collective Choice
+
+The calm economic technician who says that taxing commodity $a$ would be inoptimal is making a judgment about collective choice.
+
+. . .
+
+So was the crowd outside the Bastille on 14 July 1789, shouting "Down with the second drawbridge!" at the governor.
+
+. . .
+
+The subject covers both. The approaches have to differ. Sen thinks the range is part of what makes the field rich rather than a sign that it is badly defined.
+
+## Arrow's Starting Point
+
+Arrow takes the basic input to be each individual's **ordering** of the alternative social states.
+
+. . .
+
+A collective choice rule then makes the social ordering a function of the individual orderings. Specify the inputs and the output is determined.
+
+. . .
+
+Sen departs from this in four ways, and those four departures are most of the rest of the book.
+
+## What an Ordering Is
+
+Three conditions on "at least as good as".
+
+. . .
+
+**Transitive.** If $x$ is at least as good as $y$, and $y$ at least as good as $z$, then $x$ is at least as good as $z$.
+
+. . .
+
+**Reflexive.** Every alternative is at least as good as itself. Sen: so mild that it is "best looked at as a condition, I imagine, of sanity rather than of rationality."
+
+. . .
+
+**Complete.** For any $x$ and $y$, either $x$ is at least as good as $y$, or $y$ is at least as good as $x$, possibly both.
+
+## Indifference Is Not Incompleteness
+
+Ordinary language runs these together. "I don't know which to choose" can mean either.
+
+. . .
+
+Take the two claims:
+
+1. $x$ is at least as good as $y$
+2. $y$ is at least as good as $x$
+
+. . .
+
+Indifference asserts both. Incompleteness asserts neither. Hold onto this; it does a lot of work later.
+
+## Departures One and Two
+
+**The society need not have an ordering.** Suppose $x$ is preferred to $y$, $y$ to $z$, and $z$ is indifferent to $x$. Transitivity fails, but there is still a best option in every choice.
+
+. . .
+
+**It need not be complete.** If $x$ beats both $y$ and $z$, and $y$ and $z$ cannot be compared, we can still choose from all three. We are in trouble only if the choice is between $y$ and $z$.
+
+. . .
+
+Sen on completeness: desirable, but "we shall not make a fetish of it."
+
+## Departures Three and Four
+
+**Intensities.** If I want $x$ badly and you want $y$ only slightly, perhaps $x$ should win.
+
+. . .
+
+But look at what that argument used. It compared your intensity with mine, which is a comparison between people, not a fact about either of us alone.
+
+. . .
+
+**Interpersonal comparisons.** Would you rather be Mr A, an unemployed labourer, in state $x$, or Mr B, a well paid engineer, in state $y$? Sen thinks this is not beyond us.
+
+## Why the Four Matter
+
+Each is a later chapter, and between them they are the architecture of the book.
+
+. . .
+
+Relaxing the social ordering is chapter 4. Dropping completeness runs through 2, 8 and 9. Cardinality arrives in 7 and 8. Interpersonal comparison is 7, 9 and the starred chapters alongside.
+
+. . .
+
+Arrow's impossibility comes first, in chapter 3. The four departures are the four exits.
+
+# Enlightenment and Impossibility
+
+## Why a Dictator Is an Embarrassment
+
+When a set of reasonable looking axioms turns out to entail that somebody is a dictator, nobody concludes that dictatorship has been vindicated.
+
+. . .
+
+That reaction is itself a substantive commitment. We are treating the democratic requirement as firmer than the axioms.
+
+. . .
+
+Sen: any axiom system is "tentatively accepted, awaiting our examination of its actual consequences". You evaluate the axioms one at a time, and you also evaluate what they do together.
+
+## Three Things "Preference" Might Mean
+
+**Votes and ballots.** What Borda and Condorcet were counting.
+
+. . .
+
+**Interests.** What Hume, Bentham and Mill were aggregating.
+
+. . .
+
+**Judgments about society.** Moral sentiments about how things ought to go, which is Smith and Kant.
+
+. . .
+
+Sen uses the one word for all three, as the field does. The thing to avoid is letting the single word quietly make them the same thing.
+
+## Where the Question Came From
+
+In 1948 Olaf Helmer, a philosopher at R AND, wondered whether game theory could be applied to international relations, since "the players were countries, not individuals".
+
+. . .
+
+He asked a graduate student: in what sense could collectivities be said to have utility functions?
+
+. . .
+
+The student was Arrow, who answered that economists had this in hand, and pointed at Bergson's 1938 social welfare function.
+
+## Three Weeks
+
+Writing the explanation for Helmer, Arrow became convinced that no satisfactory way of aggregating a set of orderings into one coherent ordering existed.
+
+. . .
+
+The theorem and its proof took about three weeks. He abandoned an advanced dissertation on mathematical statistics to write it up.
+
+. . .
+
+A short version appeared in 1950, under the title "A Difficulty in the Concept of Social Welfare".
+
+## The Four Axioms, Informally
+
+**Universal Domain.** The rule has to work for every possible combination of individual preferences.
+
+. . .
+
+**Pareto.** If everyone prefers $x$ to $y$, society ranks $x$ above $y$.
+
+. . .
+
+**Non-dictatorship.** There is nobody whose preference settles the social ranking regardless of everyone else.
+
+. . .
+
+**Independence of Irrelevant Alternatives.** In ranking $x$ against $y$, only preferences between $x$ and $y$ count.
+
+## Is This Just Condorcet Writ Large?
+
+Arrow encourages that reading, and it works for introductory purposes.
+
+. . .
+
+Sen says there is a huge gulf between the two, and the gulf is the interesting part.
+
+## Black Boxes
+
+Nothing in the axioms says we may not look at what the social states are actually like.
+
+. . .
+
+But a result Sen calls the Spread of Decisiveness shows that if a group is decisive over one pair of alternatives, it is decisive over every pair.
+
+. . .
+
+Universal Domain, Independence and Pareto together do the work. The social states end up as undescribed boxes.
+
+## What Gets Thrown Away
+
+Once the states are boxes, it makes no difference how much inequality there is in one rather than another, or how much poverty, or whose rights are being violated.
+
+. . .
+
+That is the real content of the theorem. It is not a fact about cycles in voting.
+
+. . .
+
+It is a result about what you are left with once you have thrown away everything except how people rank the options.
+
+## An Escape That Fails
+
+Does Arrow really need the social ranking to be a full ordering?
+
+. . .
+
+No. Weaken it to quasi-transitivity, requiring only that strict preference be transitive, and the impossibility goes away.
+
+. . .
+
+Gibbard showed at once what you get instead: an oligarchy. A group who are jointly decisive, each with a veto.
+
+. . .
+
+A decade of papers followed in which each weakening produced a new infelicity, and each infelicity was then ruled out by a new axiom, producing a new impossibility.
+
+## Next Time
+
+The apparatus. Preference relations, maximal elements against best ones, choice functions, and how little transitivity you can get away with.
+
+. . .
+
+Then unanimity, which is the rule nobody objects to and which decides almost nothing.

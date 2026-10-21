@@ -84,7 +84,7 @@ A menu to sort, not a final list. Bias throughout: short, structured, freely ava
 
 ### Day 16 — Deontology
 
-- Andrew Chapman, "Deontology: Kantian Ethics" (1000-Word Philosophy) — <https://1000wordphilosophy.com/2014/06/09/introduction-to-deontology-kantian-ethics/> — free · ~999 words · anchor; both formulations of the Categorical Imperative in everyday terms.
+- Andrew Chapman, "Kantian Deontology: Immanuel Kant's Ethics" (1000-Word Philosophy) — <https://1000wordphilosophy.com/2014/06/09/kantian-ethics/> — free · ~999 words · anchor; both formulations of the Categorical Imperative in everyday terms.
 - Kant, *Groundwork*, Section I (Bennett, Early Modern Texts) — <https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf> — free · ~5,000 words (excerpt the good-will opening and universal-law passages) · primary, modernized.
 - SEP, "Deontological Ethics," §1 "Deontology's Foil: Consequentialism" — <https://plato.stanford.edu/entries/ethics-deontological/> — free · short section · a crisp definition by contrast.
 

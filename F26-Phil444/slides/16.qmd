@@ -1,0 +1,201 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 16: The Formal Apparatus"
+author: "Brian Weatherson"
+date: "October 27, 2026"
+---
+
+# The Apparatus
+
+## Three Relations
+
+Everything is built from one primitive, $R$, read as "at least as good as".
+
+. . .
+
+$x P y$ holds when $x R y$ and not $y R x$. Strict preference.
+
+. . .
+
+$x I y$ holds when $x R y$ and $y R x$. Indifference.
+
+## Properties a Relation Might Have
+
+| | |
+|:--|:--|
+| Reflexive | $x R x$ for all $x$ |
+| Complete | $x R y$ or $y R x$, for all distinct $x$, $y$ |
+| Transitive | $x R y$ and $y R z$ imply $x R z$ |
+| Anti-symmetric | $x R y$ and $y R x$ imply $x$ is $y$ |
+| Asymmetric | $x R y$ implies not $y R x$ |
+| Symmetric | $x R y$ implies $y R x$ |
+
+: Six properties {#tbl-properties}
+
+. . .
+
+"At least as tall as", over mountain peaks, is reflexive, complete and transitive, and none of the other three.
+
+## Two Names, and a Warning
+
+**Quasi-ordering**: reflexive and transitive.
+
+. . .
+
+**Ordering**: reflexive, transitive and complete.
+
+. . .
+
+The warning is real. For Arrow an ordering is reflexive, transitive and complete; for Debreu it is reflexive, transitive and anti-symmetric. Sen's own list of the other names in use runs to a column. Check what any author means before you believe a theorem.
+
+## Maximal, and Best
+
+**Maximal.** $x$ is maximal in $S$ when nothing in $S$ is strictly better: there is no $y$ in $S$ with $y P x$.
+
+. . .
+
+**Best.** $x$ is best in $S$ when it beats or ties everything: $x R y$ for every $y$ in $S$.
+
+. . .
+
+The best elements of $S$ are its **choice set**, written $C(S, R)$. The maximal ones are $M(S, R)$.
+
+## The Gap Between Them
+
+Every best element is maximal. Not conversely, so $C(S, R)$ sits inside $M(S, R)$.
+
+. . .
+
+Here is the case that separates them. Suppose neither $x R y$ nor $y R x$. Then neither is better than the other, so both are maximal. And neither is at least as good as the other, so neither is best.
+
+. . .
+
+Incompleteness is exactly what opens the gap. If you drop completeness, you should expect to be working with maximal elements rather than best ones.
+
+## Both Can Be Empty
+
+With $x P y$, $y P z$ and $z P x$, there is no best element and no maximal one either.
+
+. . .
+
+With $x$ and $y$ incomparable, both are maximal and neither is best. So the choice set can be empty while the maximal set is not.
+
+. . .
+
+Which is why the next question is when a choice set is guaranteed to be non-empty.
+
+# How Much Rationality Do We Need?
+
+## Choice Functions
+
+A **choice function** on $X$ picks out a non-empty choice set for every non-empty subset of $X$.
+
+. . .
+
+Equivalently: there is a best element in every subset. That is close to a minimum condition on rational choice, and Condorcet was worrying about it in 1785.
+
+. . .
+
+Reflexivity and completeness are needed. The question is how much transitivity.
+
+## Weakening Transitivity
+
+Full transitivity is sufficient, over a finite set. It is not necessary.
+
+. . .
+
+**Quasi-transitive**: $x P y$ and $y P z$ imply $x P z$. Strict preference is transitive, indifference need not be.
+
+. . .
+
+That is still enough. Reflexive, complete and quasi-transitive gives you a choice function on a finite set. And it is still more than you need.
+
+## Acyclicity
+
+$R$ is **acyclical** when no chain of strict preferences loops back on itself: if $x_1 P x_2$ and $x_2 P x_3$ and so on down to $x_{n-1} P x_n$, then $x_1 R x_n$.
+
+. . .
+
+Given reflexivity and completeness, acyclicity over a finite $X$ is **necessary and sufficient** for a choice function.
+
+. . .
+
+So this is the real condition. Transitivity and quasi-transitivity are convenient sufficient conditions on the way to it.
+
+## A Trap Worth Knowing
+
+Acyclicity over every triple is not enough. It does not imply acyclicity over the whole set.
+
+. . .
+
+Take four alternatives with $x_1 P x_2$, $x_2 P x_3$, $x_3 P x_4$, $x_4 P x_1$, and $x_1 I x_3$, $x_2 I x_4$.
+
+. . .
+
+No triple misbehaves. The whole set has no best element.
+
+. . .
+
+Conditions on triples are easier to state and easier to check, which is why people reach for them. This is what that costs.
+
+# Rationality From the Outside
+
+## A Different Way In
+
+Everything so far constrains the *preference relation* and then asks what follows for choice.
+
+. . .
+
+You can go the other way: state conditions directly on the choosing, without assuming any relation behind it.
+
+. . .
+
+Nothing guarantees there is a relation behind it. $C(\{x, y, z\}) = \{x\}$ together with $C(\{x, y\}) = \{y\}$ comes from no binary relation at all.
+
+## Two Conditions
+
+**Property $\alpha$.** If $x$ is in $S_1$, which is inside $S_2$, and $x$ is chosen from $S_2$, then $x$ is chosen from $S_1$.
+
+. . .
+
+**Property $\beta$.** If $x$ and $y$ are both chosen from $S_1$, and $S_1$ is inside $S_2$, then $x$ is chosen from $S_2$ if and only if $y$ is.
+
+## Sen's Example
+
+$\alpha$: if the world champion at some game is Pakistani, he must also be the champion of Pakistan.
+
+. . .
+
+$\beta$: if some champion of Pakistan is a world champion, then every champion of Pakistan is a world champion.
+
+. . .
+
+$\alpha$ is hard to argue with. $\beta$ is appealing and rather less obvious.
+
+## What They Come To
+
+Every choice function generated by a binary relation satisfies $\alpha$. That one is free.
+
+. . .
+
+$\beta$ is not free. A choice function from a binary relation satisfies $\beta$ **if and only if that relation is an ordering**.
+
+. . .
+
+So full transitivity is not an arbitrary bit of bookkeeping. It is exactly what you are committed to if you want $\beta$.
+
+## Why This Is the Interesting Result
+
+We now have two routes to the same place, and they are about different things.
+
+. . .
+
+One constrains what is in your head, and asks what choices follow. The other constrains the pattern of your choices, and asks what must be in your head.
+
+. . .
+
+Keep both in view. When Arrow's conditions arrive, some are conditions on preferences and some are conditions on choosing, and the difference will matter.
+
+## Next Time
+
+<!-- TODO: Chapter 2 (Unanimity) and 2*1 go here, then this points at Arrow -->

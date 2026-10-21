@@ -1,0 +1,413 @@
+---
+title: "Game Theory and Social Choice"
+subtitle: "Lecture 16: The Formal Apparatus"
+author: "Brian Weatherson"
+date: "October 27, 2026"
+---
+
+# The Apparatus
+
+## Three Relations
+
+Everything is built from one primitive, $R$, read as "at least as good as".
+
+. . .
+
+$x P y$ holds when $x R y$ and not $y R x$. Strict preference.
+
+. . .
+
+$x I y$ holds when $x R y$ and $y R x$. Indifference.
+
+## Properties a Relation Might Have
+
+| | |
+|:--|:--|
+| Reflexive | $x R x$ for all $x$ |
+| Complete | $x R y$ or $y R x$, for all distinct $x$, $y$ |
+| Transitive | $x R y$ and $y R z$ imply $x R z$ |
+| Anti-symmetric | $x R y$ and $y R x$ imply $x$ is $y$ |
+| Asymmetric | $x R y$ implies not $y R x$ |
+| Symmetric | $x R y$ implies $y R x$ |
+
+: Six properties {#tbl-properties}
+
+. . .
+
+"At least as tall as", over mountain peaks, is reflexive, complete and transitive, and none of the other three.
+
+## Two Names, and a Warning
+
+**Quasi-ordering**: reflexive and transitive.
+
+. . .
+
+**Ordering**: reflexive, transitive and complete.
+
+. . .
+
+The warning is real. For Arrow an ordering is reflexive, transitive and complete; for Debreu it is reflexive, transitive and anti-symmetric. Sen's own list of the other names in use runs to a column. Check what any author means before you believe a theorem.
+
+## Maximal, and Best
+
+**Maximal.** $x$ is maximal in $S$ when nothing in $S$ is strictly better: there is no $y$ in $S$ with $y P x$.
+
+. . .
+
+**Best.** $x$ is best in $S$ when it beats or ties everything: $x R y$ for every $y$ in $S$.
+
+. . .
+
+The best elements of $S$ are its **choice set**, written $C(S, R)$. The maximal ones are $M(S, R)$.
+
+## The Gap Between Them
+
+Every best element is maximal. Not conversely, so $C(S, R)$ sits inside $M(S, R)$.
+
+. . .
+
+Here is the case that separates them. Suppose neither $x R y$ nor $y R x$. Then neither is better than the other, so both are maximal. And neither is at least as good as the other, so neither is best.
+
+. . .
+
+Incompleteness is exactly what opens the gap. If you drop completeness, you should expect to be working with maximal elements rather than best ones.
+
+## Both Can Be Empty
+
+With $x P y$, $y P z$ and $z P x$, there is no best element and no maximal one either.
+
+. . .
+
+With $x$ and $y$ incomparable, both are maximal and neither is best. So the choice set can be empty while the maximal set is not.
+
+. . .
+
+Which is why the next question is when a choice set is guaranteed to be non-empty.
+
+# How Much Rationality Do We Need?
+
+## Choice Functions
+
+A **choice function** on $X$ picks out a non-empty choice set for every non-empty subset of $X$.
+
+. . .
+
+Equivalently: there is a best element in every subset. That is close to a minimum condition on rational choice, and Condorcet was worrying about it in 1785.
+
+. . .
+
+Reflexivity and completeness are needed. The question is how much transitivity.
+
+## Weakening Transitivity
+
+Full transitivity is sufficient, over a finite set. It is not necessary.
+
+. . .
+
+**Quasi-transitive**: $x P y$ and $y P z$ imply $x P z$. Strict preference is transitive, indifference need not be.
+
+. . .
+
+That is still enough. Reflexive, complete and quasi-transitive gives you a choice function on a finite set. And it is still more than you need.
+
+## Acyclicity
+
+$R$ is **acyclical** when no chain of strict preferences loops back on itself: if $x_1 P x_2$ and $x_2 P x_3$ and so on down to $x_{n-1} P x_n$, then $x_1 R x_n$.
+
+. . .
+
+Given reflexivity and completeness, acyclicity over a finite $X$ is **necessary and sufficient** for a choice function.
+
+. . .
+
+So this is the real condition. Transitivity and quasi-transitivity are convenient sufficient conditions on the way to it.
+
+## A Trap Worth Knowing
+
+Acyclicity over every triple is not enough. It does not imply acyclicity over the whole set.
+
+. . .
+
+Take four alternatives with $x_1 P x_2$, $x_2 P x_3$, $x_3 P x_4$, $x_4 P x_1$, and $x_1 I x_3$, $x_2 I x_4$.
+
+. . .
+
+No triple misbehaves. The whole set has no best element.
+
+. . .
+
+Conditions on triples are easier to state and easier to check, which is why people reach for them. This is what that costs.
+
+# Rationality From the Outside
+
+## A Different Way In
+
+Everything so far constrains the *preference relation* and then asks what follows for choice.
+
+. . .
+
+You can go the other way: state conditions directly on the choosing, without assuming any relation behind it.
+
+. . .
+
+Nothing guarantees there is a relation behind it. $C(\{x, y, z\}) = \{x\}$ together with $C(\{x, y\}) = \{y\}$ comes from no binary relation at all.
+
+## Two Conditions
+
+**Property $\alpha$.** If $x$ is in $S_1$, which is inside $S_2$, and $x$ is chosen from $S_2$, then $x$ is chosen from $S_1$.
+
+. . .
+
+**Property $\beta$.** If $x$ and $y$ are both chosen from $S_1$, and $S_1$ is inside $S_2$, then $x$ is chosen from $S_2$ if and only if $y$ is.
+
+## Sen's Example
+
+$\alpha$: if the world champion at some game is Pakistani, he must also be the champion of Pakistan.
+
+. . .
+
+$\beta$: if some champion of Pakistan is a world champion, then every champion of Pakistan is a world champion.
+
+. . .
+
+$\alpha$ is hard to argue with. $\beta$ is appealing and rather less obvious.
+
+## What They Come To
+
+Every choice function generated by a binary relation satisfies $\alpha$. That one is free.
+
+. . .
+
+$\beta$ is not free. A choice function from a binary relation satisfies $\beta$ **if and only if that relation is an ordering**.
+
+. . .
+
+So full transitivity is not an arbitrary bit of bookkeeping. It is exactly what you are committed to if you want $\beta$.
+
+## Why This Is the Interesting Result
+
+We now have two routes to the same place, and they are about different things.
+
+. . .
+
+One constrains what is in your head, and asks what choices follow. The other constrains the pattern of your choices, and asks what must be in your head.
+
+. . .
+
+Keep both in view. When Arrow's conditions arrive, some are conditions on preferences and some are conditions on choosing, and the difference will matter.
+
+# Unanimity
+
+## The Pareto Criterion
+
+Two rules, both due to Pareto.
+
+. . .
+
+If everyone is indifferent between $x$ and $y$, the society is indifferent too.
+
+. . .
+
+If at least one person strictly prefers $x$ to $y$, and nobody thinks $y$ is better, then the society prefers $x$.
+
+. . .
+
+The appeal is obvious. In the first case nobody cares which we pick. In the second, somebody gains and nobody loses.
+
+## Pareto Optimality
+
+$x$ is **Pareto-optimal** in a set when nothing else in the set is Pareto-better than it.
+
+. . .
+
+Equivalently: we cannot move to an alternative that everyone finds at least as good and somebody finds strictly better.
+
+. . .
+
+A great deal of welfare economics judges a policy by whether it achieves this. The question is how far it gets you.
+
+## How Incomplete Is It?
+
+Not far. If I prefer $x$ to $y$ and you prefer $y$ to $x$, Pareto is silent.
+
+. . .
+
+And it stays silent no matter what the other ten million people think.
+
+. . .
+
+At one extreme, where everyone has the same ordering, the Pareto relation is complete. At the other, two people with exactly opposed orderings leave nothing comparable at all.
+
+## A Familiar Shape
+
+The Pareto relation is reflexive, and it is transitive as long as each individual has a quasi-ordering.
+
+. . .
+
+What it lacks is completeness.
+
+. . .
+
+So it is a **quasi-ordering**, which is the thing we spent the first half of today getting clear about. Expect to be working with maximal elements rather than best ones.
+
+## Perfectly Disgusting
+
+An economy can be Pareto-optimal with some people in luxury and others near starvation, so long as the starving cannot be helped without cost to the rich.
+
+. . .
+
+Sen's example: if stopping the fire would have made Nero feel worse, then letting him burn Rome was Pareto-optimal.
+
+. . .
+
+"In short, a society or an economy can be Pareto-optimal and still be perfectly disgusting."
+
+## Collective Choice Rules
+
+A **collective choice rule** takes the individual orderings and returns a social preference relation.
+
+. . .
+
+The **method of majority decision** is one: $x$ is socially at least as good as $y$ when at least as many people prefer $x$ to $y$ as the other way round.
+
+. . .
+
+Majority decision is often intransitive, and it is always **decisive**: it ranks every pair. Pareto is transitive and not decisive. Neither gives you both.
+
+## Pareto-Inclusive Rules
+
+A rule is **Pareto-inclusive** when it agrees with Pareto wherever Pareto speaks, and may go further.
+
+. . .
+
+Majority decision is Pareto-inclusive. If $x$ is Pareto-superior to $y$ it wins the vote; and when Pareto is silent, the vote still returns an answer.
+
+. . .
+
+If you find Pareto compelling, this is the class of rules you care about. Most rules anyone proposes are in it.
+
+## Why Not Just Unanimity?
+
+Buchanan and Tullock argue for relying on consensus alone, and tolerate departures only when unanimous decision is too expensive to reach.
+
+> These variants will be rationally chosen, not because they will produce 'better' collective decisions (they will not), but rather because on balance, the sheer weight of the costs involved in reaching decisions unanimously dictates some departure from the 'ideal' rule.
+
+## Supreme Conservatism
+
+Make unanimity the rule for change and the status quo wins by default. A single objector blocks anything.
+
+. . .
+
+Sen: "Marie Antoinette's opposition to the First Republic would have saved the monarchy in France, and the world would have seen very little change."
+
+. . .
+
+Note where the asymmetry comes from. Unanimity treats one option, the one we happen to be at, differently from all the others.
+
+## What Is Right in It
+
+Buchanan and Tullock also say that conflict of interest does not preclude unanimity, and that is fair.
+
+. . .
+
+Discussion and bargaining can manufacture agreement that did not exist. I drop my mild objection to your proposal in exchange for your support on mine, which I care about more.
+
+. . .
+
+Sen grants the point. He notes it is essentially logrolling, and that a theory of collective choice has to make room for it.
+
+# The Formal Version
+
+## A Collective Choice Rule
+
+Let $X$ be the social states, $R_i$ the $i$th person's preference relation, $R$ the social one.
+
+. . .
+
+Each $R_i$ is an ordering: reflexive, transitive, complete.
+
+. . .
+
+A **collective choice rule** is a function $f$ such that for any profile of individual orderings, exactly one social preference relation is determined: $R = f(R_1, \ldots, R_n)$.
+
+## Not Yet an Ordering
+
+Notice what is *not* assumed. Nothing says $R$ is an ordering.
+
+. . .
+
+Whether it is, and at what cost, is the question the book is asking. Requiring it is what turns a collective choice rule into Arrow's social welfare function, in chapter 3\*.
+
+. . .
+
+A rule is **decisive** when its range contains only complete relations.
+
+## The Pareto Relations
+
+Write $\bar{R}$, $\bar{P}$ and $\bar{I}$ for the Pareto versions.
+
+. . .
+
+$x \bar{R} y$ when $x R_i y$ for every $i$.
+
+. . .
+
+$\bar{P}$ and $\bar{I}$ are then defined from $\bar{R}$ exactly as $P$ and $I$ were defined from $R$ this morning.
+
+## It Is Always a Quasi-Ordering
+
+**Lemma 2\*a.** $\bar{R}$ is a quasi-ordering, for every logically possible profile of individual preferences.
+
+. . .
+
+Reflexive: each $R_i$ is reflexive, so $x \bar{R} x$.
+
+. . .
+
+Transitive: if $x \bar{R} y$ and $y \bar{R} z$, then every $i$ has $x R_i y$ and $y R_i z$, so every $i$ has $x R_i z$, so $x \bar{R} z$.
+
+. . .
+
+Two lines. The content is that the Pareto relation inherits whatever every individual has in common.
+
+## When Is It an Ordering?
+
+Only when nobody really disagrees with anybody.
+
+. . .
+
+**Lemma 2\*b.** $\bar{R}$ is an ordering, and the rule $R = \bar{R}$ is decisive, exactly when
+
+$$\forall x, y : (\exists i : x P_i y) \rightarrow (\forall j : x R_j y)$$
+
+. . .
+
+In words: whenever anyone strictly prefers $x$ to $y$, everyone else must find $x$ at least as good.
+
+. . .
+
+That is the formal statement of the extreme case from chapter 2. It is not a condition any real society satisfies.
+
+## A Weaker Pareto
+
+There is a more demanding version of the antecedent, giving a weaker principle.
+
+. . .
+
+**Weak Pareto.** $x$ is socially better than $y$ when *everyone* strictly prefers $x$ to $y$.
+
+. . .
+
+If everyone wants $x$ rather than $y$, in what sense could the society prefer $y$, or even be undecided?
+
+. . .
+
+Sen calls that fairly compelling and declines to call it unexceptionable. The doubt waits until chapter 6, where a rights-based objection arrives.
+
+## Next Time
+
+We have a rule everyone accepts that settles almost nothing, and a rule that settles everything and is not transitive.
+
+. . .
+
+Arrow's question is whether anything does both. Next time, the theorem, and why it needs at least three alternatives.

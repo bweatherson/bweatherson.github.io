@@ -566,11 +566,11 @@ We play a deduction game in class. No reading.
 <week-9-deontology-and-trolleys>
 === Tuesday, October 27 (Lecture 16) --- Deontology
 <tuesday-october-27-lecture-16-deontology>
-#strong[Required]: Andrew Chapman, #link("https://1000wordphilosophy.com/2014/06/09/introduction-to-deontology-kantian-ethics/")["Deontology: Kantian Ethics"] (1000-Word Philosophy). \ #strong[Recommended]: Larry Alexander and Michael Moore, #link("https://plato.stanford.edu/entries/ethics-deontological/")["Deontological Ethics,"], SEP, #strong[§1], "Deontology's Foil: Consequentialism". \ #strong[Recommended]: Immanuel Kant, #link("https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf")[#emph[Groundwork for the Metaphysic of Morals]], translated by Jonathan Bennett, Chapter 1, especially the opening on the good will and the passages on universal law.
+#strong[Required]: Andrew Chapman, #link("https://1000wordphilosophy.com/2014/06/09/kantian-ethics/")["Kantian Deontology: Immanuel Kant's Ethics"] (1000-Word Philosophy). \ #strong[Recommended]: Larry Alexander and Michael Moore, #link("https://plato.stanford.edu/entries/ethics-deontological/")["Deontological Ethics,"], SEP, #strong[§1], "Deontology's Foil: Consequentialism". \ #strong[Recommended]: Immanuel Kant, #link("https://www.earlymoderntexts.com/assets/pdfs/kant1785.pdf")[#emph[Groundwork for the Metaphysic of Morals]], translated by Jonathan Bennett, Chapter 1, especially the passages on universal law.
 
 === Thursday, October 29 (Lecture 17) --- Trolley problems and objections
 <thursday-october-29-lecture-17-trolley-problems-and-objections>
-#strong[Required]: Gabriel Andrade, #link("https://1000wordphilosophy.com/2023/03/11/doctrine-of-double-effect/")["The Doctrine of Double Effect"] (1000-Word Philosophy). \ #strong[Required]: Judith Jarvis Thomson, #link("https://openyls.law.yale.edu/handle/20.500.13051/16338")["The Trolley Problem"], sections I and II.
+#strong[Required]: Gabriel Andrade, #link("https://1000wordphilosophy.com/2023/03/11/doctrine-of-double-effect/")["The Doctrine of Double Effect"] (1000-Word Philosophy). \ #strong[Required]: Judith Jarvis Thomson, #link("https://openyls.law.yale.edu/handle/20.500.13051/16338")["The Trolley Problem"], sections I to IV (pp.~1395-1403, about nine pages). \[I'd previously just said sections I to II, but actually III and IV are important to having all the variants we'll discuss in front of you, and this is still only 9 pages.\]
 
 == Week 10: What Makes a Life Go Well
 <week-10-what-makes-a-life-go-well>
