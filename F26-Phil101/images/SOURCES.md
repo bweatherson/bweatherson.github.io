@@ -34,6 +34,7 @@ usually teach the point better.
 | File | What it is | Source | Accession / ID | Status |
 |---|---|---|---|---|
 | `mill.jpg` | Photographic portrait of John Stuart Mill, c. 1870 | Wikimedia Commons | `File:John Stuart Mill by London Stereoscopic Company, c1870.jpg` | Public domain — published c. 1870. Confirm the licence box on the file page. |
+| `kant.jpg` | Portrait of Immanuel Kant, Johann Gottlieb Becker, 1768 | Wikimedia Commons (via the Wikipedia article on Kant) | lead portrait of the en.wikipedia "Immanuel Kant" article | Public domain — painted 1768. Confirm the licence box on the file page. |
 
 <!--
 Add a row per image. Delete the example when the first real entry goes in.
