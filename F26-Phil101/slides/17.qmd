@@ -7,23 +7,51 @@ date: "2026-10-29"
 
 # Where we are
 
-## Recap
+## Trolleys
 
-Tuesday the trolley pair did one job. Two acts, the same body count, different verdicts — so consequences can't be the whole story.
+We went over two trolley problems on Tuesday: pulling a lever, pushing a guy.
+
+If you think a moral theory needs to treat those differently, consequentialism is in trouble.
 
 . . .
 
-And Kant gave us a diagnosis. Pulling the lever doesn't use the one man. Pushing him does.
+There is a Kantian story about the difference. Pulling the lever doesn't use someone as a means, while pushing someone does.
 
 ## Today
 
-Today we find out whether that diagnosis survives contact with harder cases.
+Today we're going to look at cases that raise problems for this diagnosis, via a more thorough look at the philosopher who is most associated with the case.
+
+# Foot's problem
+
+## Philippa Foot
+
+::: {layout="[35, 65]"}
+
+::: {}
+![Philippa Foot, at Somerville in 1939](../images/foot.jpg){.nostretch fig-alt="A photograph of Philippa Foot as a student at Somerville College, Oxford, in 1939." width="70%"}
+:::
+
+::: {}
+Foot came up to Somerville College, Oxford, in 1939 to read PPE. Iris Murdoch and Mary Midgley, who we met earlier, were a year ahead of her there, and Elizabeth Anscombe was across town at St Hugh's. She was a fellow at Somerville for twenty years, and then at UCLA from 1976.
+
+She is one of the people who brought virtue ethics back into Anglophone philosophy. Her mother was a daughter of Grover Cleveland, which makes her the granddaughter of a US president, and she was an active supporter of Oxfam for most of her adult life.
 
 . . .
 
-It doesn't, and the person who breaks it is the person the problem is named after.
+The trolley problem first appears in a paper from 1967 on abortion and double effect, which is where we're heading today. And when Thomson writes about what *Mrs. Foot* has arranged, this is who she means.
+:::
 
-# Foot's problem
+:::
+
+## Judith Jarvis Thomson
+
+Thomson (1929-2020) studied at Barnard, then Cambridge, then took a doctorate at Columbia, and taught at MIT from 1964 until she retired.
+
+Like Frank Jackson, who we met a few weeks ago, she worked on nearly everything: rights, metaphysics, action, the nature of goodness. Her best known paper is probably "A Defense of Abortion", from 1971.
+
+. . .
+
+She also did a lot of unglamorous institutional work. She chaired the committee that wrote the AAUP's report on institutional review boards, the bodies that decide which research on human subjects is allowed to go ahead at all.
 
 ## The driver
 
@@ -37,9 +65,9 @@ Thomson: "Everybody to whom I have put this hypothetical case says, Yes, it is."
 
 ## The surgeon
 
-You are a surgeon. Five patients will die today without transplants: two need a lung each, two need a kidney each, the fifth needs a heart.
+We did this earlier with you as the patient, but let's change the orientation.
 
-A young man comes in for his yearly check-up. Right blood type, excellent health.
+You are a surgeon. Five patients will die today without transplants. A young man comes in for his yearly check-up. He's in good health, and a match for all of them.
 
 :::: {.callout-note title="Thomson"}
 All you need do is cut him up and distribute *his* parts among the five who need them. You ask, but he says, "Sorry. I deeply sympathize, but no."
@@ -55,21 +83,19 @@ Everybody she asked said no, it would not be permissible.
 Here then is Mrs. Foot's problem: *Why* is it that the trolley driver may turn his trolley, though the surgeon may not remove the young man's lungs, kidneys, and heart? In both cases, one will die if the agent acts, but five will live who would otherwise die---a net saving of four lives.
 ::::
 
-# Foot's answer
-
-## Two theses
+## Foot's Answer
 
 Foot's solution is, in Thomson's words, "simple, straightforward, and very attractive."
 
-The surgeon's choice is between killing one and letting five die. And killing is worse than letting die --- so much worse that we can say:
+The surgeon's choice is between killing one and letting five die. And killing is worse than letting die, enough to make this true:
 
 :::: {.callout-note title="Thesis (I)"}
 Killing one is worse than letting five die.
 ::::
 
-## And the driver
+## Why the Driver is Different
 
-The driver's choice is different. If he doesn't turn, he doesn't *let* five die. He drives his trolley into them.
+If he doesn't turn, he doesn't *let* five die. He drives his trolley into them.
 
 So his choice is between killing one and killing five:
 
@@ -79,19 +105,19 @@ Killing five is worse than killing one.
 
 . . .
 
-Surgeon must not operate; driver may turn. Thomson's verdict on this: "I do think that that is an attractive account of the matter."
+Surgeon must not operate; driver may turn. Thomson's summary: "I do think that that is an attractive account of the matter."
 
-# The bystander
+## The Bystander
 
-## A third case
+Now we get back to the case we started with, the one Thomson made famous.
 
 :::: {.callout-note title="Thomson"}
 In that case you have been strolling by the trolley track, and you can see the situation at a glance: The driver saw the five on the track ahead, he stamped on the brakes, the brakes failed, so he fainted. What to do? Well, here is the switch, which you can throw, thereby turning the trolley yourself. Of course you will kill one if you do. But I should think you may turn it all the same.
 ::::
 
-## She grants the differences
+## Bystander vs Driver
 
-Two of them, and she takes both seriously.
+As Thomson notes, there are two big differences between the driver and the bystander
 
 - The driver is "captain of the trolley," charged by the company with responsibility for anyone the trolley might harm. The bystander is "a private person who just happens to be there."
 - The driver drives a trolley into five if he doesn't turn. The bystander "will do the five no harm at all if he does not throw the switch."
@@ -102,9 +128,9 @@ Two of them, and she takes both seriously.
 I think it right to feel these differences between the cases. Nevertheless, my own feeling is that an ordinary person, a mere bystander, may intervene in such a case.
 ::::
 
-## Notice whose verdict this is
+## Caveats
 
-She does not say everyone agrees. She says some people will feel more discomfort about the bystander turning than about the driver turning.
+Thomson has been pretty categorical with her verdicts so far, but here we get some caveats. She says some people will feel more discomfort about the bystander turning than about the driver turning.
 
 . . .
 
@@ -112,19 +138,19 @@ She does not say everyone agrees. She says some people will feel more discomfort
 If you see something, a trolley, a boulder, an avalanche, heading towards five, and you can deflect it onto one, it really does seem that---other things being equal---it would be permissible for you to take charge, take responsibility, and deflect the thing, whoever you may be.
 ::::
 
-## What it costs Foot
+## Objection to Foot's Theory
 
 If the bystander throws the switch, she kills one.
 
-If she doesn't, she kills nobody. Five die and she merely let them.
+If she doesn't, she kills nobody. She lets five die, but that's not as bad.
 
 . . .
 
-So her choice is exactly the one thesis (I) was about: kill one, or let five die. If (I) is true, she must not throw the switch.
+So for the bystander, it's just like the surgeon, and we must not throw the switch.
 
 . . .
 
-Thomson takes it that she may. So (I) is false, and Foot's answer to Foot's problem is gone.
+Thomson takes it that she may throw the switch, and hence Foot's answer to Foot's problem is wrong.
 
 ## iClicker QUIZ
 
@@ -145,33 +171,37 @@ Since *I* find it particularly puzzling that the bystander may turn his trolley,
 
 ## The doctrine of double effect
 
-Kant's idea, made into a rule, and much older than Kant.
+::: {layout="[28, 72]"}
 
-:::: {.callout-note title="Andrade"}
-It is permissible to harm someone if it will also result in good consequences that outweigh the harm.
+::: {}
+![Thomas Aquinas (1225-1274)](../images/aquinas.jpg){.nostretch fig-alt="A portrait of Thomas Aquinas." width="90%"}
+:::
+
+::: {}
+This is a doctrine that goes back at least to the medieval Catholic theologian and philosopher, St. Thomas Aquinas.
+
+:::: {.callout-note title="Doctrine of Double Effect"}
+It is permissible to harm someone if it will also result in good consequences that outweigh the harm, if and only if the harm is a **side-effect**, not part of the plan.
 ::::
+:::
 
-Plus the condition that does the work: the harm must be a **side-effect**, not part of the plan.
-
-. . .
-
-Andrade traces it to medieval work on self-defence. Augustine held you are never authorised to kill in self-defence; Aquinas disagreed, and the shape of his disagreement is the doctrine.
+:::
 
 ## It isn't only about trolleys
 
-**War.** Bombing a camp that also kills ten civilians nearby is permissible: their deaths are foreseen, and the mission goes better without them. Bombing a city *so that* civilian deaths force a surrender is not. There the deaths are the mechanism.
+War
+:    Bombing a camp that also kills ten civilians nearby is permissible: their deaths are foreseen not intended, and the mission goes better without them. Bombing a city *so that* civilian deaths force a surrender (as plausibly happened in Dresden and Hiroshima) is not. There the deaths are the mechanism.
+
+End of Life
+:    Morphine that controls severe pain and probably shortens life is permissible; the death is foreseen. A dose given *in order to* end the life is not.
 
 . . .
 
-**The end of life.** Morphine that controls severe pain and probably shortens life is permissible; the death is foreseen. A dose given *in order to* end the life is not.
-
-. . .
-
-These are not seminar exercises. Both distinctions are load-bearing in law.
+Lots of legal systems build this distinction in fairly deeply into their rules.
 
 ## A quick question (POLL)
 
-Two doctors give the same drug, same dose, same patient, who dies. One aims to relieve pain and foresees the death. The other aims at the death.
+Two doctors give the same drug, same dose, to patients in exactly the same state, who both die. One aims to relieve pain and merely foresees the death. The other aims at the death.
 
 **Did they do the same thing?**
 
@@ -180,9 +210,6 @@ B.  No. What you are trying to bring about is part of what you are doing
 C.  Yes, but one is more blameworthy than the other
 D.  It can't be settled, since we can't read intentions
 
-. . .
-
-Watch **C**. It splits two things the doctrine needs together: whether the act was permissible, and whether the agent is to blame.
 
 # The loop
 
@@ -198,21 +225,25 @@ He literally uses the young man's body to save his five, and does so without the
 
 . . .
 
-The bystander doesn't use anybody. That looks like the difference we wanted.
+The bystander doesn't use anybody. That's why the cases are different.
+
+## The loop variant
+
+![](../images/loop-variant.svg){.nostretch fig-alt="Two track diagrams side by side. In Bystander at the Switch the side track is a dead end. In The Loop an extra segment of track, highlighted, curves back and rejoins the main line before the five." width="90%"}
 
 ## The loop variant
 
 Now bend the side track so it loops back and rejoins the main line before the five.
 
-The five are thin — their bodies would stop the trolley. The one on the loop is fat enough that his body stops it by itself.
+The five are thin, but still their bodies would collectively stop the trolley. The one on the loop is fat enough that his body stops it by itself.
 
 . . .
 
-So if you turn the trolley, what saves the five is the one man's body. Remove him and the trolley comes round and kills them anyway.
+So if you turn the trolley, what saves the five is the one man's body. It's not that the trolley is turned away from the five, it's that it's turned onto a human shield which saves them.
 
 . . .
 
-He is now the means.
+That seems like using the guy as a means!
 
 ## Thomson's verdict
 
@@ -220,7 +251,7 @@ He is now the means.
 But we cannot really suppose that the presence or absence of that extra bit of track makes a major moral difference as to what an agent may do in these cases, and it really does seem right to think (despite the discomfort) that the agent may proceed.
 ::::
 
-## And the conclusion she draws
+## Thomson's conclusion
 
 :::: {.callout-note title="Thomson"}
 I should think that there is no plausible account of what is involved in... "treating a person as a means only," or "using one to save five," under which the surgeon would be doing this whereas the agent in this variant of *Bystander at the Switch* would not be. If that is right, then appeals to these notions cannot do the work being required of them here.
@@ -228,13 +259,13 @@ I should think that there is no plausible account of what is involved in... "tre
 
 . . .
 
-That is aimed squarely at Tuesday's diagnosis, and at the doctrine of double effect with it.
+So the doctrine of double effect, and Kantian means/end reasoning, can't be the relevant distinction.
 
-# Where it lands
+# Rights not Intentions
 
 ## Thomson's own answer
 
-She thinks the right concept is a **right**, and borrows Dworkin's metaphor: rights "trump" utilities.
+She thinks the right concept is a **right**. She argued, along with many recent philosophers, that the idea about rights is that they "trump" utilities.
 
 Two things about the bystander:
 
@@ -255,7 +286,7 @@ The bystander made him pay with his life for the bystander's saving of the five.
 
 . . .
 
-Permissible, and still a wrong to the person it was done to. Hold on to that; it is not a distinction consequentialism can easily draw.
+Permissible, but still a wrong to the person it was done to. This is still not consequentialist, because consequentialism can't make sense of that distinction.
 
 ## The scorecard
 
@@ -267,30 +298,22 @@ Nobody has a principle that gets every case right.
 
 . . .
 
-Andrade adds a fourth problem: raise the stakes high enough — his case is torturing a child to find a nuclear bomb — and he grants it "seems permissible to bypass the DDE." Then asks what counts as high enough.
+Andrade adds a fourth problem: raise the stakes high enough, like we discussed with the plane headed for a nuclear reactor, and he suggests it "seems permissible to bypass the DDE." But how much is enough?>
 
 ## What to do with that
 
-The honest moves are Elisabeth's, from the mind unit.
+The usual methodology here is the one we attributed to Princess Elisabeth a few lectures ago.
 
 . . .
 
-Take the least costly view and live with its bad verdict. Or decide one of the stubborn intuitions is a mistake, and say why it's a mistake people would predictably make.
+Take the least costly view and live with its bad verdict. That might be by convincing yourself that one of the stubborn intuitions is a mistake, and say why it's a mistake people would predictably make.
 
 . . .
 
-What you shouldn't do is collect the cases and stop. The cases are the easy part, and they're the part a search engine can do for you.
+Don't just collect cases. And don't just say they are too unusual; we're building self-driving cars now, we have to think about all sorts of contingencies, and regulate for them.
 
 # Going forward
 
 ## Tuesday
 
-Both families have been telling you to promote good outcomes, or to respect people, without saying much about what is actually *good* for a person.
-
-. . .
-
-Consequentialism owes us this most directly. "Maximise the good" is not advice until someone says what the good is.
-
-. . .
-
-Four classes on it, starting Tuesday. It is harder than it sounds.
+Back to a question we've had running in the background: what is a better outcome?!
