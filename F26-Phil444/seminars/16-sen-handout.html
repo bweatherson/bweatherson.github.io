@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Sen, Collective Choice and Social Welfare: Ch 1*, 2*, A1*</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="16-sen-handout_files/libs/clipboard/clipboard.min.js"></script>
+<script src="16-sen-handout_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="16-sen-handout_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="16-sen-handout_files/libs/quarto-html/popper.min.js"></script>
+<script src="16-sen-handout_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="16-sen-handout_files/libs/quarto-html/anchor.min.js"></script>
+<link href="16-sen-handout_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="16-sen-handout_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="16-sen-handout_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="16-sen-handout_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="16-sen-handout_files/libs/bootstrap/bootstrap-917079515d91bccb85b543faf8aa8bb6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#part-1-definitions" id="toc-part-1-definitions" class="nav-link active" data-scroll-target="#part-1-definitions">Part 1: Definitions</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-a-binary-relation-ch-1-11" id="toc-properties-of-a-binary-relation-ch-1-11" class="nav-link" data-scroll-target="#properties-of-a-binary-relation-ch-1-11">1.1 Properties of a binary relation (Ch 1*, §1*1)</a></li>
+  <li><a href="#named-types-of-relation-ch-1-11" id="toc-named-types-of-relation-ch-1-11" class="nav-link" data-scroll-target="#named-types-of-relation-ch-1-11">1.2 Named types of relation (Ch 1*, §1*1)</a></li>
+  <li><a href="#strict-preference-indifference-maximality-choice-ch-1-12" id="toc-strict-preference-indifference-maximality-choice-ch-1-12" class="nav-link" data-scroll-target="#strict-preference-indifference-maximality-choice-ch-1-12">1.3 Strict preference, indifference, maximality, choice (Ch 1*, §1*2)</a></li>
+  <li><a href="#subrelations-and-compatibility-ch-1-14" id="toc-subrelations-and-compatibility-ch-1-14" class="nav-link" data-scroll-target="#subrelations-and-compatibility-ch-1-14">1.4 Subrelations and compatibility (Ch 1*, §1*4)</a></li>
+  <li><a href="#choice-functions-and-weakened-transitivity-ch-1-15" id="toc-choice-functions-and-weakened-transitivity-ch-1-15" class="nav-link" data-scroll-target="#choice-functions-and-weakened-transitivity-ch-1-15">1.5 Choice functions and weakened transitivity (Ch 1*, §1*5)</a></li>
+  <li><a href="#rationality-conditions-on-choice-functions-ch-1-16" id="toc-rationality-conditions-on-choice-functions-ch-1-16" class="nav-link" data-scroll-target="#rationality-conditions-on-choice-functions-ch-1-16">1.6 Rationality conditions on choice functions (Ch 1*, §1*6)</a></li>
+  </ul></li>
+  <li><a href="#part-1-continued-chapter-2-definitions" id="toc-part-1-continued-chapter-2-definitions" class="nav-link" data-scroll-target="#part-1-continued-chapter-2-definitions">Part 1 (continued): Chapter 2* definitions</a>
+  <ul class="collapse">
+  <li><a href="#collective-choice-rules-ch-2-21" id="toc-collective-choice-rules-ch-2-21" class="nav-link" data-scroll-target="#collective-choice-rules-ch-2-21">1.7 Collective choice rules (Ch 2*, §2*1)</a></li>
+  <li><a href="#the-pareto-relations-ch-2-21" id="toc-the-pareto-relations-ch-2-21" class="nav-link" data-scroll-target="#the-pareto-relations-ch-2-21">1.8 The Pareto relations (Ch 2*, §2*1)</a></li>
+  </ul></li>
+  <li><a href="#part-1-continued-chapter-a1-definitions" id="toc-part-1-continued-chapter-a1-definitions" class="nav-link" data-scroll-target="#part-1-continued-chapter-a1-definitions">Part 1 (continued): Chapter A1* definitions</a>
+  <ul class="collapse">
+  <li><a href="#arrows-framework-ch-a1" id="toc-arrows-framework-ch-a1" class="nav-link" data-scroll-target="#arrows-framework-ch-a1">1.10 Arrow’s framework (Ch A1*)</a>
+  <ul class="collapse">
+  <li><a href="#arrows-axioms" id="toc-arrows-axioms" class="nav-link" data-scroll-target="#arrows-axioms">Arrow’s axioms</a></li>
+  <li><a href="#decisiveness" id="toc-decisiveness" class="nav-link" data-scroll-target="#decisiveness">Decisiveness</a></li>
+  <li><a href="#weakened-consistency-conditions" id="toc-weakened-consistency-conditions" class="nav-link" data-scroll-target="#weakened-consistency-conditions">Weakened consistency conditions</a></li>
+  <li><a href="#rules-and-structures" id="toc-rules-and-structures" class="nav-link" data-scroll-target="#rules-and-structures">Rules and structures</a></li>
+  <li><a href="#the-topology-of-decisive-sets" id="toc-the-topology-of-decisive-sets" class="nav-link" data-scroll-target="#the-topology-of-decisive-sets">The topology of decisive sets</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-2-real-world-examples-of-the-relation-types" id="toc-part-2-real-world-examples-of-the-relation-types" class="nav-link" data-scroll-target="#part-2-real-world-examples-of-the-relation-types">Part 2: Real-world examples of the relation types</a>
+  <ul class="collapse">
+  <li><a href="#sens-own-examples" id="toc-sens-own-examples" class="nav-link" data-scroll-target="#sens-own-examples">2.1 Sen’s own examples</a></li>
+  <li><a href="#chains-reflexive-transitive-complete-anti-symmetric" id="toc-chains-reflexive-transitive-complete-anti-symmetric" class="nav-link" data-scroll-target="#chains-reflexive-transitive-complete-anti-symmetric">2.2 Chains (reflexive, transitive, complete, anti-symmetric)</a></li>
+  <li><a href="#orderings-reflexive-transitive-complete-ties-allowed" id="toc-orderings-reflexive-transitive-complete-ties-allowed" class="nav-link" data-scroll-target="#orderings-reflexive-transitive-complete-ties-allowed">2.3 Orderings (reflexive, transitive, complete; ties allowed)</a></li>
+  <li><a href="#partial-orderings-reflexive-transitive-anti-symmetric-incomplete" id="toc-partial-orderings-reflexive-transitive-anti-symmetric-incomplete" class="nav-link" data-scroll-target="#partial-orderings-reflexive-transitive-anti-symmetric-incomplete">2.4 Partial orderings (reflexive, transitive, anti-symmetric, incomplete)</a></li>
+  <li><a href="#strict-partial-orderings-transitive-asymmetric" id="toc-strict-partial-orderings-transitive-asymmetric" class="nav-link" data-scroll-target="#strict-partial-orderings-transitive-asymmetric">2.5 Strict partial orderings (transitive, asymmetric)</a></li>
+  <li><a href="#quasi-orderings-reflexive-transitive-incomplete" id="toc-quasi-orderings-reflexive-transitive-incomplete" class="nav-link" data-scroll-target="#quasi-orderings-reflexive-transitive-incomplete">2.6 Quasi-orderings (reflexive, transitive, incomplete)</a></li>
+  <li><a href="#failures-of-transitivity-quasi-transitivity-and-acyclicity" id="toc-failures-of-transitivity-quasi-transitivity-and-acyclicity" class="nav-link" data-scroll-target="#failures-of-transitivity-quasi-transitivity-and-acyclicity">2.7 Failures of transitivity, quasi-transitivity and acyclicity</a></li>
+  <li><a href="#maximality-without-bestness" id="toc-maximality-without-bestness" class="nav-link" data-scroll-target="#maximality-without-bestness">2.8 Maximality without bestness</a></li>
+  <li><a href="#properties-alpha-and-beta" id="toc-properties-alpha-and-beta" class="nav-link" data-scroll-target="#properties-alpha-and-beta">2.9 Properties <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span></a></li>
+  </ul></li>
+  <li><a href="#part-3-results" id="toc-part-3-results" class="nav-link" data-scroll-target="#part-3-results">Part 3: Results</a>
+  <ul class="collapse">
+  <li><a href="#chapter-1" id="toc-chapter-1" class="nav-link" data-scroll-target="#chapter-1">3.1 Chapter 1*</a></li>
+  <li><a href="#chapter-2" id="toc-chapter-2" class="nav-link" data-scroll-target="#chapter-2">3.2 Chapter 2*</a></li>
+  <li><a href="#chapter-a1" id="toc-chapter-a1" class="nav-link" data-scroll-target="#chapter-a1">3.3 Chapter A1*</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="16-sen-handout.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sen, <em>Collective Choice and Social Welfare</em>: Ch 1*, 2*, A1*</h1>
+<p class="subtitle lead">Definitions, examples, and results</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A reference sheet for the starred chapters. Throughout, <span class="math inline">\(X\)</span> is the set of alternatives (social states), <span class="math inline">\(S \subseteq X\)</span>, and <span class="math inline">\(R\)</span> is a weak preference relation (“at least as good as”) on <span class="math inline">\(X\)</span>. Individual <span class="math inline">\(i\)</span>’s relation is <span class="math inline">\(R_i\)</span>.</p>
+<section id="part-1-definitions" class="level1">
+<h1>Part 1: Definitions</h1>
+<section id="properties-of-a-binary-relation-ch-1-11" class="level2">
+<h2 class="anchored" data-anchor-id="properties-of-a-binary-relation-ch-1-11">1.1 Properties of a binary relation (Ch 1*, §1*1)</h2>
+<p>For a binary relation <span class="math inline">\(R\)</span> on a set <span class="math inline">\(S\)</span>:</p>
+<div id="tbl-properties" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-properties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The six properties
+</figcaption>
+<div aria-describedby="tbl-properties-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Reflexivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x \in S: xRx\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Completeness</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x, y \in S: (x \neq y) \to (xRy \lor yRx)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Transitivity</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x, y, z \in S: (xRy \ \wedge\ yRz) \to xRz\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anti-symmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x, y \in S: (xRy \ \wedge\ yRx) \to x = y\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Asymmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x, y \in S: xRy \to \sim(yRx)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Symmetry</td>
+<td style="text-align: left;"><span class="math inline">\(\forall x, y \in S: xRy \to yRx\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Asymmetry implies anti-symmetry, not conversely. (If <span class="math inline">\(xRy \to \sim(yRx)\)</span> then the antecedent of anti-symmetry is never satisfied, so it holds vacuously.)</p>
+</section>
+<section id="named-types-of-relation-ch-1-11" class="level2">
+<h2 class="anchored" data-anchor-id="named-types-of-relation-ch-1-11">1.2 Named types of relation (Ch 1*, §1*1)</h2>
+<div id="tbl-names" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Sen’s terminology
+</figcaption>
+<div aria-describedby="tbl-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Properties satisfied</th>
+<th style="text-align: left;">Sen’s name</th>
+<th style="text-align: left;">Other names in the literature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">reflexivity, transitivity</td>
+<td style="text-align: left;"><strong>quasi-ordering</strong></td>
+<td style="text-align: left;">pre-ordering</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">reflexivity, transitivity, completeness</td>
+<td style="text-align: left;"><strong>ordering</strong></td>
+<td style="text-align: left;">complete pre-ordering; complete quasi-ordering; weak ordering</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">reflexivity, transitivity, anti-symmetry</td>
+<td style="text-align: left;"><strong>partial ordering</strong></td>
+<td style="text-align: left;">ordering</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">reflexivity, transitivity, completeness, anti-symmetry</td>
+<td style="text-align: left;"><strong>chain</strong></td>
+<td style="text-align: left;">linear ordering; complete ordering; simple ordering</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">transitivity, asymmetry</td>
+<td style="text-align: left;"><strong>strict partial ordering</strong></td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">transitivity, asymmetry, completeness</td>
+<td style="text-align: left;"><strong>strong ordering</strong></td>
+<td style="text-align: left;">ordering; strict ordering; strict complete ordering</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The terminology for these is all over the place, but these are Sen’s terms, and we’ll use them.</p>
+</section>
+<section id="strict-preference-indifference-maximality-choice-ch-1-12" class="level2">
+<h2 class="anchored" data-anchor-id="strict-preference-indifference-maximality-choice-ch-1-12">1.3 Strict preference, indifference, maximality, choice (Ch 1*, §1*2)</h2>
+<div id="def-1star1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> <strong>Definition 1*1.</strong> <span class="math inline">\(xPy \leftrightarrow [xRy \ \wedge\ \sim(yRx)]\)</span></p>
+</div>
+<div id="def-1star2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> <strong>Definition 1*2.</strong> <span class="math inline">\(xIy \leftrightarrow [xRy \ \wedge\ yRx]\)</span></p>
+</div>
+<div id="def-1star3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> <strong>Definition 1*3.</strong> <span class="math inline">\(x \in S\)</span> is a <strong>maximal element</strong> of <span class="math inline">\(S\)</span> with respect to <span class="math inline">\(R\)</span> iff <span class="math inline">\(\sim[\exists y: (y \in S \ \wedge\ yPx)]\)</span>.</p>
+<p>The set of maximal elements of <span class="math inline">\(S\)</span> is the <strong>maximal set</strong>, <span class="math inline">\(M(S, R)\)</span>.</p>
+</div>
+<div id="def-1star4" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4</strong></span> <strong>Definition 1*4.</strong> <span class="math inline">\(x \in S\)</span> is a <strong>best element</strong> of <span class="math inline">\(S\)</span> with respect to <span class="math inline">\(R\)</span> iff <span class="math inline">\(\forall y: (y \in S \to xRy)\)</span>.</p>
+<p>The set of best elements of <span class="math inline">\(S\)</span> is the <strong>choice set</strong>, <span class="math inline">\(C(S, R)\)</span>.</p>
+</div>
+</section>
+<section id="subrelations-and-compatibility-ch-1-14" class="level2">
+<h2 class="anchored" data-anchor-id="subrelations-and-compatibility-ch-1-14">1.4 Subrelations and compatibility (Ch 1*, §1*4)</h2>
+<div id="def-1star5" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5</strong></span> <strong>Definition 1*5.</strong> A quasi-ordering <span class="math inline">\(Q_1\)</span> is a <strong>subrelation</strong> of <span class="math inline">\(Q_2\)</span> ifffor all <span class="math inline">\(x, y \in X\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(xQ_1y \to xQ_2y\)</span></li>
+<li><span class="math inline">\([xQ_1y \ \wedge\ \sim(yQ_1x)] \to \sim(yQ_2x)\)</span></li>
+</ol>
+</div>
+<p>That is: whatever <span class="math inline">\(Q_1\)</span> says, <span class="math inline">\(Q_2\)</span> says too, both about weak preference and about strict preference.</p>
+<div id="def-1star6" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6</strong></span> <strong>Definition 1*6.</strong> If a quasi-ordering <span class="math inline">\(Q\)</span> is a subrelation of an ordering <span class="math inline">\(R\)</span>, then <span class="math inline">\(R\)</span> is <strong>compatible</strong> with <span class="math inline">\(Q\)</span>.</p>
+</div>
+<div id="def-1star7" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7</strong></span> <strong>Definition 1*7.</strong> Two quasi-orderings <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_2\)</span> are <strong>compatible</strong> iff there is an ordering compatible with each.</p>
+</div>
+</section>
+<section id="choice-functions-and-weakened-transitivity-ch-1-15" class="level2">
+<h2 class="anchored" data-anchor-id="choice-functions-and-weakened-transitivity-ch-1-15">1.5 Choice functions and weakened transitivity (Ch 1*, §1*5)</h2>
+<div id="def-1star8" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8</strong></span> <strong>Definition 1*8.</strong> A <strong>choice function</strong> <span class="math inline">\(C(S, R)\)</span> defined over <span class="math inline">\(X\)</span> is a functional relation such that <span class="math inline">\(C(S, R)\)</span> is non-empty for every non-empty <span class="math inline">\(S \subseteq X\)</span>.</p>
+</div>
+<div id="def-1star9" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9</strong></span> <strong>Definition 1*9.</strong> <span class="math inline">\(R\)</span> is <strong>quasi-transitive</strong> iff for all <span class="math inline">\(x, y, z \in X\)</span>: <span class="math inline">\((xPy \ \wedge\ yPz) \to xPz\)</span>.</p>
+</div>
+<div id="def-1star10" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10</strong></span> <strong>Definition 1*10.</strong> <span class="math inline">\(R\)</span> is <strong>acyclical</strong> over <span class="math inline">\(X\)</span> iff <span class="math display">\[\forall x_1, \ldots, x_j \in X: [(x_1 P x_2 \ \wedge\ x_2 P x_3 \ \wedge\ \ldots \ \wedge\ x_{j-1} P x_j) \to x_1 R x_j]\]</span></p>
+</div>
+</section>
+<section id="rationality-conditions-on-choice-functions-ch-1-16" class="level2">
+<h2 class="anchored" data-anchor-id="rationality-conditions-on-choice-functions-ch-1-16">1.6 Rationality conditions on choice functions (Ch 1*, §1*6)</h2>
+<p>Here <span class="math inline">\(C(S)\)</span> is any choice function over <span class="math inline">\(X\)</span>, not necessarily derived from a binary relation.</p>
+<p><strong>Property <span class="math inline">\(\alpha\)</span>:</strong> <span class="math inline">\(x \in S_1 \subseteq S_2 \to [x \in C(S_2) \to x \in C(S_1)]\)</span></p>
+<p><strong>Property <span class="math inline">\(\beta\)</span>:</strong> <span class="math inline">\([x, y \in C(S_1) \ \wedge\ S_1 \subseteq S_2] \to [x \in C(S_2) \leftrightarrow y \in C(S_2)]\)</span></p>
+<div id="def-1star11" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11</strong></span> <strong>Definition 1*11.</strong> <span class="math inline">\(R\)</span> is <strong>PI-transitive</strong> over <span class="math inline">\(X\)</span> iff for all <span class="math inline">\(x, y, z \in X\)</span>: <span class="math inline">\((xPy \ \wedge\ yIz) \to xPz\)</span>.</p>
+</div>
+<p>The four mixed transitivity conditions named in Lemma 1*a, used throughout:</p>
+<div id="tbl-mixed" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mixed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Mixed transitivity conditions
+</figcaption>
+<div aria-describedby="tbl-mixed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Label</th>
+<th style="text-align: left;">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(II\)</span></td>
+<td style="text-align: left;"><span class="math inline">\((xIy \ \wedge\ yIz) \to xIz\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(PI\)</span></td>
+<td style="text-align: left;"><span class="math inline">\((xPy \ \wedge\ yIz) \to xPz\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(IP\)</span></td>
+<td style="text-align: left;"><span class="math inline">\((xIy \ \wedge\ yPz) \to xPz\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(PP\)</span></td>
+<td style="text-align: left;"><span class="math inline">\((xPy \ \wedge\ yPz) \to xPz\)</span> (i.e.&nbsp;quasi-transitivity)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="part-1-continued-chapter-2-definitions" class="level1">
+<h1>Part 1 (continued): Chapter 2* definitions</h1>
+<section id="collective-choice-rules-ch-2-21" class="level2">
+<h2 class="anchored" data-anchor-id="collective-choice-rules-ch-2-21">1.7 Collective choice rules (Ch 2*, §2*1)</h2>
+<p><span class="math inline">\(X\)</span> is the set of social states, <span class="math inline">\(R_i\)</span> is person <span class="math inline">\(i\)</span>’s preference relation, <span class="math inline">\(i = 1, \ldots, n\)</span>. Each <span class="math inline">\(R_i\)</span> is assumed to be an ordering. <span class="math inline">\(R\)</span> is social preference, and <strong>no such assumption is made about <span class="math inline">\(R\)</span></strong>. Whether <span class="math inline">\(R\)</span> is an ordering is the question under investigation.</p>
+<div id="def-2star1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12</strong></span> <strong>Definition 2*1.</strong> A <strong>collective choice rule</strong> (CCR) is a functional relation <span class="math inline">\(f\)</span> such that for any set of <span class="math inline">\(n\)</span> individual orderings <span class="math inline">\(R_1, \ldots, R_n\)</span>, one and only one social preference relation <span class="math inline">\(R\)</span> is determined, <span class="math inline">\(R = f(R_1, \ldots, R_n)\)</span>.</p>
+</div>
+<div id="def-2star2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13</strong></span> <strong>Definition 2*2.</strong> A collective choice rule is <strong>decisive</strong> iff its range is restricted to complete preference relations <span class="math inline">\(R\)</span>.</p>
+</div>
+</section>
+<section id="the-pareto-relations-ch-2-21" class="level2">
+<h2 class="anchored" data-anchor-id="the-pareto-relations-ch-2-21">1.8 The Pareto relations (Ch 2*, §2*1)</h2>
+<div id="def-2star3" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14</strong></span> <strong>Definition 2*3.</strong> For all <span class="math inline">\(x, y \in X\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(x \bar{R} y \leftrightarrow [\forall i: x R_i y]\)</span></li>
+<li><span class="math inline">\(x \bar{P} y \leftrightarrow [x \bar{R} y \ \wedge\ \sim(y \bar{R} x)]\)</span></li>
+<li><span class="math inline">\(x \bar{I} y \leftrightarrow [x \bar{R} y \ \wedge\ y \bar{R} x]\)</span></li>
+</ol>
+</div>
+<p>So <span class="math inline">\(x \bar{P} y\)</span> holds when everyone weakly prefers <span class="math inline">\(x\)</span> and at least one person strictly prefers it.</p>
+<div id="def-2star4" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15</strong></span> <strong>Definition 2*4.</strong> For all <span class="math inline">\(x, y \in X\)</span>: <span class="math inline">\(x \bar{\bar{P}} y \leftrightarrow \forall i: x P_i y\)</span></p>
+</div>
+<div id="def-2star5" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16</strong></span> <strong>Definition 2*5.</strong> A collective choice rule is <strong>Pareto-inclusive</strong> iff its range is restricted to social preference relations <span class="math inline">\(R\)</span> such that <span class="math inline">\(\bar{R}\)</span> is a subrelation of <span class="math inline">\(R\)</span>, i.e. <span class="math display">\[\forall x, y \in X: [(x\bar{R}y \to xRy) \ \wedge\ (x\bar{P}y \to xPy)]\]</span></p>
+</div>
+<div id="def-2star6" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17</strong></span> <strong>Definition 2*6.</strong> For any <span class="math inline">\(n\)</span>-tuple <span class="math inline">\((R_1, \ldots, R_n)\)</span>, a state <span class="math inline">\(x \in S\)</span> is <strong>Pareto-optimal</strong> in <span class="math inline">\(S\)</span> iff <span class="math inline">\(\sim[\exists y \in S: y \bar{P} x]\)</span>. A Pareto-optimal state is also called <strong>economically efficient</strong>.</p>
+</div>
+</section>
+</section>
+<section id="part-1-continued-chapter-a1-definitions" class="level1">
+<h1>Part 1 (continued): Chapter A1* definitions</h1>
+<section id="arrows-framework-ch-a1" class="level2">
+<h2 class="anchored" data-anchor-id="arrows-framework-ch-a1">1.10 Arrow’s framework (Ch A1*)</h2>
+<p>A <strong>social welfare function</strong> (SWF), in Arrow’s sense, is a functional relation specifying one social ordering <span class="math inline">\(R\)</span> for any <span class="math inline">\(n\)</span>-tuple of individual orderings <span class="math inline">\(\{R_i\}\)</span>: <span class="math inline">\(R = f(\{R_i\})\)</span>. (Contrast Definition 2*1: a CCR need not deliver an <em>ordering</em>.)</p>
+<p>Arrow’s choice set, defined purely relationally: <span class="math display">\[C(S) = [x \mid x \in S \ \wedge\ \forall y \in S: xRy]\]</span></p>
+<p><strong>Condition <span class="math inline">\(I^A\)</span> (Arrow’s independence of irrelevant alternatives).</strong> For any two <span class="math inline">\(n\)</span>-tuples <span class="math inline">\(\{R_i\}\)</span> and <span class="math inline">\(\{R'_i\}\)</span> in the domain of <span class="math inline">\(f\)</span>, and for any <span class="math inline">\(S \subseteq X\)</span>, with choice functions <span class="math inline">\(C(\cdot)\)</span> and <span class="math inline">\(C'(\cdot)\)</span> corresponding to <span class="math inline">\(\{R_i\}\)</span> and <span class="math inline">\(\{R'_i\}\)</span>: <span class="math display">\[[\forall i: (\forall x, y \in S: xR_iy \leftrightarrow xR'_iy)] \Rightarrow C(S) = C'(S)\]</span></p>
+<p><strong>Condition <span class="math inline">\(I\)</span> (relational independence).</strong> The restriction of the social preference relation over any pair <span class="math inline">\(\{x, y\}\)</span> is a function of the <span class="math inline">\(n\)</span>-tuple of restrictions of individual preferences over that pair: <span class="math display">\[R^{\{x,y\}} = f^{\{x,y\}}(\{R_i^{\{x,y\}}\})\]</span></p>
+<p>Given Arrow’s relational definition of <span class="math inline">\(C(S)\)</span>, <span class="math inline">\(I\)</span> and <span class="math inline">\(I^A\)</span> are equivalent. Sen uses <span class="math inline">\(I\)</span>, but it isn’t equivalent to <span class="math inline">\(I^A\)</span> without a different definition of <span class="math inline">\(C(S)\)</span>.</p>
+<section id="arrows-axioms" class="level3">
+<h3 class="anchored" data-anchor-id="arrows-axioms">Arrow’s axioms</h3>
+<ul>
+<li><strong>U (Unrestricted Domain).</strong> For any logically possible set of individual preferences, there is a social ordering <span class="math inline">\(R\)</span>.</li>
+<li><strong><span class="math inline">\(I^2\)</span> (Independence of Irrelevant Alternatives).</strong> The social ranking of any pair <span class="math inline">\(\{x, y\}\)</span> depends only on the individual rankings of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</li>
+<li><strong>P (Pareto Principle).</strong> If everyone prefers <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>, then <span class="math inline">\(x\)</span> is socially preferred to <span class="math inline">\(y\)</span>.</li>
+<li><strong>D (Non-dictatorship).</strong> There is no person <span class="math inline">\(i\)</span> such that whenever <span class="math inline">\(i\)</span> prefers <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>, <span class="math inline">\(x\)</span> is socially preferred to <span class="math inline">\(y\)</span>, no matter what others prefer.</li>
+</ul>
+<p>Background assumptions: at least three distinct social states, and a finite number (<span class="math inline">\(\geq 2\)</span>) of individuals.</p>
+</section>
+<section id="decisiveness" class="level3">
+<h3 class="anchored" data-anchor-id="decisiveness">Decisiveness</h3>
+<p>A set <span class="math inline">\(G \subseteq H\)</span> of individuals (where <span class="math inline">\(H\)</span> is the set of all individuals) is <strong>locally decisive over <span class="math inline">\(\{x, y\}\)</span></strong> iff <span class="math inline">\(x\)</span> is socially preferred to <span class="math inline">\(y\)</span> whenever all individuals in <span class="math inline">\(G\)</span> prefer <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>, no matter what the others prefer. <span class="math inline">\(G\)</span> is <strong>(globally) decisive</strong> iff it is locally decisive over every pair.</p>
+<p>A person <span class="math inline">\(i\)</span> is <strong>semi-decisive</strong> over an ordered pair <span class="math inline">\(\{x, y\}\)</span> iff <span class="math inline">\(x P_i y\)</span> implies <span class="math inline">\(xRy\)</span>. A person <strong>has a veto</strong> iff he or she is semi-decisive over every ordered pair.</p>
+</section>
+<section id="weakened-consistency-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="weakened-consistency-conditions">Weakened consistency conditions</h3>
+<p><strong>Quasi-transitivity:</strong> <span class="math inline">\((xPy \ \wedge\ yPz) \to xPz\)</span>. Indifference need not be transitive, and mixed cases need not yield strict preference.</p>
+<p><strong>Suzumura consistency:</strong> for any sequence of weak preferences <span class="math inline">\(x_1Rx_2, x_2Rx_3, \ldots, x_{j-1}Rx_j\)</span>, we must not have <span class="math inline">\(x_jPx_1\)</span>.</p>
+<p><strong>Semi-transitivity:</strong> <span class="math inline">\(\forall x, y, z, a \in X\)</span>: if <span class="math inline">\(xPy\)</span> and <span class="math inline">\(yPz\)</span>, then <span class="math inline">\(xPa\)</span> or <span class="math inline">\(aPz\)</span>.</p>
+<p><strong>Interval order property:</strong> <span class="math inline">\(\forall x, y, a, b \in X\)</span>: if <span class="math inline">\(xPy\)</span> and <span class="math inline">\(aPb\)</span>, then <span class="math inline">\(xPb\)</span> or <span class="math inline">\(aPy\)</span>.</p>
+<p>A <strong>semi-order</strong> satisfies both (in addition to quasi-transitivity, which each of them implies for complete <span class="math inline">\(R\)</span>).</p>
+<p>An <strong><span class="math inline">\(s\)</span>-and-<span class="math inline">\(t\)</span> order</strong> generalises: <span class="math inline">\(P^s I P^t \Rightarrow P\)</span>, with <span class="math inline">\(s\)</span> strict preferences preceding the indifference and <span class="math inline">\(t\)</span> following it. Orderings are the case <span class="math inline">\(s + t = 1\)</span>; semi-orders are <span class="math inline">\(s + t = 2\)</span>.</p>
+</section>
+<section id="rules-and-structures" class="level3">
+<h3 class="anchored" data-anchor-id="rules-and-structures">Rules and structures</h3>
+<p>A <strong>social decision function</strong> (SDF) is obtained from an Arrovian SWF by dropping the requirement that <span class="math inline">\(R\)</span> be an ordering, demanding only that <span class="math inline">\(R\)</span> be reflexive and complete and generate a choice function — i.e.&nbsp;that <span class="math inline">\(C(S, R)\)</span> be non-empty for every non-empty <span class="math inline">\(S\)</span>.</p>
+<p>The <strong>Pareto-extension rule</strong>: <span class="math inline">\(x\)</span> is socially preferred to <span class="math inline">\(y\)</span> iff everyone prefers <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>; and <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are socially indifferent if they are either Pareto-indifferent <em>or</em> Pareto-incomparable.</p>
+<p>An SDF is <strong>oligarchic</strong> (Gibbard 1969) iff there is a unique group <span class="math inline">\(G\)</span> such that <span class="math inline">\(G\)</span> as a whole group is fully decisive, and every member of <span class="math inline">\(G\)</span> has a veto.</p>
+<p><strong>Condition NIM (neutrality, independence with monotonicity)</strong> (Blau and Deb 1977). For any <span class="math inline">\(x, y, a, b \in X\)</span> and any two profiles <span class="math inline">\(\{R_i\}\)</span>, <span class="math inline">\(\{R'_i\}\)</span>: if for all <span class="math inline">\(i\)</span>, <span class="math inline">\(xP_iy \Rightarrow aP'_ib\)</span> and <span class="math inline">\(xI_iy \Rightarrow aR'_ib\)</span>, then <span class="math inline">\(xPy \Rightarrow aP'b\)</span>.</p>
+</section>
+<section id="the-topology-of-decisive-sets" class="level3">
+<h3 class="anchored" data-anchor-id="the-topology-of-decisive-sets">The topology of decisive sets</h3>
+<p>Let <span class="math inline">\(\Omega\)</span> be the class of decisive sets of individuals — a subset of the power set of <span class="math inline">\(H\)</span>. Consider:</p>
+<ol type="1">
+<li><span class="math inline">\(H \in \Omega\)</span></li>
+<li><span class="math inline">\([G \in \Omega \ \wedge\ G \subseteq J] \Rightarrow J \in \Omega\)</span></li>
+<li><span class="math inline">\([G_1, \ldots, G_k \in \Omega\)</span> for finite <span class="math inline">\(k] \Rightarrow\)</span> the intersection of these <span class="math inline">\(G_i\)</span> is non-empty</li>
+<li><span class="math inline">\([G, J \in \Omega] \Rightarrow G \cap J \in \Omega\)</span></li>
+<li><span class="math inline">\([G \in \Omega] \Rightarrow H - G \notin \Omega\)</span></li>
+</ol>
+<p><span class="math inline">\(\Omega\)</span> is a <strong>pre-filter</strong> iff it satisfies (1)–(3); a <strong>filter</strong> iff it also satisfies (4); an <strong>ultra-filter</strong> iff it satisfies all of (1)–(5).</p>
+<p>A <strong>collegium</strong> (Brown) is a group of persons such that every member of it belongs to every decisive set of persons. Where <span class="math inline">\(\Omega\)</span> is a pre-filter, (3) guarantees a collegium exists; where <span class="math inline">\(\Omega\)</span> is a filter, (4) makes the collegium itself decisive, defining the oligarchy.</p>
+</section>
+</section>
+</section>
+<section id="part-2-real-world-examples-of-the-relation-types" class="level1">
+<h1>Part 2: Real-world examples of the relation types</h1>
+<section id="sens-own-examples" class="level2">
+<h2 class="anchored" data-anchor-id="sens-own-examples">2.1 Sen’s own examples</h2>
+<p><strong>“Is at least as tall as”, on mountain peaks with measured heights.</strong> Reflexive (a peak is as tall as itself); complete (if <span class="math inline">\(A\)</span> is not at least as tall as <span class="math inline">\(B\)</span>, then <span class="math inline">\(B\)</span> is taller); transitive; <em>not</em> anti-symmetric (two distinct peaks can be the same height); not asymmetric; not symmetric. So: an <strong>ordering</strong>, but not a chain and not a partial ordering.</p>
+<p><strong>“Is taller than”, on the same set.</strong> Transitive, anti-symmetric, asymmetric; not reflexive, not complete, not symmetric. So: a <strong>strict partial ordering</strong>, but not a strong ordering, because ties make it incomplete.</p>
+<p><strong>“Is brother of”, on men</strong> (Sen’s footnote 1). Commonly <em>thought</em> transitive, but is not: <span class="math inline">\(A\)</span> brother of <span class="math inline">\(B\)</span> and <span class="math inline">\(B\)</span> brother of <span class="math inline">\(A\)</span> would give, by transitivity, <span class="math inline">\(A\)</span> brother of himself.</p>
+</section>
+<section id="chains-reflexive-transitive-complete-anti-symmetric" class="level2">
+<h2 class="anchored" data-anchor-id="chains-reflexive-transitive-complete-anti-symmetric">2.2 Chains (reflexive, transitive, complete, anti-symmetric)</h2>
+<p><strong>“Is at least as far forward in the queue as”</strong>, over the people currently in a single queue. Positions are integers and no two people occupy the same one, so anti-symmetry holds.</p>
+<p><strong>“Is alphabetically no later than”</strong>, over a set of distinct strings. (It’s because it’s defined on <em>strings</em> and not <em>words</em> that we can’t have ties.)</p>
+</section>
+<section id="orderings-reflexive-transitive-complete-ties-allowed" class="level2">
+<h2 class="anchored" data-anchor-id="orderings-reflexive-transitive-complete-ties-allowed">2.3 Orderings (reflexive, transitive, complete; ties allowed)</h2>
+<p><strong>“Scored at least as many points as”</strong>, over the teams in a league table at a given moment.</p>
+<p><strong>“Weighs at least as much as”</strong>, over a set of objects.</p>
+</section>
+<section id="partial-orderings-reflexive-transitive-anti-symmetric-incomplete" class="level2">
+<h2 class="anchored" data-anchor-id="partial-orderings-reflexive-transitive-anti-symmetric-incomplete">2.4 Partial orderings (reflexive, transitive, anti-symmetric, incomplete)</h2>
+<p><strong>Set inclusion <span class="math inline">\(\subseteq\)</span></strong>, over the subsets of any set with more than one element. One obvious instance of incompleteness: <span class="math inline">\(\{a\} \not\subseteq \{b\}\)</span> and <span class="math inline">\(\{b\} \not\subseteq \{a\}\)</span>, so it is incomplete; and <span class="math inline">\(A \subseteq B\)</span> with <span class="math inline">\(B \subseteq A\)</span> gives <span class="math inline">\(A = B\)</span>, so it is anti-symmetric.</p>
+<p><strong>“Is an ancestor of, or identical to”</strong>, over the members of a family tree. Reflexive by construction, transitive, anti-symmetric, and incomplete (siblings are incomparable).</p>
+<p><strong>“Divides”</strong>, over the positive integers. Reflexive, transitive, anti-symmetric, incomplete (<span class="math inline">\(6\)</span> and <span class="math inline">\(10\)</span> are incomparable).</p>
+<p><strong>Course prerequisite structure</strong>, over the courses in a department, taking the transitive-reflexive closure. Anti-symmetric if and only if the prerequisite graph has no cycles, which would be hilarious if it was violated.</p>
+</section>
+<section id="strict-partial-orderings-transitive-asymmetric" class="level2">
+<h2 class="anchored" data-anchor-id="strict-partial-orderings-transitive-asymmetric">2.5 Strict partial orderings (transitive, asymmetric)</h2>
+<p><strong>“Is a proper subset of”</strong>, over subsets. The strict counterpart of §2.4.</p>
+<p><strong>“Is an ancestor of”</strong>, over a family tree.</p>
+<p><strong>The Pareto relation <span class="math inline">\(\bar{P}\)</span></strong> (Lemma 2*c).</p>
+<p><strong>“Is strictly north of”</strong>, over points on a map. Transitive, asymmetric, incomplete (two points at the same latitude).</p>
+</section>
+<section id="quasi-orderings-reflexive-transitive-incomplete" class="level2">
+<h2 class="anchored" data-anchor-id="quasi-orderings-reflexive-transitive-incomplete">2.6 Quasi-orderings (reflexive, transitive, incomplete)</h2>
+<p>This is the type Sen cares most about, and the one he thinks social choice theory has been too quick to strengthen.</p>
+<p><strong>The Pareto relation <span class="math inline">\(\bar{R}\)</span></strong> (Lemma 2*a). Reflexive and transitive for every logically possible profile; complete only under the very strong condition of Lemma 2*b (that whenever anyone strictly prefers <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>, everyone weakly prefers <span class="math inline">\(x\)</span> to <span class="math inline">\(y\)</span>). Note that <span class="math inline">\(\bar{R}\)</span> is a quasi-ordering but <em>not</em> a partial ordering: two distinct Pareto-indifferent states are not identical, so anti-symmetry fails.</p>
+<p><strong>Logical strength: “entails”</strong>, over propositions or theories. Reflexive, transitive, incomplete.</p>
+<p><strong>“Is at least as good on every criterion as”</strong>, over any multi-criterion comparison.</p>
+<p><strong>“Is at least as well off as”</strong>, across persons, given only partial interpersonal comparability. (This case is controversial, and we’ll come back to it.)</p>
+<p><strong>“Is at least as good a chess player as”</strong>, at least arguably (if you think Elo rankings don’t capture everything).</p>
+<p><strong>“Is at least as good as”, all things considered.</strong> Again, controversial, but Sen would say it is.</p>
+</section>
+<section id="failures-of-transitivity-quasi-transitivity-and-acyclicity" class="level2">
+<h2 class="anchored" data-anchor-id="failures-of-transitivity-quasi-transitivity-and-acyclicity">2.7 Failures of transitivity, quasi-transitivity and acyclicity</h2>
+<p><strong>Majority preference on a Condorcet profile.</strong> Three voters ranking <span class="math inline">\(x &gt; y &gt; z\)</span>, <span class="math inline">\(y &gt; z &gt; x\)</span>, <span class="math inline">\(z &gt; x &gt; y\)</span>. The social <span class="math inline">\(R\)</span> is complete and reflexive, but <span class="math inline">\(xPy\)</span>, <span class="math inline">\(yPz\)</span>, <span class="math inline">\(zPx\)</span>: transitivity, quasi-transitivity and acyclicity all fail, and there is no choice set.</p>
+<p><strong>“Beat head-to-head” in a sports season.</strong> Complete over the pairs that have played; not transitive and typically not even acyclic. Every league produces cycles, which is why leagues rank on points rather than on the beating relation.</p>
+<p><strong>Just-noticeable-difference cases.</strong> “Tastes at least as sweet as” over cups of coffee differing by one grain of sugar: <span class="math inline">\(I\)</span> is not transitive (each adjacent pair is indifferent, the ends are not), but <span class="math inline">\(P\)</span> is. (Again controversial, but intuitively is a case.)</p>
+<p><strong>Supermajority rules.</strong> A <span class="math inline">\(2/3\)</span> rule yields a <span class="math inline">\(P\)</span> that is not quasi-transitive but is acyclic provided the threshold is high enough relative to the number of alternatives and enough disagreement.</p>
+<p><strong>The Pareto-extension rule.</strong> Quasi-transitive but not transitive.</p>
+</section>
+<section id="maximality-without-bestness" class="level2">
+<h2 class="anchored" data-anchor-id="maximality-without-bestness">2.8 Maximality without bestness</h2>
+<p><strong>Choosing between two job offers that are incomparable.</strong> Neither offer is at least as good as the other, so neither is best; both are maximal. The maximal set has two members, the choice set is empty. This is the practical shape of the <span class="math inline">\(C(S, R) \subseteq M(S, R)\)</span> result.</p>
+<p><strong>Pareto-optimality itself.</strong> There are typically very many Pareto-optimal states and no Pareto-best one. Lemma 2*e guarantees at least one of the former over a finite set; nothing guarantees any of the latter.</p>
+</section>
+<section id="properties-alpha-and-beta" class="level2">
+<h2 class="anchored" data-anchor-id="properties-alpha-and-beta">2.9 Properties <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span></h2>
+<p><strong><span class="math inline">\(\alpha\)</span>, satisfied:</strong> the world chess champion, if Pakistani, is the champion of Pakistan (Sen’s own gloss).</p>
+<p><strong><span class="math inline">\(\alpha\)</span>, violated:</strong> the much-discussed menu case — choosing the chicken from <span class="math inline">\(\{\)</span>chicken, fish<span class="math inline">\(\}\)</span> but the fish from <span class="math inline">\(\{\)</span>chicken, fish, frog’s legs<span class="math inline">\(\}\)</span>. Big question is whether this is an <span class="math inline">\(\alpha\)</span> violation or a change of optiosn.</p>
+<p><strong><span class="math inline">\(\beta\)</span>, violated:</strong> we’ll come back to examples of this.</p>
+</section>
+</section>
+<section id="part-3-results" class="level1">
+<h1>Part 3: Results</h1>
+<p>Proofs omitted throughout.</p>
+<section id="chapter-1" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-1">3.1 Chapter 1*</h2>
+<p><strong>Lemma 1*a.</strong> If <span class="math inline">\(R\)</span> is a quasi-ordering, then for all <span class="math inline">\(x, y, z \in S\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(xIy \ \wedge\ yIz \to xIz\)</span>;</li>
+<li><span class="math inline">\(xPy \ \wedge\ yIz \to xPz\)</span>;</li>
+<li><span class="math inline">\(xIy \ \wedge\ yPz \to xPz\)</span>;</li>
+<li><span class="math inline">\(xPy \ \wedge\ yPz \to xPz\)</span>.</li>
+</ol>
+<p>(These are <span class="math inline">\(II\)</span>, <span class="math inline">\(PI\)</span>, <span class="math inline">\(IP\)</span>, <span class="math inline">\(PP\)</span> respectively.)</p>
+<p><strong>Lemma 1*b.</strong> Any finite quasi-ordered set has at least one maximal element.</p>
+<p><strong>Lemma 1*c.</strong> If <span class="math inline">\(R\)</span> is reflexive, then <span class="math inline">\(xPy \leftrightarrow [x] = C(\{x, y\}, R)\)</span>.</p>
+<p><strong>Lemma 1*d.</strong> If for a quasi-ordering <span class="math inline">\(R\)</span>, <span class="math inline">\(C(S, R)\)</span> is non-empty, then <span class="math inline">\(C(S, R) = M(S, R)\)</span>.</p>
+<p><strong>Lemma 1*e.</strong> For any quasi-ordering <span class="math inline">\(R\)</span> over a finite set <span class="math inline">\(S\)</span>: <span class="math inline">\(\forall x, y: [x, y \in M(S, R) \to xIy] \leftrightarrow [C(S, R) = M(S, R)]\)</span>.</p>
+<p><strong>Lemma 1*f.</strong> For every quasi-ordering <span class="math inline">\(Q\)</span>, there is an ordering <span class="math inline">\(R\)</span> compatible with <span class="math inline">\(Q\)</span>. (Szpilrajn 1930.)</p>
+<p><strong>Lemma 1*g.</strong> If <span class="math inline">\(Q\)</span> is a quasi-ordering such that <span class="math inline">\(\forall x, y \in S \subset X: xQy \leftrightarrow x = y\)</span>, and <span class="math inline">\(T\)</span> is an ordering of elements of <span class="math inline">\(S\)</span>, then there is an ordering <span class="math inline">\(R\)</span> of all elements of <span class="math inline">\(X\)</span> compatible with both <span class="math inline">\(Q\)</span> and <span class="math inline">\(T\)</span>. (Arrow 1951.)</p>
+<p><strong>Lemma 1*h.</strong> If a quasi-ordering <span class="math inline">\(Q_1\)</span> is a subrelation of a quasi-ordering <span class="math inline">\(Q_2\)</span>, then <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_2\)</span> are compatible.</p>
+<p><strong>Lemma 1*i.</strong> If <span class="math inline">\(Q\)</span> is a quasi-ordering such that <span class="math inline">\(\forall x, y \in S \subset X: xQy \leftrightarrow x = y\)</span>, and <span class="math inline">\(T\)</span> is a quasi-ordering of elements of <span class="math inline">\(S\)</span>, then there is an ordering <span class="math inline">\(R\)</span> of all elements of <span class="math inline">\(X\)</span> compatible with both <span class="math inline">\(Q\)</span> and <span class="math inline">\(T\)</span>.</p>
+<p><strong>Lemma 1*j.</strong> If <span class="math inline">\(R\)</span> is an ordering defined over a finite set <span class="math inline">\(X\)</span>, then a choice function <span class="math inline">\(C(S, R)\)</span> is defined over <span class="math inline">\(X\)</span>.</p>
+<p><strong>Lemma 1*k.</strong> If <span class="math inline">\(R\)</span> is reflexive, complete and quasi-transitive over a finite set <span class="math inline">\(X\)</span>, then a choice function <span class="math inline">\(C(S, R)\)</span> is defined over <span class="math inline">\(X\)</span>. (Sen 1969, Theorem II; Pattanaik 1968a.)</p>
+<p><strong>Lemma 1*l.</strong> If <span class="math inline">\(R\)</span> is reflexive and complete, then a necessary and sufficient condition for <span class="math inline">\(C(S, R)\)</span> to be defined over a finite <span class="math inline">\(X\)</span> is that <span class="math inline">\(R\)</span> be acyclical over <span class="math inline">\(X\)</span>.</p>
+<p><strong>Lemma 1*m.</strong> Every choice function <span class="math inline">\(C(S, R)\)</span> generated by a binary relation <span class="math inline">\(R\)</span> satisfies property <span class="math inline">\(\alpha\)</span> but not necessarily property <span class="math inline">\(\beta\)</span>.</p>
+<p><strong>Lemma 1*n.</strong> A choice function <span class="math inline">\(C(S, R)\)</span> generated by a binary relation <span class="math inline">\(R\)</span> satisfies property <span class="math inline">\(\beta\)</span> if and only if <span class="math inline">\(R\)</span> is PI-transitive. (Sen 1969, Theorem III.)</p>
+<p><strong>Lemma 1*o.</strong> (a) In general, <span class="math inline">\(PP\)</span> and <span class="math inline">\(PI\)</span> are completely independent of each other. (b) Together, <span class="math inline">\(PP\)</span> and <span class="math inline">\(PI\)</span> imply transitivity, given completeness of <span class="math inline">\(R\)</span>.</p>
+<p><strong>Lemma 1*p.</strong> If a binary relation <span class="math inline">\(R\)</span> generates a choice function, then PI-transitivity implies that <span class="math inline">\(R\)</span> is an ordering. (Sen 1969, Theorem IV.)</p>
+<p><strong>Lemma 1*q.</strong> A choice function <span class="math inline">\(C(S, R)\)</span> derived from a binary relation <span class="math inline">\(R\)</span> satisfies property <span class="math inline">\(\beta\)</span> if and only if <span class="math inline">\(R\)</span> is an ordering.</p>
+<p><strong>Lemma 1*r.</strong> If <span class="math inline">\(R\)</span> is complete, then</p>
+<ol type="a">
+<li><span class="math inline">\(PI \leftrightarrow IP\)</span>;<br>
+</li>
+<li><span class="math inline">\(PI \to II\)</span>;<br>
+</li>
+<li><span class="math inline">\(PP \ \wedge\ II \to PI\)</span>.</li>
+</ol>
+</section>
+<section id="chapter-2" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-2">3.2 Chapter 2*</h2>
+<p><strong>Lemma 2*a.</strong> The relation <span class="math inline">\(\bar{R}\)</span> is a quasi-ordering for every logically possible combination of individual preferences.</p>
+<p><strong>Lemma 2*b.</strong> A necessary and sufficient condition for <span class="math inline">\(\bar{R}\)</span> to be an ordering, and for <span class="math inline">\(R = \bar{R}\)</span> to be a decisive collective choice rule, is that <span class="math display">\[\forall x, y \in X: [(\exists i: x P_i y) \to (\forall j: x R_j y)]\]</span></p>
+<p><strong>Lemma 2*c.</strong> Both <span class="math inline">\(\bar{P}\)</span> and <span class="math inline">\(\bar{\bar{P}}\)</span> are strict partial orderings (transitive and asymmetric) for every logically possible combination of individual preferences.</p>
+<p><strong>Lemma 2*d.</strong> <span class="math inline">\(\forall x, y \in X: x \bar{\bar{P}} y \to x \bar{P} y\)</span>.</p>
+<p><strong>Lemma 2*e.</strong> For every set of individual preferences <span class="math inline">\((R_1, \ldots, R_n)\)</span> over any finite set of social states <span class="math inline">\(S\)</span>, there is at least one Pareto-optimal state.</p>
+<p><strong>Lemma 2*f.</strong> The Kaldor test is inconsistent with every possible CCR under some configuration of preferences. (Scitovsky 1941.)</p>
+<p>That is: there are profiles on which the Kaldor test delivers both <span class="math inline">\(xPy\)</span> and <span class="math inline">\(yPx\)</span>, so it does not even define a relation, let alone a well-behaved one.</p>
+<p><strong>Lemma 2*g.</strong> The Scitovsky compensation test may yield an intransitive <span class="math inline">\(P\)</span>. (Gorman 1955.) It may fail even quasi-transitivity.</p>
+<p><strong>Lemma 2*h.</strong> If for all <span class="math inline">\(x, y \in X\)</span>: <span class="math display">\[[\exists x' \in S(x): x' \bar{P} y] \to \forall y' \in S(y): [\exists x'' \in S(x): x'' \bar{R} y']\]</span> then <span class="math inline">\(P\)</span>, under the Scitovsky test, is a strict partial ordering. (Cf. Samuelson 1950b: the condition is a complete outward movement of the utility possibility frontier.)</p>
+<p>Under that same condition the Kaldor and Scitovsky preference relations coincide, since <span class="math inline">\(xPy \to \sim(yPx)\)</span> already holds for Kaldor.</p>
+</section>
+<section id="chapter-a1" class="level2">
+<h2 class="anchored" data-anchor-id="chapter-a1">3.3 Chapter A1*</h2>
+<p><strong>T.A1*.1 (Arrow’s Impossibility Theorem).</strong> No social welfare function can simultaneously satisfy U, <span class="math inline">\(I^2\)</span>, D and P.</p>
+<p><strong>T.A1*.2 (Spread of Decisiveness).</strong> If <span class="math inline">\(G\)</span> is decisive over any pair <span class="math inline">\(\{x, y\}\)</span>, then <span class="math inline">\(G\)</span> is globally decisive.</p>
+<p><strong>T.A1*.3 (Contraction of Decisive Sets).</strong> If a set <span class="math inline">\(G\)</span> of individuals is decisive, and has more than one member, then a proper subset of <span class="math inline">\(G\)</span> is decisive as well.</p>
+<p>Arrow’s theorem then follows immediately: by P the set of all individuals is decisive; by T.A1*.3 some proper subset is; iterate; finiteness delivers a single individual, violating D.</p>
+<p><strong>T.A1*.4 (Quasi-transitive Oligarchy Theorem).</strong> If <span class="math inline">\(H\)</span> is finite and <span class="math inline">\(\#X \geq 3\)</span>, then any SDF generating quasi-transitive social preference relations, satisfying U, P and <span class="math inline">\(I^2\)</span>, must be oligarchic. (Gibbard 1969.)</p>
+<p><strong>Veto-Spread lemma.</strong> Any person who is semi-decisive over one ordered pair must be semi-decisive over all ordered pairs — i.e.&nbsp;must have a veto.</p>
+<p>Together with T.A1*.2, which continues to hold under quasi-transitivity, this gives T.A1*.4: no group other than a superset of the oligarchy <span class="math inline">\(G\)</span> can be decisive, since every member of <span class="math inline">\(G\)</span> has a veto.</p>
+<p><strong>Mas-Colell and Sonnenschein (1972).</strong> A veto result with acyclicity, without demanding quasi-transitivity. Extended by Blair et al.&nbsp;(1976) to triple acyclicity (no cycles over triples rather than over any subset).</p>
+<p><strong>T.A1*.5 (Acyclic neutral monotonicity vetoer theorem).</strong> If <span class="math inline">\(\#X \geq \#H\)</span>, with <span class="math inline">\(H\)</span> finite, then any SDF satisfying U and NIM must yield someone with a veto. (Blau and Deb 1977.)</p>
+<p><strong>T.A1*.6 (Arrow Impossibility for semi-transitivity).</strong> If <span class="math inline">\(H\)</span> is finite and <span class="math inline">\(\#X \geq 4\)</span>, then there is no SDF satisfying U, I, P and D and yielding semi-transitive social preference.</p>
+<p><strong>T.A1*.7 (Arrow impossibility for interval order property).</strong> If <span class="math inline">\(H\)</span> is finite and <span class="math inline">\(\#X \geq 4\)</span>, then there is no SDF satisfying U, I, P and D and yielding interval-ordered social preference.</p>
+<p>Since a semi-order is both semi-transitive and an interval order, the impossibility holds a fortiori for semi-orders. Generalising to <span class="math inline">\(s\)</span>-and-<span class="math inline">\(t\)</span> orders: the result goes through provided <span class="math inline">\(\#X \geq s + t + 2\)</span>. Orderings are <span class="math inline">\(s + t = 1\)</span> and need <span class="math inline">\(\#X \geq 3\)</span>; semi-orders are <span class="math inline">\(s + t = 2\)</span> and need <span class="math inline">\(\#X \geq 4\)</span>. For an infinite <span class="math inline">\(X\)</span> the SDF may be confined to the doubly infinite <em>union</em> of sets of <span class="math inline">\(s\)</span>-and-<span class="math inline">\(t\)</span> orders.</p>
+<p><strong>The filter results.</strong> For <span class="math inline">\(f(\cdot)\)</span> satisfying U, P and I:</p>
+<ol type="1">
+<li>acyclicity implies that <span class="math inline">\(\Omega\)</span> is a pre-filter;</li>
+<li>quasi-transitivity implies that <span class="math inline">\(\Omega\)</span> is a filter;</li>
+<li>semi-order properties imply that <span class="math inline">\(\Omega\)</span> is an ultra-filter;</li>
+<li>transitivity implies that <span class="math inline">\(\Omega\)</span> is an ultra-filter.</li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

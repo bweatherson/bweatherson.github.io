@@ -1,0 +1,437 @@
+---
+title: "Sen, *Collective Choice and Social Welfare*: Ch 1\\*, 2\\*, A1\\*"
+subtitle: "Definitions, examples, and results"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+  typst: default
+---
+
+A reference sheet for the starred chapters. Throughout, $X$ is the set of alternatives (social states), $S \subseteq X$, and $R$ is a weak preference relation ("at least as good as") on $X$. Individual $i$'s relation is $R_i$.
+
+# Part 1: Definitions
+
+## 1.1 Properties of a binary relation (Ch 1\*, §1\*1)
+
+For a binary relation $R$ on a set $S$:
+
+| Property | Statement |
+|:---|:---|
+| Reflexivity | $\forall x \in S: xRx$ |
+| Completeness | $\forall x, y \in S: (x \neq y) \to (xRy \lor yRx)$ |
+| Transitivity | $\forall x, y, z \in S: (xRy \ \wedge\ yRz) \to xRz$ |
+| Anti-symmetry | $\forall x, y \in S: (xRy \ \wedge\ yRx) \to x = y$ |
+| Asymmetry | $\forall x, y \in S: xRy \to \sim(yRx)$ |
+| Symmetry | $\forall x, y \in S: xRy \to yRx$ |
+
+: The six properties {#tbl-properties}
+
+Asymmetry implies anti-symmetry, not conversely. (If $xRy \to \sim(yRx)$ then the antecedent of anti-symmetry is never satisfied, so it holds vacuously.)
+
+## 1.2 Named types of relation (Ch 1\*, §1\*1)
+
+| # | Properties satisfied | Sen's name | Other names in the literature |
+|:--|:---|:---|:---|
+| 1 | reflexivity, transitivity | **quasi-ordering** | pre-ordering |
+| 2 | reflexivity, transitivity, completeness | **ordering** | complete pre-ordering; complete quasi-ordering; weak ordering |
+| 3 | reflexivity, transitivity, anti-symmetry | **partial ordering** | ordering |
+| 4 | reflexivity, transitivity, completeness, anti-symmetry | **chain** | linear ordering; complete ordering; simple ordering |
+| 5 | transitivity, asymmetry | **strict partial ordering** | — |
+| 6 | transitivity, asymmetry, completeness | **strong ordering** | ordering; strict ordering; strict complete ordering |
+
+: Sen's terminology {#tbl-names}
+
+The terminology for these is all over the place, but these are Sen's terms, and we'll use them.
+
+## 1.3 Strict preference, indifference, maximality, choice (Ch 1\*, §1\*2)
+
+::: {#def-1star1}
+**Definition 1\*1.** $xPy \leftrightarrow [xRy \ \wedge\ \sim(yRx)]$
+:::
+
+::: {#def-1star2}
+**Definition 1\*2.** $xIy \leftrightarrow [xRy \ \wedge\ yRx]$
+:::
+
+::: {#def-1star3}
+**Definition 1\*3.** $x \in S$ is a **maximal element** of $S$ with respect to $R$ iff $\sim[\exists y: (y \in S \ \wedge\ yPx)]$.
+
+The set of maximal elements of $S$ is the **maximal set**, $M(S, R)$.
+:::
+
+::: {#def-1star4}
+**Definition 1\*4.** $x \in S$ is a **best element** of $S$ with respect to $R$ iff $\forall y: (y \in S \to xRy)$.
+
+The set of best elements of $S$ is the **choice set**, $C(S, R)$.
+:::
+
+## 1.4 Subrelations and compatibility (Ch 1\*, §1\*4)
+
+::: {#def-1star5}
+**Definition 1\*5.** A quasi-ordering $Q_1$ is a **subrelation** of $Q_2$ ifffor all $x, y \in X$:
+
+1. $xQ_1y \to xQ_2y$
+2. $[xQ_1y \ \wedge\ \sim(yQ_1x)] \to \sim(yQ_2x)$
+:::
+
+That is: whatever $Q_1$ says, $Q_2$ says too, both about weak preference and about strict preference. 
+
+::: {#def-1star6}
+**Definition 1\*6.** If a quasi-ordering $Q$ is a subrelation of an ordering $R$, then $R$ is **compatible** with $Q$.
+:::
+
+::: {#def-1star7}
+**Definition 1\*7.** Two quasi-orderings $Q_1$ and $Q_2$ are **compatible** iff there is an ordering compatible with each.
+:::
+
+## 1.5 Choice functions and weakened transitivity (Ch 1\*, §1\*5)
+
+::: {#def-1star8}
+**Definition 1\*8.** A **choice function** $C(S, R)$ defined over $X$ is a functional relation such that $C(S, R)$ is non-empty for every non-empty $S \subseteq X$.
+:::
+
+::: {#def-1star9}
+**Definition 1\*9.** $R$ is **quasi-transitive** iff for all $x, y, z \in X$: $(xPy \ \wedge\ yPz) \to xPz$.
+:::
+
+::: {#def-1star10}
+**Definition 1\*10.** $R$ is **acyclical** over $X$ iff
+$$\forall x_1, \ldots, x_j \in X: [(x_1 P x_2 \ \wedge\ x_2 P x_3 \ \wedge\ \ldots \ \wedge\ x_{j-1} P x_j) \to x_1 R x_j]$$
+:::
+
+## 1.6 Rationality conditions on choice functions (Ch 1\*, §1\*6)
+
+Here $C(S)$ is any choice function over $X$, not necessarily derived from a binary relation.
+
+**Property $\alpha$:** $x \in S_1 \subseteq S_2 \to [x \in C(S_2) \to x \in C(S_1)]$
+
+**Property $\beta$:** $[x, y \in C(S_1) \ \wedge\ S_1 \subseteq S_2] \to [x \in C(S_2) \leftrightarrow y \in C(S_2)]$
+
+::: {#def-1star11}
+**Definition 1\*11.** $R$ is **PI-transitive** over $X$ iff for all $x, y, z \in X$: $(xPy \ \wedge\ yIz) \to xPz$.
+:::
+
+The four mixed transitivity conditions named in Lemma 1\*a, used throughout:
+
+| Label | Condition |
+|:--|:---|
+| $II$ | $(xIy \ \wedge\ yIz) \to xIz$ |
+| $PI$ | $(xPy \ \wedge\ yIz) \to xPz$ |
+| $IP$ | $(xIy \ \wedge\ yPz) \to xPz$ |
+| $PP$ | $(xPy \ \wedge\ yPz) \to xPz$ (i.e. quasi-transitivity) |
+
+: Mixed transitivity conditions {#tbl-mixed}
+
+# Part 1 (continued): Chapter 2\* definitions
+
+## 1.7 Collective choice rules (Ch 2\*, §2\*1)
+
+$X$ is the set of social states, $R_i$ is person $i$'s preference relation, $i = 1, \ldots, n$. Each $R_i$ is assumed to be an ordering. $R$ is social preference, and  **no such assumption is made about $R$**. Whether $R$ is an ordering is the question under investigation.
+
+::: {#def-2star1}
+**Definition 2\*1.** A **collective choice rule** (CCR) is a functional relation $f$ such that for any set of $n$ individual orderings $R_1, \ldots, R_n$, one and only one social preference relation $R$ is determined, $R = f(R_1, \ldots, R_n)$.
+:::
+
+::: {#def-2star2}
+**Definition 2\*2.** A collective choice rule is **decisive** iff its range is restricted to complete preference relations $R$.
+:::
+
+## 1.8 The Pareto relations (Ch 2\*, §2\*1)
+
+::: {#def-2star3}
+**Definition 2\*3.** For all $x, y \in X$:
+
+1. $x \bar{R} y \leftrightarrow [\forall i: x R_i y]$
+2. $x \bar{P} y \leftrightarrow [x \bar{R} y \ \wedge\ \sim(y \bar{R} x)]$
+3. $x \bar{I} y \leftrightarrow [x \bar{R} y \ \wedge\ y \bar{R} x]$
+:::
+
+So $x \bar{P} y$ holds when everyone weakly prefers $x$ and at least one person strictly prefers it.
+
+::: {#def-2star4}
+**Definition 2\*4.** For all $x, y \in X$: $x \bar{\bar{P}} y \leftrightarrow \forall i: x P_i y$
+:::
+
+::: {#def-2star5}
+**Definition 2\*5.** A collective choice rule is **Pareto-inclusive** iff its range is restricted to social preference relations $R$ such that $\bar{R}$ is a subrelation of $R$, i.e.
+$$\forall x, y \in X: [(x\bar{R}y \to xRy) \ \wedge\ (x\bar{P}y \to xPy)]$$
+:::
+
+::: {#def-2star6}
+**Definition 2\*6.** For any $n$-tuple $(R_1, \ldots, R_n)$, a state $x \in S$ is **Pareto-optimal** in $S$ iff $\sim[\exists y \in S: y \bar{P} x]$. A Pareto-optimal state is also called **economically efficient**.
+:::
+
+# Part 1 (continued): Chapter A1\* definitions
+
+## 1.10 Arrow's framework (Ch A1\*)
+
+A **social welfare function** (SWF), in Arrow's sense, is a functional relation specifying one social ordering $R$ for any $n$-tuple of individual orderings $\{R_i\}$: $R = f(\{R_i\})$. (Contrast Definition 2\*1: a CCR need not deliver an *ordering*.)
+
+Arrow's choice set, defined purely relationally:
+$$C(S) = [x \mid x \in S \ \wedge\ \forall y \in S: xRy]$$
+
+**Condition $I^A$ (Arrow's independence of irrelevant alternatives).** For any two $n$-tuples $\{R_i\}$ and $\{R'_i\}$ in the domain of $f$, and for any $S \subseteq X$, with choice functions $C(\cdot)$ and $C'(\cdot)$ corresponding to $\{R_i\}$ and $\{R'_i\}$:
+$$[\forall i: (\forall x, y \in S: xR_iy \leftrightarrow xR'_iy)] \Rightarrow C(S) = C'(S)$$
+
+**Condition $I$ (relational independence).** The restriction of the social preference relation over any pair $\{x, y\}$ is a function of the $n$-tuple of restrictions of individual preferences over that pair:
+$$R^{\{x,y\}} = f^{\{x,y\}}(\{R_i^{\{x,y\}}\})$$
+
+Given Arrow's relational definition of $C(S)$, $I$ and $I^A$ are equivalent. Sen uses $I$, but it isn't equivalent to $I^A$ without a different definition of $C(S)$.
+
+### Arrow's axioms
+
+- **U (Unrestricted Domain).** For any logically possible set of individual preferences, there is a social ordering $R$.
+- **$I^2$ (Independence of Irrelevant Alternatives).** The social ranking of any pair $\{x, y\}$ depends only on the individual rankings of $x$ and $y$.
+- **P (Pareto Principle).** If everyone prefers $x$ to $y$, then $x$ is socially preferred to $y$.
+- **D (Non-dictatorship).** There is no person $i$ such that whenever $i$ prefers $x$ to $y$, $x$ is socially preferred to $y$, no matter what others prefer.
+
+Background assumptions: at least three distinct social states, and a finite number ($\geq 2$) of individuals.
+
+### Decisiveness
+
+A set $G \subseteq H$ of individuals (where $H$ is the set of all individuals) is **locally decisive over $\{x, y\}$** iff $x$ is socially preferred to $y$ whenever all individuals in $G$ prefer $x$ to $y$, no matter what the others prefer. $G$ is **(globally) decisive** iff it is locally decisive over every pair.
+
+A person $i$ is **semi-decisive** over an ordered pair $\{x, y\}$ iff $x P_i y$ implies $xRy$. A person **has a veto** iff he or she is semi-decisive over every ordered pair.
+
+### Weakened consistency conditions
+
+**Quasi-transitivity:** $(xPy \ \wedge\ yPz) \to xPz$. Indifference need not be transitive, and mixed cases need not yield strict preference.
+
+**Suzumura consistency:** for any sequence of weak preferences $x_1Rx_2, x_2Rx_3, \ldots, x_{j-1}Rx_j$, we must not have $x_jPx_1$.
+
+**Semi-transitivity:** $\forall x, y, z, a \in X$: if $xPy$ and $yPz$, then $xPa$ or $aPz$.
+
+**Interval order property:** $\forall x, y, a, b \in X$: if $xPy$ and $aPb$, then $xPb$ or $aPy$.
+
+A **semi-order** satisfies both (in addition to quasi-transitivity, which each of them implies for complete $R$).
+
+An **$s$-and-$t$ order** generalises: $P^s I P^t \Rightarrow P$, with $s$ strict preferences preceding the indifference and $t$ following it. Orderings are the case $s + t = 1$; semi-orders are $s + t = 2$.
+
+### Rules and structures
+
+A **social decision function** (SDF) is obtained from an Arrovian SWF by dropping the requirement that $R$ be an ordering, demanding only that $R$ be reflexive and complete and generate a choice function — i.e. that $C(S, R)$ be non-empty for every non-empty $S$.
+
+The **Pareto-extension rule**: $x$ is socially preferred to $y$ iff everyone prefers $x$ to $y$; and $x$ and $y$ are socially indifferent if they are either Pareto-indifferent *or* Pareto-incomparable.
+
+An SDF is **oligarchic** (Gibbard 1969) iff there is a unique group $G$ such that $G$ as a whole group is fully decisive, and every member of $G$ has a veto.
+
+**Condition NIM (neutrality, independence with monotonicity)** (Blau and Deb 1977). For any $x, y, a, b \in X$ and any two profiles $\{R_i\}$, $\{R'_i\}$: if for all $i$, $xP_iy \Rightarrow aP'_ib$ and $xI_iy \Rightarrow aR'_ib$, then $xPy \Rightarrow aP'b$.
+
+### The topology of decisive sets
+
+Let $\Omega$ be the class of decisive sets of individuals — a subset of the power set of $H$. Consider:
+
+1. $H \in \Omega$
+2. $[G \in \Omega \ \wedge\ G \subseteq J] \Rightarrow J \in \Omega$
+3. $[G_1, \ldots, G_k \in \Omega$ for finite $k] \Rightarrow$ the intersection of these $G_i$ is non-empty
+4. $[G, J \in \Omega] \Rightarrow G \cap J \in \Omega$
+5. $[G \in \Omega] \Rightarrow H - G \notin \Omega$
+
+$\Omega$ is a **pre-filter** iff it satisfies (1)–(3); a **filter** iff it also satisfies (4); an **ultra-filter** iff it satisfies all of (1)–(5).
+
+A **collegium** (Brown) is a group of persons such that every member of it belongs to every decisive set of persons. Where $\Omega$ is a pre-filter, (3) guarantees a collegium exists; where $\Omega$ is a filter, (4) makes the collegium itself decisive, defining the oligarchy.
+
+# Part 2: Real-world examples of the relation types
+
+## 2.1 Sen's own examples
+
+**"Is at least as tall as", on mountain peaks with measured heights.** Reflexive (a peak is as tall as itself); complete (if $A$ is not at least as tall as $B$, then $B$ is taller); transitive; *not* anti-symmetric (two distinct peaks can be the same height); not asymmetric; not symmetric. So: an **ordering**, but not a chain and not a partial ordering.
+
+**"Is taller than", on the same set.** Transitive, anti-symmetric, asymmetric; not reflexive, not complete, not symmetric. So: a **strict partial ordering**, but not a strong ordering, because ties make it incomplete.
+
+**"Is brother of", on men** (Sen's footnote 1). Commonly *thought* transitive, but is not: $A$ brother of $B$ and $B$ brother of $A$ would give, by transitivity, $A$ brother of himself. 
+
+## 2.2 Chains (reflexive, transitive, complete, anti-symmetric)
+
+**"Is at least as far forward in the queue as"**, over the people currently in a single queue. Positions are integers and no two people occupy the same one, so anti-symmetry holds. 
+
+**"Is alphabetically no later than"**, over a set of distinct strings. (It's because it's defined on *strings* and not *words* that we can't have ties.)
+
+## 2.3 Orderings (reflexive, transitive, complete; ties allowed)
+
+**"Scored at least as many points as"**, over the teams in a league table at a given moment.
+
+**"Weighs at least as much as"**, over a set of objects.
+
+## 2.4 Partial orderings (reflexive, transitive, anti-symmetric, incomplete)
+
+**Set inclusion $\subseteq$**, over the subsets of any set with more than one element. One obvious instance of incompleteness: $\{a\} \not\subseteq \{b\}$ and $\{b\} \not\subseteq \{a\}$, so it is incomplete; and $A \subseteq B$ with $B \subseteq A$ gives $A = B$, so it is anti-symmetric.
+
+**"Is an ancestor of, or identical to"**, over the members of a family tree. Reflexive by construction, transitive, anti-symmetric, and incomplete (siblings are incomparable).
+
+**"Divides"**, over the positive integers. Reflexive, transitive, anti-symmetric, incomplete ($6$ and $10$ are incomparable).
+
+**Course prerequisite structure**, over the courses in a department, taking the transitive-reflexive closure. Anti-symmetric if and only if the prerequisite graph has no cycles, which would be hilarious if it was violated.
+
+## 2.5 Strict partial orderings (transitive, asymmetric)
+
+**"Is a proper subset of"**, over subsets. The strict counterpart of §2.4.
+
+**"Is an ancestor of"**, over a family tree.
+
+**The Pareto relation $\bar{P}$** (Lemma 2\*c). 
+
+**"Is strictly north of"**, over points on a map. Transitive, asymmetric, incomplete (two points at the same latitude).
+
+## 2.6 Quasi-orderings (reflexive, transitive, incomplete)
+
+This is the type Sen cares most about, and the one he thinks social choice theory has been too quick to strengthen.
+
+**The Pareto relation $\bar{R}$** (Lemma 2\*a). Reflexive and transitive for every logically possible profile; complete only under the very strong condition of Lemma 2\*b (that whenever anyone strictly prefers $x$ to $y$, everyone weakly prefers $x$ to $y$). Note that $\bar{R}$ is a quasi-ordering but *not* a partial ordering: two distinct Pareto-indifferent states are not identical, so anti-symmetry fails.
+
+**Logical strength: "entails"**, over propositions or theories. Reflexive, transitive, incomplete.
+
+**"Is at least as good on every criterion as"**, over any multi-criterion comparison.
+
+**"Is at least as well off as"**, across persons, given only partial interpersonal comparability. (This case is controversial, and we'll come back to it.)
+
+**"Is at least as good a chess player as"**, at least arguably (if you think Elo rankings don't capture everything).
+
+**"Is at least as good as", all things considered.** Again, controversial, but Sen would say it is.
+
+## 2.7 Failures of transitivity, quasi-transitivity and acyclicity
+
+**Majority preference on a Condorcet profile.** Three voters ranking $x > y > z$, $y > z > x$, $z > x > y$. The social $R$ is complete and reflexive, but $xPy$, $yPz$, $zPx$: transitivity, quasi-transitivity and acyclicity all fail, and there is no choice set.
+
+**"Beat head-to-head" in a sports season.** Complete over the pairs that have played; not transitive and typically not even acyclic. Every league produces cycles, which is why leagues rank on points rather than on the beating relation.
+
+**Just-noticeable-difference cases.** "Tastes at least as sweet as" over cups of coffee differing by one grain of sugar: $I$ is not transitive (each adjacent pair is indifferent, the ends are not), but $P$ is. (Again controversial, but intuitively is a case.)
+
+**Supermajority rules.** A $2/3$ rule yields a $P$ that is not quasi-transitive but is acyclic provided the threshold is high enough relative to the number of alternatives and enough disagreement.
+
+**The Pareto-extension rule.** Quasi-transitive but not transitive.
+
+## 2.8 Maximality without bestness
+
+**Choosing between two job offers that are incomparable.** Neither offer is at
+least as good as the other, so neither is best; both are maximal. The maximal
+set has two members, the choice set is empty. This is the practical shape of the
+$C(S, R) \subseteq M(S, R)$ result.
+
+**Pareto-optimality itself.** There are typically very many Pareto-optimal
+states and no Pareto-best one. Lemma 2\*e guarantees at least one of the former
+over a finite set; nothing guarantees any of the latter.
+
+## 2.9 Properties $\alpha$ and $\beta$
+
+**$\alpha$, satisfied:** the world chess champion, if Pakistani, is the champion of Pakistan (Sen's own gloss).
+
+**$\alpha$, violated:** the much-discussed menu case — choosing the chicken from $\{$chicken, fish$\}$ but the fish from $\{$chicken, fish, frog's legs$\}$. Big question is whether this is an $\alpha$ violation or a change of optiosn.
+
+**$\beta$, violated:** we'll come back to examples of this.
+
+# Part 3: Results
+
+Proofs omitted throughout.
+
+## 3.1 Chapter 1\*
+
+**Lemma 1\*a.** If $R$ is a quasi-ordering, then for all $x, y, z \in S$:
+
+(1) $xIy \ \wedge\ yIz \to xIz$; 
+(2) $xPy \ \wedge\ yIz \to xPz$;
+(3) $xIy \ \wedge\ yPz \to xPz$; 
+(4) $xPy \ \wedge\ yPz \to xPz$.
+
+(These are $II$, $PI$, $IP$, $PP$ respectively.)
+
+**Lemma 1\*b.** Any finite quasi-ordered set has at least one maximal element.
+
+**Lemma 1\*c.** If $R$ is reflexive, then $xPy \leftrightarrow [x] = C(\{x, y\}, R)$.
+
+**Lemma 1\*d.** If for a quasi-ordering $R$, $C(S, R)$ is non-empty, then $C(S, R) = M(S, R)$.
+
+**Lemma 1\*e.** For any quasi-ordering $R$ over a finite set $S$: $\forall x, y: [x, y \in M(S, R) \to xIy] \leftrightarrow [C(S, R) = M(S, R)]$.
+
+**Lemma 1\*f.** For every quasi-ordering $Q$, there is an ordering $R$ compatible with $Q$. (Szpilrajn 1930.)
+
+**Lemma 1\*g.** If $Q$ is a quasi-ordering such that $\forall x, y \in S \subset X: xQy \leftrightarrow x = y$, and $T$ is an ordering of elements of $S$, then there is an ordering $R$ of all elements of $X$ compatible with both $Q$ and $T$. (Arrow 1951.)
+
+**Lemma 1\*h.** If a quasi-ordering $Q_1$ is a subrelation of a quasi-ordering $Q_2$, then $Q_1$ and $Q_2$ are compatible.
+
+**Lemma 1\*i.** If $Q$ is a quasi-ordering such that $\forall x, y \in S \subset X: xQy \leftrightarrow x = y$, and $T$ is a quasi-ordering of elements of $S$, then there is an ordering $R$ of all elements of $X$ compatible with both $Q$ and $T$.
+
+**Lemma 1\*j.** If $R$ is an ordering defined over a finite set $X$, then a choice function $C(S, R)$ is defined over $X$.
+
+**Lemma 1\*k.** If $R$ is reflexive, complete and quasi-transitive over a finite set $X$, then a choice function $C(S, R)$ is defined over $X$. (Sen 1969, Theorem II; Pattanaik 1968a.)
+
+**Lemma 1\*l.** If $R$ is reflexive and complete, then a necessary and sufficient condition for $C(S, R)$ to be defined over a finite $X$ is that $R$ be acyclical over $X$.
+
+**Lemma 1\*m.** Every choice function $C(S, R)$ generated by a binary relation $R$ satisfies property $\alpha$ but not necessarily property $\beta$.
+
+**Lemma 1\*n.** A choice function $C(S, R)$ generated by a binary relation $R$ satisfies property $\beta$ if and only if $R$ is PI-transitive. (Sen 1969, Theorem III.)
+
+**Lemma 1\*o.** (a) In general, $PP$ and $PI$ are completely independent of each other. (b) Together, $PP$ and $PI$ imply transitivity, given completeness of $R$.
+
+**Lemma 1\*p.** If a binary relation $R$ generates a choice function, then PI-transitivity implies that $R$ is an ordering. (Sen 1969, Theorem IV.)
+
+**Lemma 1\*q.** A choice function $C(S, R)$ derived from a binary relation $R$ satisfies property $\beta$ if and only if $R$ is an ordering.
+
+**Lemma 1\*r.** If $R$ is complete, then 
+
+(a)  $PI \leftrightarrow IP$;    
+(b)  $PI \to II$;    
+(c)  $PP \ \wedge\ II \to PI$.
+
+
+## 3.2 Chapter 2\*
+
+**Lemma 2\*a.** The relation $\bar{R}$ is a quasi-ordering for every logically possible combination of individual preferences.
+
+**Lemma 2\*b.** A necessary and sufficient condition for $\bar{R}$ to be an ordering, and for $R = \bar{R}$ to be a decisive collective choice rule, is that 
+$$\forall x, y \in X: [(\exists i: x P_i y) \to (\forall j: x R_j y)]$$
+
+**Lemma 2\*c.** Both $\bar{P}$ and $\bar{\bar{P}}$ are strict partial orderings (transitive and asymmetric) for every logically possible combination of individual preferences.
+
+**Lemma 2\*d.** $\forall x, y \in X: x \bar{\bar{P}} y \to x \bar{P} y$.
+
+**Lemma 2\*e.** For every set of individual preferences $(R_1, \ldots, R_n)$ over any finite set of social states $S$, there is at least one Pareto-optimal state.
+
+**Lemma 2\*f.** The Kaldor test is inconsistent with every possible CCR under some configuration of preferences. (Scitovsky 1941.)
+
+That is: there are profiles on which the Kaldor test delivers both $xPy$ and $yPx$, so it does not even define a relation, let alone a well-behaved one.
+
+**Lemma 2\*g.** The Scitovsky compensation test may yield an intransitive $P$. (Gorman 1955.) It may fail even quasi-transitivity.
+
+**Lemma 2\*h.** If for all $x, y \in X$:
+$$[\exists x' \in S(x): x' \bar{P} y] \to \forall y' \in S(y): [\exists x'' \in S(x): x'' \bar{R} y']$$
+then $P$, under the Scitovsky test, is a strict partial ordering. (Cf. Samuelson
+1950b: the condition is a complete outward movement of the utility possibility
+frontier.)
+
+Under that same condition the Kaldor and Scitovsky preference relations coincide, since $xPy \to \sim(yPx)$ already holds for Kaldor.
+
+## 3.3 Chapter A1\*
+
+**T.A1\*.1 (Arrow's Impossibility Theorem).** No social welfare function can simultaneously satisfy U, $I^2$, D and P.
+
+**T.A1\*.2 (Spread of Decisiveness).** If $G$ is decisive over any pair $\{x, y\}$, then $G$ is globally decisive.
+
+**T.A1\*.3 (Contraction of Decisive Sets).** If a set $G$ of individuals is decisive, and has more than one member, then a proper subset of $G$ is decisive as well.
+
+Arrow's theorem then follows immediately: by P the set of all individuals is decisive; by T.A1\*.3 some proper subset is; iterate; finiteness delivers a single individual, violating D. 
+
+**T.A1\*.4 (Quasi-transitive Oligarchy Theorem).** If $H$ is finite and $\#X \geq 3$, then any SDF generating quasi-transitive social preference relations, satisfying U, P and $I^2$, must be oligarchic. (Gibbard 1969.)
+
+**Veto-Spread lemma.** Any person who is semi-decisive over one ordered pair must be semi-decisive over all ordered pairs — i.e. must have a veto.
+
+Together with T.A1\*.2, which continues to hold under quasi-transitivity, this gives T.A1\*.4: no group other than a superset of the oligarchy $G$ can be decisive, since every member of $G$ has a veto.
+
+**Mas-Colell and Sonnenschein (1972).** A veto result with acyclicity, without demanding quasi-transitivity. Extended by Blair et al. (1976) to triple acyclicity (no cycles over triples rather than over any subset).
+
+**T.A1\*.5 (Acyclic neutral monotonicity vetoer theorem).** If $\#X \geq \#H$, with $H$ finite, then any SDF satisfying U and NIM must yield someone with a veto. (Blau and Deb 1977.)
+
+**T.A1\*.6 (Arrow Impossibility for semi-transitivity).** If $H$ is finite and $\#X \geq 4$, then there is no SDF satisfying U, I, P and D and yielding semi-transitive social preference.
+
+**T.A1\*.7 (Arrow impossibility for interval order property).** If $H$ is finite and $\#X \geq 4$, then there is no SDF satisfying U, I, P and D and yielding interval-ordered social preference.
+
+Since a semi-order is both semi-transitive and an interval order, the impossibility holds a fortiori for semi-orders. Generalising to $s$-and-$t$ orders: the result goes through provided $\#X \geq s + t + 2$. Orderings are $s + t = 1$ and need $\#X \geq 3$; semi-orders are $s + t = 2$ and need $\#X \geq 4$. For an infinite $X$ the SDF may be confined to the doubly infinite *union* of sets of $s$-and-$t$ orders.
+
+**The filter results.** For $f(\cdot)$ satisfying U, P and I:
+
+1. acyclicity implies that $\Omega$ is a pre-filter;
+2. quasi-transitivity implies that $\Omega$ is a filter;
+3. semi-order properties imply that $\Omega$ is an ultra-filter;
+4. transitivity implies that $\Omega$ is an ultra-filter.
+
