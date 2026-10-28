@@ -1,0 +1,210 @@
+---
+title: "Arrow's Theorem: Sen's Proof"
+subtitle: "Spread of Decisiveness and Contraction of Decisive Sets"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+  typst: default
+---
+
+CCSW Ch A1\*, pp. 286–288. The proof is three steps. Two lemmas about which
+groups get to decide things, and then four lines that put them together.
+
+# The setting
+
+A **social welfare function** (SWF) takes a profile of individual orderings
+$\{R_i\}$, one for each person $i$ in a finite set $H$, and returns one social
+ordering $R$:
+$$R = f(\{R_i\})$$
+
+$R$ being an *ordering* means reflexive, complete and transitive. Hold on to
+transitivity: it is the condition that does the work, and it is the one every
+escape route from the theorem attacks.
+
+Assume at least three distinct alternatives in $X$, and at least two people.
+
+**The four axioms.**
+
+- **U (Unrestricted Domain).** $f$ is defined for every logically possible
+  profile of individual orderings.
+- **$I^2$ (Independence of Irrelevant Alternatives).** The social ranking of any
+  pair $\{x, y\}$ depends only on the individual rankings of $x$ and $y$.
+- **P (Pareto Principle).** If everyone prefers $x$ to $y$, then $xPy$.
+- **D (Non-dictatorship).** There is no person $i$ such that $xP_iy$ implies
+  $xPy$ for every pair, whatever everyone else prefers.
+
+**T.A1\*.1 (Arrow's Impossibility Theorem).** No SWF satisfies U, $I^2$, P and D
+together.
+
+# Decisiveness
+
+A set $G \subseteq H$ is **locally decisive over the ordered pair $(x, y)$** iff
+$xPy$ whenever every member of $G$ prefers $x$ to $y$, no matter what anyone
+outside $G$ prefers.
+
+$G$ is **(globally) decisive** iff it is locally decisive over every ordered
+pair.
+
+A **dictator** is a person $i$ such that $\{i\}$ is globally decisive. So D says
+no singleton is decisive.
+
+Note what P gives us for free: $H$ itself is decisive. The whole of society gets
+its way. That is the only foothold the proof needs.
+
+# Step 1: Spread of Decisiveness
+
+::: {.callout-note appearance="simple"}
+**T.A1\*.2.** If $G$ is decisive over any one pair $\{x, y\}$, then $G$ is
+globally decisive.
+:::
+
+Take any other pair $\{a, b\}$, with $a$, $b$, $x$, $y$ all distinct for now.
+By U we may consider any profile we like, so consider this one:
+
+| | Constraints imposed |
+|:---|:---|
+| Everyone in $G$ | $a \succ x \succ y \succ b$ |
+| Everyone outside $G$ | $a \succ x$, and $y \succ b$ |
+
+: Nothing else is specified. In particular, nobody outside $G$ has been given
+any ranking of $a$ against $b$.
+
+Four moves:
+
+1. Everyone prefers $a$ to $x$, so by **P**, $aPx$.
+2. Everyone prefers $y$ to $b$, so by **P**, $yPb$.
+3. Everyone in $G$ prefers $x$ to $y$, and $G$ is locally decisive over
+   $(x,y)$, so $xPy$.
+4. $aPx$, $xPy$, $yPb$. By **transitivity** of the social ordering, $aPb$.
+
+Now apply **$I^2$**. The social ranking of $\{a, b\}$ depends only on the
+individual rankings of $a$ and $b$. Every member of $G$ ranks $a$ above $b$ (by
+transitivity of their own preference). Nobody outside $G$ was given any ranking
+of $a$ against $b$, so the argument above goes through however those rankings
+are filled in.
+
+So: whenever all of $G$ prefer $a$ to $b$, society does, whatever anyone else
+thinks. $G$ is locally decisive over $(a, b)$.
+
+## The cases where the pairs overlap
+
+The argument above used four distinct alternatives. With only three, run the
+same engine with one of $a$, $b$ identified with one of $x$, $y$. Two cases
+worth doing on the board, because this is where people get stuck:
+
+**Decisiveness over $(x, b)$.** Let $G$ have $x \succ y \succ b$, and let
+everyone else have $y \succ b$ with $x$ unplaced. Then $xPy$ by decisiveness,
+$yPb$ by P, so $xPb$ by transitivity. Only $G$'s ranking of $\{x, b\}$ was
+specified.
+
+**Decisiveness over $(a, y)$.** Let $G$ have $a \succ x \succ y$, and let
+everyone else have $a \succ x$ with $y$ unplaced. Then $aPx$ by P, $xPy$ by
+decisiveness, so $aPy$ by transitivity. Only $G$'s ranking of $\{a, y\}$ was
+specified.
+
+Having obtained decisiveness over a new pair, you can start the engine again
+from that pair. Iterating covers every ordered pair, including the reversal
+$(y, x)$.
+
+## What the lemma is really saying
+
+The group that wins on one question wins on every question. The descriptive
+content of the alternatives drops out: it makes no difference whether $x$ and
+$y$ differ over tax policy and $a$ and $b$ differ over who gets imprisoned.
+Sen's remark is that this is a result "in the direction of what is called
+neutrality". This is the formal core of the black-boxing point from Class 15.
+The axioms never forbid looking at what the states are like. They make it
+impossible for the looking to matter.
+
+# Step 2: Contraction of Decisive Sets
+
+::: {.callout-note appearance="simple"}
+**T.A1\*.3.** If $G$ is decisive and has more than one member, then some proper
+subset of $G$ is decisive.
+:::
+
+Partition $G$ into two non-empty pieces, $G^1$ and $G^2$. Pick three distinct
+alternatives $x$, $y$, $z$, and consider this profile:
+
+| | Constraints imposed | Left open |
+|:---|:---|:---|
+| Everyone in $G^1$ | $x \succ y$, $x \succ z$ | $y$ against $z$ |
+| Everyone in $G^2$ | $x \succ y$, $z \succ y$ | $x$ against $z$ |
+| Everyone outside $G$ | none | everything |
+
+Everyone in $G$ prefers $x$ to $y$, and $G$ is decisive, so $xPy$.
+
+Society ranks $z$ against $x$ somehow, since $R$ is complete. Two cases.
+
+**Case A: $zRx$.** With $xPy$, transitivity gives $zPy$. Which rankings of
+$\{z, y\}$ were specified? Only $G^2$'s, who all prefer $z$ to $y$. $G^1$ and
+the outsiders were left free on that pair, so the argument holds however their
+rankings go. By $I^2$, $G^2$ is locally decisive over $(z, y)$, and by Step 1,
+$G^2$ is globally decisive.
+
+**Case B: $\sim(zRx)$, i.e. $xPz$.** Which rankings of $\{x, z\}$ were
+specified? Only $G^1$'s, who all prefer $x$ to $z$. $G^2$ and the outsiders were
+left free on that pair. By $I^2$, $G^1$ is locally decisive over $(x, z)$, and
+by Step 1, $G^1$ is globally decisive.
+
+One of the two cases holds, so one of $G^1$, $G^2$ is decisive. Both are proper
+subsets of $G$.
+
+**The result is stronger than the statement** (Sen's footnote 7). We did not
+construct a special proper subset. We took an *arbitrary* partition of $G$ into
+two pieces and showed one of them must be decisive. Whichever way you cut a
+decisive set in half, one half is still decisive. In the vocabulary of the end
+of the chapter, the decisive sets form an ultra-filter.
+
+# Step 3: the theorem
+
+1. By **P**, $H$ is decisive.
+2. By **T.A1\*.3**, some proper subset of $H$ is decisive.
+3. That subset, if it has more than one member, has a decisive proper subset.
+   Repeat.
+4. $H$ is **finite**, so the sequence terminates. It terminates at a set with
+   one member, who is a dictator, contradicting **D**. $\blacksquare$
+
+# Where each assumption got used
+
+Worth filling this in together rather than reading it out. The point of the
+exercise is that each row is a place where someone has tried to escape.
+
+| Assumption | Used where | What happens without it |
+|:---|:---|:---|
+| **U** | Constructing the two profiles | Restrict the domain: single-peakedness (Ch 10, Class 19) |
+| **$I^2$** | The last move of each lemma | Allow richer information: cardinality, interpersonal comparison (Ch 7, 9) |
+| **P** | $aPx$ and $yPb$; and giving us $H$ decisive at the start | The theorem fails, and so does the appeal of the result |
+| **Transitivity** | Step 4 of Spread; both cases of Contraction | Quasi-transitivity gives Gibbard's oligarchy; acyclicity gives a vetoer |
+| **Completeness** | Contraction, to guarantee $zRx$ or $xPz$ | Suzumura consistency, and the maximal/best distinction from Ch 1\* |
+| **$\#X \geq 3$** | Both lemmas need a third alternative to route through | With two alternatives, majority rule satisfies everything (May's theorem) |
+| **$H$ finite** | Step 4 only | The contraction never terminates: Kirman and Sondermann's invisible dictators |
+
+The last row is the one to dwell on. Finiteness appears exactly once, in the
+final line, and it is doing nothing except guaranteeing that a strictly
+decreasing sequence of sets stops. Everything else in the proof is indifferent
+to how many people there are.
+
+# Exercises
+
+1. In the proof of Spread of Decisiveness, where exactly would the argument
+   break if we had specified the outsiders' ranking of $a$ against $b$?
+
+2. The Contraction proof partitions $G$ into two pieces. Redo it partitioning
+   $G$ into three pieces $G^1$, $G^2$, $G^3$. Does some one piece have to be
+   decisive, or only some union of two of them?
+
+3. A group $G$ is **semi-decisive** over $(x, y)$ iff $xP_iy$ for all $i \in G$
+   implies $xRy$. Arrow's own proof runs through semi-decisiveness rather than
+   decisiveness. Which steps above would need changing?
+
+4. Suppose we weaken P to the strong Pareto principle $\bar{\bar{P}}$: $x$ is
+   socially preferred to $y$ only when *everyone strictly* prefers $x$ to $y$.
+   Check that the proof still goes through. Why does this make the theorem a
+   stronger result rather than a weaker one?
+
+5. Construct a three-person, three-alternative profile on which majority rule
+   gives an intransitive social preference, and identify which decisive sets
+   exist for that rule. Is the family of decisive sets closed under
+   intersection?
