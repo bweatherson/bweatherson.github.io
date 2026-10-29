@@ -1,0 +1,171 @@
+---
+title: "Single-Peakedness and the Median Voter"
+format: typst
+---
+
+CCSW Ch 10, with Ch 10\* for the general version. This is the first *possibility*
+result we have had in the second half of the course, so it is worth being clear
+about what exactly is being made possible, and at what price.
+
+# The escape being attempted
+
+Arrow's theorem needs **U**, Unrestricted Domain: the rule must work for every
+logically possible profile. Rejecting U means saying that some profiles will not
+come up, and that a rule only has to cope with the ones that do.
+
+The question is then whether some *interesting* restriction of the domain lets
+majority rule behave. Black's answer, from 1948, is yes.
+
+# Single-peakedness
+
+Suppose the alternatives can be laid out along a line. Write $a < b$ for "$a$
+is to the left of $b$" on that line. This ordering is a feature of the
+alternatives, not of anyone's preferences.
+
+$R_i$ is **single-peaked** with respect to $<$ if there is some $p_i$, person
+$i$'s **peak**, such that for all $a$ and $b$:
+
+- if $b < a \leq p_i$, then $aP_ib$; and
+- if $p_i \leq a < b$, then $aP_ib$.
+
+Moving towards your peak always makes things strictly better. Drawn with the
+line on the $x$-axis and preference on the $y$-axis, each person's preference
+is a curve that rises to a single summit and falls away from it on both sides.
+
+The standard reading of the line is ideological, left to right. It could also be
+a tax rate, a date, a budget total, or a speed limit. What matters is that there
+is one dimension, and that everyone agrees on what it is.
+
+# The theorem
+
+::: {.callout-note appearance="simple"}
+**Median Voter Theorem (Black 1948).** Let $n$ be odd and let every voter's
+preference be single-peaked with respect to the same ordering $<$. Let $m$ be
+the median of the voters' peaks. Then $m$ beats every other alternative in a
+pairwise majority vote.
+:::
+
+Sort the peaks $p_{(1)} \leq p_{(2)} \leq \cdots \leq p_{(n)}$ and let
+$m = p_{((n+1)/2)}$, the middle one.
+
+**Proof.** Take any $a < m$, and let $S = \{i : p_i \geq m\}$. Since $m$ is the
+$(n+1)/2$-th peak in order, $|S| \geq (n+1)/2$, a strict majority. For each
+$i \in S$ we have $a < m \leq p_i$, so by single-peakedness $mP_ia$. So a strict
+majority prefer $m$ to $a$, and $m$ beats $a$.
+
+The case $a > m$ is the mirror image, using $\{i : p_i \leq m\}$.
+$\blacksquare$
+
+Five lines, and no cleverness. Compare the length of the Arrow proof, and notice
+that the whole of the work is being done by the domain restriction.
+
+## A worked case
+
+Three council members voting on a tax rate, options $0$, $10$, $20$, $35$, $50$.
+Peaks at $0$, $20$ and $50$. The median peak is $20$.
+
+- $20$ against $0$: members two and three prefer $20$. Carries.
+- $20$ against $50$: members one and two prefer $20$. Carries.
+- $20$ against $10$ and against $35$: same pattern.
+
+Member two gets their first choice, and neither of the others can build a
+majority against it. This is the result Hotelling (1929) and Downs (1957) turned
+into the convergence-to-the-centre argument about two-party competition, which
+is a game-theoretic argument of the sort we did in the first half.
+
+# Why the Condorcet profile is excluded
+
+Back to the three voters from Class 15: $x \succ y \succ z$,
+$y \succ z \succ x$, $z \succ x \succ y$.
+
+**Claim.** Single-peakedness rules out the middle alternative of a triple being
+anyone's *worst*.
+
+Take $x < y < z$ and suppose $y$ is worst for $i$, so $xP_iy$ and $zP_iy$. Where
+is $p_i$? If $p_i \leq y$, then $p_i \leq y < z$ gives $yP_iz$, contradicting
+$zP_iy$. If $p_i \geq y$, then $x < y \leq p_i$ gives $yP_ix$, contradicting
+$xP_iy$. So there is nowhere for the peak to be.
+
+Now check the Condorcet profile. $z$ is worst for voter one, $x$ is worst for
+voter two, and $y$ is worst for voter three. Every alternative is somebody's
+worst. So whichever of the three you try to put in the middle of the line, some
+voter has it at the bottom, and the profile is not single-peaked under any
+ordering of the alternatives.
+
+That is the whole mechanism. Single-peakedness is a constraint on which
+profiles can arise, and the cyclic profile is one of the ones it forbids.
+
+# Sen's generalisation
+
+Black's condition is stronger than it needs to be. Sen's own result (Sen 1966,
+and Ch 10\*) isolates what is doing the work.
+
+A profile satisfies **value restriction** over a triple if there is some
+alternative in the triple, and some rank, such that no voter assigns that
+alternative that rank. Three ways to satisfy it: some alternative is never
+best, or never worst, or never in the middle.
+
+::: {.callout-note appearance="simple"}
+**Theorem (Sen 1966).** If every triple satisfies value restriction, and the
+number of voters is odd with no individual indifference, then majority rule
+yields a strong ordering.
+:::
+
+Single-peakedness gives "some alternative is never worst", as we just showed, so
+it is one special case. "Never best" is the single-caved case, where preferences
+dip in the middle instead of peaking. "Never medium" has no natural picture at
+all, which is part of Sen's point: the condition that matters is combinatorial,
+and the geometric story about a left-right line is one illustration of it rather
+than the thing itself.
+
+The Condorcet profile fails all three forms. Every alternative is best for
+someone, worst for someone, and in the middle for someone. It is as far from
+value-restricted as a three-voter profile can be.
+
+# Four things to say against this escape
+
+**The dimension is extra information.** Single-peakedness is not a property of a
+profile. It is a property of a profile *relative to an ordering of the
+alternatives*, and that ordering is not contained in anyone's preferences. So
+the escape works by bringing in structure from outside the preference data,
+which is the same move as the cardinality and interpersonal-comparison escapes
+in Ch 7, dressed differently. Whoever gets to say what the dimension is has
+made part of the decision.
+
+**It fails in two dimensions.** Restrict to one dimension and you get a
+Condorcet winner. Allow two, and McKelvey (1976) showed that majority rule
+cycles can wander anywhere in the space: for any two points there is a finite
+sequence of majority votes leading from one to the other. Plott's (1967)
+conditions for a majority core in several dimensions are knife-edge and will not
+hold generically. One dimension is not a mild idealisation of two.
+
+**It does not save Arrow's theorem.** It saves majority rule on a restricted
+domain. The theorem is untouched, since it was a theorem about rules defined on
+the unrestricted domain. What we have learned is where to look for rules that
+work, not that Arrow was wrong.
+
+**Whether real preferences are single-peaked is an empirical question**, and the
+answer is domain-dependent. Legislative voting on a budget total, plausibly yes.
+Preferences over candidates who differ on several issues at once, much less so.
+The condition is checkable, which is a virtue, and it is often false.
+
+# Exercises
+
+1. Verify directly that the Condorcet profile is not single-peaked under any of
+   the orderings $x<y<z$, $x<z<y$, $y<x<z$. Why are the other three orderings
+   already covered?
+
+2. With an even number of voters, the median is not unique. Construct a
+   four-voter single-peaked profile where two alternatives tie under majority
+   rule. Is there still no cycle?
+
+3. Show that if everyone's preference is single-peaked and all the peaks are
+   distinct, the median voter's peak is also the outcome of the rule "take the
+   alternative that beats most others head to head".
+
+4. Give a profile over three alternatives that is value-restricted but not
+   single-peaked under any ordering. (Try "never best".)
+
+5. Single-peakedness constrains the *profile*. Property $\alpha$ and property
+   $\beta$ from Ch 1\* constrain the *choice function*. Are these two kinds of
+   constraint doing the same job?

@@ -99,7 +99,7 @@ A menu to sort, not a final list. Bias throughout: short, structured, freely ava
 ### Day 18 — What is welfare?
 
 - SEP, "Well-Being," §1 "The Concept of Well-Being" (Crisp) — <https://plato.stanford.edu/entries/well-being/> — free · ~1,500 words · motivates fixing welfare by its role; the methodological anchor.
-- "Theories of Well-Being" (utilitarianism.net), intro — <https://utilitarianism.net/theories-of-wellbeing/> — free · ~5 min · plainest map of the three theories.
+- "Theories of Well-Being" (utilitarianism.net), intro — <https://utilitarianism.net/theories-of-well-being/> — free · ~5 min · plainest map of the three theories.
 - *Note:* no free 101-length Keller piece confirmed; use Keller as instructor background.
 
 ### Day 19 — Hedonism
@@ -111,7 +111,7 @@ A menu to sort, not a final list. Bias throughout: short, structured, freely ava
 ### Day 20 — Desire and preference theories
 
 - SEP, "Well-Being," §4.2 "Desire Theories" — <https://plato.stanford.edu/entries/well-being/> — free · ~900 words · the theory plus the standard objections.
-- "Theories of Well-Being," desire-theory section (utilitarianism.net) — <https://utilitarianism.net/theories-of-wellbeing/#desire-theories> — free · ~700 words · more example-driven alternative.
+- "Theories of Well-Being," desire-theory section (utilitarianism.net) — <https://utilitarianism.net/theories-of-well-being/#desire-theories> — free · ~700 words · more example-driven alternative.
 - *Remote/posthumous-desire illustration:* in SEP §4.2, or the course handout "What Is a Good Life?" — <https://rintintin.colorado.edu/~vancecd/phil1100/Well.pdf>
 
 ### Day 21 — Objective-list theories, and welfare subjects (sentience, animals, AI)

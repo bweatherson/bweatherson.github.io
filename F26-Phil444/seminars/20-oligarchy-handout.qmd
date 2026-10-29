@@ -1,0 +1,214 @@
+---
+title: "Gibbard's Oligarchy Theorem"
+format: typst
+---
+
+CCSW Ch A1\* pp. 289–293, with Ch 4 for the prose version. This picks up exactly
+where the Arrow handout left off. We established there that the only place the
+Arrow proof uses anything stronger than transitivity of strict preference is one
+subcase of Contraction. The obvious next question is what you get if you refuse
+that step, and the answer is Gibbard's.
+
+A piece of history worth having: this was originally a term paper for a class
+taught jointly by Arrow, Rawls and Sen at Harvard in the spring of 1969. Allan
+Gibbard was then a graduate student, and later spent most of his career in the
+Michigan philosophy department.
+
+# The weakened framework
+
+A **social decision function** (SDF) drops the demand that $R$ be an ordering.
+It requires only that $R$ be reflexive and complete, and that it generate a
+choice function: $C(S, R)$ is non-empty for every non-empty $S$.
+
+By Lemma 1\*k, quasi-transitivity is enough for that over a finite set. So
+consider SDFs yielding **quasi-transitive** $R$:
+$$xPy \ \&\ yPz \to xPz \qquad (PP)$$
+and nothing more. Indifference may be intransitive, and the mixed cases $PI$ and
+$IP$ may fail.
+
+Keep U, $I^2$ and P. Keep $H$ finite and $\#X \geq 3$.
+
+Two notions beyond decisiveness:
+
+- $G$ is **semi-decisive** over the ordered pair $(x,y)$ iff $xP_iy$ for every
+  $i \in G$ implies $xRy$, whatever anyone outside $G$ prefers.
+- $G$ (or a person) **has a veto** iff it is semi-decisive over every ordered
+  pair. Nobody can be ranked above your choice over your objection. You cannot
+  force an outcome, but you can stop one.
+
+::: {.callout-note appearance="simple"}
+**T.A1\*.4 (Gibbard 1969).** If $H$ is finite and $\#X \geq 3$, then any SDF
+satisfying U, $I^2$ and P, and yielding quasi-transitive social preference, is
+**oligarchic**: there is a unique group $G^*$ that is decisive, and every member
+of $G^*$ has a veto.
+:::
+
+# Step 1: what survives
+
+**Spread of Decisiveness (T.A1\*.2) still holds.** Every transitivity appeal in
+that proof chained strict preferences only, so $PP$ is all it ever used. Local
+decisiveness over one pair still gives global decisiveness.
+
+**Veto-Spread.** If $G$ is semi-decisive over one ordered pair, it is
+semi-decisive over every one, and so has a veto.
+
+*Proof.* Let $G$ be semi-decisive over $(x,y)$ and take any $(a,b)$, with all
+four distinct for now. Consider:
+
+| | Constraints imposed |
+|:---|:---|
+| Everyone in $G$ | $a \succ x \succ y \succ b$ |
+| Everyone outside $G$ | $a \succ x$, and $y \succ b$ |
+
+By P, $aPx$ and $yPb$. By semi-decisiveness, $xRy$, which is to say
+$\sim(yPx)$.
+
+Suppose $bPa$. Then $yPb$ and $bPa$ give $yPa$ by $PP$, and $yPa$ with $aPx$
+gives $yPx$ by $PP$ again. That contradicts $xRy$. So $aRb$.
+
+Nobody outside $G$ was given a ranking of $a$ against $b$, so by $I^2$ this
+holds however those rankings are filled in. $G$ is semi-decisive over $(a,b)$.
+The overlap cases run as they did for Spread. $\blacksquare$
+
+Notice that this proof is the Spread proof with the conclusion weakened from
+$aPb$ to $aRb$ and the input weakened to match. Vetoes spread for exactly the
+reason decisiveness does.
+
+# Step 2: decisive sets are closed under intersection
+
+This is the step that replaces Contraction, and it is where the real difference
+lies.
+
+::: {.callout-note appearance="simple"}
+**Lemma.** If $G_1$ and $G_2$ are both decisive, then $G_1 \cap G_2$ is decisive
+(and in particular non-empty).
+:::
+
+*Proof.* Take distinct $x, y, z$ and consider:
+
+| | Constraints imposed |
+|:---|:---|
+| $G_1 \cap G_2$ | $x \succ y \succ z$ |
+| $G_1 \setminus G_2$ | $x \succ y$, with $z$ unplaced |
+| $G_2 \setminus G_1$ | $y \succ z$, with $x$ unplaced |
+| Everyone else | nothing |
+
+Everyone in $G_1$ prefers $x$ to $y$, so $xPy$. Everyone in $G_2$ prefers $y$ to
+$z$, so $yPz$. By $PP$, $xPz$.
+
+Who has been given a ranking of $x$ against $z$? Only $G_1 \cap G_2$, who all
+prefer $x$. Those in $G_1 \setminus G_2$ have $z$ unplaced, those in
+$G_2 \setminus G_1$ have $x$ unplaced, and the rest were given nothing. So by
+$I^2$, $G_1 \cap G_2$ is locally decisive over $(x,z)$, and by Spread it is
+decisive.
+
+For non-emptiness: if $G_1 \cap G_2$ were empty, fill in the free rankings so
+that everyone prefers $z$ to $x$. Pareto gives $zPx$, contradicting the $xPz$
+we just derived. $\blacksquare$
+
+This is clause (4) of the filter conditions at the end of the chapter. Under
+full transitivity the decisive sets form an *ultra*-filter, and an ultra-filter
+on a finite set collapses to a single person. Under quasi-transitivity they form
+only a filter, which collapses to a non-empty group instead.
+
+# Step 3: the oligarchy
+
+$H$ is decisive by P, and $H$ is finite, so there are finitely many decisive
+sets. By Step 2 their intersection
+$$G^* = \bigcap \{G : G \text{ is decisive}\}$$
+is decisive and non-empty. It is contained in every decisive set, so it is the
+unique minimal one.
+
+**Every member of $G^*$ has a veto.** If $G^* = \{i\}$ then $i$ is a dictator
+and has a veto outright. So suppose $|G^*| \geq 2$ and take $i \in G^*$. Put
+$G^1 = \{i\}$ and $G^2 = G^* \setminus \{i\}$, both non-empty, and run the
+Contraction profile:
+
+| | Constraints imposed | Left open |
+|:---|:---|:---|
+| $i$ | $x \succ y$, $x \succ z$ | $y$ against $z$ |
+| Everyone in $G^* \setminus \{i\}$ | $x \succ y$, $z \succ y$ | $x$ against $z$ |
+| Everyone else | nothing | everything |
+
+Everyone in $G^*$ prefers $x$ to $y$, and $G^*$ is decisive, so $xPy$.
+
+Suppose $zPx$. Then $PP$ gives $zPy$. Only $G^*\setminus\{i\}$ were given a
+ranking of $z$ against $y$, so by $I^2$ and Spread, $G^*\setminus\{i\}$ is
+decisive. That is a proper subset of the minimal decisive set, which is
+impossible.
+
+So $\sim(zPx)$, and by completeness $xRz$. Only $i$ was given a ranking of $x$
+against $z$. By $I^2$, $i$ is semi-decisive over $(x,z)$, and by Veto-Spread,
+$i$ has a veto. $\blacksquare$
+
+# Where the Arrow proof broke
+
+Side by side, the single step that differs:
+
+| | Full transitivity | Quasi-transitivity |
+|:---|:---|:---|
+| Case $zPx$ | $zPy$ by $PP$; $G^2$ decisive | same |
+| Case $zIx$ | $zPy$ by $IP$; $G^2$ decisive | $IP$ unavailable |
+| Case $xPz$ | $G^1$ decisive | only $xRz$, so $G^1$ is semi-decisive |
+
+Under transitivity, both branches deliver a *decisive* proper subset, so the
+contraction runs all the way down to one person. Under quasi-transitivity, one
+branch delivers only a *semi*-decisive subset, which gives a veto rather than
+decisiveness, and the contraction halts.
+
+Dictatorship was never removed. It was divided.
+
+# The example to keep in mind
+
+The **Pareto-extension rule**: $xPy$ iff everyone prefers $x$ to $y$, and $xIy$
+otherwise.
+
+- Reflexive, complete, quasi-transitive, and satisfies U, $I^2$, P and D.
+- $IP$ fails: let person 1 rank $x \succ y \succ z$ and person 2 rank
+  $y \succ z \succ x$. Then $yPz$ and $xIy$, but $xIz$ rather than $xPz$.
+- The only decisive set is $H$ itself, so $G^* = H$ and every person has a veto.
+
+This is the case we met in Class 16 as the third way of completing the Pareto
+quasi-ordering. Sen's verdict there was that it is "a rather arbitrary rule".
+Gibbard's theorem says something sharper: it is the *most democratic* member of
+the permissible class, because it spreads the veto as widely as it can go. Every
+other quasi-transitive rule concentrates the veto in a smaller group.
+
+Sen's own assessment:
+
+> While the existence of vetoers may be less unattractive than that of a
+> dictator, it is unappetizing enough in failing to provide what can reasonably
+> be seen as a grand resolution of the Arrow problem.
+
+# Where this leaves the escape route
+
+Weakening further does not help. Acyclicity is weaker than quasi-transitivity,
+and Mas-Colell and Sonnenschein (1972) showed it still yields a vetoer;
+Blair and Deb's NIM result (T.A1\*.5) gets a vetoer from acyclicity plus
+neutrality and monotonicity. Blair and Pollak (1982) showed that even dropping
+neutrality leaves an individual semi-decisive over a proportion of pairs that
+approaches one as the number of states grows.
+
+The pattern across the whole literature, which is the point of the chapter: each
+weakening of collective rationality converts the impossibility into a
+concentration of power rather than removing it, and the concentration gets
+harder to see without getting much smaller.
+
+# Exercises
+
+1. In Step 2, why does the proof need $x$ to be unplaced for
+   $G_2 \setminus G_1$? Show what goes wrong if you give them $x \succ y \succ z$
+   instead.
+
+2. Show that under the Pareto-extension rule, $II$ also fails. Does $PI$?
+
+3. The oligarchy $G^*$ is decisive *as a group*. Show that a proper subset of
+   $G^*$ need not be semi-decisive, so "every member has a veto" does not
+   collapse into "every member is decisive".
+
+4. Suppose we add Non-dictatorship to the quasi-transitive framework. What does
+   the theorem then tell us, and why is this not an impossibility result?
+
+5. Compare the two escapes we have now seen. Single-peakedness restricts the
+   domain and majority rule then works. Quasi-transitivity weakens the output
+   and we get an oligarchy. Which is the better bargain, and on what grounds?

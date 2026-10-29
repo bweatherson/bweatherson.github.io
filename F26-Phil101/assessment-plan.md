@@ -123,6 +123,46 @@ The reading-quiz denominator is also still unsettled: twenty-one eligible days
 against a published promise of twenty. It costs nothing to decide now and gets
 awkward to decide in December.
 
+### Status at Thursday 29 October
+
+Banked since the October note. Short Answer 2 went out on the 8th and closed on
+the 23rd, so the scripts are in and marking is the live job. Module Quiz 2 opened
+on the 15th and closes this Sunday; its questions are written and loaded into
+Canvas. Decks 15, 16 and 17 are written, which carries the ethics unit through
+today, and 18 and 19 are drafted, which carries the welfare block through next
+Thursday.
+
+The iClicker questions carried since September are settled. Clicker grading
+works, students can see their own scores, the Canvas sync is doing the right
+thing, and the bugs that turned up have been fixed. Both items come off the list.
+
+| By when | What | State |
+|---|---|---|
+| Sun 1 Nov | Module Quiz 2 closes | Running. Check what lands in the gradebook once it does. |
+| **Fri 6 Nov** | **SA2 feedback returned, essay prompt out** | **Prompt not drafted. Eight days.** |
+| Tue 10 Nov | Day 20, desire theories | Deck not written |
+| Thu 12 Nov | Day 21, objective lists. Module Quiz 3 opens | Deck not written. Quiz needs Days 15-21. |
+| Mon 23 Nov | Essay due | |
+
+**The one that is easy to miss this time.** The essay is on ethics and welfare,
+which this document defines as Days 15 to 21. The prompt goes out on Friday 6
+November. On that date the class will have had Days 15 to 19 only. Desire
+theories and objective lists fall *after* the prompt is released.
+
+So the prompt either has to be answerable from Days 15 to 19, or it has to say in
+so many words which lectures it presupposes and when those arrive. There is time
+for either, since students have until the 23rd. But a prompt that silently leans
+on two lectures nobody has had yet will generate a fortnight of email, and the
+students who email are not the ones it will hurt most.
+
+**The 6th is two jobs, not one.** Short Answer 2 feedback and the essay prompt
+land on the same date, and both run through the GSIs. The prompt can be written
+in a sitting. Marking 150 scripts to a standard students can actually act on
+cannot be compressed, and that is the half that decides whether the date holds.
+Short Answer 1 was the first thing two of the three GSIs had ever marked; this is
+the second.
+
+
 ## The tasks
 
 ### Reading quizzes (15%)
@@ -134,6 +174,8 @@ Run these on roughly twenty of the twenty-four lecture days that carry a reading
 At 15% this is the largest automatically-graded component, which is deliberate. It is also the one a student cannot outsource, since they have to be in the room.
 
 Two things to watch. At 9am with 150 students, clicker scores are partly an attendance measure, and proxy clicking is the standard failure. Whatever platform is used should be one that ties responses to the room. Second, only Days 1, 2 and 28 carry no required reading, so twenty-five days are eligible. Days 5 and 6 were run as an ungraded soft launch, which leaves twenty-one eligible days from Day 7 onward.
+
+**Settled, 29 October.** No quiz on Day 24, Tuesday 24 November, the last class before the Thanksgiving recess and the day after the essay falls due. That brings the count to twenty graded days with the best fifteen counting, which is exactly what the syllabus promises. Announce it in advance rather than just not running one, so it reads as a concession and not a lapse.
 
 ### Discussion section (20%)
 
@@ -223,16 +265,15 @@ Reviewed 5 October.
 
 **This week.**
 
-- Decide whether all six sections write the same Short Answer 1 option, and tell the GSIs which.
-- Check accommodation requirements. The plan was to do this before fixing the date; the date is now.
-- Book one makeup slot covering all six sections. Expect ten to fifteen absences.
-- Agree that each GSI marks the same twenty scripts and the three sets are compared before anyone marks the rest.
+- Draft the essay prompt. It goes out on the 6th and nothing exists yet.
+- Settle what the prompt is allowed to presuppose, given that Days 20 and 21 fall after its release.
+- Confirm with the GSIs that Short Answer 2 marking will be finished by Thursday 5 November, so both things can go out together on the 6th.
+- Check the Module Quiz 2 gradebook once it closes on Sunday.
+- Tell the class there is no clicker quiz on 24 November. Worth saying twice, and putting on the Canvas announcement as well as the slide.
 
 **Overdue.**
 
-- Settle whether students outside LSA are covered by the iClicker licence. Four graded quiz days have now run. If anyone has been locked out, those scores need fixing retrospectively.
-- Fix the reading-quiz denominator. Twenty-one eligible days remain against a published promise of twenty. Running all twenty-one and counting the best fifteen is the option that does not make the published scheme harsher.
-- Turn off whatever iClicker writes to the Canvas gradebook, since best-fifteen is computed in `tools/reading-quizzes.R` and a wrong number sitting there all term is worse than no number.
+- Write the decks for Days 20 and 21. Module Quiz 3 opens on the 12th and cannot be written before the lectures it examines.
 
 **Standing.**
 
