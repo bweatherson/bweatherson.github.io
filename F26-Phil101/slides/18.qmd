@@ -7,60 +7,83 @@ date: "2026-11-03"
 
 # Where we are
 
-## A question we kept deferring
+## What is a good outcome?
 
-Consequentialism said the right act is the one that makes the outcome best.
+Sequentialism says that the right actions are those that produce the best outcomes. But this raises an obvious question: 
 
-. . .
-
-Deontology said no, some things are off limits whatever the outcome.
+- What is the best outcome?
 
 . . .
 
-Both of them owe us an account of what makes an outcome *good* in the first place. The consequentialist needs it to state the theory at all. The deontologist needs it to say what the rules are protecting.
+We will start with a question that seems relevant to this.
 
-## Mill's answer
+- What is good for a human? 
 
-:::: {.callout-note title="Mill, *Utilitarianism*, ch. 2"}
-By happiness is intended pleasure, and the absence of pain; by unhappiness, pain, and the privation of pleasure.
-::::
+## Welfare
 
-. . .
+When we talk about theories of **welfare** in a philosophy class, we mean to be talking about what makes human lives go well. 
 
-We let that go by in week nine. It is a substantive, contestable claim, and for the next four classes it's the thing under examination.
-
-## Four classes on one question
-
-Today
-:    What are we even asking? Fixing the question before trying to answer it.
-
-Thursday
-:    Hedonism. Mill's answer, pressed hard.
-
-Next week
-:    Desire theories, then objective lists. And then: who gets to have a welfare at all?
-
-## Why this isn't bookkeeping
-
-Suppose you're allocating a fixed hospital budget. Or deciding whether a policy that leaves people richer but lonelier is an improvement.
+That's what we'll be doing for the next two weeks. 
 
 . . .
 
-You can't answer either without a view about what makes someone's life go better. "Whatever they'd choose" is a view. So is "whatever makes them report feeling good."
+This question is ambiguous between two readings.
+
+## Two answers to 'making' questions
+
+We need to distinguish between *causal* and *constitutive* answers to making questions.
+
+This distinction is easiest to see with some examples. For instance, let's think about the question, "What makes you win football games?" 
+
+Causal
+:    The causal answers tell you what kinds of things bring about victories. For instance, practicing hard, or having a good game plan, might make you more likely to win a football game. In that sense, those are things that make you win football games. 
+
+Constitutive
+:    Constitutive answers tell you what winning is. In football, it's really easy. It's having more points when the clock goes to zero. 
 
 . . .
 
-Those are different views, and they come apart in exactly the cases where the money is.
+We're interested in constitutive answers to the _What makes life go well_ question.
+
+## Causal answers
+
+Also, answers are, of course, also interesting.
+
+There is a lot of research, especially in psychology, about which things make your life go better. The most striking one in any studies I've seen is that quitting smoking is surprisingly good for your well-being on a whole lot of dimensions.
+
+But we're not going to be asking about how to make your life go better, as much as asking about what it is for life to be better. 
+
+## Welfare and Morality
+
+How does this connect back to consequentialism?
+
+On one theory of what makes a world good, the connection is really close. The goodness of a world just is the sum of the goodness of the lives in it. 
+
+. . .
+
+This raises three big questions that will be in the background for a bit:
+
+1. Which things have welfare? Do plants? Do kitchen appliances?
+2. Among those things, which of them matter to the goodness of a world? Which of them have **moral standing**?
+3. Is there anything to goodness beyond welfare, like beauty, or biodiversity?
+
+## Welfare and Morality
+
+Of these questions, we're going to mostly focus on question two.
+
+One big issue is how much we should care about the interests, or welfare, of various animals and perhaps even of various non-living things.
+
+But I think it will be easiest to discuss that once we've gotten clearer on what welfare is. Let's start by thinking about human well-being.
 
 # The concept
 
 ## Good, and good for
 
-A Vermeer is a good painting. It's beautiful, it's quiet, it rewards looking at for a long time.
+Lots of artworks, paintings, songs, movies are good. We can say quite a bit about why they are good. 
 
 . . .
 
-None of that is good *for* the painting. There is nothing it is like to be a painting. Nothing goes well or badly from its point of view, because it hasn't got one.
+But those qualities are not good *for* the artwork. Maybe careful preservation is good for a painting, but being beautiful, for instance, is not good for a painting, even if it is something that makes a painting good.
 
 . . .
 
@@ -68,11 +91,11 @@ Welfare is the *good for* relation: how well a life goes for the one living it.
 
 ## Not the same as being good
 
-You can be a good person and have a miserable life. You can be a scoundrel and have a wonderful one.
+You can be a good person and have a miserable life. You can be a ratbag and have a wonderful one.
 
 . . .
 
-How often those combinations actually occur is a real question, and one the Greeks cared about enormously. But they're clearly possible, and possible is enough to show the two notions come apart.
+How often those combinations actually occur is a real question, and one that you see discussed extensively in several ancient traditions. But they're clearly possible, and that's enough to show that these must be separate questions. 
 
 . . .
 
@@ -84,27 +107,15 @@ Welfare isn't a measure of how much good stuff a life contains. It can be negati
 
 . . .
 
-Someone in unrelieved pain, with no prospect of relief, has a life that is going badly *for them* — on some views, worse than no life at all.
+Someone in unrelieved pain, with no prospect of relief, has a life that is going badly *for them*. Arguably, or at least some people have argued, it's worse than no life at all.
 
 . . .
 
-Whatever theory you end up with has to allow that. A theory that can only ever add things up will not.
+Our theory of welfare should allow for at least the logical possibility that some people's lives have a negative value to them. 
 
-## Why not just say "happiness"?
+## Fixing the question
 
-In ordinary English, happiness is a mood. You can be happy this afternoon and not this evening.
-
-. . .
-
-Welfare is about how a life goes across its whole length. A life can go well without being one long good mood, and a string of good moods doesn't obviously add up to a life that went well.
-
-. . .
-
-"Flourishing" is the other candidate, but it carries the suggestion that there's a way humans are *supposed* to grow, like a plant toward light. Some people hold that. It shouldn't be smuggled in by the vocabulary.
-
-## Fixing the question first
-
-Notice what we have not done. We haven't said what makes a life go well.
+We still haven't said anything about what makes a life go well.
 
 . . .
 
@@ -112,33 +123,37 @@ We've only said what we're asking about: the things that are good for the person
 
 . . .
 
-That separation earns its keep. People with wildly different theories can agree on the question. If they couldn't, they'd be talking past each other rather than disagreeing.
+The reason for doing things this way is that we want philosophers who have different theories of welfare to be talking about the same thing, even though they have different theories of it. 
+
+Identifying what the question is and what kind of thing might be an answer to it is one way to do that. 
 
 ## A moment, or a life
 
-Two different questions hide inside "how is it going for her?"
+One last distinction. When we ask how someone's life is going, there are two subtly different things we might be asking.
 
 . . .
 
-There's how things are for her *right now* — this afternoon, in this mood, in this room.
+There's how things are for that person *right now*, this morning, in this mood, in this room.
 
 . . .
 
-And there's how her life is going, taken whole. Those come apart. A miserable afternoon in the middle of a good life is both a miserable afternoon and a good life.
+And there's how their life is going, taken as a whole whole. Those can be different. A miserable afternoon in the middle of a good life is both a miserable afternoon and a good life.
 
-. . .
+## A moment, or a life
 
-Most of the theories we'll see are built to answer the second question and then say something about the first as a consequence. It's worth noticing which way round a theory does it.
+Presumably, though, these two questions are related. It would be very strange to imagine someone having a wonderful life, every moment of which was horrible. Maybe that's possible, but it would be strange. 
+
+One question to keep in mind when we look at theories of welfare is whether they start with well-being at a time and define the well-being of a life in terms of it, or, the other way around, they start with the well-being of a life and define well-being at a time in terms of it. Both options are definitely possible. 
 
 # Three families
 
 ## Three families of answer
 
 Hedonism
-:    Welfare is pleasure, and the absence of pain. Nothing else counts on its own.
+:    Welfare is pleasure, and the absence of pain. That's it.
 
 Desire theories
-:    Welfare is getting what you want. What you want doesn't matter; the wanting does.
+:    Welfare is getting what you want. What it is you want doesn't matter; what matters is that you got what you want.
 
 Objective lists
 :    Some things are good for you whether or not you want them, and whether or not they feel good.
@@ -147,39 +162,35 @@ Objective lists
 
 Those are the next three classes. They aren't the only options, but nearly everything else is a variation on one, or a combination of two.
 
-## What actually divides them
+## Reclassifying
 
-The deep split isn't three ways, it's two.
+For some purposes, it's helpful to divide the options like this.
 
 Subjective
-:    Something is good for you *because of* your attitude to it. You wanted it, or it felt good. Change the attitude and you change the value.
+:    Something is good for you *because of* your attitude to it. You wanted it, or it felt good. The value to you is downstream of your attitude.
 
 Objective
 :    Some things are good for you whether or not you have any attitude toward them at all.
 
 . . .
 
-Hedonism and desire theories are both on the subjective side, for all that they disagree. Objective lists are on the other side by themselves.
+Hedonism and desire theories are both on the subjective side, though they focus on different attitudes. Objective lists are on the other side, though typically they'll have pleasure and desire-satisfaction on the list.
 
-## The hard constraint
+## A subjectivist argument
 
-Here's what the objective theorist is up against.
-
-. . .
-
-It seems wrong to say something is good *for* someone if it leaves them entirely cold — if they get nothing from it, never wanted it, and never would have.
+Many people think it seems wrong to say something is good *for* someone if it leaves them entirely cold. They get nothing from it, they never wanted it, and never would have.
 
 . . .
 
-That thought is most of the case for subjective theories, and it is a strong one. The objective theorist has to either satisfy it or explain it away. We'll watch them try on the 12th.
+That's the core idea behind subjective theories, and it will be in the background of a lot of what we discuss.
 
 ## iClicker POLL
 
-Two lives, the same length.
+Compare two lives of the same length.
 
 In the first, someone is mildly content from beginning to end. Nothing much happens. Nothing goes wrong.
 
-In the second, someone works at something hard, fails a great deal, and eventually makes something they care about.
+In the second, someone works at something hard, fails a great deal, and eventually completes the project they have been working on after considerable difficulty.
 
 Which goes better *for the person living it*?
 
@@ -188,21 +199,27 @@ B.  The second
 C.  Exactly as well as each other
 D.  There's no fact of the matter
 
-## What that was testing
+## Classifications
 
-If you said A, you're being pulled toward something in the neighborhood of hedonism.
-
-. . .
-
-If you said B, you think something other than how it feels from the inside is making a difference. That's what objective list theories say.
+If you said A, you're being pulled toward hedonism. The first life feels fine from end to end, and on hedonism that is all there is to it.
 
 . . .
 
-If you said C, you may be a desire theorist, depending on what the two of them wanted.
+If you said B, you think something beyond felt contentment is making a difference. But notice that *both* of the other two families say that.
+
+A desire theorist can say the second life is better because finishing the thing was what she wanted most, and she got it. An objective list theorist can say it is better because achievement belongs on the list, wanted or not.
+
+## What the poll can't do
+
+So that sorts you into hedonist or not. But we can look at other cases which do.
 
 . . .
 
-And if you said D, you owe the rest of us an account of what we've been arguing about.
+Someone is clever, healthy, and free to do anything at all. What she wants, more than anything, for her whole life, is to count the blades of grass on the lawns of Ann Arbor. She spends sixty years counting, and finishes.
+
+. . .
+
+The desire theorist has to say that life went very well. She wanted one thing enormously, and she got it. The objective list theorist says no: counting grass is not on the list, however badly you want it.
 
 ## One more question, in the background
 
@@ -210,18 +227,16 @@ We keep saying *a person's* welfare. The concept doesn't obviously stop at peopl
 
 . . .
 
-A dog can have a life that goes well or badly for the dog. Can a fish? A bee? A language model?
+Different theories have different implications for what other things can have welfare.
 
 . . .
 
-We come back to that on the 12th. The answer turns out to depend on which of the three theories you take, which is a good sign that the three are doing real work.
-
-# Thursday
-
-## Hedonism
-
-Mill's answer, taken seriously, and then put under pressure by a man in a tank.
+On hedonist theories, only things that are conscious have welfare, because welfare is a matter of conscious feelings.
 
 . . .
+
+On preference satisfaction theories, only things that have preferences can have welfare. That might be a very different set of things than the things that are conscious.
+
+## For Thursday: Hedonism
 
 Reading: the SEP entry on well-being, §4.1, and Nozick on the experience machine. The Nozick is about three pages, and they are three of the most discussed pages in the subject.
