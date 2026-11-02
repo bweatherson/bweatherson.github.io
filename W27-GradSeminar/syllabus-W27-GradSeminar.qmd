@@ -1,0 +1,105 @@
+---
+title: 'Graduate Seminar: Contextualism and Relativism'
+author: "Brian Weatherson"
+date: "Winter 2027"
+format:
+  # Typst rather than LaTeX, for one reason: Typst 0.14 emits tagged PDFs by
+  # default, and Canvas's accessibility checker objects to the untagged PDFs
+  # xelatex produces. Needs Quarto to be bundling Typst 0.14 or later; check
+  # with `quarto typst --version`.
+  #
+  # No sans-serif headings to fix here. That was a KOMA-Script default in the
+  # book, where scrbook sets sectioning in sans and \setmainfont only replaces
+  # the roman family. Typst uses the body font for headings, so setting
+  # mainfont covers everything.
+  typst:
+    keep-typ: true
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    mainfont: "EB Garamond"
+    fontsize: 11pt
+    include-in-header:
+      text: |
+        // A little extra leading; Typst's default is 0.65em.
+        #set par(leading: 0.72em)
+
+        // Heading spacing. The three field lines under each date are one
+        // paragraph held together by hard line breaks, so the only thing
+        // separating a date from its Topic line is the heading's `below`.
+        // Level 2 is the Week headings, level 3 the individual class days.
+        // Raise `above` to open the gaps between blocks, `below` to unstick a
+        // heading from the lines under it.
+        #show heading.where(level: 2): set block(above: 2.0em, below: 0.9em)
+        #show heading.where(level: 3): set block(above: 1.5em, below: 0.65em)
+  html:
+    theme: cosmo
+    code-tools: false
+    axe: true
+    toc: true
+    shift-heading-level-by: 1
+    date-format: "[Winter] YYYY"
+  docx: default
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| cache: false
+#| message: false
+#| warning: false
+
+knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(fig.path = 'figs/')
+knitr::opts_chunk$set(cache.path = '_cache/')
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+```{r}
+#| label: dates_bib
+#| include: false
+#| cache: false
+
+# TODO: check against the Winter 2027 academic calendar before using.
+mon <- as.Date("2027-01-04") # Monday of the First Week
+tue <- mon + 1
+wed <- tue + 1
+thu <- wed + 1
+fri <- thu + 1
+
+advdate <- function(obj, adv) {
+ theday <- obj + 7*(adv-1)
+ ttheday <- format(theday, format="%A, %B %d")
+ return(ttheday)
+}
+```
+
+| **Instructor**: Brian Weatherson
+| **Email**: weath@umich.edu
+| **Web**: canvas.umich.edu
+| **Office Hours**: TBA
+| **Seminar**: TBA
+
+&nbsp;
+
+# Key Points
+
+- TBA
+
+# Course Description
+
+TBA
+
+# Readings
+
+TBA
+
+# Course Requirements
+
+TBA
+
+# Schedule
+
+TBA

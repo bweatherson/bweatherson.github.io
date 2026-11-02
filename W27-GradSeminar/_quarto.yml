@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: ../W27-GradSeminar-site
+  # Planning notes (.md) stay out of the site because only these are rendered.
+  # Add `handouts/*.qmd` here once the first seminar handout exists.
+  render:
+    - index.qmd
+    - syllabus-W27-GradSeminar.qmd
+    - slides/*.qmd
+
+website:
+  site-url: https://bweatherson.github.io/W27-GradSeminar-site
